@@ -1,691 +1,691 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
-  <title>AfroLLM Benchmark · Projet de recherche & plan de déploiement</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
-  <style>
-    :root{
-      --yt-ink-950:#050810; --yt-ink-900:#0B1424; --yt-ink-800:#111C30; --yt-ink-700:#1A2840;
-      --yt-ink-500:#6B7D94; --yt-ink-300:#A0B0C4; --yt-ink-100:#E8E8E8;
-      --yt-amber-600:#C49A3C; --yt-amber-500:#D4A853; --yt-amber-400:#E0B860;
-      --yt-cream-200:#E8E4DB; --yt-cream-100:#F2EFE8;
-      --display:"Inter","Montserrat",system-ui,sans-serif;
-      --text:"Inter",system-ui,sans-serif;
-      --mono:"JetBrains Mono","Consolas",monospace;
-      --accent:#C49A3C;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{
-      background:var(--yt-ink-950);
-      color:var(--yt-ink-100);
-      font-family:var(--text);
-      font-size:10.5pt;
-      line-height:1.6;
-    }
+ <meta charset="utf-8"/>
+ <title>AfroLLM Benchmark · Projet de recherche & plan de déploiement</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1"/>
+ <link rel="preconnect" href="https://fonts.googleapis.com"/>
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+ <style>
+  :root{
+   --yt-ink-950:#050810; --yt-ink-900:#0B1424; --yt-ink-800:#111C30; --yt-ink-700:#1A2840;
+   --yt-ink-500:#6B7D94; --yt-ink-300:#A0B0C4; --yt-ink-100:#E8E8E8;
+   --yt-amber-600:#C49A3C; --yt-amber-500:#D4A853; --yt-amber-400:#E0B860;
+   --yt-cream-200:#E8E4DB; --yt-cream-100:#F2EFE8;
+   --display:"Inter","Montserrat",system-ui,sans-serif;
+   --text:"Inter",system-ui,sans-serif;
+   --mono:"JetBrains Mono","Consolas",monospace;
+   --accent:#C49A3C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+   background:var(--yt-ink-950);
+   color:var(--yt-ink-100);
+   font-family:var(--text);
+   font-size:10.5pt;
+   line-height:1.6;
+  }
 
-    /* ========== HEADER / NAV ========== */
-    .topbar{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      background:rgba(5,8,16,0.92);backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--yt-ink-800);
-      padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;
-    }
-    .topbar .brand{display:flex;align-items:center;gap:10px;}
-    .topbar .brand img{width:24px;height:24px;}
-    .topbar .brand span{font-family:var(--display);font-weight:700;font-size:13pt;letter-spacing:-0.01em;color:var(--yt-ink-100);}
-    .topbar .brand span em{font-style:normal;font-weight:500;color:var(--accent);}
-    .topbar nav{display:flex;gap:20px;font-family:var(--mono);font-size:8pt;letter-spacing:0.1em;text-transform:uppercase;}
-    .topbar nav a{color:var(--yt-ink-500);text-decoration:none;transition:color 0.2s;}
-    .topbar nav a:hover{color:var(--accent);}
+  /* ========== HEADER / NAV ========== */
+  .topbar{
+   position:fixed;top:0;left:0;right:0;z-index:100;
+   background:rgba(5,8,16,0.92);backdrop-filter:blur(12px);
+   border-bottom:1px solid var(--yt-ink-800);
+   padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .topbar .brand{display:flex;align-items:center;gap:10px;}
+  .topbar .brand img{width:24px;height:24px;}
+  .topbar .brand span{font-family:var(--display);font-weight:700;font-size:13pt;letter-spacing:-0.01em;color:var(--yt-ink-100);}
+  .topbar .brand span em{font-style:normal;font-weight:500;color:var(--accent);}
+  .topbar nav{display:flex;gap:20px;font-family:var(--mono);font-size:8pt;letter-spacing:0.1em;text-transform:uppercase;}
+  .topbar nav a{color:var(--yt-ink-500);text-decoration:none;transition:color 0.2s;}
+  .topbar nav a:hover{color:var(--accent);}
 
-    /* ========== HERO ========== */
-    .hero{
-      min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-      padding:80px 32px 60px;position:relative;overflow:hidden;
-    }
-    .hero::before{
-      content:"";position:absolute;inset:0;
-      background:radial-gradient(ellipse at 70% 30%,var(--yt-ink-800) 0%,transparent 60%);
-    }
-    .hero .mask{
-      position:absolute;right:40px;top:80px;width:120px;height:120px;opacity:0.06;
-    }
-    .hero .mask img{width:100%;height:100%;}
-    .hero .inner{position:relative;z-index:1;max-width:960px;margin:0 auto;width:100%;}
-    .hero .eyebrow{
-      font-family:var(--mono);font-size:9pt;letter-spacing:0.2em;text-transform:uppercase;
-      color:var(--accent);margin-bottom:16px;
-    }
-    .hero h1{
-      font-family:var(--display);font-weight:800;font-size:44pt;line-height:1.05;
-      letter-spacing:-0.03em;color:var(--yt-ink-100);margin-bottom:16px;
-    }
-    .hero h1 em{font-style:normal;font-weight:500;color:var(--accent);}
-    .hero .subtitle{
-      font-family:var(--display);font-weight:500;font-size:18pt;
-      color:var(--yt-ink-500);margin-bottom:10px;
-    }
-    .hero .tagline{
-      font-family:var(--mono);font-size:9pt;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--accent);margin-top:32px;padding-top:24px;border-top:1px solid var(--yt-ink-800);
-    }
-    .hero .meta-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-      margin-top:40px;padding-top:24px;border-top:1px solid var(--yt-ink-800);
-    }
-    .hero .meta-grid .item{}
-    .hero .meta-grid .lbl{font-family:var(--mono);font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;color:var(--yt-ink-500);display:block;margin-bottom:4px;}
-    .hero .meta-grid .val{font-family:var(--text);font-size:11pt;color:var(--yt-ink-100);}
+  /* ========== HERO ========== */
+  .hero{
+   min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+   padding:80px 32px 60px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+   content:"";position:absolute;inset:0;
+   background:radial-gradient(ellipse at 70% 30%,var(--yt-ink-800) 0%,transparent 60%);
+  }
+  .hero .mask{
+   position:absolute;right:40px;top:80px;width:120px;height:120px;opacity:0.06;
+  }
+  .hero .mask img{width:100%;height:100%;}
+  .hero .inner{position:relative;z-index:1;max-width:960px;margin:0 auto;width:100%;}
+  .hero .eyebrow{
+   font-family:var(--mono);font-size:9pt;letter-spacing:0.2em;text-transform:uppercase;
+   color:var(--accent);margin-bottom:16px;
+  }
+  .hero h1{
+   font-family:var(--display);font-weight:800;font-size:44pt;line-height:1.05;
+   letter-spacing:-0.03em;color:var(--yt-ink-100);margin-bottom:16px;
+  }
+  .hero h1 em{font-style:normal;font-weight:500;color:var(--accent);}
+  .hero .subtitle{
+   font-family:var(--display);font-weight:500;font-size:18pt;
+   color:var(--yt-ink-500);margin-bottom:10px;
+  }
+  .hero .tagline{
+   font-family:var(--mono);font-size:9pt;letter-spacing:0.14em;text-transform:uppercase;
+   color:var(--accent);margin-top:32px;padding-top:24px;border-top:1px solid var(--yt-ink-800);
+  }
+  .hero .meta-grid{
+   display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+   margin-top:40px;padding-top:24px;border-top:1px solid var(--yt-ink-800);
+  }
+  .hero .meta-grid .item{}
+  .hero .meta-grid .lbl{font-family:var(--mono);font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;color:var(--yt-ink-500);display:block;margin-bottom:4px;}
+  .hero .meta-grid .val{font-family:var(--text);font-size:11pt;color:var(--yt-ink-100);}
 
-    /* ========== SECTIONS ========== */
-    .section{
-      padding:80px 32px;max-width:960px;margin:0 auto;width:100%;
-    }
-    .section-header{
-      margin-bottom:40px;
-    }
-    .section-header .num{
-      font-family:var(--mono);font-size:10pt;font-weight:700;letter-spacing:0.14em;
-      color:var(--accent);text-transform:uppercase;margin-bottom:8px;
-    }
-    .section-header h2{
-      font-family:var(--display);font-weight:700;font-size:28pt;
-      letter-spacing:-0.02em;line-height:1.1;color:var(--yt-ink-100);
-    }
-    .section-header h2 em{font-style:normal;font-weight:500;color:var(--accent);}
+  /* ========== SECTIONS ========== */
+  .section{
+   padding:80px 32px;max-width:960px;margin:0 auto;width:100%;
+  }
+  .section-header{
+   margin-bottom:40px;
+  }
+  .section-header .num{
+   font-family:var(--mono);font-size:10pt;font-weight:700;letter-spacing:0.14em;
+   color:var(--accent);text-transform:uppercase;margin-bottom:8px;
+  }
+  .section-header h2{
+   font-family:var(--display);font-weight:700;font-size:28pt;
+   letter-spacing:-0.02em;line-height:1.1;color:var(--yt-ink-100);
+  }
+  .section-header h2 em{font-style:normal;font-weight:500;color:var(--accent);}
 
-    .section p{font-size:11pt;line-height:1.65;margin-bottom:16px;color:var(--yt-ink-300);}
-    .section p strong{color:var(--yt-ink-100);font-weight:600;}
+  .section p{font-size:11pt;line-height:1.65;margin-bottom:16px;color:var(--yt-ink-300);}
+  .section p strong{color:var(--yt-ink-100);font-weight:600;}
 
-    .divider{height:1px;background:var(--yt-ink-800);margin:0 32px;}
+  .divider{height:1px;background:var(--yt-ink-800);margin:0 32px;}
 
-    /* ========== CARDS ========== */
-    .card{
-      background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
-      border-top:3px solid var(--accent);border-radius:6px;
-      padding:24px;margin-bottom:16px;
-    }
-    .card .lbl{
-      font-family:var(--mono);font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--accent);margin-bottom:6px;
-    }
-    .card h3{
-      font-family:var(--display);font-weight:700;font-size:14pt;
-      letter-spacing:-0.01em;color:var(--yt-ink-100);margin-bottom:8px;
-    }
-    .card p{font-size:10pt;line-height:1.55;margin:0;color:var(--yt-ink-300);}
+  /* ========== CARDS ========== */
+  .card{
+   background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
+   border-top:3px solid var(--accent);border-radius:6px;
+   padding:24px;margin-bottom:16px;
+  }
+  .card .lbl{
+   font-family:var(--mono);font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;
+   color:var(--accent);margin-bottom:6px;
+  }
+  .card h3{
+   font-family:var(--display);font-weight:700;font-size:14pt;
+   letter-spacing:-0.01em;color:var(--yt-ink-100);margin-bottom:8px;
+  }
+  .card p{font-size:10pt;line-height:1.55;margin:0;color:var(--yt-ink-300);}
 
-    /* ========== GRID LAYOUTS ========== */
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  /* ========== GRID LAYOUTS ========== */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 
-    /* ========== TIMELINE ========== */
-    .timeline{position:relative;padding-left:28px;margin:24px 0;}
-    .timeline::before{
-      content:"";position:absolute;left:8px;top:8px;bottom:8px;
-      width:2px;background:var(--yt-ink-700);
-    }
-    .tl-item{position:relative;margin-bottom:20px;padding-left:16px;}
-    .tl-item::before{
-      content:"";position:absolute;left:-24px;top:6px;
-      width:12px;height:12px;border-radius:50%;
-      background:var(--accent);border:2px solid var(--yt-ink-950);
-    }
-    .tl-item .period{
-      font-family:var(--mono);font-size:8pt;letter-spacing:0.06em;
-      color:var(--accent);display:block;margin-bottom:4px;
-    }
-    .tl-item h4{
-      font-family:var(--display);font-weight:600;font-size:11pt;
-      color:var(--yt-ink-100);margin-bottom:2px;
-    }
-    .tl-item p{font-size:9.5pt;line-height:1.45;margin:0;color:var(--yt-ink-300);}
+  /* ========== TIMELINE ========== */
+  .timeline{position:relative;padding-left:28px;margin:24px 0;}
+  .timeline::before{
+   content:"";position:absolute;left:8px;top:8px;bottom:8px;
+   width:2px;background:var(--yt-ink-700);
+  }
+  .tl-item{position:relative;margin-bottom:20px;padding-left:16px;}
+  .tl-item::before{
+   content:"";position:absolute;left:-24px;top:6px;
+   width:12px;height:12px;border-radius:50%;
+   background:var(--accent);border:2px solid var(--yt-ink-950);
+  }
+  .tl-item .period{
+   font-family:var(--mono);font-size:8pt;letter-spacing:0.06em;
+   color:var(--accent);display:block;margin-bottom:4px;
+  }
+  .tl-item h4{
+   font-family:var(--display);font-weight:600;font-size:11pt;
+   color:var(--yt-ink-100);margin-bottom:2px;
+  }
+  .tl-item p{font-size:9.5pt;line-height:1.45;margin:0;color:var(--yt-ink-300);}
 
-    /* ========== FRAMEWORK LIST ========== */
-    .fw-list{list-style:none;padding:0;}
-    .fw-list li{
-      display:flex;align-items:center;gap:12px;
-      padding:12px 0;border-bottom:1px solid var(--yt-ink-800);
-      font-size:10pt;
-    }
-    .fw-list li:last-child{border-bottom:none;}
-    .fw-list li .badge{
-      font-family:var(--mono);font-size:7pt;font-weight:700;letter-spacing:0.1em;
-      text-transform:uppercase;color:var(--yt-ink-950);
-      background:var(--accent);padding:2px 8px;border-radius:3px;
-      white-space:nowrap;
-    }
-    .fw-list li .name{font-weight:600;color:var(--yt-ink-100);}
-    .fw-list li .link{font-family:var(--mono);font-size:8pt;color:var(--yt-ink-500);}
-    .fw-list li .link a{color:var(--yt-ink-500);text-decoration:none;transition:color 0.2s;}
-    .fw-list li .link a:hover{color:var(--accent);}
+  /* ========== FRAMEWORK LIST ========== */
+  .fw-list{list-style:none;padding:0;}
+  .fw-list li{
+   display:flex;align-items:center;gap:12px;
+   padding:12px 0;border-bottom:1px solid var(--yt-ink-800);
+   font-size:10pt;
+  }
+  .fw-list li:last-child{border-bottom:none;}
+  .fw-list li .badge{
+   font-family:var(--mono);font-size:7pt;font-weight:700;letter-spacing:0.1em;
+   text-transform:uppercase;color:var(--yt-ink-950);
+   background:var(--accent);padding:2px 8px;border-radius:3px;
+   white-space:nowrap;
+  }
+  .fw-list li .name{font-weight:600;color:var(--yt-ink-100);}
+  .fw-list li .link{font-family:var(--mono);font-size:8pt;color:var(--yt-ink-500);}
+  .fw-list li .link a{color:var(--yt-ink-500);text-decoration:none;transition:color 0.2s;}
+  .fw-list li .link a:hover{color:var(--accent);}
 
-    /* ========== STACK TABLE ========== */
-    .stack-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:9.5pt;}
-    .stack-table th,.stack-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--yt-ink-800);}
-    .stack-table th{
-      font-family:var(--mono);font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;
-      color:var(--accent);font-weight:500;border-bottom:2px solid var(--accent);
-    }
-    .stack-table td{color:var(--yt-ink-300);}
-    .stack-table td strong{color:var(--yt-ink-100);}
-    .stack-table td:first-child{font-weight:600;color:var(--yt-ink-100);}
+  /* ========== STACK TABLE ========== */
+  .stack-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:9.5pt;}
+  .stack-table th,.stack-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--yt-ink-800);}
+  .stack-table th{
+   font-family:var(--mono);font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;
+   color:var(--accent);font-weight:500;border-bottom:2px solid var(--accent);
+  }
+  .stack-table td{color:var(--yt-ink-300);}
+  .stack-table td strong{color:var(--yt-ink-100);}
+  .stack-table td:first-child{font-weight:600;color:var(--yt-ink-100);}
 
-    /* ========== LIVRABLES ========== */
-    .pill{
-      display:inline-block;
-      font-family:var(--mono);font-size:7pt;font-weight:700;letter-spacing:0.08em;
-      text-transform:uppercase;padding:3px 10px;border-radius:4px;
-    }
-    .pill.green{background:rgba(74,200,130,0.12);color:#4AC882;border:1px solid rgba(74,200,130,0.25);}
-    .pill.amber{background:rgba(196,154,60,0.12);color:var(--accent);border:1px solid rgba(196,154,60,0.25);}
-    .pill.red{background:rgba(200,74,74,0.12);color:#C84A4A;border:1px solid rgba(200,74,74,0.25);}
+  /* ========== LIVRABLES ========== */
+  .pill{
+   display:inline-block;
+   font-family:var(--mono);font-size:7pt;font-weight:700;letter-spacing:0.08em;
+   text-transform:uppercase;padding:3px 10px;border-radius:4px;
+  }
+  .pill.green{background:rgba(74,200,130,0.12);color:#4AC882;border:1px solid rgba(74,200,130,0.25);}
+  .pill.amber{background:rgba(196,154,60,0.12);color:var(--accent);border:1px solid rgba(196,154,60,0.25);}
+  .pill.red{background:rgba(200,74,74,0.12);color:#C84A4A;border:1px solid rgba(200,74,74,0.25);}
 
-    /* ========== TEAM GRID ========== */
-    .team-card{
-      background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
-      border-radius:6px;padding:20px;text-align:center;
-    }
-    .team-card .icon{
-      font-size:28pt;margin-bottom:8px;display:block;
-    }
-    .team-card h4{
-      font-family:var(--display);font-weight:700;font-size:12pt;
-      color:var(--yt-ink-100);margin-bottom:4px;
-    }
-    .team-card .role{
-      font-family:var(--mono);font-size:7.5pt;letter-spacing:0.1em;
-      text-transform:uppercase;color:var(--accent);margin-bottom:8px;
-    }
-    .team-card p{font-size:9pt;line-height:1.45;margin:0;color:var(--yt-ink-300);}
+  /* ========== TEAM GRID ========== */
+  .team-card{
+   background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
+   border-radius:6px;padding:20px;text-align:center;
+  }
+  .team-card .icon{
+   font-size:28pt;margin-bottom:8px;display:block;
+  }
+  .team-card h4{
+   font-family:var(--display);font-weight:700;font-size:12pt;
+   color:var(--yt-ink-100);margin-bottom:4px;
+  }
+  .team-card .role{
+   font-family:var(--mono);font-size:7.5pt;letter-spacing:0.1em;
+   text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+  }
+  .team-card p{font-size:9pt;line-height:1.45;margin:0;color:var(--yt-ink-300);}
 
-    /* ========== SUCCESS METRICS ========== */
-    .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;}
-    .metric-card{
-      background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
-      border-radius:6px;padding:20px;text-align:center;
-    }
-    .metric-card .lbl{
-      font-family:var(--mono);font-size:7pt;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--yt-ink-500);margin-bottom:4px;
-    }
-    .metric-card .val{
-      font-family:var(--display);font-weight:700;font-size:22pt;
-      letter-spacing:-0.02em;color:var(--accent);line-height:1;
-    }
-    .metric-card .desc{
-      font-size:8.5pt;color:var(--yt-ink-300);margin-top:6px;line-height:1.4;
-    }
+  /* ========== SUCCESS METRICS ========== */
+  .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;}
+  .metric-card{
+   background:rgba(17,28,48,0.5);border:1px solid var(--yt-ink-800);
+   border-radius:6px;padding:20px;text-align:center;
+  }
+  .metric-card .lbl{
+   font-family:var(--mono);font-size:7pt;letter-spacing:0.14em;text-transform:uppercase;
+   color:var(--yt-ink-500);margin-bottom:4px;
+  }
+  .metric-card .val{
+   font-family:var(--display);font-weight:700;font-size:22pt;
+   letter-spacing:-0.02em;color:var(--accent);line-height:1;
+  }
+  .metric-card .desc{
+   font-size:8.5pt;color:var(--yt-ink-300);margin-top:6px;line-height:1.4;
+  }
 
-    /* ========== FOOTER ========== */
-    .footer{
-      border-top:1px solid var(--yt-ink-800);
-      padding:40px 32px;text-align:center;
-      font-family:var(--mono);font-size:8.5pt;letter-spacing:0.12em;
-      color:var(--yt-ink-500);margin-top:40px;
-    }
-    .footer strong{color:var(--accent);font-weight:500;}
-    .footer .sep{margin:0 12px;color:var(--yt-ink-700);}
+  /* ========== FOOTER ========== */
+  .footer{
+   border-top:1px solid var(--yt-ink-800);
+   padding:40px 32px;text-align:center;
+   font-family:var(--mono);font-size:8.5pt;letter-spacing:0.12em;
+   color:var(--yt-ink-500);margin-top:40px;
+  }
+  .footer strong{color:var(--accent);font-weight:500;}
+  .footer .sep{margin:0 12px;color:var(--yt-ink-700);}
 
-    /* ========== RESPONSIVE ========== */
-    @media(max-width:768px){
-      .topbar{padding:0 16px;}
-      .topbar nav{display:none;}
-      .hero{padding:80px 16px 40px;}
-      .hero h1{font-size:28pt;}
-      .hero .subtitle{font-size:14pt;}
-      .hero .meta-grid{grid-template-columns:1fr;gap:12px;}
-      .section{padding:40px 16px;}
-      .section-header h2{font-size:22pt;}
-      .grid2,.grid3{grid-template-columns:1fr;}
-      .metric-grid{grid-template-columns:1fr;}
-      .fw-list li{flex-wrap:wrap;}
-    }
-  </style>
+  /* ========== RESPONSIVE ========== */
+  @media(max-width:768px){
+   .topbar{padding:0 16px;}
+   .topbar nav{display:none;}
+   .hero{padding:80px 16px 40px;}
+   .hero h1{font-size:28pt;}
+   .hero .subtitle{font-size:14pt;}
+   .hero .meta-grid{grid-template-columns:1fr;gap:12px;}
+   .section{padding:40px 16px;}
+   .section-header h2{font-size:22pt;}
+   .grid2,.grid3{grid-template-columns:1fr;}
+   .metric-grid{grid-template-columns:1fr;}
+   .fw-list li{flex-wrap:wrap;}
+  }
+ </style>
 </head>
 <body>
 
-  <!-- ============ TOP NAV ============ -->
-  <header class="topbar">
-    <div class="brand">
-      <img src="01-mark/mark-mono-amber.svg" alt="Y'TILIKAN"/>
-      <span>Y'TI<em>LIKAN</em></span>
-    </div>
-    <nav>
-      <a href="#finalite">Finalité</a>
-      <a href="#objectifs">Objectifs</a>
-      <a href="#phases">Phases</a>
-      <a href="#frameworks">Frameworks</a>
-      <a href="#stack">Stack</a>
-      <a href="#livrables">Livrables</a>
-      <a href="#equipe">Équipe</a>
-    </nav>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="mask"><img src="01-mark/mark-mono-amber.svg" alt=""/></div>
-    <div class="inner">
-      <div class="eyebrow">Benchmark LLM · Projet de recherche</div>
-      <div class="subtitle">AfroLLM Benchmark</div>
-      <h1>Évaluer l'IA pour l'<em>Afrique</em></h1>
-      <div class="tagline">Y'TILIKAN · Démocratiser l'IA</div>
-      <div class="meta-grid">
-        <div class="item">
-          <span class="lbl">Statut</span>
-          <span class="val">Phase de cadrage</span>
-        </div>
-        <div class="item">
-          <span class="lbl">Durée estimée</span>
-          <span class="val">12 semaines</span>
-        </div>
-        <div class="item">
-          <span class="lbl">Version</span>
-          <span class="val">v1.0 · Juin 2026</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 1. FINALITÉ ============ -->
-  <div class="divider"></div>
-  <section class="section" id="finalite">
-    <div class="section-header">
-      <div class="num">Section 01</div>
-      <h2>Finalité du projet</h2>
-    </div>
-    <p>
-      Créer un <strong>benchmark public</strong> pour évaluer les modèles de langage (LLM)
-      avec un accent fort sur les <strong>langues, les usages et le contexte africains</strong>.
-      Le benchmark sera accessible via un site web public qui publie les résultats de manière
-      lisible, évolutive et comparable entre modèles.
-    </p>
-    <p>
-      L'approche repose sur des <strong>épreuves structurées</strong>, un <strong>protocole
-      de notation clair</strong> et une <strong>comparaison reproductible</strong> entre
-      modèles — garantissant la transparence et la confiance des parties prenantes
-      (chercheurs, développeurs, décideurs).
-    </p>
-    <div class="grid3" style="margin-top:24px;">
-      <div class="card">
-        <div class="lbl">Principe 1</div>
-        <h3>Reproductible</h3>
-        <p>Protocole ouvert, scripts publiés, seeds fixées, environnement standardisé.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Principe 2</div>
-        <h3>Contextualisé</h3>
-        <p>Épreuves ancrées dans les réalités linguistiques et culturelles africaines.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Principe 3</div>
-        <h3>Évolutif</h3>
-        <p>Architecture modulaire permettant d'ajouter épreuves, langues et modèles en continu.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 2. OBJECTIFS ============ -->
-  <div class="divider"></div>
-  <section class="section" id="objectifs">
-    <div class="section-header">
-      <div class="num">Section 02</div>
-      <h2>Objectifs opérationnels</h2>
-    </div>
-    <div class="grid2">
-      <div class="card">
-        <div class="lbl">Objectif 01</div>
-        <h3>Cadre d'évaluation multi-dimensions</h3>
-        <p>Définir les axes de mesure : connaissances générales, raisonnement, traduction, culture locale, robustesse.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Objectif 02</div>
-        <h3>Sélection frameworks, méthodes, métriques</h3>
-        <p>Choisir les outils, protocoles et indicateurs adaptés aux contraintes africaines (bande passante, langues).</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Objectif 03</div>
-        <h3>Corpus de tests multi-tâches</h3>
-        <p>Constituer un ensemble de données couvrant plusieurs types d'épreuves et plusieurs langues africaines.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Objectif 04</div>
-        <h3>Intégration langues africaines + cas d'usage locaux</h3>
-        <p>Prioriser les langues les plus parlées (swahili, haoussa, yoruba, bambara, peul, amharique, etc.).</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Objectif 05</div>
-        <h3>Grille de scoring homogène</h3>
-        <p>Métrique composite normalisée permettant la comparaison directe entre modèles, toutes langues confondues.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Objectif 06</div>
-        <h3>Site web de visualisation</h3>
-        <p>Plateforme publique pour explorer les résultats, filtrer par modèle, langue ou épreuve.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 3. PHASES ============ -->
-  <div class="divider"></div>
-  <section class="section" id="phases">
-    <div class="section-header">
-      <div class="num">Section 03</div>
-      <h2>Phases du projet <em>· 12 semaines</em></h2>
-    </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="period">Semaine 1 — 2</span>
-        <h4>Cadrage + revue des frameworks</h4>
-        <p>Définition du périmètre, analyse des benchmarks existants, sélection des outils candidats.</p>
-      </div>
-      <div class="tl-item">
-        <span class="period">Semaine 3 — 4</span>
-        <h4>Définition dimensions/métriques + taxonomie des épreuves</h4>
-        <p>Structuration du système d'évaluation et classification des types d'épreuves par compétence.</p>
-      </div>
-      <div class="tl-item">
-        <span class="period">Semaine 5 — 6</span>
-        <h4>Rédaction corpus + revue qualité</h4>
-        <p>Création des jeux de données, vérification linguistique, validation par des locuteurs natifs.</p>
-      </div>
-      <div class="tl-item">
-        <span class="period">Semaine 7 — 8</span>
-        <h4>Protocole scoring + pipeline d'évaluation</h4>
-        <p>Automatisation du processus d'évaluation, implémentation du scoring, tests d'intégration.</p>
-      </div>
-      <div class="tl-item">
-        <span class="period">Semaine 9 — 10</span>
-        <h4>Tableau reporting + test pilote</h4>
-        <p>Développement du tableau de bord, exécution du pilote sur 3 à 5 modèles, collecte des retours.</p>
-      </div>
-      <div class="tl-item">
-        <span class="period">Semaine 11 — 12</span>
-        <h4>Ajustements + mise en ligne</h4>
-        <p>Corrections issues du pilote, finalisation du site, publication du benchmark public.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 4. FRAMEWORKS ============ -->
-  <div class="divider"></div>
-  <section class="section" id="frameworks">
-    <div class="section-header">
-      <div class="num">Section 04</div>
-      <h2>Frameworks open source recommandés</h2>
-    </div>
-    <p>Analyse des outils disponibles pour l'évaluation de LLM. Chaque framework est évalué selon sa compatibilité avec le contexte africain (langues, coût, reproductibilité).</p>
-    <ul class="fw-list">
-      <li>
-        <span class="badge">Recommandé</span>
-        <span class="name">LM Evaluation Harness</span>
-        <span class="link"><a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank">github.com/EleutherAI/lm-evaluation-harness</a></span>
-      </li>
-      <li>
-        <span class="badge">Multilingue</span>
-        <span class="name">OpenCompass</span>
-        <span class="link"><a href="https://github.com/open-compass/opencompass" target="_blank">github.com/open-compass/opencompass</a></span>
-      </li>
-      <li>
-        <span class="badge">Méthodologie</span>
-        <span class="name">HELM</span>
-        <span class="link"><a href="https://github.com/stanford-crfm/helm" target="_blank">github.com/stanford-crfm/helm</a></span>
-      </li>
-      <li>
-        <span class="badge">Industrialisation</span>
-        <span class="name">DeepEval</span>
-        <span class="link"><a href="https://github.com/confident-ai/deepeval" target="_blank">github.com/confident-ai/deepeval</a></span>
-      </li>
-      <li>
-        <span class="badge">CI/CD</span>
-        <span class="name">Promptfoo</span>
-        <span class="link"><a href="https://github.com/promptfoo/promptfoo" target="_blank">github.com/promptfoo/promptfoo</a></span>
-      </li>
-      <li>
-        <span class="badge">Traçabilité</span>
-        <span class="name">Langfuse</span>
-        <span class="link"><a href="https://github.com/langfuse/langfuse" target="_blank">github.com/langfuse/langfuse</a></span>
-      </li>
-      <li>
-        <span class="badge">Observabilité</span>
-        <span class="name">Arize Phoenix</span>
-        <span class="link"><a href="https://github.com/Arize-AI/phoenix" target="_blank">github.com/Arize-AI/phoenix</a></span>
-      </li>
-      <li>
-        <span class="badge">RAG</span>
-        <span class="name">RAGAs</span>
-        <span class="link"><a href="https://github.com/explodinggradients/ragas" target="_blank">github.com/explodinggradients/ragas</a></span>
-      </li>
-      <li>
-        <span class="badge">Référence</span>
-        <span class="name">BIG-bench</span>
-        <span class="link"><a href="https://github.com/google/BIG-bench" target="_blank">github.com/google/BIG-bench</a></span>
-      </li>
-      <li>
-        <span class="badge">Référence</span>
-        <span class="name">TruthfulQA</span>
-        <span class="link"><a href="https://github.com/sylinrl/TruthfulQA" target="_blank">github.com/sylinrl/TruthfulQA</a></span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ============ 5. STACK ============ -->
-  <div class="divider"></div>
-  <section class="section" id="stack">
-    <div class="section-header">
-      <div class="num">Section 05</div>
-      <h2>Stack recommandée <em>Y'TILIKAN</em></h2>
-    </div>
-    <p>Combinaison optimale des frameworks ci-dessus pour couvrir l'ensemble des besoins du projet.</p>
-    <table class="stack-table">
-      <thead>
-        <tr>
-          <th>Framework</th>
-          <th>Rôle</th>
-          <th>Justification</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>LM Evaluation Harness</td>
-          <td><strong>Benchmark principal</strong></td>
-          <td>Standard de facto, support large de modèles, reproductible, extensible.</td>
-        </tr>
-        <tr>
-          <td>OpenCompass</td>
-          <td><strong>Évaluation multilingue</strong></td>
-          <td>Meilleur support des langues non-anglaises, benchmark cross-lingue natif.</td>
-        </tr>
-        <tr>
-          <td>Promptfoo</td>
-          <td><strong>Tests rapides &amp; CI/CD</strong></td>
-          <td>Idéal pour les tests unitaires de prompts et l'intégration continue.</td>
-        </tr>
-        <tr>
-          <td>DeepEval</td>
-          <td><strong>Industrialisation</strong></td>
-          <td>Pipeline automatisé, métriques avancées, intégration CI facile.</td>
-        </tr>
-        <tr>
-          <td>HELM</td>
-          <td><strong>Cadre méthodologique</strong></td>
-          <td>Modèle de référence pour la conception des épreuves et le scoring holistique.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ============ 6. LIVRABLES, RISQUES, SUCCÈS ============ -->
-  <div class="divider"></div>
-  <section class="section" id="livrables">
-    <div class="section-header">
-      <div class="num">Section 06</div>
-      <h2>Livrables, risques &amp; indicateurs de succès</h2>
-    </div>
-
-    <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;">📦 Livrables</h3>
-    <div class="grid2" style="margin-bottom:40px;">
-      <div class="card">
-        <div class="lbl">Livrable 1</div>
-        <h3>Corpus de test multilingue</h3>
-        <p>Jeux de données couvrant 5+ langues africaines, 8 catégories d'épreuves, 500+ questions par langue.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Livrable 2</div>
-        <h3>Pipeline d'évaluation automatisé</h3>
-        <p>Scripts reproductibles, environnement conteneurisé, orchestré via LM Evaluation Harness + DeepEval.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Livrable 3</div>
-        <h3>Tableau de bord public</h3>
-        <p>Site web responsive avec graphiques, filtres par modèle/langue/épreuve, export CSV.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Livrable 4</div>
-        <h3>Rapport méthodologique</h3>
-        <p>Documentation complète : protocole, métriques, taxonomie, guide de contribution.</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Livrable 5</div>
-        <h3>Publication initiale</h3>
-        <p>Résultats sur 10+ modèles, article de blog, soumission à une conférence (ICLR, NeurIPS datasets).</p>
-      </div>
-      <div class="card">
-        <div class="lbl">Livrable 6</div>
-        <h3>Dépôt GitHub</h3>
-        <p>Code open source, documentation, licence permissive, guide de contribution.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;">⚠️ Risques identifiés</h3>
-    <div class="grid2" style="margin-bottom:40px;">
-      <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span class="pill red">Élevé</span>
-          <h3 style="margin:0;font-size:12pt;">Disponibilité des locuteurs natifs</h3>
-        </div>
-        <p>Validation linguistique difficile sans réseau de contributeurs locaux. Mitigation : partenariats universitaires.</p>
-      </div>
-      <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span class="pill amber">Moyen</span>
-          <h3 style="margin:0;font-size:12pt;">Coût d'inférence des modèles</h3>
-        </div>
-        <p>Évaluer plusieurs modèles sur des centaines de questions peut coûter cher. Mitigation : mutualisation, GPU partenaires.</p>
-      </div>
-      <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span class="pill amber">Moyen</span>
-          <h3 style="margin:0;font-size:12pt;">Reproductibilité cross-plateforme</h3>
-        </div>
-        <p>Variations selon backend (GPU, version CUDA, quantization). Mitigation : conteneurisation, seeds fixes.</p>
-      </div>
-      <div class="card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <span class="pill red">Élevé</span>
-          <h3 style="margin:0;font-size:12pt;">Biais des données de test</h3>
-        </div>
-        <p>Corpus peut refléter des biais de sélection. Mitigation : comité de révision diversifié, audits.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;">🎯 Indicateurs de succès</h3>
-    <div class="metric-grid">
-      <div class="metric-card">
-        <div class="lbl">Couverture linguistique</div>
-        <div class="val">≥ 5</div>
-        <div class="desc">Langues africaines évaluées dans le corpus initial</div>
-      </div>
-      <div class="metric-card">
-        <div class="lbl">Modèles benchmarkés</div>
-        <div class="val">≥ 10</div>
-        <div class="desc">Modèles ouverts et propriétaires évalués à la release</div>
-      </div>
-      <div class="metric-card">
-        <div class="lbl">Qualité du corpus</div>
-        <div class="val">≥ 85%</div>
-        <div class="desc">Taux d'approbation des épreuves par le comité de révision</div>
-      </div>
-      <div class="metric-card">
-        <div class="lbl">Adoption</div>
-        <div class="val">500+</div>
-        <div class="desc">Visiteurs uniques du site dans le premier mois</div>
-      </div>
-      <div class="metric-card">
-        <div class="lbl">Reproductibilité</div>
-        <div class="val">100%</div>
-        <div class="desc">Évaluations reproductibles via scripts conteneurisés</div>
-      </div>
-      <div class="metric-card">
-        <div class="lbl">Communauté</div>
-        <div class="val">≥ 3</div>
-        <div class="desc">Contributeurs externes au corpus dans les 3 premiers mois</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 7. ÉQUIPE ============ -->
-  <div class="divider"></div>
-  <section class="section" id="equipe">
-    <div class="section-header">
-      <div class="num">Section 07</div>
-      <h2>Répartition des travaux</h2>
-    </div>
-    <p>Équipe pluridisciplinaire réunissant les compétences nécessaires à la conception, la rédaction, l'implémentation technique et la diffusion du benchmark.</p>
-    <div class="grid3" style="margin-top:24px;">
-      <div class="team-card">
-        <span class="icon">👨‍💼</span>
-        <h4>Chef de projet</h4>
-        <div class="role">Coordination générale</div>
-        <p>Planning, communication, gestion des risques, coordination des contributeurs, reporting.</p>
-      </div>
-      <div class="team-card">
-        <span class="icon">🔬</span>
-        <h4>Chercheur</h4>
-        <div class="role">Cadre théorique</div>
-        <p>Définition des dimensions d'évaluation, taxonomie des épreuves, revue de littérature, protocole.</p>
-      </div>
-      <div class="team-card">
-        <span class="icon">✍️</span>
-        <h4>Rédacteur</h4>
-        <div class="role">Corpus &amp; documentation</div>
-        <p>Rédaction des épreuves, relecture linguistique, documentation, articles et rapports.</p>
-      </div>
-      <div class="team-card">
-        <span class="icon">🤖</span>
-        <h4>Ingénieur ML</h4>
-        <div class="role">Pipeline &amp; intégration</div>
-        <p>Implémentation du pipeline d'évaluation, intégration des frameworks, automatisation des tests.</p>
-      </div>
-      <div class="team-card">
-        <span class="icon">🌐</span>
-        <h4>Développeur web</h4>
-        <div class="role">Plateforme &amp; UI</div>
-        <p>Site web de visualisation, API de données, graphiques interactifs, déploiement.</p>
-      </div>
-      <div class="team-card">
-        <span class="icon">✅</span>
-        <h4>QA</h4>
-        <div class="role">Qualité &amp; tests</div>
-        <p>Validation des épreuves, tests de reproductibilité, audits de biais, revue de qualité.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <div class="divider"></div>
-  <div class="footer">
-    <strong>Y'TILIKAN</strong>
-    <span class="sep">·</span>
-    Démocratiser l'IA
-    <span class="sep">·</span>
-    ytilikan.com
+ <!-- ============ TOP NAV ============ -->
+ <header class="topbar">
+  <div class="brand">
+   <img src="01-mark/mark-mono-amber.svg" alt="Y'TILIKAN"/>
+   <span>Y'TI<em>LIKAN</em></span>
   </div>
+  <nav>
+   <a href="#finalite">Finalité</a>
+   <a href="#objectifs">Objectifs</a>
+   <a href="#phases">Phases</a>
+   <a href="#frameworks">Frameworks</a>
+   <a href="#stack">Stack</a>
+   <a href="#livrables">Livrables</a>
+   <a href="#equipe">Équipe</a>
+  </nav>
+ </header>
+
+ <!-- ============ HERO ============ -->
+ <section class="hero">
+  <div class="mask"><img src="01-mark/mark-mono-amber.svg" alt=""/></div>
+  <div class="inner">
+   <div class="eyebrow">Benchmark LLM · Projet de recherche</div>
+   <div class="subtitle">AfroLLM Benchmark</div>
+   <h1>Évaluer l'IA pour l'<em>Afrique</em></h1>
+   <div class="tagline">Y'TILIKAN · Démocratiser l'IA</div>
+   <div class="meta-grid">
+    <div class="item">
+     <span class="lbl">Statut</span>
+     <span class="val">Phase de cadrage</span>
+    </div>
+    <div class="item">
+     <span class="lbl">Durée estimée</span>
+     <span class="val">12 semaines</span>
+    </div>
+    <div class="item">
+     <span class="lbl">Version</span>
+     <span class="val">v1.0 · Juin 2026</span>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ 1. FINALITÉ ============ -->
+ <div class="divider"></div>
+ <section class="section" id="finalite">
+  <div class="section-header">
+   <div class="num">Section 01</div>
+   <h2>Finalité du projet</h2>
+  </div>
+  <p>
+   Créer un <strong>benchmark public</strong> pour évaluer les modèles de langage (LLM)
+   avec un accent fort sur les <strong>langues, les usages et le contexte africains</strong>.
+   Le benchmark sera accessible via un site web public qui publie les résultats de manière
+   lisible, évolutive et comparable entre modèles.
+  </p>
+  <p>
+   L'approche repose sur des <strong>épreuves structurées</strong>, un <strong>protocole
+   de notation clair</strong> et une <strong>comparaison reproductible</strong> entre
+   modèles — garantissant la transparence et la confiance des parties prenantes
+   (chercheurs, développeurs, décideurs).
+  </p>
+  <div class="grid3" style="margin-top:24px;">
+   <div class="card">
+    <div class="lbl">Principe 1</div>
+    <h3>Reproductible</h3>
+    <p>Protocole ouvert, scripts publiés, seeds fixées, environnement standardisé.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Principe 2</div>
+    <h3>Contextualisé</h3>
+    <p>Épreuves ancrées dans les réalités linguistiques et culturelles africaines.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Principe 3</div>
+    <h3>Évolutif</h3>
+    <p>Architecture modulaire permettant d'ajouter épreuves, langues et modèles en continu.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ 2. OBJECTIFS ============ -->
+ <div class="divider"></div>
+ <section class="section" id="objectifs">
+  <div class="section-header">
+   <div class="num">Section 02</div>
+   <h2>Objectifs opérationnels</h2>
+  </div>
+  <div class="grid2">
+   <div class="card">
+    <div class="lbl">Objectif 01</div>
+    <h3>Cadre d'évaluation multi-dimensions</h3>
+    <p>Définir les axes de mesure : connaissances générales, raisonnement, traduction, culture locale, robustesse.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Objectif 02</div>
+    <h3>Sélection frameworks, méthodes, métriques</h3>
+    <p>Choisir les outils, protocoles et indicateurs adaptés aux contraintes africaines (bande passante, langues).</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Objectif 03</div>
+    <h3>Corpus de tests multi-tâches</h3>
+    <p>Constituer un ensemble de données couvrant plusieurs types d'épreuves et plusieurs langues africaines.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Objectif 04</div>
+    <h3>Intégration langues africaines + cas d'usage locaux</h3>
+    <p>Prioriser les langues les plus parlées (swahili, haoussa, yoruba, bambara, peul, amharique, etc.).</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Objectif 05</div>
+    <h3>Grille de scoring homogène</h3>
+    <p>Métrique composite normalisée permettant la comparaison directe entre modèles, toutes langues confondues.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Objectif 06</div>
+    <h3>Site web de visualisation</h3>
+    <p>Plateforme publique pour explorer les résultats, filtrer par modèle, langue ou épreuve.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ 3. PHASES ============ -->
+ <div class="divider"></div>
+ <section class="section" id="phases">
+  <div class="section-header">
+   <div class="num">Section 03</div>
+   <h2>Phases du projet <em>· 12 semaines</em></h2>
+  </div>
+  <div class="timeline">
+   <div class="tl-item">
+    <span class="period">Semaine 1 — 2</span>
+    <h4>Cadrage + revue des frameworks</h4>
+    <p>Définition du périmètre, analyse des benchmarks existants, sélection des outils candidats.</p>
+   </div>
+   <div class="tl-item">
+    <span class="period">Semaine 3 — 4</span>
+    <h4>Définition dimensions/métriques + taxonomie des épreuves</h4>
+    <p>Structuration du système d'évaluation et classification des types d'épreuves par compétence.</p>
+   </div>
+   <div class="tl-item">
+    <span class="period">Semaine 5 — 6</span>
+    <h4>Rédaction corpus + revue qualité</h4>
+    <p>Création des jeux de données, vérification linguistique, validation par des locuteurs natifs.</p>
+   </div>
+   <div class="tl-item">
+    <span class="period">Semaine 7 — 8</span>
+    <h4>Protocole scoring + pipeline d'évaluation</h4>
+    <p>Automatisation du processus d'évaluation, implémentation du scoring, tests d'intégration.</p>
+   </div>
+   <div class="tl-item">
+    <span class="period">Semaine 9 — 10</span>
+    <h4>Tableau reporting + test pilote</h4>
+    <p>Développement du tableau de bord, exécution du pilote sur 3 à 5 modèles, collecte des retours.</p>
+   </div>
+   <div class="tl-item">
+    <span class="period">Semaine 11 — 12</span>
+    <h4>Ajustements + mise en ligne</h4>
+    <p>Corrections issues du pilote, finalisation du site, publication du benchmark public.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ 4. FRAMEWORKS ============ -->
+ <div class="divider"></div>
+ <section class="section" id="frameworks">
+  <div class="section-header">
+   <div class="num">Section 04</div>
+   <h2>Frameworks open source recommandés</h2>
+  </div>
+  <p>Analyse des outils disponibles pour l'évaluation de LLM. Chaque framework est évalué selon sa compatibilité avec le contexte africain (langues, coût, reproductibilité).</p>
+  <ul class="fw-list">
+   <li>
+    <span class="badge">Recommandé</span>
+    <span class="name">LM Evaluation Harness</span>
+    <span class="link"><a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank">github.com/EleutherAI/lm-evaluation-harness</a></span>
+   </li>
+   <li>
+    <span class="badge">Multilingue</span>
+    <span class="name">OpenCompass</span>
+    <span class="link"><a href="https://github.com/open-compass/opencompass" target="_blank">github.com/open-compass/opencompass</a></span>
+   </li>
+   <li>
+    <span class="badge">Méthodologie</span>
+    <span class="name">HELM</span>
+    <span class="link"><a href="https://github.com/stanford-crfm/helm" target="_blank">github.com/stanford-crfm/helm</a></span>
+   </li>
+   <li>
+    <span class="badge">Industrialisation</span>
+    <span class="name">DeepEval</span>
+    <span class="link"><a href="https://github.com/confident-ai/deepeval" target="_blank">github.com/confident-ai/deepeval</a></span>
+   </li>
+   <li>
+    <span class="badge">CI/CD</span>
+    <span class="name">Promptfoo</span>
+    <span class="link"><a href="https://github.com/promptfoo/promptfoo" target="_blank">github.com/promptfoo/promptfoo</a></span>
+   </li>
+   <li>
+    <span class="badge">Traçabilité</span>
+    <span class="name">Langfuse</span>
+    <span class="link"><a href="https://github.com/langfuse/langfuse" target="_blank">github.com/langfuse/langfuse</a></span>
+   </li>
+   <li>
+    <span class="badge">Observabilité</span>
+    <span class="name">Arize Phoenix</span>
+    <span class="link"><a href="https://github.com/Arize-AI/phoenix" target="_blank">github.com/Arize-AI/phoenix</a></span>
+   </li>
+   <li>
+    <span class="badge">RAG</span>
+    <span class="name">RAGAs</span>
+    <span class="link"><a href="https://github.com/explodinggradients/ragas" target="_blank">github.com/explodinggradients/ragas</a></span>
+   </li>
+   <li>
+    <span class="badge">Référence</span>
+    <span class="name">BIG-bench</span>
+    <span class="link"><a href="https://github.com/google/BIG-bench" target="_blank">github.com/google/BIG-bench</a></span>
+   </li>
+   <li>
+    <span class="badge">Référence</span>
+    <span class="name">TruthfulQA</span>
+    <span class="link"><a href="https://github.com/sylinrl/TruthfulQA" target="_blank">github.com/sylinrl/TruthfulQA</a></span>
+   </li>
+  </ul>
+ </section>
+
+ <!-- ============ 5. STACK ============ -->
+ <div class="divider"></div>
+ <section class="section" id="stack">
+  <div class="section-header">
+   <div class="num">Section 05</div>
+   <h2>Stack recommandée <em>Y'TILIKAN</em></h2>
+  </div>
+  <p>Combinaison optimale des frameworks ci-dessus pour couvrir l'ensemble des besoins du projet.</p>
+  <table class="stack-table">
+   <thead>
+    <tr>
+     <th>Framework</th>
+     <th>Rôle</th>
+     <th>Justification</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>LM Evaluation Harness</td>
+     <td><strong>Benchmark principal</strong></td>
+     <td>Standard de facto, support large de modèles, reproductible, extensible.</td>
+    </tr>
+    <tr>
+     <td>OpenCompass</td>
+     <td><strong>Évaluation multilingue</strong></td>
+     <td>Meilleur support des langues non-anglaises, benchmark cross-lingue natif.</td>
+    </tr>
+    <tr>
+     <td>Promptfoo</td>
+     <td><strong>Tests rapides &amp; CI/CD</strong></td>
+     <td>Idéal pour les tests unitaires de prompts et l'intégration continue.</td>
+    </tr>
+    <tr>
+     <td>DeepEval</td>
+     <td><strong>Industrialisation</strong></td>
+     <td>Pipeline automatisé, métriques avancées, intégration CI facile.</td>
+    </tr>
+    <tr>
+     <td>HELM</td>
+     <td><strong>Cadre méthodologique</strong></td>
+     <td>Modèle de référence pour la conception des épreuves et le scoring holistique.</td>
+    </tr>
+   </tbody>
+  </table>
+ </section>
+
+ <!-- ============ 6. LIVRABLES, RISQUES, SUCCÈS ============ -->
+ <div class="divider"></div>
+ <section class="section" id="livrables">
+  <div class="section-header">
+   <div class="num">Section 06</div>
+   <h2>Livrables, risques &amp; indicateurs de succès</h2>
+  </div>
+
+  <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;"> Livrables</h3>
+  <div class="grid2" style="margin-bottom:40px;">
+   <div class="card">
+    <div class="lbl">Livrable 1</div>
+    <h3>Corpus de test multilingue</h3>
+    <p>Jeux de données couvrant 5+ langues africaines, 8 catégories d'épreuves, 500+ questions par langue.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Livrable 2</div>
+    <h3>Pipeline d'évaluation automatisé</h3>
+    <p>Scripts reproductibles, environnement conteneurisé, orchestré via LM Evaluation Harness + DeepEval.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Livrable 3</div>
+    <h3>Tableau de bord public</h3>
+    <p>Site web responsive avec graphiques, filtres par modèle/langue/épreuve, export CSV.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Livrable 4</div>
+    <h3>Rapport méthodologique</h3>
+    <p>Documentation complète : protocole, métriques, taxonomie, guide de contribution.</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Livrable 5</div>
+    <h3>Publication initiale</h3>
+    <p>Résultats sur 10+ modèles, article de blog, soumission à une conférence (ICLR, NeurIPS datasets).</p>
+   </div>
+   <div class="card">
+    <div class="lbl">Livrable 6</div>
+    <h3>Dépôt GitHub</h3>
+    <p>Code open source, documentation, licence permissive, guide de contribution.</p>
+   </div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;">️ Risques identifiés</h3>
+  <div class="grid2" style="margin-bottom:40px;">
+   <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+     <span class="pill red">Élevé</span>
+     <h3 style="margin:0;font-size:12pt;">Disponibilité des locuteurs natifs</h3>
+    </div>
+    <p>Validation linguistique difficile sans réseau de contributeurs locaux. Mitigation : partenariats universitaires.</p>
+   </div>
+   <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+     <span class="pill amber">Moyen</span>
+     <h3 style="margin:0;font-size:12pt;">Coût d'inférence des modèles</h3>
+    </div>
+    <p>Évaluer plusieurs modèles sur des centaines de questions peut coûter cher. Mitigation : mutualisation, GPU partenaires.</p>
+   </div>
+   <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+     <span class="pill amber">Moyen</span>
+     <h3 style="margin:0;font-size:12pt;">Reproductibilité cross-plateforme</h3>
+    </div>
+    <p>Variations selon backend (GPU, version CUDA, quantization). Mitigation : conteneurisation, seeds fixes.</p>
+   </div>
+   <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+     <span class="pill red">Élevé</span>
+     <h3 style="margin:0;font-size:12pt;">Biais des données de test</h3>
+    </div>
+    <p>Corpus peut refléter des biais de sélection. Mitigation : comité de révision diversifié, audits.</p>
+   </div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-weight:600;font-size:14pt;color:var(--yt-ink-100);margin-bottom:12px;"> Indicateurs de succès</h3>
+  <div class="metric-grid">
+   <div class="metric-card">
+    <div class="lbl">Couverture linguistique</div>
+    <div class="val">≥ 5</div>
+    <div class="desc">Langues africaines évaluées dans le corpus initial</div>
+   </div>
+   <div class="metric-card">
+    <div class="lbl">Modèles benchmarkés</div>
+    <div class="val">≥ 10</div>
+    <div class="desc">Modèles ouverts et propriétaires évalués à la release</div>
+   </div>
+   <div class="metric-card">
+    <div class="lbl">Qualité du corpus</div>
+    <div class="val">≥ 85%</div>
+    <div class="desc">Taux d'approbation des épreuves par le comité de révision</div>
+   </div>
+   <div class="metric-card">
+    <div class="lbl">Adoption</div>
+    <div class="val">500+</div>
+    <div class="desc">Visiteurs uniques du site dans le premier mois</div>
+   </div>
+   <div class="metric-card">
+    <div class="lbl">Reproductibilité</div>
+    <div class="val">100%</div>
+    <div class="desc">Évaluations reproductibles via scripts conteneurisés</div>
+   </div>
+   <div class="metric-card">
+    <div class="lbl">Communauté</div>
+    <div class="val">≥ 3</div>
+    <div class="desc">Contributeurs externes au corpus dans les 3 premiers mois</div>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ 7. ÉQUIPE ============ -->
+ <div class="divider"></div>
+ <section class="section" id="equipe">
+  <div class="section-header">
+   <div class="num">Section 07</div>
+   <h2>Répartition des travaux</h2>
+  </div>
+  <p>Équipe pluridisciplinaire réunissant les compétences nécessaires à la conception, la rédaction, l'implémentation technique et la diffusion du benchmark.</p>
+  <div class="grid3" style="margin-top:24px;">
+   <div class="team-card">
+    <span class="icon">‍</span>
+    <h4>Chef de projet</h4>
+    <div class="role">Coordination générale</div>
+    <p>Planning, communication, gestion des risques, coordination des contributeurs, reporting.</p>
+   </div>
+   <div class="team-card">
+    
+    <h4>Chercheur</h4>
+    <div class="role">Cadre théorique</div>
+    <p>Définition des dimensions d'évaluation, taxonomie des épreuves, revue de littérature, protocole.</p>
+   </div>
+   <div class="team-card">
+    <span class="icon">️</span>
+    <h4>Rédacteur</h4>
+    <div class="role">Corpus &amp; documentation</div>
+    <p>Rédaction des épreuves, relecture linguistique, documentation, articles et rapports.</p>
+   </div>
+   <div class="team-card">
+    
+    <h4>Ingénieur ML</h4>
+    <div class="role">Pipeline &amp; intégration</div>
+    <p>Implémentation du pipeline d'évaluation, intégration des frameworks, automatisation des tests.</p>
+   </div>
+   <div class="team-card">
+    
+    <h4>Développeur web</h4>
+    <div class="role">Plateforme &amp; UI</div>
+    <p>Site web de visualisation, API de données, graphiques interactifs, déploiement.</p>
+   </div>
+   <div class="team-card">
+    
+    <h4>QA</h4>
+    <div class="role">Qualité &amp; tests</div>
+    <p>Validation des épreuves, tests de reproductibilité, audits de biais, revue de qualité.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ============ FOOTER ============ -->
+ <div class="divider"></div>
+ <div class="footer">
+  <strong>Y'TILIKAN</strong>
+  <span class="sep">·</span>
+  Démocratiser l'IA
+  <span class="sep">·</span>
+  ytilikan.com
+ </div>
 
 </body>
 </html>
