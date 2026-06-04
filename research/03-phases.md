@@ -2,23 +2,23 @@
 
 ### Semaine 1 — 2 : Cadrage + revue des frameworks
 
-Definition du perimetre, analyse des benchmarks existants, selection des outils candidats.
+Définition du périmètre, analyse des benchmarks existants, sélection des outils candidats.
 
-### Semaine 3 — 4 : Definition dimensions/metriques + taxonomie des epreuves
+### Semaine 3 — 4 : Définition dimensions/métriques + taxonomie des épreuves
 
-Structuration du systeme d'evaluation et classification des types d'epreuves par competence.
+Structuration du système d'évaluation et classification des types d'épreuves par compétence.
 
-### Semaine 5 — 6 : Redaction corpus + revue qualite
+### Semaine 5 — 6 : Rédaction corpus + revue qualité
 
-Creation des jeux de donnees, verification linguistique, validation par des locuteurs natifs.
+Création des jeux de données, vérification linguistique, validation par des locuteurs natifs.
 
-### Semaine 7 — 8 : Protocole scoring + pipeline d'evaluation
+### Semaine 7 — 8 : Protocole scoring + pipeline d'évaluation
 
-Automatisation du processus d'evaluation, implementation du scoring, tests d'integration.
+Automatisation du processus d'évaluation, implémentation du scoring, tests d'intégration.
 
 ### Semaine 9 — 10 : Tableau reporting + test pilote
 
-Developpement du tableau de bord, execution du pilote sur 3 a 5 modeles, collecte des retours.
+Développement du tableau de bord, exécution du pilote sur 3 à 5 modèles, collecte des retours.
 
 ### Semaine 11 — 12 : Ajustements + mise en ligne
 

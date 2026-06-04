@@ -1,8 +1,8 @@
-# 01. Finalite du projet
+# 01. Finalité du projet
 
-Creer un **benchmark public** pour evaluer les modeles de langage (LLM) avec un accent fort sur les **langues, les usages et le contexte africains**. Le benchmark sera accessible via un site web public qui publie les resultats de maniere lisible, evolutive et comparable entre modeles.
+Créer un **benchmark public** pour évaluer les modèles de langage (LLM) avec un accent fort sur les **langues, les usages et le contexte africains**. Le benchmark sera accessible via un site web public qui publie les résultats de manière lisible, évolutive et comparable entre modèles.
 
-L'approche repose sur des **epreuves structurees**, un **protocole de notation clair** et une **comparaison reproductible** entre modeles — garantissant la transparence et la confiance des parties prenantes (chercheurs, developpeurs, decideurs).
+L'approche repose sur des **épreuves structurées**, un **protocole de notation clair** et une **comparaison reproductible** entre modèles — garantissant la transparence et la confiance des parties prenantes (chercheurs, développeurs, décideurs).
 
 ---
 
@@ -10,9 +10,9 @@ L'approche repose sur des **epreuves structurees**, un **protocole de notation c
 
 | Principe | Description |
 |----------|-------------|
-| **Reproductible** | Protocole ouvert, scripts publies, seeds fixees, environnement standardise |
-| **Contextualise** | Epreuves ancrees dans les realites linguistiques et culturelles africaines |
-| **Evolutif** | Architecture modulaire permettant d'ajouter epreuves, langues et modeles en continu |
+| **Reproductible** | Protocole ouvert, scripts publiés, seeds fixées, environnement standardisé |
+| **Contextualisé** | Épreuves ancrées dans les réalités linguistiques et culturelles africaines |
+| **Évolutif** | Architecture modulaire permettant d'ajouter épreuves, langues et modèles en continu |
 
 ---
 

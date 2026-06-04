@@ -1,39 +1,39 @@
-# 06. Livrables, risques et indicateurs de succes
+# 06. Livrables, risques et indicateurs de succès
 
 ## Livrables
 
 | # | Livrable | Description |
 |---|----------|-------------|
-| 1 | **Corpus de test multilingue** | Jeux de donnees couvrant 5+ langues africaines, 8 categories d'epreuves, 500+ questions par langue |
-| 2 | **Pipeline d'evaluation automatise** | Scripts reproductibles, environnement conteneurise, orchestre via LM Evaluation Harness + DeepEval |
-| 3 | **Tableau de bord public** | Site web responsive avec graphiques, filtres par modele/langue/epreuve, export CSV |
-| 4 | **Rapport methodologique** | Documentation complete : protocole, metriques, taxonomie, guide de contribution |
-| 5 | **Publication initiale** | Resultats sur 10+ modeles, article de blog, soumission conference (ICLR, NeurIPS datasets) |
-| 6 | **Depot GitHub** | Code open source, documentation, licence permissive, guide de contribution |
+| 1 | **Corpus de test multilingue** | Jeux de données couvrant 5+ langues africaines, 8 catégories d'épreuves, 500+ questions par langue |
+| 2 | **Pipeline d'évaluation automatisé** | Scripts reproductibles, environnement conteneurisé, orchestré via LM Evaluation Harness + DeepEval |
+| 3 | **Tableau de bord public** | Site web responsive avec graphiques, filtres par modèle/langue/épreuve, export CSV |
+| 4 | **Rapport méthodologique** | Documentation complète : protocole, métriques, taxonomie, guide de contribution |
+| 5 | **Publication initiale** | Résultats sur 10+ modèles, article de blog, soumission conférence (ICLR, NeurIPS datasets) |
+| 6 | **Dépôt GitHub** | Code open source, documentation, licence permissive, guide de contribution |
 
 ---
 
-## Risques identifies
+## Risques identifiés
 
 | Risque | Niveau | Mitigation |
 |--------|--------|------------|
-| Disponibilite des locuteurs natifs | **Eleve** | Partenariats universitaires |
-| Cout d'inference des modeles | **Moyen** | Mutualisation, GPU partenaires |
-| Reproductibilite cross-plateforme | **Moyen** | Conteneurisation, seeds fixes |
-| Biais des donnees de test | **Eleve** | Comite de revision diversifie, audits |
+| Disponibilité des locuteurs natifs | **Élevé** | Partenariats universitaires |
+| Coût d'inférence des modèles | **Moyen** | Mutualisation, GPU partenaires |
+| Reproductibilité cross-plateforme | **Moyen** | Conteneurisation, seeds fixes |
+| Biais des données de test | **Élevé** | Comité de révision diversifié, audits |
 
 ---
 
-## Indicateurs de succes
+## Indicateurs de succès
 
 | Indicateur | Cible | Description |
 |------------|-------|-------------|
-| Couverture linguistique | >= 5 langues | Langues africaines evaluees dans le corpus initial |
-| Modeles benchmarkes | >= 10 modeles | Modeles ouverts et proprietaires evalues a la release |
-| Qualite du corpus | >= 85% | Taux d'approbation des epreuves par le comite de revision |
+| Couverture linguistique | >= 5 langues | Langues africaines évaluées dans le corpus initial |
+| Modèles benchmarkés | >= 10 modèles | Modèles ouverts et propriétaires évalués à la release |
+| Qualité du corpus | >= 85% | Taux d'approbation des épreuves par le comité de révision |
 | Adoption | 500+ visiteurs | Visiteurs uniques du site dans le premier mois |
-| Reproductibilite | 100% | Evaluations reproductibles via scripts conteneurises |
-| Communaute | >= 3 contributeurs | Contributeurs externes au corpus dans les 3 premiers mois |
+| Reproductibilité | 100% | Évaluations reproductibles via scripts conteneurisés |
+| Communauté | >= 3 contributeurs | Contributeurs externes au corpus dans les 3 premiers mois |
 
 ---
 

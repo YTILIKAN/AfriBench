@@ -1,15 +1,15 @@
-# 07. Equipe et repartition des travaux
+# 07. Équipe et répartition des travaux
 
-Equipe pluridisciplinaire reunissant les competences necessaires a la conception, la redaction, l'implementation technique et la diffusion du benchmark.
+Équipe pluridisciplinaire réunissant les compétences nécessaires à la conception, la rédaction, l'implémentation technique et la diffusion du benchmark.
 
-| Role | Competence | Responsabilites |
+| Rôle | Compétence | Responsabilités |
 |------|------------|-----------------|
-| **Chef de projet** | Coordination generale | Planning, communication, gestion des risques, coordination des contributeurs, reporting |
-| **Chercheur** | Cadre theorique | Definition des dimensions d'evaluation, taxonomie des epreuves, revue de litterature, protocole |
-| **Redacteur** | Corpus et documentation | Redaction des epreuves, relecture linguistique, documentation, articles et rapports |
-| **Ingenieur ML** | Pipeline et integration | Implementation du pipeline d'evaluation, integration des frameworks, automatisation des tests |
-| **Developpeur web** | Plateforme et UI | Site web de visualisation, API de donnees, graphiques interactifs, deploiement |
-| **QA** | Qualite et tests | Validation des epreuves, tests de reproductibilite, audits de biais, revue de qualite |
+| **Chef de projet** | Coordination générale | Planning, communication, gestion des risques, coordination des contributeurs, reporting |
+| **Chercheur** | Cadre théorique | Définition des dimensions d'évaluation, taxonomie des épreuves, revue de littérature, protocole |
+| **Rédacteur** | Corpus et documentation | Rédaction des épreuves, relecture linguistique, documentation, articles et rapports |
+| **Ingénieur ML** | Pipeline et intégration | Implémentation du pipeline d'évaluation, intégration des frameworks, automatisation des tests |
+| **Développeur web** | Plateforme et UI | Site web de visualisation, API de données, graphiques interactifs, déploiement |
+| **QA** | Qualité et tests | Validation des épreuves, tests de reproductibilité, audits de biais, revue de qualité |
 
 ---
 
