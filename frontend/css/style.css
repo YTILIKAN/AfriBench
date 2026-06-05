@@ -1,0 +1,517 @@
+/* ═══════════════════════════════════════════════
+   AfriBench — Styleguide
+   Y'TILIKAN Brand: Navy (#090818, #0C0A21, #1c1038)
+   Bronze (#C4A46A) | Warm White (#F4F3F9)
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --bg-primary: #090818;
+  --bg-secondary: #0C0A21;
+  --bg-card: #111027;
+  --bg-hover: #1a1735;
+  --bg-input: #1a1735;
+
+  --bronze: #C4A46A;
+  --bronze-light: #D4B88A;
+  --bronze-dim: #8A7A55;
+
+  --text-primary: #F4F3F9;
+  --text-secondary: #A8A6B8;
+  --text-muted: #6B6980;
+  --text-accent: #C4A46A;
+
+  --border: #1E1C3A;
+  --border-light: #2A2850;
+
+  --success: #4CAF50;
+  --warning: #FFB74D;
+  --danger: #E57373;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Reset ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--bronze); text-decoration: none; }
+a:hover { color: var(--bronze-light); }
+
+/* ── Layout ──────────────────────────────────── */
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header ──────────────────────────────────── */
+.app-header {
+  padding: 28px 0 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-brand h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--bronze), var(--bronze-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-brand .tagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.header-stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.stat-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.stat-pill strong {
+  color: var(--bronze);
+  font-weight: 600;
+}
+
+/* ── Tabs ────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+}
+
+.tab-btn.active {
+  color: var(--bronze);
+  border-bottom-color: var(--bronze);
+}
+
+/* ── Cards ───────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title .badge {
+  background: var(--bronze);
+  color: var(--bg-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ── Leaderboard Table ───────────────────────── */
+.lb-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lb-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.lb-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.9rem;
+}
+
+.lb-table tr:hover td {
+  background: var(--bg-hover);
+}
+
+.lb-table .rank {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 40px;
+}
+
+.lb-table .rank-1 { color: var(--bronze); }
+.lb-table .rank-2 { color: var(--text-secondary); }
+.lb-table .rank-3 { color: var(--bronze-dim); }
+
+.lb-table .model-name {
+  font-weight: 600;
+}
+
+.lb-table .score {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--bronze);
+}
+
+.lb-table .score-bar {
+  display: inline-block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bronze);
+  opacity: 0.3;
+  min-width: 4px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.lb-table .correct {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.lb-table .no-data {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Grid Layouts ────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ── Charts ──────────────────────────────────── */
+.chart-container {
+  position: relative;
+  min-height: 280px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  max-height: 320px;
+}
+
+/* ── Category Filters ────────────────────────── */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  border-color: var(--bronze);
+  color: var(--bronze);
+}
+
+.filter-chip.active {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  color: var(--bg-primary);
+  font-weight: 600;
+}
+
+/* ── Compare Section ─────────────────────────── */
+.compare-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.compare-selector label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.compare-selector label:hover {
+  border-color: var(--bronze-dim);
+}
+
+.compare-selector input[type="checkbox"] {
+  accent-color: var(--bronze);
+  width: 16px;
+  height: 16px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.compare-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.compare-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--bronze);
+}
+
+.compare-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.85rem;
+}
+
+.compare-stat .label {
+  color: var(--text-muted);
+}
+
+.compare-stat .value {
+  font-weight: 600;
+}
+
+/* ── Questions Browser ───────────────────────── */
+.q-list {
+  display: grid;
+  gap: 12px;
+}
+
+.q-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.q-item:hover {
+  border-color: var(--bronze-dim);
+}
+
+.q-item .q-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+.q-item .q-category {
+  background: var(--bronze);
+  color: var(--bg-primary);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.q-item .q-difficulty {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.q-item .q-difficulty.easy {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81C784;
+}
+
+.q-item .q-difficulty.medium {
+  background: rgba(255, 183, 77, 0.2);
+  color: #FFB74D;
+}
+
+.q-item .q-difficulty.hard {
+  background: rgba(229, 115, 115, 0.2);
+  color: #E57373;
+}
+
+.q-item .q-text {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.q-item .q-answer {
+  display: none;
+  font-size: 0.85rem;
+  color: var(--success);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+.q-item.expanded .q-answer {
+  display: block;
+}
+
+/* ── State ───────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.empty-state code {
+  background: var(--bg-input);
+  color: var(--bronze);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ── Loading ─────────────────────────────────── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.loading span {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Footer ──────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+  .app-container { padding: 0 16px; }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .header-stats { width: 100%; justify-content: flex-start; }
+  .tab-btn { padding: 10px 14px; font-size: 0.85rem; }
+  .lb-table th, .lb-table td { padding: 10px 8px; font-size: 0.8rem; }
+  .card { padding: 16px; }
+}

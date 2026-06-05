@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AfriBench — Benchmark LLM pour l'Afrique</title>
+  <meta name="description" content="AfriBench : evaluer les modeles de langage sur les realites africaines. Benchmark public, ouvert, reproductible.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <div>
+            <h1>AfriBench</h1>
+            <div class="tagline">Evaluer les modeles de langage pour l'Afrique</div>
+          </div>
+        </div>
+        <div class="header-stats">
+          <div class="stat-pill">
+            Modeles <strong id="results-count">-</strong>
+          </div>
+          <div class="stat-pill">
+            Questions <strong id="questions-count">-</strong>
+          </div>
+          <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" style="color:var(--text-muted);font-size:0.85rem">
+            github
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="leaderboard">Classement</button>
+      <button class="tab-btn" data-tab="categories">Categories</button>
+      <button class="tab-btn" data-tab="compare">Comparer</button>
+      <button class="tab-btn" data-tab="questions">Questions</button>
+    </nav>
+
+    <!-- Content -->
+    <main id="tab-content">
+      <div class="card">
+        <div class="empty-state">
+          <h3>Chargement...</h3>
+          <p><span>Patientez</span></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      AfriBench &middot; Y'TILIKAN &middot; <a href="https://ytilikan.com">ytilikan.com</a>
+    </footer>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/categories.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/questions.js"></script>
+
+</body>
+</html>
