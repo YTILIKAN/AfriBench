@@ -56,6 +56,16 @@ def export_results():
 
     FRONTEND_DATA.mkdir(parents=True, exist_ok=True)
     out_path = FRONTEND_DATA / "results.json"
+
+    if not all_results:
+        # Preserve existing frontend data if no new results (e.g. CI without local results)
+        if out_path.exists():
+            with open(out_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            if existing:
+                print(f"  Preserve existing ({len(existing)} resultats)")
+                return
+
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(all_results[:100], f, indent=2, ensure_ascii=False)
 
