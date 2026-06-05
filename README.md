@@ -1,4 +1,4 @@
-# AfroLLM Benchmark
+# AfriBench
 
 > Évaluer les modèles de langage pour l'Afrique.
 > Benchmark public, ouvert, reproductible et contextuellement ancré dans les réalités africaines.
@@ -8,6 +8,17 @@
 **Version :** v1.0 — Juin 2026  
 
 ---
+
+## Structure du repo
+
+```
+AfriBench/
+├── data/
+│   └── questions/          # Jeux de questions (template + versions)
+├── scripts/                # Scripts d'évaluation (à venir)
+├── configs/                # Configuration des modèles et catégories (à venir)
+└── research/               # Documents de cadrage et de recherche
+```
 
 ## Sections du document de recherche
 

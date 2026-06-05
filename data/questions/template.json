@@ -1,0 +1,21 @@
+{
+  "id": "HIST-001",
+  "category": "histoire",
+  "subcategory": "empires_precoloniaux",
+  "difficulty": "medium",
+  "language": "fr",
+  "question": "Quel empire ouest-africain était réputé pour sa richesse en or et sa ville universitaire de Tombouctou au XIVe siècle ?",
+  "options": {
+    "A": "Empire du Ghana",
+    "B": "Empire du Mali",
+    "C": "Empire Songhaï",
+    "D": "Royaume du Bénin"
+  },
+  "answer": "B",
+  "explanation": "L'Empire du Mali, sous le règne de Mansa Moussa (1312-1337), était célèbre pour ses immenses ressources en or. Tombouctou y devint un centre intellectuel majeur avec l'université de Sankoré.",
+  "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV",
+  "author": "",
+  "date_created": "2026-06-04",
+  "date_validated": null,
+  "validated_by": null
+}
