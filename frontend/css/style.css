@@ -270,7 +270,8 @@ a:hover { color: var(--bronze-light); }
 /* ── Charts ──────────────────────────────────── */
 .chart-container {
   position: relative;
-  min-height: 280px;
+  min-height: 320px;
+  height: 320px;
   background: var(--bg-card);
   border-radius: var(--radius);
 }

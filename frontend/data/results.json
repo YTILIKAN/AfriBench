@@ -1,1 +1,886 @@
-[]
+[
+  {
+    "model": "gpt-4o-mini",
+    "model_label": "GPT-4o Mini",
+    "timestamp": "2026-06-04T21:09:57.218280",
+    "total": 101,
+    "correct": 92,
+    "incorrect": 9,
+    "no_answer": 0,
+    "by_category": {
+      "droit_politique": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "economie": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "geographie": {
+        "correct": 16,
+        "total": 16,
+        "accuracy": 100.0
+      },
+      "histoire": {
+        "correct": 14,
+        "total": 15,
+        "accuracy": 93.3
+      },
+      "ia_technologie": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 100.0
+      },
+      "langue_culture": {
+        "correct": 11,
+        "total": 12,
+        "accuracy": 91.7
+      },
+      "raisonnement_culturel": {
+        "correct": 8,
+        "total": 8,
+        "accuracy": 100.0
+      },
+      "sante_sciences": {
+        "correct": 8,
+        "total": 10,
+        "accuracy": 80.0
+      },
+      "societe": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 70.0
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "correct": 27,
+        "total": 31,
+        "accuracy": 87.1
+      },
+      "medium": {
+        "correct": 31,
+        "total": 33,
+        "accuracy": 93.9
+      },
+      "hard": {
+        "correct": 34,
+        "total": 37,
+        "accuracy": 91.9
+      }
+    },
+    "details": [
+      {
+        "id": "POL-001",
+        "category": "droit_politique",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-002",
+        "category": "droit_politique",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-003",
+        "category": "droit_politique",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-004",
+        "category": "droit_politique",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-005",
+        "category": "droit_politique",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-006",
+        "category": "droit_politique",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "POL-007",
+        "category": "droit_politique",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "POL-008",
+        "category": "droit_politique",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "POL-009",
+        "category": "droit_politique",
+        "difficulty": "hard",
+        "expected": "D",
+        "got": "D",
+        "correct": true
+      },
+      {
+        "id": "POL-010",
+        "category": "droit_politique",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "D",
+        "correct": false
+      },
+      {
+        "id": "ECON-001",
+        "category": "economie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "ECON-002",
+        "category": "economie",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "ECON-003",
+        "category": "economie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "ECON-004",
+        "category": "economie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "ECON-005",
+        "category": "economie",
+        "difficulty": "medium",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "ECON-006",
+        "category": "economie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "ECON-007",
+        "category": "economie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "A",
+        "correct": false
+      },
+      {
+        "id": "ECON-008",
+        "category": "economie",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "ECON-009",
+        "category": "economie",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "ECON-010",
+        "category": "economie",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-001",
+        "category": "geographie",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-002",
+        "category": "geographie",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-003",
+        "category": "geographie",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-004",
+        "category": "geographie",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-005",
+        "category": "geographie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-006",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "GEOG-007",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-008",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-009",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-010",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-011",
+        "category": "geographie",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "GEOG-012",
+        "category": "geographie",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "GEOG-013",
+        "category": "geographie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-014",
+        "category": "geographie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "GEOG-015",
+        "category": "geographie",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "GEOG-016",
+        "category": "geographie",
+        "difficulty": "medium",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "HIST-001",
+        "category": "histoire",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-002",
+        "category": "histoire",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-003",
+        "category": "histoire",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "HIST-004",
+        "category": "histoire",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-005",
+        "category": "histoire",
+        "difficulty": "easy",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "HIST-006",
+        "category": "histoire",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-007",
+        "category": "histoire",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "HIST-008",
+        "category": "histoire",
+        "difficulty": "medium",
+        "expected": "D",
+        "got": "B",
+        "correct": false
+      },
+      {
+        "id": "HIST-009",
+        "category": "histoire",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "HIST-010",
+        "category": "histoire",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-011",
+        "category": "histoire",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-012",
+        "category": "histoire",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-013",
+        "category": "histoire",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "HIST-014",
+        "category": "histoire",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "HIST-015",
+        "category": "histoire",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-001",
+        "category": "ia_technologie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-002",
+        "category": "ia_technologie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-003",
+        "category": "ia_technologie",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-004",
+        "category": "ia_technologie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-005",
+        "category": "ia_technologie",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "IA-006",
+        "category": "ia_technologie",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-007",
+        "category": "ia_technologie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-008",
+        "category": "ia_technologie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-009",
+        "category": "ia_technologie",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "IA-010",
+        "category": "ia_technologie",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "LANG-001",
+        "category": "langue_culture",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "B",
+        "correct": false
+      },
+      {
+        "id": "LANG-002",
+        "category": "langue_culture",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "LANG-003",
+        "category": "langue_culture",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "LANG-004",
+        "category": "langue_culture",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "LANG-005",
+        "category": "langue_culture",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "LANG-006",
+        "category": "langue_culture",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-007",
+        "category": "langue_culture",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-008",
+        "category": "langue_culture",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-009",
+        "category": "langue_culture",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-010",
+        "category": "langue_culture",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-011",
+        "category": "langue_culture",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "LANG-012",
+        "category": "langue_culture",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-001",
+        "category": "raisonnement_culturel",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-002",
+        "category": "raisonnement_culturel",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-003",
+        "category": "raisonnement_culturel",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-004",
+        "category": "raisonnement_culturel",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-005",
+        "category": "raisonnement_culturel",
+        "difficulty": "medium",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "CULT-006",
+        "category": "raisonnement_culturel",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-007",
+        "category": "raisonnement_culturel",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "CULT-008",
+        "category": "raisonnement_culturel",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-001",
+        "category": "sante_sciences",
+        "difficulty": "easy",
+        "expected": "A",
+        "got": "B",
+        "correct": false
+      },
+      {
+        "id": "SANTE-002",
+        "category": "sante_sciences",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-003",
+        "category": "sante_sciences",
+        "difficulty": "easy",
+        "expected": "A",
+        "got": "C",
+        "correct": false
+      },
+      {
+        "id": "SANTE-004",
+        "category": "sante_sciences",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-005",
+        "category": "sante_sciences",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-006",
+        "category": "sante_sciences",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-007",
+        "category": "sante_sciences",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "SANTE-008",
+        "category": "sante_sciences",
+        "difficulty": "hard",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "SANTE-009",
+        "category": "sante_sciences",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SANTE-010",
+        "category": "sante_sciences",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SOC-001",
+        "category": "societe",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "B",
+        "correct": false
+      },
+      {
+        "id": "SOC-002",
+        "category": "societe",
+        "difficulty": "easy",
+        "expected": "C",
+        "got": "C",
+        "correct": true
+      },
+      {
+        "id": "SOC-003",
+        "category": "societe",
+        "difficulty": "easy",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SOC-004",
+        "category": "societe",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SOC-005",
+        "category": "societe",
+        "difficulty": "medium",
+        "expected": "C",
+        "got": "B",
+        "correct": false
+      },
+      {
+        "id": "SOC-006",
+        "category": "societe",
+        "difficulty": "medium",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SOC-007",
+        "category": "societe",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      },
+      {
+        "id": "SOC-008",
+        "category": "societe",
+        "difficulty": "hard",
+        "expected": "A",
+        "got": "A",
+        "correct": true
+      },
+      {
+        "id": "SOC-009",
+        "category": "societe",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "A",
+        "correct": false
+      },
+      {
+        "id": "SOC-010",
+        "category": "societe",
+        "difficulty": "hard",
+        "expected": "B",
+        "got": "B",
+        "correct": true
+      }
+    ],
+    "accuracy": 91.1
+  }
+]
