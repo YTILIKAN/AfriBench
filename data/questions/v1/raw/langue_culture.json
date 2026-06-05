@@ -1,0 +1,230 @@
+[
+  {
+    "id": "LANG-001",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de langues sont parlées sur le continent africain (estimation) ?",
+    "options": {
+      "A": "500-700",
+      "B": "1 000-1 500",
+      "C": "2 000-3 000",
+      "D": "300-400"
+    },
+    "answer": "C",
+    "explanation": "L'Afrique compte entre 2 000 et 3 000 langues, soit environ un tiers des langues du monde. Le Nigeria à lui seul en compte plus de 520. Les principales familles linguistiques sont : Niger-Congo, afro-asiatique, nilo-saharienne et khoïsan.",
+    "source": "UNESCO Atlas des langues en danger ; Ethnologue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-002",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écrivain sénégalais a reçu le prix Nobel de littérature en 2022, devenant le premier auteur africain noir lauréat de ce prix ?",
+    "options": {
+      "A": "Wole Soyinka",
+      "B": "Chimamanda Ngozi Adichie",
+      "C": "Abdulrazak Gurnah",
+      "D": "Mariama Bâ"
+    },
+    "answer": "C",
+    "explanation": "Abdulrazak Gurnah, né à Zanzibar (Tanzanie) et basé au Royaume-Uni, a reçu le Nobel 2022 pour sa « pénétration sans compromis des effets du colonialisme et du destin des réfugiés ». Il est le premier écrivain noir africain lauréat (Wole Soyinka, Nobel 1986, est le premier Africain).",
+    "source": "Académie suédoise (nobelprize.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-003",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est l'une des langues africaines les plus parlées. Dans quelle région est-elle principalement utilisée comme lingua franca ?",
+    "options": {
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Afrique de l'Est et des Grands Lacs",
+      "D": "Afrique centrale"
+    },
+    "answer": "C",
+    "explanation": "Le swahili (Kiswahili) est parlé par environ 150 à 200 millions de personnes en Afrique de l'Est et des Grands Lacs : Tanzanie, Kenya, Ouganda, RDC, Rwanda, Burundi, Mozambique. C'est la langue officielle de la Tanzanie et de l'Union africaine.",
+    "source": "UNESCO ; British Council",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-004",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans les sociétés d'Afrique de l'Ouest, les griots sont des figures culturelles importantes. Quel est leur rôle principal ?",
+    "options": {
+      "A": "Chefs de guerre",
+      "B": "Prêtres animistes",
+      "C": "Gardiens de la tradition orale, musiciens et généalogistes",
+      "D": "Marchands itinérants"
+    },
+    "answer": "C",
+    "explanation": "Les griots (ou djélis) sont des dépositaires de la tradition orale dans les sociétés mandingues et ouest-africaines. Ils sont à la fois historiens, généalogistes, musiciens et conseillers des rois. La transmission orale est encore essentielle dans de nombreuses cultures africaines.",
+    "source": "UNESCO ; Niane, D.T. (1960) Soundjata ou l'Épopée mandingue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-005",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor, poète et premier président du Sénégal, a été un des fondateurs d'un mouvement littéraire et intellectuel majeur. Lequel ?",
+    "options": {
+      "A": "La Négritude",
+      "B": "Le Panafricanisme",
+      "C": "Le Réalisme africain",
+      "D": "L'Indigénisme"
+    },
+    "answer": "A",
+    "explanation": "Senghor, avec Aimé Césaire (Martinique) et Léon-Gontran Damas (Guyane), a fondé le mouvement de la Négritude dans les années 1930. Ce mouvement visait à revaloriser l'identité noire face à la domination coloniale française.",
+    "source": "Senghor, L.S. (1948) Anthologie de la nouvelle poésie nègre et malgache",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-006",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le wolof est une langue largement parlée au Sénégal et en Gambie. À quelle famille linguistique appartient-elle ?",
+    "options": {
+      "A": "Afro-asiatique",
+      "B": "Niger-Congo (atlantique occidental)",
+      "C": "Nilo-saharienne",
+      "D": "Khoïsan"
+    },
+    "answer": "B",
+    "explanation": "Le wolof appartient à la branche atlantique de la famille Niger-Congo, la plus grande famille linguistique d'Afrique. Il est parlé par environ 10 millions de personnes comme langue maternelle et par beaucoup plus comme seconde langue au Sénégal.",
+    "source": "Ethnologue ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-007",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les masques africains sont célèbres dans le monde pour leur diversité et leur symbolisme. Dans les traditions baoulé (Côte d'Ivoire), quelle est la fonction principale des masques Goli ?",
+    "options": {
+      "A": "Ils sont utilisés comme monnaie d'échange",
+      "B": "Ils servent à des rituels funéraires et à l'investiture des chefs",
+      "C": "Ils sont portés uniquement lors des fêtes de récolte",
+      "D": "Ils sont réservés aux cérémonies de mariage"
+    },
+    "answer": "B",
+    "explanation": "Les masques Goli des Baoulé jouent un rôle essentiel dans les funérailles et les cérémonies d'investiture des chefs. Chaque masque représente un esprit animal et a une signification sociale précise.",
+    "source": "Musée du Quai Branly ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-008",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le roman « Une si longue lettre » de Mariama Bâ est une œuvre majeure de la littérature africaine féminine. De quel pays vient l'autrice et quel thème central y est traité ?",
+    "options": {
+      "A": "Côte d'Ivoire — la guerre civile",
+      "B": "Sénégal — la condition des femmes dans la société post-coloniale",
+      "C": "Cameroun — l'exil et l'immigration",
+      "D": "Mali — le commerce transsaharien"
+    },
+    "answer": "B",
+    "explanation": "Mariama Bâ (1929-1981), sénégalaise, a écrit « Une si longue lettre » (1979) qui dénonce la polygamie et les inégalités de genre dans la société sénégalaise post-coloniale. C'est un classique de la littérature féministe africaine.",
+    "source": "Bâ, M. (1979) Une si longue lettre",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-009",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tambour parlant (talking drum) est un instrument de communication dans plusieurs cultures d'Afrique de l'Ouest. Sur quel principe linguistique repose sa capacité à transmettre des messages complexes ?",
+    "options": {
+      "A": "Le code Morse africain",
+      "B": "La reproduction des tons de la langue parlée (langues tonales)",
+      "C": "Un alphabet secret transmis par les griots",
+      "D": "Des rythmes codés qui varient selon les villages"
+    },
+    "answer": "B",
+    "explanation": "Le tambour parlant (dùndún chez les Yoruba, tama chez les Mandingues) reproduit les tons (haut/bas) des langues tonales africaines comme le yoruba. Chaque mot peut être « dit » par le tambour, permettant de transmettre des messages sur des kilomètres.",
+    "source": "UNESCO ; Carrington, J.F. (1949) The Talking Drums of Africa",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-010",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte pour la Renaissance culturelle africaine, adoptée par l'Union africaine en 2006, réaffirme l'importance des langues africaines. Quel article de la charte traite spécifiquement de leur promotion dans l'éducation ?",
+    "options": {
+      "A": "Les langues africaines doivent être enseignées comme matières optionnelles",
+      "B": "Les États membres doivent intégrer les langues africaines comme langues d'enseignement dès le primaire",
+      "C": "Le français et l'anglais restent les seules langues d'enseignement, mais les langues locales peuvent être utilisées à l'oral",
+      "D": "Chaque pays peut choisir librement sa politique linguistique"
+    },
+    "answer": "B",
+    "explanation": "La Charte pour la Renaissance culturelle africaine (Article 18) stipule que les États membres doivent promouvoir l'utilisation des langues africaines comme langues d'enseignement à tous les niveaux. Elle encourage aussi leur usage dans les médias et la vie publique. C'est un texte fondateur mais peu appliqué.",
+    "source": "Union africaine (2006) Charte pour la Renaissance culturelle africaine",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-011",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le cinéma africain francophone a connu son essor dans les années 1960-70. Quel film du réalisateur sénégalais Ousmane Sembène est considéré comme le premier long-métrage réalisé par un Africain noir ?",
+    "options": {
+      "A": "Xala (1975)",
+      "B": "La Noire de... (1966)",
+      "C": "Le Mandat (1968)",
+      "D": "Emitaï (1971)"
+    },
+    "answer": "B",
+    "explanation": "« La Noire de... » (1966) est considéré comme le premier long-métrage réalisé par un Africain noir (Ousmane Sembène). Il traite de l'exploitation des domestiques africains en France. Sembène est surnommé « le père du cinéma africain ».",
+    "source": "FESPACO ; Sembène, O. (1966) La Noire de...",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-012",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de parenté dans les sociétés akan (Ghana, Côte d'Ivoire) est matrilinéaire. Concrètement, cela signifie que l'héritage et la filiation passent par quelle lignée ?",
+    "options": {
+      "A": "La lignée paternelle",
+      "B": "La lignée maternelle",
+      "C": "Le premier-né quel que soit son sexe",
+      "D": "Le chef du clan désigne l'héritier"
+    },
+    "answer": "B",
+    "explanation": "Dans le système matrilinéaire akan (abresc), l'enfant appartient au clan de sa mère (abusua), et l'héritage passe de l'oncle maternel au neveu plutôt que du père au fils. Le chef (ookoaman) est choisi par les anciens du clan maternel.",
+    "source": "Rattray, R.S. (1923) Ashanti ; Meyer, J. (2005) Les Akan",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]
