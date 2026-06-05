@@ -20,9 +20,10 @@ function renderLeaderboard(container) {
   }
 
   let html = `
-    <div class="card">
-      <div class="card-title">Classement des modèles</div>
-      <table class="lb-table">
+      <div class="card">
+        <div class="card-title">Classement des modèles</div>
+        <div class="lb-table-wrapper">
+        <table class="lb-table">
         <thead>
           <tr>
             <th>#</th>
@@ -62,6 +63,7 @@ function renderLeaderboard(container) {
   html += `
         </tbody>
       </table>
+        </div>
     </div>`;
 
   // Category breakdown summary
