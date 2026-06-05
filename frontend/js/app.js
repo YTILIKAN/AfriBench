@@ -85,14 +85,14 @@ function difficultyLabel(d) {
 function categoryLabel(cat) {
   const map = {
     histoire: 'Histoire',
-    geographie: 'Geographie',
+    geographie: 'Géographie',
     droit_politique: 'Droit et Politique',
-    sante_sciences: 'Sante et Sciences',
+    sante_sciences: 'Santé et Sciences',
     langue_culture: 'Langue et Culture',
-    economie: 'Economie',
+    economie: 'Économie',
     ia_technologie: 'IA et Technologie',
-    societe: 'Societe',
-    raisonnement_culturel: 'Raisonne Culturel',
+    societe: 'Société',
+    raisonnement_culturel: 'Raisonnement Culturel',
   };
   return map[cat] || cat;
 }

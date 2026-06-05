@@ -10,10 +10,10 @@ function renderLeaderboard(container) {
     container.innerHTML = `
       <div class="card">
         <div class="empty-state">
-          <h3>Aucun resultat pour le moment</h3>
-          <p>Lancez une evaluation depuis votre terminal :</p>
+          <h3>Aucun résultat pour le moment</h3>
+          <p>Lancez une évaluation depuis votre terminal :</p>
           <p><code>python scripts/afribench.py run</code></p>
-          <p style="margin-top:12px">Les resultats apparaitront ici automatiquement.</p>
+          <p style="margin-top:12px">Les résultats apparaîtront ici automatiquement.</p>
         </div>
       </div>`;
     return;
@@ -21,12 +21,12 @@ function renderLeaderboard(container) {
 
   let html = `
     <div class="card">
-      <div class="card-title">Classement des modeles</div>
+      <div class="card-title">Classement des modèles</div>
       <table class="lb-table">
         <thead>
           <tr>
             <th>#</th>
-            <th>Modele</th>
+            <th>Modèle</th>
             <th>Score</th>
             <th>Questions</th>
             <th>Facile</th>
@@ -66,8 +66,8 @@ function renderLeaderboard(container) {
 
   // Category breakdown summary
   if (models.length > 0) {
-    html += `<div class="card"><div class="card-title">Performance par categorie</div><div class="chart-container"><canvas id="cat-chart"></canvas></div></div>`;
-    html += `<div class="card"><div class="card-title">Performance par difficulte</div><div class="chart-container"><canvas id="diff-chart"></canvas></div></div>`;
+    html += `<div class="card"><div class="card-title">Performance par catégorie</div><div class="chart-container"><canvas id="cat-chart"></canvas></div></div>`;
+    html += `<div class="card"><div class="card-title">Performance par difficulté</div><div class="chart-container"><canvas id="diff-chart"></canvas></div></div>`;
   }
 
   container.innerHTML = html;
@@ -165,7 +165,7 @@ function renderDifficultyChart(models) {
       labels: diffLabels,
       datasets: [
         {
-          label: 'Moyenne des modeles',
+          label: 'Moyenne des modèles',
           data: avgData,
           backgroundColor: diffColors.map((c) => c + 'CC'),
           borderColor: diffColors,

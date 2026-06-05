@@ -9,8 +9,8 @@ function renderCategories(container) {
     container.innerHTML = `
       <div class="card">
         <div class="empty-state">
-          <h3>Pas encore de resultats</h3>
-          <p>Les performances par categorie apparaitront apres la premiere evaluation.</p>
+          <h3>Pas encore de résultats</h3>
+          <p>Les performances par catégorie apparaîtront après la première évaluation.</p>
         </div>
       </div>`;
     return;

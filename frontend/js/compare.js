@@ -9,8 +9,8 @@ function renderCompare(container) {
     container.innerHTML = `
       <div class="card">
         <div class="empty-state">
-          <h3>Pas assez de resultats</h3>
-          <p>Evaluez au moins un modele pour utiliser la comparaison.</p>
+          <h3>Pas assez de résultats</h3>
+          <p>Évaluez au moins un modèle pour utiliser la comparaison.</p>
         </div>
       </div>`;
     return;
@@ -18,7 +18,7 @@ function renderCompare(container) {
 
   let html = `
     <div class="card">
-      <div class="card-title">Comparer les modeles</div>
+      <div class="card-title">Comparer les modèles</div>
       <div class="compare-selector">`;
 
   models.forEach((m) => {
