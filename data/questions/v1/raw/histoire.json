@@ -1,0 +1,287 @@
+[
+  {
+    "id": "HIST-001",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire ouest-africain était réputé pour sa richesse en or et sa ville universitaire de Tombouctou au XIVe siècle ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Empire du Mali",
+      "C": "Empire Songhaï",
+      "D": "Royaume du Bénin"
+    },
+    "answer": "B",
+    "explanation": "L'Empire du Mali, sous Mansa Moussa (1312-1337), était célèbre pour ses ressources en or. Tombouctou y devint un centre intellectuel avec l'université de Sankoré.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-002",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'année 1960 est surnommée « l'année de l'Afrique » car elle a vu l'indépendance de 17 pays africains. Quelle puissance coloniale concernait la majorité d'entre eux ?",
+    "options": {
+      "A": "Royaume-Uni",
+      "B": "France",
+      "C": "Belgique",
+      "D": "Portugal"
+    },
+    "answer": "B",
+    "explanation": "En 1960, 14 colonies françaises d'Afrique subsaharienne accèdent à l'indépendance : Sénégal, Côte d'Ivoire, Mali, Haute-Volta, Niger, Dahomey, Mauritanie, Tchad, Centrafrique, Congo, Gabon, Madagascar.",
+    "source": "Décolonisation de l'Afrique — Wikipédia ; Formation civique (gouv.fr)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-003",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire africain antique, situé dans l'actuelle Éthiopie, était l'un des plus grands empires commerciaux du monde antique et est mentionné dans le Livre des Actes des Apôtres ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Royaume de Koush",
+      "C": "Royaume d'Aksoum",
+      "D": "Empire du Mali"
+    },
+    "answer": "C",
+    "explanation": "Le Royaume d'Aksoum (ou Axoum) a prospéré du Ier au VIIe siècle dans la Corne de l'Afrique. Puissance commerciale majeure, il est mentionné dans le Livre des Actes. Il est aussi le berceau de l'Église orthodoxe éthiopienne.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. II",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-004",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui a été le premier président du Ghana indépendant et un leader panafricaniste majeur ?",
+    "options": {
+      "A": "Léopold Sédar Senghor",
+      "B": "Kwame Nkrumah",
+      "C": "Jomo Kenyatta",
+      "D": "Julius Nyerere"
+    },
+    "answer": "B",
+    "explanation": "Kwame Nkrumah (1909-1972) a mené le Ghana (ex-Côte-de-l'Or britannique) à l'indépendance en 1957 — le premier pays d'Afrique subsaharienne. Il a été un fervent défenseur du panafricanisme et de l'unité africaine.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-005",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire d'Afrique de l'Ouest, célèbre pour sa richesse en sel et en or, était surnommé « Wagadou » et aurait été fondé entre le VIe et le VIIIe siècle ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Empire Songhaï",
+      "C": "Empire du Mali",
+      "D": "Royaume du Ghana"
+    },
+    "answer": "A",
+    "explanation": "L'Empire du Ghana (ou Wagadou) était situé entre les actuels Mauritanie, Sénégal et Mali. Il contrôlait le commerce transsaharien d'or et de sel entre le VIIIe et le XIIIe siècle.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. III",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-006",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Lors de la Conférence de Berlin (1884-1885), les puissances européennes se sont partagé l'Afrique. Quel principe y a été établi pour justifier les revendications territoriales ?",
+    "options": {
+      "A": "Le droit des peuples à disposer d'eux-mêmes",
+      "B": "Le principe d'occupation effective",
+      "C": "La doctrine Monroe",
+      "D": "Le mandat de la Société des Nations"
+    },
+    "answer": "B",
+    "explanation": "La Conférence de Berlin (1884-1885) a établi le principe d'« occupation effective » : une puissance devait occuper physiquement un territoire pour le revendiquer. Aucun Africain n'était présent.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-007",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Royaume du Kongo (XIVe-XVIIIe siècle) est connu pour avoir adopté le christianisme comme religion d'État sous le règne de son roi le plus célèbre. De quel roi s'agit-il ?",
+    "options": {
+      "A": "Alphonso Ier (Mbemba Nzinga)",
+      "B": "Nzinga Mbandi",
+      "C": "Shaka Zulu",
+      "D": "Soundiata Keita"
+    },
+    "answer": "A",
+    "explanation": "Alphonso Ier (Mvemba a Nzinga, 1506-1543) a fait du christianisme la religion officielle du Royaume du Kongo. Il a correspondu avec le roi du Portugal et a tenté de moderniser son royaume.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-008",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Soundiata Keita, fondateur de l'Empire du Mali au XIIIe siècle, est le héros d'une épopée orale transmise par les griots. Comment s'appelle cette épopée ?",
+    "options": {
+      "A": "La Geste des Keita",
+      "B": "L'Épopée de Soundiata",
+      "C": "Le Chant du Mandé",
+      "D": "L'Épopée du Mandingue"
+    },
+    "answer": "D",
+    "explanation": "L'Épopée du Mandingue (ou Épopée de Soundiata) est une tradition orale des griots mandingues. Soundiata Keita a vaincu Soumaoro Kanté à la bataille de Kirina (vers 1235).",
+    "source": "UNESCO Mémoires du monde ; Niane, D.T. (1960) Soundjata ou l'Épopée mandingue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-009",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La guerre d'indépendance algérienne (1954-1962) a été l'un des conflits de décolonisation les plus violents. Quel traité y a mis fin ?",
+    "options": {
+      "A": "Les Accords d'Évian",
+      "B": "Les Accords de Genève",
+      "C": "Le Traité de Paris",
+      "D": "Les Accords de Bandoeng"
+    },
+    "answer": "A",
+    "explanation": "Les Accords d'Évian (18 mars 1962) ont mis fin à la guerre d'Algérie. Ils ont été précédés par un référendum en France et ont conduit à l'indépendance de l'Algérie le 5 juillet 1962.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-010",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel était le principal objectif économique de la colonisation française en Afrique subsaharienne, selon le système de l'économie de traite ?",
+    "options": {
+      "A": "L'industrialisation des colonies",
+      "B": "L'extraction de matières premières et la vente de produits manufacturés français",
+      "C": "La formation d'une élite locale",
+      "D": "La construction de chemins de fer transafricains"
+    },
+    "answer": "B",
+    "explanation": "L'économie de traite reposait sur l'exportation de matières premières (arachide, café, cacao, bois, coton) vers la France et l'importation de produits manufacturés français. Les colonies devaient être autofinancées.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-011",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Empire Songhaï, à son apogée sous l'askia Mohammed Ier (1493-1528), était dirigé par une administration complexe. Quelle innovation administrative a-t-il introduite ?",
+    "options": {
+      "A": "Un système féodal avec des chevaliers",
+      "B": "Un État centralisé avec des gouverneurs provinciaux, un trésorier impérial et un corps d'inspecteurs",
+      "C": "Une monarchie élective contrôlée par un conseil d'anciens",
+      "D": "Un système de cités-États autonomes reliées par le commerce"
+    },
+    "answer": "B",
+    "explanation": "Sous l'askia Mohammed Ier, Songhaï a développé une administration centralisée avec des gouverneurs (kebi-kebi) dans les provinces, un trésorier impérial, un corps d'inspecteurs et une marine de guerre fluviale sur le Niger.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV ; BBC Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-012",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Au XIXe siècle, une reine africaine a mené une résistance acharnée contre la colonisation portugaise dans l'actuelle Angola, en utilisant des alliances diplomatiques avec les Hollandais. De qui s'agit-il ?",
+    "options": {
+      "A": "Yaa Asantewaa",
+      "B": "Nzinga Mbandi (Reine Nzinga)",
+      "C": "Sarama Bintou",
+      "D": "Moremi Ajasoro"
+    },
+    "answer": "B",
+    "explanation": "La Reine Nzinga (1583-1663) a régné sur les royaumes Ndongo et Matamba. Elle a conclu une alliance avec les Hollandais contre les Portugais et a mené une guérilla de plusieurs décennies. Elle est une icône de la résistance africaine.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-013",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Parti du Congrès de l'Indépendance de Madagascar (PAKISCA) a joué un rôle central dans la lutte pour l'indépendance. Quel événement majeur a marqué la répression du mouvement nationaliste malgache en 1947 ?",
+    "options": {
+      "A": "La Conférence de Brazzaville",
+      "B": "L'Insurrection malgache",
+      "C": "Le Massacre de Thiaroye",
+      "D": "La Révolte des Mascareignes"
+    },
+    "answer": "B",
+    "explanation": "L'Insurrection malgache (1947-1948) fut un soulèvement nationaliste réprimé violemment par la France, causant 11 000 à 90 000 morts selon les estimations. Cet événement a marqué la lutte pour l'indépendance de Madagascar.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-014",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Royaume du Bénin (actuel Nigeria) est célèbre pour ses bronzes et sa capitale ceinte de remparts. À quel siècle ces remparts, considérés comme les plus longues structures de terre du monde, ont-ils été principalement construits ?",
+    "options": {
+      "A": "Xe siècle",
+      "B": "XIIIe siècle",
+      "C": "XVe siècle",
+      "D": "XVIIe siècle"
+    },
+    "answer": "C",
+    "explanation": "Les remparts du Royaume du Bénin ont été principalement érigés au XVe siècle. Ils formaient un réseau de 16 000 km de fossés et de levées de terre, considéré comme la plus grande structure de terre jamais construite.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Connah, G. (1975) The Archaeology of Benin",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-015",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Lors du Congrès de Vienne (1815), le Royaume-Uni a obtenu l'interdiction de la traite négrière par les puissances européennes. Quelle figure africaine avait déjà aboli l'esclavage dans son royaume des décennies plus tôt ?",
+    "options": {
+      "A": "Osei Tutu Ier (Empire ashanti)",
+      "B": "Affonso Ier (Royaume du Kongo)",
+      "C": "Mansa Moussa (Empire du Mali)",
+      "D": "Idris Alooma (Empire du Kanem-Bornou)"
+    },
+    "answer": "B",
+    "explanation": "Affonso Ier (Mvemba a Nzinga), roi du Kongo (1506-1543), a tenté d'interdire la traite négrière dans son royaume dès les années 1520. Il a écrit au roi du Portugal pour dénoncer les raids d'esclaves qui dépeuplaient le pays.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Lettres d'Affonso Ier au roi du Portugal (1526)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]
