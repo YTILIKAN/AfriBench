@@ -1,0 +1,48 @@
+# Catégories de questions AfriBench
+# Utilisées pour le scoring et les visualisations.
+
+categories:
+  histoire:
+    label: "Histoire"
+    description: "Histoire africaine (précoloniale, coloniale, post-coloniale)"
+    color: "#C4A46A"
+
+  geographie:
+    label: "Géographie"
+    description: "Géographie physique, politique et urbaine"
+    color: "#4A90D9"
+
+  droit_politique:
+    label: "Droit et Politique"
+    description: "Systèmes juridiques, organisations continentales, gouvernance"
+    color: "#E57373"
+
+  sante_sciences:
+    label: "Santé et Sciences"
+    description: "Santé publique, épidémiologie, sciences africaines"
+    color: "#81C784"
+
+  langue_culture:
+    label: "Langue et Culture"
+    description: "Langues africaines, littérature, traditions culturelles"
+    color: "#FFB74D"
+
+  economie:
+    label: "Économie"
+    description: "Économie africaine, développement, numérique"
+    color: "#9575CD"
+
+  ia_technologie:
+    label: "IA et Technologie"
+    description: "Intelligence artificielle et tech en Afrique"
+    color: "#4DB6AC"
+
+  societe:
+    label: "Société"
+    description: "Démographie, éducation, urbanisation, médias"
+    color: "#F06292"
+
+  raisonnement_culturel:
+    label: "Raisonnement Culturel"
+    description: "Questions de logique et raisonnement contextuel africain"
+    color: "#A1887F"

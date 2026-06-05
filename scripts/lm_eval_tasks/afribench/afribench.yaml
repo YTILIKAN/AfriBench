@@ -1,0 +1,27 @@
+# AfriBench — LM Evaluation Harness Task
+#
+# Permet d'évaluer AfriBench via `lm-eval` :
+#   lm-eval --model openai-completions --model_args model=gpt-4o --tasks afribench
+#   lm-eval --model local-completions --model_args model=/path/to/model --tasks afribench
+#
+# Les questions sont chargées depuis data/questions/v1/validated/ (JSON).
+# Nécessite d'installer lm-eval d'abord : pip install lm-eval
+
+dataset_path: json
+dataset_kwargs:
+  data_files: "data/questions/v1/validated/*.json"
+test_split: train
+output_type: multiple_choice
+doc_to_text: !function utils.doc_to_text
+doc_to_choice: !function utils.doc_to_choice
+doc_to_target: "answer"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
+  name: "AfriBench"
+  description: "Benchmark d'évaluation des LLMs sur les réalités africaines (francophone)"
+  languages: ["fr"]
+  contributor: "YTILIKAN"
