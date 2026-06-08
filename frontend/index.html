@@ -4,10 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AfriBench — Benchmark LLM pour l'Afrique</title>
-  <meta name="description" content="AfriBench : évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert, reproductible.">
+  <meta name="description" content="AfriBench : évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert et reproductible.">
+  <meta name="keywords" content="LLM, benchmark, Afrique, intelligence artificielle, évaluation, NLP africain">
+  <meta property="og:title" content="AfriBench — Benchmark LLM pour l'Afrique">
+  <meta property="og:description" content="Évaluer les modèles de langage sur les réalités africaines. 101 questions dans 9 catégories.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ytilikan.github.io/AfriBench/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -15,52 +20,125 @@
 
   <div class="app-container">
 
-    <!-- Header -->
-    <header class="app-header">
-      <div class="header-inner">
-        <div class="header-brand">
-          <div>
-            <h1>AfriBench</h1>
-            <div class="tagline">Évaluer les modèles de langage pour l'Afrique</div>
-          </div>
-        </div>
-        <div class="header-stats">
-          <div class="stat-pill">
-            Modèles <strong id="results-count">-</strong>
-          </div>
-          <div class="stat-pill">
-            Questions <strong id="questions-count">-</strong>
-          </div>
-          <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" style="color:var(--text-muted);font-size:0.85rem">
-            github
-          </a>
-        </div>
+    <!-- ═══ Sidebar ═══ -->
+    <aside class="app-sidebar" id="sidebar" role="navigation" aria-label="Navigation principale">
+      <div class="sidebar-logo">
+        <h1>AfriBench</h1>
+        <div class="tagline">Benchmark LLM pour l'Afrique</div>
       </div>
-    </header>
 
-    <!-- Tabs -->
-    <nav class="tabs">
-      <button class="tab-btn active" data-tab="leaderboard">Classement</button>
-      <button class="tab-btn" data-tab="categories">Categories</button>
-      <button class="tab-btn" data-tab="compare">Comparer</button>
-      <button class="tab-btn" data-tab="questions">Questions</button>
-    </nav>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Pages</div>
+        <button class="sidebar-btn active" data-tab="leaderboard" data-sidebar>
+          <span class="icon">📊</span>
+          Classement
+        </button>
+        <button class="sidebar-btn" data-tab="categories" data-sidebar>
+          <span class="icon">🏷️</span>
+          Categories
+        </button>
+        <button class="sidebar-btn" data-tab="compare" data-sidebar>
+          <span class="icon">⚖️</span>
+          Comparer
+        </button>
+        <button class="sidebar-btn" data-tab="questions" data-sidebar>
+          <span class="icon">❓</span>
+          Questions
+          <span class="count" id="sidebar-q-count">101</span>
+        </button>
 
-    <!-- Content -->
-    <main id="tab-content">
-      <div class="card">
-        <div class="empty-state">
-          <h3>Chargement...</h3>
-          <p><span>Patientez</span></p>
+        <div class="sidebar-section">Categories</div>
+        <div id="sidebar-categories">
+          <!-- Rempli par JS -->
+          <div class="loading" style="padding:8px 16px;font-size:11px">Chargement...</div>
         </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>Y'TILIKAN</div>
+        <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">github ⏤</a>
+        <a href="https://ytilikan.com" target="_blank" rel="noopener">ytilikan.com</a>
       </div>
-    </main>
+    </aside>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-      AfriBench &middot; Y'TILIKAN &middot; <a href="https://ytilikan.com">ytilikan.com</a>
-    </footer>
+    <!-- ═══ Main ═══ -->
+    <div class="app-main">
 
+      <!-- ═══ Header ═══ -->
+      <header class="app-header">
+        <div class="header-inner">
+          <div class="header-left">
+            <div class="header-search">
+              <span class="search-icon">⌕</span>
+              <input type="text" id="global-search" placeholder="Rechercher un modèle..." aria-label="Rechercher un modèle">
+            </div>
+          </div>
+          <div class="header-actions">
+            <div class="header-stat">
+              Modèles <strong id="hdr-models">-</strong>
+            </div>
+            <div class="header-stat">
+              Questions <strong id="hdr-questions">-</strong>
+            </div>
+            <div class="header-stat mobile-visible" id="hdr-last-update" style="display:none">
+              Mis à jour <strong id="hdr-date">-</strong>
+            </div>
+            <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener" class="header-btn-outline">github</a>
+            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="header-btn">+ Soumettre</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- ═══ Hero Section ═══ -->
+      <section class="hero-section" id="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">
+            Évaluer les LLMs <span>sur les réalités africaines</span>
+          </h2>
+          <p class="hero-description">
+            AfriBench est un benchmark public, ouvert et reproductible pour mesurer la performance
+            des modèles de langage sur des questions couvrant l'histoire, la géographie, la culture,
+            l'économie, le droit, la santé, la technologie et la société africaines.
+          </p>
+          <div class="hero-badges" id="hero-badges">
+            <div class="hero-badge">📊 <strong id="hero-model-count">-</strong> modèles évalués</div>
+            <div class="hero-badge">❓ <strong id="hero-q-count">101</strong> questions</div>
+            <div class="hero-badge">🏷️ <strong id="hero-cat-count">9</strong> catégories</div>
+            <div class="hero-badge">📅 mis à jour <strong id="hero-date">-</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Top Models Row ═══ -->
+      <div class="top-models-row" id="top-models-row">
+        <!-- Rempli par JS -->
+      </div>
+
+      <!-- ═══ Tab Navigation ═══ -->
+      <nav class="tab-bar" role="tablist" aria-label="Sections">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="leaderboard">Classement</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="categories">Catégories</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="compare">Comparer</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="questions">Questions</button>
+      </nav>
+
+      <!-- ═══ Content Area ═══ -->
+      <main class="content-area" id="tab-content" role="tabpanel">
+        <div class="card">
+          <div class="empty-state">
+            <h3>Chargement...</h3>
+            <p><span class="pulse">Patientez</span></p>
+          </div>
+        </div>
+      </main>
+
+      <!-- ═══ Footer ═══ -->
+      <footer class="app-footer">
+        AfriBench &middot; Y'TILIKAN &middot; <a href="https://ytilikan.com" target="_blank" rel="noopener">ytilikan.com</a>
+        &middot; <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">Code source ouvert</a>
+      </footer>
+
+    </div>
   </div>
 
   <script src="js/app.js"></script>

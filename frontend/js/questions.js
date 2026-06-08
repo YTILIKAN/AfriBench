@@ -1,6 +1,9 @@
-/* ═══════════════════════════════════════════════
-   AfriBench — Questions Browser
-   ═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   AfriBench — Questions Browser (refonte 2026)
+   ═══════════════════════════════════════════════════════════ */
+
+let qFilterCat = 'all';
+let qFilterDiff = 'all';
 
 function renderQuestions(container) {
   const qs = AppState.questions;
@@ -9,71 +12,119 @@ function renderQuestions(container) {
     container.innerHTML = `
       <div class="card">
         <div class="empty-state">
-          <h3>Questions non chargees</h3>
+          <h3>Questions non chargées</h3>
           <p>Le fichier <code>data/questions.json</code> est requis.</p>
-          <p style="margin-top:8px">Generer avec : <code>python scripts/afribench.py export --format json > frontend/data/questions.json</code></p>
         </div>
-      </div>`;
+      </div>
+    `;
     return;
   }
 
-  // Categorie filter
+  // Collect unique categories
   const cats = [...new Set(qs.map((q) => q.category))].sort();
+  const diffs = [...new Set(qs.map((q) => q.difficulty))].sort();
+
+  // Apply filters
+  let filtered = qs;
+  if (qFilterCat !== 'all') filtered = filtered.filter((q) => q.category === qFilterCat);
+  if (qFilterDiff !== 'all') filtered = filtered.filter((q) => q.difficulty === qFilterDiff);
 
   let html = `
     <div class="card">
-      <div class="card-title">Parcourir les questions (${qs.length})</div>
+      <div class="card-title">
+        Parcourir les questions
+        <span class="count-badge">${filtered.length} / ${qs.length}</span>
+      </div>
+
+      <!-- Filters -->
       <div class="filter-bar">
-        <button class="filter-chip active" data-cat="all">Toutes</button>`;
+        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Catégorie:</span>
+        <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
+        ${cats.map((c) => `
+          <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
+        `).join('')}
+      </div>
+      <div class="filter-bar">
+        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Difficulté:</span>
+        <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
+        ${diffs.map((d) => `
+          <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">
+            ${difficultyLabel(d)}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
 
-  cats.forEach((c) => {
-    const count = qs.filter((q) => q.category === c).length;
-    html += `<button class="filter-chip" data-cat="${c}">${categoryLabel(c)} (${count})</button>`;
-  });
+  // Questions list
+  html += '<div class="card"><div class="q-list">';
 
-  html += `</div>
-    <div class="q-list" id="q-list">`;
-
-  qs.forEach((q, i) => {
-    const diff = q.difficulty || 'medium';
+  if (filtered.length === 0) {
     html += `
-      <div class="q-item" data-index="${i}" data-category="${q.category}">
-        <div class="q-meta">
-          <span class="q-category">${categoryLabel(q.category)}</span>
-          <span class="q-difficulty ${diff}">${difficultyLabel(diff)}</span>
-          <span style="color:var(--text-muted);font-size:0.75rem">${q.id || ''}</span>
-        </div>
-        <div class="q-text">${q.question}</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">
-          ${Object.entries(q.options || {}).map(([k, v]) => `<span style="margin-right:12px"><strong>${k}.</strong> ${v}</span>`).join('')}
-        </div>
-        <div class="q-answer">
-          Reponse : <strong>${q.answer}</strong>
-          ${q.explanation ? `<br><span style="color:var(--text-secondary);font-size:0.8rem">${q.explanation}</span>` : ''}
-        </div>
-      </div>`;
-  });
+      <div class="empty-state" style="padding:30px">
+        <h3>Aucune question trouvée</h3>
+        <p>Essayez de modifier les filtres.</p>
+      </div>
+    `;
+  } else {
+    filtered.forEach((q, i) => {
+      const diffClass = q.difficulty || 'medium';
+      const catColor = categoryColor(q.category);
+      const sourceInfo = q.source ? q.source : '';
+      const dateInfo = q.date_created ? formatDate(q.date_created) : '';
 
-  html += `</div></div>`;
+      html += `
+        <div class="q-item" data-category="${q.category}" data-difficulty="${q.difficulty || ''}">
+          <div class="q-meta">
+            <span class="q-meta-badge category" style="background:${catColor}22;color:${catColor}">
+              ${categoryLabel(q.category)}
+            </span>
+            <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>
+            <span class="q-meta-badge subtle">${q.id || ''}</span>
+            ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
+          </div>
+          <div class="q-text">${q.question}</div>
+          <div class="q-options">
+            ${Object.entries(q.options || {}).map(([k, v]) => `
+              <div class="q-option"><strong>${k}.</strong> ${v}</div>
+            `).join('')}
+          </div>
+          <div class="q-answer">
+            <div class="label">✓ Réponse : ${q.answer}</div>
+            ${q.explanation ? `<div class="explanation">${q.explanation}</div>` : ''}
+            ${sourceInfo ? `<div class="q-source">Source : ${sourceInfo}</div>` : ''}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  html += '</div></div>';
+
   container.innerHTML = html;
 
-  // Event listeners
+  // Wire up toggle expand/collapse
   document.querySelectorAll('.q-item').forEach((el) => {
-    el.addEventListener('click', () => el.classList.toggle('expanded'));
+    el.addEventListener('click', (e) => {
+      // Don't toggle if user clicked a link
+      if (e.target.tagName === 'A') return;
+      el.classList.toggle('expanded');
+    });
   });
 
-  document.querySelectorAll('.filter-chip').forEach((btn) => {
+  // Wire up category filters
+  document.querySelectorAll('[data-qcat]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-chip').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      document.querySelectorAll('.q-item').forEach((el) => {
-        if (cat === 'all' || el.dataset.category === cat) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
-      });
+      qFilterCat = btn.dataset.qcat;
+      renderQuestions(container);
+    });
+  });
+
+  // Wire up difficulty filters
+  document.querySelectorAll('[data-qdiff]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      qFilterDiff = btn.dataset.qdiff;
+      renderQuestions(container);
     });
   });
 }

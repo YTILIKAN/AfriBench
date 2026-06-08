@@ -1,6 +1,17 @@
-/* ═══════════════════════════════════════════════
-   AfriBench — Categories View
-   ═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   AfriBench — Categories View (refonte 2026)
+   ═══════════════════════════════════════════════════════════ */
+
+let categoryFilter = null;
+
+// Expose for sidebar
+window.__categoryFilter = (cat) => {
+  categoryFilter = cat;
+  const container = document.getElementById('tab-content');
+  if (container && AppState.activeTab === 'categories') {
+    renderCategories(container);
+  }
+};
 
 function renderCategories(container) {
   const models = getLatestResults();
@@ -12,7 +23,8 @@ function renderCategories(container) {
           <h3>Pas encore de résultats</h3>
           <p>Les performances par catégorie apparaîtront après la première évaluation.</p>
         </div>
-      </div>`;
+      </div>
+    `;
     return;
   }
 
@@ -21,7 +33,12 @@ function renderCategories(container) {
   models.forEach((m) => {
     if (m.by_category) Object.keys(m.by_category).forEach((c) => allCats.add(c));
   });
-  const cats = Array.from(allCats).sort();
+  let cats = Array.from(allCats).sort();
+
+  // Apply sidebar filter
+  if (categoryFilter) {
+    cats = cats.filter((c) => c === categoryFilter);
+  }
 
   // Best model per category
   const bestPerCategory = {};
@@ -38,51 +55,77 @@ function renderCategories(container) {
     bestPerCategory[c] = { model: best, score: bestScore };
   });
 
+  // ---- Filter bar ----
+  const allCatsList = Array.from(allCats).sort();
   let html = `
-    <div class="card">
-      <div class="card-title">Scores par categorie</div>
-      <div class="chart-container" style="min-height:350px"><canvas id="cat-detail-chart"></canvas></div>
+    <div class="filter-bar">
+      <button class="filter-btn ${!categoryFilter ? 'active' : ''}" data-cat="all">Toutes</button>
+      ${allCatsList.map((c) => `
+        <button class="filter-btn ${categoryFilter === c ? 'active' : ''}" data-cat="${c}">${categoryLabel(c)}</button>
+      `).join('')}
     </div>
+  `;
 
-    <div class="card">
-      <div class="card-title">Meilleur modele par categorie</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px">`;
+  // ---- Category cards grid ----
+  html += `
+    <div class="grid-auto">
+  `;
 
   cats.forEach((c) => {
     const bp = bestPerCategory[c];
     const color = categoryColor(c);
     html += `
-      <div style="background:var(--bg-primary);border:1px solid var(--border-light);border-radius:8px;padding:16px">
-        <div style="font-size:0.75rem;color:${color};font-weight:600;margin-bottom:4px">${categoryLabel(c)}</div>
-        <div style="font-size:1.2rem;font-weight:700;color:var(--bronze)">${bp.score >= 0 ? bp.score.toFixed(1) + '%' : '-'}</div>
-        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">${bp.model ? bp.model.model_label || bp.model.model : '-'}</div>
-      </div>`;
+      <div class="cat-card">
+        <div class="cat-label" style="color:${color}">${categoryLabel(c)}</div>
+        <div class="cat-score">${bp.score >= 0 ? bp.score.toFixed(1) + '%' : '-'}</div>
+        <div class="cat-model">${bp.model ? bp.model.model_label || bp.model.model : '-'}</div>
+      </div>
+    `;
   });
 
-  html += `</div></div>`;
+  html += `</div>`;
+
+  // ---- Radar Chart ----
+  html += `
+    <div class="card" style="margin-top:var(--space-2)">
+      <div class="card-title">Comparaison radar par catégorie</div>
+      <div class="chart-container" style="min-height:350px">
+        <canvas id="cat-radar-chart"></canvas>
+      </div>
+    </div>
+  `;
 
   container.innerHTML = html;
 
-  requestAnimationFrame(() => renderCategoryDetailChart(models, cats));
+  // Wire up filter chips
+  container.querySelectorAll('[data-cat]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      categoryFilter = btn.dataset.cat === 'all' ? null : btn.dataset.cat;
+      renderCategories(container);
+    });
+  });
+
+  requestAnimationFrame(() => renderCategoryRadar(models, cats));
 }
 
-function renderCategoryDetailChart(models, categories) {
-  const canvas = document.getElementById('cat-detail-chart');
+function renderCategoryRadar(models, categories) {
+  const canvas = document.getElementById('cat-radar-chart');
   if (!canvas) return;
-
   const ctx = canvas.getContext('2d');
+
   const topModels = models.slice(0, 5);
 
   const datasets = topModels.map((m, i) => {
     const data = categories.map((c) => m.by_category?.[c]?.accuracy || 0);
-    const hue = i * 45;
+    const hue = i * 72;
     return {
       label: m.model_label || m.model,
       data,
-      backgroundColor: `hsla(${hue}, 55%, 55%, 0.15)`,
+      backgroundColor: `hsla(${hue}, 55%, 55%, 0.08)`,
       borderColor: `hsla(${hue}, 55%, 55%, 0.9)`,
       borderWidth: 2,
       pointBackgroundColor: `hsla(${hue}, 55%, 55%, 1)`,
+      pointRadius: 3,
       tension: 0.3,
     };
   });
@@ -98,7 +141,7 @@ function renderCategoryDetailChart(models, categories) {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          labels: { color: '#A8A6B8', font: { size: 11 } },
+          labels: { color: '#8a8a9e', font: { size: 10 } },
         },
       },
       scales: {
@@ -111,9 +154,12 @@ function renderCategoryDetailChart(models, categories) {
             font: { size: 9 },
             stepSize: 25,
           },
-          grid: { color: '#1E1C3A' },
-          angleLines: { color: '#1E1C3A' },
-          pointLabels: { color: '#A8A6B8', font: { size: 11 } },
+          grid: { color: '#2c2c2f' },
+          angleLines: { color: '#2c2c2f' },
+          pointLabels: {
+            color: '#ebebeb',
+            font: { size: 10 },
+          },
         },
       },
     },
