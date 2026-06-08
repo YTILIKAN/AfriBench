@@ -90,7 +90,7 @@ function renderQuestions(container) {
             `).join('')}
           </div>
           <div class="q-answer">
-            <div class="label">✓ Réponse : ${q.answer}</div>
+            <div class="label">Reponse : ${q.answer}</div>
             ${q.explanation ? `<div class="explanation">${q.explanation}</div>` : ''}
             ${sourceInfo ? `<div class="q-source">Source : ${sourceInfo}</div>` : ''}
           </div>

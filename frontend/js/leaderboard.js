@@ -64,8 +64,8 @@ function renderLeaderboard(container) {
   let html = `
     <div class="filter-bar">
       <button class="filter-btn ${lbFilterType === 'all' ? 'active' : ''}" data-filter="all">Tous</button>
-      <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">🔓 Open Weights</button>
-      <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">🔒 Propriétaire</button>
+      <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
+      <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">Propriétaire</button>
       <span style="flex:1"></span>
       <span style="font-size:var(--font-size-xs);color:var(--text-muted)">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
@@ -78,20 +78,20 @@ function renderLeaderboard(container) {
         <thead>
           <tr>
             <th data-sort="rank" class="${lbSortField === 'rank' ? (lbSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc') : ''}">
-              # <span class="sort-icon">↕</span>
+              # <span class="sort-arrows"></span>
             </th>
             <th data-sort="name" class="${lbSortField === 'name' ? (lbSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc') : ''}">
-              Modèle <span class="sort-icon">↕</span>
+              Modèle <span class="sort-arrows"></span>
             </th>
             <th data-sort="score" class="${lbSortField === 'score' ? (lbSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc') : ''}">
-              Score <span class="sort-icon">↕</span>
+              Score <span class="sort-arrows"></span>
             </th>
             <th>Questions</th>
             <th>Facile</th>
             <th>Moyen</th>
             <th>Difficile</th>
             <th data-sort="date" class="${lbSortField === 'date' ? (lbSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc') : ''}">
-              Évalué <span class="sort-icon">↕</span>
+              Évalué <span class="sort-arrows"></span>
             </th>
           </tr>
         </thead>
@@ -106,14 +106,15 @@ function renderLeaderboard(container) {
     const med = d.medium ? `${(d.medium.accuracy || 0).toFixed(1)}%` : '-';
     const hard = d.hard ? `${(d.hard.accuracy || 0).toFixed(1)}%` : '-';
     const isOpen = isOpenModel(m);
-    const providerIcon = isOpen ? '🔓' : '🔒';
+    const providerIcon = '';
+    const providerClass = isOpen ? 'model-icon-open' : 'model-icon-closed';
 
     html += `
       <tr>
         <td class="rank ${rankClass}">${i + 1}</td>
         <td>
           <div class="model-cell">
-            <span class="model-icon">${providerIcon}</span>
+            <span class="model-icon ${providerClass}"></span>
             <span class="model-name">${m.model_label || m.model}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
           </div>

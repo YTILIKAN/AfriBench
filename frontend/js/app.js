@@ -79,7 +79,7 @@ function renderSidebarCategories() {
     const active = AppState.activeTab === 'categories' ? '' : '';
     html += `
       <button class="sidebar-btn ${active}" data-sidebar data-tab="categories" data-filter-cat="${key}">
-        <span class="icon" style="color:${categoryColor(key)}">⬤</span>
+        <span class="sidebar-cat-dot" style="color:${categoryColor(key)}"></span>
         ${categoryLabel(key)}
         <span class="count">${count}</span>
       </button>
@@ -220,7 +220,7 @@ function renderTopModels() {
   const top = models[0];
   let html = `
     <div class="top-model-card">
-      <div class="label">🏆 Leader</div>
+      <div class="label">Leader</div>
       <div class="model-name">${top.model_label || top.model}</div>
       <div class="score">${top.accuracy}%</div>
       <div class="sub">${top.correct}/${top.total} questions</div>
@@ -236,7 +236,7 @@ function renderTopModels() {
     if (bestInCat.model) {
       html += `
         <div class="top-model-card">
-          <div class="label">🏷️ Meilleur ${categoryLabel(bestCat)}</div>
+          <div class="label">Meilleur ${categoryLabel(bestCat)}</div>
           <div class="model-name">${bestInCat.model.model_label || bestInCat.model.model}</div>
           <div class="score">${bestInCat.score.toFixed(1)}%</div>
           <div class="sub">${categoryLabel(bestCat)}</div>
@@ -250,7 +250,7 @@ function renderTopModels() {
   if (open) {
     html += `
       <div class="top-model-card">
-        <div class="label">🔓 Open Weights</div>
+        <div class="label">Open Weights</div>
         <div class="model-name">${open.model_label || open.model}</div>
         <div class="score">${open.accuracy}%</div>
         <div class="sub">open-source</div>
@@ -263,7 +263,7 @@ function renderTopModels() {
     const cheapest = models[models.length - 1]; // lowest for now
     html += `
       <div class="top-model-card">
-        <div class="label">⚡ Meilleur ratio</div>
+        <div class="label">Meilleur ratio</div>
         <div class="model-name">${cheapest.model_label || cheapest.model}</div>
         <div class="score">${cheapest.accuracy}%</div>
         <div class="sub">${cheapest.correct}/${cheapest.total}</div>
