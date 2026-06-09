@@ -28,6 +28,17 @@ function renderQuestions(container) {
   let filtered = qs;
   if (qFilterCat !== 'all') filtered = filtered.filter((q) => q.category === qFilterCat);
   if (qFilterDiff !== 'all') filtered = filtered.filter((q) => q.difficulty === qFilterDiff);
+  // Apply search filter (full-text on question, options, explanation, id)
+  if (AppState.searchQuery) {
+    const q = AppState.searchQuery.toLowerCase();
+    filtered = filtered.filter((item) => {
+      return (item.question && item.question.toLowerCase().includes(q)) ||
+        (item.explanation && item.explanation.toLowerCase().includes(q)) ||
+        (item.id && item.id.toLowerCase().includes(q)) ||
+        (item.category && item.category.toLowerCase().includes(q)) ||
+        Object.values(item.options || {}).some((opt) => opt.toLowerCase().includes(q));
+    });
+  }
 
   let html = `
     <div class="card">

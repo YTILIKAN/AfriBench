@@ -44,24 +44,6 @@ const METRICS = {
   },
 };
 
-/* ── Helpers ─────────────────────────────────────────── */
-function computeBestCategory(m) {
-  const cats = m.by_category;
-  if (!cats) return null;
-  return Object.entries(cats).reduce((best, [k, v]) =>
-    v.accuracy > (best?.accuracy || -1) ? { key: k, accuracy: v.accuracy } : best, null);
-}
-
-function computeStdDev(m) {
-  const cats = m.by_category;
-  if (!cats) return null;
-  const scores = Object.values(cats).map(v => v.accuracy);
-  if (scores.length < 2) return null;
-  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  const variance = scores.reduce((sum, s) => sum + (s - avg) ** 2, 0) / scores.length;
-  return Math.sqrt(variance);
-}
-
 /* ── Sort helpers for new columns ────────────────────── */
 function getSortVal(m, field) {
   switch (field) {
@@ -118,15 +100,18 @@ function renderLeaderboard(container) {
     return;
   }
 
-  // ── Legend toggle ──
+  // ── Filter bar ──
   html = `
     <div class="filter-bar">
       <button class="filter-btn ${lbFilterType === 'all' ? 'active' : ''}" data-filter="all">Tous</button>
       <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
       <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">Propriétaire</button>
-      <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend" style="margin-left:auto">
-        ${lbShowLegend ? '▼' : '▶'} Légende des métriques
+      <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend" style="margin-left:8px">
+        ${lbShowLegend ? '▼' : '▶'} Légende
       </button>
+      <span style="flex:1"></span>
+      <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
+      <button class="filter-btn" id="lb-export-json" title="Exporter en JSON">JSON</button>
       <span style="font-size:var(--font-size-xs);color:var(--text-muted);margin-left:8px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
   `;
@@ -169,8 +154,15 @@ function renderLeaderboard(container) {
         <tbody>
   `;
 
+  // Compute badge data
+  const stdDevs = models.map(m => computeStdDev(m));
+  const minStdDev = Math.min(...stdDevs.filter(s => s !== null));
+  const bestOpen = models.find(m => isOpenModel(m));
+  const bestOpenName = bestOpen ? (bestOpen.model_label || bestOpen.model) : null;
+
   models.forEach((m, i) => {
     const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+    const name = m.model_label || m.model;
     const barWidth = maxScore > 0 ? (m.accuracy / maxScore) * 100 : 0;
     const d = m.by_difficulty || {};
     const easy = d.easy ? `${(d.easy.accuracy || 0).toFixed(1)}%` : '-';
@@ -180,7 +172,13 @@ function renderLeaderboard(container) {
     const providerClass = isOpen ? 'model-icon-open' : 'model-icon-closed';
     const best = computeBestCategory(m);
     const stddev = computeStdDev(m);
-    const isBestStd = stddev !== null && stddev < 5;
+    const isBestStd = stddev !== null && stddev === minStdDev;
+    const isBestOpen = isOpen && name === bestOpenName;
+
+    let badges = '';
+    if (i === 0) badges += '<span class="perf-badge bronze">LEADER</span>';
+    if (isBestStd) badges += '<span class="perf-badge green">CONSISTENT</span>';
+    if (isBestOpen && i > 0) badges += '<span class="perf-badge blue">TOP OPEN</span>';
 
     html += `
       <tr>
@@ -188,8 +186,9 @@ function renderLeaderboard(container) {
         <td>
           <div class="model-cell">
             <span class="model-icon ${providerClass}"></span>
-            <span class="model-name">${m.model_label || m.model}</span>
+            <span class="model-name">${name}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
+            ${badges}
           </div>
         </td>
         <td>
@@ -254,6 +253,10 @@ function renderLeaderboard(container) {
     lbShowLegend = !lbShowLegend;
     renderLeaderboard(container);
   });
+
+  // ── Export buttons ──
+  document.getElementById('lb-export-csv')?.addEventListener('click', exportCSV);
+  document.getElementById('lb-export-json')?.addEventListener('click', exportJSON);
 
   // ── Wire sort ──
   container.querySelectorAll('[data-sort]').forEach((th) => {

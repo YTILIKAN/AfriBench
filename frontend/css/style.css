@@ -83,6 +83,40 @@
   --header-height: 64px;
 }
 
+/* ── Light Theme ──────────────────────────────────────── */
+[data-theme="light"] {
+  --surface-base: #f5f5f0;
+  --surface-elevated: #ffffff;
+  --surface-card: #ffffff;
+  --surface-hover: #eeede8;
+  --surface-muted: #ecebe6;
+  --surface-input: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+
+  --bronze: #8a6d3b;
+  --bronze-hover: #a07d4a;
+  --bronze-dim: #6b5330;
+  --bronze-glow: rgba(138, 109, 59, 0.2);
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #3a3a3a;
+  --text-muted: #7a7a7a;
+  --text-accent: var(--bronze);
+
+  --border-default: #d8d8d0;
+  --border-light: #c8c8c0;
+  --border-accent: var(--bronze-dim);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+
+  --success: #2E7D32;
+  --warning: #E65100;
+  --danger: #C62828;
+  --info: #1565C0;
+}
+
 /* ── Reset & Base ─────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -412,6 +446,26 @@ img { max-width: 100%; display: block; }
 .header-btn-outline:hover {
   border-color: var(--bronze-dim);
   color: var(--bronze);
+}
+
+.header-btn-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 16px;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.header-btn-icon:hover {
+  border-color: var(--bronze-dim);
+  color: var(--bronze);
+  background: var(--surface-hover);
 }
 
 /* ── Hero Section ──────────────────────────────────────── */
@@ -1832,6 +1886,169 @@ img { max-width: 100%; display: block; }
 }
 .metadata.std-wide {
   color: var(--danger);
+}
+
+/* ── Question du Jour ──────────────────────────────── */
+.daily-question-section {
+  padding: 0 var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--border-default);
+  background: var(--surface-elevated);
+}
+
+.dq-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1half);
+  max-width: 620px;
+}
+
+.dq-header {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  margin-bottom: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.dq-badge {
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dq-date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.dq-question {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: var(--space-1);
+}
+
+.dq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--space-1);
+}
+
+.dq-option {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding: 5px 10px;
+  background: var(--surface-muted);
+  border-radius: var(--radius-sm);
+}
+
+.dq-letter {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  background: var(--surface-input);
+  border-radius: 3px;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--bronze);
+  margin-right: 6px;
+}
+
+.dq-reveal {
+  margin-bottom: var(--space-1);
+}
+
+.dq-answer {
+  padding: var(--space-1);
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.dq-answer strong {
+  color: var(--success);
+  font-family: var(--font-mono);
+}
+
+.dq-exp {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  display: block;
+  margin-top: 4px;
+}
+
+.dq-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.dq-btn {
+  padding: 6px 14px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  background: var(--bronze);
+  color: #000;
+  transition: all var(--transition-fast);
+}
+
+.dq-btn:hover {
+  background: var(--bronze-hover);
+}
+
+.dq-btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.dq-btn-outline:hover {
+  border-color: var(--bronze-dim);
+  color: var(--bronze);
+}
+
+/* ── Performance Badges ────────────────────────────── */
+.perf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.perf-badge.bronze {
+  background: var(--bronze);
+  color: #000;
+}
+
+.perf-badge.green {
+  background: rgba(76, 175, 80, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.perf-badge.blue {
+  background: rgba(74, 144, 217, 0.15);
+  color: var(--info);
+  border: 1px solid rgba(74, 144, 217, 0.3);
 }
 
 /* ── Responsive ────────────────────────────────────── */

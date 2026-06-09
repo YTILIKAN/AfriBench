@@ -13,6 +13,7 @@ const AppState = {
 
 /* ── Initialization ──────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', async () => {
+  initTheme();
   setupTabs();
   setupSearch();
   await loadData();
@@ -20,6 +21,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderTopModels();
   updateHeroStats();
 });
+
+/* ── Theme ─────────────────────────────────────────────── */
+function initTheme() {
+  const saved = localStorage.getItem('afribench-theme');
+  if (saved === 'light') {
+    document.body.setAttribute('data-theme', 'light');
+  }
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('afribench-theme', 'dark');
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('afribench-theme', 'light');
+      }
+    });
+  }
+}
 
 /* ── Tabs ─────────────────────────────────────────────── */
 function setupTabs() {
@@ -126,7 +148,7 @@ function setupSearch() {
     debounceTimer = setTimeout(() => {
       AppState.searchQuery = input.value.trim().toLowerCase();
       // Re-render current tab with filter
-      if (AppState.activeTab === 'leaderboard' || AppState.activeTab === 'models') {
+      if (AppState.activeTab === 'leaderboard' || AppState.activeTab === 'models' || AppState.activeTab === 'questions') {
         renderActiveTab();
       }
     }, 200);
@@ -167,6 +189,7 @@ async function loadData() {
   }
 
   renderSidebarCategories();
+  renderDailyQuestion();
 }
 
 /* ── Hero Stats ──────────────────────────────────────── */
@@ -293,6 +316,132 @@ function renderTopModels() {
 }
 
 /* ── Utilities ────────────────────────────────────────── */
+
+/* ── Compute helpers (shared with leaderboard & models) ─ */
+function computeBestCategory(m) {
+  const cats = m.by_category;
+  if (!cats) return null;
+  return Object.entries(cats).reduce((best, [k, v]) =>
+    v.accuracy > (best?.accuracy || -1) ? { key: k, accuracy: v.accuracy } : best, null);
+}
+
+function computeStdDev(m) {
+  const cats = m.by_category;
+  if (!cats) return null;
+  const scores = Object.values(cats).map(v => v.accuracy);
+  if (scores.length < 2) return null;
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  const variance = scores.reduce((sum, s) => sum + (s - avg) ** 2, 0) / scores.length;
+  return Math.sqrt(variance);
+}
+
+/* ── Export CSV ─────────────────────────────────────── */
+function exportCSV() {
+  const models = getLatestResults();
+  let csv = 'Rang,Modele,Score,Questions,Facile,Moyen,Difficile,Meilleure Categorie,Ecart-type,Provider\n';
+  models.forEach((m, i) => {
+    const d = m.by_difficulty || {};
+    const best = computeBestCategory(m);
+    const std = computeStdDev(m);
+    const open = isOpenModel(m);
+    csv += `${i + 1},"${m.model_label || m.model}",${m.accuracy},${m.correct}/${m.total},${d.easy?.accuracy || ''},${d.medium?.accuracy || ''},${d.hard?.accuracy || ''},"${best ? categoryLabel(best.key) : ''}",${std !== null ? std.toFixed(1) : ''},${open ? 'open' : 'proprietaire'}\n`;
+  });
+  downloadFile(csv, 'afribench-scores.csv', 'text/csv');
+}
+
+/* ── Export JSON ────────────────────────────────────── */
+function exportJSON() {
+  const models = getLatestResults();
+  const data = models.map((m, i) => {
+    const d = m.by_difficulty || {};
+    const best = computeBestCategory(m);
+    return {
+      rank: i + 1,
+      model: m.model_label || m.model,
+      score: m.accuracy,
+      correct: m.correct,
+      total: m.total,
+      difficulty: {
+        easy: d.easy?.accuracy || null,
+        medium: d.medium?.accuracy || null,
+        hard: d.hard?.accuracy || null,
+      },
+      best_category: best ? { key: best.key, label: categoryLabel(best.key), score: best.accuracy } : null,
+      std_dev: computeStdDev(m),
+      open_weights: isOpenModel(m),
+      last_evaluated: m.timestamp || null,
+    };
+  });
+  downloadFile(JSON.stringify(data, null, 2), 'afribench-scores.json', 'application/json');
+}
+
+function downloadFile(content, filename, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ── Question du jour ────────────────────────────────── */
+function renderDailyQuestion() {
+  const container = document.getElementById('daily-question');
+  if (!container || AppState.questions.length === 0) return;
+
+  // Seed-based daily so it changes once per day
+  const today = new Date().toISOString().slice(0, 10);
+  const seed = today.split('-').reduce((a, b) => a + parseInt(b), 0);
+  const idx = seed % AppState.questions.length;
+  const q = AppState.questions[idx];
+
+  // Pick model answers for this question
+  const modelAnswers = [];
+  const results = getLatestResults();
+  // Check if any model answered this specific question (if we have per-question data)
+  // For now, just show the question with a prompt to test it
+  const catColor = categoryColor(q.category);
+
+  container.innerHTML = `
+    <div class="dq-card">
+      <div class="dq-header">
+        <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
+          ${categoryLabel(q.category)}
+        </span>
+        <span class="dq-badge" style="background:var(--surface-muted);color:var(--text-muted)">
+          ${difficultyLabel(q.difficulty)}
+        </span>
+        <span class="dq-date">${today}</span>
+      </div>
+      <div class="dq-question">${q.question}</div>
+      <div class="dq-options">
+        ${Object.entries(q.options || {}).map(([letter, text]) =>
+          `<div class="dq-option"><span class="dq-letter">${letter}</span> ${text}</div>`
+        ).join('')}
+      </div>
+      <div class="dq-reveal" id="dq-reveal" style="display:none">
+        <div class="dq-answer">
+          Reponse : <strong>${q.answer}</strong>
+          ${q.explanation ? `<span class="dq-exp">— ${q.explanation}</span>` : ''}
+        </div>
+      </div>
+      <div class="dq-actions">
+        <button class="dq-btn" id="dq-show-answer">Voir la reponse</button>
+        <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Toutes les questions</button>
+      </div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    document.getElementById('dq-show-answer')?.addEventListener('click', () => {
+      document.getElementById('dq-reveal').style.display = 'block';
+      document.getElementById('dq-show-answer').style.display = 'none';
+    });
+  }, 0);
+}
 
 function getUniqueModels() {
   const seen = new Set();
