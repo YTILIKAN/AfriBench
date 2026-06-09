@@ -1205,6 +1205,9 @@ img { max-width: 100%; display: block; }
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .model-card-badge {
@@ -2049,6 +2052,98 @@ img { max-width: 100%; display: block; }
   background: rgba(74, 144, 217, 0.15);
   color: var(--info);
   border: 1px solid rgba(74, 144, 217, 0.3);
+}
+
+/* ── Favorite Star ──────────────────────────────────── */
+.fav-star {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+  user-select: none;
+}
+
+.fav-star:hover {
+  color: var(--bronze);
+  transform: scale(1.2);
+}
+
+/* ── Category Podium ────────────────────────────────── */
+.podium-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-1);
+}
+
+.podium-item {
+  background: var(--surface-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+
+.podium-cat {
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.podium-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+  font-size: 10px;
+}
+
+.podium-row.podium-gold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.podium-rank {
+  width: 14px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.podium-gold .podium-rank {
+  color: var(--bronze);
+}
+
+.podium-name {
+  flex: 1;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.podium-score {
+  font-family: var(--font-mono);
+  color: var(--bronze);
+  font-weight: var(--font-weight-semibold);
+  flex-shrink: 0;
+}
+
+/* ── Mini Radar ────────────────────────────────────── */
+.model-mini-radar {
+  width: 100%;
+  height: 100px;
+  max-height: 100px;
+}
+
+.model-card-categories {
+  min-height: 110px;
 }
 
 /* ── Responsive ────────────────────────────────────── */

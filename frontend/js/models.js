@@ -30,6 +30,8 @@ function renderModels(container) {
     sorted = sorted.filter(m => isOpenModel(m));
   } else if (modelFilter === 'closed') {
     sorted = sorted.filter(m => !isOpenModel(m));
+  } else if (modelFilter === 'favs') {
+    sorted = sorted.filter(m => isFavorite(m.model_label || m.model));
   }
 
   // Search filter
@@ -50,6 +52,7 @@ function renderModels(container) {
       <button class="filter-btn ${modelFilter === 'all' ? 'active' : ''}" data-mfilter="all">Tous</button>
       <button class="filter-btn ${modelFilter === 'open' ? 'active' : ''}" data-mfilter="open">Open Weights</button>
       <button class="filter-btn ${modelFilter === 'closed' ? 'active' : ''}" data-mfilter="closed">Proprietaires</button>
+      <button class="filter-btn ${modelFilter === 'favs' ? 'active' : ''}" data-mfilter="favs">★ Favoris</button>
       <span class="filter-label" style="margin-left:12px">Trier</span>
       <button class="filter-btn ${modelSortKey === 'score' ? 'active' : ''}" data-msort="score">Score</button>
       <button class="filter-btn ${modelSortKey === 'name' ? 'active' : ''}" data-msort="name">Nom</button>
@@ -73,7 +76,10 @@ function renderModels(container) {
     html += `
       <div class="model-card">
         <div class="model-card-header">
-          <div class="model-card-name">${name}</div>
+          <div class="model-card-name">
+            <span class="fav-star" data-fav="${name}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFavorite(name) ? '★' : '☆'}</span>
+            ${name}
+          </div>
           <span class="model-card-badge ${open ? 'open' : 'closed'}">${open ? 'OPEN' : 'CLOSED'}</span>
         </div>
 
@@ -96,7 +102,7 @@ function renderModels(container) {
 
         <div class="model-card-categories">
           <div class="cat-mini-label">Scores par categorie</div>
-          ${renderCategoryMiniBars(m)}
+          <canvas class="model-mini-radar" id="mradar-${name.replace(/[^a-zA-Z0-9]/g, '')}" data-model="${name}" height="100" width="100"></canvas>
         </div>
 
         <div class="model-card-actions">
@@ -135,7 +141,6 @@ function renderModels(container) {
   // Wire up actions
   container.querySelectorAll('[data-action="compare"]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      // Navigate to compare, preset the model
       AppState.comparePreset = btn.dataset.model;
       setActiveTab('compare');
     });
@@ -148,6 +153,65 @@ function renderModels(container) {
       if (searchInput) searchInput.value = btn.dataset.model;
       setActiveTab('leaderboard');
     });
+  });
+
+  // Favorites stars
+  container.querySelectorAll('.fav-star').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFavorite(el.dataset.fav);
+    });
+  });
+
+  // Draw mini radar charts
+  requestAnimationFrame(() => {
+    const models = getLatestResults();
+    container.querySelectorAll('.model-mini-radar').forEach(canvas => {
+      const name = canvas.dataset.model;
+      const m = models.find(x => (x.model_label || x.model) === name);
+      if (!m || !m.by_category) return;
+      drawMiniRadar(canvas, m);
+    });
+  });
+}
+
+function drawMiniRadar(canvas, m) {
+  const cats = categoryKeys().filter(k => m.by_category[k]);
+  if (cats.length === 0) return;
+  const ctx = canvas.getContext('2d');
+
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: cats.map(c => categoryLabel(c).slice(0, 4)),
+      datasets: [{
+        data: cats.map(c => m.by_category[c].accuracy),
+        backgroundColor: 'rgba(196, 164, 106, 0.1)',
+        borderColor: 'rgba(196, 164, 106, 0.7)',
+        borderWidth: 1.5,
+        pointBackgroundColor: 'rgba(196, 164, 106, 0.8)',
+        pointRadius: 2,
+        pointHoverRadius: 3,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 100,
+          ticks: { display: false, stepSize: 25 },
+          grid: { color: 'rgba(44,44,47,0.3)' },
+          angleLines: { color: 'rgba(44,44,47,0.2)' },
+          pointLabels: {
+            color: '#8a8a9e',
+            font: { size: 7 },
+          },
+        },
+      },
+    },
   });
 }
 

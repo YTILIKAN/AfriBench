@@ -71,6 +71,8 @@ function renderLeaderboard(container) {
     models = models.filter((m) => isOpenModel(m));
   } else if (lbFilterType === 'proprietary') {
     models = models.filter((m) => !isOpenModel(m));
+  } else if (lbFilterType === 'favs') {
+    models = models.filter((m) => isFavorite(m.model_label || m.model));
   }
 
   // Sort
@@ -106,6 +108,7 @@ function renderLeaderboard(container) {
       <button class="filter-btn ${lbFilterType === 'all' ? 'active' : ''}" data-filter="all">Tous</button>
       <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
       <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">Propriétaire</button>
+      <button class="filter-btn ${lbFilterType === 'favs' ? 'active' : ''}" data-filter="favs">★ Favoris</button>
       <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend" style="margin-left:8px">
         ${lbShowLegend ? '▼' : '▶'} Légende
       </button>
@@ -180,11 +183,14 @@ function renderLeaderboard(container) {
     if (isBestStd) badges += '<span class="perf-badge green">CONSISTENT</span>';
     if (isBestOpen && i > 0) badges += '<span class="perf-badge blue">TOP OPEN</span>';
 
+    const favStar = isFavorite(name) ? '★' : '☆';
+
     html += `
       <tr>
         <td class="rank ${rankClass}">${i + 1}</td>
         <td>
           <div class="model-cell">
+            <span class="fav-star" data-fav="${name}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
             <span class="model-icon ${providerClass}"></span>
             <span class="model-name">${name}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
@@ -238,6 +244,19 @@ function renderLeaderboard(container) {
   `;
   html += `</div>`;
 
+  // ── Podium par categorie ──
+  html += `
+    <div class="card">
+      <div class="card-title">
+        Classement par catégorie
+        <span class="count-badge">top 3 par domaine</span>
+      </div>
+      <div class="podium-grid">
+        ${renderCategoryPodium(models)}
+      </div>
+    </div>
+  `;
+
   container.innerHTML = html;
 
   // ── Wire filters ──
@@ -258,7 +277,7 @@ function renderLeaderboard(container) {
   document.getElementById('lb-export-csv')?.addEventListener('click', exportCSV);
   document.getElementById('lb-export-json')?.addEventListener('click', exportJSON);
 
-  // ── Wire sort ──
+  // ── Sort ──
   container.querySelectorAll('[data-sort]').forEach((th) => {
     th.addEventListener('click', () => {
       const field = th.dataset.sort;
@@ -274,6 +293,14 @@ function renderLeaderboard(container) {
 
   // ── Tooltips ──
   setupTooltips(container);
+
+  // ── Favorites stars ──
+  container.querySelectorAll('.fav-star').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFavorite(el.dataset.fav);
+    });
+  });
 
   // ── Charts ──
   requestAnimationFrame(() => {
@@ -384,4 +411,29 @@ function renderLBDifficultyChart(models) {
       },
     },
   });
+}
+
+/* ── Category Podium ──────────────────────────────────── */
+function renderCategoryPodium(models) {
+  const cats = categoryKeys();
+  return cats.map(catKey => {
+    const scores = models
+      .map(m => ({ name: m.model_label || m.model, score: m.by_category?.[catKey]?.accuracy || 0 }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+
+    const color = categoryColor(catKey);
+    return `
+      <div class="podium-item">
+        <div class="podium-cat" style="color:${color}">${categoryLabel(catKey)}</div>
+        ${scores.map((s, i) => `
+          <div class="podium-row ${i === 0 ? 'podium-gold' : ''}">
+            <span class="podium-rank">${i + 1}</span>
+            <span class="podium-name">${s.name}</span>
+            <span class="podium-score">${s.score.toFixed(0)}%</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }).join('');
 }

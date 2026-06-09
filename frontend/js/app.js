@@ -9,6 +9,7 @@ const AppState = {
   searchQuery: '',
   filteredModels: [],
   comparePreset: null,
+  favorites: new Set(loadFavorites()),
 };
 
 /* ── Initialization ──────────────────────────────────── */
@@ -316,6 +317,36 @@ function renderTopModels() {
 }
 
 /* ── Utilities ────────────────────────────────────────── */
+
+/* ── Favorites ──────────────────────────────────────── */
+function loadFavorites() {
+  try {
+    const saved = localStorage.getItem('afribench-favs');
+    return saved ? JSON.parse(saved) : [];
+  } catch { return []; }
+}
+
+function saveFavorites() {
+  localStorage.setItem('afribench-favs', JSON.stringify([...AppState.favorites]));
+}
+
+function toggleFavorite(name) {
+  if (AppState.favorites.has(name)) {
+    AppState.favorites.delete(name);
+  } else {
+    AppState.favorites.add(name);
+  }
+  saveFavorites();
+  // Re-render current tab to update star
+  const active = AppState.activeTab;
+  if (active === 'leaderboard' || active === 'models') {
+    renderActiveTab();
+  }
+}
+
+function isFavorite(name) {
+  return AppState.favorites.has(name);
+}
 
 /* ── Compute helpers (shared with leaderboard & models) ─ */
 function computeBestCategory(m) {
