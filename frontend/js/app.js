@@ -8,6 +8,7 @@ const AppState = {
   activeTab: 'leaderboard',
   searchQuery: '',
   filteredModels: [],
+  comparePreset: null,
 };
 
 /* ── Initialization ──────────────────────────────────── */
@@ -35,6 +36,19 @@ function setupTabs() {
       setActiveTab(btn.dataset.tab);
     });
   });
+
+  // Footer quick links
+  document.querySelectorAll('[data-quicktab]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = link.dataset.quicktab;
+      setActiveTab(tab);
+      // If it also has a category filter, pass to categories view
+      if (link.dataset.filter && window.__categoryFilter) {
+        setTimeout(() => window.__categoryFilter(link.dataset.filter), 100);
+      }
+    });
+  });
 }
 
 function setActiveTab(tabId) {
@@ -58,9 +72,13 @@ function renderActiveTab() {
   const container = document.getElementById('tab-content');
   switch (AppState.activeTab) {
     case 'leaderboard': renderLeaderboard(container); break;
+    case 'models': renderModels(container); break;
     case 'categories': renderCategories(container); break;
     case 'compare': renderCompare(container); break;
+    case 'evolution': renderEvolution(container); break;
     case 'questions': renderQuestions(container); break;
+    case 'methodology': renderMethodology(container); break;
+    case 'api': renderAPI(container); break;
   }
 }
 
@@ -108,7 +126,7 @@ function setupSearch() {
     debounceTimer = setTimeout(() => {
       AppState.searchQuery = input.value.trim().toLowerCase();
       // Re-render current tab with filter
-      if (AppState.activeTab === 'leaderboard') {
+      if (AppState.activeTab === 'leaderboard' || AppState.activeTab === 'models') {
         renderActiveTab();
       }
     }, 200);

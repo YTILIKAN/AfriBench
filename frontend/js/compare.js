@@ -27,15 +27,23 @@ function renderCompare(container) {
   `;
 
   models.forEach((m, i) => {
-    const checked = i < 3 ? 'checked' : '';
+    const name = m.model_label || m.model;
+    // Check if this model should be pre-selected
+    let checked = i < 3 && !AppState.comparePreset;
+    if (AppState.comparePreset && name === AppState.comparePreset) {
+      checked = true;
+    }
     html += `
       <label>
-        <input type="checkbox" class="compare-check" value="${i}" ${checked}>
-        <span>${m.model_label || m.model}</span>
+        <input type="checkbox" class="compare-check" value="${i}" ${checked ? 'checked' : ''}>
+        <span>${name}</span>
         <span style="color:var(--bronze);font-family:var(--font-mono);font-size:var(--font-size-xs)">${m.accuracy}%</span>
       </label>
     `;
   });
+
+  // Clear preset after use
+  AppState.comparePreset = null;
 
   html += `
       </div>
