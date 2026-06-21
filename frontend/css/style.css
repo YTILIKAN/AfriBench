@@ -2209,3 +2209,33 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .top-models-row { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Prototype Banner ──────────────────────────────────── */
+.prototype-banner {
+  display: inline-block;
+  background: var(--surface-elevated);
+  border: 1px solid var(--bronze-dim);
+  border-left: 3px solid var(--bronze);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+.prototype-banner a {
+  color: var(--bronze);
+  text-decoration: underline;
+  font-weight: var(--font-weight-medium);
+}
+
+/* ── Reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .pulse { animation: none !important; }
+}

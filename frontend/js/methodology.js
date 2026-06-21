@@ -147,7 +147,7 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Reproductibilite</h3>
         <p>
-          AfriBench est entierement <strong>open source</strong> et <strong>reproductible</strong> :
+          AfriBench est entierement <strong>open source</strong> et <strong>reproductible</strong> (scripts d'évaluation publiés) :
         </p>
         <ul>
           <li>Les <strong>donnees</strong> (questions, reponses) sont publiees sur GitHub</li>

@@ -178,10 +178,7 @@ function renderLeaderboard(container) {
     const isBestStd = stddev !== null && stddev === minStdDev;
     const isBestOpen = isOpen && name === bestOpenName;
 
-    let badges = '';
-    if (i === 0) badges += '<span class="perf-badge bronze">LEADER</span>';
-    if (isBestStd) badges += '<span class="perf-badge green">CONSISTENT</span>';
-    if (isBestOpen && i > 0) badges += '<span class="perf-badge blue">TOP OPEN</span>';
+    let badges = '<span class="perf-badge bronze">1er (v0.1)</span>';
 
     const favStar = isFavorite(name) ? '★' : '☆';
 
