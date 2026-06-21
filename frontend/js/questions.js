@@ -81,7 +81,11 @@ function renderQuestions(container) {
     filtered.forEach((q, i) => {
       const diffClass = q.difficulty || 'medium';
       const catColor = categoryColor(q.category);
-      const sourceInfo = q.source ? q.source : '';
+      const safeQuestion = escapeHtml(q.question || '');
+      const safeId = escapeHtml(q.id || '');
+      const safeAnswer = escapeHtml(q.answer || '');
+      const safeExplanation = q.explanation ? escapeHtml(q.explanation) : '';
+      const safeSource = q.source ? escapeHtml(q.source) : '';
       const dateInfo = q.date_created ? formatDate(q.date_created) : '';
 
       html += `
@@ -91,19 +95,19 @@ function renderQuestions(container) {
               ${categoryLabel(q.category)}
             </span>
             <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>
-            <span class="q-meta-badge subtle">${q.id || ''}</span>
+            <span class="q-meta-badge subtle">${safeId}</span>
             ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
           </div>
-          <div class="q-text">${q.question}</div>
+          <div class="q-text">${safeQuestion}</div>
           <div class="q-options">
             ${Object.entries(q.options || {}).map(([k, v]) => `
-              <div class="q-option"><strong>${k}.</strong> ${v}</div>
+              <div class="q-option"><strong>${escapeHtml(k)}.</strong> ${escapeHtml(v)}</div>
             `).join('')}
           </div>
           <div class="q-answer">
-            <div class="label">Reponse : ${q.answer}</div>
-            ${q.explanation ? `<div class="explanation">${q.explanation}</div>` : ''}
-            ${sourceInfo ? `<div class="q-source">Source : ${sourceInfo}</div>` : ''}
+            <div class="label">Reponse : ${safeAnswer}</div>
+            ${safeExplanation ? `<div class="explanation">${safeExplanation}</div>` : ''}
+            ${safeSource ? `<div class="q-source">Source : ${safeSource}</div>` : ''}
           </div>
         </div>
       `;

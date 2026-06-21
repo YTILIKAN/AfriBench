@@ -2,6 +2,22 @@
    AfriBench — Application Core (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+/* ── Security ────────────────────────────────────────── */
+function escapeHtml(str) {
+  if (!str || typeof str !== 'string') return '';
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#96;',
+    '=': '&#61;'
+  };
+  return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
+}
+
 const AppState = {
   results: [],
   questions: [],
