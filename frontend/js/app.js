@@ -219,22 +219,14 @@ function updateHeroStats() {
   AppState.questions.forEach((q) => cats.add(q.category));
   setText('hero-cat-count', cats.size);
 
-  // Last update date from results timestamps
-  const timestamps = AppState.results
-    .map((r) => r.timestamp)
-    .filter(Boolean)
-    .sort()
-    .reverse();
-
-  if (timestamps.length > 0) {
-    const d = new Date(timestamps[0]);
-    const formatted = d.toLocaleDateString('fr-FR', {
-      day: 'numeric', month: 'short', year: 'numeric',
-    });
-    setText('hero-date', formatted);
-    setText('hdr-date', formatted);
-    document.getElementById('hdr-last-update').style.display = 'flex';
-  }
+  // Last update: current date (site deployment, not evaluation)
+  const d = new Date();
+  const formatted = d.toLocaleDateString('fr-FR', {
+    day: 'numeric', month: 'short', year: 'numeric',
+  });
+  setText('hero-date', formatted);
+  setText('hdr-date', formatted);
+  document.getElementById('hdr-last-update').style.display = 'flex';
 }
 
 /* ── Top Models Row ──────────────────────────────────── */
