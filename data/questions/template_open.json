@@ -1,0 +1,24 @@
+{
+  "id": "OPEN-001",
+  "category": "sante_sciences",
+  "subcategory": "sante_publique",
+  "type": "open",
+  "difficulty": "hard",
+  "language": "fr",
+  "question": "Expliquez pourquoi la prise en charge du paludisme chez la femme enceinte diffère de celle d'un adulte non enceinte, et citez les précautions thérapeutiques spécifiques à respecter.",
+  "reference_answer": "La grossesse augmente la sensibilité au paludisme et le risque de formes graves, d'anémie maternelle et de faible poids de naissance. La prise en charge diffère car certains antipaludiques sont contre-indiqués ou déconseillés selon le trimestre. Il faut privilégier les traitements dont l'innocuité est établie pour la grossesse, adapter selon le trimestre, prévenir l'anémie, et associer une prévention (traitement préventif intermittent, moustiquaires imprégnées).",
+  "key_points": [
+    "Vulnérabilité accrue et risque de forme grave pendant la grossesse",
+    "Contre-indications de certains antipaludiques selon le trimestre",
+    "Choix d'un traitement à innocuité établie pour la grossesse",
+    "Prévention de l'anémie maternelle",
+    "Mesures préventives (traitement préventif intermittent, moustiquaires imprégnées)"
+  ],
+  "rubric_id": "medical_v1",
+  "scoring_method": "llm_judge",
+  "source": "Exemple illustratif — à remplacer par la source réelle",
+  "author": "afribench",
+  "license": "",
+  "provenance": {},
+  "date_created": "2026-07-03"
+}

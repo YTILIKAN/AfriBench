@@ -3,10 +3,12 @@
 AfriBench — Benchmark d'évaluation des LLMs sur les réalités africaines.
 
 Usage:
-  python afribench.py run                    # Évalue tous les modèles configurés
+  python afribench.py run                    # Évalue tous les modèles (QCM)
   python afribench.py run --model gpt-4o     # Évalue un modèle spécifique
   python afribench.py run --questions v1     # Utilise un jeu de questions spécifique
-  python afribench.py leaderboard            # Affiche le leaderboard des derniers résultats
+  python afribench.py run-open --dry-run     # Éval OUVERTE (LLM-as-judge), essai 3 questions
+  python afribench.py run-open --model gpt-4o  # Éval ouverte d'un modèle
+  python afribench.py leaderboard            # Leaderboard (colonnes QCM + Ouvert)
   python afribench.py list-models            # Liste les modèles configurés
   python afribench.py validate questions/    # Valide la syntaxe des fichiers questions
   python afribench.py export --format csv    # Exporte les résultats
@@ -32,7 +34,17 @@ except ImportError:
     print("Erreur : pip install pyyaml requests", file=sys.stderr)
     sys.exit(1)
 
+# Sous Windows, la console est en cp1252 par défaut et plante sur les emojis /
+# coches (✓, 🏆…). On force UTF-8 pour que l'affichage ne casse jamais.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        pass
+
 # ── Chemins ──────────────────────────────────────────────────────────────
+# Le dossier scripts/ doit être importable (judge_open) quel que soit le cwd.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CONFIGS_DIR = REPO_ROOT / "configs"
 DATA_DIR = REPO_ROOT / "data"
@@ -70,10 +82,10 @@ def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
                 continue
             with open(fpath, encoding="utf-8") as f:
                 data = json.load(f)
-                if isinstance(data, list):
-                    questions.extend(data)
-                else:
-                    questions.append(data)
+                items = data if isinstance(data, list) else [data]
+                # Les questions ouvertes (type=open) sont évaluées séparément
+                # (LLM-as-judge) et ne doivent pas passer dans l'éval QCM.
+                questions.extend(it for it in items if it.get("type") != "open")
 
     if not questions:
         print(f"Aucune question trouvée dans {validated_dir}")
@@ -140,7 +152,7 @@ def extract_answer(response_text: str) -> str | None:
 
 
 # ── Providers API ─────────────────────────────────────────────────────────
-def call_openai(model: dict, prompt: str) -> str:
+def call_openai(model: dict, prompt: str, system: str | None = None) -> str:
     """Appelle une API compatible OpenAI (OpenAI, Mistral, Together, DeepSeek)."""
     import requests
 
@@ -153,12 +165,19 @@ def call_openai(model: dict, prompt: str) -> str:
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
     payload = {
         "model": model["model_id"],
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": messages,
         "max_tokens": model.get("max_tokens", 256),
-        "temperature": model.get("temperature", 0.0),
     }
+    # Température omise si None (certains modèles juges, ex. Opus 4.8, la refusent)
+    temperature = model.get("temperature", 0.0)
+    if temperature is not None:
+        payload["temperature"] = temperature
 
     resp = requests.post(
         f"{base}/chat/completions",
@@ -170,7 +189,7 @@ def call_openai(model: dict, prompt: str) -> str:
     return resp.json()["choices"][0]["message"]["content"]
 
 
-def call_anthropic(model: dict, prompt: str) -> str:
+def call_anthropic(model: dict, prompt: str, system: str | None = None) -> str:
     """Appelle l'API Anthropic Claude."""
     import requests
 
@@ -186,9 +205,14 @@ def call_anthropic(model: dict, prompt: str) -> str:
     payload = {
         "model": model["model_id"],
         "max_tokens": model.get("max_tokens", 256),
-        "temperature": model.get("temperature", 0.0),
         "messages": [{"role": "user", "content": prompt}],
     }
+    if system:
+        payload["system"] = system
+    # Température omise si None : Opus 4.8/4.7 refusent le paramètre (HTTP 400).
+    temperature = model.get("temperature", 0.0)
+    if temperature is not None:
+        payload["temperature"] = temperature
 
     resp = requests.post(
         "https://api.anthropic.com/v1/messages",
@@ -200,7 +224,7 @@ def call_anthropic(model: dict, prompt: str) -> str:
     return resp.json()["content"][0]["text"]
 
 
-def call_google(model: dict, prompt: str) -> str:
+def call_google(model: dict, prompt: str, system: str | None = None) -> str:
     """Appelle l'API Google Gemini."""
     import requests
 
@@ -211,13 +235,16 @@ def call_google(model: dict, prompt: str) -> str:
     model_id = model["model_id"]
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
 
+    generation_config = {"maxOutputTokens": model.get("max_tokens", 256)}
+    temperature = model.get("temperature", 0.0)
+    if temperature is not None:
+        generation_config["temperature"] = temperature
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "maxOutputTokens": model.get("max_tokens", 256),
-            "temperature": model.get("temperature", 0.0),
-        },
+        "generationConfig": generation_config,
     }
+    if system:
+        payload["systemInstruction"] = {"parts": [{"text": system}]}
 
     resp = requests.post(url, json=payload, timeout=60)
     resp.raise_for_status()
@@ -245,6 +272,7 @@ def evaluate_model(
         raise ValueError(f"Provider inconnu : {model['provider']}")
 
     results = {
+        "eval_type": "mcq",
         "model": model["name"],
         "model_label": model.get("label", model["name"]),
         "timestamp": datetime.now().isoformat(),
@@ -325,6 +353,197 @@ def evaluate_model(
     return results
 
 
+# ── Évaluation OUVERTE (LLM-as-judge) ────────────────────────────────────
+# Les questions type=open (ex. SAQ médicales d'AfriMed-QA) n'ont ni `options`
+# ni `answer` mais une `reference_answer`, un `rubric_id` et scoring_method=
+# llm_judge. Elles sont notées par un modèle JUGE FIXE et documenté, distinct
+# des modèles évalués, via scripts/judge_open.py (grille afribench-judge-1.0).
+OPEN_QUESTIONS_DIR = QUESTIONS_DIR / "afrimed"
+
+# Modèle juge par défaut si aucun bloc `judge:` n'est présent dans models.yaml.
+# Opus 4.8 n'accepte pas le paramètre `temperature` (HTTP 400) : on l'omet
+# (temperature=None) ; le déterminisme repose sur la grille de notation fixe.
+DEFAULT_JUDGE = {
+    "name": "afribench-judge",
+    "label": "AfriBench Judge (Claude Opus 4.8)",
+    "provider": "anthropic",
+    "model_id": "claude-opus-4-8",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "max_tokens": 1024,
+    "temperature": None,
+}
+
+
+def load_judge_config() -> dict:
+    """Charge la config du modèle juge depuis models.yaml (bloc `judge:`)."""
+    cfg = load_yaml(CONFIGS_DIR / "models.yaml")
+    return cfg.get("judge") or DEFAULT_JUDGE
+
+
+def load_open_questions(path: str | None = None) -> list[dict]:
+    """Charge les questions ouvertes (type=open) depuis un dossier."""
+    qdir = Path(path) if path else OPEN_QUESTIONS_DIR
+    questions = []
+    if qdir.exists():
+        for fpath in sorted(qdir.glob("*.json")):
+            with open(fpath, encoding="utf-8") as f:
+                data = json.load(f)
+            items = data if isinstance(data, list) else [data]
+            questions.extend(it for it in items if it.get("type") == "open")
+
+    if not questions:
+        print(f"Aucune question ouverte (type=open) trouvée dans {qdir}")
+        print("Générez-les d'abord, ex. : python scripts/afrimedqa_saq_to_afribench.py --limit 200")
+        sys.exit(1)
+    return questions
+
+
+def build_open_prompt(question: dict) -> str:
+    """Construit le prompt de génération pour une question ouverte."""
+    return (
+        "Vous êtes un expert des réalités africaines. Répondez à la question "
+        "suivante de façon factuelle, précise et concise, dans la MÊME langue "
+        "que la question. N'ajoutez pas de préambule ni de formule de "
+        "politesse.\n\n"
+        f"Question : {question['question']}\nRéponse :"
+    )
+
+
+def make_judge_call_fn(judge_model: dict):
+    """Retourne une fonction judge_call_fn(system, user) -> str.
+
+    Réutilise la même couche multi-provider que l'éval QCM, avec retry.
+    """
+    provider_fn = PROVIDERS.get(judge_model["provider"])
+    if not provider_fn:
+        raise ValueError(f"Provider juge inconnu : {judge_model['provider']}")
+
+    def judge_call_fn(system: str, user: str) -> str:
+        last_err = None
+        for attempt in range(3):
+            try:
+                return provider_fn(judge_model, user, system=system)
+            except Exception as e:  # noqa: BLE001
+                last_err = e
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+        raise last_err
+
+    return judge_call_fn
+
+
+def evaluate_model_open(
+    model: dict,
+    questions: list[dict],
+    judge_call_fn,
+    judge_model: dict,
+    verbose: bool = False,
+) -> dict:
+    """Évalue un modèle sur des questions ouvertes via LLM-as-judge.
+
+    Pour chaque question : le modèle génère une réponse à `question`, puis le
+    juge la note (0-100) selon la grille `rubric_id`. Agrège séparément des QCM.
+    """
+    import judge_open
+
+    provider_fn = PROVIDERS.get(model["provider"])
+    if not provider_fn:
+        raise ValueError(f"Provider inconnu : {model['provider']}")
+
+    results = {
+        "eval_type": "open",
+        "model": model["name"],
+        "model_label": model.get("label", model["name"]),
+        "timestamp": datetime.now().isoformat(),
+        "judge_version": judge_open.JUDGE_VERSION,
+        "judge_model": judge_model.get("model_id"),
+        "judge_label": judge_model.get("label", judge_model.get("model_id")),
+        "total": len(questions),
+        "scored": 0,
+        "errors": 0,
+        "by_category": {},
+        "by_criterion": {},   # moyennes 0-5 par critère de la grille
+        "details": [],
+    }
+
+    # Les réponses ouvertes ont besoin de plus de tokens que les QCM (une lettre).
+    gen_model = {**model, "max_tokens": max(model.get("max_tokens", 256), 512)}
+    score_sum = 0.0
+
+    for i, q in enumerate(questions):
+        cat = q.get("category", "unknown")
+        rubric_id = q.get("rubric_id", "general_v1")
+        prompt = build_open_prompt(q)
+
+        model_answer, error = None, None
+        for attempt in range(3):
+            try:
+                model_answer = provider_fn(gen_model, prompt)
+                error = None
+                break
+            except Exception as e:  # noqa: BLE001
+                error = str(e)
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+
+        detail = {"id": q.get("id", f"q{i}"), "category": cat, "rubric_id": rubric_id}
+
+        if not model_answer:
+            results["errors"] += 1
+            detail["score"] = None
+            detail["error"] = error or "réponse vide du modèle"
+            results["details"].append(detail)
+            if verbose:
+                print(f"  [{i+1}/{len(questions)}] {detail['id']}: ERREUR génération")
+            continue
+
+        try:
+            scored = judge_open.score_open_answer(
+                q.get("question", ""),
+                q.get("reference_answer", ""),
+                q.get("key_points", []),
+                rubric_id,
+                model_answer,
+                judge_call_fn,
+            )
+        except Exception as e:  # noqa: BLE001
+            results["errors"] += 1
+            detail["score"] = None
+            detail["error"] = f"juge: {e}"
+            results["details"].append(detail)
+            if verbose:
+                print(f"  [{i+1}/{len(questions)}] {detail['id']}: ERREUR juge ({e})")
+            continue
+
+        sc = scored["score"]
+        score_sum += sc
+        results["scored"] += 1
+
+        c = results["by_category"].setdefault(cat, {"sum": 0.0, "n": 0})
+        c["sum"] += sc
+        c["n"] += 1
+        for crit, val in scored["criteria_scores"].items():
+            cc = results["by_criterion"].setdefault(crit, {"sum": 0.0, "n": 0})
+            cc["sum"] += val
+            cc["n"] += 1
+
+        detail.update({
+            "score": sc,
+            "criteria_scores": scored["criteria_scores"],
+            "model_answer": model_answer[:1000],
+        })
+        results["details"].append(detail)
+        if verbose:
+            print(f"  [{i+1}/{len(questions)}] {detail['id']}: {sc}/100")
+
+    results["mean_score"] = round(score_sum / results["scored"], 1) if results["scored"] else 0.0
+    for agg in results["by_category"].values():
+        agg["mean_score"] = round(agg["sum"] / agg["n"], 1) if agg["n"] else 0.0
+    for agg in results["by_criterion"].values():
+        agg["mean_score"] = round(agg["sum"] / agg["n"], 2) if agg["n"] else 0.0
+    return results
+
+
 # ── Résultats ────────────────────────────────────────────────────────────
 def save_results(results: dict):
     """Sauvegarde les résultats dans data/results/."""
@@ -338,13 +557,28 @@ def save_results(results: dict):
     return fpath
 
 
+def save_open_results(results: dict):
+    """Sauvegarde les résultats d'éval ouverte (fichier distinct des QCM)."""
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    model_name = results["model"]
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    fpath = RESULTS_DIR / f"{model_name}_open_{ts}.json"
+    with open(fpath, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    print(f"  Résultats (ouvert) sauvegardés : {fpath}")
+    return fpath
+
+
 def load_all_results() -> list[dict]:
     """Charge tous les résultats depuis data/results/."""
     all_results = []
     if RESULTS_DIR.exists():
         for fpath in sorted(RESULTS_DIR.glob("*.json"), reverse=True):
             with open(fpath, encoding="utf-8") as f:
-                all_results.append(json.load(f))
+                r = json.load(f)
+            # Rétrocompat : les anciens fichiers n'ont pas de champ eval_type.
+            r.setdefault("eval_type", "mcq")
+            all_results.append(r)
     return all_results
 
 
@@ -373,32 +607,82 @@ def print_summary(results: dict):
             print(f"    {label:<10} {c['accuracy']:>5.1f}%  ({c['correct']}/{c['total']})")
 
 
+def _latest_by_model(results_list: list[dict], eval_type: str) -> dict:
+    """Dernier résultat par modèle pour un type d'éval donné (mcq/open)."""
+    latest = {}
+    for r in results_list:
+        if r.get("eval_type", "mcq") != eval_type:
+            continue
+        name = r["model"]
+        if name not in latest or r["timestamp"] > latest[name]["timestamp"]:
+            latest[name] = r
+    return latest
+
+
+def print_summary_open(results: dict):
+    """Affiche un résumé compact d'une éval ouverte."""
+    print(f"\n{'='*50}")
+    print(f"  {results['model_label']}  (éval OUVERTE — LLM-as-judge)")
+    print(f"  Score juge : {results['mean_score']}/100  ({results['scored']}/{results['total']} notées)")
+    print(f"  Juge : {results.get('judge_label')} — grille {results.get('judge_version')}")
+    if results.get("errors"):
+        print(f"  Erreurs : {results['errors']}")
+    print(f"{'='*50}")
+    if results["by_category"]:
+        print(f"\n  Par catégorie :")
+        for cat, c in sorted(results["by_category"].items()):
+            print(f"    {cat:<25} {c['mean_score']:>5.1f}/100  ({c['n']})")
+    if results["by_criterion"]:
+        print(f"\n  Par critère (0-5) :")
+        for crit, c in results["by_criterion"].items():
+            print(f"    {crit:<25} {c['mean_score']:>4.2f}/5")
+
+
 def print_leaderboard(results_list: list[dict], top_n: int = 10):
-    """Affiche le leaderboard à partir des résultats sauvegardés."""
+    """Affiche le leaderboard : deux colonnes distinctes (QCM % vs juge 0-100)."""
     if not results_list:
         print("Aucun résultat trouvé. Lancez d'abord `python afribench.py run`.")
         return
 
-    # Dédoublonne : garde le plus récent par modèle
-    latest = {}
-    for r in results_list:
-        name = r["model"]
-        if name not in latest or r["timestamp"] > latest[name]["timestamp"]:
-            latest[name] = r
+    mcq = _latest_by_model(results_list, "mcq")
+    opn = _latest_by_model(results_list, "open")
 
-    sorted_models = sorted(latest.values(), key=lambda x: x["accuracy"], reverse=True)
+    rows = []
+    for name in set(mcq) | set(opn):
+        label = (mcq.get(name) or opn.get(name))["model_label"]
+        acc = mcq[name]["accuracy"] if name in mcq else None
+        osc = opn[name]["mean_score"] if name in opn else None
+        rows.append((label, acc, osc))
+    # Tri : d'abord ceux qui ont un score QCM (décroissant), puis par score juge.
+    rows.sort(key=lambda x: (x[1] is None, -(x[1] or 0), -(x[2] or 0)))
+
+    def fmt_acc(v):
+        return f"{v:>5.1f}%" if v is not None else "   —  "
+
+    def fmt_open(v):
+        return f"{v:>5.1f}" if v is not None else "  —  "
 
     print(f"\n🏆  Leaderboard AfriBench")
     print(f"    Dernière mise à jour : {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    print(f"{'='*55}")
-    print(f"  {'#':<3} {'Modèle':<25} {'Score':<8} {'Questions':<10}")
-    print(f"{'-'*55}")
-    for i, r in enumerate(sorted_models[:top_n], 1):
-        print(f"  {i:<3} {r['model_label']:<25} {r['accuracy']:>5.1f}%  ({r['correct']}/{r['total']})")
-    print(f"{'='*55}")
+    print(f"    Colonnes distinctes : QCM = % bonnes réponses ; Ouvert = score juge /100")
+    print(f"{'='*62}")
+    print(f"  {'#':<3} {'Modèle':<27} {'QCM':<8} {'Ouvert':<8}")
+    print(f"{'-'*62}")
+    for i, (label, acc, osc) in enumerate(rows[:top_n], 1):
+        print(f"  {i:<3} {label:<27} {fmt_acc(acc):<8} {fmt_open(osc):<8}")
+    print(f"{'='*62}")
 
 
 # ── Validation ───────────────────────────────────────────────────────────
+def _known_rubrics() -> set:
+    """IDs de grilles connues (depuis judge_open), avec repli si indisponible."""
+    try:
+        import judge_open
+        return set(judge_open.RUBRICS.keys())
+    except Exception:  # noqa: BLE001
+        return {"general_v1", "medical_v1"}
+
+
 def validate_questions(path: str) -> bool:
     """Valide la syntaxe et la structure des fichiers questions."""
     qdir = Path(path)
@@ -424,28 +708,44 @@ def validate_questions(path: str) -> bool:
         items = data if isinstance(data, list) else [data]
         for item in items:
             errors = []
+            is_open = item.get("type") == "open"
 
-            # Champs obligatoires
-            for field in ("id", "question", "options", "answer", "category"):
-                if field not in item:
-                    errors.append(f"champ manquant '{field}'")
+            if is_open:
+                # Questions OUVERTES : pas d'`options` ni d'`answer`, mais une
+                # réponse de référence, une grille et une méthode de notation.
+                for field in ("id", "question", "category",
+                              "reference_answer", "rubric_id", "scoring_method"):
+                    if field not in item:
+                        errors.append(f"champ manquant '{field}'")
+                ref = item.get("reference_answer", "")
+                if not isinstance(ref, str) or len(ref.strip()) < 10:
+                    errors.append("'reference_answer' vide ou trop courte")
+                if item.get("scoring_method") not in (None, "llm_judge"):
+                    errors.append(f"scoring_method '{item.get('scoring_method')}' inconnu (attendu : llm_judge)")
+                if "rubric_id" in item and item["rubric_id"] not in _known_rubrics():
+                    errors.append(f"rubric_id '{item['rubric_id']}' inconnu. Valides : {', '.join(_known_rubrics())}")
+            else:
+                # Champs obligatoires (QCM)
+                for field in ("id", "question", "options", "answer", "category"):
+                    if field not in item:
+                        errors.append(f"champ manquant '{field}'")
 
-            # Options
-            if "options" in item:
-                opts = item["options"]
-                if not isinstance(opts, dict):
-                    errors.append("'options' doit être un dictionnaire {A: ..., B: ..., ...}")
-                elif len(opts) < 2:
-                    errors.append("'options' doit avoir au moins 2 choix")
-                elif "answer" in item and item["answer"] not in opts:
-                    errors.append(f"réponse '{item['answer']}' absente des options")
+                # Options
+                if "options" in item:
+                    opts = item["options"]
+                    if not isinstance(opts, dict):
+                        errors.append("'options' doit être un dictionnaire {A: ..., B: ..., ...}")
+                    elif len(opts) < 2:
+                        errors.append("'options' doit avoir au moins 2 choix")
+                    elif "answer" in item and item["answer"] not in opts:
+                        errors.append(f"réponse '{item['answer']}' absente des options")
 
-            # Catégorie
+            # Catégorie (commun QCM + ouvert)
             if "category" in item and item["category"] not in categories:
                 valid_cats = ", ".join(categories.keys())
                 errors.append(f"catégorie '{item['category']}' inconnue. Valides : {valid_cats}")
 
-            # Difficulté
+            # Difficulté (commun)
             if "difficulty" in item and item["difficulty"] not in difficulty_levels:
                 errors.append(f"difficulté '{item['difficulty']}' invalide. Utilisez easy/medium/hard")
 
@@ -462,21 +762,21 @@ def validate_questions(path: str) -> bool:
 
 # ── Export ───────────────────────────────────────────────────────────────
 def export_results(results_list: list[dict], fmt: str = "json"):
-    """Exporte les résultats dans un format donné."""
-    latest = {}
-    for r in results_list:
-        name = r["model"]
-        if name not in latest or r["timestamp"] > latest[name]["timestamp"]:
-            latest[name] = r
+    """Exporte les résultats (QCM et ouvert dans DEUX colonnes distinctes)."""
+    mcq = _latest_by_model(results_list, "mcq")
+    opn = _latest_by_model(results_list, "open")
+    # open_score par modèle (colonne SÉPARÉE du % QCM — jamais mélangés).
+    open_score = {name: r["mean_score"] for name, r in opn.items()}
 
-    sorted_models = sorted(latest.values(), key=lambda x: x["accuracy"], reverse=True)
+    sorted_models = sorted(mcq.values(), key=lambda x: x["accuracy"], reverse=True)
 
     if fmt == "json":
         out = []
         for r in sorted_models:
             out.append({
                 "model": r["model_label"],
-                "accuracy": r["accuracy"],
+                "accuracy": r["accuracy"],           # QCM : % bonnes réponses
+                "open_score": open_score.get(r["model"]),  # Ouvert : score juge /100
                 "correct": r["correct"],
                 "total": r["total"],
                 "by_category": {k: {"accuracy": v["accuracy"], "correct": v["correct"], "total": v["total"]}
@@ -484,15 +784,28 @@ def export_results(results_list: list[dict], fmt: str = "json"):
                 "by_difficulty": r["by_difficulty"],
                 "timestamp": r["timestamp"],
             })
+        # Modèles évalués UNIQUEMENT en ouvert (pas de résultat QCM).
+        for name, r in opn.items():
+            if name not in mcq:
+                out.append({
+                    "model": r["model_label"],
+                    "accuracy": None,
+                    "open_score": r["mean_score"],
+                    "total": r["total"],
+                    "open_by_category": {k: v["mean_score"] for k, v in r["by_category"].items()},
+                    "judge_version": r.get("judge_version"),
+                    "timestamp": r["timestamp"],
+                })
         print(json.dumps(out, indent=2, ensure_ascii=False))
 
     elif fmt == "csv":
-        print("model,accuracy,correct,total,cat_histoire,cat_geographie,cat_economie,cat_langue_culture,cat_sante_sciences,cat_droit_politique,cat_ia_technologie,cat_societe,cat_raisonnement_culturel,easy_acc,medium_acc,hard_acc")
+        print("model,accuracy,open_score,correct,total,cat_histoire,cat_geographie,cat_economie,cat_langue_culture,cat_sante_sciences,cat_droit_politique,cat_ia_technologie,cat_societe,cat_raisonnement_culturel,easy_acc,medium_acc,hard_acc")
         for r in sorted_models:
             cats = r.get("by_category", {})
             diffs = r.get("by_difficulty", {})
+            osc = open_score.get(r["model"])
             print(
-                f"{r['model_label']},{r['accuracy']},{r['correct']},{r['total']},"
+                f"{r['model_label']},{r['accuracy']},{osc if osc is not None else ''},{r['correct']},{r['total']},"
                 f"{cats.get('histoire', {}).get('accuracy', 0)},"
                 f"{cats.get('geographie', {}).get('accuracy', 0)},"
                 f"{cats.get('economie', {}).get('accuracy', 0)},"
@@ -507,10 +820,12 @@ def export_results(results_list: list[dict], fmt: str = "json"):
                 f"{diffs.get('hard', {}).get('accuracy', 0)}"
             )
     elif fmt == "markdown":
-        print("| # | Modèle | Score | Questions |")
+        print("| # | Modèle | QCM (%) | Ouvert (/100) |")
         print("|---|---|---|---|")
         for i, r in enumerate(sorted_models, 1):
-            print(f"| {i} | {r['model_label']} | {r['accuracy']:.1f}% | {r['correct']}/{r['total']} |")
+            osc = open_score.get(r["model"])
+            osc_s = f"{osc:.1f}" if osc is not None else "—"
+            print(f"| {i} | {r['model_label']} | {r['accuracy']:.1f}% | {osc_s} |")
 
     else:
         print(f"Format inconnu : {fmt}. Utilisez json, csv ou markdown.")
@@ -549,6 +864,44 @@ def cmd_run(args):
             save_results(results)
             print_summary(results)
         except Exception as e:
+            print(f"  ERREUR : {e}")
+        print()
+
+
+def cmd_run_open(args):
+    """Lance l'évaluation OUVERTE (LLM-as-judge)."""
+    models = load_models()
+    if args.model:
+        models = [m for m in models if m["name"] == args.model]
+        if not models:
+            print(f"Modèle '{args.model}' introuvable. Utilisez list-models.")
+            sys.exit(1)
+
+    questions = load_open_questions(args.questions_path)
+    n = 3 if args.dry_run else (args.limit or 0)
+    if n:
+        questions = questions[:n]
+
+    judge_model = load_judge_config()
+    if not os.environ.get(judge_model["api_key_env"]):
+        print(f"ATTENTION : {judge_model['api_key_env']} (clé du modèle juge) non définie.")
+    judge_call_fn = make_judge_call_fn(judge_model)
+
+    import judge_open
+    print(f"\n📖  AfriBench — Évaluation OUVERTE (LLM-as-judge)")
+    print(f"    Questions ouvertes : {len(questions)}{'  [DRY-RUN]' if args.dry_run else ''}")
+    print(f"    Modèles évalués    : {len(models)}")
+    print(f"    Juge (FIXE)        : {judge_model.get('label')} [{judge_model.get('model_id')}]")
+    print(f"    Grille             : {judge_open.JUDGE_VERSION} (température {'omise' if judge_model.get('temperature') is None else judge_model.get('temperature')})")
+    print()
+
+    for i, model in enumerate(models, 1):
+        print(f"[{i}/{len(models)}] Évaluation ouverte de {model.get('label', model['name'])}...")
+        try:
+            results = evaluate_model_open(model, questions, judge_call_fn, judge_model, verbose=args.verbose)
+            save_open_results(results)
+            print_summary_open(results)
+        except Exception as e:  # noqa: BLE001
             print(f"  ERREUR : {e}")
         print()
 
@@ -599,6 +952,16 @@ def main():
     p_run.add_argument("--few-shot", "-f", type=int, default=0, help="Nombre d'exemples few-shot")
     p_run.add_argument("--verbose", "-v", action="store_true", help="Affiche chaque question")
     p_run.set_defaults(func=cmd_run)
+
+    # run-open (évaluation LLM-as-judge des questions type=open)
+    p_ro = sub.add_parser("run-open", help="Évalue les questions ouvertes (LLM-as-judge)")
+    p_ro.add_argument("--model", "-m", help="Nom du modèle (optionnel, tous par défaut)")
+    p_ro.add_argument("--questions-path", "-q", default=None,
+                      help="Dossier des questions ouvertes (défaut : data/questions/afrimed/)")
+    p_ro.add_argument("--limit", type=int, default=0, help="Limiter le nb de questions (0=toutes)")
+    p_ro.add_argument("--dry-run", action="store_true", help="Essai sur 3 questions seulement")
+    p_ro.add_argument("--verbose", "-v", action="store_true", help="Affiche chaque question")
+    p_ro.set_defaults(func=cmd_run_open)
 
     # leaderboard
     p_lb = sub.add_parser("leaderboard", help="Affiche le leaderboard")

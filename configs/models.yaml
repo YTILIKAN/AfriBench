@@ -69,3 +69,18 @@ models:
     api_key_env: TOGETHER_API_KEY
     max_tokens: 256
     temperature: 0.0
+
+# ── Modèle JUGE pour l'évaluation OUVERTE (LLM-as-judge) ──────────────────
+# FIXE et documenté, distinct des modèles évalués (Sonnet 4 / Haiku 3.5) pour
+# limiter le biais d'auto-préférence. Utilisé par `afribench.py run-open` avec
+# la grille afribench-judge-1.0 (voir scripts/judge_open.py).
+# temperature: null  ->  Opus 4.8 refuse le paramètre `temperature` (HTTP 400).
+# On l'omet donc ; le déterminisme repose sur la grille de notation fixe.
+judge:
+  name: afribench-judge
+  label: "AfriBench Judge (Claude Opus 4.8)"
+  provider: anthropic
+  model_id: claude-opus-4-8
+  api_key_env: ANTHROPIC_API_KEY
+  max_tokens: 1024
+  temperature: null

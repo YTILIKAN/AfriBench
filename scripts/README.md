@@ -39,6 +39,45 @@ python afribench.py export --format markdown
 python afribench.py validate data/questions/v1/
 ```
 
+### Évaluation OUVERTE (LLM-as-judge)
+
+En plus des QCM, AfriBench évalue des questions **ouvertes** (`type=open`, ex.
+les SAQ médicales d'AfriMed-QA extraites dans `data/questions/afrimed/`). Le
+modèle génère une réponse libre à la question, puis un **modèle juge** la note
+sur 100 selon une grille explicite.
+
+```bash
+# Essai (dry-run) sur 3 questions — À FAIRE EN PREMIER avant tout run complet
+python afribench.py run-open --dry-run --model gpt-4o-mini
+
+# Éval ouverte complète d'un modèle (ou de tous si --model est omis)
+python afribench.py run-open --model gpt-4o-mini
+python afribench.py run-open --limit 50        # limiter le nombre de questions
+
+# Le leaderboard affiche DEUX colonnes distinctes : QCM (%) et Ouvert (/100)
+python afribench.py leaderboard
+```
+
+#### Protocole d'évaluation ouvert (afribench-judge-1.0)
+
+| Paramètre            | Valeur                                                        |
+|----------------------|--------------------------------------------------------------|
+| Modèle juge (FIXE)   | **Claude Opus 4.8** (`claude-opus-4-8`, provider `anthropic`) |
+| Température          | **omise** — Opus 4.8 refuse le paramètre `temperature` (HTTP 400) ; le déterminisme repose sur la grille de notation fixe et versionnée |
+| Grille de notation   | **afribench-judge-1.0** (voir `judge_open.py`)               |
+| Grilles disponibles  | `general_v1` (exactitude, complétude, ancrage africain, clarté) ; `medical_v1` (exactitude clinique, complétude, sécurité, ancrage africain) |
+| Notation             | Chaque critère 0-5, pondéré et normalisé sur **100**          |
+| Indépendance         | Le juge est **distinct des modèles évalués** (Sonnet 4 / Haiku 3.5) pour limiter le biais d'auto-préférence |
+
+Le modèle juge est configurable dans le bloc `judge:` de `configs/models.yaml`.
+Les scores ouverts sont **agrégés séparément** des QCM (jamais mélangés) et
+sauvegardés dans `data/results/<modele>_open_<timestamp>.json`.
+
+**Crédibilité** : un sous-échantillon des notes du juge devrait être
+contre-noté par un·e relecteur·rice humain·e pour mesurer l'accord humain-juge.
+Les `key_points` des SAQ AfriMed-QA sont vides à ce stade ; une passe ultérieure
+(LLM + relecture) peut les extraire de `reference_answer` pour affiner la notation.
+
 ### Configuration
 
 - `../configs/models.yaml` — Modèles à évaluer (provider, clé API, paramètres)
