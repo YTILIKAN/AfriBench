@@ -21,6 +21,7 @@ import argparse
 import json
 import os
 import platform
+import re
 import subprocess
 import sys
 import time
@@ -259,6 +260,11 @@ PROVIDERS = {
 }
 
 
+def redact_secrets(text) -> str:
+    """Masque les clés API (ex. Gemini les met dans l'URL) dans les messages."""
+    return re.sub(r"(key=)[A-Za-z0-9_\-]+", r"\1***", str(text))
+
+
 # ── Évaluation ───────────────────────────────────────────────────────────
 def evaluate_model(
     model: dict,
@@ -308,7 +314,7 @@ def evaluate_model(
                 error = None
                 break
             except Exception as e:
-                error = str(e)
+                error = redact_secrets(e)
                 if attempt < 2:
                     time.sleep(2 ** attempt)
 
@@ -438,6 +444,7 @@ def evaluate_model_open(
     judge_call_fn,
     judge_model: dict,
     verbose: bool = False,
+    delay: float = 0.0,
 ) -> dict:
     """Évalue un modèle sur des questions ouvertes via LLM-as-judge.
 
@@ -471,6 +478,8 @@ def evaluate_model_open(
     score_sum = 0.0
 
     for i, q in enumerate(questions):
+        if delay and i > 0:  # throttle pour respecter les quotas (free tier)
+            time.sleep(delay)
         cat = q.get("category", "unknown")
         rubric_id = q.get("rubric_id", "general_v1")
         prompt = build_open_prompt(q)
@@ -482,7 +491,7 @@ def evaluate_model_open(
                 error = None
                 break
             except Exception as e:  # noqa: BLE001
-                error = str(e)
+                error = redact_secrets(e)
                 if attempt < 2:
                     time.sleep(2 ** attempt)
 
@@ -509,7 +518,7 @@ def evaluate_model_open(
         except Exception as e:  # noqa: BLE001
             results["errors"] += 1
             detail["score"] = None
-            detail["error"] = f"juge: {e}"
+            detail["error"] = redact_secrets(f"juge: {e}")
             results["details"].append(detail)
             if verbose:
                 print(f"  [{i+1}/{len(questions)}] {detail['id']}: ERREUR juge ({e})")
@@ -626,7 +635,9 @@ def print_summary_open(results: dict):
     print(f"  Score juge : {results['mean_score']}/100  ({results['scored']}/{results['total']} notées)")
     print(f"  Juge : {results.get('judge_label')} — grille {results.get('judge_version')}")
     if results.get("errors"):
-        print(f"  Erreurs : {results['errors']}")
+        first_err = next((d.get("error") for d in results.get("details", []) if d.get("error")), None)
+        suffix = f" (ex. : {first_err})" if first_err else ""
+        print(f"  Erreurs : {results['errors']}{suffix}")
     print(f"{'='*50}")
     if results["by_category"]:
         print(f"\n  Par catégorie :")
@@ -819,13 +830,27 @@ def export_results(results_list: list[dict], fmt: str = "json"):
                 f"{diffs.get('medium', {}).get('accuracy', 0)},"
                 f"{diffs.get('hard', {}).get('accuracy', 0)}"
             )
+        # Modèles évalués UNIQUEMENT en ouvert (colonnes QCM vides).
+        for name, r in sorted(opn.items(), key=lambda kv: -kv[1]["mean_score"]):
+            if name in mcq:
+                continue
+            print(f"{r['model_label']},,{r['mean_score']},,{r['total']}," + ",".join([""] * 12))
+
     elif fmt == "markdown":
         print("| # | Modèle | QCM (%) | Ouvert (/100) |")
         print("|---|---|---|---|")
-        for i, r in enumerate(sorted_models, 1):
+        idx = 0
+        for r in sorted_models:
+            idx += 1
             osc = open_score.get(r["model"])
             osc_s = f"{osc:.1f}" if osc is not None else "—"
-            print(f"| {i} | {r['model_label']} | {r['accuracy']:.1f}% | {osc_s} |")
+            print(f"| {idx} | {r['model_label']} | {r['accuracy']:.1f}% | {osc_s} |")
+        # Modèles évalués UNIQUEMENT en ouvert (pas de score QCM).
+        for name, r in sorted(opn.items(), key=lambda kv: -kv[1]["mean_score"]):
+            if name in mcq:
+                continue
+            idx += 1
+            print(f"| {idx} | {r['model_label']} | — | {r['mean_score']:.1f} |")
 
     else:
         print(f"Format inconnu : {fmt}. Utilisez json, csv ou markdown.")
@@ -864,7 +889,7 @@ def cmd_run(args):
             save_results(results)
             print_summary(results)
         except Exception as e:
-            print(f"  ERREUR : {e}")
+            print(f"  ERREUR : {redact_secrets(e)}")
         print()
 
 
@@ -897,12 +922,21 @@ def cmd_run_open(args):
 
     for i, model in enumerate(models, 1):
         print(f"[{i}/{len(models)}] Évaluation ouverte de {model.get('label', model['name'])}...")
+        if not os.environ.get(model["api_key_env"]):
+            print(f"  ATTENTION : {model['api_key_env']} (clé du modèle évalué) non définie.")
         try:
-            results = evaluate_model_open(model, questions, judge_call_fn, judge_model, verbose=args.verbose)
-            save_open_results(results)
-            print_summary_open(results)
+            results = evaluate_model_open(model, questions, judge_call_fn, judge_model,
+                                          verbose=args.verbose, delay=args.delay)
+            if results["scored"] == 0:
+                # Rien n'a été noté : inutile de sauver un fichier de score vide.
+                first_err = next((d.get("error") for d in results["details"] if d.get("error")), "inconnue")
+                print(f"  Aucune question notée ({results['errors']} erreur(s)). Cause : {first_err}")
+                print("  Vérifiez les clés API puis relancez.")
+            else:
+                save_open_results(results)
+                print_summary_open(results)
         except Exception as e:  # noqa: BLE001
-            print(f"  ERREUR : {e}")
+            print(f"  ERREUR : {redact_secrets(e)}")
         print()
 
 
@@ -960,6 +994,8 @@ def main():
                       help="Dossier des questions ouvertes (défaut : data/questions/afrimed/)")
     p_ro.add_argument("--limit", type=int, default=0, help="Limiter le nb de questions (0=toutes)")
     p_ro.add_argument("--dry-run", action="store_true", help="Essai sur 3 questions seulement")
+    p_ro.add_argument("--delay", type=float, default=0.0,
+                      help="Pause (s) entre questions pour respecter les quotas gratuits")
     p_ro.add_argument("--verbose", "-v", action="store_true", help="Affiche chaque question")
     p_ro.set_defaults(func=cmd_run_open)
 
