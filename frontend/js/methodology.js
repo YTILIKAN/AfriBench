@@ -109,23 +109,23 @@ function renderMethodology(container) {
         </div>
 
         <div class="meth-code-block">
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Score global</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Score global</strong>
           Pourcentage de reponses correctes sur l'ensemble du benchmark (101 questions).
           Metrique principale de performance. Un score de 96% signifie que le modele a repondu
           correctement a 97 questions sur 101.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Scores par difficulte</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Scores par difficulte</strong>
           Les questions sont classees en 3 niveaux :
           <strong>Facile</strong> (connaissances de base),
           <strong>Moyen</strong> (connaissances intermediaires),
           <strong>Difficile</strong> (raisonnement avance).
           Ces scores permettent d'evaluer la profondeur des connaissances du modele.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Meilleure categorie</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Meilleure categorie</strong>
           La categorie thematique dans laquelle le modele obtient son meilleur score.
           Revele le domaine de predilection du modele (ex: Droit et Politique, Geographie).
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Ecart-type (consistance)</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Ecart-type (consistance)</strong>
           Mesure de la regularite des performances a travers les 9 categories.
           <br>
           <span style="color:var(--success)">Faible (&lt;5) :</span> performances homogenes

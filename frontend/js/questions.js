@@ -49,14 +49,14 @@ function renderQuestions(container) {
 
       <!-- Filters -->
       <div class="filter-bar">
-        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Catégorie:</span>
+        <span style="font-size:0.68rem;color:var(--muted)">Catégorie:</span>
         <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
         ${cats.map((c) => `
           <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
         `).join('')}
       </div>
       <div class="filter-bar">
-        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Difficulté:</span>
+        <span style="font-size:0.68rem;color:var(--muted)">Difficulté:</span>
         <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
         ${diffs.map((d) => `
           <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">

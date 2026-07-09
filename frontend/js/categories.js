@@ -87,7 +87,7 @@ function renderCategories(container) {
 
   // ---- Radar Chart ----
   html += `
-    <div class="card" style="margin-top:var(--space-2)">
+    <div class="card" style="margin-top:var(--sp-md)">
       <div class="card-title">Comparaison radar par catégorie</div>
       <div class="chart-container" style="min-height:350px">
         <canvas id="cat-radar-chart"></canvas>

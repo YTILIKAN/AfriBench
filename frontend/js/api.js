@@ -13,8 +13,8 @@ function renderAPI(container) {
         retournent des donnees au format JSON.
       </p>
 
-      <p style="font-size:var(--font-size-sm);color:var(--text-muted);margin-bottom:var(--space-3)">
-        Base URL : <code style="font-family:var(--font-mono);background:var(--surface-input);padding:2px 8px;border-radius:4px;color:var(--bronze)">https://ytilikan.github.io/AfriBench/api/v1</code>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--sp-lg)">
+        Base URL : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre)">https://ytilikan.github.io/AfriBench/api/v1</code>
       </p>
 
       <div class="api-endpoint">
@@ -178,7 +178,7 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
           <span class="endpoint-desc">Classement complet etendu</span>
         </div>
         <div class="api-endpoint-body">
-          <p style="font-size:var(--font-size-sm);color:var(--text-secondary);margin-bottom:var(--space-1)">
+          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--space-1)">
             Endpoint combine retournant le classement complet avec les top model cards, 
             les tendances et les statistiques de distribution.
           </p>
@@ -201,21 +201,21 @@ for cat, scores in data['category_averages'].items():
         </div>
       </div>
 
-      <div class="card" style="margin-top:var(--space-2)">
+      <div class="card" style="margin-top:var(--sp-md)">
         <div class="card-title">
           Utilisation
           <span class="badge">NOTE</span>
         </div>
-        <p style="font-size:var(--font-size-sm);color:var(--text-secondary);line-height:1.6">
+        <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6">
           L'API AfriBench est entierement statique et accessible via GitHub Pages. 
           Les donnees sont mises a jour manuellement lors de chaque nouvelle evaluation.
           Actuellement, les donnees brutes sont accessibles directement depuis le depot GitHub :
         </p>
-        <ul style="font-size:var(--font-size-sm);color:var(--text-secondary);line-height:1.8;margin-top:8px;padding-left:20px">
-          <li><code style="font-family:var(--font-mono);color:var(--bronze)">data/results.json</code> — Resultats complets</li>
-          <li><code style="font-family:var(--font-mono);color:var(--bronze)">data/questions.json</code> — Questions et reponses</li>
+        <ul style="font-size:0.82rem;color:var(--charbon);line-height:1.8;margin-top:8px;padding-left:20px">
+          <li><code style="font-family:var(--mono);color:var(--ocre)">data/results.json</code> — Resultats complets</li>
+          <li><code style="font-family:var(--mono);color:var(--ocre)">data/questions.json</code> — Questions et reponses</li>
         </ul>
-        <p style="font-size:var(--font-size-sm);color:var(--text-muted);margin-top:8px">
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:8px">
           Une API REST formelle est en cours de developpement (version 1.0).
         </p>
       </div>

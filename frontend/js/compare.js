@@ -37,7 +37,7 @@ function renderCompare(container) {
       <label>
         <input type="checkbox" class="compare-check" value="${i}" ${checked ? 'checked' : ''}>
         <span>${name}</span>
-        <span style="color:var(--bronze);font-family:var(--font-mono);font-size:var(--font-size-xs)">${m.accuracy}%</span>
+        <span style="color:var(--ocre);font-family:var(--mono);font-size:0.68rem">${m.accuracy}%</span>
       </label>
     `;
   });
@@ -86,17 +86,17 @@ function renderCompare(container) {
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
-      const highlight = score >= 90 ? 'style="color:var(--bronze);font-weight:600"' : '';
-      html += `<td style="text-align:center;font-family:var(--font-mono)" ${highlight}>${val}</td>`;
+      const highlight = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : '';
+      html += `<td style="text-align:center;font-family:var(--mono)" ${highlight}>${val}</td>`;
     });
     html += '</tr>';
   });
 
   // Overall row
-  html += `<tr style="border-top:2px solid var(--bronze-dim)">
-    <td style="font-weight:600;color:var(--bronze)">Score global</td>`;
+  html += `<tr style="border-top:2px solid var(--sable-d)">
+    <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
   selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--font-mono);font-weight:700;color:var(--bronze)">${m.accuracy}%</td>`;
+    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
   });
   html += '</tr>';
 
@@ -204,17 +204,17 @@ function updateCompareTable(selected, catList) {
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
-      const style = score >= 90 ? 'style="color:var(--bronze);font-weight:600"' : 'style="font-family:var(--font-mono)"';
+      const style = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : 'style="font-family:var(--mono)"';
       html += `<td style="text-align:center" ${style}>${val}</td>`;
     });
     html += '</tr>';
   });
 
   // Overall row
-  html += `<tr style="border-top:2px solid var(--bronze-dim)">
-    <td style="font-weight:600;color:var(--bronze)">Score global</td>`;
+  html += `<tr style="border-top:2px solid var(--sable-d)">
+    <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
   selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--font-mono);font-weight:700;color:var(--bronze)">${m.accuracy}%</td>`;
+    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
   });
   html += '</tr>';
 

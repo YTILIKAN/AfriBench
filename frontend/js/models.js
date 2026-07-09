@@ -216,7 +216,7 @@ function drawMiniRadar(canvas, m) {
 }
 
 function renderCategoryMiniBars(m) {
-  if (!m.by_category) return '<div style="font-size:9px;color:var(--text-muted)">Aucune donnee</div>';
+  if (!m.by_category) return '<div style="font-size:9px;color:var(--muted)">Aucune donnee</div>';
 
   const cats = Object.entries(m.by_category).sort((a, b) => (b[1].accuracy || 0) - (a[1].accuracy || 0));
 

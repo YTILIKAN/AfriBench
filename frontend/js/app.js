@@ -450,7 +450,7 @@ function renderDailyQuestion() {
         <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
           ${categoryLabel(q.category)}
         </span>
-        <span class="dq-badge" style="background:var(--surface-muted);color:var(--text-muted)">
+        <span class="dq-badge" style="background:var(--surface-2);color:var(--muted)">
           ${difficultyLabel(q.difficulty)}
         </span>
         <span class="dq-date">${today}</span>
@@ -564,7 +564,7 @@ function formatDate(ts) {
 
 /* ── Chart.js Global Defaults ────────────────────────── */
 if (typeof Chart !== 'undefined') {
-  Chart.defaults.color = '#8a8a9e';
-  Chart.defaults.font.family = "'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif";
-  Chart.defaults.font.size = 10;
+  Chart.defaults.color = '#5B5854';
+  Chart.defaults.font.family = "'Sora', sans-serif";
+  Chart.defaults.font.size = 11;
 }
