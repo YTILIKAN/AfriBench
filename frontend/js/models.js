@@ -43,7 +43,7 @@ function renderModels(container) {
     <div class="models-header">
       <div>
         <h2>Modeles</h2>
-        <div class="models-count">${sorted.length} modele${sorted.length > 1 ? 's' : ''} evalue${sorted.length > 1 ? 's' : ''}</div>
+        <div class="models-count">${sorted.length} modèle${sorted.length > 1 ? 's' : ''} évalué${sorted.length > 1 ? 's' : ''}</div>
       </div>
     </div>
 

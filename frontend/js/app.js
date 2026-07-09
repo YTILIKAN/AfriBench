@@ -83,7 +83,7 @@ function setupTabs() {
       e.preventDefault();
       const tab = link.dataset.quicktab;
       setActiveTab(tab);
-      // If it also has a category filter, pass to categories view
+      // If it also has a category filter, pass to catégories view
       if (link.dataset.filter && window.__categoryFilter) {
         setTimeout(() => window.__categoryFilter(link.dataset.filter), 100);
       }
@@ -155,7 +155,7 @@ function renderSidebarCategories() {
   sidebar.querySelectorAll('[data-filter-cat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       setActiveTab('categories');
-      // Signal categories view to filter
+      // Signal catégories view to filter
       if (window.__categoryFilter) window.__categoryFilter(btn.dataset.filterCat);
     });
   });
@@ -470,7 +470,7 @@ function renderDailyQuestion() {
       </div>
       <div class="dq-reveal" id="dq-reveal" style="display:none">
         <div class="dq-answer">
-          Reponse : <strong>${q.answer}</strong>
+          Réponse : <strong>${q.answer}</strong>
           ${q.explanation ? `<span class="dq-exp">— ${q.explanation}</span>` : ''}
         </div>
       </div>

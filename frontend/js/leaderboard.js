@@ -241,7 +241,7 @@ function renderLeaderboard(container) {
   `;
   html += `</div>`;
 
-  // ── Podium par categorie ──
+  // ── Podium par catégorie ──
   html += `
     <div class="card">
       <div class="card-title">

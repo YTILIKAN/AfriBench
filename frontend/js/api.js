@@ -8,7 +8,7 @@ function renderAPI(container) {
 
       <h2>API Publique</h2>
       <p class="lead">
-        AfriBench propose une API publique pour acceder aux resultats des evaluations,
+        AfriBench propose une API publique pour acceder aux résultats des evaluations,
         aux questions du benchmark, et aux donnees des modeles. Tous les endpoints
         retournent des donnees au format JSON.
       </p>
@@ -30,9 +30,9 @@ function renderAPI(container) {
               <tr><th>Param</th><th>Type</th><th>Description</th></tr>
             </thead>
             <tbody>
-              <tr><td>model</td><td>string</td><td>Filtrer par modele (optionnel)</td></tr>
-              <tr><td>category</td><td>string</td><td>Filtrer par categorie (optionnel)</td></tr>
-              <tr><td>limit</td><td>integer</td><td>Nombre de resultats (defaut: 50, max: 1000)</td></tr>
+              <tr><td>model</td><td>string</td><td>Filtrer par modèle (optionnel)</td></tr>
+              <tr><td>category</td><td>string</td><td>Filtrer par catégorie (optionnel)</td></tr>
+              <tr><td>limit</td><td>integer</td><td>Nombre de résultats (defaut: 50, max: 1000)</td></tr>
             </tbody>
           </table>
 
@@ -74,7 +74,7 @@ curl -s "https://ytilikan.github.io/AfriBench/api/v1/results?limit=3" | jq '.'
               <tr><th>Param</th><th>Type</th><th>Description</th></tr>
             </thead>
             <tbody>
-              <tr><td>category</td><td>string</td><td>Filtrer par categorie (optionnel)</td></tr>
+              <tr><td>category</td><td>string</td><td>Filtrer par catégorie (optionnel)</td></tr>
               <tr><td>difficulty</td><td>string</td><td>Filtrer par difficulte: easy, medium, hard (optionnel)</td></tr>
               <tr><td>limit</td><td>integer</td><td>Nombre de questions (defaut: 50, max: 500)</td></tr>
             </tbody>
@@ -108,7 +108,7 @@ curl -s "https://ytilikan.github.io/AfriBench/api/v1/questions?category=histoire
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
           <span class="endpoint-url">/models</span>
-          <span class="endpoint-desc">Liste des modeles avec leurs scores agreges</span>
+          <span class="endpoint-desc">Liste des modèles avec leurs scores agreges</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
