@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   setupTabs();
   setupSearch();
+  setActiveTab('leaderboard'); // initial active state for nav + tab bar
   await loadData();
   renderActiveTab();
   renderTopModels();
