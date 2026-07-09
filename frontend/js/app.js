@@ -106,6 +106,12 @@ function setActiveTab(tabId) {
   });
 
   renderActiveTab();
+
+  // Scroll to tab content area
+  var target = document.getElementById('tab-content');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function renderActiveTab() {
