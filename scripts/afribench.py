@@ -270,10 +270,14 @@ def evaluate_model(
         prompt = build_prompt(q, few_shot)
         correct_answer = q.get("answer", "").strip().upper()
 
-        # API call with retry
+        # Rate limiting : délai entre chaque question
+        if i > 0:
+            time.sleep(0.5)
+
+        # API call with retry (up to 5 attempts for rate limits)
         model_answer = None
         error = None
-        for attempt in range(3):
+        for attempt in range(5):
             try:
                 response = provider_fn(model, prompt)
                 model_answer = extract_answer(response)
@@ -281,8 +285,11 @@ def evaluate_model(
                 break
             except Exception as e:
                 error = str(e)
-                if attempt < 2:
-                    time.sleep(2 ** attempt)
+                if attempt < 4:
+                    delay = 2 ** attempt + 1  # 2s, 3s, 5s, 9s
+                    if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+                        delay = 5 + 10 * attempt  # 5s, 15s, 25s, 35s for rate limits
+                    time.sleep(delay)
 
         is_correct = model_answer == correct_answer if model_answer else False
 
