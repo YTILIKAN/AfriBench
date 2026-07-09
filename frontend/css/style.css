@@ -192,6 +192,20 @@ h2.sec-title {
 }
 .reveal.in { opacity: 1; transform: none; filter: blur(0); }
 
+/* ── Hero → Content transition ────────────────────────── */
+.cover + .section {
+  position: relative;
+}
+.cover + .section::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--indigo), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ═══════════════════════════════════════════════════════════
    NAV (Top, YTILIKAN-style)
    ═══════════════════════════════════════════════════════════ */
@@ -435,6 +449,8 @@ h2.sec-title {
   z-index: 40;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .tab-btn {
