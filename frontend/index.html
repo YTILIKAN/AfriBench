@@ -30,31 +30,53 @@
 
   <div class="app-container">
 
-    <!-- ═══ NAV (YTILIKAN style) ═══ -->
-    <nav class="nav" role="navigation" aria-label="Navigation principale">
-      <div class="nav__inner">
-        <a href="#" class="nav__brand" aria-label="AfriBench — Accueil">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23FFA726'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Sora,sans-serif' font-weight='800' font-size='16' fill='%230A0806'%3EA%3C/text%3E%3C/svg%3E" alt="" class="nav__logo" width="32" height="32">
-          <span class="nav__word">Afri<span class="apos">B</span>ench</span>
-        </a>
-        <div class="nav__links">
-          <button data-tab="leaderboard" data-sidebar>Classement</button>
-          <button data-tab="models" data-sidebar>Modèles</button>
-          <button data-tab="categories" data-sidebar>Catégories</button>
-          <button data-tab="compare" data-sidebar>Comparer</button>
-          <button data-tab="evolution" data-sidebar>Évolution</button>
-          <button data-tab="questions" data-sidebar>Questions</button>
-          <button data-tab="methodology" data-sidebar>Méthodologie</button>
-          <button data-tab="api" data-sidebar>API</button>
-        </div>
-        <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener" class="nav__cta">GitHub</a>
+    <!-- ═══ SIDEBAR (YTILIKAN indigo) ═══ -->
+    <aside class="sidebar" role="navigation" aria-label="Navigation principale">
+      <div class="sidebar-logo">
+        <h1>Afri<span>B</span>ench</h1>
+        <div class="tagline">Benchmark LLM pour l'Afrique</div>
       </div>
-    </nav>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-title">Navigation</div>
+        <button class="sidebar-btn active" data-tab="leaderboard" data-sidebar>
+          <span class="icon">▦</span> Classement
+        </button>
+        <button class="sidebar-btn" data-tab="models" data-sidebar>
+          <span class="icon">⊞</span> Modèles
+        </button>
+        <button class="sidebar-btn" data-tab="categories" data-sidebar>
+          <span class="icon">⊡</span> Catégories
+        </button>
+        <button class="sidebar-btn" data-tab="compare" data-sidebar>
+          <span class="icon">⊙</span> Comparer
+        </button>
+        <button class="sidebar-btn" data-tab="evolution" data-sidebar>
+          <span class="icon">↗</span> Évolution
+        </button>
+        <button class="sidebar-btn" data-tab="questions" data-sidebar>
+          <span class="icon">?</span> Questions
+        </button>
+        <button class="sidebar-btn" data-tab="methodology" data-sidebar>
+          <span class="icon">≡</span> Méthodologie
+        </button>
+        <button class="sidebar-btn" data-tab="api" data-sidebar>
+          <span class="icon">{}</span> API
+        </button>
+
+        <div class="sidebar-section-title">Catégories</div>
+        <div id="sidebar-categories">
+          <div style="padding:8px 20px;font-size:.7rem;color:rgba(250,249,246,.3)">Chargement...</div>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        v0.1 · benchmark ouvert
+        <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </aside>
 
     <div class="app-main">
-
-      <!-- ═══ HIDDEN: sidebar categories (JS populates this) ═══ -->
-      <div id="sidebar-categories" style="display:none" aria-hidden="true"></div>
 
       <!-- ═══ HERO (YTILIKAN cover style) ═══ -->
       <section class="cover" id="hero-section">
