@@ -47,7 +47,11 @@ def root() -> dict:
             f"{settings.api_prefix}/results",
             f"{settings.api_prefix}/questions",
             f"{settings.api_prefix}/models",
+            f"{settings.api_prefix}/models/configured",
             f"{settings.api_prefix}/stats",
             f"{settings.api_prefix}/leaderboard",
+            f"{settings.api_prefix}/evaluate",
+            f"{settings.api_prefix}/jobs",
         ],
+        "write_api_enabled": bool(settings.api_key),
     }

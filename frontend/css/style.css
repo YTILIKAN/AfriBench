@@ -1823,6 +1823,7 @@ th.th-with-tip { cursor: help; }
   border-radius: 3px;
 }
 .http-method.http-get { background: var(--ocre); color: var(--noir); }
+.http-method.http-post { background: var(--success); color: #fff; }
 
 .endpoint-url {
   font-family: var(--mono);

@@ -181,24 +181,39 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
         </div>
         <div class="api-endpoint-body">
           <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--space-1)">
-            Endpoint combine retournant le classement complet avec les top model cards, 
-            les tendances et les statistiques de distribution.
+            Endpoint combiné retournant le classement complet avec moyennes par catégorie.
           </p>
 
           <h4>Exemple Python</h4>
           <div class="api-code-sample">
 import requests
-import pandas as pd
-
 url = "http://127.0.0.1:8080/api/v1/leaderboard"
 data = requests.get(url).json()
+print(data['stats'])
+          </div>
+        </div>
+      </div>
 
-df = pd.DataFrame(data['models'])
-print(df[['label', 'accuracy', 'correct', 'total']])
+      <div class="api-endpoint">
+        <div class="api-endpoint-header">
+          <span class="http-method http-post">POST</span>
+          <span class="endpoint-url">/evaluate</span>
+          <span class="endpoint-desc">Lancer une évaluation (auth requise)</span>
+        </div>
+        <div class="api-endpoint-body">
+          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:8px">
+            Header requis : <code style="font-family:var(--mono);color:var(--ocre)">X-API-Key</code>
+            (= <code style="font-family:var(--mono)">AFRIBENCH_API_KEY</code>).
+            Job asynchrone — suivre via <code style="font-family:var(--mono)">GET /jobs/{id}</code>.
+          </p>
+          <div class="api-code-sample">
+curl -X POST http://127.0.0.1:8080/api/v1/evaluate \\
+  -H "X-API-Key: $AFRIBENCH_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"model":"gpt-4o","limit":5}'
 
-# Score moyen par categorie
-for cat, scores in data['category_averages'].items():
-    print(f"{cat}: {scores['average']:.1f}%")
+# Suivi
+curl -s http://127.0.0.1:8080/api/v1/jobs/JOB_ID | jq .
           </div>
         </div>
       </div>
@@ -212,7 +227,7 @@ for cat, scores in data['category_averages'].items():
           AfriBench est scindé en deux services :
         </p>
         <ul style="font-size:0.82rem;color:var(--charbon);line-height:1.8;margin-top:8px;padding-left:20px">
-          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre)">:8080</code>)</li>
+          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre)">:8080</code>) + rate-limit + clé API pour l'écriture</li>
           <li><strong>frontend/</strong> — UI statique (nginx ou <code style="font-family:var(--mono)">python -m http.server</code>)</li>
         </ul>
         <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6;margin-top:8px">

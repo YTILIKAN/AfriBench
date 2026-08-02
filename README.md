@@ -85,12 +85,17 @@ cd frontend && python3 -m http.server 8000
 ### Évaluer un modèle
 
 ```bash
+# CLI
 pip install pyyaml requests
 export OPENAI_API_KEY="sk-..."
 python3 scripts/afribench.py run --model gpt-4o
-python3 scripts/afribench.py leaderboard
-# Recharger le cache API si le backend tourne :
-curl -X POST http://127.0.0.1:8080/api/v1/reload
+
+# Ou via l'API (backend démarré, AFRIBENCH_API_KEY défini)
+curl -X POST http://127.0.0.1:8080/api/v1/evaluate \
+  -H "X-API-Key: $AFRIBENCH_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"gpt-4o","limit":5}'
+curl -s http://127.0.0.1:8080/api/v1/jobs/<job_id>
 ```
 
 ---

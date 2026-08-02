@@ -7,12 +7,20 @@ services:
     ports:
       - "8080:8080"
     environment:
-      AFRIBENCH_CORS_ORIGINS: "http://localhost:8000,http://127.0.0.1:8000,http://localhost:3000,http://127.0.0.1:3000,http://localhost,http://frontend"
+      AFRIBENCH_CORS_ORIGINS: "*"
+      AFRIBENCH_API_KEY: ${AFRIBENCH_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      TOGETHER_API_KEY: ${TOGETHER_API_KEY:-}
     volumes:
-      # Live reload des données d'évaluation
-      - ./data:/app/data:ro
+      # Résultats écrits par POST /evaluate
+      - ./data:/app/data
       - ./frontend/data:/app/frontend/data:ro
       - ./configs:/app/configs:ro
+      - ./scripts:/app/scripts:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health')"]
       interval: 10s

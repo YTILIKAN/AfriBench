@@ -42,8 +42,8 @@
 - [x] **Backend FastAPI** — `/api/v1/{results,questions,models,stats,leaderboard}`
 - [x] **Frontend découplé** — charge l'API, fallback JSON statique
 - [x] **Docker Compose** — `backend` (:8080) + `frontend` nginx (:3000)
-- [ ] **Auth / rate-limit** sur l'API publique
-- [ ] **Endpoint POST /evaluate** — lancer une évaluation via l'API
+- [x] **Auth / rate-limit** — `X-API-Key` sur écriture + fenêtre glissante lecture/écriture
+- [x] **Endpoint POST /evaluate** — jobs async + `GET /jobs/{id}`
 
 ## 🔵 Phase 4 — Frontend long-terme
 

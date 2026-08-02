@@ -10,11 +10,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 COPY backend/requirements.txt /app/backend/requirements.txt
 RUN pip install --no-cache-dir -r /app/backend/requirements.txt
 
-# Code + données du benchmark (monté aussi en volume en dev)
+# Code + données + scripts d'évaluation (monté aussi en volume en dev)
 COPY backend /app/backend
 COPY data /app/data
 COPY frontend/data /app/frontend/data
 COPY configs /app/configs
+COPY scripts /app/scripts
 
 WORKDIR /app/backend
 EXPOSE 8080
