@@ -33,76 +33,64 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 ---
 
-## Structure du repo
+## Architecture
 
 ```
 AfriBench/
-├── data/
-│   └── questions/          # Jeux de questions (template + v1)
-│       ├── template.json    # Schéma de référence
-│       └── v1/
-│           ├── raw/          # Questions brutes
-│           └── validated/    # Questions validées (9 fichiers JSON)
-├── scripts/                # Scripts d'évaluation
-│   ├── afribench.py         # CLI d'évaluation principale
-│   ├── export_frontend.py   # Export des données pour le frontend
-│   └── lm_eval_tasks/       # Intégration LM Evaluation Harness (à venir)
-├── configs/                # Configuration
-│   ├── models.yaml          # Modèles à évaluer
-│   └── categories.yaml      # Catégories du benchmark
-├── frontend/               # Application web statique
+├── backend/                # Service API FastAPI (:8080)
+│   ├── app/                # routers, services, config
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/               # UI statique (nginx :3000 ou http.server :8000)
 │   ├── index.html
-│   ├── css/style.css
-│   ├── js/                  # app.js, leaderboard.js, categories.js, etc.
-│   └── data/                # Généré par export_frontend.py
-├── research/               # Documents de cadrage
-│   ├── 01-finalite.md
-│   ├── 02-objectifs.md
-│   ├── 03-phases.md
-│   ├── 04-frameworks.md
-│   ├── 05-stack.md
-│   ├── 06-livrables.md
-│   └── 07-equipe.md
-├── CRITIQUE.md             # Analyse détaillée des forces/faiblesses
-└── README.md
+│   ├── css/ · js/
+│   ├── data/               # Fallback JSON (GitHub Pages / offline)
+│   ├── nginx.conf          # Proxy /api → backend
+│   └── Dockerfile
+├── data/                   # Source de vérité (questions + résultats)
+├── scripts/                # CLI d'évaluation (afribench.py)
+├── configs/                # models.yaml, categories.yaml
+├── docker-compose.yml      # backend + frontend
+└── research/ · CRITIQUE.md · ROADMAP.md
 ```
+
+Le frontend consomme `GET /api/v1/results` et `GET /api/v1/questions`.  
+S'il n'y a pas de backend, il retombe sur `frontend/data/*.json`.
 
 ---
 
 ## Démarrage rapide
 
+### Option A — Docker (recommandé)
+
+```bash
+docker compose up --build
+# Frontend : http://localhost:3000
+# API      : http://localhost:8080/api/v1
+# Docs     : http://localhost:8080/docs
+```
+
+### Option B — Services séparés
+
+```bash
+# Terminal 1 — backend
+cd backend && pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8080
+
+# Terminal 2 — frontend
+cd frontend && python3 -m http.server 8000
+# → http://localhost:8000  (appelle l'API sur :8080)
+```
+
 ### Évaluer un modèle
 
 ```bash
-# Installer les dépendances
 pip install pyyaml requests
-
-# Configurer les clés API (variables d'environnement)
 export OPENAI_API_KEY="sk-..."
-export ANTHROPIC_API_KEY="sk-ant-..."
-# etc.
-
-# Lancer l'évaluation
-python scripts/afribench.py run
-
-# Évaluer un modèle spécifique
-python scripts/afribench.py run --model gpt-4o
-
-# Afficher le leaderboard
-python scripts/afribench.py leaderboard
-
-# Exporter les résultats
-python scripts/afribench.py export --format csv
-```
-
-### Lancer le frontend localement
-
-```bash
-# Générer les données pour le frontend
-python scripts/export_frontend.py
-
-# Servir le frontend
-cd frontend && python -m http.server 8000
+python3 scripts/afribench.py run --model gpt-4o
+python3 scripts/afribench.py leaderboard
+# Recharger le cache API si le backend tourne :
+curl -X POST http://127.0.0.1:8080/api/v1/reload
 ```
 
 ---

@@ -26,6 +26,7 @@ const AppState = {
   filteredModels: [],
   comparePreset: null,
   favorites: new Set(loadFavorites()),
+  dataSource: null, // 'api' | 'static'
 };
 
 /* ── Initialization ──────────────────────────────────── */
@@ -188,29 +189,57 @@ function applySearchFilter(models) {
   });
 }
 
-/* ── Data Loading ────────────────────────────────────── */
+/* ── API / Data Loading ──────────────────────────────── */
+function getApiBase() {
+  if (typeof window !== 'undefined' && window.AFRIBENCH_API_BASE) {
+    return String(window.AFRIBENCH_API_BASE).replace(/\/$/, '');
+  }
+  // Dev static server (python -m http.server 8000) → backend :8080
+  if (location.port === '8000') {
+    return 'http://127.0.0.1:8080/api/v1';
+  }
+  const meta = document.querySelector('meta[name="afribench-api"]');
+  if (meta && meta.content) {
+    return meta.content.replace(/\/$/, '');
+  }
+  // Docker nginx / same-origin proxy
+  return '/api/v1';
+}
+
+async function fetchJson(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
+  return resp.json();
+}
+
 async function loadData() {
   const resultsContainer = document.getElementById('hdr-models');
+  const qContainer = document.getElementById('hdr-questions');
+  const apiBase = getApiBase();
+
   try {
-    const resp = await fetch('data/results.json');
-    if (resp.ok) {
-      AppState.results = await resp.json();
-      if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
-    }
-  } catch {
-    if (resultsContainer) resultsContainer.textContent = '0';
+    const [results, questions] = await Promise.all([
+      fetchJson(`${apiBase}/results?limit=1000`),
+      fetchJson(`${apiBase}/questions?limit=500`),
+    ]);
+    AppState.results = Array.isArray(results) ? results : [];
+    AppState.questions = Array.isArray(questions) ? questions : [];
+    AppState.dataSource = 'api';
+  } catch (err) {
+    console.warn('API unavailable, falling back to static JSON', err);
+    AppState.dataSource = 'static';
+    try {
+      const resp = await fetch('data/results.json');
+      if (resp.ok) AppState.results = await resp.json();
+    } catch { /* ignore */ }
+    try {
+      const resp = await fetch('data/questions.json');
+      if (resp.ok) AppState.questions = await resp.json();
+    } catch { /* ignore */ }
   }
 
-  const qContainer = document.getElementById('hdr-questions');
-  try {
-    const resp = await fetch('data/questions.json');
-    if (resp.ok) {
-      AppState.questions = await resp.json();
-      if (qContainer) qContainer.textContent = AppState.questions.length;
-    }
-  } catch {
-    if (qContainer) qContainer.textContent = '0';
-  }
+  if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
+  if (qContainer) qContainer.textContent = AppState.questions.length;
 
   renderSidebarCategories();
   renderDailyQuestion();

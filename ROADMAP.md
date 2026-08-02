@@ -37,6 +37,14 @@
 - [ ] **Dockerfile** — conteneur reproductible avec seeds fixées
 - [ ] **Soumission académique** — ACL/NeurIPS datasets track
 
+## 🟣 Phase 1.5 — Architecture services
+
+- [x] **Backend FastAPI** — `/api/v1/{results,questions,models,stats,leaderboard}`
+- [x] **Frontend découplé** — charge l'API, fallback JSON statique
+- [x] **Docker Compose** — `backend` (:8080) + `frontend` nginx (:3000)
+- [ ] **Auth / rate-limit** sur l'API publique
+- [ ] **Endpoint POST /evaluate** — lancer une évaluation via l'API
+
 ## 🔵 Phase 4 — Frontend long-terme
 
 - [ ] **HTML statique pré-généré** — plus de "Chargement..." pour les crawlers
