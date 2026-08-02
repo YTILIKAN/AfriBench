@@ -1,0 +1,4 @@
+# AfriBench — dépendances d'évaluation
+# Python ≥ 3.10
+pyyaml>=6.0
+requests>=2.31.0

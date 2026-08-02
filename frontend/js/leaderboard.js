@@ -178,8 +178,12 @@ function renderLeaderboard(container) {
     const isBestStd = stddev !== null && stddev === minStdDev;
     const isBestOpen = isOpen && name === bestOpenName;
 
-    let badges = '<span class="perf-badge bronze">1er (v0.1)</span>';
+    let badges = '';
+    if (i === 0) badges += '<span class="perf-badge bronze">1er (v0.1)</span>';
+    if (isBestOpen && i !== 0) badges += '<span class="perf-badge bronze">Meilleur open</span>';
+    if (isBestStd) badges += '<span class="perf-badge bronze">Plus constant</span>';
 
+    const safeName = escapeHtml(name);
     const favStar = isFavorite(name) ? '★' : '☆';
 
     html += `
@@ -187,9 +191,9 @@ function renderLeaderboard(container) {
         <td class="rank ${rankClass}">${i + 1}</td>
         <td>
           <div class="model-cell">
-            <span class="fav-star" data-fav="${name}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
+            <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
             <span class="model-icon ${providerClass}"></span>
-            <span class="model-name">${name}</span>
+            <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
             ${badges}
           </div>

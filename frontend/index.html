@@ -28,12 +28,27 @@
     </div>
   </noscript>
 
+  <!-- Mobile top bar + hamburger -->
+  <header class="mobile-bar" id="mobile-bar">
+    <button type="button" class="menu-toggle" id="menu-toggle"
+            aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar">
+      <span class="menu-toggle__bars" aria-hidden="true"></span>
+    </button>
+    <span class="mobile-bar__brand">Afri<span>B</span>ench</span>
+    <span class="mobile-bar__badge">v0.1</span>
+  </header>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
   <div class="app-container">
 
     <!-- ═══ SIDEBAR (YTILIKAN indigo) ═══ -->
-    <aside class="sidebar" role="navigation" aria-label="Navigation principale">
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigation principale">
       <div class="sidebar-logo">
-        <h1>Afri<span>B</span>ench</h1>
+        <div class="sidebar-logo__row">
+          <h1>Afri<span>B</span>ench</h1>
+          <button type="button" class="sidebar-close" id="sidebar-close"
+                  aria-label="Fermer le menu">&times;</button>
+        </div>
         <div class="tagline">Benchmark LLM pour l'Afrique</div>
       </div>
 

@@ -4,20 +4,21 @@
 
 ---
 
-## 🔴 Phase 1 — Corrections critiques (0€, ~4h de travail)
+## 🔴 Phase 1 — Corrections critiques (0€)
 
 **Objectif :** Réparer ce qui est cassé ou trompeur avant de construire plus.
 
-- [ ] **Bannière prototype** sur le site + README — remplacer "LEADER" par "Meilleur score (v0.1)"
-- [ ] **Échapper le HTML** dans les rendus JS (`escapeHtml()`) — correction XSS
-- [ ] **Google Fonts `display=swap`** — ne plus bloquer le rendu du texte
-- [ ] **Skip-link** — `<a href="#main-content">` pour l'accessibilité clavier
-- [ ] **Menu hamburger mobile** — la sidebar disparaît sous 768px sans alternative
-- [ ] **Contraste light mode** — ajuster `--bronze` pour ratio 4.5:1 minimum
-- [ ] **`<noscript>`** — message pour les utilisateurs sans JS
-- [ ] **Ajuster le wording** — remplacer "reproductible" par "reproductible (protocole documenté)" et linker la doc
+- [x] **Bannière prototype** sur le site + README — remplacer "LEADER" par "Meilleur score (v0.1)" / "1er (v0.1)"
+- [x] **Échapper le HTML** dans les rendus JS (`escapeHtml()`) — correction XSS
+- [x] **Google Fonts `display=swap`** — ne plus bloquer le rendu du texte
+- [x] **Skip-link** — `<a href="#tab-content">` pour l'accessibilité clavier
+- [x] **Menu hamburger mobile** — sidebar off-canvas sous 768px avec overlay
+- [x] **Contraste light mode** — charte Y'TILIKAN ivoire/indigo/orange (plus de `--bronze` sous-contrasté)
+- [x] **`<noscript>`** — message pour les utilisateurs sans JS
+- [x] **Ajuster le wording** — "reproductible (scripts publiés / protocole documenté)" + lien doc
+- [x] **`prefers-reduced-motion`** — désactivation des animations
 
-## 🟡 Phase 2 — Renforcement du benchmark (~0€, 3-6 semaines de travail)
+## 🟡 Phase 2 — Renforcement du benchmark (~0€)
 
 **Objectif :** Donner au benchmark une signification statistique et une crédibilité externe.
 
@@ -25,11 +26,11 @@
 - [ ] **20 questions témoins** — QCM non-africains pour servir de baseline comparative
 - [ ] **3 validateurs africains** — recruter via Masakhane, Deep Learning Indaba, Twitter
 - [ ] **10 questions de génération ouverte** — avec grille d'évaluation LLM-as-judge
-- [ ] **Documenter le protocole** sur le site : temperature, prompt, few-shot, seeds
-- [ ] **Publier le script d'évaluation** en lien direct sur le site
-- [ ] **Fichier `reproduce.sh`** — script bout-en-bout pour reproduire les résultats
+- [x] **Documenter le protocole** sur le site : temperature, prompt, few-shot, seeds, retries
+- [x] **Publier le script d'évaluation** en lien direct sur le site (onglet Méthodologie)
+- [x] **Fichier `reproduce.sh`** — script bout-en-bout pour reproduire les résultats
 
-## 🟢 Phase 3 — Scale et internationalisation (~500-1500€, 2-3 mois)
+## 🟢 Phase 3 — Scale et internationalisation (~500-1500€)
 
 - [ ] **Traduction en 2-3 langues africaines** (swahili, yoruba, amharique) avec traducteurs natifs
 - [ ] **Tâches non-QCM** — traduction FR↔langue africaine, résumé, QA ouverte
@@ -49,4 +50,4 @@
 
 ---
 
-*Dernière mise à jour : 21 juin 2026*
+*Dernière mise à jour : 2 août 2026*

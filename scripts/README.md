@@ -1,5 +1,16 @@
 # Scripts — AfriBench
 
+## reproduce.sh (recommandé)
+
+Script bout-en-bout : venv, deps, validation, évaluation, export frontend.
+
+```bash
+cp .env.example .env   # renseigner les clés
+./scripts/reproduce.sh
+./scripts/reproduce.sh --model gpt-4o
+./scripts/reproduce.sh --skip-eval   # export frontend uniquement
+```
+
 ## afribench.py (script principal)
 
 Script autonome pour évaluer les LLMs sur AfriBench.
@@ -7,7 +18,7 @@ Script autonome pour évaluer les LLMs sur AfriBench.
 ### Installation
 
 ```bash
-pip install pyyaml requests
+pip install -r ../requirements.txt
 ```
 
 ### Utilisation

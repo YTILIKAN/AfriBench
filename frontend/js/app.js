@@ -31,6 +31,7 @@ const AppState = {
 /* ── Initialization ──────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
+  setupMobileNav();
   setupTabs();
   setupSearch();
   setActiveTab('leaderboard'); // initial active state for nav + tab bar
@@ -39,6 +40,54 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderTopModels();
   updateHeroStats();
 });
+
+/* ── Mobile sidebar (hamburger) ───────────────────────── */
+function setupMobileNav() {
+  const toggle = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('sidebar-close');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (!toggle) return;
+
+  const open = () => {
+    document.body.classList.add('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fermer le menu');
+    if (backdrop) backdrop.hidden = false;
+  };
+
+  const close = () => {
+    document.body.classList.remove('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+    if (backdrop) backdrop.hidden = true;
+  };
+
+  const toggleMenu = () => {
+    if (document.body.classList.contains('sidebar-open')) close();
+    else open();
+  };
+
+  window.__closeMobileNav = close;
+
+  toggle.addEventListener('click', toggleMenu);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('sidebar-open')) {
+      close();
+      toggle.focus();
+    }
+  });
+
+  // Close when leaving mobile breakpoint
+  const mq = window.matchMedia('(max-width: 768px)');
+  const onBreakpoint = (e) => {
+    if (!e.matches) close();
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
+  else if (mq.addListener) mq.addListener(onBreakpoint);
+}
 
 /* ── Theme ─────────────────────────────────────────────── */
 function initTheme() {
@@ -104,6 +153,11 @@ function setActiveTab(tabId) {
   document.querySelectorAll('[data-sidebar]').forEach((b) => {
     b.classList.toggle('active', b.dataset.tab === tabId);
   });
+
+  // Close mobile drawer after navigation
+  if (typeof window.__closeMobileNav === 'function') {
+    window.__closeMobileNav();
+  }
 
   renderActiveTab();
 

@@ -77,17 +77,17 @@ function renderCompare(container) {
 
   html += '<table class="lb-table"><thead><tr><th>Catégorie</th>';
   selected.forEach((m) => {
-    html += `<th style="text-align:center">${m.model_label || m.model}</th>`;
+    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
   });
   html += '</tr></thead><tbody>';
 
   catList.forEach((cat) => {
-    html += `<tr><td style="color:${categoryColor(cat)}">${categoryLabel(cat)}</td>`;
+    html += `<tr><td style="color:${categoryColor(cat)}">${escapeHtml(categoryLabel(cat))}</td>`;
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
       const highlight = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : '';
-      html += `<td style="text-align:center;font-family:var(--mono)" ${highlight}>${val}</td>`;
+      html += `<td style="text-align:center;font-family:var(--mono)" ${highlight}>${escapeHtml(val)}</td>`;
     });
     html += '</tr>';
   });
@@ -96,7 +96,7 @@ function renderCompare(container) {
   html += `<tr style="border-top:2px solid var(--sable-d)">
     <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
   selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
+    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${escapeHtml(String(m.accuracy))}%</td>`;
   });
   html += '</tr>';
 
@@ -195,17 +195,17 @@ function updateCompareTable(selected, catList) {
 
   let html = '<table class="lb-table"><thead><tr><th>Catégorie</th>';
   selected.forEach((m) => {
-    html += `<th style="text-align:center">${m.model_label || m.model}</th>`;
+    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
   });
   html += '</tr></thead><tbody>';
 
   catList.forEach((cat) => {
-    html += `<tr><td style="color:${categoryColor(cat)}">${categoryLabel(cat)}</td>`;
+    html += `<tr><td style="color:${categoryColor(cat)}">${escapeHtml(categoryLabel(cat))}</td>`;
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
       const style = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : 'style="font-family:var(--mono)"';
-      html += `<td style="text-align:center" ${style}>${val}</td>`;
+      html += `<td style="text-align:center" ${style}>${escapeHtml(val)}</td>`;
     });
     html += '</tr>';
   });
@@ -214,7 +214,7 @@ function updateCompareTable(selected, catList) {
   html += `<tr style="border-top:2px solid var(--sable-d)">
     <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
   selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
+    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${escapeHtml(String(m.accuracy))}%</td>`;
   });
   html += '</tr>';
 

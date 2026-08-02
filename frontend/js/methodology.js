@@ -64,25 +64,40 @@ function renderMethodology(container) {
       </div>
 
       <div class="meth-section">
-        <h3>Evaluation des modeles</h3>
+        <h3>Évaluation des modèles</h3>
         <p>
-          Chaque modèle est évalué sur l'ensemble des questions (${totalQ} questions). 
+          Chaque modèle est évalué sur l'ensemble des questions (${totalQ} questions).
           Le protocole est le suivant :
         </p>
         <ol>
-          <li>Chaque question est envoyee au modèle via son API avec un prompt standardise</li>
+          <li>Chaque question est envoyée au modèle via son API avec un prompt standardisé</li>
           <li>Le modèle doit choisir parmi 4 options (A, B, C ou D)</li>
-          <li>La réponse est comparee a la réponse attendue</li>
-          <li>Les résultats sont aggregates par catégorie et globalement</li>
+          <li>La réponse est comparée à la réponse attendue (1 point si correct)</li>
+          <li>Les résultats sont agrégés par catégorie et globalement</li>
         </ol>
         <div class="meth-code-block">
-          // Exemple de prompt standardise
+          // Exemple de prompt standardisé
           {
-            "question": "Où se trouve le siege de l'Union africaine ?",
-            "options": ["Nairobi, Kenya", "Addis-Abeba, Ethiopie", "Pretoria, Afrique du Sud", "Dakar, Senegal"]
-            "instruction": "Repondez UNIQUEMENT par la lettre de la bonne réponse (A, B, C ou D)."
+            "question": "Où se trouve le siège de l'Union africaine ?",
+            "options": ["Nairobi, Kenya", "Addis-Abeba, Éthiopie", "Pretoria, Afrique du Sud", "Dakar, Sénégal"],
+            "instruction": "Répondez UNIQUEMENT par la lettre de la bonne réponse (A, B, C ou D)."
           }
         </div>
+      </div>
+
+      <div class="meth-section">
+        <h3>Protocole d'inférence</h3>
+        <p>Paramètres exacts utilisés par <code>scripts/afribench.py</code> :</p>
+        <ul>
+          <li><strong>temperature</strong> : <code>0.0</code> (déterministe, défini dans <code>configs/models.yaml</code>)</li>
+          <li><strong>max_tokens</strong> : <code>256</code></li>
+          <li><strong>few-shot</strong> : <code>0</code> par défaut (zero-shot) ; activable via <code>--few-shot N</code></li>
+          <li><strong>timeout</strong> : 60 secondes par requête API</li>
+          <li><strong>délai inter-questions</strong> : 0,5 s (rate limiting)</li>
+          <li><strong>retries</strong> : jusqu'à 5 tentatives ; backoff exponentiel (2s → 9s), et 5–35 s en cas de HTTP 429</li>
+          <li><strong>seeds</strong> : non utilisées côté API (temperature=0) ; le jeu de questions est versionné (<code>v1</code>)</li>
+        </ul>
+        <p><strong>Scoring :</strong> 1 point par QCM correct · score global = % de bonnes réponses · moyenne par catégorie et par difficulté.</p>
       </div>
 
       <div class="meth-section">
@@ -145,16 +160,28 @@ function renderMethodology(container) {
       </div>
 
       <div class="meth-section">
-        <h3>Reproductibilite</h3>
+        <h3>Reproductibilité</h3>
         <p>
-          AfriBench est entierement <strong>open source</strong> et <strong>reproductible</strong> (scripts d'évaluation publiés) :
+          AfriBench est entièrement <strong>open source</strong> et
+          <strong>reproductible</strong> (protocole documenté, scripts publiés) :
         </p>
         <ul>
-          <li>Les <strong>donnees</strong> (questions, reponses) sont publiées sur GitHub</li>
-          <li>Le <strong>code d'evaluation</strong> est ouvert et auditable</li>
-          <li>Les <strong>resultats</strong> sont accompagnés d'un timestamp et du modèle exact</li>
-          <li>Tout le monde peut <strong>soumettre un nouveau modele</strong> ou une nouvelle question</li>
+          <li>Les <strong>données</strong> (questions, réponses) sont publiées sur GitHub</li>
+          <li>Le <strong>script d'évaluation</strong> :
+            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/afribench.py" target="_blank" rel="noopener">scripts/afribench.py</a>
+          </li>
+          <li>Script bout-en-bout :
+            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/reproduce.sh" target="_blank" rel="noopener">scripts/reproduce.sh</a>
+          </li>
+          <li>Les <strong>résultats</strong> sont accompagnés d'un timestamp et du modèle exact</li>
+          <li>Tout le monde peut <strong>soumettre un nouveau modèle</strong> ou une nouvelle question</li>
         </ul>
+        <div class="meth-code-block">
+# Reproduction rapide
+git clone https://github.com/YTILIKAN/AfriBench.git
+cd AfriBench
+./scripts/reproduce.sh --model gpt-4o
+        </div>
       </div>
 
       <div class="meth-section">

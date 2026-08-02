@@ -74,26 +74,20 @@ AfriBench/
 ### Évaluer un modèle
 
 ```bash
-# Installer les dépendances
-pip install pyyaml requests
+# Option A — reproduction bout-en-bout
+cp .env.example .env   # renseigner les clés API
+./scripts/reproduce.sh --model gpt-4o
 
-# Configurer les clés API (variables d'environnement)
+# Option B — manuelle
+pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
-export ANTHROPIC_API_KEY="sk-ant-..."
-# etc.
-
-# Lancer l'évaluation
 python scripts/afribench.py run
-
-# Évaluer un modèle spécifique
 python scripts/afribench.py run --model gpt-4o
-
-# Afficher le leaderboard
 python scripts/afribench.py leaderboard
-
-# Exporter les résultats
 python scripts/afribench.py export --format csv
 ```
+
+Script d'évaluation : [`scripts/afribench.py`](scripts/afribench.py) · Protocole documenté dans l'onglet **Méthodologie** du site.
 
 ### Lancer le frontend localement
 
