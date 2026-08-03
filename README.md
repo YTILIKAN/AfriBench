@@ -24,7 +24,7 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 | Limite | Détail | Plan |
 |--------|--------|------|
-| **101 questions** | ~11/catégorie — statistiquement insuffisant pour classer des modèles | Cible : 300+ (Phase 2) |
+| **125 questions Afrique** | encore insuffisant statistiquement (+ 20 témoins baseline) | Cible : 300+ (Phase 2) |
 | **Français uniquement** | Aucune langue africaine évaluée | Cible : swahili, yoruba, amharique (Phase 3) |
 | **Validation externe absente** | Toutes les questions écrites par une seule personne | Recrutement de validateurs en cours |
 | **Format QCM exclusif** | Pas de génération, traduction, raisonnement ouvert | Tâches ouvertes planifiées (Phase 3) |
