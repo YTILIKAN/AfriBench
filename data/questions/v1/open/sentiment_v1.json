@@ -1,0 +1,53 @@
+[
+  {
+    "id": "SENT-001",
+    "task_type": "sentiment",
+    "category": "societe",
+    "subcategory": "opinion",
+    "difficulty": "easy",
+    "language": "fr",
+    "format": "classification",
+    "text": "Le nouveau centre de santé rural a enfin ouvert : les habitants espèrent des soins plus proches et plus dignes.",
+    "question": "Polarité du texte dans un contexte africain de service public ?",
+    "label": "positive",
+    "labels": ["positive", "neutral", "negative"],
+    "metrics": ["accuracy", "macro_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SENT-002",
+    "task_type": "sentiment",
+    "category": "economie",
+    "subcategory": "opinion",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "classification",
+    "text": "Les coupures d'électricité quotidiennes paralysent les petites entreprises du quartier et découragent les investissements.",
+    "question": "Polarité du texte ?",
+    "label": "negative",
+    "labels": ["positive", "neutral", "negative"],
+    "metrics": ["accuracy", "macro_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SENT-003",
+    "task_type": "sentiment",
+    "category": "droit_politique",
+    "subcategory": "opinion",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "classification",
+    "text": "La commission électorale a publié le calendrier du scrutin ; les partis examinent les modalités sans commentaire enthousiaste ni hostilité ouverte.",
+    "question": "Polarité du texte ?",
+    "label": "neutral",
+    "labels": ["positive", "neutral", "negative"],
+    "metrics": ["accuracy", "macro_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

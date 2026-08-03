@@ -174,9 +174,11 @@ Script d'évaluation : [`scripts/afribench.py`](scripts/afribench.py) · Protoco
 AfriBench est un projet communautaire. Vous pouvez :
 
 - **Ajouter des questions** — voir [CONTRIBUTING.md](CONTRIBUTING.md)
-- **Valider des questions existantes** — signalez les erreurs dans les [issues](https://github.com/YTILIKAN/AfriBench/issues)
-- **Proposer des modèles** — ajoutez-les dans `configs/models.yaml`
-- **Améliorer le site** — PR bienvenues sur le frontend
+- **Valider des questions** — kit validateurs [docs/VALIDATORS.md](docs/VALIDATORS.md) (issue #5)
+- **Traduire** — scaffolding SW/YO/AM dans `data/questions/v1/translations/`
+- **Proposer des modèles** — `configs/models.yaml` + `scripts/afribench.py`
+- **Space Gradio** — `./scripts/deploy_hf_space.sh` (token HF pour `--push`)
+- **Soumission académique** — checklist [research/08-soumission-academique.md](research/08-soumission-academique.md)
 
 ### Format d'une question
 

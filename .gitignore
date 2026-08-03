@@ -12,6 +12,10 @@ data/results/mock/
 !data/results/.gitkeep
 !data/results/_seed*.json
 
+# Batches de validation / exports traduction locaux
+data/validation/
+data/translations_export/
+
 # Config secrets (if any)
 configs/*.local.yaml
 
