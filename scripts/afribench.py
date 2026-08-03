@@ -6,19 +6,22 @@ Usage:
   python afribench.py run                    # Évalue tous les modèles configurés
   python afribench.py run --model gpt-4o     # Évalue un modèle spécifique
   python afribench.py run --questions v1     # Utilise un jeu de questions spécifique
+  python afribench.py run --mock             # Évaluation déterministe sans clés API
   python afribench.py leaderboard            # Affiche le leaderboard des derniers résultats
   python afribench.py list-models            # Liste les modèles configurés
   python afribench.py validate questions/    # Valide la syntaxe des fichiers questions
   python afribench.py export --format csv    # Exporte les résultats
 
 Nécessite Python ≥3.10.
-Installer les dépendances : pip install pyyaml requests
+Installer les dépendances : pip install -r requirements.txt
 """
 
 import argparse
+import hashlib
 import json
 import os
 import platform
+import random
 import subprocess
 import sys
 import time
@@ -244,16 +247,43 @@ PROVIDERS = {
 
 
 # ── Évaluation ───────────────────────────────────────────────────────────
+def _mock_target_accuracy(model_name: str) -> float:
+    """Cible déterministe ∈ [0.62, 0.94] dérivée du nom du modèle."""
+    digest = hashlib.sha256(model_name.encode("utf-8")).hexdigest()
+    bucket = int(digest[:8], 16) / 0xFFFFFFFF
+    return round(0.62 + bucket * 0.32, 4)
+
+
+def _mock_answer(model_name: str, question: dict, rng: random.Random) -> str:
+    """Répond correctement avec une proba cible ; sinon une lettre incorrecte."""
+    correct = question.get("answer", "A").strip().upper()
+    letters = ["A", "B", "C", "D"]
+    if correct not in letters:
+        correct = "A"
+    target = _mock_target_accuracy(model_name)
+    # Bias léger par difficulté
+    diff = question.get("difficulty", "medium")
+    adj = {"easy": 0.06, "medium": 0.0, "hard": -0.08}.get(diff, 0.0)
+    p = min(0.98, max(0.35, target + adj))
+    if rng.random() < p:
+        return correct
+    wrong = [x for x in letters if x != correct]
+    return rng.choice(wrong)
+
+
 def evaluate_model(
     model: dict,
     questions: list[dict],
     few_shot: list[dict] | None = None,
     verbose: bool = False,
+    mock: bool = False,
 ) -> dict:
     """Évalue un modèle sur toutes les questions. Retourne les résultats."""
-    provider_fn = PROVIDERS.get(model["provider"])
-    if not provider_fn:
-        raise ValueError(f"Provider inconnu : {model['provider']}")
+    provider_fn = None
+    if not mock:
+        provider_fn = PROVIDERS.get(model["provider"])
+        if not provider_fn:
+            raise ValueError(f"Provider inconnu : {model['provider']}")
 
     results = {
         "model": model["name"],
@@ -266,7 +296,13 @@ def evaluate_model(
         "by_category": {},
         "by_difficulty": {"easy": {"correct": 0, "total": 0}, "medium": {"correct": 0, "total": 0}, "hard": {"correct": 0, "total": 0}},
         "details": [],
+        "mock": mock,
     }
+
+    rng = None
+    if mock:
+        seed = int(hashlib.sha256(model["name"].encode("utf-8")).hexdigest()[:16], 16)
+        rng = random.Random(seed)
 
     for i, q in enumerate(questions):
         cat = q.get("category", "unknown")
@@ -281,26 +317,30 @@ def evaluate_model(
         prompt = build_prompt(q, few_shot)
         correct_answer = q.get("answer", "").strip().upper()
 
-        # Rate limiting : délai entre chaque question
-        if i > 0:
-            time.sleep(0.5)
-
-        # API call with retry (up to 5 attempts for rate limits)
         model_answer = None
         error = None
-        for attempt in range(5):
-            try:
-                response = provider_fn(model, prompt)
-                model_answer = extract_answer(response)
-                error = None
-                break
-            except Exception as e:
-                error = str(e)
-                if attempt < 4:
-                    delay = 2 ** attempt + 1  # 2s, 3s, 5s, 9s
-                    if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
-                        delay = 5 + 10 * attempt  # 5s, 15s, 25s, 35s for rate limits
-                    time.sleep(delay)
+
+        if mock:
+            model_answer = _mock_answer(model["name"], q, rng)
+        else:
+            # Rate limiting : délai entre chaque question
+            if i > 0:
+                time.sleep(0.5)
+
+            # API call with retry (up to 5 attempts for rate limits)
+            for attempt in range(5):
+                try:
+                    response = provider_fn(model, prompt)
+                    model_answer = extract_answer(response)
+                    error = None
+                    break
+                except Exception as e:
+                    error = str(e)
+                    if attempt < 4:
+                        delay = 2 ** attempt + 1  # 2s, 3s, 5s, 9s
+                        if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+                            delay = 5 + 10 * attempt  # 5s, 15s, 25s, 35s for rate limits
+                        time.sleep(delay)
 
         is_correct = model_answer == correct_answer if model_answer else False
 
@@ -345,24 +385,32 @@ def evaluate_model(
 
 # ── Résultats ────────────────────────────────────────────────────────────
 def save_results(results: dict):
-    """Sauvegarde les résultats dans data/results/."""
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    """Sauvegarde les résultats dans data/results/ (ou results/mock/ si mock)."""
+    out_dir = RESULTS_DIR / "mock" if results.get("mock") else RESULTS_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
     model_name = results["model"]
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    fpath = RESULTS_DIR / f"{model_name}_{ts}.json"
+    prefix = "mock_" if results.get("mock") else ""
+    fpath = out_dir / f"{prefix}{model_name}_{ts}.json"
     with open(fpath, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"  Résultats sauvegardés : {fpath}")
     return fpath
 
 
-def load_all_results() -> list[dict]:
-    """Charge tous les résultats depuis data/results/."""
+def load_all_results(*, include_mock: bool = False) -> list[dict]:
+    """Charge tous les résultats depuis data/results/ (hors mock par défaut)."""
     all_results = []
     if RESULTS_DIR.exists():
         for fpath in sorted(RESULTS_DIR.glob("*.json"), reverse=True):
             with open(fpath, encoding="utf-8") as f:
                 all_results.append(json.load(f))
+        if include_mock:
+            mock_dir = RESULTS_DIR / "mock"
+            if mock_dir.exists():
+                for fpath in sorted(mock_dir.glob("*.json"), reverse=True):
+                    with open(fpath, encoding="utf-8") as f:
+                        all_results.append(json.load(f))
     return all_results
 
 
@@ -540,6 +588,7 @@ def cmd_run(args):
     models = load_models()
     categories = load_categories()
     questions = load_questions(args.questions)
+    mock = bool(getattr(args, "mock", False))
 
     # Filtrer par modèle si spécifié
     if args.model:
@@ -554,16 +603,20 @@ def cmd_run(args):
         few_shot = questions[:args.few_shot]
 
     total_models = len(models)
-    print(f"\n📊  AfriBench — Évaluation")
+    print(f"\n📊  AfriBench — Évaluation{' (MOCK)' if mock else ''}")
     print(f"    Questions : {len(questions)}")
     print(f"    Modèles   : {total_models}")
     print(f"    Few-shot  : {args.few_shot if few_shot else 'non'}")
+    if mock:
+        print("    Mode      : mock (déterministe, sans clés API)")
     print()
 
     for i, model in enumerate(models, 1):
         print(f"[{i}/{total_models}] Évaluation de {model.get('label', model['name'])}...")
         try:
-            results = evaluate_model(model, questions, few_shot, verbose=args.verbose)
+            results = evaluate_model(
+                model, questions, few_shot, verbose=args.verbose, mock=mock
+            )
             save_results(results)
             print_summary(results)
         except Exception as e:
@@ -573,7 +626,7 @@ def cmd_run(args):
 
 def cmd_leaderboard(args):
     """Affiche le leaderboard."""
-    results = load_all_results()
+    results = load_all_results(include_mock=bool(getattr(args, "include_mock", False)))
     print_leaderboard(results, args.top_n)
 
 
@@ -621,11 +674,21 @@ def main():
     )
     p_run.add_argument("--few-shot", "-f", type=int, default=0, help="Nombre d'exemples few-shot")
     p_run.add_argument("--verbose", "-v", action="store_true", help="Affiche chaque question")
+    p_run.add_argument(
+        "--mock",
+        action="store_true",
+        help="Évaluation déterministe sans appels API (CI / offline)",
+    )
     p_run.set_defaults(func=cmd_run)
 
     # leaderboard
     p_lb = sub.add_parser("leaderboard", help="Affiche le leaderboard")
     p_lb.add_argument("--top-n", "-n", type=int, default=10, help="Nombre de modèles à afficher")
+    p_lb.add_argument(
+        "--include-mock",
+        action="store_true",
+        help="Inclure les résultats mock (data/results/mock/)",
+    )
     p_lb.set_defaults(func=cmd_leaderboard)
 
     # list-models
