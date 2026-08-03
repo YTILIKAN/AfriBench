@@ -340,5 +340,119 @@
     "source": "Ethnologue — Hausa",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-019",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le yoruba est principalement parlé au :",
+    "options": {
+      "A": "Nigeria (et pays voisins)",
+      "B": "Maroc uniquement",
+      "C": "Botswana exclusivement",
+      "D": "Érythrée"
+    },
+    "answer": "A",
+    "explanation": "Le yoruba est une langue majeure du sud-ouest du Nigeria et de la diaspora.",
+    "source": "Ethnologue — Yoruba",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-020",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Wole Soyinka, prix Nobel de littérature, est originaire du :",
+    "options": {
+      "A": "Nigeria",
+      "B": "Sénégal",
+      "C": "Kenya",
+      "D": "Égypte"
+    },
+    "answer": "A",
+    "explanation": "Wole Soyinka, dramaturge et écrivain nigérian, reçut le Nobel en 1986.",
+    "source": "Nobel Prize — Wole Soyinka",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-021",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le genre musical « highlife » est surtout associé à l'Afrique de l'Ouest, notamment :",
+    "options": {
+      "A": "Ghana / Nigeria",
+      "B": "Lesotho uniquement",
+      "C": "Tunisie phénicienne",
+      "D": "Madagascar méridionale seule"
+    },
+    "answer": "A",
+    "explanation": "Le highlife s'est développé particulièrement au Ghana et a influencé la région.",
+    "source": "Grove Music / études highlife",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-022",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Nollywood désigne principalement :",
+    "options": {
+      "A": "L'industrie cinématographique nigériane",
+      "B": "Un festival de danse berbère",
+      "C": "Un réseau ferré sahélien",
+      "D": "Une monnaie numérique de l'UA"
+    },
+    "answer": "A",
+    "explanation": "Nollywood est l'appellation courante du cinéma populaire nigérian.",
+    "source": "UNESCO / études sur Nollywood",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-023",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tifinagh est un système d'écriture associé principalement aux :",
+    "options": {
+      "A": "Langues berbères (amazighes)",
+      "B": "Langues bantoues du Congo uniquement",
+      "C": "Créoles réunionnais",
+      "D": "Langues khoïsan d'Australie"
+    },
+    "answer": "A",
+    "explanation": "Le tifinagh note des variétés amazighes, notamment en Afrique du Nord.",
+    "source": "Encyclopædia Britannica — Tifinagh",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-024",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor est une figure majeure de :",
+    "options": {
+      "A": "La Négritude et de la littérature francophone africaine",
+      "B": "La physique quantique japonaise",
+      "C": "La peinture flamande du XVe siècle",
+      "D": "L'exploration polaire russe"
+    },
+    "answer": "A",
+    "explanation": "Senghor, poète et homme d'État sénégalais, est un pilier du mouvement de la Négritude.",
+    "source": "Encyclopædia Britannica — Léopold Senghor",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

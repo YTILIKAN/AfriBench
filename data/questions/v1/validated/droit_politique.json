@@ -302,5 +302,119 @@
     "source": "Site officiel SADC",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays accueille le siège de l'Union africaine ?",
+    "options": {
+      "A": "Éthiopie",
+      "B": "Nigeria",
+      "C": "Afrique du Sud",
+      "D": "Égypte"
+    },
+    "answer": "A",
+    "explanation": "Le siège de l'UA est à Addis-Abeba, Éthiopie.",
+    "source": "Union africaine — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-018",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'UEMOA regroupe des États surtout liés par :",
+    "options": {
+      "A": "Une union économique et monétaire en Afrique de l'Ouest (franc CFA)",
+      "B": "Une alliance militaire exclusive d'Afrique australe",
+      "C": "Un marché unique asiatique",
+      "D": "Une fédération linguistique berbère"
+    },
+    "answer": "A",
+    "explanation": "L'Union économique et monétaire ouest-africaine partage notamment le franc CFA UEMOA.",
+    "source": "Site officiel UEMOA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-019",
+    "category": "droit_politique",
+    "subcategory": "gouvernance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Conseil de paix et de sécurité de l'UA a pour mandat principal de :",
+    "options": {
+      "A": "Prévenir et gérer les conflits et les crises sur le continent",
+      "B": "Émettre la monnaie unique mondiale",
+      "C": "Remplacer tous les parlements nationaux",
+      "D": "Gérer uniquement le sport"
+    },
+    "answer": "A",
+    "explanation": "Le CPS est l'organe permanent de l'UA pour la paix, la sécurité et la gestion des crises.",
+    "source": "UA — Peace and Security Council",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-020",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Protocole de Maputo (2003) porte principalement sur :",
+    "options": {
+      "A": "Les droits des femmes en Afrique",
+      "B": "La régulation des cryptomonnaies",
+      "C": "La chasse sportive",
+      "D": "Les quotas de pêche en Antarctique"
+    },
+    "answer": "A",
+    "explanation": "Le Protocole de Maputo complète la Charte africaine sur les droits des femmes.",
+    "source": "UA — Maputo Protocol",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-021",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La CEMAC est une communauté économique surtout située en :",
+    "options": {
+      "A": "Afrique centrale",
+      "B": "Afrique australe",
+      "C": "Afrique de l'Est anglophone uniquement",
+      "D": "Afrique du Nord"
+    },
+    "answer": "A",
+    "explanation": "La Communauté économique et monétaire de l'Afrique centrale regroupe des États d'Afrique centrale.",
+    "source": "Site officiel CEMAC",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-022",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le NEPAD (désormais intégré à l'UA) visait surtout :",
+    "options": {
+      "A": "Le développement économique et le partenariat pour l'Afrique",
+      "B": "La suppression des universités",
+      "C": "L'interdiction du commerce",
+      "D": "La colonisation numérique"
+    },
+    "answer": "A",
+    "explanation": "Le Nouveau Partenariat pour le développement de l'Afrique promeut croissance, gouvernance et infrastructures.",
+    "source": "UA / AUDA-NEPAD",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

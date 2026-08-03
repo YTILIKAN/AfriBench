@@ -302,5 +302,119 @@
     "source": "Littérature orale africaine — fonctions du conte",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-017",
+    "category": "raisonnement_culturel",
+    "subcategory": "parenté",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans plusieurs sociétés africaines, appeler « mon frère/ma sœur » une personne non biologique peut exprimer :",
+    "options": {
+      "A": "Une parenté sociale / solidarité élargie",
+      "B": "Une erreur d'état civil obligatoire",
+      "C": "Un refus de toute famille",
+      "D": "Un terme exclusivement juridique colonial"
+    },
+    "answer": "A",
+    "explanation": "La parenté classificatoire étend les termes familiaux au-delà du sang.",
+    "source": "Anthropologie de la parenté en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-018",
+    "category": "raisonnement_culturel",
+    "subcategory": "respect",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Saluer longuement avant d'aborder le sujet d'une visite est souvent une façon de :",
+    "options": {
+      "A": "Honorer la relation et préparer l'échange",
+      "B": "Perdre volontairement du temps sans sens social",
+      "C": "Remplacer le droit commercial",
+      "D": "Interdire la discussion"
+    },
+    "answer": "A",
+    "explanation": "Les salutations étendues instaurent le respect et le cadre relationnel.",
+    "source": "Pragmatique des interactions en Afrique de l'Ouest",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-019",
+    "category": "raisonnement_culturel",
+    "subcategory": "parole",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une culture de la parole où « la vérité se dit en proverbe », une critique directe trop brutale peut être perçue comme :",
+    "options": {
+      "A": "Manque de doigté / rupture du tact social",
+      "B": "Seule forme acceptable de science",
+      "C": "Preuve de neutralité comptable",
+      "D": "Obligation constitutionnelle"
+    },
+    "answer": "A",
+    "explanation": "L'indirection et le proverbe permettent souvent de critiquer sans humilier.",
+    "source": "Études sur la parole et l'indirection",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-020",
+    "category": "raisonnement_culturel",
+    "subcategory": "entraide",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le principe d'entraide lors des funérailles (contributions, présence) illustre surtout :",
+    "options": {
+      "A": "La solidarité communautaire face à l'épreuve",
+      "B": "Un marché boursier",
+      "C": "Une règle FIFA",
+      "D": "Un algorithme de tri"
+    },
+    "answer": "A",
+    "explanation": "Les funérailles mobilisent réseaux et obligations réciproques de soutien.",
+    "source": "Anthropologie des rites funéraires",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-021",
+    "category": "raisonnement_culturel",
+    "subcategory": "espace",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une cour familiale partagée, laisser la porte « ouverte » aux parents peut signifier :",
+    "options": {
+      "A": "Une norme d'accessibilité et d'appartenance élargie",
+      "B": "Un défaut de serrure uniquement technique",
+      "C": "Une violation du droit international humanitaire",
+      "D": "Une mode architecturale scandinave obligatoire"
+    },
+    "answer": "A",
+    "explanation": "L'espace domestique exprime souvent des normes d'accueil et de parenté élargie.",
+    "source": "Anthropologie de l'espace domestique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-022",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Arriver « après les salutations » à une cérémonie peut être moins grave qu'ignorer les aînés, car :",
+    "options": {
+      "A": "La reconnaissance sociale prime souvent sur la ponctualité stricte",
+      "B": "Le temps n'existe pas en Afrique (stéréotype à rejeter comme loi)",
+      "C": "Les horloges sont interdites",
+      "D": "Les aînés refusent toute organisation"
+    },
+    "answer": "A",
+    "explanation": "Sans essentialiser, de nombreux contextes valorisent d'abord le respect relationnel ; la ponctualité varie selon les cadres (bureau vs cérémonie).",
+    "source": "Anthropologie du temps social (avec nuance)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

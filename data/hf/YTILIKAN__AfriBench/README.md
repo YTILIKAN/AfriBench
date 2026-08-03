@@ -31,7 +31,7 @@ Porté par [YTILIKAN](https://ytilikan.com) · repo : [YTILIKAN/AfriBench](https
 
 | Split | Description | N |
 |-------|-------------|---|
-| `african` | Questions ancrées Afrique (benchmark principal) | 156 |
+| `african` | Questions ancrées Afrique (benchmark principal) | 210 |
 | `control` | Questions témoins non-africaines (baseline) | 20 |
 
 ## Schéma
@@ -57,23 +57,23 @@ Porté par [YTILIKAN](https://ytilikan.com) · repo : [YTILIKAN/AfriBench](https
 
 | Catégorie | N |
 |-----------|---|
-| droit_politique | 16 |
-| economie | 16 |
-| geographie | 21 |
-| histoire | 21 |
-| ia_technologie | 16 |
-| langue_culture | 18 |
-| raisonnement_culturel | 16 |
-| sante_sciences | 16 |
-| societe | 16 |
+| droit_politique | 22 |
+| economie | 22 |
+| geographie | 27 |
+| histoire | 27 |
+| ia_technologie | 22 |
+| langue_culture | 24 |
+| raisonnement_culturel | 22 |
+| sante_sciences | 22 |
+| societe | 22 |
 
 ### Par difficulté
 
 | Difficulté | N |
 |------------|---|
-| easy | 46 |
-| hard | 52 |
-| medium | 58 |
+| easy | 64 |
+| hard | 70 |
+| medium | 76 |
 
 ## Chargement
 
@@ -103,7 +103,7 @@ control = load_jsonl("control.jsonl")
   author = {{YTILIKAN}},
   year   = {{2026}},
   url    = {{https://github.com/YTILIKAN/AfriBench}},
-  note   = {{Prototype v0.1 — 176 items (156 african + 20 control)}}
+  note   = {{Prototype v0.1 — 230 items (210 african + 20 control)}}
 }
 ```
 

@@ -16,17 +16,17 @@
 
 ## 🟡 Phase 2 — Renforcement du benchmark
 
-- [~] **200+ nouvelles questions** — 156 africaines (était 101) ; cible 300+
+- [~] **200+ nouvelles questions** — **210** africaines (était 101) ; cible 300+
 - [x] **20 questions témoins** — `data/questions/v1/witness/` (`is_control`)
 - [ ] 3 validateurs africains
-- [ ] 10 questions de génération ouverte
+- [x] **10 questions ouvertes** + juge `scripts/judges/llm_as_judge.py`
 - [x] Protocole + lien script sur le site
 - [ ] `reproduce.sh` — PR #18
 
 ## 🟢 Phase 3 — Scale
 
-- [ ] Traduction multilingue
-- [ ] Tâches non-QCM
+- [~] Traduction multilingue — scaffolding `translations/{sw,yo,am}` (+ pilote SW draft)
+- [~] Tâches non-QCM — set ouvert v0.1 (génération) ; traduction/résumé à venir
 - [x] LM Evaluation Harness (`afribench` / `afribench_all`)
 - [x] Dockerfile d'évaluation + CI
 - [x] **Dataset HF prêt à publier** — `data/hf/YTILIKAN__AfriBench/` + `DATASET_CARD.md` (push Hub manuel)

@@ -1,21 +1,21 @@
 {
   "version": "v1",
-  "total": 156,
+  "total": 210,
   "by_category": {
-    "droit_politique": 16,
-    "economie": 16,
-    "geographie": 21,
-    "histoire": 21,
-    "ia_technologie": 16,
-    "langue_culture": 18,
-    "raisonnement_culturel": 16,
-    "sante_sciences": 16,
-    "societe": 16
+    "droit_politique": 22,
+    "economie": 22,
+    "geographie": 27,
+    "histoire": 27,
+    "ia_technologie": 22,
+    "langue_culture": 24,
+    "raisonnement_culturel": 22,
+    "sante_sciences": 22,
+    "societe": 22
   },
   "by_difficulty": {
-    "easy": 46,
-    "hard": 52,
-    "medium": 58
+    "easy": 64,
+    "hard": 70,
+    "medium": 76
   },
   "languages": [
     "fr"

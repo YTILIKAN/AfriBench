@@ -302,5 +302,119 @@
     "source": "UNESCO — community media in Africa",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-017",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les « villes secondaires » africaines sont importantes car elles :",
+    "options": {
+      "A": "Absorbent une part croissante de l'urbanisation hors mégapoles",
+      "B": "N'existent pas démographiquement",
+      "C": "Remplacent les États",
+      "D": "Sont interdites par l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Une part majeure de la croissance urbaine se fait hors des très grandes capitales.",
+    "source": "ONU-Habitat — urbanisation Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-018",
+    "category": "societe",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le défi de l'« emploi des jeunes » en Afrique est lié surtout à :",
+    "options": {
+      "A": "Une cohorte jeune nombreuse entrant sur le marché du travail",
+      "B": "L'absence totale de population jeune",
+      "C": "Un excès d'emplois formels non pourvus partout",
+      "D": "La disparition de l'agriculture mondiale"
+    },
+    "answer": "A",
+    "explanation": "La structure démographique jeune crée une pression forte sur la création d'emplois.",
+    "source": "BAD / BIT — youth employment Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-019",
+    "category": "societe",
+    "subcategory": "religion",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le syncrétisme religieux observé dans certaines sociétés africaines désigne :",
+    "options": {
+      "A": "Le mélange/creative coexistence de pratiques et croyances",
+      "B": "L'interdiction de toute religion",
+      "C": "Un impôt unique continental",
+      "D": "Un style architectural grec classique exclusif"
+    },
+    "answer": "A",
+    "explanation": "Syncrétisme : articulation de traditions locales et de religions mondiales.",
+    "source": "Anthropologie des religions en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-020",
+    "category": "societe",
+    "subcategory": "migration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La migration intra-africaine est souvent plus importante quantitativement que :",
+    "options": {
+      "A": "La migration Afrique→Europe seule, dans plusieurs analyses de flux",
+      "B": "Toute migration interne chinoise",
+      "C": "Le tourisme lunaire",
+      "D": "Le commerce de l'Antiquité romaine"
+    },
+    "answer": "A",
+    "explanation": "Une grande part des mouvements migratoires africains reste régionale/continentale.",
+    "source": "UA / OIM — migration in Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-021",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les « learning poverty » indicators soulignent surtout :",
+    "options": {
+      "A": "Que trop d'enfants n'acquièrent pas des compétences de lecture de base",
+      "B": "Que toutes les universités africaines sont fermées",
+      "C": "Que le français est interdit",
+      "D": "Que l'école n'existe qu'en ligne"
+    },
+    "answer": "A",
+    "explanation": "Learning poverty mesure l'incapacité à lire et comprendre un texte simple à un âge donné.",
+    "source": "Banque mondiale — Learning Poverty",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-022",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les quotas de genre dans certains parlements africains visent à :",
+    "options": {
+      "A": "Augmenter la représentation politique des femmes",
+      "B": "Interdire le vote",
+      "C": "Remplacer les élections",
+      "D": "Limiter l'éducation"
+    },
+    "answer": "A",
+    "explanation": "Des mécanismes de quotas cherchent à corriger sous-représentation politique féminine.",
+    "source": "IDEA / UA — women in politics",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

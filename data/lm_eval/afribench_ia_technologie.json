@@ -302,5 +302,119 @@
     "source": "Rapports d'écosystème numérique africain (GSMA, Banque mondiale)",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-017",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le projet Lacuna Fund soutient surtout :",
+    "options": {
+      "A": "La création de jeux de données pour l'IA dans les régions sous-représentées",
+      "B": "La construction de stades",
+      "C": "L'interdiction de l'open source",
+      "D": "Le remplacement des universités africaines"
+    },
+    "answer": "A",
+    "explanation": "Lacuna Fund finance des datasets d'intérêt public, y compris en Afrique.",
+    "source": "lacunafund.org",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-018",
+    "category": "ia_technologie",
+    "subcategory": "telecom",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La pénétration du mobile money en Afrique a été favorisée par :",
+    "options": {
+      "A": "Une forte adoption du mobile et des besoins d'inclusion financière",
+      "B": "L'absence totale de téléphones",
+      "C": "L'interdiction des SIM",
+      "D": "Un réseau postal exclusivement maritime"
+    },
+    "answer": "A",
+    "explanation": "Le mobile a permis des services financiers là où la bancarisation classique était limitée.",
+    "source": "GSMA Mobile Money reports",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-019",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un risque éthique spécifique des modèles de langage sur l'Afrique est :",
+    "options": {
+      "A": "Les biais et stéréotypes dus à des données d'entraînement peu représentatives",
+      "B": "Leur incapacité physique à utiliser l'électricité",
+      "C": "Leur obligation légale de parler toutes les langues dès 1990",
+      "D": "L'interdiction mondiale de toute API"
+    },
+    "answer": "A",
+    "explanation": "Sous-représentation des langues/contextes africains → erreurs et stéréotypes.",
+    "source": "Littérature bias/low-resource NLP",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-020",
+    "category": "ia_technologie",
+    "subcategory": "startups",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les hubs technologiques comme Yaba (Lagos) ou Station F Africa-focused networks illustrent :",
+    "options": {
+      "A": "La croissance d'écosystèmes startup africains",
+      "B": "La disparition d'Internet en Afrique",
+      "C": "L'interdiction du venture capital",
+      "D": "Un retour exclusif à l'économie de traite"
+    },
+    "answer": "A",
+    "explanation": "Des clusters urbains concentrent talents, capital et services numériques.",
+    "source": "Rapports écosystèmes startup africains",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-021",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi l'open source est-il stratégique pour le NLP africain ?",
+    "options": {
+      "A": "Il permet le partage de modèles/données et la collaboration communautaire",
+      "B": "Il interdit toute publication scientifique",
+      "C": "Il force l'usage exclusif de l'anglais",
+      "D": "Il remplace le besoin d'électricité"
+    },
+    "answer": "A",
+    "explanation": "Des communautés comme Masakhane misent sur l'ouverture pour accélérer les langues peu dotées.",
+    "source": "Masakhane / AfroLM literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-022",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La stratégie de transformation numérique de l'UA vise notamment à :",
+    "options": {
+      "A": "Accélérer l'inclusion numérique et l'économie digitale continentale",
+      "B": "Supprimer les smartphones",
+      "C": "Interdire la fibre optique",
+      "D": "Remplacer l'école par des chatbots uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les cadres UA/Smart Africa promeuvent infrastructures, compétences et marchés numériques.",
+    "source": "UA Digital Transformation Strategy",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
