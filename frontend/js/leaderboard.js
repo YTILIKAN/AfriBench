@@ -178,7 +178,10 @@ function renderLeaderboard(container) {
     const isBestStd = stddev !== null && stddev === minStdDev;
     const isBestOpen = isOpen && name === bestOpenName;
 
-    let badges = '<span class="perf-badge bronze">1er (v0.1)</span>';
+    let badges = '';
+    if (i === 0) badges += '<span class="perf-badge bronze">Meilleur score (v0.1)</span>';
+    if (isBestOpen && i !== 0) badges += '<span class="perf-badge bronze">Meilleur open</span>';
+    if (isBestStd) badges += '<span class="perf-badge bronze">Plus constant</span>';
 
     const favStar = isFavorite(name) ? '★' : '☆';
 

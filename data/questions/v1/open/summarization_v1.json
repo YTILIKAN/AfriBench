@@ -1,0 +1,89 @@
+[
+  {
+    "id": "SUM-001",
+    "task_type": "summarization",
+    "category": "economie",
+    "subcategory": "resume",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "source_text": "La Zone de libre-échange continentale africaine (ZLECAf) vise à créer un marché unique de biens et services couvrant plus de 1,3 milliard de personnes. Ratifiée progressivement depuis 2019, elle cherche à réduire les droits de douane, harmoniser les règles d'origine et faciliter le commerce intra-africain, encore faible par rapport aux autres continents. Les défis restent nombreux : infrastructures de transport, barrières non tarifaires, capacité industrielle inégale et besoins de financement pour les PME. Plusieurs États ont lancé des initiatives pilotes de commerce préférentiel, tandis que les communautés économiques régionales continuent de jouer un rôle d'intégration intermédiaire.",
+    "question": "Résumez le texte en 60–90 mots : objectif de la ZLECAf, état d'avancement, et deux défis majeurs.",
+    "reference_points": [
+      "Marché unique / commerce intra-africain",
+      "Réduction tarifaire / règles d'origine",
+      "Au moins deux défis (infra, barrières NT, industrie, financement)",
+      "Pas d'invention de chiffres hors texte"
+    ],
+    "metrics": ["rouge", "bertscore", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "max_words": 90,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  },
+  {
+    "id": "SUM-002",
+    "task_type": "summarization",
+    "category": "sante_sciences",
+    "subcategory": "resume",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "source_text": "Les systèmes de santé africains font face à une double charge : maladies transmissibles persistantes (paludisme, VIH, tuberculose) et montée des maladies non transmissibles (diabète, hypertension, cancers). La densité de personnels de santé reste souvent inférieure aux seuils recommandés par l'OMS, surtout en zones rurales. Les initiatives d'assurance maladie communautaire et les investissements dans la production locale de vaccins (ex. hubs de fabrication) cherchent à renforcer la souveraineté sanitaire. Toutefois, la dépendance aux importations de principes actifs et la fragmentation des chaînes d'approvisionnement freinent la résilience face aux chocs.",
+    "question": "Résumez le texte en 70–100 mots en mettant en avant la double charge épidémiologique, une contrainte de ressources humaines, et une piste de souveraineté sanitaire.",
+    "reference_points": [
+      "Double charge transmissibles / non transmissibles",
+      "Personnel de santé insuffisant / rural",
+      "Production locale de vaccins ou assurance communautaire",
+      "Mention d'une limite (importations / chaînes d'approvisionnement)"
+    ],
+    "metrics": ["rouge", "bertscore", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "max_words": 100,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  },
+  {
+    "id": "SUM-003",
+    "task_type": "summarization",
+    "category": "droit_politique",
+    "subcategory": "resume",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "source_text": "Plusieurs constitutions africaines post-indépendances et post-transitions ont introduit des limites de mandats présidentiels pour prévenir les dérives autoritaires. Dans la pratique, certains dirigeants ont contourné ces garde-fous via des référendums, des interprétations juridiques ou des coalitions parlementaires. Les Cours constitutionnelles et la société civile jouent un rôle croissant de vigilance, avec des résultats variables selon l'indépendance judiciaire et la pression populaire. Les organisations régionales (UA, CEDEAO) ont parfois sanctionné des coups d'État, tout en restant inégalement efficaces face aux révisions constitutionnelles « légales ».",
+    "question": "Résumez en 60–90 mots le mécanisme des limites de mandat, les stratégies de contournement, et le rôle des contre-pouvoirs.",
+    "reference_points": [
+      "Limites de mandats comme garde-fou",
+      "Contournement (référendum, interprétation, parlement)",
+      "Cours / société civile / organisations régionales",
+      "Efficacité variable"
+    ],
+    "metrics": ["rouge", "bertscore", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "max_words": 90,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  }
+]

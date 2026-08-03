@@ -21,6 +21,17 @@ def test_open_questions_schema():
         assert q["max_score"] == 10
 
 
+def test_translation_and_summarization_pilots():
+    root = REPO / "data" / "questions" / "v1" / "open"
+    tr = json.loads((root / "translation_v1.json").read_text(encoding="utf-8"))
+    sm = json.loads((root / "summarization_v1.json").read_text(encoding="utf-8"))
+    assert len(tr) >= 3
+    assert len(sm) >= 3
+    assert all(q["task_type"] == "translation" and q["format"] == "open" for q in tr)
+    assert all(q["task_type"] == "summarization" and "source_text" in q for q in sm)
+    assert all("reference_points" in q and "rubric" in q for q in tr + sm)
+
+
 def test_judge_dry_run(tmp_path: Path):
     responses = tmp_path / "resp.jsonl"
     out = tmp_path / "out.jsonl"

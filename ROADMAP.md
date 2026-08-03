@@ -26,7 +26,7 @@
 ## 🟢 Phase 3 — Scale
 
 - [~] Traduction multilingue — scaffolding `translations/{sw,yo,am}` (+ pilote SW draft)
-- [~] Tâches non-QCM — set ouvert v0.1 (génération) ; traduction/résumé à venir
+- [~] Tâches non-QCM — génération (10) + pilotes traduction (3) + résumé (3) ; métriques auto à brancher
 - [x] LM Evaluation Harness (`afribench` / `afribench_all`)
 - [x] Dockerfile d'évaluation + CI
 - [x] **Dataset HF prêt à publier** — `data/hf/YTILIKAN__AfriBench/` + `DATASET_CARD.md` (push Hub manuel)
