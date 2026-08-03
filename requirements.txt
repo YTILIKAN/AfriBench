@@ -1,0 +1,5 @@
+# AfriBench — dépendances d'évaluation (CLI)
+# Python ≥ 3.10
+# Versions pinnées pour l'image Docker : requirements-eval.txt
+pyyaml>=6.0
+requests>=2.31.0

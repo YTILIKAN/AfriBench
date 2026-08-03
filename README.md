@@ -142,18 +142,26 @@ cd frontend && python3 -m http.server 8000
 ### Évaluer un modèle
 
 ```bash
-# CLI
-pip install pyyaml requests
+# Option A — reproduction bout-en-bout
+cp .env.example .env   # renseigner les clés API
+./scripts/reproduce.sh --model gpt-4o
+./scripts/reproduce.sh --mock          # sans clés (CI / offline)
+./scripts/reproduce.sh --skip-eval     # export frontend seulement
+
+# Option B — CLI manuelle
+pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
 python3 scripts/afribench.py run --model gpt-4o
 
-# Ou via l'API (backend démarré, AFRIBENCH_API_KEY défini)
+# Option C — API (backend démarré, AFRIBENCH_API_KEY défini)
 curl -X POST http://127.0.0.1:8080/api/v1/evaluate \
   -H "X-API-Key: $AFRIBENCH_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model":"gpt-4o","limit":5}'
 curl -s http://127.0.0.1:8080/api/v1/jobs/<job_id>
 ```
+
+Script d'évaluation : [`scripts/afribench.py`](scripts/afribench.py) · Protocole documenté dans l'onglet **Méthodologie** du site.
 
 ---
 

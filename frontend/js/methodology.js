@@ -66,15 +66,21 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Evaluation des modeles</h3>
         <p>
-          Chaque modèle est évalué sur l'ensemble des questions (${totalQ} questions). 
+          Chaque modèle est évalué sur l'ensemble des questions (${totalQ} questions).
           Le protocole est le suivant :
         </p>
         <ol>
-          <li>Chaque question est envoyee au modèle via son API avec un prompt standardise</li>
+          <li>Chaque question est envoyée au modèle via son API avec un prompt standardisé</li>
+          <li>Température basse / déterministe côté client lorsque l'API le permet ; retries sur 429</li>
           <li>Le modèle doit choisir parmi 4 options (A, B, C ou D)</li>
-          <li>La réponse est comparee a la réponse attendue</li>
-          <li>Les résultats sont aggregates par catégorie et globalement</li>
+          <li>La réponse est comparée à la réponse attendue (lettre seule)</li>
+          <li>Les résultats sont agrégés par catégorie, difficulté et globalement</li>
         </ol>
+        <p>
+          Script : <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/afribench.py" target="_blank" rel="noopener">scripts/afribench.py</a>
+          · Reproduction : <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/reproduce.sh" target="_blank" rel="noopener">scripts/reproduce.sh</a>
+          (<code>--mock</code> pour un run offline CI).
+        </p>
         <div class="meth-code-block">
           // Exemple de prompt standardise
           {
@@ -110,9 +116,8 @@ function renderMethodology(container) {
 
         <div class="meth-code-block">
           <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Score global</strong>
-          Pourcentage de réponses correctes sur l'ensemble du benchmark (300 questions).
-          métrique principale de performance. Un score de 96% signifie que le modèle a repondu
-          correctement a 97 questions sur 101.
+          Pourcentage de réponses correctes sur l'ensemble du benchmark (${totalQ} questions).
+          Métrique principale de performance.
           <br><br>
           <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Scores par difficulte</strong>
           Les questions sont classees en 3 niveaux :
@@ -147,13 +152,15 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Reproductibilite</h3>
         <p>
-          AfriBench est entierement <strong>open source</strong> et <strong>reproductible</strong> (scripts d'évaluation publiés) :
+          AfriBench est entièrement <strong>open source</strong> et
+          <strong>reproductible (protocole documenté)</strong> :
         </p>
         <ul>
-          <li>Les <strong>donnees</strong> (questions, reponses) sont publiées sur GitHub</li>
-          <li>Le <strong>code d'evaluation</strong> est ouvert et auditable</li>
-          <li>Les <strong>resultats</strong> sont accompagnés d'un timestamp et du modèle exact</li>
-          <li>Tout le monde peut <strong>soumettre un nouveau modele</strong> ou une nouvelle question</li>
+          <li>Les <strong>données</strong> (questions, réponses) sont publiées sur GitHub</li>
+          <li>Le <strong>code d'évaluation</strong> est ouvert (<code>scripts/afribench.py</code>)</li>
+          <li>Le script <code>reproduce.sh</code> enchaîne validation → eval → export frontend</li>
+          <li>Les <strong>résultats</strong> portent un timestamp et le modèle exact</li>
+          <li>Tout le monde peut <strong>soumettre un nouveau modèle</strong> ou une nouvelle question</li>
         </ul>
       </div>
 
@@ -177,7 +184,7 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Limites et améliorations futures</h3>
         <ul>
-          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (300 questions Afrique ; classement encore indicatif)</li>
+          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions Afrique ; classement encore indicatif)</li>
           <li>Les questions sont principalement en <strong>francais</strong> — les versions multilingues sont en cours</li>
           <li>Les catégories seront étendues (sports, arts, religions, etc.)</li>
           <li>Le format pourra evoluer (questions ouvertes, generation de texte, etc.)</li>
