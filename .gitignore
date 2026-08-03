@@ -8,6 +8,7 @@ env/
 
 # Data — résultats d'évaluation locaux (ne pas versionner chaque run)
 data/results/*.json
+data/results/mock/
 !data/results/.gitkeep
 !data/results/_seed*.json
 

@@ -7,7 +7,7 @@
 ## 🔴 Phase 1 — Corrections critiques
 
 - [x] Bannière prototype / wording honnête / skip-link / noscript / fonts swap / XSS escape
-- [ ] Menu hamburger mobile — PR #18
+- [x] Menu hamburger mobile — sidebar off-canvas &lt;768px
 
 ## 🟣 Phase 1.5 — Architecture services
 
@@ -21,7 +21,7 @@
 - [ ] 3 validateurs africains
 - [x] **10 questions ouvertes** + juge `scripts/judges/llm_as_judge.py`
 - [x] Protocole + lien script sur le site
-- [ ] `reproduce.sh` — PR #18
+- [x] `reproduce.sh` + `afribench.py --mock` (CI / offline)
 
 ## 🟢 Phase 3 — Scale
 
