@@ -1,0 +1,192 @@
+[
+  {
+    "id": "POL-001",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Où se trouve le siège de l'Union africaine (UA) ?",
+    "options": {
+      "A": "Nairobi, Kenya",
+      "B": "Addis-Abeba, Éthiopie",
+      "C": "Pretoria, Afrique du Sud",
+      "D": "Dakar, Sénégal"
+    },
+    "answer": "B",
+    "explanation": "Le siège de l'Union africaine est situé à Addis-Abeba (Éthiopie), depuis sa création en 2002. Le bâtiment du siège a été inauguré en 2012. L'UA a succédé à l'Organisation de l'unité africaine (OUA, 1963-2002).",
+    "source": "Union africaine (au.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-002",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la monnaie commune à huit pays d'Afrique de l'Ouest francophone ?",
+    "options": {
+      "A": "Le Franco CFA",
+      "B": "Le Franc CFA (BCEAO)",
+      "C": "L'Eco",
+      "D": "Le Franc Pacifique"
+    },
+    "answer": "B",
+    "explanation": "Huit pays d'Afrique de l'Ouest utilisent le Franc CFA émis par la BCEAO (Banque Centrale des États de l'Afrique de l'Ouest) : Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau, Mali, Niger, Sénégal, Togo. Le Franc CFA d'Afrique centrale (BEAC) est utilisé par 6 autres pays.",
+    "source": "BCEAO ; Banque de France",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-003",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui était le président de l'Afrique du Sud à la fin de l'apartheid, élu en 1994 lors des premières élections multiraciales du pays ?",
+    "options": {
+      "A": "Frederik de Klerk",
+      "B": "Nelson Mandela",
+      "C": "Thabo Mbeki",
+      "D": "Walter Sisulu"
+    },
+    "answer": "B",
+    "explanation": "Nelson Mandela (1918-2013) a été élu premier président noir d'Afrique du Sud en 1994. Il avait passé 27 ans en prison (1964-1990) pour son combat contre l'apartheid. Il a reçu le prix Nobel de la paix en 1993 avec F. de Klerk.",
+    "source": "Constitution sud-africaine ; Commission vérité et réconciliation",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-004",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Cour africaine des droits de l'homme et des peuples est un organe judiciaire de l'Union africaine. Où est situé son siège ?",
+    "options": {
+      "A": "Banjul, Gambie",
+      "B": "Arusha, Tanzanie",
+      "C": "Addis-Abeba, Éthiopie",
+      "D": "Ouagadougou, Burkina Faso"
+    },
+    "answer": "B",
+    "explanation": "La Cour africaine des droits de l'homme et des peuples siège à Arusha (Tanzanie). Elle a été créée en 2006 par le Protocole à la Charte africaine des droits de l'homme et des peuples. Elle complète la Commission africaine des droits de l'homme (siège à Banjul).",
+    "source": "Union africaine ; Cour africaine des droits de l'homme (african-court.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-005",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Zone de libre-échange continentale africaine (ZLECAf) est entrée en vigueur en 2021. Quel est son objectif principal ?",
+    "options": {
+      "A": "Créer une monnaie unique africaine",
+      "B": "Créer un marché unique pour les biens et services sur l'ensemble du continent",
+      "C": "Établir un gouvernement africain unique",
+      "D": "Harmoniser les systèmes éducatifs africains"
+    },
+    "answer": "B",
+    "explanation": "La ZLECAf (AfCFTA en anglais) vise à créer un marché unique africain de 1,4 milliard de consommateurs, en supprimant les droits de douane sur 90% des biens. C'est la plus grande zone de libre-échange du monde par le nombre de pays participants.",
+    "source": "Union africaine ; CNUCED (unctad.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-006",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le NEPAD (Nouveau partenariat pour le développement de l'Afrique) a été adopté en 2001 comme cadre stratégique continental. Quel est son principe fondateur ?",
+    "options": {
+      "A": "L'aide internationale comme moteur du développement",
+      "B": "L'appropriation africaine du développement et la bonne gouvernance comme conditions",
+      "C": "La priorité absolue à l'industrialisation lourde",
+      "D": "L'intégration politique avant l'intégration économique"
+    },
+    "answer": "B",
+    "explanation": "Le NEPAD repose sur l'idée que les pays africains doivent prendre la responsabilité de leur propre développement (African ownership). Il conditionne l'aide à la bonne gouvernance, la paix et la stabilité. Il est depuis 2010 intégré aux structures de l'UA.",
+    "source": "Union africaine ; NEPAD Agency",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-007",
+    "category": "droit_politique",
+    "subcategory": "conflits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel mécanisme de l'Union africaine permet à l'organisation d'intervenir dans un État membre en cas de « circonstances graves » comme les crimes de guerre ou le génocide ?",
+    "options": {
+      "A": "Le Conseil de paix et de sécurité (CPS)",
+      "B": "La Force africaine en attente (FAA)",
+      "C": "Le droit d'ingérence de l'article 4(h) de l'Acte constitutif",
+      "D": "La Cour africaine de justice"
+    },
+    "answer": "C",
+    "explanation": "L'article 4(h) de l'Acte constitutif de l'UA (2002) reconnaît à l'Union le droit d'intervenir dans un État membre en cas de « circonstances graves : crimes de guerre, génocide et crimes contre l'humanité ». C'est une disposition unique qui prime sur la souveraineté nationale.",
+    "source": "Union africaine (2002) Acte constitutif, Art. 4(h)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-008",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le passeport africain, lancé par l'UA en 2016, visait à faciliter la libre circulation des personnes. Quel était son premier public cible ?",
+    "options": {
+      "A": "Les chefs d'État et diplomates africains",
+      "B": "Tous les citoyens africains sans exception",
+      "C": "Les étudiants et chercheurs africains",
+      "D": "Les membres de la diaspora africaine"
+    },
+    "answer": "A",
+    "explanation": "Le passeport africain a d'abord été délivré aux chefs d'État, ministres et hauts diplomates africains. L'objectif à long terme est de remplacer les passeports nationaux. La libre circulation des personnes est l'un des piliers de l'Agenda 2063 de l'UA.",
+    "source": "Union africaine (Agenda 2063)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-009",
+    "category": "droit_politique",
+    "subcategory": "conflits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Tribunal pénal international pour le Rwanda (TPIR), créé en 1994, a jugé les responsables du génocide rwandais. Quel fut l'impact de l'affaire « Le Procureur c. Jean-Paul Akayesu » pour le droit international ?",
+    "options": {
+      "A": "Première condamnation pour génocide depuis la convention de 1948",
+      "B": "Première utilisation de témoignages vidéo comme preuve",
+      "C": "Établissement du viol comme acte de génocide",
+      "D": "Les deux réponses A et C"
+    },
+    "answer": "D",
+    "explanation": "L'affaire Akayesu (1998) a été historique à double titre : première condamnation pour génocide depuis l'adoption de la Convention de 1948, et première reconnaissance du viol comme acte constitutif de génocide. Le TPIR a siégé à Arusha (Tanzanie).",
+    "source": "TPIR (United Nations International Criminal Tribunal for Rwanda)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-010",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le projet d'intégration régionale est-africaine (Communauté d'Afrique de l'Est — CAE/EAC) inclut l'adoption d'une monnaie commune. Quel pays a rejoint la CAE en 2023-2024, malgré les tensions sécuritaires dans la région ?",
+    "options": {
+      "A": "Soudan",
+      "B": "Somalie",
+      "C": "Éthiopie",
+      "D": "RDC"
+    },
+    "answer": "B",
+    "explanation": "La Somalie a officiellement rejoint la Communauté d'Afrique de l'Est (CAE/EAC) en novembre 2023, portant le bloc à 8 États membres : Burundi, Kenya, Ouganda, Rwanda, Tanzanie, Soudan du Sud, RDC, Somalie. L'adhésion de la Somalie, malgré l'instabilité, a été stratégique pour le commerce régional.",
+    "source": "EAC (eac.int) ; BBC Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

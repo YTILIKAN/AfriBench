@@ -18,6 +18,11 @@ function escapeHtml(str) {
   return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
 }
 
+const VALID_TABS = [
+  'leaderboard', 'models', 'categories', 'compare',
+  'evolution', 'questions', 'methodology', 'api',
+];
+
 const AppState = {
   results: [],
   questions: [],
@@ -27,6 +32,10 @@ const AppState = {
   comparePreset: null,
   favorites: new Set(loadFavorites()),
   dataSource: null, // 'api' | 'static'
+  urlCategory: null,
+  urlDifficulty: null,
+  _skipUrlWrite: false,
+  _skipScroll: false,
 };
 
 /* ── Initialization ──────────────────────────────────── */
@@ -34,12 +43,66 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   setupTabs();
   setupSearch();
-  setActiveTab('leaderboard'); // initial active state for nav + tab bar
+  applyUrlState(); // tab (+ filters) depuis ?tab=&category=&difficulty=
   await loadData();
   renderActiveTab();
   renderTopModels();
   updateHeroStats();
+  // Appliquer filtres URL après rendu initial
+  applyUrlFilters();
+  window.addEventListener('popstate', () => {
+    applyUrlState();
+    renderActiveTab();
+    applyUrlFilters();
+  });
 });
+
+/* ── URL state (?tab=&category=&difficulty=) ─────────── */
+function applyUrlState() {
+  const params = new URLSearchParams(location.search);
+  const tab = params.get('tab');
+  AppState.urlCategory = params.get('category');
+  AppState.urlDifficulty = params.get('difficulty');
+  AppState._skipUrlWrite = true;
+  AppState._skipScroll = true;
+  setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
+  AppState._skipUrlWrite = false;
+  AppState._skipScroll = false;
+}
+
+function syncUrlState() {
+  if (AppState._skipUrlWrite) return;
+  const params = new URLSearchParams(location.search);
+  params.set('tab', AppState.activeTab);
+  if (AppState.urlCategory) params.set('category', AppState.urlCategory);
+  else params.delete('category');
+  if (AppState.urlDifficulty) params.set('difficulty', AppState.urlDifficulty);
+  else params.delete('difficulty');
+  const qs = params.toString();
+  const next = `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`;
+  if (next !== `${location.pathname}${location.search}${location.hash}`) {
+    history.replaceState(null, '', next);
+  }
+}
+
+function applyUrlFilters() {
+  if (AppState.activeTab === 'categories' && AppState.urlCategory && window.__categoryFilter) {
+    window.__categoryFilter(AppState.urlCategory);
+  }
+  if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
+    window.__applyQuestionFilters(AppState.urlCategory, AppState.urlDifficulty);
+  }
+}
+
+window.__setUrlCategory = (cat) => {
+  AppState.urlCategory = cat && cat !== 'all' ? cat : null;
+  syncUrlState();
+};
+
+window.__setUrlDifficulty = (diff) => {
+  AppState.urlDifficulty = diff && diff !== 'all' ? diff : null;
+  syncUrlState();
+};
 
 /* ── Theme ─────────────────────────────────────────────── */
 function initTheme() {
@@ -93,6 +156,7 @@ function setupTabs() {
 }
 
 function setActiveTab(tabId) {
+  if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
 
   // Update tab bar
@@ -106,12 +170,21 @@ function setActiveTab(tabId) {
     b.classList.toggle('active', b.dataset.tab === tabId);
   });
 
+  // Close mobile drawer after navigation (si présent)
+  if (typeof window.__closeMobileNav === 'function') {
+    window.__closeMobileNav();
+  }
+
+  syncUrlState();
   renderActiveTab();
+  applyUrlFilters();
 
   // Scroll to tab content area
-  var target = document.getElementById('tab-content');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!AppState._skipScroll) {
+    var target = document.getElementById('tab-content');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 

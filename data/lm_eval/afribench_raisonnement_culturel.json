@@ -1,0 +1,154 @@
+[
+  {
+    "id": "CULT-001",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un proverbe africain dit : « Il faut tout un village pour élever un enfant. » Dans la philosophie Ubuntu (« Je suis parce que nous sommes »), quel principe cela illustre-t-il ?",
+    "options": {
+      "A": "L'individualisme et l'autonomie personnelle",
+      "B": "L'interdépendance communautaire et la responsabilité collective",
+      "C": "La hiérarchie sociale stricte",
+      "D": "La méfiance envers les étrangers"
+    },
+    "answer": "B",
+    "explanation": "Le proverbe et la philosophie Ubuntu (Nguni : « umuntu ngumuntu ngabantu ») expriment que l'individu n'existe qu'à travers la communauté. La responsabilité d'éduquer un enfant incombe à tout le village, pas seulement aux parents.",
+    "source": "Mbiti, J. (1969) African Religions and Philosophy ; Tutu, D. (1999) No Future Without Forgiveness",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-002",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans les cultures d'Afrique de l'Ouest, le fait d'éviter le contact visuel direct avec un aîné est généralement interprété comme :",
+    "options": {
+      "A": "Un signe de malhonnêteté",
+      "B": "Un signe de respect",
+      "C": "Un signe de timidité maladive",
+      "D": "Un signe de défi"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreuses cultures ouest-africaines, maintenir un contact visuel direct avec une personne plus âgée ou en position d'autorité est perçu comme un manque de respect, contrairement aux normes occidentales où le contact visuel est associé à l'honnêteté.",
+    "source": "Hofstede, G. (2001) Culture's Consequences ; Ndiaye, A. (2005) Les valeurs culturelles africaines",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-003",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un proverbe éthiopien dit : « Quand les éléphants se battent, c'est l'herbe qui souffre. » Que signifie-t-il dans le contexte africain ?",
+    "options": {
+      "A": "Les guerres sont toujours destructrices pour les pauvres",
+      "B": "Les conflits entre puissants affectent toujours les plus vulnérables",
+      "C": "Les éléphants sont dangereux pour l'agriculture",
+      "D": "Il faut rester neutre dans les conflits"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe signifie que lorsque les puissants (les « éléphants ») sont en conflit, ce sont toujours les petits (l'« herbe ») qui en subissent les conséquences. Il illustre une sagesse politique africaine qui transcende les époques.",
+    "source": "Sagesse populaire éthiopienne ; UNESCO (Proverbes africains)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-004",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans un contexte africain, si quelqu'un vous dit « je vais venir » sans préciser quand, cela signifie généralement :",
+    "options": {
+      "A": "Il arrivera dans 5 minutes",
+      "B": "Il viendra un jour, mais le temps n'est pas linéaire — il viendra quand il aura fini ce qu'il fait",
+      "C": "Il ne viendra pas du tout",
+      "D": "Il viendra demain à la même heure"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreuses cultures africaines, le temps est perçu comme polychronique et événementiel plutôt que linéaire. « Je viens » signifie que l'action aura lieu quand les conditions seront réunies. Cela reflète une conception différente du temps, moins d'horloge et plus d'événements.",
+    "source": "Mbiti, J. (1969) African Concepts of Time ; Hall, E.T. (1976) Beyond Culture",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-005",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le proverbe akan (Ghana) « L'animal n'entre pas dans le trou du serpent par ignorance » illustre quel principe décisionnel ?",
+    "options": {
+      "A": "La prudence et la prévoyance face aux conséquences",
+      "B": "La compétition pour les ressources",
+      "C": "L'instinct de survie des animaux",
+      "D": "L'importance d'écouter les anciens"
+    },
+    "answer": "A",
+    "explanation": "Ce proverbe signifie qu'on ne fait pas quelque chose de dangereux sans en connaître les risques. Il encourage la prudence et la réflexion avant d'agir — si l'animal entre dans le trou du serpent, il sait qu'il risque la mort mais a ses raisons.",
+    "source": "Appiah, A. (1992) In My Father's House ; Proverbes akan",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-006",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans un conseil de village traditionnel (palabre), la prise de décision ne se fait pas à la majorité mais par consensus. Quelle en est la raison culturelle profonde ?",
+    "options": {
+      "A": "Les chefs ont toujours le dernier mot",
+      "B": "Préserver l'harmonie sociale plutôt que de créer des gagnants et des perdants",
+      "C": "Les plus âgés doivent toujours être d'accord",
+      "D": "C'est plus rapide que le vote à bulletin secret"
+    },
+    "answer": "B",
+    "explanation": "La palabre africaine cherche le consensus car la division en factions (gagnants/perdants) menace la cohésion du village. Le débat continue jusqu'à ce qu'une solution acceptable par tous soit trouvée. Cette philosophie influence encore la diplomatie africaine.",
+    "source": "Malan, J. (1999) The Politics of Consensus ; Gluckman, M. (1965) Politics, Law and Ritual in Tribal Society",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-007",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le proverbe swahili « Haraka haraka haina baraka » (la précipitation n'a pas de bénédiction) reflète quelle conception culturelle du travail et du temps ?",
+    "options": {
+      "A": "Les Africains sont naturellement lents",
+      "B": "La qualité et les bonnes relations comptent plus que la vitesse productive",
+      "C": "Il faut toujours travailler le plus vite possible",
+      "D": "Le travail doit être fait avant le coucher du soleil"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe exprime la priorité de la qualité et des relations sociales sur la vitesse productive. Se précipiter mène à des erreurs et néglige les dimensions sociales du travail. C'est une critique culturelle de l'urgence capitaliste et une valorisation du rythme humain.",
+    "source": "Sagesse swahili ; Mwangi, W. (2019) African Time and the Western Clock",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-008",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans un test de logique — « Tous les hommes sont mortels. Sokhna est une femme. Donc Sokhna est mortelle. » — ce syllogisme fonctionne parfaitement en logique aristotélicienne. Dans un contexte de raisonnement traditionnel africain, quelle pourrait être la limite perçue de ce raisonnement ?",
+    "options": {
+      "A": "Les femmes ne sont pas mortelles dans la tradition africaine",
+      "B": "La prémisse « tous les hommes sont mortels » est trop abstraite et déconnectée de l'expérience concrète",
+      "C": "Sokhna n'est pas une personne réelle",
+      "D": "La logique aristotélicienne est inconnue en Afrique"
+    },
+    "answer": "B",
+    "explanation": "Les études en ethno-logique (Horton, Hountondji) suggèrent que le raisonnement traditionnel africain privilégie souvent le concret et l'expérientiel sur l'abstrait universel. Le concept de « tous les hommes sont mortels » comme prémisse abstraite peut sembler moins pertinent qu'une observation basée sur l'expérience réelle de la mortalité.",
+    "source": "Horton, R. (1967) African Traditional Thought and Western Science ; Hountondji, P. (1977) Sur la philosophie africaine",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

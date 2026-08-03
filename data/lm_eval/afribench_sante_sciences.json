@@ -1,0 +1,192 @@
+[
+  {
+    "id": "SANTE-001",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie infectieuse est la première cause de mortalité en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "VIH/SIDA",
+      "C": "Tuberculose",
+      "D": "Diabète"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme (malaria) est la première cause de mortalité en Afrique subsaharienne, avec environ 600 000 décès par an, dont 80% d'enfants de moins de 5 ans. L'Afrique supporte 95% des cas mondiaux de paludisme.",
+    "source": "OMS (Rapport sur le paludisme dans le monde)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-002",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les Centers for Disease Control and Prevention (CDC) africains ont été créés pour renforcer la réponse du continent aux urgences sanitaires. En quelle année et dans quel pays se trouve leur siège ?",
+    "options": {
+      "A": "2015 — Nairobi, Kenya",
+      "B": "2017 — Addis-Abeba, Éthiopie",
+      "C": "2020 — Dakar, Sénégal",
+      "D": "2018 — Abuja, Nigeria"
+    },
+    "answer": "B",
+    "explanation": "Les CDC Afrique ont été officiellement lancés en 2017 par l'Union africaine, avec leur siège à Addis-Abeba (Éthiopie). Ils ont joué un rôle crucial pendant la pandémie de COVID-19 pour coordonner la réponse continentale.",
+    "source": "Union africaine (Africa CDC)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-003",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "En 2024, l'Afrique a atteint une étape importante dans la production locale de vaccins avec l'inauguration d'une grande installation. Dans quel pays se trouve-t-elle ?",
+    "options": {
+      "A": "Afrique du Sud",
+      "B": "Rwanda",
+      "C": "Sénégal",
+      "D": "Maroc"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique du Sud a inauguré en 2024 une installation de production de vaccins à grande échelle (vaccins ARNm, dont ceux contre la COVID-19 et le paludisme), visant à réduire la dépendance africaine aux importations (moins de 1% des vaccins utilisés en Afrique y sont produits).",
+    "source": "OMS ; Africa CDC",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-004",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'espérance de vie en Afrique subsaharienne a augmenté significativement depuis 2000. Quelle en a été la cause principale ?",
+    "options": {
+      "A": "L'amélioration de l'alimentation",
+      "B": "La baisse de la mortalité infantile et l'accès aux antirétroviraux pour le VIH",
+      "C": "La réduction du tabagisme",
+      "D": "L'augmentation du nombre de médecins par habitant"
+    },
+    "answer": "B",
+    "explanation": "L'espérance de vie en Afrique subsaharienne est passée d'environ 50 ans en 2000 à près de 62 ans en 2025. Les progrès sont principalement dus à la baisse de la mortalité infantile et à l'accès massif aux antirétroviraux (plus de 20 millions de personnes traitées pour le VIH).",
+    "source": "OMS ; UNAIDS",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-005",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Square Kilometre Array (SKA), le plus grand radiotélescope du monde, est en partie construit en Afrique. Dans quel pays se trouve sa composante africaine ?",
+    "options": {
+      "A": "Namibie",
+      "B": "Afrique du Sud (Karoo)",
+      "C": "Kenya",
+      "D": "Botswana"
+    },
+    "answer": "B",
+    "explanation": "Le SKA est un projet international de radiotélescope géant réparti entre l'Australie et l'Afrique du Sud (désert du Karoo). La phase 1 (SKA-Mid) comprend 197 antennes dans le Karoo sud-africain, avec des stations supplémentaires prévues dans d'autres pays africains.",
+    "source": "SKA Observatory (skao.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-006",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle maladie tropicale négligée, transmise par la mouche tsé-tsé, est endémique en Afrique subsaharienne et peut être fatale sans traitement ?",
+    "options": {
+      "A": "Dengue",
+      "B": "Maladie du sommeil (trypanosomiase africaine)",
+      "C": "Bilharziose",
+      "D": "Onchocercose"
+    },
+    "answer": "B",
+    "explanation": "La trypanosomiase africaine (maladie du sommeil) est transmise par la piqûre de la mouche tsé-tsé. Sans traitement, elle est mortelle. Les cas ont diminué de 95% depuis 2000 grâce aux programmes de contrôle, mais elle reste endémique en RDC et en Afrique centrale.",
+    "source": "OMS ; DNDi (Drugs for Neglected Diseases initiative)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-007",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le vaccin antipaludique RTS,S/AS01 (Mosquirix) a été recommandé par l'OMS en 2021 après des décennies de recherche. Quelle institution africaine a mené les essais cliniques décisifs ?",
+    "options": {
+      "A": "KEMRI (Kenya Medical Research Institute)",
+      "B": "Wits Reproductive Health Institute (Afrique du Sud)",
+      "C": "Institut Pasteur de Dakar",
+      "D": "Centre de Recherche Médicale de Lambaréné (Gabon)"
+    },
+    "answer": "A",
+    "explanation": "Le KEMRI (Kenya Medical Research Institute), en collaboration avec l'Université d'Oxford et GSK, a mené les essais cliniques du RTS,S (phase 3, 15 000 enfants dans 7 pays africains). Le vaccin réduit de 30% les cas de paludisme sévère. Un second vaccin (R21/Matrix-M, développé à Oxford) a suivi en 2023.",
+    "source": "OMS ; NEJM (New England Journal of Medicine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-008",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le radiotélescope MeerKAT, précurseur sud-africain du SKA, a permis une découverte majeure en astrophysique en 2024. Laquelle ?",
+    "options": {
+      "A": "La première image d'un trou noir africain",
+      "B": "La détection d'ondes gravitationnelles depuis l'hémisphère sud",
+      "C": "La cartographie des trous noirs supermassifs au centre de la Voie lactée",
+      "D": "La découverte d'une nouvelle planète habitable"
+    },
+    "answer": "C",
+    "explanation": "MeerKAT (64 antennes dans le Karoo, Afrique du Sud) a produit en 2024 la carte la plus détaillée jamais réalisée du centre de la Voie lactée, révélant de nouvelles populations de trous noirs supermassifs et de filaments magnétiques.",
+    "source": "SARAO (South African Radio Astronomy Observatory) ; Nature Astronomy",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-009",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de santé rwandais est souvent cité comme un modèle pour l'Afrique. Quelle innovation organisationnelle en est le pilier central ?",
+    "options": {
+      "A": "Les hôpitaux universitaires de district",
+      "B": "Le système d'assurance maladie communautaire (Mutuelle de Santé)",
+      "C": "Les cliniques mobiles connectées par satellite",
+      "D": "Le télémédecine généralisée via téléphone"
+    },
+    "answer": "B",
+    "explanation": "La Mutuelle de Santé, un système d'assurance maladie communautaire obligatoire au Rwanda, couvre plus de 90% de la population. Combinée à la généralisation des agents de santé communautaires (45 000), elle a permis de réduire la mortalité infantile de 75% depuis 2000.",
+    "source": "OMS ; Banque Mondiale (Rwanda Health Sector Review)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-010",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2024, l'Union africaine a adopté une stratégie pour la science ouverte en Afrique. Quel en est l'axe principal ?",
+    "options": {
+      "A": "La construction de 10 nouveaux laboratoires pharmaceutiques",
+      "B": "L'accès libre aux publications scientifiques et le partage des données de recherche",
+      "C": "L'interdiction des brevets sur les médicaments essentiels",
+      "D": "La création d'une académie des sciences panafricaine"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour la science ouverte (adoptée en 2024) vise à rendre les publications et données de recherche africaines librement accessibles, à développer des infrastructures de partage et à promouvoir la collaboration entre institutions africaines.",
+    "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

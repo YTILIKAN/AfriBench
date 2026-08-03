@@ -9,14 +9,50 @@
   <meta property="og:title" content="AfriBench — Benchmark LLM pour l'Afrique">
   <meta property="og:description" content="Évaluer les modèles de langage sur les réalités africaines. 101 questions dans 9 catégories.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://afribench.vercel.app/">
+  <meta property="og:url" content="https://ytilikan.github.io/AfriBench/">
+  <meta name="citation_title" content="AfriBench: Evaluating Language Models on African Realities">
+  <meta name="citation_author" content="YTILIKAN">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_language" content="fr">
   <!-- Override API base if needed: window.AFRIBENCH_API_BASE = 'http://…/api/v1' -->
   <meta name="afribench-api" content="/api/v1">
+  <link rel="canonical" href="https://ytilikan.github.io/AfriBench/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "AfriBench",
+    "description": "Benchmark public pour évaluer les modèles de langage sur les réalités africaines (histoire, géographie, culture, droit, santé, économie, IA, société).",
+    "url": "https://ytilikan.github.io/AfriBench/",
+    "license": "https://github.com/YTILIKAN/AfriBench",
+    "creator": {
+      "@type": "Organization",
+      "name": "YTILIKAN",
+      "url": "https://ytilikan.com"
+    },
+    "inLanguage": "fr",
+    "keywords": ["LLM", "benchmark", "Africa", "NLP", "evaluation", "AfriBench"],
+    "version": "0.1",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://ytilikan.github.io/AfriBench/data/questions.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://ytilikan.github.io/AfriBench/data/results.json"
+      }
+    ],
+    "isAccessibleForFree": true
+  }
+  </script>
 </head>
 <body>
 

@@ -37,3 +37,30 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+
+  # Image d'évaluation reproductible (issue #13)
+  # Usage :
+  #   docker compose --profile eval run --rm eval list-models
+  #   docker compose --profile eval run --rm eval run --model gpt-4o
+  eval:
+    profiles: ["eval"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: afribench:eval
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      TOGETHER_API_KEY: ${TOGETHER_API_KEY:-}
+      PYTHONHASHSEED: "0"
+      AFRIBENCH_SEED: "42"
+    volumes:
+      - ./data/results:/app/data/results
+    entrypoint: ["python", "scripts/afribench.py"]
+    command: ["leaderboard"]

@@ -1,0 +1,192 @@
+[
+  {
+    "id": "IA-001",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel groupe de recherche africain est à l'avant-garde du traitement automatique des langues africaines ?",
+    "options": {
+      "A": "DeepMind Africa",
+      "B": "Masakhane",
+      "C": "Data Science Africa",
+      "D": "Deep Learning Indaba"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est un collectif de chercheurs qui travaille sur le NLP (Natural Language Processing) pour les langues africaines. Fondé en 2019, il regroupe des centaines de chercheurs africains et de la diaspora, travaillant sur plus de 70 langues africaines.",
+    "source": "Masakhane (masakhane.io) ; ACL (Association for Computational Linguistics)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-002",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écosystème technologique africain est surnommé la « Silicon Savannah » et est considéré comme le hub tech le plus dynamique du continent ?",
+    "options": {
+      "A": "Lagos, Nigeria",
+      "B": "Nairobi, Kenya",
+      "C": "Le Cap, Afrique du Sud",
+      "D": "Accra, Ghana"
+    },
+    "answer": "B",
+    "explanation": "Nairobi est surnommé la « Silicon Savannah » et abrite le plus grand écosystème tech d'Afrique de l'Est, avec des centaines de startups, des hubs d'innovation (iHub, Nairobi Garage) et des innovations comme M-Pesa. Lagos et Le Cap sont également des hubs majeurs.",
+    "source": "GSMA ; Briter Bridges",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-003",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'IA est utilisée en Afrique pour relever des défis agricoles. Quelle application agricole de l'IA est la plus répandue ?",
+    "options": {
+      "A": "Les robots de récolte autonomes",
+      "B": "La détection précoce des maladies des cultures par analyse d'images",
+      "C": "Les drones de pulvérisation automatique",
+      "D": "Les serres intelligentes climatisées"
+    },
+    "answer": "B",
+    "explanation": "L'application la plus répandue de l'IA en agriculture africaine est la détection précoce des maladies et parasites via l'analyse d'images par smartphone (ex: PlantVillage, Nuru, Plantix). Accessible même aux petits producteurs, elle permet de réduire les pertes de récolte de 30 à 50%.",
+    "source": "FAO ; CGIAR ; PlantVillage (Penn State)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-004",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Indaba africain sur l'apprentissage profond (Deep Learning Indaba) est un événement majeur pour l'IA en Afrique. Quel en est l'objectif principal ?",
+    "options": {
+      "A": "Attirer les investissements des GAFAM en Afrique",
+      "B": "Renforcer les capacités en IA des chercheurs africains",
+      "C": "Créer le plus grand modèle de langage africain",
+      "D": "Organiser des compétitions annuelles d'IA entre pays africains"
+    },
+    "answer": "B",
+    "explanation": "Le Deep Learning Indaba, fondé en 2017, est un événement annuel qui vise à renforcer l'expertise africaine en IA et apprentissage profond. Il se tient chaque année dans un pays africain différent et a formé des milliers de chercheurs africains.",
+    "source": "Deep Learning Indaba (deeplearningindaba.com)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-005",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Plusieurs startups africaines développent des LLMs (grands modèles de langage) adaptés au contexte africain. Quel modèle, formé pour comprendre et générer du texte en swahili, yoruba, haoussa et autres langues africaines, a été lancé en 2024 ?",
+    "options": {
+      "A": "AfriBERTa",
+      "B": "LLaMA-afrique",
+      "C": "GloVe Africa",
+      "D": "AfriLLaMA"
+    },
+    "answer": "A",
+    "explanation": "AfriBERTa (ou ses dérivés comme AfroLM, AfriTeVa) est un modèle multilingue pré-entraîné sur des langues africaines. En 2024-2025, plusieurs modèles ont émergé : AfriLLaMA (fine-tuning de LLaMA sur données africaines) et d'autres modèles développés par Masakhane, Lelapa AI (Afrique du Sud) et InstaDeep.",
+    "source": "Masakhane ; Hugging Face ; Lelapa AI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-006",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'accès à Internet en Afrique progresse mais reste inégal. Quel pourcentage de la population africaine avait accès à Internet en 2025 ?",
+    "options": {
+      "A": "25%",
+      "B": "37%",
+      "C": "45%",
+      "D": "55%"
+    },
+    "answer": "B",
+    "explanation": "Environ 37% des Africains avaient accès à Internet en 2025, contre 65% en Asie et 90% en Europe. Les disparités sont fortes : plus de 70% en Afrique du Nord et Maurice, moins de 25% en Afrique centrale. Le mobile représente 80% des connexions.",
+    "source": "UIT (Union internationale des télécommunications) ; GSMA",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-007",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Zipline, une startup américaine, a révolutionné un secteur en Afrique grâce à des drones autonomes. Quel service a-t-elle transformé au Rwanda et au Ghana ?",
+    "options": {
+      "A": "La livraison de repas dans les zones rurales",
+      "B": "La livraison de médicaments et de sang par drones",
+      "C": "La surveillance agricole par satellite",
+      "D": "La distribution de vaccins mobiles"
+    },
+    "answer": "B",
+    "explanation": "Zipline utilise des drones autonomes pour livrer des médicaments, du sang et des vaccins dans les zones reculées du Rwanda et du Ghana. Elle a effectué plus d'un million de livraisons, réduisant le délai d'approvisionnement de 3 jours à 30 minutes.",
+    "source": "Zipline (flyzipline.com) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-008",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'infrastructure cloud en Afrique connaît une croissance rapide. Quels acteurs mondiaux investissent massivement dans les régions cloud africaines ?",
+    "options": {
+      "A": "Google Cloud (Afrique du Sud) et AWS (Le Cap)",
+      "B": "Microsoft Azure (Afrique du Sud), AWS (Le Cap), Google Cloud (Afrique du Sud)",
+      "C": "Oracle et IBM uniquement",
+      "D": "Alibaba Cloud (Nigeria) et Tencent (Égypte)"
+    },
+    "answer": "B",
+    "explanation": "Les trois grands du cloud (AWS, Microsoft Azure, Google Cloud) ont tous ouvert des régions cloud en Afrique du Sud. AWS a ouvert sa région du Cap en 2020, Microsoft Azure en 2019, Google Cloud en 2024. AWS prévoit une nouvelle région au Nigeria.",
+    "source": "AWS ; Microsoft ; Google Cloud",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-009",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2023, l'Union africaine a adopté une stratégie continentale pour l'intelligence artificielle. Quel en est le principe directeur ?",
+    "options": {
+      "A": "L'interdiction de certaines applications d'IA jugées dangereuses",
+      "B": "L'IA au service du développement durable et de l'inclusion",
+      "C": "La création d'un régulateur continental unique",
+      "D": "Le développement prioritaire des armes autonomes africaines"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour l'IA (2023) repose sur le principe que l'IA doit servir le développement durable, l'inclusion et les priorités africaines (agriculture, santé, éducation). Elle promeut une approche éthique, centrée sur l'humain et adaptée au contexte africain.",
+    "source": "Union africaine (2023) Continental AI Strategy ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-010",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle innovation technologique majeure, développée en Afrique du Sud, a été utilisée par le European Southern Observatory (ESO) pour la construction du plus grand télescope du monde (ELT) ?",
+    "options": {
+      "A": "Le système de contrôle par IA des miroirs adaptatifs",
+      "B": "Le capteur optique hyperspectral",
+      "C": "Le robot d'assemblage autonome de segments de miroir",
+      "D": "Le logiciel de traitement d'images astronomiques"
+    },
+    "answer": "C",
+    "explanation": "Les chercheurs sud-africains du CSIR (Council for Scientific and Industrial Research) ont développé des robots autonomes d'assemblage pour les 798 segments du miroir principal (39m) du Extremely Large Telescope (ELT) de l'ESO, actuellement en construction au Chili.",
+    "source": "CSIR (Afrique du Sud) ; ESO (eso.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

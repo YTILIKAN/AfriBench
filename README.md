@@ -68,6 +68,24 @@ docker compose up --build
 # Frontend : http://localhost:3000
 # API      : http://localhost:8080/api/v1
 # Docs     : http://localhost:8080/docs
+
+# Image d'évaluation seule
+docker build -t afribench:eval .
+docker run --rm --env-file .env afribench:eval run --model gpt-4o
+# ou
+docker compose --profile eval run --rm eval run --model gpt-4o
+```
+
+### LM Evaluation Harness
+
+```bash
+pip install lm-eval
+python scripts/export_lm_eval_dataset.py   # régénère data/lm_eval/
+lm_eval --model openai-chat-completions \
+  --model_args model=gpt-4o \
+  --tasks afribench \
+  --include_path scripts/lm_eval_tasks/ \
+  --num_fewshot 0
 ```
 
 ### Option B — Services séparés

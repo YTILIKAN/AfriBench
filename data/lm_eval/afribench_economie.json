@@ -1,0 +1,192 @@
+[
+  {
+    "id": "ECON-001",
+    "category": "economie",
+    "subcategory": "pib_croissance",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain possède le PIB le plus élevé du continent (2025) ?",
+    "options": {
+      "A": "Afrique du Sud",
+      "B": "Nigeria",
+      "C": "Égypte",
+      "D": "Algérie"
+    },
+    "answer": "B",
+    "explanation": "Le Nigeria est la première économie africaine avec un PIB d'environ 510 milliards $ (2025), suivi de l'Afrique du Sud, de l'Égypte et de l'Algérie. Le Nigeria est aussi le plus grand producteur de pétrole d'Afrique.",
+    "source": "FMI (World Economic Outlook) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-002",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Kenya est mondialement reconnu pour une innovation financière mobile qui a révolutionné l'inclusion bancaire. De quoi s'agit-il ?",
+    "options": {
+      "A": "Orange Money",
+      "B": "MTN Mobile Money",
+      "C": "M-Pesa",
+      "D": "Wave"
+    },
+    "answer": "C",
+    "explanation": "M-Pesa, lancé au Kenya en 2007 par Safaricom, permet les transferts d'argent et les paiements par téléphone mobile. Il a révolutionné l'inclusion financière : plus de 80% des Kenyans adultes l'utilisent. Le service s'est étendu à plusieurs pays africains et asiatiques.",
+    "source": "Banque Mondiale ; Safaricom",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-003",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le continent africain possède d'importantes ressources minières. Quel pays est le premier producteur mondial de cobalt, essentiel pour les batteries électriques ?",
+    "options": {
+      "A": "Zambie",
+      "B": "République démocratique du Congo",
+      "C": "Afrique du Sud",
+      "D": "Botswana"
+    },
+    "answer": "B",
+    "explanation": "La RDC produit environ 70% du cobalt mondial, principalement dans la région du Katanga. Le cobalt est un composant essentiel des batteries lithium-ion (smartphones, voitures électriques).",
+    "source": "Banque Mondiale ; US Geological Survey",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-004",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Côte d'Ivoire est le premier producteur mondial d'un produit agricole majeur. Lequel ?",
+    "options": {
+      "A": "Café",
+      "B": "Cacao",
+      "C": "Huile de palme",
+      "D": "Anacarde (noix de cajou)"
+    },
+    "answer": "B",
+    "explanation": "La Côte d'Ivoire est le premier producteur mondial de cacao (environ 40% de la production mondiale), suivi du Ghana. Le cacao représente environ 15% du PIB ivoirien et fait vivre des millions de petits producteurs.",
+    "source": "FAO ; ICCO (International Cocoa Organization)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-005",
+    "category": "economie",
+    "subcategory": "pib_croissance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Plusieurs économies africaines figurent parmi les plus dynamiques du monde. Quel pays d'Afrique de l'Est a connu une croissance moyenne supérieure à 7% par an depuis 2010 ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "Kenya",
+      "C": "Éthiopie",
+      "D": "Ouganda"
+    },
+    "answer": "C",
+    "explanation": "L'Éthiopie a enregistré une croissance moyenne de 7 à 10% par an entre 2010 et 2025, devenant l'une des économies à la croissance la plus rapide au monde, portée par l'agriculture, les infrastructures et les services.",
+    "source": "FMI ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-006",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La ZLECAf (Zone de libre-échange continentale africaine) devrait stimuler le commerce intra-africain. Quel pourcentage du commerce africain est actuellement intra-continental (2025) ?",
+    "options": {
+      "A": "Moins de 5%",
+      "B": "Environ 15%",
+      "C": "Environ 30%",
+      "D": "Environ 45%"
+    },
+    "answer": "B",
+    "explanation": "Le commerce intra-africain représente environ 15% des échanges du continent, contre 60% en Europe et 40% en Asie. La ZLECAf vise à atteindre 25% d'ici 2035 en supprimant les barrières tarifaires et non-tarifaires.",
+    "source": "CNUCED ; Banque Africaine de Développement",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-007",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le phénomène de « malédiction des ressources naturelles » (Dutch disease) affecte plusieurs économies africaines. Quel pays africain a mis en place un fonds souverain pour contrer ce phénomène ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Botswana",
+      "C": "Angola",
+      "D": "Gabon"
+    },
+    "answer": "B",
+    "explanation": "Le Botswana est souvent cité comme un contre-exemple réussi de la malédiction des ressources. Grâce à la gestion prudente de ses revenus diamantifères via le Fonds permanent pour les générations futures (Pula Fund), il est passé d'un des pays les plus pauvres en 1966 à un revenu intermédiaire supérieur.",
+    "source": "Banque Africaine de Développement ; OECD",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-008",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Afrique compte plusieurs « licornes » (startups valorisées à +1 milliard $). Quelle fintech africaine a atteint la plus haute valorisation en 2025 ?",
+    "options": {
+      "A": "Flutterwave (Nigeria)",
+      "B": "Chipper Cash (Ghana/USA)",
+      "C": "Paystack (Nigeria, acquis par Stripe)",
+      "D": "Wave (Sénégal)"
+    },
+    "answer": "A",
+    "explanation": "Flutterwave, startup nigériane fondée en 2016, est devenue la fintech africaine la mieux valorisée en 2025 (environ 4 milliards $). Elle traite des paiements dans plus de 30 pays africains. Le secteur fintech africain a levé plus de 3 milliards $ en 2024.",
+    "source": "CB Insights ; TechCrunch Africa",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-009",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Éthiopie a développé un modèle économique surnommé « developmental state model » (État développementaliste). Quelle industrie clé a été au cœur de sa stratégie d'industrialisation ?",
+    "options": {
+      "A": "La production textile et d'habillement",
+      "B": "La transformation minière",
+      "C": "La construction automobile",
+      "D": "La pétrochimie"
+    },
+    "answer": "A",
+    "explanation": "Le modèle éthiopien (porté par Meles Zenawi) s'est concentré sur l'industrialisation textile et l'habillement dans les parcs industriels (Hawassa, Bole Lemi). L'objectif était de suivre le modèle est-asiatique en utilisant la main-d'œuvre bon marché pour l'exportation.",
+    "source": "Banque Mondiale ; Cheru, F. (2019) The Developmental State in Ethiopia",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-010",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Banque africaine de développement (BAD) a lancé en 2024 une initiative novatrice de financement climatique. Comment s'appelle ce mécanisme qui utilise les droits de tirage spéciaux (DTS) du FMI ?",
+    "options": {
+      "A": "L'Initiative africaine pour le climat (IAC)",
+      "B": "Le Fonds vert pour l'Afrique (FVA)",
+      "C": "Le Mécanisme de réallocation des DTS (hybrid capital)",
+      "D": "Le Partenariat pour la transition énergétique (JETP Afrique)"
+    },
+    "answer": "C",
+    "explanation": "La BAD a mis au point un mécanisme de réallocation des DTS du FMI via un « hybrid capital » pour financer les projets climatiques africains. Ce modèle permet de transformer des droits de tirage inutilisés des pays riches en financements concessionnels pour l'Afrique.",
+    "source": "BAD (afdb.org) ; FMI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

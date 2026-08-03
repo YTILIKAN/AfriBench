@@ -1,0 +1,192 @@
+[
+  {
+    "id": "SOC-001",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique a la population la plus jeune du monde. Quel pourcentage de sa population a moins de 25 ans ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "70%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine a moins de 25 ans (contre 27% en Europe et 30% en Amérique du Nord). L'âge médian en Afrique est d'environ 19 ans, contre 38 ans en Europe.",
+    "source": "ONU (World Population Prospects) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-002",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a le taux d'alphabétisation le plus élevé du continent ?",
+    "options": {
+      "A": "Maurice",
+      "B": "Afrique du Sud",
+      "C": "Seychelles",
+      "D": "Tunisie"
+    },
+    "answer": "C",
+    "explanation": "Les Seychelles ont le taux d'alphabétisation le plus élevé d'Afrique (environ 96%), suivies de Maurice (91%) et de la Tunisie (81%). L'investissement dans l'éducation primaire universelle y est la clé.",
+    "source": "UNESCO (Institut de statistique)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-003",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la ville la plus peuplée d'Afrique ?",
+    "options": {
+      "A": "Le Caire",
+      "B": "Lagos",
+      "C": "Kinshasa",
+      "D": "Johannesbourg"
+    },
+    "answer": "B",
+    "explanation": "Lagos (Nigeria) est la ville la plus peuplée d'Afrique avec environ 20 millions d'habitants (aire métropolitaine). Le Caire suit avec ~15 millions, Kinshasa avec ~14 millions.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-004",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le système éducatif africain fait face à un défi majeur malgré les progrès de la scolarisation primaire. Lequel ?",
+    "options": {
+      "A": "La pénurie d'écoles primaires",
+      "B": "Le faible taux de transition vers le secondaire et la qualité de l'apprentissage",
+      "C": "Le manque d'écoles privées",
+      "D": "La langue d'enseignement étrangère dans tous les pays"
+    },
+    "answer": "B",
+    "explanation": "Si la scolarisation primaire atteint 80% en Afrique subsaharienne, seulement 40% des enfants achèvent le secondaire. De plus, 80% des enfants en Afrique subsaharienne ne maîtrisent pas les compétences de base en lecture à 10 ans (crise de l'apprentissage).",
+    "source": "UNESCO ; Banque Mondiale (Rapport sur le capital humain)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-005",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'urbanisation en Afrique progresse rapidement. Quel pourcentage de la population africaine vivra en ville d'ici 2050 ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "75%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine vivra en zone urbaine d'ici 2050, contre 40% actuellement. L'Afrique est le continent qui s'urbanise le plus rapidement au monde, avec 15 à 20 millions de nouveaux citadins par an.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-006",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le moyen de communication le plus utilisé pour accéder à l'information en Afrique subsaharienne ?",
+    "options": {
+      "A": "La télévision",
+      "B": "La radio",
+      "C": "Les réseaux sociaux (WhatsApp, Facebook)",
+      "D": "Les journaux papier"
+    },
+    "answer": "B",
+    "explanation": "La radio reste le média le plus accessible et le plus utilisé en Afrique subsaharienne, touchant environ 80% des ménages. Dans les zones rurales (où vit encore ~60% de la population), la radio est souvent le seul média accessible, notamment avec les radios solaires.",
+    "source": "UNESCO ; BBC Media Action",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-007",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La transition démographique africaine diffère de celle des autres continents. Quelle en est la principale caractéristique ?",
+    "options": {
+      "A": "Baisse rapide de la natalité comme en Asie",
+      "B": "Baisse de la mortalité sans baisse équivalente de la natalité",
+      "C": "Stabilité de la mortalité et de la natalité",
+      "D": "Hausse de la natalité accompagnée d'une baisse de la mortalité"
+    },
+    "answer": "B",
+    "explanation": "Contrairement à l'Asie et l'Amérique latine, l'Afrique connaît une baisse rapide de la mortalité (grâce aux progrès médicaux) mais une baisse plus lente de la natalité. Cela crée une « fenêtre démographique » prolongée mais aussi une pression sur les services publics.",
+    "source": "ONU ; FMI (Rapport sur la transition démographique africaine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-008",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les transferts d'argent de la diaspora africaine (remittances) représentent une source de financement majeure pour le continent. Quel pays africain reçoit le plus de remittances en valeur absolue ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Égypte",
+      "C": "Ghana",
+      "D": "Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le Nigeria reçoit environ 25 milliards $ de remittances par an (2025), suivi de l'Égypte (~20Mds) et du Ghana (~5Mds). Au total, les remittances vers l'Afrique dépassent les 100 milliards $, soit plus que l'aide publique au développement.",
+    "source": "Banque Mondiale (KNOMAD) ; FMI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-009",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Plusieurs pays africains ont réformé leur système éducatif pour inclure des langues nationales dans l'enseignement primaire. Quel pays a introduit l'enseignement en swahili comme langue d'instruction obligatoire dans le primaire en 2022 ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "Kenya",
+      "C": "Ouganda",
+      "D": "Rwanda"
+    },
+    "answer": "B",
+    "explanation": "Le Kenya a introduit l'enseignement en swahili (et en langues locales) comme langue d'instruction obligatoire dans les 3 premières années du primaire à partir de 2022, dans le cadre de la réforme du Competency-Based Curriculum (CBC). La Tanzanie enseignait déjà en swahili depuis l'indépendance.",
+    "source": "Kenya Institute of Curriculum Development ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-010",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Union africaine a déclaré la diaspora africaine comme la « sixième région » de l'Afrique. Quel événement bisannuel a été institué pour la mobiliser ?",
+    "options": {
+      "A": "Le Forum de la diaspora africaine",
+      "B": "Le sommet des diasporas africaines dans le cadre de l'UA",
+      "C": "Le Festival panafricain de la diaspora",
+      "D": "Le Global African Investment Summit"
+    },
+    "answer": "B",
+    "explanation": "Le Sommet des diasporas africaines (African Diaspora Summit) est organisé tous les deux ans par l'UA. La diaspora africaine compte environ 200 millions de personnes dans le monde, contribuant via les remittances, les compétences et les investissements.",
+    "source": "Union africaine (Agenda 2063) ; AU Diaspora Division",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

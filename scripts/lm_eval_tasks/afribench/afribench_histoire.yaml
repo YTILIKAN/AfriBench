@@ -1,0 +1,17 @@
+# AfriBench — catégorie histoire
+task: afribench_histoire
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: data/lm_eval/afribench_histoire.json
+test_split: test
+output_type: multiple_choice
+doc_to_text: !function utils.doc_to_text
+doc_to_choice: !function utils.doc_to_choice
+doc_to_target: !function utils.doc_to_target
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.1

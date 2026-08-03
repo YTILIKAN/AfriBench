@@ -1,0 +1,1921 @@
+[
+  {
+    "id": "POL-001",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Où se trouve le siège de l'Union africaine (UA) ?",
+    "options": {
+      "A": "Nairobi, Kenya",
+      "B": "Addis-Abeba, Éthiopie",
+      "C": "Pretoria, Afrique du Sud",
+      "D": "Dakar, Sénégal"
+    },
+    "answer": "B",
+    "explanation": "Le siège de l'Union africaine est situé à Addis-Abeba (Éthiopie), depuis sa création en 2002. Le bâtiment du siège a été inauguré en 2012. L'UA a succédé à l'Organisation de l'unité africaine (OUA, 1963-2002).",
+    "source": "Union africaine (au.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-002",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la monnaie commune à huit pays d'Afrique de l'Ouest francophone ?",
+    "options": {
+      "A": "Le Franco CFA",
+      "B": "Le Franc CFA (BCEAO)",
+      "C": "L'Eco",
+      "D": "Le Franc Pacifique"
+    },
+    "answer": "B",
+    "explanation": "Huit pays d'Afrique de l'Ouest utilisent le Franc CFA émis par la BCEAO (Banque Centrale des États de l'Afrique de l'Ouest) : Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau, Mali, Niger, Sénégal, Togo. Le Franc CFA d'Afrique centrale (BEAC) est utilisé par 6 autres pays.",
+    "source": "BCEAO ; Banque de France",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-003",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui était le président de l'Afrique du Sud à la fin de l'apartheid, élu en 1994 lors des premières élections multiraciales du pays ?",
+    "options": {
+      "A": "Frederik de Klerk",
+      "B": "Nelson Mandela",
+      "C": "Thabo Mbeki",
+      "D": "Walter Sisulu"
+    },
+    "answer": "B",
+    "explanation": "Nelson Mandela (1918-2013) a été élu premier président noir d'Afrique du Sud en 1994. Il avait passé 27 ans en prison (1964-1990) pour son combat contre l'apartheid. Il a reçu le prix Nobel de la paix en 1993 avec F. de Klerk.",
+    "source": "Constitution sud-africaine ; Commission vérité et réconciliation",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-004",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Cour africaine des droits de l'homme et des peuples est un organe judiciaire de l'Union africaine. Où est situé son siège ?",
+    "options": {
+      "A": "Banjul, Gambie",
+      "B": "Arusha, Tanzanie",
+      "C": "Addis-Abeba, Éthiopie",
+      "D": "Ouagadougou, Burkina Faso"
+    },
+    "answer": "B",
+    "explanation": "La Cour africaine des droits de l'homme et des peuples siège à Arusha (Tanzanie). Elle a été créée en 2006 par le Protocole à la Charte africaine des droits de l'homme et des peuples. Elle complète la Commission africaine des droits de l'homme (siège à Banjul).",
+    "source": "Union africaine ; Cour africaine des droits de l'homme (african-court.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-005",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Zone de libre-échange continentale africaine (ZLECAf) est entrée en vigueur en 2021. Quel est son objectif principal ?",
+    "options": {
+      "A": "Créer une monnaie unique africaine",
+      "B": "Créer un marché unique pour les biens et services sur l'ensemble du continent",
+      "C": "Établir un gouvernement africain unique",
+      "D": "Harmoniser les systèmes éducatifs africains"
+    },
+    "answer": "B",
+    "explanation": "La ZLECAf (AfCFTA en anglais) vise à créer un marché unique africain de 1,4 milliard de consommateurs, en supprimant les droits de douane sur 90% des biens. C'est la plus grande zone de libre-échange du monde par le nombre de pays participants.",
+    "source": "Union africaine ; CNUCED (unctad.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-006",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le NEPAD (Nouveau partenariat pour le développement de l'Afrique) a été adopté en 2001 comme cadre stratégique continental. Quel est son principe fondateur ?",
+    "options": {
+      "A": "L'aide internationale comme moteur du développement",
+      "B": "L'appropriation africaine du développement et la bonne gouvernance comme conditions",
+      "C": "La priorité absolue à l'industrialisation lourde",
+      "D": "L'intégration politique avant l'intégration économique"
+    },
+    "answer": "B",
+    "explanation": "Le NEPAD repose sur l'idée que les pays africains doivent prendre la responsabilité de leur propre développement (African ownership). Il conditionne l'aide à la bonne gouvernance, la paix et la stabilité. Il est depuis 2010 intégré aux structures de l'UA.",
+    "source": "Union africaine ; NEPAD Agency",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-007",
+    "category": "droit_politique",
+    "subcategory": "conflits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel mécanisme de l'Union africaine permet à l'organisation d'intervenir dans un État membre en cas de « circonstances graves » comme les crimes de guerre ou le génocide ?",
+    "options": {
+      "A": "Le Conseil de paix et de sécurité (CPS)",
+      "B": "La Force africaine en attente (FAA)",
+      "C": "Le droit d'ingérence de l'article 4(h) de l'Acte constitutif",
+      "D": "La Cour africaine de justice"
+    },
+    "answer": "C",
+    "explanation": "L'article 4(h) de l'Acte constitutif de l'UA (2002) reconnaît à l'Union le droit d'intervenir dans un État membre en cas de « circonstances graves : crimes de guerre, génocide et crimes contre l'humanité ». C'est une disposition unique qui prime sur la souveraineté nationale.",
+    "source": "Union africaine (2002) Acte constitutif, Art. 4(h)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-008",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le passeport africain, lancé par l'UA en 2016, visait à faciliter la libre circulation des personnes. Quel était son premier public cible ?",
+    "options": {
+      "A": "Les chefs d'État et diplomates africains",
+      "B": "Tous les citoyens africains sans exception",
+      "C": "Les étudiants et chercheurs africains",
+      "D": "Les membres de la diaspora africaine"
+    },
+    "answer": "A",
+    "explanation": "Le passeport africain a d'abord été délivré aux chefs d'État, ministres et hauts diplomates africains. L'objectif à long terme est de remplacer les passeports nationaux. La libre circulation des personnes est l'un des piliers de l'Agenda 2063 de l'UA.",
+    "source": "Union africaine (Agenda 2063)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-009",
+    "category": "droit_politique",
+    "subcategory": "conflits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Tribunal pénal international pour le Rwanda (TPIR), créé en 1994, a jugé les responsables du génocide rwandais. Quel fut l'impact de l'affaire « Le Procureur c. Jean-Paul Akayesu » pour le droit international ?",
+    "options": {
+      "A": "Première condamnation pour génocide depuis la convention de 1948",
+      "B": "Première utilisation de témoignages vidéo comme preuve",
+      "C": "Établissement du viol comme acte de génocide",
+      "D": "Les deux réponses A et C"
+    },
+    "answer": "D",
+    "explanation": "L'affaire Akayesu (1998) a été historique à double titre : première condamnation pour génocide depuis l'adoption de la Convention de 1948, et première reconnaissance du viol comme acte constitutif de génocide. Le TPIR a siégé à Arusha (Tanzanie).",
+    "source": "TPIR (United Nations International Criminal Tribunal for Rwanda)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-010",
+    "category": "droit_politique",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le projet d'intégration régionale est-africaine (Communauté d'Afrique de l'Est — CAE/EAC) inclut l'adoption d'une monnaie commune. Quel pays a rejoint la CAE en 2023-2024, malgré les tensions sécuritaires dans la région ?",
+    "options": {
+      "A": "Soudan",
+      "B": "Somalie",
+      "C": "Éthiopie",
+      "D": "RDC"
+    },
+    "answer": "B",
+    "explanation": "La Somalie a officiellement rejoint la Communauté d'Afrique de l'Est (CAE/EAC) en novembre 2023, portant le bloc à 8 États membres : Burundi, Kenya, Ouganda, Rwanda, Tanzanie, Soudan du Sud, RDC, Somalie. L'adhésion de la Somalie, malgré l'instabilité, a été stratégique pour le commerce régional.",
+    "source": "EAC (eac.int) ; BBC Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-001",
+    "category": "economie",
+    "subcategory": "pib_croissance",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain possède le PIB le plus élevé du continent (2025) ?",
+    "options": {
+      "A": "Afrique du Sud",
+      "B": "Nigeria",
+      "C": "Égypte",
+      "D": "Algérie"
+    },
+    "answer": "B",
+    "explanation": "Le Nigeria est la première économie africaine avec un PIB d'environ 510 milliards $ (2025), suivi de l'Afrique du Sud, de l'Égypte et de l'Algérie. Le Nigeria est aussi le plus grand producteur de pétrole d'Afrique.",
+    "source": "FMI (World Economic Outlook) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-002",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Kenya est mondialement reconnu pour une innovation financière mobile qui a révolutionné l'inclusion bancaire. De quoi s'agit-il ?",
+    "options": {
+      "A": "Orange Money",
+      "B": "MTN Mobile Money",
+      "C": "M-Pesa",
+      "D": "Wave"
+    },
+    "answer": "C",
+    "explanation": "M-Pesa, lancé au Kenya en 2007 par Safaricom, permet les transferts d'argent et les paiements par téléphone mobile. Il a révolutionné l'inclusion financière : plus de 80% des Kenyans adultes l'utilisent. Le service s'est étendu à plusieurs pays africains et asiatiques.",
+    "source": "Banque Mondiale ; Safaricom",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-003",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le continent africain possède d'importantes ressources minières. Quel pays est le premier producteur mondial de cobalt, essentiel pour les batteries électriques ?",
+    "options": {
+      "A": "Zambie",
+      "B": "République démocratique du Congo",
+      "C": "Afrique du Sud",
+      "D": "Botswana"
+    },
+    "answer": "B",
+    "explanation": "La RDC produit environ 70% du cobalt mondial, principalement dans la région du Katanga. Le cobalt est un composant essentiel des batteries lithium-ion (smartphones, voitures électriques).",
+    "source": "Banque Mondiale ; US Geological Survey",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-004",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Côte d'Ivoire est le premier producteur mondial d'un produit agricole majeur. Lequel ?",
+    "options": {
+      "A": "Café",
+      "B": "Cacao",
+      "C": "Huile de palme",
+      "D": "Anacarde (noix de cajou)"
+    },
+    "answer": "B",
+    "explanation": "La Côte d'Ivoire est le premier producteur mondial de cacao (environ 40% de la production mondiale), suivi du Ghana. Le cacao représente environ 15% du PIB ivoirien et fait vivre des millions de petits producteurs.",
+    "source": "FAO ; ICCO (International Cocoa Organization)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-005",
+    "category": "economie",
+    "subcategory": "pib_croissance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Plusieurs économies africaines figurent parmi les plus dynamiques du monde. Quel pays d'Afrique de l'Est a connu une croissance moyenne supérieure à 7% par an depuis 2010 ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "Kenya",
+      "C": "Éthiopie",
+      "D": "Ouganda"
+    },
+    "answer": "C",
+    "explanation": "L'Éthiopie a enregistré une croissance moyenne de 7 à 10% par an entre 2010 et 2025, devenant l'une des économies à la croissance la plus rapide au monde, portée par l'agriculture, les infrastructures et les services.",
+    "source": "FMI ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-006",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La ZLECAf (Zone de libre-échange continentale africaine) devrait stimuler le commerce intra-africain. Quel pourcentage du commerce africain est actuellement intra-continental (2025) ?",
+    "options": {
+      "A": "Moins de 5%",
+      "B": "Environ 15%",
+      "C": "Environ 30%",
+      "D": "Environ 45%"
+    },
+    "answer": "B",
+    "explanation": "Le commerce intra-africain représente environ 15% des échanges du continent, contre 60% en Europe et 40% en Asie. La ZLECAf vise à atteindre 25% d'ici 2035 en supprimant les barrières tarifaires et non-tarifaires.",
+    "source": "CNUCED ; Banque Africaine de Développement",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-007",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le phénomène de « malédiction des ressources naturelles » (Dutch disease) affecte plusieurs économies africaines. Quel pays africain a mis en place un fonds souverain pour contrer ce phénomène ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Botswana",
+      "C": "Angola",
+      "D": "Gabon"
+    },
+    "answer": "B",
+    "explanation": "Le Botswana est souvent cité comme un contre-exemple réussi de la malédiction des ressources. Grâce à la gestion prudente de ses revenus diamantifères via le Fonds permanent pour les générations futures (Pula Fund), il est passé d'un des pays les plus pauvres en 1966 à un revenu intermédiaire supérieur.",
+    "source": "Banque Africaine de Développement ; OECD",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-008",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Afrique compte plusieurs « licornes » (startups valorisées à +1 milliard $). Quelle fintech africaine a atteint la plus haute valorisation en 2025 ?",
+    "options": {
+      "A": "Flutterwave (Nigeria)",
+      "B": "Chipper Cash (Ghana/USA)",
+      "C": "Paystack (Nigeria, acquis par Stripe)",
+      "D": "Wave (Sénégal)"
+    },
+    "answer": "A",
+    "explanation": "Flutterwave, startup nigériane fondée en 2016, est devenue la fintech africaine la mieux valorisée en 2025 (environ 4 milliards $). Elle traite des paiements dans plus de 30 pays africains. Le secteur fintech africain a levé plus de 3 milliards $ en 2024.",
+    "source": "CB Insights ; TechCrunch Africa",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-009",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Éthiopie a développé un modèle économique surnommé « developmental state model » (État développementaliste). Quelle industrie clé a été au cœur de sa stratégie d'industrialisation ?",
+    "options": {
+      "A": "La production textile et d'habillement",
+      "B": "La transformation minière",
+      "C": "La construction automobile",
+      "D": "La pétrochimie"
+    },
+    "answer": "A",
+    "explanation": "Le modèle éthiopien (porté par Meles Zenawi) s'est concentré sur l'industrialisation textile et l'habillement dans les parcs industriels (Hawassa, Bole Lemi). L'objectif était de suivre le modèle est-asiatique en utilisant la main-d'œuvre bon marché pour l'exportation.",
+    "source": "Banque Mondiale ; Cheru, F. (2019) The Developmental State in Ethiopia",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-010",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Banque africaine de développement (BAD) a lancé en 2024 une initiative novatrice de financement climatique. Comment s'appelle ce mécanisme qui utilise les droits de tirage spéciaux (DTS) du FMI ?",
+    "options": {
+      "A": "L'Initiative africaine pour le climat (IAC)",
+      "B": "Le Fonds vert pour l'Afrique (FVA)",
+      "C": "Le Mécanisme de réallocation des DTS (hybrid capital)",
+      "D": "Le Partenariat pour la transition énergétique (JETP Afrique)"
+    },
+    "answer": "C",
+    "explanation": "La BAD a mis au point un mécanisme de réallocation des DTS du FMI via un « hybrid capital » pour financer les projets climatiques africains. Ce modèle permet de transformer des droits de tirage inutilisés des pays riches en financements concessionnels pour l'Afrique.",
+    "source": "BAD (afdb.org) ; FMI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-001",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le plus long fleuve d'Afrique ?",
+    "options": {
+      "A": "Le Congo",
+      "B": "Le Niger",
+      "C": "Le Nil",
+      "D": "Le Zambèze"
+    },
+    "answer": "C",
+    "explanation": "Le Nil est le plus long fleuve d'Afrique avec environ 6 650 km, traversant 11 pays avant de se jeter en Méditerranée. Le Congo est le deuxième plus long (4 700 km) mais le plus profond du monde.",
+    "source": "FAO ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-002",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain est le plus peuplé du continent ?",
+    "options": {
+      "A": "Éthiopie",
+      "B": "Égypte",
+      "C": "Nigeria",
+      "D": "République démocratique du Congo"
+    },
+    "answer": "C",
+    "explanation": "Le Nigeria est le pays le plus peuplé d'Afrique avec environ 220 millions d'habitants (2025). Il est suivi de l'Éthiopie (~130M) et de l'Égypte (~115M).",
+    "source": "Banque Mondiale ; ONU",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-003",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel désert africain est le plus grand désert chaud du monde ?",
+    "options": {
+      "A": "Le désert du Kalahari",
+      "B": "Le désert du Namib",
+      "C": "Le Sahara",
+      "D": "Le désert de Danakil"
+    },
+    "answer": "C",
+    "explanation": "Le Sahara est le plus grand désert chaud du monde avec environ 9,2 millions de km², couvrant une grande partie de l'Afrique du Nord. Le Kalahari et le Namib sont plus petits.",
+    "source": "UNESCO ; National Geographic",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-004",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de pays membres compte l'Union africaine (UA) ?",
+    "options": {
+      "A": "49",
+      "B": "54",
+      "C": "55",
+      "D": "57"
+    },
+    "answer": "C",
+    "explanation": "L'Union africaine (créée en 2002 à Durban) compte 55 États membres. Tous les pays africains en sont membres, sauf ceux suspendus temporairement. Le Maroc a réintégré l'UA en 2017 après 33 ans d'absence.",
+    "source": "Union africaine (au.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-005",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le point culminant de l'Afrique ?",
+    "options": {
+      "A": "Le Mont Kenya",
+      "B": "Le Kilimandjaro",
+      "C": "Le Mont Toubkal",
+      "D": "Le Ras Dashan"
+    },
+    "answer": "B",
+    "explanation": "Le Kilimandjaro (5 895 m) en Tanzanie est le point culminant de l'Afrique et le plus haut volcan isolé du monde. Il est suivi du Mont Kenya (5 199 m).",
+    "source": "FAO ; UNESCO (Site du patrimoine mondial)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-006",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Afrique centrale est dominée par un vaste bassin fluvial et forestier. Quel est le deuxième plus grand massif forestier tropical du monde après l'Amazonie ?",
+    "options": {
+      "A": "La forêt du bassin du Congo",
+      "B": "La forêt du Mayombe",
+      "C": "La forêt de Taï",
+      "D": "La forêt du mont Cameroun"
+    },
+    "answer": "A",
+    "explanation": "Le bassin du Congo abrite le deuxième plus grand massif forestier tropical du monde (environ 200 millions d'hectares), après l'Amazonie. Il s'étend sur 6 pays : RDC, Congo, Gabon, Cameroun, RCA, Guinée équatoriale.",
+    "source": "FAO ; Banque Mondiale ; Greenpeace Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-007",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Maghreb désigne une région d'Afrique du Nord. Quels pays sont traditionnellement considérés comme faisant partie du Maghreb central ?",
+    "options": {
+      "A": "Maroc, Tunisie, Égypte",
+      "B": "Algérie, Libye, Mauritanie",
+      "C": "Maroc, Algérie, Tunisie",
+      "D": "Algérie, Maroc, Soudan"
+    },
+    "answer": "C",
+    "explanation": "Le Grand Maghreb comprend le Maroc, l'Algérie, la Tunisie, la Libye et la Mauritanie. Le Maghreb central désigne principalement le Maroc, l'Algérie et la Tunisie. L'Union du Maghreb arabe (UMA) a été créée en 1989.",
+    "source": "Union du Maghreb Arabe ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-008",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le plus grand lac d'Afrique par sa superficie ?",
+    "options": {
+      "A": "Lac Tanganyika",
+      "B": "Lac Victoria",
+      "C": "Lac Malawi",
+      "D": "Lac Tchad"
+    },
+    "answer": "B",
+    "explanation": "Le Lac Victoria (68 800 km²) est le plus grand lac d'Afrique et le deuxième plus grand lac d'eau douce du monde (après le Lac Supérieur). Il est partagé par la Tanzanie, l'Ouganda et le Kenya.",
+    "source": "FAO ; Lake Victoria Basin Commission",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-009",
+    "category": "geographie",
+    "subcategory": "economie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La CEDEAO (Communauté économique des États de l'Afrique de l'Ouest) est un bloc régional majeur. Combien de pays en sont membres ?",
+    "options": {
+      "A": "12",
+      "B": "15",
+      "C": "18",
+      "D": "20"
+    },
+    "answer": "B",
+    "explanation": "La CEDEAO (créée en 1975) compte 15 États membres : Bénin, Burkina Faso, Cap-Vert, Côte d'Ivoire, Gambie, Ghana, Guinée, Guinée-Bissau, Liberia, Mali, Niger, Nigeria, Sénégal, Sierra Leone, Togo.",
+    "source": "CEDEAO (ecowas.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-010",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les chutes Victoria, l'une des plus grandes chutes d'eau du monde, sont situées sur quel fleuve et entre quels pays ?",
+    "options": {
+      "A": "Fleuve Congo (RDC et Angola)",
+      "B": "Fleuve Zambèze (Zambie et Zimbabwe)",
+      "C": "Fleuve Niger (Mali et Niger)",
+      "D": "Fleuve Nil (Ouganda et Soudan)"
+    },
+    "answer": "B",
+    "explanation": "Les chutes Victoria (Mosi-oa-Tunya, « la fumée qui gronde » en kololo) sont situées sur le Zambèze, à la frontière entre la Zambie et le Zimbabwe. Elles font 1 708 m de large et 108 m de haut.",
+    "source": "UNESCO (Site du patrimoine mondial)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-011",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Afrique du Sud a trois capitales officielles. Quelle est leur répartition par pouvoir ?",
+    "options": {
+      "A": "Pretoria (exécutif), Le Cap (législatif), Bloemfontein (judiciaire)",
+      "B": "Johannesburg (économique), Pretoria (politique), Le Cap (culturel)",
+      "C": "Le Cap (exécutif), Pretoria (législatif), Durban (judiciaire)",
+      "D": "Pretoria (exécutif), Le Cap (judiciaire), Bloemfontein (législatif)"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique du Sud a trois capitales : Pretoria (siège du gouvernement/exécutif), Le Cap (siège du Parlement/législatif), Bloemfontein (siège de la Cour suprême/judiciaire). C'est l'un des rares pays au monde avec un tel système.",
+    "source": "Constitution sud-africaine (1996)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-012",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Rift Valley (Grande Vallée du Rift) est une formation géologique majeure qui traverse l'Afrique de l'Est. Quel type de mouvement tectonique en est la cause ?",
+    "options": {
+      "A": "Convergence de plaques",
+      "B": "Subduction océanique",
+      "C": "Divergence de plaques tectoniques",
+      "D": "Collision continentale"
+    },
+    "answer": "C",
+    "explanation": "Le Rift est-africain est causé par un mouvement de divergence des plaques tectoniques (extension). À terme, dans quelques millions d'années, la Corne de l'Afrique se séparera du continent, créant un nouvel océan.",
+    "source": "USGS ; Nature Geoscience",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-013",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La région du Sahel est une zone de transition écologique et climatique. Quels pays sont entièrement ou majoritairement situés dans la zone sahélienne ?",
+    "options": {
+      "A": "Mali, Niger, Tchad Sénégal",
+      "B": "Mauritanie, Mali, Burkina Faso, Niger, Tchad",
+      "C": "Sénégal, Guinée, Côte d'Ivoire, Bénin",
+      "D": "Nigeria, Cameroun, RCA, Soudan"
+    },
+    "answer": "B",
+    "explanation": "Le Sahel s'étend du Sénégal/Mauritanie à l'ouest jusqu'au Tchad à l'est. Les pays les plus sahéliens sont la Mauritanie, le Mali, le Burkina Faso, le Niger et le Tchad. Le G5 Sahel regroupe ces 5 pays.",
+    "source": "CILSS ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-014",
+    "category": "geographie",
+    "subcategory": "economie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le canal de Suez, en Égypte, est l'une des voies navigables les plus stratégiques du monde. Quel pourcentage du trafic maritime mondial y transite approximativement ?",
+    "options": {
+      "A": "5 %",
+      "B": "12 %",
+      "C": "20 %",
+      "D": "30 %"
+    },
+    "answer": "B",
+    "explanation": "Environ 12 % du commerce maritime mondial transite par le canal de Suez. Il relie la Méditerranée à la mer Rouge, permettant de relier l'Europe à l'Asie sans contourner l'Afrique. Sa fermeture (ex: Ever Given en 2021) coûte ~9 milliards $ par jour au commerce mondial.",
+    "source": "Suez Canal Authority ; UNCTAD",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-015",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2024, le Somaliland a signé un protocole d'accord avec l'Éthiopie pour l'accès à la mer. Quel différend géopolitique majeur cela soulève-t-il ?",
+    "options": {
+      "A": "Le Somaliland n'est pas reconnu comme État souverain par la communauté internationale",
+      "B": "Le Somaliland revendique le territoire du Puntland",
+      "C": "L'Éthiopie occupe illégalement la côte somalienne",
+      "D": "La Somalie conteste la souveraineté de l'Éthiopie sur la région d'Ogaden"
+    },
+    "answer": "A",
+    "explanation": "Le Somaliland s'est autoproclamé indépendant de la Somalie en 1991 mais n'est reconnu par aucun État membre de l'ONU. L'accord avec l'Éthiopie (qui a perdu son accès à la mer en 1993) a relancé le débat sur sa reconnaissance.",
+    "source": "BBC Afrique ; Institute for Security Studies (ISS)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-016",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les Grands Lacs africains forment un ensemble de lacs situés dans la région du Rift est-africain. Quel pays n'a PAS de littoral sur le Lac Tanganyika ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "RDC",
+      "C": "Ouganda",
+      "D": "Burundi"
+    },
+    "answer": "C",
+    "explanation": "Le Lac Tanganyika, deuxième plus profond du monde (1 470 m), est bordé par la Tanzanie, la RDC, le Burundi et la Zambie. L'Ouganda est riverain du Lac Victoria, pas du Tanganyika.",
+    "source": "FAO ; Lake Tanganyika Authority",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-001",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire ouest-africain était réputé pour sa richesse en or et sa ville universitaire de Tombouctou au XIVe siècle ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Empire du Mali",
+      "C": "Empire Songhaï",
+      "D": "Royaume du Bénin"
+    },
+    "answer": "B",
+    "explanation": "L'Empire du Mali, sous Mansa Moussa (1312-1337), était célèbre pour ses ressources en or. Tombouctou y devint un centre intellectuel avec l'université de Sankoré.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-002",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'année 1960 est surnommée « l'année de l'Afrique » car elle a vu l'indépendance de 17 pays africains. Quelle puissance coloniale concernait la majorité d'entre eux ?",
+    "options": {
+      "A": "Royaume-Uni",
+      "B": "France",
+      "C": "Belgique",
+      "D": "Portugal"
+    },
+    "answer": "B",
+    "explanation": "En 1960, 14 colonies françaises d'Afrique subsaharienne accèdent à l'indépendance : Sénégal, Côte d'Ivoire, Mali, Haute-Volta, Niger, Dahomey, Mauritanie, Tchad, Centrafrique, Congo, Gabon, Madagascar.",
+    "source": "Décolonisation de l'Afrique — Wikipédia ; Formation civique (gouv.fr)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-003",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire africain antique, situé dans l'actuelle Éthiopie, était l'un des plus grands empires commerciaux du monde antique et est mentionné dans le Livre des Actes des Apôtres ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Royaume de Koush",
+      "C": "Royaume d'Aksoum",
+      "D": "Empire du Mali"
+    },
+    "answer": "C",
+    "explanation": "Le Royaume d'Aksoum (ou Axoum) a prospéré du Ier au VIIe siècle dans la Corne de l'Afrique. Puissance commerciale majeure, il est mentionné dans le Livre des Actes. Il est aussi le berceau de l'Église orthodoxe éthiopienne.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. II",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-004",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui a été le premier président du Ghana indépendant et un leader panafricaniste majeur ?",
+    "options": {
+      "A": "Léopold Sédar Senghor",
+      "B": "Kwame Nkrumah",
+      "C": "Jomo Kenyatta",
+      "D": "Julius Nyerere"
+    },
+    "answer": "B",
+    "explanation": "Kwame Nkrumah (1909-1972) a mené le Ghana (ex-Côte-de-l'Or britannique) à l'indépendance en 1957 — le premier pays d'Afrique subsaharienne. Il a été un fervent défenseur du panafricanisme et de l'unité africaine.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-005",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel empire d'Afrique de l'Ouest, célèbre pour sa richesse en sel et en or, était surnommé « Wagadou » et aurait été fondé entre le VIe et le VIIIe siècle ?",
+    "options": {
+      "A": "Empire du Ghana",
+      "B": "Empire Songhaï",
+      "C": "Empire du Mali",
+      "D": "Royaume du Ghana"
+    },
+    "answer": "A",
+    "explanation": "L'Empire du Ghana (ou Wagadou) était situé entre les actuels Mauritanie, Sénégal et Mali. Il contrôlait le commerce transsaharien d'or et de sel entre le VIIIe et le XIIIe siècle.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. III",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-006",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Lors de la Conférence de Berlin (1884-1885), les puissances européennes se sont partagé l'Afrique. Quel principe y a été établi pour justifier les revendications territoriales ?",
+    "options": {
+      "A": "Le droit des peuples à disposer d'eux-mêmes",
+      "B": "Le principe d'occupation effective",
+      "C": "La doctrine Monroe",
+      "D": "Le mandat de la Société des Nations"
+    },
+    "answer": "B",
+    "explanation": "La Conférence de Berlin (1884-1885) a établi le principe d'« occupation effective » : une puissance devait occuper physiquement un territoire pour le revendiquer. Aucun Africain n'était présent.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-007",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Royaume du Kongo (XIVe-XVIIIe siècle) est connu pour avoir adopté le christianisme comme religion d'État sous le règne de son roi le plus célèbre. De quel roi s'agit-il ?",
+    "options": {
+      "A": "Alphonso Ier (Mbemba Nzinga)",
+      "B": "Nzinga Mbandi",
+      "C": "Shaka Zulu",
+      "D": "Soundiata Keita"
+    },
+    "answer": "A",
+    "explanation": "Alphonso Ier (Mvemba a Nzinga, 1506-1543) a fait du christianisme la religion officielle du Royaume du Kongo. Il a correspondu avec le roi du Portugal et a tenté de moderniser son royaume.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-008",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Soundiata Keita, fondateur de l'Empire du Mali au XIIIe siècle, est le héros d'une épopée orale transmise par les griots. Comment s'appelle cette épopée ?",
+    "options": {
+      "A": "La Geste des Keita",
+      "B": "L'Épopée de Soundiata",
+      "C": "Le Chant du Mandé",
+      "D": "L'Épopée du Mandingue"
+    },
+    "answer": "D",
+    "explanation": "L'Épopée du Mandingue (ou Épopée de Soundiata) est une tradition orale des griots mandingues. Soundiata Keita a vaincu Soumaoro Kanté à la bataille de Kirina (vers 1235).",
+    "source": "UNESCO Mémoires du monde ; Niane, D.T. (1960) Soundjata ou l'Épopée mandingue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-009",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La guerre d'indépendance algérienne (1954-1962) a été l'un des conflits de décolonisation les plus violents. Quel traité y a mis fin ?",
+    "options": {
+      "A": "Les Accords d'Évian",
+      "B": "Les Accords de Genève",
+      "C": "Le Traité de Paris",
+      "D": "Les Accords de Bandoeng"
+    },
+    "answer": "A",
+    "explanation": "Les Accords d'Évian (18 mars 1962) ont mis fin à la guerre d'Algérie. Ils ont été précédés par un référendum en France et ont conduit à l'indépendance de l'Algérie le 5 juillet 1962.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-010",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel était le principal objectif économique de la colonisation française en Afrique subsaharienne, selon le système de l'économie de traite ?",
+    "options": {
+      "A": "L'industrialisation des colonies",
+      "B": "L'extraction de matières premières et la vente de produits manufacturés français",
+      "C": "La formation d'une élite locale",
+      "D": "La construction de chemins de fer transafricains"
+    },
+    "answer": "B",
+    "explanation": "L'économie de traite reposait sur l'exportation de matières premières (arachide, café, cacao, bois, coton) vers la France et l'importation de produits manufacturés français. Les colonies devaient être autofinancées.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-011",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Empire Songhaï, à son apogée sous l'askia Mohammed Ier (1493-1528), était dirigé par une administration complexe. Quelle innovation administrative a-t-il introduite ?",
+    "options": {
+      "A": "Un système féodal avec des chevaliers",
+      "B": "Un État centralisé avec des gouverneurs provinciaux, un trésorier impérial et un corps d'inspecteurs",
+      "C": "Une monarchie élective contrôlée par un conseil d'anciens",
+      "D": "Un système de cités-États autonomes reliées par le commerce"
+    },
+    "answer": "B",
+    "explanation": "Sous l'askia Mohammed Ier, Songhaï a développé une administration centralisée avec des gouverneurs (kebi-kebi) dans les provinces, un trésorier impérial, un corps d'inspecteurs et une marine de guerre fluviale sur le Niger.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV ; BBC Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-012",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Au XIXe siècle, une reine africaine a mené une résistance acharnée contre la colonisation portugaise dans l'actuelle Angola, en utilisant des alliances diplomatiques avec les Hollandais. De qui s'agit-il ?",
+    "options": {
+      "A": "Yaa Asantewaa",
+      "B": "Nzinga Mbandi (Reine Nzinga)",
+      "C": "Sarama Bintou",
+      "D": "Moremi Ajasoro"
+    },
+    "answer": "B",
+    "explanation": "La Reine Nzinga (1583-1663) a régné sur les royaumes Ndongo et Matamba. Elle a conclu une alliance avec les Hollandais contre les Portugais et a mené une guérilla de plusieurs décennies. Elle est une icône de la résistance africaine.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-013",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Parti du Congrès de l'Indépendance de Madagascar (PAKISCA) a joué un rôle central dans la lutte pour l'indépendance. Quel événement majeur a marqué la répression du mouvement nationaliste malgache en 1947 ?",
+    "options": {
+      "A": "La Conférence de Brazzaville",
+      "B": "L'Insurrection malgache",
+      "C": "Le Massacre de Thiaroye",
+      "D": "La Révolte des Mascareignes"
+    },
+    "answer": "B",
+    "explanation": "L'Insurrection malgache (1947-1948) fut un soulèvement nationaliste réprimé violemment par la France, causant 11 000 à 90 000 morts selon les estimations. Cet événement a marqué la lutte pour l'indépendance de Madagascar.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-014",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Royaume du Bénin (actuel Nigeria) est célèbre pour ses bronzes et sa capitale ceinte de remparts. À quel siècle ces remparts, considérés comme les plus longues structures de terre du monde, ont-ils été principalement construits ?",
+    "options": {
+      "A": "Xe siècle",
+      "B": "XIIIe siècle",
+      "C": "XVe siècle",
+      "D": "XVIIe siècle"
+    },
+    "answer": "C",
+    "explanation": "Les remparts du Royaume du Bénin ont été principalement érigés au XVe siècle. Ils formaient un réseau de 16 000 km de fossés et de levées de terre, considéré comme la plus grande structure de terre jamais construite.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Connah, G. (1975) The Archaeology of Benin",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-015",
+    "category": "histoire",
+    "subcategory": "figures_historiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Lors du Congrès de Vienne (1815), le Royaume-Uni a obtenu l'interdiction de la traite négrière par les puissances européennes. Quelle figure africaine avait déjà aboli l'esclavage dans son royaume des décennies plus tôt ?",
+    "options": {
+      "A": "Osei Tutu Ier (Empire ashanti)",
+      "B": "Affonso Ier (Royaume du Kongo)",
+      "C": "Mansa Moussa (Empire du Mali)",
+      "D": "Idris Alooma (Empire du Kanem-Bornou)"
+    },
+    "answer": "B",
+    "explanation": "Affonso Ier (Mvemba a Nzinga), roi du Kongo (1506-1543), a tenté d'interdire la traite négrière dans son royaume dès les années 1520. Il a écrit au roi du Portugal pour dénoncer les raids d'esclaves qui dépeuplaient le pays.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Lettres d'Affonso Ier au roi du Portugal (1526)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-001",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel groupe de recherche africain est à l'avant-garde du traitement automatique des langues africaines ?",
+    "options": {
+      "A": "DeepMind Africa",
+      "B": "Masakhane",
+      "C": "Data Science Africa",
+      "D": "Deep Learning Indaba"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est un collectif de chercheurs qui travaille sur le NLP (Natural Language Processing) pour les langues africaines. Fondé en 2019, il regroupe des centaines de chercheurs africains et de la diaspora, travaillant sur plus de 70 langues africaines.",
+    "source": "Masakhane (masakhane.io) ; ACL (Association for Computational Linguistics)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-002",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écosystème technologique africain est surnommé la « Silicon Savannah » et est considéré comme le hub tech le plus dynamique du continent ?",
+    "options": {
+      "A": "Lagos, Nigeria",
+      "B": "Nairobi, Kenya",
+      "C": "Le Cap, Afrique du Sud",
+      "D": "Accra, Ghana"
+    },
+    "answer": "B",
+    "explanation": "Nairobi est surnommé la « Silicon Savannah » et abrite le plus grand écosystème tech d'Afrique de l'Est, avec des centaines de startups, des hubs d'innovation (iHub, Nairobi Garage) et des innovations comme M-Pesa. Lagos et Le Cap sont également des hubs majeurs.",
+    "source": "GSMA ; Briter Bridges",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-003",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'IA est utilisée en Afrique pour relever des défis agricoles. Quelle application agricole de l'IA est la plus répandue ?",
+    "options": {
+      "A": "Les robots de récolte autonomes",
+      "B": "La détection précoce des maladies des cultures par analyse d'images",
+      "C": "Les drones de pulvérisation automatique",
+      "D": "Les serres intelligentes climatisées"
+    },
+    "answer": "B",
+    "explanation": "L'application la plus répandue de l'IA en agriculture africaine est la détection précoce des maladies et parasites via l'analyse d'images par smartphone (ex: PlantVillage, Nuru, Plantix). Accessible même aux petits producteurs, elle permet de réduire les pertes de récolte de 30 à 50%.",
+    "source": "FAO ; CGIAR ; PlantVillage (Penn State)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-004",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Indaba africain sur l'apprentissage profond (Deep Learning Indaba) est un événement majeur pour l'IA en Afrique. Quel en est l'objectif principal ?",
+    "options": {
+      "A": "Attirer les investissements des GAFAM en Afrique",
+      "B": "Renforcer les capacités en IA des chercheurs africains",
+      "C": "Créer le plus grand modèle de langage africain",
+      "D": "Organiser des compétitions annuelles d'IA entre pays africains"
+    },
+    "answer": "B",
+    "explanation": "Le Deep Learning Indaba, fondé en 2017, est un événement annuel qui vise à renforcer l'expertise africaine en IA et apprentissage profond. Il se tient chaque année dans un pays africain différent et a formé des milliers de chercheurs africains.",
+    "source": "Deep Learning Indaba (deeplearningindaba.com)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-005",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Plusieurs startups africaines développent des LLMs (grands modèles de langage) adaptés au contexte africain. Quel modèle, formé pour comprendre et générer du texte en swahili, yoruba, haoussa et autres langues africaines, a été lancé en 2024 ?",
+    "options": {
+      "A": "AfriBERTa",
+      "B": "LLaMA-afrique",
+      "C": "GloVe Africa",
+      "D": "AfriLLaMA"
+    },
+    "answer": "A",
+    "explanation": "AfriBERTa (ou ses dérivés comme AfroLM, AfriTeVa) est un modèle multilingue pré-entraîné sur des langues africaines. En 2024-2025, plusieurs modèles ont émergé : AfriLLaMA (fine-tuning de LLaMA sur données africaines) et d'autres modèles développés par Masakhane, Lelapa AI (Afrique du Sud) et InstaDeep.",
+    "source": "Masakhane ; Hugging Face ; Lelapa AI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-006",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'accès à Internet en Afrique progresse mais reste inégal. Quel pourcentage de la population africaine avait accès à Internet en 2025 ?",
+    "options": {
+      "A": "25%",
+      "B": "37%",
+      "C": "45%",
+      "D": "55%"
+    },
+    "answer": "B",
+    "explanation": "Environ 37% des Africains avaient accès à Internet en 2025, contre 65% en Asie et 90% en Europe. Les disparités sont fortes : plus de 70% en Afrique du Nord et Maurice, moins de 25% en Afrique centrale. Le mobile représente 80% des connexions.",
+    "source": "UIT (Union internationale des télécommunications) ; GSMA",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-007",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Zipline, une startup américaine, a révolutionné un secteur en Afrique grâce à des drones autonomes. Quel service a-t-elle transformé au Rwanda et au Ghana ?",
+    "options": {
+      "A": "La livraison de repas dans les zones rurales",
+      "B": "La livraison de médicaments et de sang par drones",
+      "C": "La surveillance agricole par satellite",
+      "D": "La distribution de vaccins mobiles"
+    },
+    "answer": "B",
+    "explanation": "Zipline utilise des drones autonomes pour livrer des médicaments, du sang et des vaccins dans les zones reculées du Rwanda et du Ghana. Elle a effectué plus d'un million de livraisons, réduisant le délai d'approvisionnement de 3 jours à 30 minutes.",
+    "source": "Zipline (flyzipline.com) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-008",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'infrastructure cloud en Afrique connaît une croissance rapide. Quels acteurs mondiaux investissent massivement dans les régions cloud africaines ?",
+    "options": {
+      "A": "Google Cloud (Afrique du Sud) et AWS (Le Cap)",
+      "B": "Microsoft Azure (Afrique du Sud), AWS (Le Cap), Google Cloud (Afrique du Sud)",
+      "C": "Oracle et IBM uniquement",
+      "D": "Alibaba Cloud (Nigeria) et Tencent (Égypte)"
+    },
+    "answer": "B",
+    "explanation": "Les trois grands du cloud (AWS, Microsoft Azure, Google Cloud) ont tous ouvert des régions cloud en Afrique du Sud. AWS a ouvert sa région du Cap en 2020, Microsoft Azure en 2019, Google Cloud en 2024. AWS prévoit une nouvelle région au Nigeria.",
+    "source": "AWS ; Microsoft ; Google Cloud",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-009",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2023, l'Union africaine a adopté une stratégie continentale pour l'intelligence artificielle. Quel en est le principe directeur ?",
+    "options": {
+      "A": "L'interdiction de certaines applications d'IA jugées dangereuses",
+      "B": "L'IA au service du développement durable et de l'inclusion",
+      "C": "La création d'un régulateur continental unique",
+      "D": "Le développement prioritaire des armes autonomes africaines"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour l'IA (2023) repose sur le principe que l'IA doit servir le développement durable, l'inclusion et les priorités africaines (agriculture, santé, éducation). Elle promeut une approche éthique, centrée sur l'humain et adaptée au contexte africain.",
+    "source": "Union africaine (2023) Continental AI Strategy ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-010",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle innovation technologique majeure, développée en Afrique du Sud, a été utilisée par le European Southern Observatory (ESO) pour la construction du plus grand télescope du monde (ELT) ?",
+    "options": {
+      "A": "Le système de contrôle par IA des miroirs adaptatifs",
+      "B": "Le capteur optique hyperspectral",
+      "C": "Le robot d'assemblage autonome de segments de miroir",
+      "D": "Le logiciel de traitement d'images astronomiques"
+    },
+    "answer": "C",
+    "explanation": "Les chercheurs sud-africains du CSIR (Council for Scientific and Industrial Research) ont développé des robots autonomes d'assemblage pour les 798 segments du miroir principal (39m) du Extremely Large Telescope (ELT) de l'ESO, actuellement en construction au Chili.",
+    "source": "CSIR (Afrique du Sud) ; ESO (eso.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-001",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de langues sont parlées sur le continent africain (estimation) ?",
+    "options": {
+      "A": "500-700",
+      "B": "1 000-1 500",
+      "C": "2 000-3 000",
+      "D": "300-400"
+    },
+    "answer": "C",
+    "explanation": "L'Afrique compte entre 2 000 et 3 000 langues, soit environ un tiers des langues du monde. Le Nigeria à lui seul en compte plus de 520. Les principales familles linguistiques sont : Niger-Congo, afro-asiatique, nilo-saharienne et khoïsan.",
+    "source": "UNESCO Atlas des langues en danger ; Ethnologue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-002",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écrivain sénégalais a reçu le prix Nobel de littérature en 2022, devenant le premier auteur africain noir lauréat de ce prix ?",
+    "options": {
+      "A": "Wole Soyinka",
+      "B": "Chimamanda Ngozi Adichie",
+      "C": "Abdulrazak Gurnah",
+      "D": "Mariama Bâ"
+    },
+    "answer": "C",
+    "explanation": "Abdulrazak Gurnah, né à Zanzibar (Tanzanie) et basé au Royaume-Uni, a reçu le Nobel 2022 pour sa « pénétration sans compromis des effets du colonialisme et du destin des réfugiés ». Il est le premier écrivain noir africain lauréat (Wole Soyinka, Nobel 1986, est le premier Africain).",
+    "source": "Académie suédoise (nobelprize.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-003",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est l'une des langues africaines les plus parlées. Dans quelle région est-elle principalement utilisée comme lingua franca ?",
+    "options": {
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Afrique de l'Est et des Grands Lacs",
+      "D": "Afrique centrale"
+    },
+    "answer": "C",
+    "explanation": "Le swahili (Kiswahili) est parlé par environ 150 à 200 millions de personnes en Afrique de l'Est et des Grands Lacs : Tanzanie, Kenya, Ouganda, RDC, Rwanda, Burundi, Mozambique. C'est la langue officielle de la Tanzanie et de l'Union africaine.",
+    "source": "UNESCO ; British Council",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-004",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans les sociétés d'Afrique de l'Ouest, les griots sont des figures culturelles importantes. Quel est leur rôle principal ?",
+    "options": {
+      "A": "Chefs de guerre",
+      "B": "Prêtres animistes",
+      "C": "Gardiens de la tradition orale, musiciens et généalogistes",
+      "D": "Marchands itinérants"
+    },
+    "answer": "C",
+    "explanation": "Les griots (ou djélis) sont des dépositaires de la tradition orale dans les sociétés mandingues et ouest-africaines. Ils sont à la fois historiens, généalogistes, musiciens et conseillers des rois. La transmission orale est encore essentielle dans de nombreuses cultures africaines.",
+    "source": "UNESCO ; Niane, D.T. (1960) Soundjata ou l'Épopée mandingue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-005",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor, poète et premier président du Sénégal, a été un des fondateurs d'un mouvement littéraire et intellectuel majeur. Lequel ?",
+    "options": {
+      "A": "La Négritude",
+      "B": "Le Panafricanisme",
+      "C": "Le Réalisme africain",
+      "D": "L'Indigénisme"
+    },
+    "answer": "A",
+    "explanation": "Senghor, avec Aimé Césaire (Martinique) et Léon-Gontran Damas (Guyane), a fondé le mouvement de la Négritude dans les années 1930. Ce mouvement visait à revaloriser l'identité noire face à la domination coloniale française.",
+    "source": "Senghor, L.S. (1948) Anthologie de la nouvelle poésie nègre et malgache",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-006",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le wolof est une langue largement parlée au Sénégal et en Gambie. À quelle famille linguistique appartient-elle ?",
+    "options": {
+      "A": "Afro-asiatique",
+      "B": "Niger-Congo (atlantique occidental)",
+      "C": "Nilo-saharienne",
+      "D": "Khoïsan"
+    },
+    "answer": "B",
+    "explanation": "Le wolof appartient à la branche atlantique de la famille Niger-Congo, la plus grande famille linguistique d'Afrique. Il est parlé par environ 10 millions de personnes comme langue maternelle et par beaucoup plus comme seconde langue au Sénégal.",
+    "source": "Ethnologue ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-007",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les masques africains sont célèbres dans le monde pour leur diversité et leur symbolisme. Dans les traditions baoulé (Côte d'Ivoire), quelle est la fonction principale des masques Goli ?",
+    "options": {
+      "A": "Ils sont utilisés comme monnaie d'échange",
+      "B": "Ils servent à des rituels funéraires et à l'investiture des chefs",
+      "C": "Ils sont portés uniquement lors des fêtes de récolte",
+      "D": "Ils sont réservés aux cérémonies de mariage"
+    },
+    "answer": "B",
+    "explanation": "Les masques Goli des Baoulé jouent un rôle essentiel dans les funérailles et les cérémonies d'investiture des chefs. Chaque masque représente un esprit animal et a une signification sociale précise.",
+    "source": "Musée du Quai Branly ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-008",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le roman « Une si longue lettre » de Mariama Bâ est une œuvre majeure de la littérature africaine féminine. De quel pays vient l'autrice et quel thème central y est traité ?",
+    "options": {
+      "A": "Côte d'Ivoire — la guerre civile",
+      "B": "Sénégal — la condition des femmes dans la société post-coloniale",
+      "C": "Cameroun — l'exil et l'immigration",
+      "D": "Mali — le commerce transsaharien"
+    },
+    "answer": "B",
+    "explanation": "Mariama Bâ (1929-1981), sénégalaise, a écrit « Une si longue lettre » (1979) qui dénonce la polygamie et les inégalités de genre dans la société sénégalaise post-coloniale. C'est un classique de la littérature féministe africaine.",
+    "source": "Bâ, M. (1979) Une si longue lettre",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-009",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tambour parlant (talking drum) est un instrument de communication dans plusieurs cultures d'Afrique de l'Ouest. Sur quel principe linguistique repose sa capacité à transmettre des messages complexes ?",
+    "options": {
+      "A": "Le code Morse africain",
+      "B": "La reproduction des tons de la langue parlée (langues tonales)",
+      "C": "Un alphabet secret transmis par les griots",
+      "D": "Des rythmes codés qui varient selon les villages"
+    },
+    "answer": "B",
+    "explanation": "Le tambour parlant (dùndún chez les Yoruba, tama chez les Mandingues) reproduit les tons (haut/bas) des langues tonales africaines comme le yoruba. Chaque mot peut être « dit » par le tambour, permettant de transmettre des messages sur des kilomètres.",
+    "source": "UNESCO ; Carrington, J.F. (1949) The Talking Drums of Africa",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-010",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte pour la Renaissance culturelle africaine, adoptée par l'Union africaine en 2006, réaffirme l'importance des langues africaines. Quel article de la charte traite spécifiquement de leur promotion dans l'éducation ?",
+    "options": {
+      "A": "Les langues africaines doivent être enseignées comme matières optionnelles",
+      "B": "Les États membres doivent intégrer les langues africaines comme langues d'enseignement dès le primaire",
+      "C": "Le français et l'anglais restent les seules langues d'enseignement, mais les langues locales peuvent être utilisées à l'oral",
+      "D": "Chaque pays peut choisir librement sa politique linguistique"
+    },
+    "answer": "B",
+    "explanation": "La Charte pour la Renaissance culturelle africaine (Article 18) stipule que les États membres doivent promouvoir l'utilisation des langues africaines comme langues d'enseignement à tous les niveaux. Elle encourage aussi leur usage dans les médias et la vie publique. C'est un texte fondateur mais peu appliqué.",
+    "source": "Union africaine (2006) Charte pour la Renaissance culturelle africaine",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-011",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le cinéma africain francophone a connu son essor dans les années 1960-70. Quel film du réalisateur sénégalais Ousmane Sembène est considéré comme le premier long-métrage réalisé par un Africain noir ?",
+    "options": {
+      "A": "Xala (1975)",
+      "B": "La Noire de... (1966)",
+      "C": "Le Mandat (1968)",
+      "D": "Emitaï (1971)"
+    },
+    "answer": "B",
+    "explanation": "« La Noire de... » (1966) est considéré comme le premier long-métrage réalisé par un Africain noir (Ousmane Sembène). Il traite de l'exploitation des domestiques africains en France. Sembène est surnommé « le père du cinéma africain ».",
+    "source": "FESPACO ; Sembène, O. (1966) La Noire de...",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-012",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de parenté dans les sociétés akan (Ghana, Côte d'Ivoire) est matrilinéaire. Concrètement, cela signifie que l'héritage et la filiation passent par quelle lignée ?",
+    "options": {
+      "A": "La lignée paternelle",
+      "B": "La lignée maternelle",
+      "C": "Le premier-né quel que soit son sexe",
+      "D": "Le chef du clan désigne l'héritier"
+    },
+    "answer": "B",
+    "explanation": "Dans le système matrilinéaire akan (abresc), l'enfant appartient au clan de sa mère (abusua), et l'héritage passe de l'oncle maternel au neveu plutôt que du père au fils. Le chef (ookoaman) est choisi par les anciens du clan maternel.",
+    "source": "Rattray, R.S. (1923) Ashanti ; Meyer, J. (2005) Les Akan",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-001",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un proverbe africain dit : « Il faut tout un village pour élever un enfant. » Dans la philosophie Ubuntu (« Je suis parce que nous sommes »), quel principe cela illustre-t-il ?",
+    "options": {
+      "A": "L'individualisme et l'autonomie personnelle",
+      "B": "L'interdépendance communautaire et la responsabilité collective",
+      "C": "La hiérarchie sociale stricte",
+      "D": "La méfiance envers les étrangers"
+    },
+    "answer": "B",
+    "explanation": "Le proverbe et la philosophie Ubuntu (Nguni : « umuntu ngumuntu ngabantu ») expriment que l'individu n'existe qu'à travers la communauté. La responsabilité d'éduquer un enfant incombe à tout le village, pas seulement aux parents.",
+    "source": "Mbiti, J. (1969) African Religions and Philosophy ; Tutu, D. (1999) No Future Without Forgiveness",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-002",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans les cultures d'Afrique de l'Ouest, le fait d'éviter le contact visuel direct avec un aîné est généralement interprété comme :",
+    "options": {
+      "A": "Un signe de malhonnêteté",
+      "B": "Un signe de respect",
+      "C": "Un signe de timidité maladive",
+      "D": "Un signe de défi"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreuses cultures ouest-africaines, maintenir un contact visuel direct avec une personne plus âgée ou en position d'autorité est perçu comme un manque de respect, contrairement aux normes occidentales où le contact visuel est associé à l'honnêteté.",
+    "source": "Hofstede, G. (2001) Culture's Consequences ; Ndiaye, A. (2005) Les valeurs culturelles africaines",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-003",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un proverbe éthiopien dit : « Quand les éléphants se battent, c'est l'herbe qui souffre. » Que signifie-t-il dans le contexte africain ?",
+    "options": {
+      "A": "Les guerres sont toujours destructrices pour les pauvres",
+      "B": "Les conflits entre puissants affectent toujours les plus vulnérables",
+      "C": "Les éléphants sont dangereux pour l'agriculture",
+      "D": "Il faut rester neutre dans les conflits"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe signifie que lorsque les puissants (les « éléphants ») sont en conflit, ce sont toujours les petits (l'« herbe ») qui en subissent les conséquences. Il illustre une sagesse politique africaine qui transcende les époques.",
+    "source": "Sagesse populaire éthiopienne ; UNESCO (Proverbes africains)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-004",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans un contexte africain, si quelqu'un vous dit « je vais venir » sans préciser quand, cela signifie généralement :",
+    "options": {
+      "A": "Il arrivera dans 5 minutes",
+      "B": "Il viendra un jour, mais le temps n'est pas linéaire — il viendra quand il aura fini ce qu'il fait",
+      "C": "Il ne viendra pas du tout",
+      "D": "Il viendra demain à la même heure"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreuses cultures africaines, le temps est perçu comme polychronique et événementiel plutôt que linéaire. « Je viens » signifie que l'action aura lieu quand les conditions seront réunies. Cela reflète une conception différente du temps, moins d'horloge et plus d'événements.",
+    "source": "Mbiti, J. (1969) African Concepts of Time ; Hall, E.T. (1976) Beyond Culture",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-005",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le proverbe akan (Ghana) « L'animal n'entre pas dans le trou du serpent par ignorance » illustre quel principe décisionnel ?",
+    "options": {
+      "A": "La prudence et la prévoyance face aux conséquences",
+      "B": "La compétition pour les ressources",
+      "C": "L'instinct de survie des animaux",
+      "D": "L'importance d'écouter les anciens"
+    },
+    "answer": "A",
+    "explanation": "Ce proverbe signifie qu'on ne fait pas quelque chose de dangereux sans en connaître les risques. Il encourage la prudence et la réflexion avant d'agir — si l'animal entre dans le trou du serpent, il sait qu'il risque la mort mais a ses raisons.",
+    "source": "Appiah, A. (1992) In My Father's House ; Proverbes akan",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-006",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans un conseil de village traditionnel (palabre), la prise de décision ne se fait pas à la majorité mais par consensus. Quelle en est la raison culturelle profonde ?",
+    "options": {
+      "A": "Les chefs ont toujours le dernier mot",
+      "B": "Préserver l'harmonie sociale plutôt que de créer des gagnants et des perdants",
+      "C": "Les plus âgés doivent toujours être d'accord",
+      "D": "C'est plus rapide que le vote à bulletin secret"
+    },
+    "answer": "B",
+    "explanation": "La palabre africaine cherche le consensus car la division en factions (gagnants/perdants) menace la cohésion du village. Le débat continue jusqu'à ce qu'une solution acceptable par tous soit trouvée. Cette philosophie influence encore la diplomatie africaine.",
+    "source": "Malan, J. (1999) The Politics of Consensus ; Gluckman, M. (1965) Politics, Law and Ritual in Tribal Society",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-007",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes_sagesse",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le proverbe swahili « Haraka haraka haina baraka » (la précipitation n'a pas de bénédiction) reflète quelle conception culturelle du travail et du temps ?",
+    "options": {
+      "A": "Les Africains sont naturellement lents",
+      "B": "La qualité et les bonnes relations comptent plus que la vitesse productive",
+      "C": "Il faut toujours travailler le plus vite possible",
+      "D": "Le travail doit être fait avant le coucher du soleil"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe exprime la priorité de la qualité et des relations sociales sur la vitesse productive. Se précipiter mène à des erreurs et néglige les dimensions sociales du travail. C'est une critique culturelle de l'urgence capitaliste et une valorisation du rythme humain.",
+    "source": "Sagesse swahili ; Mwangi, W. (2019) African Time and the Western Clock",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-008",
+    "category": "raisonnement_culturel",
+    "subcategory": "logique_contextuelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans un test de logique — « Tous les hommes sont mortels. Sokhna est une femme. Donc Sokhna est mortelle. » — ce syllogisme fonctionne parfaitement en logique aristotélicienne. Dans un contexte de raisonnement traditionnel africain, quelle pourrait être la limite perçue de ce raisonnement ?",
+    "options": {
+      "A": "Les femmes ne sont pas mortelles dans la tradition africaine",
+      "B": "La prémisse « tous les hommes sont mortels » est trop abstraite et déconnectée de l'expérience concrète",
+      "C": "Sokhna n'est pas une personne réelle",
+      "D": "La logique aristotélicienne est inconnue en Afrique"
+    },
+    "answer": "B",
+    "explanation": "Les études en ethno-logique (Horton, Hountondji) suggèrent que le raisonnement traditionnel africain privilégie souvent le concret et l'expérientiel sur l'abstrait universel. Le concept de « tous les hommes sont mortels » comme prémisse abstraite peut sembler moins pertinent qu'une observation basée sur l'expérience réelle de la mortalité.",
+    "source": "Horton, R. (1967) African Traditional Thought and Western Science ; Hountondji, P. (1977) Sur la philosophie africaine",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-001",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie infectieuse est la première cause de mortalité en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "VIH/SIDA",
+      "C": "Tuberculose",
+      "D": "Diabète"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme (malaria) est la première cause de mortalité en Afrique subsaharienne, avec environ 600 000 décès par an, dont 80% d'enfants de moins de 5 ans. L'Afrique supporte 95% des cas mondiaux de paludisme.",
+    "source": "OMS (Rapport sur le paludisme dans le monde)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-002",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les Centers for Disease Control and Prevention (CDC) africains ont été créés pour renforcer la réponse du continent aux urgences sanitaires. En quelle année et dans quel pays se trouve leur siège ?",
+    "options": {
+      "A": "2015 — Nairobi, Kenya",
+      "B": "2017 — Addis-Abeba, Éthiopie",
+      "C": "2020 — Dakar, Sénégal",
+      "D": "2018 — Abuja, Nigeria"
+    },
+    "answer": "B",
+    "explanation": "Les CDC Afrique ont été officiellement lancés en 2017 par l'Union africaine, avec leur siège à Addis-Abeba (Éthiopie). Ils ont joué un rôle crucial pendant la pandémie de COVID-19 pour coordonner la réponse continentale.",
+    "source": "Union africaine (Africa CDC)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-003",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "En 2024, l'Afrique a atteint une étape importante dans la production locale de vaccins avec l'inauguration d'une grande installation. Dans quel pays se trouve-t-elle ?",
+    "options": {
+      "A": "Afrique du Sud",
+      "B": "Rwanda",
+      "C": "Sénégal",
+      "D": "Maroc"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique du Sud a inauguré en 2024 une installation de production de vaccins à grande échelle (vaccins ARNm, dont ceux contre la COVID-19 et le paludisme), visant à réduire la dépendance africaine aux importations (moins de 1% des vaccins utilisés en Afrique y sont produits).",
+    "source": "OMS ; Africa CDC",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-004",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'espérance de vie en Afrique subsaharienne a augmenté significativement depuis 2000. Quelle en a été la cause principale ?",
+    "options": {
+      "A": "L'amélioration de l'alimentation",
+      "B": "La baisse de la mortalité infantile et l'accès aux antirétroviraux pour le VIH",
+      "C": "La réduction du tabagisme",
+      "D": "L'augmentation du nombre de médecins par habitant"
+    },
+    "answer": "B",
+    "explanation": "L'espérance de vie en Afrique subsaharienne est passée d'environ 50 ans en 2000 à près de 62 ans en 2025. Les progrès sont principalement dus à la baisse de la mortalité infantile et à l'accès massif aux antirétroviraux (plus de 20 millions de personnes traitées pour le VIH).",
+    "source": "OMS ; UNAIDS",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-005",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Square Kilometre Array (SKA), le plus grand radiotélescope du monde, est en partie construit en Afrique. Dans quel pays se trouve sa composante africaine ?",
+    "options": {
+      "A": "Namibie",
+      "B": "Afrique du Sud (Karoo)",
+      "C": "Kenya",
+      "D": "Botswana"
+    },
+    "answer": "B",
+    "explanation": "Le SKA est un projet international de radiotélescope géant réparti entre l'Australie et l'Afrique du Sud (désert du Karoo). La phase 1 (SKA-Mid) comprend 197 antennes dans le Karoo sud-africain, avec des stations supplémentaires prévues dans d'autres pays africains.",
+    "source": "SKA Observatory (skao.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-006",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle maladie tropicale négligée, transmise par la mouche tsé-tsé, est endémique en Afrique subsaharienne et peut être fatale sans traitement ?",
+    "options": {
+      "A": "Dengue",
+      "B": "Maladie du sommeil (trypanosomiase africaine)",
+      "C": "Bilharziose",
+      "D": "Onchocercose"
+    },
+    "answer": "B",
+    "explanation": "La trypanosomiase africaine (maladie du sommeil) est transmise par la piqûre de la mouche tsé-tsé. Sans traitement, elle est mortelle. Les cas ont diminué de 95% depuis 2000 grâce aux programmes de contrôle, mais elle reste endémique en RDC et en Afrique centrale.",
+    "source": "OMS ; DNDi (Drugs for Neglected Diseases initiative)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-007",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le vaccin antipaludique RTS,S/AS01 (Mosquirix) a été recommandé par l'OMS en 2021 après des décennies de recherche. Quelle institution africaine a mené les essais cliniques décisifs ?",
+    "options": {
+      "A": "KEMRI (Kenya Medical Research Institute)",
+      "B": "Wits Reproductive Health Institute (Afrique du Sud)",
+      "C": "Institut Pasteur de Dakar",
+      "D": "Centre de Recherche Médicale de Lambaréné (Gabon)"
+    },
+    "answer": "A",
+    "explanation": "Le KEMRI (Kenya Medical Research Institute), en collaboration avec l'Université d'Oxford et GSK, a mené les essais cliniques du RTS,S (phase 3, 15 000 enfants dans 7 pays africains). Le vaccin réduit de 30% les cas de paludisme sévère. Un second vaccin (R21/Matrix-M, développé à Oxford) a suivi en 2023.",
+    "source": "OMS ; NEJM (New England Journal of Medicine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-008",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le radiotélescope MeerKAT, précurseur sud-africain du SKA, a permis une découverte majeure en astrophysique en 2024. Laquelle ?",
+    "options": {
+      "A": "La première image d'un trou noir africain",
+      "B": "La détection d'ondes gravitationnelles depuis l'hémisphère sud",
+      "C": "La cartographie des trous noirs supermassifs au centre de la Voie lactée",
+      "D": "La découverte d'une nouvelle planète habitable"
+    },
+    "answer": "C",
+    "explanation": "MeerKAT (64 antennes dans le Karoo, Afrique du Sud) a produit en 2024 la carte la plus détaillée jamais réalisée du centre de la Voie lactée, révélant de nouvelles populations de trous noirs supermassifs et de filaments magnétiques.",
+    "source": "SARAO (South African Radio Astronomy Observatory) ; Nature Astronomy",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-009",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de santé rwandais est souvent cité comme un modèle pour l'Afrique. Quelle innovation organisationnelle en est le pilier central ?",
+    "options": {
+      "A": "Les hôpitaux universitaires de district",
+      "B": "Le système d'assurance maladie communautaire (Mutuelle de Santé)",
+      "C": "Les cliniques mobiles connectées par satellite",
+      "D": "Le télémédecine généralisée via téléphone"
+    },
+    "answer": "B",
+    "explanation": "La Mutuelle de Santé, un système d'assurance maladie communautaire obligatoire au Rwanda, couvre plus de 90% de la population. Combinée à la généralisation des agents de santé communautaires (45 000), elle a permis de réduire la mortalité infantile de 75% depuis 2000.",
+    "source": "OMS ; Banque Mondiale (Rwanda Health Sector Review)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-010",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2024, l'Union africaine a adopté une stratégie pour la science ouverte en Afrique. Quel en est l'axe principal ?",
+    "options": {
+      "A": "La construction de 10 nouveaux laboratoires pharmaceutiques",
+      "B": "L'accès libre aux publications scientifiques et le partage des données de recherche",
+      "C": "L'interdiction des brevets sur les médicaments essentiels",
+      "D": "La création d'une académie des sciences panafricaine"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour la science ouverte (adoptée en 2024) vise à rendre les publications et données de recherche africaines librement accessibles, à développer des infrastructures de partage et à promouvoir la collaboration entre institutions africaines.",
+    "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-001",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique a la population la plus jeune du monde. Quel pourcentage de sa population a moins de 25 ans ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "70%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine a moins de 25 ans (contre 27% en Europe et 30% en Amérique du Nord). L'âge médian en Afrique est d'environ 19 ans, contre 38 ans en Europe.",
+    "source": "ONU (World Population Prospects) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-002",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a le taux d'alphabétisation le plus élevé du continent ?",
+    "options": {
+      "A": "Maurice",
+      "B": "Afrique du Sud",
+      "C": "Seychelles",
+      "D": "Tunisie"
+    },
+    "answer": "C",
+    "explanation": "Les Seychelles ont le taux d'alphabétisation le plus élevé d'Afrique (environ 96%), suivies de Maurice (91%) et de la Tunisie (81%). L'investissement dans l'éducation primaire universelle y est la clé.",
+    "source": "UNESCO (Institut de statistique)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-003",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la ville la plus peuplée d'Afrique ?",
+    "options": {
+      "A": "Le Caire",
+      "B": "Lagos",
+      "C": "Kinshasa",
+      "D": "Johannesbourg"
+    },
+    "answer": "B",
+    "explanation": "Lagos (Nigeria) est la ville la plus peuplée d'Afrique avec environ 20 millions d'habitants (aire métropolitaine). Le Caire suit avec ~15 millions, Kinshasa avec ~14 millions.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-004",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le système éducatif africain fait face à un défi majeur malgré les progrès de la scolarisation primaire. Lequel ?",
+    "options": {
+      "A": "La pénurie d'écoles primaires",
+      "B": "Le faible taux de transition vers le secondaire et la qualité de l'apprentissage",
+      "C": "Le manque d'écoles privées",
+      "D": "La langue d'enseignement étrangère dans tous les pays"
+    },
+    "answer": "B",
+    "explanation": "Si la scolarisation primaire atteint 80% en Afrique subsaharienne, seulement 40% des enfants achèvent le secondaire. De plus, 80% des enfants en Afrique subsaharienne ne maîtrisent pas les compétences de base en lecture à 10 ans (crise de l'apprentissage).",
+    "source": "UNESCO ; Banque Mondiale (Rapport sur le capital humain)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-005",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'urbanisation en Afrique progresse rapidement. Quel pourcentage de la population africaine vivra en ville d'ici 2050 ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "75%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine vivra en zone urbaine d'ici 2050, contre 40% actuellement. L'Afrique est le continent qui s'urbanise le plus rapidement au monde, avec 15 à 20 millions de nouveaux citadins par an.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-006",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le moyen de communication le plus utilisé pour accéder à l'information en Afrique subsaharienne ?",
+    "options": {
+      "A": "La télévision",
+      "B": "La radio",
+      "C": "Les réseaux sociaux (WhatsApp, Facebook)",
+      "D": "Les journaux papier"
+    },
+    "answer": "B",
+    "explanation": "La radio reste le média le plus accessible et le plus utilisé en Afrique subsaharienne, touchant environ 80% des ménages. Dans les zones rurales (où vit encore ~60% de la population), la radio est souvent le seul média accessible, notamment avec les radios solaires.",
+    "source": "UNESCO ; BBC Media Action",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-007",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La transition démographique africaine diffère de celle des autres continents. Quelle en est la principale caractéristique ?",
+    "options": {
+      "A": "Baisse rapide de la natalité comme en Asie",
+      "B": "Baisse de la mortalité sans baisse équivalente de la natalité",
+      "C": "Stabilité de la mortalité et de la natalité",
+      "D": "Hausse de la natalité accompagnée d'une baisse de la mortalité"
+    },
+    "answer": "B",
+    "explanation": "Contrairement à l'Asie et l'Amérique latine, l'Afrique connaît une baisse rapide de la mortalité (grâce aux progrès médicaux) mais une baisse plus lente de la natalité. Cela crée une « fenêtre démographique » prolongée mais aussi une pression sur les services publics.",
+    "source": "ONU ; FMI (Rapport sur la transition démographique africaine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-008",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les transferts d'argent de la diaspora africaine (remittances) représentent une source de financement majeure pour le continent. Quel pays africain reçoit le plus de remittances en valeur absolue ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Égypte",
+      "C": "Ghana",
+      "D": "Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le Nigeria reçoit environ 25 milliards $ de remittances par an (2025), suivi de l'Égypte (~20Mds) et du Ghana (~5Mds). Au total, les remittances vers l'Afrique dépassent les 100 milliards $, soit plus que l'aide publique au développement.",
+    "source": "Banque Mondiale (KNOMAD) ; FMI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-009",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Plusieurs pays africains ont réformé leur système éducatif pour inclure des langues nationales dans l'enseignement primaire. Quel pays a introduit l'enseignement en swahili comme langue d'instruction obligatoire dans le primaire en 2022 ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "Kenya",
+      "C": "Ouganda",
+      "D": "Rwanda"
+    },
+    "answer": "B",
+    "explanation": "Le Kenya a introduit l'enseignement en swahili (et en langues locales) comme langue d'instruction obligatoire dans les 3 premières années du primaire à partir de 2022, dans le cadre de la réforme du Competency-Based Curriculum (CBC). La Tanzanie enseignait déjà en swahili depuis l'indépendance.",
+    "source": "Kenya Institute of Curriculum Development ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-010",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Union africaine a déclaré la diaspora africaine comme la « sixième région » de l'Afrique. Quel événement bisannuel a été institué pour la mobiliser ?",
+    "options": {
+      "A": "Le Forum de la diaspora africaine",
+      "B": "Le sommet des diasporas africaines dans le cadre de l'UA",
+      "C": "Le Festival panafricain de la diaspora",
+      "D": "Le Global African Investment Summit"
+    },
+    "answer": "B",
+    "explanation": "Le Sommet des diasporas africaines (African Diaspora Summit) est organisé tous les deux ans par l'UA. La diaspora africaine compte environ 200 millions de personnes dans le monde, contribuant via les remittances, les compétences et les investissements.",
+    "source": "Union africaine (Agenda 2063) ; AU Diaspora Division",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]

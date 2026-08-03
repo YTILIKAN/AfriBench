@@ -1,0 +1,306 @@
+[
+  {
+    "id": "GEOG-001",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le plus long fleuve d'Afrique ?",
+    "options": {
+      "A": "Le Congo",
+      "B": "Le Niger",
+      "C": "Le Nil",
+      "D": "Le Zambèze"
+    },
+    "answer": "C",
+    "explanation": "Le Nil est le plus long fleuve d'Afrique avec environ 6 650 km, traversant 11 pays avant de se jeter en Méditerranée. Le Congo est le deuxième plus long (4 700 km) mais le plus profond du monde.",
+    "source": "FAO ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-002",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain est le plus peuplé du continent ?",
+    "options": {
+      "A": "Éthiopie",
+      "B": "Égypte",
+      "C": "Nigeria",
+      "D": "République démocratique du Congo"
+    },
+    "answer": "C",
+    "explanation": "Le Nigeria est le pays le plus peuplé d'Afrique avec environ 220 millions d'habitants (2025). Il est suivi de l'Éthiopie (~130M) et de l'Égypte (~115M).",
+    "source": "Banque Mondiale ; ONU",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-003",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel désert africain est le plus grand désert chaud du monde ?",
+    "options": {
+      "A": "Le désert du Kalahari",
+      "B": "Le désert du Namib",
+      "C": "Le Sahara",
+      "D": "Le désert de Danakil"
+    },
+    "answer": "C",
+    "explanation": "Le Sahara est le plus grand désert chaud du monde avec environ 9,2 millions de km², couvrant une grande partie de l'Afrique du Nord. Le Kalahari et le Namib sont plus petits.",
+    "source": "UNESCO ; National Geographic",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-004",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de pays membres compte l'Union africaine (UA) ?",
+    "options": {
+      "A": "49",
+      "B": "54",
+      "C": "55",
+      "D": "57"
+    },
+    "answer": "C",
+    "explanation": "L'Union africaine (créée en 2002 à Durban) compte 55 États membres. Tous les pays africains en sont membres, sauf ceux suspendus temporairement. Le Maroc a réintégré l'UA en 2017 après 33 ans d'absence.",
+    "source": "Union africaine (au.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-005",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le point culminant de l'Afrique ?",
+    "options": {
+      "A": "Le Mont Kenya",
+      "B": "Le Kilimandjaro",
+      "C": "Le Mont Toubkal",
+      "D": "Le Ras Dashan"
+    },
+    "answer": "B",
+    "explanation": "Le Kilimandjaro (5 895 m) en Tanzanie est le point culminant de l'Afrique et le plus haut volcan isolé du monde. Il est suivi du Mont Kenya (5 199 m).",
+    "source": "FAO ; UNESCO (Site du patrimoine mondial)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-006",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Afrique centrale est dominée par un vaste bassin fluvial et forestier. Quel est le deuxième plus grand massif forestier tropical du monde après l'Amazonie ?",
+    "options": {
+      "A": "La forêt du bassin du Congo",
+      "B": "La forêt du Mayombe",
+      "C": "La forêt de Taï",
+      "D": "La forêt du mont Cameroun"
+    },
+    "answer": "A",
+    "explanation": "Le bassin du Congo abrite le deuxième plus grand massif forestier tropical du monde (environ 200 millions d'hectares), après l'Amazonie. Il s'étend sur 6 pays : RDC, Congo, Gabon, Cameroun, RCA, Guinée équatoriale.",
+    "source": "FAO ; Banque Mondiale ; Greenpeace Afrique",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-007",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Maghreb désigne une région d'Afrique du Nord. Quels pays sont traditionnellement considérés comme faisant partie du Maghreb central ?",
+    "options": {
+      "A": "Maroc, Tunisie, Égypte",
+      "B": "Algérie, Libye, Mauritanie",
+      "C": "Maroc, Algérie, Tunisie",
+      "D": "Algérie, Maroc, Soudan"
+    },
+    "answer": "C",
+    "explanation": "Le Grand Maghreb comprend le Maroc, l'Algérie, la Tunisie, la Libye et la Mauritanie. Le Maghreb central désigne principalement le Maroc, l'Algérie et la Tunisie. L'Union du Maghreb arabe (UMA) a été créée en 1989.",
+    "source": "Union du Maghreb Arabe ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-008",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le plus grand lac d'Afrique par sa superficie ?",
+    "options": {
+      "A": "Lac Tanganyika",
+      "B": "Lac Victoria",
+      "C": "Lac Malawi",
+      "D": "Lac Tchad"
+    },
+    "answer": "B",
+    "explanation": "Le Lac Victoria (68 800 km²) est le plus grand lac d'Afrique et le deuxième plus grand lac d'eau douce du monde (après le Lac Supérieur). Il est partagé par la Tanzanie, l'Ouganda et le Kenya.",
+    "source": "FAO ; Lake Victoria Basin Commission",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-009",
+    "category": "geographie",
+    "subcategory": "economie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La CEDEAO (Communauté économique des États de l'Afrique de l'Ouest) est un bloc régional majeur. Combien de pays en sont membres ?",
+    "options": {
+      "A": "12",
+      "B": "15",
+      "C": "18",
+      "D": "20"
+    },
+    "answer": "B",
+    "explanation": "La CEDEAO (créée en 1975) compte 15 États membres : Bénin, Burkina Faso, Cap-Vert, Côte d'Ivoire, Gambie, Ghana, Guinée, Guinée-Bissau, Liberia, Mali, Niger, Nigeria, Sénégal, Sierra Leone, Togo.",
+    "source": "CEDEAO (ecowas.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-010",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les chutes Victoria, l'une des plus grandes chutes d'eau du monde, sont situées sur quel fleuve et entre quels pays ?",
+    "options": {
+      "A": "Fleuve Congo (RDC et Angola)",
+      "B": "Fleuve Zambèze (Zambie et Zimbabwe)",
+      "C": "Fleuve Niger (Mali et Niger)",
+      "D": "Fleuve Nil (Ouganda et Soudan)"
+    },
+    "answer": "B",
+    "explanation": "Les chutes Victoria (Mosi-oa-Tunya, « la fumée qui gronde » en kololo) sont situées sur le Zambèze, à la frontière entre la Zambie et le Zimbabwe. Elles font 1 708 m de large et 108 m de haut.",
+    "source": "UNESCO (Site du patrimoine mondial)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-011",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Afrique du Sud a trois capitales officielles. Quelle est leur répartition par pouvoir ?",
+    "options": {
+      "A": "Pretoria (exécutif), Le Cap (législatif), Bloemfontein (judiciaire)",
+      "B": "Johannesburg (économique), Pretoria (politique), Le Cap (culturel)",
+      "C": "Le Cap (exécutif), Pretoria (législatif), Durban (judiciaire)",
+      "D": "Pretoria (exécutif), Le Cap (judiciaire), Bloemfontein (législatif)"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique du Sud a trois capitales : Pretoria (siège du gouvernement/exécutif), Le Cap (siège du Parlement/législatif), Bloemfontein (siège de la Cour suprême/judiciaire). C'est l'un des rares pays au monde avec un tel système.",
+    "source": "Constitution sud-africaine (1996)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-012",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Rift Valley (Grande Vallée du Rift) est une formation géologique majeure qui traverse l'Afrique de l'Est. Quel type de mouvement tectonique en est la cause ?",
+    "options": {
+      "A": "Convergence de plaques",
+      "B": "Subduction océanique",
+      "C": "Divergence de plaques tectoniques",
+      "D": "Collision continentale"
+    },
+    "answer": "C",
+    "explanation": "Le Rift est-africain est causé par un mouvement de divergence des plaques tectoniques (extension). À terme, dans quelques millions d'années, la Corne de l'Afrique se séparera du continent, créant un nouvel océan.",
+    "source": "USGS ; Nature Geoscience",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-013",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La région du Sahel est une zone de transition écologique et climatique. Quels pays sont entièrement ou majoritairement situés dans la zone sahélienne ?",
+    "options": {
+      "A": "Mali, Niger, Tchad Sénégal",
+      "B": "Mauritanie, Mali, Burkina Faso, Niger, Tchad",
+      "C": "Sénégal, Guinée, Côte d'Ivoire, Bénin",
+      "D": "Nigeria, Cameroun, RCA, Soudan"
+    },
+    "answer": "B",
+    "explanation": "Le Sahel s'étend du Sénégal/Mauritanie à l'ouest jusqu'au Tchad à l'est. Les pays les plus sahéliens sont la Mauritanie, le Mali, le Burkina Faso, le Niger et le Tchad. Le G5 Sahel regroupe ces 5 pays.",
+    "source": "CILSS ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-014",
+    "category": "geographie",
+    "subcategory": "economie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le canal de Suez, en Égypte, est l'une des voies navigables les plus stratégiques du monde. Quel pourcentage du trafic maritime mondial y transite approximativement ?",
+    "options": {
+      "A": "5 %",
+      "B": "12 %",
+      "C": "20 %",
+      "D": "30 %"
+    },
+    "answer": "B",
+    "explanation": "Environ 12 % du commerce maritime mondial transite par le canal de Suez. Il relie la Méditerranée à la mer Rouge, permettant de relier l'Europe à l'Asie sans contourner l'Afrique. Sa fermeture (ex: Ever Given en 2021) coûte ~9 milliards $ par jour au commerce mondial.",
+    "source": "Suez Canal Authority ; UNCTAD",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-015",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2024, le Somaliland a signé un protocole d'accord avec l'Éthiopie pour l'accès à la mer. Quel différend géopolitique majeur cela soulève-t-il ?",
+    "options": {
+      "A": "Le Somaliland n'est pas reconnu comme État souverain par la communauté internationale",
+      "B": "Le Somaliland revendique le territoire du Puntland",
+      "C": "L'Éthiopie occupe illégalement la côte somalienne",
+      "D": "La Somalie conteste la souveraineté de l'Éthiopie sur la région d'Ogaden"
+    },
+    "answer": "A",
+    "explanation": "Le Somaliland s'est autoproclamé indépendant de la Somalie en 1991 mais n'est reconnu par aucun État membre de l'ONU. L'accord avec l'Éthiopie (qui a perdu son accès à la mer en 1993) a relancé le débat sur sa reconnaissance.",
+    "source": "BBC Afrique ; Institute for Security Studies (ISS)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-016",
+    "category": "geographie",
+    "subcategory": "regions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les Grands Lacs africains forment un ensemble de lacs situés dans la région du Rift est-africain. Quel pays n'a PAS de littoral sur le Lac Tanganyika ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "RDC",
+      "C": "Ouganda",
+      "D": "Burundi"
+    },
+    "answer": "C",
+    "explanation": "Le Lac Tanganyika, deuxième plus profond du monde (1 470 m), est bordé par la Tanzanie, la RDC, le Burundi et la Zambie. L'Ouganda est riverain du Lac Victoria, pas du Tanganyika.",
+    "source": "FAO ; Lake Tanganyika Authority",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  }
+]
