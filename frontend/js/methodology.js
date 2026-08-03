@@ -110,7 +110,7 @@ function renderMethodology(container) {
 
         <div class="meth-code-block">
           <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Score global</strong>
-          Pourcentage de réponses correctes sur l'ensemble du benchmark (101 questions).
+          Pourcentage de réponses correctes sur l'ensemble du benchmark (300 questions).
           métrique principale de performance. Un score de 96% signifie que le modèle a repondu
           correctement a 97 questions sur 101.
           <br><br>
@@ -177,7 +177,7 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Limites et améliorations futures</h3>
         <ul>
-          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (101 questions)</li>
+          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (300 questions Afrique ; classement encore indicatif)</li>
           <li>Les questions sont principalement en <strong>francais</strong> — les versions multilingues sont en cours</li>
           <li>Les catégories seront étendues (sports, arts, religions, etc.)</li>
           <li>Le format pourra evoluer (questions ouvertes, generation de texte, etc.)</li>

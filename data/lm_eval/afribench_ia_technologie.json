@@ -416,5 +416,195 @@
     "source": "UA Digital Transformation Strategy",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-023",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Black in AI est surtout :",
+    "options": {
+      "A": "Une communauté pour diversifier l'IA et soutenir les chercheurs noirs",
+      "B": "Une banque centrale",
+      "C": "Un protocole TCP",
+      "D": "Un désert"
+    },
+    "answer": "A",
+    "explanation": "Organisation communautaire en intelligence artificielle.",
+    "source": "blackinai.org",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-024",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un corpus oral annoté est crucial pour l'ASR (reconnaissance vocale) des langues africaines car :",
+    "options": {
+      "A": "Il aligne audio et transcription pour l'apprentissage",
+      "B": "Il remplace les microphones",
+      "C": "Il interdit le multilinguisme",
+      "D": "Il mesure le PIB"
+    },
+    "answer": "A",
+    "explanation": "L'ASR supervisé nécessite des paires audio–texte.",
+    "source": "Littérature speech low-resource",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-025",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le consentement éclairé pour collecter des données vocales communautaires doit surtout garantir :",
+    "options": {
+      "A": "Compréhension des usages, risques et droits de retrait",
+      "B": "Un profit maximal sans information",
+      "C": "La cession perpétuelle sans explication",
+      "D": "L'anonymat impossible à concevoir"
+    },
+    "answer": "A",
+    "explanation": "Éthique de la donnée : information, finalités, retrait.",
+    "source": "Cadres éthiques data/IA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-026",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les câbles sous-marins aboutissant en Afrique sont stratégiques car ils :",
+    "options": {
+      "A": "Portent l'essentiel du trafic Internet international",
+      "B": "Transportent uniquement du pétrole",
+      "C": "Servent de rails ferroviaires",
+      "D": "Remplacent les satellites météo"
+    },
+    "answer": "A",
+    "explanation": "La connectivité intercontinentale repose largement sur ces câbles.",
+    "source": "Rapports infrastructures numériques Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-027",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Hugging Face est surtout utilisé comme :",
+    "options": {
+      "A": "Une plateforme de modèles et datasets ML",
+      "B": "Une compagnie aérienne",
+      "C": "Une mine de cobalt",
+      "D": "Un parti politique"
+    },
+    "answer": "A",
+    "explanation": "Hub de modèles, datasets et Spaces.",
+    "source": "huggingface.co",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-028",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une politique de données ouvertes gouvernementales peut aider l'innovation si elle :",
+    "options": {
+      "A": "Publie des données utiles tout en protégeant la vie privée",
+      "B": "Divulgue tous les dossiers médicaux nominatifs",
+      "C": "Interdit toute API",
+      "D": "Supprime les statistiques nationales"
+    },
+    "answer": "A",
+    "explanation": "Open data ≠ exposition de données personnelles sensibles.",
+    "source": "Principes open data",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-029",
+    "category": "ia_technologie",
+    "subcategory": "startups",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un « sandbox » réglementaire fintech permet souvent de :",
+    "options": {
+      "A": "Tester des services innovants sous supervision",
+      "B": "Échapper à toute loi pénale",
+      "C": "Interdire les paiements mobiles",
+      "D": "Nationaliser automatiquement les startups"
+    },
+    "answer": "A",
+    "explanation": "Cadre d'expérimentation contrôlée.",
+    "source": "Littérature fintech regulation",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-030",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le web scrapé sans licence claire pose problème pour l'IA car :",
+    "options": {
+      "A": "Droits d'auteur, consentement et biais de sources",
+      "B": "Il améliore toujours la légalité",
+      "C": "Il garantit l'équité",
+      "D": "Il remplace l'éthique"
+    },
+    "answer": "A",
+    "explanation": "Questions juridiques et de représentativité.",
+    "source": "Débats data governance / copyright",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-031",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le programme AI4D (Artificial Intelligence for Development) vise surtout à :",
+    "options": {
+      "A": "Soutenir recherche et politiques d'IA pour le développement",
+      "B": "Interdire l'IA en Afrique",
+      "C": "Remplacer les parlements",
+      "D": "Créer une seule langue mondiale"
+    },
+    "answer": "A",
+    "explanation": "Initiatives de renforcement des capacités et politiques.",
+    "source": "AI4D literature / funders",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-032",
+    "category": "ia_technologie",
+    "subcategory": "telecom",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La 4G/5G en Afrique progresse inégalement surtout à cause de :",
+    "options": {
+      "A": "Coûts d'infrastructure, spectre et pouvoir d'achat",
+      "B": "L'absence totale d'utilisateurs de téléphones",
+      "C": "L'interdiction mondiale du mobile",
+      "D": "Un excès de fibre partout sans exception"
+    },
+    "answer": "A",
+    "explanation": "Déploiement contraint par économie et régulation.",
+    "source": "GSMA Mobile Economy Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

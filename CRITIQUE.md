@@ -30,11 +30,11 @@
 
 ### 1.1 Taille d'échantillon
 
-**Problème :** 101 questions pour 9 catégories = ~11 questions par catégorie. La différence entre DeepSeek V4 (96%) et Claude Haiku (90.1%), c'est 6 questions sur 101.
+**Problème (historique v0.1 seed) :** 101 questions pour 9 catégories ≈ 11/catégorie. La différence DeepSeek V4 (96%) vs Claude Haiku (90.1%) tenait à 6 items.
 
-**Pourquoi c'est grave :** Avec un écart-type de 4.7 à 12.0 selon les modèles, l'intervalle de confiance à 95% est tellement large que le classement est du bruit. Impossible d'affirmer que DeepSeek V4 est "meilleur" que Claude Sonnet 4 (96% vs 95%) sur la base d'UNE question d'écart.
+**État août 2026 :** le corpus africain est passé à **300 QCM** (~33/catégorie) + 20 témoins + 10 ouvertes. La taille reste sous les standards (MMLU 15k, HellaSwag 10k ; livrable projet 500+/langue). Les scores publics n'ont pas encore été rejoués sur les 300 items — le classement reste indicatif.
 
-**Standard de référence :** MMLU = 15 000 questions. HellaSwag = 10 000. Même les benchmarks spécialisés visent 500-1000 questions minimum. Le propre livrable 6 du projet cible "500+ questions par langue".
+**Pourquoi c'est encore grave :** Même à 300, les IC restent larges pour départager des modèles proches. Impossible d'affirmer un ordre fin sans re-évaluation complète + validation externe.
 
 ### 1.2 Français uniquement
 

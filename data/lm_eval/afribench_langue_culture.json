@@ -454,5 +454,195 @@
     "source": "Encyclopædia Britannica — Léopold Senghor",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-025",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'amharique est une langue officielle principalement en :",
+    "options": {
+      "A": "Éthiopie",
+      "B": "Ghana",
+      "C": "Sénégal",
+      "D": "Namibie"
+    },
+    "answer": "A",
+    "explanation": "L'amharique est une langue majeure d'Éthiopie.",
+    "source": "Ethnologue — Amharic",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-026",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Ngũgĩ wa Thiong'o est un écrivain kenyan connu pour défendre :",
+    "options": {
+      "A": "L'écriture en langues africaines",
+      "B": "L'interdiction de la littérature",
+      "C": "Le silence total des romanciers",
+      "D": "La suppression des écoles"
+    },
+    "answer": "A",
+    "explanation": "Il a théorisé et pratiqué l'écriture en gĩkũyũ notamment.",
+    "source": "Britannica — Ngugi",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-027",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le genre « mbalax » est surtout associé au :",
+    "options": {
+      "A": "Sénégal",
+      "B": "Lesotho",
+      "C": "Érythrée",
+      "D": "Gabon exclusivement colonial"
+    },
+    "answer": "A",
+    "explanation": "Le mbalax est un genre populaire sénégalais.",
+    "source": "Grove / études musiques sénégalaises",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-028",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Ousmane Sembène est souvent appelé :",
+    "options": {
+      "A": "Le père du cinéma africain",
+      "B": "Le fondateur de Nollywood nigérian des années 2000",
+      "C": "Un peintre flamand",
+      "D": "Un astronaute"
+    },
+    "answer": "A",
+    "explanation": "Cinéaste et écrivain sénégalais pionnier.",
+    "source": "Britannica — Ousmane Sembène",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-029",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le wolof est largement parlé au :",
+    "options": {
+      "A": "Sénégal (et Gambie/Mauritanie)",
+      "B": "Japon",
+      "C": "Chili",
+      "D": "Finlande"
+    },
+    "answer": "A",
+    "explanation": "Langue véhiculaire majeure au Sénégal.",
+    "source": "Ethnologue — Wolof",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-030",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les tissus kente sont surtout associés culturellement au :",
+    "options": {
+      "A": "Ghana (Akan)",
+      "B": "Islande",
+      "C": "Mongolie",
+      "D": "Uruguay"
+    },
+    "answer": "A",
+    "explanation": "Le kente est un textile emblématique akan/ghanéen.",
+    "source": "Britannica — Kente cloth",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-031",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "« L'Enfant noir » est un roman de :",
+    "options": {
+      "A": "Camara Laye",
+      "B": "Albert Camus",
+      "C": "Victor Hugo",
+      "D": "Chinua Achebe"
+    },
+    "answer": "A",
+    "explanation": "Camara Laye (Guinée) publia L'Enfant noir en 1953.",
+    "source": "Britannica — Camara Laye",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-032",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le somali appartient principalement à quelle famille linguistique ?",
+    "options": {
+      "A": "Afro-asiatique (couchitique)",
+      "B": "Indo-européenne germanique",
+      "C": "Sino-tibétaine",
+      "D": "Isolat amazonien"
+    },
+    "answer": "A",
+    "explanation": "Le somali est une langue couchitique.",
+    "source": "Ethnologue — Somali",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-033",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Fela Kuti est une figure majeure de :",
+    "options": {
+      "A": "L'Afrobeat",
+      "B": "L'opéra wagnérien",
+      "C": "Le bluegrass Appalachian exclusif",
+      "D": "La musique baroque française"
+    },
+    "answer": "A",
+    "explanation": "Musicien nigérian pionnier de l'Afrobeat.",
+    "source": "Britannica — Fela Kuti",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-034",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le FESPACO est un festival de cinéma basé à :",
+    "options": {
+      "A": "Ouagadougou",
+      "B": "Paris",
+      "C": "Los Angeles",
+      "D": "Tokyo"
+    },
+    "answer": "A",
+    "explanation": "Festival panafricain du cinéma à Ouagadougou.",
+    "source": "FESPACO — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

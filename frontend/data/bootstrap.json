@@ -939,6 +939,196 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "POL-023",
+      "category": "droit_politique",
+      "subcategory": "organisations",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "L'Union africaine a remplacé l'OUA en :",
+      "options": {
+        "A": "2002",
+        "B": "1963",
+        "C": "1994",
+        "D": "2015"
+      },
+      "answer": "A",
+      "explanation": "L'UA succède à l'OUA au début des années 2000 (Durban 2002).",
+      "source": "UA — History",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-024",
+      "category": "droit_politique",
+      "subcategory": "regional",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "La CEDEAO compte parmi ses langues de travail notamment :",
+      "options": {
+        "A": "Anglais, français et portugais",
+        "B": "Uniquement le swahili",
+        "C": "Uniquement le chinois",
+        "D": "Uniquement l'arabe classique"
+      },
+      "answer": "A",
+      "explanation": "La CEDEAO est multilingue (EN/FR/PT).",
+      "source": "ECOWAS — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-025",
+      "category": "droit_politique",
+      "subcategory": "gouvernance",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La Charte de Lomé (2000) de l'OUA/UA porte surtout sur :",
+      "options": {
+        "A": "Les changements anticonstitutionnels de gouvernement",
+        "B": "La régulation du football",
+        "C": "Les brevets pharmaceutiques mondiaux",
+        "D": "Le droit spatial"
+      },
+      "answer": "A",
+      "explanation": "Elle condamne les coups d'État et cadre les réponses continentales.",
+      "source": "UA — Lomé Declaration",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-026",
+      "category": "droit_politique",
+      "subcategory": "institutions",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La Banque africaine de développement (BAD) a son siège à :",
+      "options": {
+        "A": "Abidjan",
+        "B": "Addis-Abeba",
+        "C": "Nairobi",
+        "D": "Le Caire"
+      },
+      "answer": "A",
+      "explanation": "La BAD a son siège à Abidjan (Côte d'Ivoire).",
+      "source": "AfDB — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-027",
+      "category": "droit_politique",
+      "subcategory": "droits",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "La Journée de l'Afrique est célébrée le :",
+      "options": {
+        "A": "25 mai",
+        "B": "1er janvier",
+        "C": "14 juillet",
+        "D": "11 novembre"
+      },
+      "answer": "A",
+      "explanation": "Le 25 mai commémore la création de l'OUA (1963).",
+      "source": "UA — Africa Day",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-028",
+      "category": "droit_politique",
+      "subcategory": "regional",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "L'EAC (East African Community) regroupe surtout des États d' :",
+      "options": {
+        "A": "Afrique de l'Est",
+        "B": "Afrique australe",
+        "C": "Maghreb",
+        "D": "Afrique centrale francophone uniquement"
+      },
+      "answer": "A",
+      "explanation": "La Communauté d'Afrique de l'Est intègre des États est-africains.",
+      "source": "EAC — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-029",
+      "category": "droit_politique",
+      "subcategory": "gouvernance",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Un « gouvernement d'union nationale » en période de crise vise souvent à :",
+      "options": {
+        "A": "Intégrer des forces politiques rivales pour stabiliser le pays",
+        "B": "Supprimer toute élection à jamais",
+        "C": "Remplacer la constitution par un code sportif",
+        "D": "Interdire les partis d'opposition sans exception mondiale"
+      },
+      "answer": "A",
+      "explanation": "Ces formules cherchent un compromis politique temporaire.",
+      "source": "Science politique — power-sharing",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-030",
+      "category": "droit_politique",
+      "subcategory": "organisations",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Qui peut devenir membre de l'Union africaine ?",
+      "options": {
+        "A": "Les États africains (selon l'Acte constitutif)",
+        "B": "Uniquement les entreprises privées",
+        "C": "Uniquement les ONG européennes",
+        "D": "Les continents non africains automatiquement"
+      },
+      "answer": "A",
+      "explanation": "L'UA est une organisation d'États africains.",
+      "source": "Acte constitutif de l'UA",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-031",
+      "category": "droit_politique",
+      "subcategory": "droits",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La Commission africaine des droits de l'homme et des peuples siège principalement à :",
+      "options": {
+        "A": "Banjul",
+        "B": "Genève uniquement",
+        "C": "New York",
+        "D": "Bruxelles"
+      },
+      "answer": "A",
+      "explanation": "La Commission a son siège à Banjul (Gambie).",
+      "source": "ACHPR — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-032",
+      "category": "droit_politique",
+      "subcategory": "institutions",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le Conseil de sécurité de l'ONU compte des débats fréquents sur l'Afrique car :",
+      "options": {
+        "A": "Une part importante de ses dossiers concerne paix et sécurité africaines",
+        "B": "L'Afrique n'a aucun conflit historique",
+        "C": "L'ONU n'a pas de mandat hors Europe",
+        "D": "L'UA a dissous l'ONU"
+      },
+      "answer": "A",
+      "explanation": "Les opérations et crises africaines occupent une place majeure à l'ONU.",
+      "source": "ONU — Peace and security",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "ECON-001",
       "category": "economie",
       "subcategory": "pib_croissance",
@@ -1353,6 +1543,196 @@
       "answer": "A",
       "explanation": "Durban est l'un des principaux ports à conteneurs d'Afrique australe.",
       "source": "Transnet / UNCTAD port statistics",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-023",
+      "category": "economie",
+      "subcategory": "agriculture",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le thé kenyan est surtout produit dans quelles zones ?",
+      "options": {
+        "A": "Hautes terres / Rift",
+        "B": "Désert du Chalbi uniquement",
+        "C": "Mangroves côtières exclusives",
+        "D": "Banquise"
+      },
+      "answer": "A",
+      "explanation": "Les hautes terres kenyanes offrent des conditions favorables au thé.",
+      "source": "FAO / Kenya tea sector",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-024",
+      "category": "economie",
+      "subcategory": "energie",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le gaz naturel du Mozambique attire des investissements surtout pour :",
+      "options": {
+        "A": "L'exploitation offshore et l'export de GNL",
+        "B": "La culture du cacao",
+        "C": "Le tourisme spatial",
+        "D": "La production de neige artificielle"
+      },
+      "answer": "A",
+      "explanation": "D'importantes réserves gazières offshore structurèrent des projets GNL.",
+      "source": "Littérature énergie Mozambique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-025",
+      "category": "economie",
+      "subcategory": "integration",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Une barrière non tarifaire dans le commerce africain peut être :",
+      "options": {
+        "A": "Des normes sanitaires ou procédures douanières complexes",
+        "B": "Uniquement un droit de douane ad valorem",
+        "C": "Un taux de change flottant mondial",
+        "D": "Une langue nationale"
+      },
+      "answer": "A",
+      "explanation": "Les BNT incluent normes, licences, délais frontaliers, etc.",
+      "source": "OMC / BAD — trade barriers",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-026",
+      "category": "economie",
+      "subcategory": "finance",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La microfinance en Afrique vise surtout à :",
+      "options": {
+        "A": "Fournir des services financiers aux populations peu bancarisées",
+        "B": "Remplacer les banques centrales",
+        "C": "Interdire l'épargne",
+        "D": "Financer uniquement les États du G7"
+      },
+      "answer": "A",
+      "explanation": "Crédit, épargne et paiements pour petites activités et ménages.",
+      "source": "CGAP / BAD microfinance",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-027",
+      "category": "economie",
+      "subcategory": "ressources",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le pétrole nigérian est surtout extrait dans :",
+      "options": {
+        "A": "Le delta du Niger",
+        "B": "Le désert du Kalahari",
+        "C": "L'Atlas marocain",
+        "D": "Les montagnes du Drakensberg"
+      },
+      "answer": "A",
+      "explanation": "La production pétrolière nigériane est concentrée dans le delta.",
+      "source": "OPEC / Nigeria oil",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-028",
+      "category": "economie",
+      "subcategory": "numerique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "L'économie des plateformes (ride-hailing, delivery) en Afrique dépend fortement de :",
+      "options": {
+        "A": "Smartphones, data mobile et densité urbaine",
+        "B": "L'absence d'Internet",
+        "C": "La disparition des villes",
+        "D": "Un monopole postal colonial"
+      },
+      "answer": "A",
+      "explanation": "Ces services naissent là où connectivité et marchés urbains existent.",
+      "source": "GSMA / rapports économie numérique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-029",
+      "category": "economie",
+      "subcategory": "commerce",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le Corridor Nord (Northern Corridor) en Afrique de l'Est relie surtout :",
+      "options": {
+        "A": "Des ports (ex. Mombasa) à l'hinterland régional",
+        "B": "Le Maroc à l'Espagne uniquement",
+        "C": "Le Cap à Buenos Aires",
+        "D": "Le Nil à l'Amazonie"
+      },
+      "answer": "A",
+      "explanation": "Il structure le commerce Est-africain vers l'intérieur.",
+      "source": "Northern Corridor Transit agreements",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-030",
+      "category": "economie",
+      "subcategory": "emploi",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "L'agroalimentaire est stratégique en Afrique car il :",
+      "options": {
+        "A": "Emploie une grande part de la population et assure la sécurité alimentaire",
+        "B": "N'existe dans aucun pays africain",
+        "C": "Remplace toute industrie sans exception",
+        "D": "Est interdit par la ZLECAf"
+      },
+      "answer": "A",
+      "explanation": "Agriculture et transformation restent centrales pour l'emploi.",
+      "source": "FAO / BAD agriculture",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-031",
+      "category": "economie",
+      "subcategory": "finance",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Un « haircut » sur dette souveraine désigne :",
+      "options": {
+        "A": "Une réduction de la valeur remboursée aux créanciers",
+        "B": "Une coupe de cheveux obligatoire",
+        "C": "Une hausse automatique du PIB",
+        "D": "Un type de moustique"
+      },
+      "answer": "A",
+      "explanation": "Terme de restructuration de dette.",
+      "source": "Littérature dette souveraine",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-032",
+      "category": "economie",
+      "subcategory": "integration",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "ECOWAS Trade Liberalisation Scheme vise à :",
+      "options": {
+        "A": "Faciliter la circulation des marchandises dans la CEDEAO",
+        "B": "Interdire le commerce régional",
+        "C": "Créer une monnaie mondiale",
+        "D": "Remplacer les ports par des aéroports uniquement"
+      },
+      "answer": "A",
+      "explanation": "Le schéma libéralise certains échanges intra-CEDEAO.",
+      "source": "ECOWAS — ETLS",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -1870,6 +2250,196 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "GEOG-028",
+      "category": "geographie",
+      "subcategory": "physique",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Quel est le plus long fleuve d'Afrique ?",
+      "options": {
+        "A": "Nil",
+        "B": "Congo",
+        "C": "Niger",
+        "D": "Zambèze"
+      },
+      "answer": "A",
+      "explanation": "Le Nil est généralement considéré comme le plus long fleuve d'Afrique.",
+      "source": "Britannica — Nile",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-029",
+      "category": "geographie",
+      "subcategory": "physique",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le delta du Niger se situe principalement au :",
+      "options": {
+        "A": "Nigeria",
+        "B": "Mali",
+        "C": "Tchad",
+        "D": "Sénégal"
+      },
+      "answer": "A",
+      "explanation": "Le delta du Niger est une région méridionale du Nigeria.",
+      "source": "Britannica — Niger River",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-030",
+      "category": "geographie",
+      "subcategory": "politique",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Quelle est la capitale du Kenya ?",
+      "options": {
+        "A": "Nairobi",
+        "B": "Mombasa",
+        "C": "Kisumu",
+        "D": "Kampala"
+      },
+      "answer": "A",
+      "explanation": "Nairobi est la capitale du Kenya.",
+      "source": "Britannica — Nairobi",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-031",
+      "category": "geographie",
+      "subcategory": "politique",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le Lesotho est un État :",
+      "options": {
+        "A": "Enclavé à l'intérieur de l'Afrique du Sud",
+        "B": "Insulaire de l'océan Indien",
+        "C": "Du Maghreb",
+        "D": "D'Afrique centrale forestière"
+      },
+      "answer": "A",
+      "explanation": "Le Lesotho est entièrement entouré par l'Afrique du Sud.",
+      "source": "Britannica — Lesotho",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-032",
+      "category": "geographie",
+      "subcategory": "physique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le mont Cameroun est :",
+      "options": {
+        "A": "Un volcan actif d'Afrique centrale/ouest",
+        "B": "Le point le plus bas du Sahara",
+        "C": "Une île corallienne",
+        "D": "Un glacier exclusif au Kenya"
+      },
+      "answer": "A",
+      "explanation": "Le mont Cameroun est un volcan majeur près du golfe de Guinée.",
+      "source": "Britannica — Mount Cameroon",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-033",
+      "category": "geographie",
+      "subcategory": "hydrographie",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le lac Tchad est partagé par plusieurs pays dont :",
+      "options": {
+        "A": "Tchad, Nigeria, Niger, Cameroun",
+        "B": "Égypte et Libye uniquement",
+        "C": "Afrique du Sud et Namibie",
+        "D": "Éthiopie et Somalie uniquement"
+      },
+      "answer": "A",
+      "explanation": "Le lac Tchad est un lac transfrontalier du Sahel central.",
+      "source": "Britannica — Lake Chad",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-034",
+      "category": "geographie",
+      "subcategory": "politique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La capitale de la Côte d'Ivoire (politique) est :",
+      "options": {
+        "A": "Yamoussoukro",
+        "B": "Abidjan (capitale économique)",
+        "C": "Bouaké",
+        "D": "San-Pédro"
+      },
+      "answer": "A",
+      "explanation": "Yamoussoukro est la capitale politique ; Abidjan reste le centre économique.",
+      "source": "Britannica — Yamoussoukro",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-035",
+      "category": "geographie",
+      "subcategory": "physique",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le Sahara s'étend principalement sur :",
+      "options": {
+        "A": "L'Afrique du Nord",
+        "B": "L'Afrique australe uniquement",
+        "C": "Madagascar",
+        "D": "La Corne uniquement"
+      },
+      "answer": "A",
+      "explanation": "Le Sahara domine l'Afrique du Nord.",
+      "source": "National Geographic — Sahara",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-036",
+      "category": "geographie",
+      "subcategory": "urbaine",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Johannesburg est surtout connue comme :",
+      "options": {
+        "A": "Une métropole économique d'Afrique du Sud",
+        "B": "Un port méditerranéen",
+        "C": "La capitale du Ghana",
+        "D": "Une oasis saharienne"
+      },
+      "answer": "A",
+      "explanation": "Johannesburg est un pôle économique majeur d'Afrique du Sud.",
+      "source": "Britannica — Johannesburg",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-037",
+      "category": "geographie",
+      "subcategory": "physique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les montagnes de l'Atlas se trouvent principalement :",
+      "options": {
+        "A": "Au Maghreb (Maroc, Algérie, Tunisie)",
+        "B": "En Afrique de l'Est",
+        "C": "Au Kalahari",
+        "D": "Au golfe de Guinée"
+      },
+      "answer": "A",
+      "explanation": "La chaîne de l'Atlas traverse surtout le Maghreb.",
+      "source": "Britannica — Atlas Mountains",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "HIST-001",
       "category": "histoire",
       "subcategory": "empires_precoloniaux",
@@ -2383,6 +2953,196 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "HIST-028",
+      "category": "histoire",
+      "subcategory": "empires_precoloniaux",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le royaume du Dahomey avait pour capitale historique :",
+      "options": {
+        "A": "Abomey",
+        "B": "Porto-Novo uniquement au XVIIIe s.",
+        "C": "Lagos",
+        "D": "Kumasi"
+      },
+      "answer": "A",
+      "explanation": "Abomey fut le centre politique du royaume du Dahomey.",
+      "source": "UNESCO HGA / Britannica — Dahomey",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-029",
+      "category": "histoire",
+      "subcategory": "coloniale",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "La conférence qui entérina le partage colonial de l'Afrique à la fin du XIXe siècle est connue comme :",
+      "options": {
+        "A": "Conférence de Berlin",
+        "B": "Congrès de Vienne",
+        "C": "Traité de Versailles",
+        "D": "Conférence de Bandung"
+      },
+      "answer": "A",
+      "explanation": "La Conférence de Berlin (1884–1885) formalisa des règles du partage colonial.",
+      "source": "UNESCO HGA Vol. VII",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-030",
+      "category": "histoire",
+      "subcategory": "independances",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "L'indépendance de l'Algérie fut proclamée en :",
+      "options": {
+        "A": "1962",
+        "B": "1954",
+        "C": "1945",
+        "D": "1975"
+      },
+      "answer": "A",
+      "explanation": "Les accords d'Évian (1962) aboutissent à l'indépendance algérienne.",
+      "source": "Britannica — Algerian War",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-031",
+      "category": "histoire",
+      "subcategory": "panafricanisme",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le cinquième Congrès panafricain de Manchester (1945) est important car il :",
+      "options": {
+        "A": "Radicalisa les revendications d'indépendance et impliqua de futurs dirigeants africains",
+        "B": "Créa l'Union européenne",
+        "C": "Abolit l'esclavage aux États-Unis",
+        "D": "Fonda l'ONU"
+      },
+      "answer": "A",
+      "explanation": "Manchester 1945 marqua un tournant du panafricanisme politique moderne.",
+      "source": "Histoire du panafricanisme",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-032",
+      "category": "histoire",
+      "subcategory": "afrique_du_sud",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "L'apartheid en Afrique du Sud fut officiellement démantelé dans les années :",
+      "options": {
+        "A": "1990–1994",
+        "B": "1960 uniquement",
+        "C": "2001–2005",
+        "D": "1940–1945"
+      },
+      "answer": "A",
+      "explanation": "Libération de Mandela (1990) puis élections de 1994 marquent la transition.",
+      "source": "Britannica — Apartheid",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-033",
+      "category": "histoire",
+      "subcategory": "empires_precoloniaux",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "L'Empire songhaï atteint son apogée surtout sous :",
+      "options": {
+        "A": "Askia Mohammed",
+        "B": "Shaka Zulu",
+        "C": "Menelik II",
+        "D": "Moshoeshoe I"
+      },
+      "answer": "A",
+      "explanation": "Askia Mohammed consolida l'Empire songhaï au tournant des XVe–XVIe siècles.",
+      "source": "UNESCO HGA Vol. IV",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-034",
+      "category": "histoire",
+      "subcategory": "resistance",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La révolte Mau Mau concernait principalement :",
+      "options": {
+        "A": "Le Kenya colonial britannique",
+        "B": "Le Maroc espagnol",
+        "C": "Le Cap-Vert",
+        "D": "La Libye italienne uniquement en 1911"
+      },
+      "answer": "A",
+      "explanation": "Le mouvement Mau Mau s'opposa à la colonisation britannique au Kenya.",
+      "source": "Britannica — Mau Mau",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-035",
+      "category": "histoire",
+      "subcategory": "independances",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Jomo Kenyatta fut le premier président de :",
+      "options": {
+        "A": "Kenya",
+        "B": "Tanzanie",
+        "C": "Ouganda",
+        "D": "Rwanda"
+      },
+      "answer": "A",
+      "explanation": "Kenyatta dirigea le Kenya après l'indépendance.",
+      "source": "Britannica — Jomo Kenyatta",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-036",
+      "category": "histoire",
+      "subcategory": "afrique_du_nord",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La bataille d'Adoua (1896) est célèbre car :",
+      "options": {
+        "A": "L'Éthiopie défit l'Italie et préserva son indépendance",
+        "B": "La France annexa Madagascar",
+        "C": "Le Portugal quitta l'Angola",
+        "D": "Le Royaume-Uni abandonna l'Égypte"
+      },
+      "answer": "A",
+      "explanation": "Adoua est une victoire éthiopienne majeure contre l'Italie.",
+      "source": "UNESCO HGA / Britannica — Battle of Adwa",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-037",
+      "category": "histoire",
+      "subcategory": "traite",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Gorée (Sénégal) est surtout connue historiquement comme :",
+      "options": {
+        "A": "Un site lié à la mémoire de la traite atlantique",
+        "B": "La capitale de l'UA",
+        "C": "Un champ pétrolier",
+        "D": "Un désert"
+      },
+      "answer": "A",
+      "explanation": "L'île de Gorée est un lieu de mémoire de la traite.",
+      "source": "UNESCO — Island of Gorée",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "IA-001",
       "category": "ia_technologie",
       "subcategory": "ia_applications",
@@ -2797,6 +3557,196 @@
       "answer": "A",
       "explanation": "Les cadres UA/Smart Africa promeuvent infrastructures, compétences et marchés numériques.",
       "source": "UA Digital Transformation Strategy",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-023",
+      "category": "ia_technologie",
+      "subcategory": "initiatives",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Black in AI est surtout :",
+      "options": {
+        "A": "Une communauté pour diversifier l'IA et soutenir les chercheurs noirs",
+        "B": "Une banque centrale",
+        "C": "Un protocole TCP",
+        "D": "Un désert"
+      },
+      "answer": "A",
+      "explanation": "Organisation communautaire en intelligence artificielle.",
+      "source": "blackinai.org",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-024",
+      "category": "ia_technologie",
+      "subcategory": "donnees",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Un corpus oral annoté est crucial pour l'ASR (reconnaissance vocale) des langues africaines car :",
+      "options": {
+        "A": "Il aligne audio et transcription pour l'apprentissage",
+        "B": "Il remplace les microphones",
+        "C": "Il interdit le multilinguisme",
+        "D": "Il mesure le PIB"
+      },
+      "answer": "A",
+      "explanation": "L'ASR supervisé nécessite des paires audio–texte.",
+      "source": "Littérature speech low-resource",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-025",
+      "category": "ia_technologie",
+      "subcategory": "ethique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le consentement éclairé pour collecter des données vocales communautaires doit surtout garantir :",
+      "options": {
+        "A": "Compréhension des usages, risques et droits de retrait",
+        "B": "Un profit maximal sans information",
+        "C": "La cession perpétuelle sans explication",
+        "D": "L'anonymat impossible à concevoir"
+      },
+      "answer": "A",
+      "explanation": "Éthique de la donnée : information, finalités, retrait.",
+      "source": "Cadres éthiques data/IA",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-026",
+      "category": "ia_technologie",
+      "subcategory": "infrastructures",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les câbles sous-marins aboutissant en Afrique sont stratégiques car ils :",
+      "options": {
+        "A": "Portent l'essentiel du trafic Internet international",
+        "B": "Transportent uniquement du pétrole",
+        "C": "Servent de rails ferroviaires",
+        "D": "Remplacent les satellites météo"
+      },
+      "answer": "A",
+      "explanation": "La connectivité intercontinentale repose largement sur ces câbles.",
+      "source": "Rapports infrastructures numériques Afrique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-027",
+      "category": "ia_technologie",
+      "subcategory": "open_source",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Hugging Face est surtout utilisé comme :",
+      "options": {
+        "A": "Une plateforme de modèles et datasets ML",
+        "B": "Une compagnie aérienne",
+        "C": "Une mine de cobalt",
+        "D": "Un parti politique"
+      },
+      "answer": "A",
+      "explanation": "Hub de modèles, datasets et Spaces.",
+      "source": "huggingface.co",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-028",
+      "category": "ia_technologie",
+      "subcategory": "politique_tech",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Une politique de données ouvertes gouvernementales peut aider l'innovation si elle :",
+      "options": {
+        "A": "Publie des données utiles tout en protégeant la vie privée",
+        "B": "Divulgue tous les dossiers médicaux nominatifs",
+        "C": "Interdit toute API",
+        "D": "Supprime les statistiques nationales"
+      },
+      "answer": "A",
+      "explanation": "Open data ≠ exposition de données personnelles sensibles.",
+      "source": "Principes open data",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-029",
+      "category": "ia_technologie",
+      "subcategory": "startups",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Un « sandbox » réglementaire fintech permet souvent de :",
+      "options": {
+        "A": "Tester des services innovants sous supervision",
+        "B": "Échapper à toute loi pénale",
+        "C": "Interdire les paiements mobiles",
+        "D": "Nationaliser automatiquement les startups"
+      },
+      "answer": "A",
+      "explanation": "Cadre d'expérimentation contrôlée.",
+      "source": "Littérature fintech regulation",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-030",
+      "category": "ia_technologie",
+      "subcategory": "donnees",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le web scrapé sans licence claire pose problème pour l'IA car :",
+      "options": {
+        "A": "Droits d'auteur, consentement et biais de sources",
+        "B": "Il améliore toujours la légalité",
+        "C": "Il garantit l'équité",
+        "D": "Il remplace l'éthique"
+      },
+      "answer": "A",
+      "explanation": "Questions juridiques et de représentativité.",
+      "source": "Débats data governance / copyright",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-031",
+      "category": "ia_technologie",
+      "subcategory": "initiatives",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le programme AI4D (Artificial Intelligence for Development) vise surtout à :",
+      "options": {
+        "A": "Soutenir recherche et politiques d'IA pour le développement",
+        "B": "Interdire l'IA en Afrique",
+        "C": "Remplacer les parlements",
+        "D": "Créer une seule langue mondiale"
+      },
+      "answer": "A",
+      "explanation": "Initiatives de renforcement des capacités et politiques.",
+      "source": "AI4D literature / funders",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-032",
+      "category": "ia_technologie",
+      "subcategory": "telecom",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La 4G/5G en Afrique progresse inégalement surtout à cause de :",
+      "options": {
+        "A": "Coûts d'infrastructure, spectre et pouvoir d'achat",
+        "B": "L'absence totale d'utilisateurs de téléphones",
+        "C": "L'interdiction mondiale du mobile",
+        "D": "Un excès de fibre partout sans exception"
+      },
+      "answer": "A",
+      "explanation": "Déploiement contraint par économie et régulation.",
+      "source": "GSMA Mobile Economy Africa",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -3257,6 +4207,196 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "LANG-025",
+      "category": "langue_culture",
+      "subcategory": "langues",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "L'amharique est une langue officielle principalement en :",
+      "options": {
+        "A": "Éthiopie",
+        "B": "Ghana",
+        "C": "Sénégal",
+        "D": "Namibie"
+      },
+      "answer": "A",
+      "explanation": "L'amharique est une langue majeure d'Éthiopie.",
+      "source": "Ethnologue — Amharic",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-026",
+      "category": "langue_culture",
+      "subcategory": "litterature",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Ngũgĩ wa Thiong'o est un écrivain kenyan connu pour défendre :",
+      "options": {
+        "A": "L'écriture en langues africaines",
+        "B": "L'interdiction de la littérature",
+        "C": "Le silence total des romanciers",
+        "D": "La suppression des écoles"
+      },
+      "answer": "A",
+      "explanation": "Il a théorisé et pratiqué l'écriture en gĩkũyũ notamment.",
+      "source": "Britannica — Ngugi",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-027",
+      "category": "langue_culture",
+      "subcategory": "musique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le genre « mbalax » est surtout associé au :",
+      "options": {
+        "A": "Sénégal",
+        "B": "Lesotho",
+        "C": "Érythrée",
+        "D": "Gabon exclusivement colonial"
+      },
+      "answer": "A",
+      "explanation": "Le mbalax est un genre populaire sénégalais.",
+      "source": "Grove / études musiques sénégalaises",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-028",
+      "category": "langue_culture",
+      "subcategory": "cinema",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Ousmane Sembène est souvent appelé :",
+      "options": {
+        "A": "Le père du cinéma africain",
+        "B": "Le fondateur de Nollywood nigérian des années 2000",
+        "C": "Un peintre flamand",
+        "D": "Un astronaute"
+      },
+      "answer": "A",
+      "explanation": "Cinéaste et écrivain sénégalais pionnier.",
+      "source": "Britannica — Ousmane Sembène",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-029",
+      "category": "langue_culture",
+      "subcategory": "langues",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le wolof est largement parlé au :",
+      "options": {
+        "A": "Sénégal (et Gambie/Mauritanie)",
+        "B": "Japon",
+        "C": "Chili",
+        "D": "Finlande"
+      },
+      "answer": "A",
+      "explanation": "Langue véhiculaire majeure au Sénégal.",
+      "source": "Ethnologue — Wolof",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-030",
+      "category": "langue_culture",
+      "subcategory": "arts",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les tissus kente sont surtout associés culturellement au :",
+      "options": {
+        "A": "Ghana (Akan)",
+        "B": "Islande",
+        "C": "Mongolie",
+        "D": "Uruguay"
+      },
+      "answer": "A",
+      "explanation": "Le kente est un textile emblématique akan/ghanéen.",
+      "source": "Britannica — Kente cloth",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-031",
+      "category": "langue_culture",
+      "subcategory": "litterature",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "« L'Enfant noir » est un roman de :",
+      "options": {
+        "A": "Camara Laye",
+        "B": "Albert Camus",
+        "C": "Victor Hugo",
+        "D": "Chinua Achebe"
+      },
+      "answer": "A",
+      "explanation": "Camara Laye (Guinée) publia L'Enfant noir en 1953.",
+      "source": "Britannica — Camara Laye",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-032",
+      "category": "langue_culture",
+      "subcategory": "langues",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le somali appartient principalement à quelle famille linguistique ?",
+      "options": {
+        "A": "Afro-asiatique (couchitique)",
+        "B": "Indo-européenne germanique",
+        "C": "Sino-tibétaine",
+        "D": "Isolat amazonien"
+      },
+      "answer": "A",
+      "explanation": "Le somali est une langue couchitique.",
+      "source": "Ethnologue — Somali",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-033",
+      "category": "langue_culture",
+      "subcategory": "musique",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Fela Kuti est une figure majeure de :",
+      "options": {
+        "A": "L'Afrobeat",
+        "B": "L'opéra wagnérien",
+        "C": "Le bluegrass Appalachian exclusif",
+        "D": "La musique baroque française"
+      },
+      "answer": "A",
+      "explanation": "Musicien nigérian pionnier de l'Afrobeat.",
+      "source": "Britannica — Fela Kuti",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-034",
+      "category": "langue_culture",
+      "subcategory": "cinema",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le FESPACO est un festival de cinéma basé à :",
+      "options": {
+        "A": "Ouagadougou",
+        "B": "Paris",
+        "C": "Los Angeles",
+        "D": "Tokyo"
+      },
+      "answer": "A",
+      "explanation": "Festival panafricain du cinéma à Ouagadougou.",
+      "source": "FESPACO — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "CULT-001",
       "category": "raisonnement_culturel",
       "subcategory": "proverbes_sagesse",
@@ -3671,6 +4811,196 @@
       "answer": "A",
       "explanation": "Sans essentialiser, de nombreux contextes valorisent d'abord le respect relationnel ; la ponctualité varie selon les cadres (bureau vs cérémonie).",
       "source": "Anthropologie du temps social (avec nuance)",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-023",
+      "category": "raisonnement_culturel",
+      "subcategory": "don",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Offrir un cadeau au retour d'un voyage à la famille élargie illustre souvent :",
+      "options": {
+        "A": "Des obligations de partage et de reconnaissance",
+        "B": "Une règle comptable IFRS",
+        "C": "Un crime",
+        "D": "Une interdiction de voyager"
+      },
+      "answer": "A",
+      "explanation": "Le don entretient les liens.",
+      "source": "Anthropologie du don",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-024",
+      "category": "raisonnement_culturel",
+      "subcategory": "mediation",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Faire appel à un oncle respecté pour calmer un conflit familial relève de :",
+      "options": {
+        "A": "La médiation par aînés / parents pivots",
+        "B": "La Cour pénale internationale",
+        "C": "Un algorithme de tri",
+        "D": "Un référendum onusien"
+      },
+      "answer": "A",
+      "explanation": "Rôle classique des médiateurs familiaux.",
+      "source": "Anthropologie de la parenté",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-025",
+      "category": "raisonnement_culturel",
+      "subcategory": "parole",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Dans certains contextes, « dire à moitié » une vérité gênante vise à :",
+      "options": {
+        "A": "Préserver la face et la relation",
+        "B": "Maximiser la confusion légale internationale",
+        "C": "Remplacer les preuves scientifiques",
+        "D": "Interdire toute conversation"
+      },
+      "answer": "A",
+      "explanation": "Stratégies d'indirection et de politesse.",
+      "source": "Pragmatique conversationnelle",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-026",
+      "category": "raisonnement_culturel",
+      "subcategory": "solidarite",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Cotiser pour un mariage dans la famille élargie s'apparente à :",
+      "options": {
+        "A": "Une assurance sociale informelle / réciprocité",
+        "B": "Une taxe foncière étatique",
+        "C": "Un produit dérivé boursier",
+        "D": "Une amende pénale"
+      },
+      "answer": "A",
+      "explanation": "Mutualisation des coûts rituels.",
+      "source": "Anthropologie économique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-027",
+      "category": "raisonnement_culturel",
+      "subcategory": "espace",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Enlever ses chaussures en entrant chez certains hôtes peut exprimer :",
+      "options": {
+        "A": "Le respect de l'espace domestique",
+        "B": "Une obligation FIFA",
+        "C": "Un refus d'hospitalité",
+        "D": "Une norme universelle sans exception"
+      },
+      "answer": "A",
+      "explanation": "Geste de respect variable selon foyers/cultures.",
+      "source": "Étiquette domestique (variable)",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-028",
+      "category": "raisonnement_culturel",
+      "subcategory": "temps",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Planifier une cérémonie « après la saison des pluies » plutôt qu'à une date calendaire fixe illustre :",
+      "options": {
+        "A": "Un temps social indexé sur l'environnement/activités",
+        "B": "L'absence totale de calendriers en Afrique",
+        "C": "L'interdiction des montres",
+        "D": "Un stéréotype vrai partout sans nuance"
+      },
+      "answer": "A",
+      "explanation": "Temporalités agricoles/rituelles coexistent avec le temps horloge.",
+      "source": "Anthropologie du temps",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-029",
+      "category": "raisonnement_culturel",
+      "subcategory": "education",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Corriger un enfant en public peut être mal vu dans certains milieux car :",
+      "options": {
+        "A": "Cela expose la famille / blesse la dignité",
+        "B": "La pédagogie interdit toute règle",
+        "C": "Les enfants n'apprennent jamais",
+        "D": "L'école est illégale"
+      },
+      "answer": "A",
+      "explanation": "Normes de face et d'honneur varient.",
+      "source": "Sociologie de l'éducation familiale",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-030",
+      "category": "raisonnement_culturel",
+      "subcategory": "hospitalite",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Préparer le thé/café pour un visiteur avant les affaires courantes manifeste souvent :",
+      "options": {
+        "A": "L'hospitalité comme préalable à l'échange",
+        "B": "Un refus de discuter",
+        "C": "Une obligation fiscale",
+        "D": "Une procédure notariale"
+      },
+      "answer": "A",
+      "explanation": "Rituel d'accueil fréquent (avec variations).",
+      "source": "Anthropologie de l'hospitalité",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-031",
+      "category": "raisonnement_culturel",
+      "subcategory": "consensus",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Chercher l'accord des branches familiales avant une vente foncière vise à :",
+      "options": {
+        "A": "Éviter des conflits ultérieurs sur des droits collectifs",
+        "B": "Accélérer la spéculation mondiale",
+        "C": "Interdire l'agriculture",
+        "D": "Remplacer le cadastre par le hasard"
+      },
+      "answer": "A",
+      "explanation": "Foncier coutumier : décisions souvent collectives.",
+      "source": "Études foncier africain",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-032",
+      "category": "raisonnement_culturel",
+      "subcategory": "proverbes",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Un proverbe utilisé pour conclure une palabre sert souvent à :",
+      "options": {
+        "A": "Résumer la norme et clôturer légitimement le débat",
+        "B": "Remplacer toute preuve matérielle en droit pénal international",
+        "C": "Mesurer la température",
+        "D": "Coder un réseau neuronal"
+      },
+      "answer": "A",
+      "explanation": "Fonction rhétorique et normative du proverbe.",
+      "source": "Littérature orale",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -4093,6 +5423,196 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "SANTE-023",
+      "category": "sante_sciences",
+      "subcategory": "sante_publique",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La tuberculose reste un problème majeur en Afrique notamment en co-infection avec :",
+      "options": {
+        "A": "Le VIH",
+        "B": "Le rhume des foins uniquement",
+        "C": "La myopie",
+        "D": "L'intolérance au lactose"
+      },
+      "answer": "A",
+      "explanation": "La co-infection TB/VIH aggrave le fardeau.",
+      "source": "OMS — TB/HIV",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-024",
+      "category": "sante_sciences",
+      "subcategory": "epidemiologie",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le choléra se transmet surtout par :",
+      "options": {
+        "A": "Eau et aliments contaminés",
+        "B": "Piqûres de moustiques Anopheles",
+        "C": "Air conditionné",
+        "D": "Rayons UV"
+      },
+      "answer": "A",
+      "explanation": "Vibrio cholerae se propage via contamination fécale-orale.",
+      "source": "OMS — Cholera",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-025",
+      "category": "sante_sciences",
+      "subcategory": "nutrition",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le kwashiorkor est une forme de malnutrition marquée surtout par :",
+      "options": {
+        "A": "Un déficit protéique sévère (œdèmes, etc.)",
+        "B": "Un excès de vitamine D obligatoire",
+        "C": "Une hyperhydratation sportive",
+        "D": "Une intolérance au bruit"
+      },
+      "answer": "A",
+      "explanation": "Malnutrition protéino-énergétique avec tableau clinique spécifique.",
+      "source": "OMS — severe malnutrition",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-026",
+      "category": "sante_sciences",
+      "subcategory": "sante_publique",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les agents de santé communautaires sont importants car ils :",
+      "options": {
+        "A": "Étendent la couverture sanitaire de base près des populations",
+        "B": "Remplacent les hôpitaux tertiaires",
+        "C": "Interdisent la vaccination",
+        "D": "Gèrent les banques centrales"
+      },
+      "answer": "A",
+      "explanation": "Ils assurent prévention, suivi et lien avec le système de santé.",
+      "source": "OMS — community health workers",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-027",
+      "category": "sante_sciences",
+      "subcategory": "recherche",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Un essai clinique de phase III teste surtout :",
+      "options": {
+        "A": "Efficacité et sécurité à grande échelle avant autorisation",
+        "B": "La couleur du packaging",
+        "C": "Le prix de l'action en bourse",
+        "D": "La vitesse d'Internet"
+      },
+      "answer": "A",
+      "explanation": "La phase III confronte le traitement à grande échelle.",
+      "source": "OMS / ICH clinical trials",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-028",
+      "category": "sante_sciences",
+      "subcategory": "epidemiologie",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "L'onchocercose (cécité des rivières) est transmise par :",
+      "options": {
+        "A": "Des simulies (mouches noires)",
+        "B": "Des tiques des neiges",
+        "C": "Des dauphins",
+        "D": "Des abeilles domestiques uniquement"
+      },
+      "answer": "A",
+      "explanation": "Onchocerca volvulus est transmis par Simulium.",
+      "source": "OMS — Onchocerciasis",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-029",
+      "category": "sante_sciences",
+      "subcategory": "sante_publique",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le renforcement des chaînes du froid vaccinal vise à :",
+      "options": {
+        "A": "Maintenir l'efficacité des vaccins thermosensibles",
+        "B": "Congeler les déserts",
+        "C": "Remplacer les infirmiers",
+        "D": "Interdire les frigos domestiques"
+      },
+      "answer": "A",
+      "explanation": "Température contrôlée indispensable à de nombreux vaccins.",
+      "source": "OMS — immunization supply chain",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-030",
+      "category": "sante_sciences",
+      "subcategory": "nutrition",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "L'allaitement maternel exclusif recommandé les 6 premiers mois vise à :",
+      "options": {
+        "A": "Optimiser nutrition et protection immunitaire du nourrisson",
+        "B": "Remplacer toute alimentation après 18 ans",
+        "C": "Interdire l'eau potable",
+        "D": "Augmenter le PIB pétrolier"
+      },
+      "answer": "A",
+      "explanation": "Recommandation OMS/UNICEF pour la petite enfance.",
+      "source": "OMS — breastfeeding",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-031",
+      "category": "sante_sciences",
+      "subcategory": "recherche",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Une pharmacovigilance efficace après introduction d'un vaccin permet de :",
+      "options": {
+        "A": "Détecter et gérer les effets indésirables en population réelle",
+        "B": "Supprimer le besoin d'essais cliniques",
+        "C": "Garantir un profit boursier",
+        "D": "Éliminer toute maladie en 24 h"
+      },
+      "answer": "A",
+      "explanation": "Surveillance post-commercialisation essentielle.",
+      "source": "OMS — pharmacovigilance",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-032",
+      "category": "sante_sciences",
+      "subcategory": "epidemiologie",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La fièvre jaune est prévenue principalement par :",
+      "options": {
+        "A": "La vaccination",
+        "B": "L'arrêt total de la respiration",
+        "C": "Le jeûne de vitamine C",
+        "D": "L'exposition volontaire aux moustiques"
+      },
+      "answer": "A",
+      "explanation": "Vaccin vivant atténué très efficace ; contrôle vectoriel complémentaire.",
+      "source": "OMS — Yellow fever",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "SOC-001",
       "category": "societe",
       "subcategory": "demographie",
@@ -4507,6 +6027,196 @@
       "answer": "A",
       "explanation": "Des mécanismes de quotas cherchent à corriger sous-représentation politique féminine.",
       "source": "IDEA / UA — women in politics",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-023",
+      "category": "societe",
+      "subcategory": "education",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les examens nationaux à fort enjeu (high-stakes) peuvent produire :",
+      "options": {
+        "A": "Du bachotage et des inégalités d'accès au soutien",
+        "B": "Une disparition automatique de l'illettrisme",
+        "C": "Une égalité parfaite garantie",
+        "D": "La fin des écoles privées mondiales"
+      },
+      "answer": "A",
+      "explanation": "Effets pervers possibles des examens sélectifs.",
+      "source": "Sociologie de l'éducation",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-024",
+      "category": "societe",
+      "subcategory": "urbanisation",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Un « bidonville » / quartier informel se caractérise souvent par :",
+      "options": {
+        "A": "Un habitat précaire et un accès limité aux services",
+        "B": "Des gratte-ciel réglementés exclusivement",
+        "C": "Une absence totale d'habitants",
+        "D": "Un statut de parc national"
+      },
+      "answer": "A",
+      "explanation": "Définition opérationnelle ONU-Habitat (approximative).",
+      "source": "ONU-Habitat",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-025",
+      "category": "societe",
+      "subcategory": "demographie",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le dividende démographique désigne la possibilité que :",
+      "options": {
+        "A": "Une baisse relative de dépendance booste la croissance si emplois/éducation suivent",
+        "B": "La population diminue toujours le PIB",
+        "C": "Les naissances cessent",
+        "D": "L'urbanisation disparaisse"
+      },
+      "answer": "A",
+      "explanation": "Fenêtre démographique conditionnelle aux politiques.",
+      "source": "UNFPA — demographic dividend",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-026",
+      "category": "societe",
+      "subcategory": "medias",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La désinformation via WhatsApp en période électorale est préoccupante car :",
+      "options": {
+        "A": "Les messages privés se propagent vite hors modération publique",
+        "B": "WhatsApp interdit toute élection",
+        "C": "Les électeurs n'existent pas",
+        "D": "Les médias n'ont aucun rôle"
+      },
+      "answer": "A",
+      "explanation": "Canaux chiffrés/fermetés compliquent la régulation.",
+      "source": "Études désinformation Afrique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-027",
+      "category": "societe",
+      "subcategory": "genre",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Les mutilations génitales féminines (MGF) sont combattues car elles :",
+      "options": {
+        "A": "Violent les droits humains et la santé des filles/femmes",
+        "B": "Améliorent toujours la scolarisation",
+        "C": "Sont recommandées par l'OMS",
+        "D": "N'existent dans aucune société"
+      },
+      "answer": "A",
+      "explanation": "Pratiques néfastes ciblées par OMS/UNICEF et lois nationales.",
+      "source": "OMS — FGM",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-028",
+      "category": "societe",
+      "subcategory": "migration",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les déplacés internes (IDP) diffèrent des réfugiés surtout parce qu'ils :",
+      "options": {
+        "A": "Restent à l'intérieur des frontières de leur pays",
+        "B": "Ont forcément traversé une frontière internationale",
+        "C": "Ne peuvent jamais recevoir d'aide",
+        "D": "Sont uniquement des touristes"
+      },
+      "answer": "A",
+      "explanation": "IDP = déplacement interne ; réfugié = protection internationale.",
+      "source": "HCR — IDPs",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-029",
+      "category": "societe",
+      "subcategory": "education",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les écoles coraniques / médersas en Afrique de l'Ouest posent l'enjeu de :",
+      "options": {
+        "A": "L'articulation entre éducation religieuse et compétences de base",
+        "B": "L'interdiction totale de toute foi",
+        "C": "La suppression du français mondial",
+        "D": "Un remplacement des hôpitaux"
+      },
+      "answer": "A",
+      "explanation": "Débats d'intégration curriculaire et protection de l'enfance.",
+      "source": "Études éducation Sahel",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-030",
+      "category": "societe",
+      "subcategory": "urbanisation",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La gentrification dans certaines métropoles africaines peut entraîner :",
+      "options": {
+        "A": "L'éviction de ménages pauvres des quartiers revalorisés",
+        "B": "Une baisse garantie des loyers pour tous",
+        "C": "La fin de toute construction",
+        "D": "L'interdiction des transports"
+      },
+      "answer": "A",
+      "explanation": "Hausse des prix et déplacement de populations vulnérables.",
+      "source": "Études urbaines",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-031",
+      "category": "societe",
+      "subcategory": "emploi",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le sous-emploi désigne surtout :",
+      "options": {
+        "A": "Travailler moins d'heures ou en deçà de ses compétences/besoins",
+        "B": "Avoir trop d'emplois formels",
+        "C": "La retraite anticipée obligatoire",
+        "D": "Un type de vaccin"
+      },
+      "answer": "A",
+      "explanation": "Concept BIT distinct du chômage strict.",
+      "source": "BIT — underemployment",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-032",
+      "category": "societe",
+      "subcategory": "medias",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les radios en langues locales restent centrales car elles :",
+      "options": {
+        "A": "Touchent des publics peu connectés ou peu alphabétisés en langues officielles",
+        "B": "Ont disparu en 1990",
+        "C": "Interdisent l'information météo",
+        "D": "Remplacent les hôpitaux"
+      },
+      "answer": "A",
+      "explanation": "Accessibilité linguistique et géographique.",
+      "source": "UNESCO community radio",
       "author": "afribench",
       "date_created": "2026-08-03"
     }

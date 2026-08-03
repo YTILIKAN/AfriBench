@@ -416,5 +416,195 @@
     "source": "Transnet / UNCTAD port statistics",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-023",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le thé kenyan est surtout produit dans quelles zones ?",
+    "options": {
+      "A": "Hautes terres / Rift",
+      "B": "Désert du Chalbi uniquement",
+      "C": "Mangroves côtières exclusives",
+      "D": "Banquise"
+    },
+    "answer": "A",
+    "explanation": "Les hautes terres kenyanes offrent des conditions favorables au thé.",
+    "source": "FAO / Kenya tea sector",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-024",
+    "category": "economie",
+    "subcategory": "energie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le gaz naturel du Mozambique attire des investissements surtout pour :",
+    "options": {
+      "A": "L'exploitation offshore et l'export de GNL",
+      "B": "La culture du cacao",
+      "C": "Le tourisme spatial",
+      "D": "La production de neige artificielle"
+    },
+    "answer": "A",
+    "explanation": "D'importantes réserves gazières offshore structurèrent des projets GNL.",
+    "source": "Littérature énergie Mozambique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-025",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une barrière non tarifaire dans le commerce africain peut être :",
+    "options": {
+      "A": "Des normes sanitaires ou procédures douanières complexes",
+      "B": "Uniquement un droit de douane ad valorem",
+      "C": "Un taux de change flottant mondial",
+      "D": "Une langue nationale"
+    },
+    "answer": "A",
+    "explanation": "Les BNT incluent normes, licences, délais frontaliers, etc.",
+    "source": "OMC / BAD — trade barriers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-026",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La microfinance en Afrique vise surtout à :",
+    "options": {
+      "A": "Fournir des services financiers aux populations peu bancarisées",
+      "B": "Remplacer les banques centrales",
+      "C": "Interdire l'épargne",
+      "D": "Financer uniquement les États du G7"
+    },
+    "answer": "A",
+    "explanation": "Crédit, épargne et paiements pour petites activités et ménages.",
+    "source": "CGAP / BAD microfinance",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-027",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le pétrole nigérian est surtout extrait dans :",
+    "options": {
+      "A": "Le delta du Niger",
+      "B": "Le désert du Kalahari",
+      "C": "L'Atlas marocain",
+      "D": "Les montagnes du Drakensberg"
+    },
+    "answer": "A",
+    "explanation": "La production pétrolière nigériane est concentrée dans le delta.",
+    "source": "OPEC / Nigeria oil",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-028",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'économie des plateformes (ride-hailing, delivery) en Afrique dépend fortement de :",
+    "options": {
+      "A": "Smartphones, data mobile et densité urbaine",
+      "B": "L'absence d'Internet",
+      "C": "La disparition des villes",
+      "D": "Un monopole postal colonial"
+    },
+    "answer": "A",
+    "explanation": "Ces services naissent là où connectivité et marchés urbains existent.",
+    "source": "GSMA / rapports économie numérique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-029",
+    "category": "economie",
+    "subcategory": "commerce",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Corridor Nord (Northern Corridor) en Afrique de l'Est relie surtout :",
+    "options": {
+      "A": "Des ports (ex. Mombasa) à l'hinterland régional",
+      "B": "Le Maroc à l'Espagne uniquement",
+      "C": "Le Cap à Buenos Aires",
+      "D": "Le Nil à l'Amazonie"
+    },
+    "answer": "A",
+    "explanation": "Il structure le commerce Est-africain vers l'intérieur.",
+    "source": "Northern Corridor Transit agreements",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-030",
+    "category": "economie",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'agroalimentaire est stratégique en Afrique car il :",
+    "options": {
+      "A": "Emploie une grande part de la population et assure la sécurité alimentaire",
+      "B": "N'existe dans aucun pays africain",
+      "C": "Remplace toute industrie sans exception",
+      "D": "Est interdit par la ZLECAf"
+    },
+    "answer": "A",
+    "explanation": "Agriculture et transformation restent centrales pour l'emploi.",
+    "source": "FAO / BAD agriculture",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-031",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un « haircut » sur dette souveraine désigne :",
+    "options": {
+      "A": "Une réduction de la valeur remboursée aux créanciers",
+      "B": "Une coupe de cheveux obligatoire",
+      "C": "Une hausse automatique du PIB",
+      "D": "Un type de moustique"
+    },
+    "answer": "A",
+    "explanation": "Terme de restructuration de dette.",
+    "source": "Littérature dette souveraine",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-032",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "ECOWAS Trade Liberalisation Scheme vise à :",
+    "options": {
+      "A": "Faciliter la circulation des marchandises dans la CEDEAO",
+      "B": "Interdire le commerce régional",
+      "C": "Créer une monnaie mondiale",
+      "D": "Remplacer les ports par des aéroports uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le schéma libéralise certains échanges intra-CEDEAO.",
+    "source": "ECOWAS — ETLS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

@@ -416,5 +416,195 @@
     "source": "IDEA / UA — women in politics",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-023",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les examens nationaux à fort enjeu (high-stakes) peuvent produire :",
+    "options": {
+      "A": "Du bachotage et des inégalités d'accès au soutien",
+      "B": "Une disparition automatique de l'illettrisme",
+      "C": "Une égalité parfaite garantie",
+      "D": "La fin des écoles privées mondiales"
+    },
+    "answer": "A",
+    "explanation": "Effets pervers possibles des examens sélectifs.",
+    "source": "Sociologie de l'éducation",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-024",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un « bidonville » / quartier informel se caractérise souvent par :",
+    "options": {
+      "A": "Un habitat précaire et un accès limité aux services",
+      "B": "Des gratte-ciel réglementés exclusivement",
+      "C": "Une absence totale d'habitants",
+      "D": "Un statut de parc national"
+    },
+    "answer": "A",
+    "explanation": "Définition opérationnelle ONU-Habitat (approximative).",
+    "source": "ONU-Habitat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-025",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le dividende démographique désigne la possibilité que :",
+    "options": {
+      "A": "Une baisse relative de dépendance booste la croissance si emplois/éducation suivent",
+      "B": "La population diminue toujours le PIB",
+      "C": "Les naissances cessent",
+      "D": "L'urbanisation disparaisse"
+    },
+    "answer": "A",
+    "explanation": "Fenêtre démographique conditionnelle aux politiques.",
+    "source": "UNFPA — demographic dividend",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-026",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La désinformation via WhatsApp en période électorale est préoccupante car :",
+    "options": {
+      "A": "Les messages privés se propagent vite hors modération publique",
+      "B": "WhatsApp interdit toute élection",
+      "C": "Les électeurs n'existent pas",
+      "D": "Les médias n'ont aucun rôle"
+    },
+    "answer": "A",
+    "explanation": "Canaux chiffrés/fermetés compliquent la régulation.",
+    "source": "Études désinformation Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-027",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les mutilations génitales féminines (MGF) sont combattues car elles :",
+    "options": {
+      "A": "Violent les droits humains et la santé des filles/femmes",
+      "B": "Améliorent toujours la scolarisation",
+      "C": "Sont recommandées par l'OMS",
+      "D": "N'existent dans aucune société"
+    },
+    "answer": "A",
+    "explanation": "Pratiques néfastes ciblées par OMS/UNICEF et lois nationales.",
+    "source": "OMS — FGM",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-028",
+    "category": "societe",
+    "subcategory": "migration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les déplacés internes (IDP) diffèrent des réfugiés surtout parce qu'ils :",
+    "options": {
+      "A": "Restent à l'intérieur des frontières de leur pays",
+      "B": "Ont forcément traversé une frontière internationale",
+      "C": "Ne peuvent jamais recevoir d'aide",
+      "D": "Sont uniquement des touristes"
+    },
+    "answer": "A",
+    "explanation": "IDP = déplacement interne ; réfugié = protection internationale.",
+    "source": "HCR — IDPs",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-029",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les écoles coraniques / médersas en Afrique de l'Ouest posent l'enjeu de :",
+    "options": {
+      "A": "L'articulation entre éducation religieuse et compétences de base",
+      "B": "L'interdiction totale de toute foi",
+      "C": "La suppression du français mondial",
+      "D": "Un remplacement des hôpitaux"
+    },
+    "answer": "A",
+    "explanation": "Débats d'intégration curriculaire et protection de l'enfance.",
+    "source": "Études éducation Sahel",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-030",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La gentrification dans certaines métropoles africaines peut entraîner :",
+    "options": {
+      "A": "L'éviction de ménages pauvres des quartiers revalorisés",
+      "B": "Une baisse garantie des loyers pour tous",
+      "C": "La fin de toute construction",
+      "D": "L'interdiction des transports"
+    },
+    "answer": "A",
+    "explanation": "Hausse des prix et déplacement de populations vulnérables.",
+    "source": "Études urbaines",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-031",
+    "category": "societe",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le sous-emploi désigne surtout :",
+    "options": {
+      "A": "Travailler moins d'heures ou en deçà de ses compétences/besoins",
+      "B": "Avoir trop d'emplois formels",
+      "C": "La retraite anticipée obligatoire",
+      "D": "Un type de vaccin"
+    },
+    "answer": "A",
+    "explanation": "Concept BIT distinct du chômage strict.",
+    "source": "BIT — underemployment",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-032",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les radios en langues locales restent centrales car elles :",
+    "options": {
+      "A": "Touchent des publics peu connectés ou peu alphabétisés en langues officielles",
+      "B": "Ont disparu en 1990",
+      "C": "Interdisent l'information météo",
+      "D": "Remplacent les hôpitaux"
+    },
+    "answer": "A",
+    "explanation": "Accessibilité linguistique et géographique.",
+    "source": "UNESCO community radio",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

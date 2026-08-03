@@ -416,5 +416,195 @@
     "source": "UA / AUDA-NEPAD",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-023",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Union africaine a remplacé l'OUA en :",
+    "options": {
+      "A": "2002",
+      "B": "1963",
+      "C": "1994",
+      "D": "2015"
+    },
+    "answer": "A",
+    "explanation": "L'UA succède à l'OUA au début des années 2000 (Durban 2002).",
+    "source": "UA — History",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-024",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La CEDEAO compte parmi ses langues de travail notamment :",
+    "options": {
+      "A": "Anglais, français et portugais",
+      "B": "Uniquement le swahili",
+      "C": "Uniquement le chinois",
+      "D": "Uniquement l'arabe classique"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO est multilingue (EN/FR/PT).",
+    "source": "ECOWAS — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-025",
+    "category": "droit_politique",
+    "subcategory": "gouvernance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte de Lomé (2000) de l'OUA/UA porte surtout sur :",
+    "options": {
+      "A": "Les changements anticonstitutionnels de gouvernement",
+      "B": "La régulation du football",
+      "C": "Les brevets pharmaceutiques mondiaux",
+      "D": "Le droit spatial"
+    },
+    "answer": "A",
+    "explanation": "Elle condamne les coups d'État et cadre les réponses continentales.",
+    "source": "UA — Lomé Declaration",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-026",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Banque africaine de développement (BAD) a son siège à :",
+    "options": {
+      "A": "Abidjan",
+      "B": "Addis-Abeba",
+      "C": "Nairobi",
+      "D": "Le Caire"
+    },
+    "answer": "A",
+    "explanation": "La BAD a son siège à Abidjan (Côte d'Ivoire).",
+    "source": "AfDB — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-027",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Journée de l'Afrique est célébrée le :",
+    "options": {
+      "A": "25 mai",
+      "B": "1er janvier",
+      "C": "14 juillet",
+      "D": "11 novembre"
+    },
+    "answer": "A",
+    "explanation": "Le 25 mai commémore la création de l'OUA (1963).",
+    "source": "UA — Africa Day",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-028",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'EAC (East African Community) regroupe surtout des États d' :",
+    "options": {
+      "A": "Afrique de l'Est",
+      "B": "Afrique australe",
+      "C": "Maghreb",
+      "D": "Afrique centrale francophone uniquement"
+    },
+    "answer": "A",
+    "explanation": "La Communauté d'Afrique de l'Est intègre des États est-africains.",
+    "source": "EAC — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-029",
+    "category": "droit_politique",
+    "subcategory": "gouvernance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un « gouvernement d'union nationale » en période de crise vise souvent à :",
+    "options": {
+      "A": "Intégrer des forces politiques rivales pour stabiliser le pays",
+      "B": "Supprimer toute élection à jamais",
+      "C": "Remplacer la constitution par un code sportif",
+      "D": "Interdire les partis d'opposition sans exception mondiale"
+    },
+    "answer": "A",
+    "explanation": "Ces formules cherchent un compromis politique temporaire.",
+    "source": "Science politique — power-sharing",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-030",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui peut devenir membre de l'Union africaine ?",
+    "options": {
+      "A": "Les États africains (selon l'Acte constitutif)",
+      "B": "Uniquement les entreprises privées",
+      "C": "Uniquement les ONG européennes",
+      "D": "Les continents non africains automatiquement"
+    },
+    "answer": "A",
+    "explanation": "L'UA est une organisation d'États africains.",
+    "source": "Acte constitutif de l'UA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-031",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Commission africaine des droits de l'homme et des peuples siège principalement à :",
+    "options": {
+      "A": "Banjul",
+      "B": "Genève uniquement",
+      "C": "New York",
+      "D": "Bruxelles"
+    },
+    "answer": "A",
+    "explanation": "La Commission a son siège à Banjul (Gambie).",
+    "source": "ACHPR — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-032",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Conseil de sécurité de l'ONU compte des débats fréquents sur l'Afrique car :",
+    "options": {
+      "A": "Une part importante de ses dossiers concerne paix et sécurité africaines",
+      "B": "L'Afrique n'a aucun conflit historique",
+      "C": "L'ONU n'a pas de mandat hors Europe",
+      "D": "L'UA a dissous l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Les opérations et crises africaines occupent une place majeure à l'ONU.",
+    "source": "ONU — Peace and security",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

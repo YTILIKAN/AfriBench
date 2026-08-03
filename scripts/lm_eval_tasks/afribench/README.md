@@ -40,7 +40,7 @@ lm_eval --model hf \
 
 | Task | Description |
 |------|-------------|
-| `afribench` | 101 questions (toutes catégories) |
+| `afribench` | 300 questions (toutes catégories) |
 | `afribench_all` | Groupe des 9 sous-tâches catégorie |
 | `afribench_<cat>` | Une catégorie (`histoire`, `geographie`, …) |
 
