@@ -16,7 +16,7 @@
 
 ## 🟡 Phase 2 — Renforcement du benchmark
 
-- [~] **200+ nouvelles questions** — **210** africaines (était 101) ; cible 300+
+- [x] **300+ questions africaines** — **300** QCM (était 101 → 210 → 300)
 - [x] **20 questions témoins** — `data/questions/v1/witness/` (`is_control`)
 - [ ] 3 validateurs africains
 - [x] **10 questions ouvertes** + juge `scripts/judges/llm_as_judge.py`

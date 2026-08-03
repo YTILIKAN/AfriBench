@@ -511,5 +511,195 @@
     "source": "Encyclopædia Britannica — Dakar",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-028",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le plus long fleuve d'Afrique ?",
+    "options": {
+      "A": "Nil",
+      "B": "Congo",
+      "C": "Niger",
+      "D": "Zambèze"
+    },
+    "answer": "A",
+    "explanation": "Le Nil est généralement considéré comme le plus long fleuve d'Afrique.",
+    "source": "Britannica — Nile",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-029",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le delta du Niger se situe principalement au :",
+    "options": {
+      "A": "Nigeria",
+      "B": "Mali",
+      "C": "Tchad",
+      "D": "Sénégal"
+    },
+    "answer": "A",
+    "explanation": "Le delta du Niger est une région méridionale du Nigeria.",
+    "source": "Britannica — Niger River",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-030",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la capitale du Kenya ?",
+    "options": {
+      "A": "Nairobi",
+      "B": "Mombasa",
+      "C": "Kisumu",
+      "D": "Kampala"
+    },
+    "answer": "A",
+    "explanation": "Nairobi est la capitale du Kenya.",
+    "source": "Britannica — Nairobi",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-031",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Lesotho est un État :",
+    "options": {
+      "A": "Enclavé à l'intérieur de l'Afrique du Sud",
+      "B": "Insulaire de l'océan Indien",
+      "C": "Du Maghreb",
+      "D": "D'Afrique centrale forestière"
+    },
+    "answer": "A",
+    "explanation": "Le Lesotho est entièrement entouré par l'Afrique du Sud.",
+    "source": "Britannica — Lesotho",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-032",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le mont Cameroun est :",
+    "options": {
+      "A": "Un volcan actif d'Afrique centrale/ouest",
+      "B": "Le point le plus bas du Sahara",
+      "C": "Une île corallienne",
+      "D": "Un glacier exclusif au Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le mont Cameroun est un volcan majeur près du golfe de Guinée.",
+    "source": "Britannica — Mount Cameroon",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-033",
+    "category": "geographie",
+    "subcategory": "hydrographie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le lac Tchad est partagé par plusieurs pays dont :",
+    "options": {
+      "A": "Tchad, Nigeria, Niger, Cameroun",
+      "B": "Égypte et Libye uniquement",
+      "C": "Afrique du Sud et Namibie",
+      "D": "Éthiopie et Somalie uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le lac Tchad est un lac transfrontalier du Sahel central.",
+    "source": "Britannica — Lake Chad",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-034",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La capitale de la Côte d'Ivoire (politique) est :",
+    "options": {
+      "A": "Yamoussoukro",
+      "B": "Abidjan (capitale économique)",
+      "C": "Bouaké",
+      "D": "San-Pédro"
+    },
+    "answer": "A",
+    "explanation": "Yamoussoukro est la capitale politique ; Abidjan reste le centre économique.",
+    "source": "Britannica — Yamoussoukro",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-035",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Sahara s'étend principalement sur :",
+    "options": {
+      "A": "L'Afrique du Nord",
+      "B": "L'Afrique australe uniquement",
+      "C": "Madagascar",
+      "D": "La Corne uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le Sahara domine l'Afrique du Nord.",
+    "source": "National Geographic — Sahara",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-036",
+    "category": "geographie",
+    "subcategory": "urbaine",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Johannesburg est surtout connue comme :",
+    "options": {
+      "A": "Une métropole économique d'Afrique du Sud",
+      "B": "Un port méditerranéen",
+      "C": "La capitale du Ghana",
+      "D": "Une oasis saharienne"
+    },
+    "answer": "A",
+    "explanation": "Johannesburg est un pôle économique majeur d'Afrique du Sud.",
+    "source": "Britannica — Johannesburg",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-037",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les montagnes de l'Atlas se trouvent principalement :",
+    "options": {
+      "A": "Au Maghreb (Maroc, Algérie, Tunisie)",
+      "B": "En Afrique de l'Est",
+      "C": "Au Kalahari",
+      "D": "Au golfe de Guinée"
+    },
+    "answer": "A",
+    "explanation": "La chaîne de l'Atlas traverse surtout le Maghreb.",
+    "source": "Britannica — Atlas Mountains",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

@@ -416,5 +416,195 @@
     "source": "Anthropologie du temps social (avec nuance)",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-023",
+    "category": "raisonnement_culturel",
+    "subcategory": "don",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Offrir un cadeau au retour d'un voyage à la famille élargie illustre souvent :",
+    "options": {
+      "A": "Des obligations de partage et de reconnaissance",
+      "B": "Une règle comptable IFRS",
+      "C": "Un crime",
+      "D": "Une interdiction de voyager"
+    },
+    "answer": "A",
+    "explanation": "Le don entretient les liens.",
+    "source": "Anthropologie du don",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-024",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Faire appel à un oncle respecté pour calmer un conflit familial relève de :",
+    "options": {
+      "A": "La médiation par aînés / parents pivots",
+      "B": "La Cour pénale internationale",
+      "C": "Un algorithme de tri",
+      "D": "Un référendum onusien"
+    },
+    "answer": "A",
+    "explanation": "Rôle classique des médiateurs familiaux.",
+    "source": "Anthropologie de la parenté",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-025",
+    "category": "raisonnement_culturel",
+    "subcategory": "parole",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans certains contextes, « dire à moitié » une vérité gênante vise à :",
+    "options": {
+      "A": "Préserver la face et la relation",
+      "B": "Maximiser la confusion légale internationale",
+      "C": "Remplacer les preuves scientifiques",
+      "D": "Interdire toute conversation"
+    },
+    "answer": "A",
+    "explanation": "Stratégies d'indirection et de politesse.",
+    "source": "Pragmatique conversationnelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-026",
+    "category": "raisonnement_culturel",
+    "subcategory": "solidarite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Cotiser pour un mariage dans la famille élargie s'apparente à :",
+    "options": {
+      "A": "Une assurance sociale informelle / réciprocité",
+      "B": "Une taxe foncière étatique",
+      "C": "Un produit dérivé boursier",
+      "D": "Une amende pénale"
+    },
+    "answer": "A",
+    "explanation": "Mutualisation des coûts rituels.",
+    "source": "Anthropologie économique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-027",
+    "category": "raisonnement_culturel",
+    "subcategory": "espace",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Enlever ses chaussures en entrant chez certains hôtes peut exprimer :",
+    "options": {
+      "A": "Le respect de l'espace domestique",
+      "B": "Une obligation FIFA",
+      "C": "Un refus d'hospitalité",
+      "D": "Une norme universelle sans exception"
+    },
+    "answer": "A",
+    "explanation": "Geste de respect variable selon foyers/cultures.",
+    "source": "Étiquette domestique (variable)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-028",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Planifier une cérémonie « après la saison des pluies » plutôt qu'à une date calendaire fixe illustre :",
+    "options": {
+      "A": "Un temps social indexé sur l'environnement/activités",
+      "B": "L'absence totale de calendriers en Afrique",
+      "C": "L'interdiction des montres",
+      "D": "Un stéréotype vrai partout sans nuance"
+    },
+    "answer": "A",
+    "explanation": "Temporalités agricoles/rituelles coexistent avec le temps horloge.",
+    "source": "Anthropologie du temps",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-029",
+    "category": "raisonnement_culturel",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Corriger un enfant en public peut être mal vu dans certains milieux car :",
+    "options": {
+      "A": "Cela expose la famille / blesse la dignité",
+      "B": "La pédagogie interdit toute règle",
+      "C": "Les enfants n'apprennent jamais",
+      "D": "L'école est illégale"
+    },
+    "answer": "A",
+    "explanation": "Normes de face et d'honneur varient.",
+    "source": "Sociologie de l'éducation familiale",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-030",
+    "category": "raisonnement_culturel",
+    "subcategory": "hospitalite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Préparer le thé/café pour un visiteur avant les affaires courantes manifeste souvent :",
+    "options": {
+      "A": "L'hospitalité comme préalable à l'échange",
+      "B": "Un refus de discuter",
+      "C": "Une obligation fiscale",
+      "D": "Une procédure notariale"
+    },
+    "answer": "A",
+    "explanation": "Rituel d'accueil fréquent (avec variations).",
+    "source": "Anthropologie de l'hospitalité",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-031",
+    "category": "raisonnement_culturel",
+    "subcategory": "consensus",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Chercher l'accord des branches familiales avant une vente foncière vise à :",
+    "options": {
+      "A": "Éviter des conflits ultérieurs sur des droits collectifs",
+      "B": "Accélérer la spéculation mondiale",
+      "C": "Interdire l'agriculture",
+      "D": "Remplacer le cadastre par le hasard"
+    },
+    "answer": "A",
+    "explanation": "Foncier coutumier : décisions souvent collectives.",
+    "source": "Études foncier africain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-032",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un proverbe utilisé pour conclure une palabre sert souvent à :",
+    "options": {
+      "A": "Résumer la norme et clôturer légitimement le débat",
+      "B": "Remplacer toute preuve matérielle en droit pénal international",
+      "C": "Mesurer la température",
+      "D": "Coder un réseau neuronal"
+    },
+    "answer": "A",
+    "explanation": "Fonction rhétorique et normative du proverbe.",
+    "source": "Littérature orale",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

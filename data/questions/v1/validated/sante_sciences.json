@@ -416,5 +416,195 @@
     "source": "OMS — artemisinin-based therapies",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-023",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La tuberculose reste un problème majeur en Afrique notamment en co-infection avec :",
+    "options": {
+      "A": "Le VIH",
+      "B": "Le rhume des foins uniquement",
+      "C": "La myopie",
+      "D": "L'intolérance au lactose"
+    },
+    "answer": "A",
+    "explanation": "La co-infection TB/VIH aggrave le fardeau.",
+    "source": "OMS — TB/HIV",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-024",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le choléra se transmet surtout par :",
+    "options": {
+      "A": "Eau et aliments contaminés",
+      "B": "Piqûres de moustiques Anopheles",
+      "C": "Air conditionné",
+      "D": "Rayons UV"
+    },
+    "answer": "A",
+    "explanation": "Vibrio cholerae se propage via contamination fécale-orale.",
+    "source": "OMS — Cholera",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-025",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le kwashiorkor est une forme de malnutrition marquée surtout par :",
+    "options": {
+      "A": "Un déficit protéique sévère (œdèmes, etc.)",
+      "B": "Un excès de vitamine D obligatoire",
+      "C": "Une hyperhydratation sportive",
+      "D": "Une intolérance au bruit"
+    },
+    "answer": "A",
+    "explanation": "Malnutrition protéino-énergétique avec tableau clinique spécifique.",
+    "source": "OMS — severe malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-026",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les agents de santé communautaires sont importants car ils :",
+    "options": {
+      "A": "Étendent la couverture sanitaire de base près des populations",
+      "B": "Remplacent les hôpitaux tertiaires",
+      "C": "Interdisent la vaccination",
+      "D": "Gèrent les banques centrales"
+    },
+    "answer": "A",
+    "explanation": "Ils assurent prévention, suivi et lien avec le système de santé.",
+    "source": "OMS — community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-027",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un essai clinique de phase III teste surtout :",
+    "options": {
+      "A": "Efficacité et sécurité à grande échelle avant autorisation",
+      "B": "La couleur du packaging",
+      "C": "Le prix de l'action en bourse",
+      "D": "La vitesse d'Internet"
+    },
+    "answer": "A",
+    "explanation": "La phase III confronte le traitement à grande échelle.",
+    "source": "OMS / ICH clinical trials",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-028",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'onchocercose (cécité des rivières) est transmise par :",
+    "options": {
+      "A": "Des simulies (mouches noires)",
+      "B": "Des tiques des neiges",
+      "C": "Des dauphins",
+      "D": "Des abeilles domestiques uniquement"
+    },
+    "answer": "A",
+    "explanation": "Onchocerca volvulus est transmis par Simulium.",
+    "source": "OMS — Onchocerciasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-029",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le renforcement des chaînes du froid vaccinal vise à :",
+    "options": {
+      "A": "Maintenir l'efficacité des vaccins thermosensibles",
+      "B": "Congeler les déserts",
+      "C": "Remplacer les infirmiers",
+      "D": "Interdire les frigos domestiques"
+    },
+    "answer": "A",
+    "explanation": "Température contrôlée indispensable à de nombreux vaccins.",
+    "source": "OMS — immunization supply chain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-030",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'allaitement maternel exclusif recommandé les 6 premiers mois vise à :",
+    "options": {
+      "A": "Optimiser nutrition et protection immunitaire du nourrisson",
+      "B": "Remplacer toute alimentation après 18 ans",
+      "C": "Interdire l'eau potable",
+      "D": "Augmenter le PIB pétrolier"
+    },
+    "answer": "A",
+    "explanation": "Recommandation OMS/UNICEF pour la petite enfance.",
+    "source": "OMS — breastfeeding",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-031",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une pharmacovigilance efficace après introduction d'un vaccin permet de :",
+    "options": {
+      "A": "Détecter et gérer les effets indésirables en population réelle",
+      "B": "Supprimer le besoin d'essais cliniques",
+      "C": "Garantir un profit boursier",
+      "D": "Éliminer toute maladie en 24 h"
+    },
+    "answer": "A",
+    "explanation": "Surveillance post-commercialisation essentielle.",
+    "source": "OMS — pharmacovigilance",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-032",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La fièvre jaune est prévenue principalement par :",
+    "options": {
+      "A": "La vaccination",
+      "B": "L'arrêt total de la respiration",
+      "C": "Le jeûne de vitamine C",
+      "D": "L'exposition volontaire aux moustiques"
+    },
+    "answer": "A",
+    "explanation": "Vaccin vivant atténué très efficace ; contrôle vectoriel complémentaire.",
+    "source": "OMS — Yellow fever",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

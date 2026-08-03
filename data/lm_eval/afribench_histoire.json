@@ -511,5 +511,195 @@
     "source": "Union africaine — History of the OAU",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-028",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le royaume du Dahomey avait pour capitale historique :",
+    "options": {
+      "A": "Abomey",
+      "B": "Porto-Novo uniquement au XVIIIe s.",
+      "C": "Lagos",
+      "D": "Kumasi"
+    },
+    "answer": "A",
+    "explanation": "Abomey fut le centre politique du royaume du Dahomey.",
+    "source": "UNESCO HGA / Britannica — Dahomey",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-029",
+    "category": "histoire",
+    "subcategory": "coloniale",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La conférence qui entérina le partage colonial de l'Afrique à la fin du XIXe siècle est connue comme :",
+    "options": {
+      "A": "Conférence de Berlin",
+      "B": "Congrès de Vienne",
+      "C": "Traité de Versailles",
+      "D": "Conférence de Bandung"
+    },
+    "answer": "A",
+    "explanation": "La Conférence de Berlin (1884–1885) formalisa des règles du partage colonial.",
+    "source": "UNESCO HGA Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-030",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'indépendance de l'Algérie fut proclamée en :",
+    "options": {
+      "A": "1962",
+      "B": "1954",
+      "C": "1945",
+      "D": "1975"
+    },
+    "answer": "A",
+    "explanation": "Les accords d'Évian (1962) aboutissent à l'indépendance algérienne.",
+    "source": "Britannica — Algerian War",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-031",
+    "category": "histoire",
+    "subcategory": "panafricanisme",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le cinquième Congrès panafricain de Manchester (1945) est important car il :",
+    "options": {
+      "A": "Radicalisa les revendications d'indépendance et impliqua de futurs dirigeants africains",
+      "B": "Créa l'Union européenne",
+      "C": "Abolit l'esclavage aux États-Unis",
+      "D": "Fonda l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Manchester 1945 marqua un tournant du panafricanisme politique moderne.",
+    "source": "Histoire du panafricanisme",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-032",
+    "category": "histoire",
+    "subcategory": "afrique_du_sud",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'apartheid en Afrique du Sud fut officiellement démantelé dans les années :",
+    "options": {
+      "A": "1990–1994",
+      "B": "1960 uniquement",
+      "C": "2001–2005",
+      "D": "1940–1945"
+    },
+    "answer": "A",
+    "explanation": "Libération de Mandela (1990) puis élections de 1994 marquent la transition.",
+    "source": "Britannica — Apartheid",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-033",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Empire songhaï atteint son apogée surtout sous :",
+    "options": {
+      "A": "Askia Mohammed",
+      "B": "Shaka Zulu",
+      "C": "Menelik II",
+      "D": "Moshoeshoe I"
+    },
+    "answer": "A",
+    "explanation": "Askia Mohammed consolida l'Empire songhaï au tournant des XVe–XVIe siècles.",
+    "source": "UNESCO HGA Vol. IV",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-034",
+    "category": "histoire",
+    "subcategory": "resistance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La révolte Mau Mau concernait principalement :",
+    "options": {
+      "A": "Le Kenya colonial britannique",
+      "B": "Le Maroc espagnol",
+      "C": "Le Cap-Vert",
+      "D": "La Libye italienne uniquement en 1911"
+    },
+    "answer": "A",
+    "explanation": "Le mouvement Mau Mau s'opposa à la colonisation britannique au Kenya.",
+    "source": "Britannica — Mau Mau",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-035",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Jomo Kenyatta fut le premier président de :",
+    "options": {
+      "A": "Kenya",
+      "B": "Tanzanie",
+      "C": "Ouganda",
+      "D": "Rwanda"
+    },
+    "answer": "A",
+    "explanation": "Kenyatta dirigea le Kenya après l'indépendance.",
+    "source": "Britannica — Jomo Kenyatta",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-036",
+    "category": "histoire",
+    "subcategory": "afrique_du_nord",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La bataille d'Adoua (1896) est célèbre car :",
+    "options": {
+      "A": "L'Éthiopie défit l'Italie et préserva son indépendance",
+      "B": "La France annexa Madagascar",
+      "C": "Le Portugal quitta l'Angola",
+      "D": "Le Royaume-Uni abandonna l'Égypte"
+    },
+    "answer": "A",
+    "explanation": "Adoua est une victoire éthiopienne majeure contre l'Italie.",
+    "source": "UNESCO HGA / Britannica — Battle of Adwa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-037",
+    "category": "histoire",
+    "subcategory": "traite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Gorée (Sénégal) est surtout connue historiquement comme :",
+    "options": {
+      "A": "Un site lié à la mémoire de la traite atlantique",
+      "B": "La capitale de l'UA",
+      "C": "Un champ pétrolier",
+      "D": "Un désert"
+    },
+    "answer": "A",
+    "explanation": "L'île de Gorée est un lieu de mémoire de la traite.",
+    "source": "UNESCO — Island of Gorée",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

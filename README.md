@@ -4,9 +4,9 @@
 > Benchmark public, ouvert, reproductible et contextuellement ancré.
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Août 2026 · **Questions :** 210 Afrique + 20 témoins + 10 ouvertes · **Langues :** FR (scaffolding SW/YO/AM)
+**Version :** Août 2026 · **Questions :** 300 Afrique + 20 témoins + 10 ouvertes · **Langues :** FR (scaffolding SW/YO/AM)
 
-> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — 210 QCM restent en deçà de la cible 300+. Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
+> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif (évaluations encore basées sur un sous-ensemble). Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 
 ---
 
@@ -24,7 +24,7 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 | Limite | Détail | Plan |
 |--------|--------|------|
-| **156 questions Afrique** | encore insuffisant statistiquement (+ 20 témoins baseline) | Cible : 300+ (Phase 2) |
+| **300 questions Afrique** | cible Phase 2 atteinte (+ 20 témoins + 10 ouvertes) ; scores à re-évaluer | Validation externe + re-run modèles |
 | **Français uniquement** | Aucune langue africaine évaluée | Cible : swahili, yoruba, amharique (Phase 3) |
 | **Validation externe absente** | Toutes les questions écrites par une seule personne | Recrutement de validateurs en cours |
 | **Format QCM exclusif** | Pas de génération, traduction, raisonnement ouvert | Tâches ouvertes planifiées (Phase 3) |
@@ -104,7 +104,12 @@ python scripts/export_hf_dataset.py
 python scripts/afribench.py run --questions witness --model gpt-4o
 ```
 
-156 questions Afrique + 20 témoins (`is_control`).
+300 QCM Afrique + 20 témoins (`is_control`) + 10 ouvertes (`data/questions/v1/open/`).
+
+```bash
+# LLM-as-judge (questions ouvertes)
+python scripts/judges/llm_as_judge.py --responses responses.jsonl --out judgements.jsonl
+```
 
 ### Space Gradio (leaderboard)
 

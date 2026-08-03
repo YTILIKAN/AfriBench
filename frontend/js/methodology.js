@@ -184,7 +184,7 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Limites et améliorations futures</h3>
         <ul>
-          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions ; classement encore indicatif)</li>
+          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions Afrique ; classement encore indicatif)</li>
           <li>Les questions sont principalement en <strong>francais</strong> — les versions multilingues sont en cours</li>
           <li>Les catégories seront étendues (sports, arts, religions, etc.)</li>
           <li>Le format pourra evoluer (questions ouvertes, generation de texte, etc.)</li>

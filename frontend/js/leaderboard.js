@@ -12,7 +12,7 @@ let lbShowLegend = false;
 const METRICS = {
   score: {
     label: 'Score global',
-    desc: 'Pourcentage de réponses correctes sur l\'ensemble du benchmark (101 questions). Métrique principale de performance.',
+    desc: 'Pourcentage de réponses correctes sur l\'ensemble du benchmark (300 questions). Métrique principale de performance.',
   },
   facile: {
     label: 'Facile',
