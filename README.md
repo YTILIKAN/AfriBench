@@ -1,10 +1,14 @@
 # AfriBench
 
 > Évaluer les modèles de langage sur les réalités africaines.
-> Benchmark public, ouvert, reproductible et contextuellement ancré.
+> Benchmark public, ouvert, reproductible (protocole documenté) et contextuellement ancré.
+
+[![Evaluation script](https://img.shields.io/badge/eval-afribench.py-FFA726?style=flat-square&logo=python&logoColor=white)](scripts/afribench.py)
+[![Reproduce](https://img.shields.io/badge/reproduce.sh-ready-0A192F?style=flat-square)](scripts/reproduce.sh)
+[![Prototype](https://img.shields.io/badge/status-prototype%20v0.1-informational?style=flat-square)](CRITIQUE.md)
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Août 2026 · **Questions :** 300 Afrique + 20 témoins + 10 ouvertes · **Langues :** FR (scaffolding SW/YO/AM)
+**Version :** Août 2026 · **Questions :** 300 Afrique + 20 témoins + 10 ouvertes (+ pilotes traduction/résumé) · **Langues :** FR (scaffolding SW/YO/AM)
 
 > ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif (évaluations encore basées sur un sous-ensemble). Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 

@@ -39,6 +39,16 @@ def latest_models(results: list[dict]) -> list[dict]:
 
 def render_table(models: list[dict], questions_count: int) -> str:
     rows = []
+    result_totals = {
+        m.get("total") for m in models if isinstance(m.get("total"), int)
+    }
+    seed_note = ""
+    if result_totals and questions_count and result_totals != {questions_count}:
+        shown = ", ".join(str(t) for t in sorted(result_totals))
+        seed_note = (
+            f" Scores publics encore basés sur {shown} questions (seed) — "
+            f"corpus actuel : {questions_count}."
+        )
     for i, m in enumerate(models[:15], 1):
         label = m.get("model_label") or m.get("model") or "?"
         acc = m.get("accuracy")
@@ -55,7 +65,7 @@ def render_table(models: list[dict], questions_count: int) -> str:
               <div class="card-title">Classement (v0.1 — indicatif)</div>
               <p style="font-size:.85rem;color:var(--muted);margin-bottom:12px">
                 Contenu pré-généré pour les moteurs de recherche et lecteurs sans JavaScript.
-                {questions_count} questions · {len(models)} modèles.
+                {questions_count} questions · {len(models)} modèles.{seed_note}
               </p>
               <div class="lb-table-wrap">
                 <table class="lb-table">

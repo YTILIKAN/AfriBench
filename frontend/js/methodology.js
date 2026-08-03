@@ -71,10 +71,11 @@ function renderMethodology(container) {
         </p>
         <ol>
           <li>Chaque question est envoyée au modèle via son API avec un prompt standardisé</li>
-          <li>Température basse / déterministe côté client lorsque l'API le permet ; retries sur 429</li>
-          <li>Le modèle doit choisir parmi 4 options (A, B, C ou D)</li>
-          <li>La réponse est comparée à la réponse attendue (lettre seule)</li>
-          <li>Les résultats sont agrégés par catégorie, difficulté et globalement</li>
+          <li>Paramètres par défaut : <code>temperature = 0.0</code>, <code>max_tokens = 256</code>, few-shot = 0 (zero-shot)</li>
+          <li>Retries exponentiels sur erreurs / HTTP 429 (jusqu'à 5 tentatives) ; délai ~0,5&nbsp;s entre questions</li>
+          <li>Le modèle doit choisir parmi 4 options (A, B, C ou D) ; seule la lettre est scoree</li>
+          <li>Scoring : 1 point par bonne réponse ; moyennes par catégorie et difficulté</li>
+          <li>Pas de seed API globale (déterminisme via temperature 0) ; le mode <code>--mock</code> utilise un seed dérivé du nom du modèle</li>
         </ol>
         <p>
           Script : <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/afribench.py" target="_blank" rel="noopener">scripts/afribench.py</a>

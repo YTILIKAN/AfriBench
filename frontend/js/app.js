@@ -420,7 +420,7 @@ function renderTopModels() {
   container.style.display = 'grid';
 
   const highlights = [
-    { label: '1er (v0.1)', getter: () => models[0] },
+    { label: 'Meilleur score (v0.1)', getter: () => models[0] },
     { label: 'Open Weights', getter: () => models.find((m) => isOpenModel(m)) },
   ];
 
@@ -447,10 +447,10 @@ function renderTopModels() {
   const top = models[0];
   let html = `
     <div class="top-model-card">
-      <div class="label">1er (v0.1)</div>
+      <div class="label">Meilleur score (v0.1)</div>
       <div class="model-name">${top.model_label || top.model}</div>
       <div class="score">${top.accuracy}%</div>
-      <div class="sub">${top.correct}/${top.total} questions</div>
+      <div class="sub">${top.correct}/${top.total} questions${top.total && AppState.questions.length && top.total !== AppState.questions.length ? ' · seed' : ''}</div>
     </div>
   `;
 
