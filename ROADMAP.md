@@ -30,6 +30,7 @@
 - [x] LM Evaluation Harness (`afribench` / `afribench_all`)
 - [x] Dockerfile d'évaluation + CI
 - [x] **Dataset HF prêt à publier** — `data/hf/YTILIKAN__AfriBench/` + `DATASET_CARD.md` (push Hub manuel)
+- [x] **Space Gradio leaderboard** — `hf_space/` (+ stub `hf_evaluator/`)
 - [ ] Soumission académique
 
 ## 🔵 Phase 4 — Frontend long-terme

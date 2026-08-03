@@ -24,7 +24,7 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 | Limite | Détail | Plan |
 |--------|--------|------|
-| **125 questions Afrique** | encore insuffisant statistiquement (+ 20 témoins baseline) | Cible : 300+ (Phase 2) |
+| **156 questions Afrique** | encore insuffisant statistiquement (+ 20 témoins baseline) | Cible : 300+ (Phase 2) |
 | **Français uniquement** | Aucune langue africaine évaluée | Cible : swahili, yoruba, amharique (Phase 3) |
 | **Validation externe absente** | Toutes les questions écrites par une seule personne | Recrutement de validateurs en cours |
 | **Format QCM exclusif** | Pas de génération, traduction, raisonnement ouvert | Tâches ouvertes planifiées (Phase 3) |
@@ -104,7 +104,16 @@ python scripts/export_hf_dataset.py
 python scripts/afribench.py run --questions witness --model gpt-4o
 ```
 
-125 questions Afrique + 20 témoins (`is_control`).
+156 questions Afrique + 20 témoins (`is_control`).
+
+### Space Gradio (leaderboard)
+
+```bash
+pip install -r hf_space/requirements.txt
+python scripts/sync_hf_space_data.py
+python hf_space/app.py
+# → http://127.0.0.1:7860
+```
 
 ### Régénérer le frontend (SEO)
 
