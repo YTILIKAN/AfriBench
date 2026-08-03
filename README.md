@@ -4,9 +4,9 @@
 > Benchmark public, ouvert, reproductible et contextuellement ancré.
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Juin 2026 · **Questions :** 101 · **Langues :** Français uniquement (multilingue planifié)
+**Version :** Août 2026 · **Questions :** 125 Afrique + 20 témoins · **Langues :** Français (multilingue planifié)
 
-> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — l'échantillon de 101 questions est trop petit pour tirer des conclusions statistiquement significatives. Consultez [CRITIQUE.md](CRITIQUE.md) pour l'analyse détaillée des limites et la roadmap.
+> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — 125 questions restent insuffisantes pour des conclusions statistiquement fortes. Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 
 ---
 
@@ -86,6 +86,31 @@ lm_eval --model openai-chat-completions \
   --tasks afribench \
   --include_path scripts/lm_eval_tasks/ \
   --num_fewshot 0
+```
+
+### Dataset Hugging Face (local → Hub)
+
+```bash
+python scripts/export_hf_dataset.py
+# Fichiers : data/hf/YTILIKAN__AfriBench/{african,control}.jsonl + README
+# Publication (optionnel) :
+#   pip install datasets huggingface_hub && huggingface-cli login
+#   python scripts/export_hf_dataset.py --push
+```
+
+### Questions témoins (baseline)
+
+```bash
+python scripts/afribench.py run --questions witness --model gpt-4o
+```
+
+125 questions Afrique + 20 témoins (`is_control`).
+
+### Régénérer le frontend (SEO)
+
+```bash
+python scripts/export_frontend.py
+python scripts/generate_static_html.py   # classement dans le HTML + bootstrap.json
 ```
 
 ### Option B — Services séparés

@@ -302,5 +302,24 @@
     "source": "FAO ; Lake Tanganyika Authority",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-017",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Kilimandjaro, point culminant de l'Afrique, se trouve en :",
+    "options": {
+      "A": "Kenya",
+      "B": "Tanzanie",
+      "C": "Ouganda",
+      "D": "Éthiopie"
+    },
+    "answer": "B",
+    "explanation": "Le Kilimandjaro est situé en Tanzanie, près de la frontière kényane.",
+    "source": "UNESCO — Kilimanjaro National Park",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

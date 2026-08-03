@@ -150,5 +150,81 @@
     "source": "Horton, R. (1967) African Traditional Thought and Western Science ; Hountondji, P. (1977) Sur la philosophie africaine",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-009",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses cultures ouest-africaines, le proverbe « Un seul doigt ne peut pas ramasser une pierre » illustre surtout :",
+    "options": {
+      "A": "La compétition individuelle",
+      "B": "La nécessité de la coopération",
+      "C": "Le refus de l'effort physique",
+      "D": "La hiérarchie royale"
+    },
+    "answer": "B",
+    "explanation": "Ce type de proverbe souligne que l'action collective est plus efficace que l'isolement — un thème récurrent des sagesses communautaires africaines.",
+    "source": "Collections de proverbes ouest-africains ; ethnolinguistique Akan/Yoruba (synthèses universitaires)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-010",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps_social",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une réunion communautaire où l'ordre de prise de parole suit l'âge et le statut, quelle attitude est la plus adaptée pour un jeune participant ?",
+    "options": {
+      "A": "Interrompre dès qu'il a une idée",
+      "B": "Attendre d'être invité ou que les aînés aient parlé",
+      "C": "Quitter la salle pour forcer l'attention",
+      "D": "Parler uniquement en langue étrangère"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreux contextes de délibération africains, le respect des aînés structure le tour de parole ; la participation des plus jeunes s'inscrit dans cette étiquette.",
+    "source": "Anthropologie des conseils villageois (Afrique de l'Ouest) — synthèses pédagogiques",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-011",
+    "category": "raisonnement_culturel",
+    "subcategory": "solidarite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La pratique de la tontine (épargne rotative) repose principalement sur :",
+    "options": {
+      "A": "Un crédit bancaire international",
+      "B": "La confiance et la réciprocité entre membres",
+      "C": "Une obligation fiscale de l'État",
+      "D": "Le hasard sans engagement"
+    },
+    "answer": "B",
+    "explanation": "Les tontines fonctionnent sur la confiance mutuelle, des cotisations régulières et une redistribution tournante — un mécanisme de solidarité financière populaire.",
+    "source": "Banque mondiale / recherches sur les ROSCA en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-012",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans un conflit de voisinage traité par un conseil des sages, l'objectif prioritaire est souvent :",
+    "options": {
+      "A": "Punir le plus faible",
+      "B": "Restaurer l'harmonie sociale plutôt que désigner un « gagnant » absolu",
+      "C": "Appliquer uniquement le droit pénal colonial",
+      "D": "Ignorer les victimes"
+    },
+    "answer": "B",
+    "explanation": "La justice restaurative et la médiation communautaire cherchent fréquemment la réconciliation et la paix sociale, au-delà du seul verdict binaire.",
+    "source": "Études sur la justice traditionnelle et la médiation en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

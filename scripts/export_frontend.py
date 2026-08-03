@@ -47,9 +47,14 @@ def export_results():
         for fpath in sorted(RESULTS_DIR.glob("*.json")):
             try:
                 with open(fpath, encoding="utf-8") as f:
-                    all_results.append(json.load(f))
+                    data = json.load(f)
             except json.JSONDecodeError:
                 print(f"  Ignore (JSON invalide) : {fpath.name}", file=sys.stderr)
+                continue
+            if isinstance(data, list):
+                all_results.extend(item for item in data if isinstance(item, dict))
+            elif isinstance(data, dict):
+                all_results.append(data)
 
     # Trier par timestamp (plus recent en premier)
     all_results.sort(key=lambda r: r.get("timestamp", ""), reverse=True)

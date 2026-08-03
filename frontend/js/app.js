@@ -285,30 +285,49 @@ async function fetchJson(url) {
   return resp.json();
 }
 
+async function loadBootstrap() {
+  try {
+    const data = await fetchJson('data/bootstrap.json');
+    if (data && Array.isArray(data.results)) AppState.results = data.results;
+    if (data && Array.isArray(data.questions)) AppState.questions = data.questions;
+    if (AppState.results.length || AppState.questions.length) {
+      AppState.dataSource = 'bootstrap';
+      return true;
+    }
+  } catch { /* ignore */ }
+  return false;
+}
+
 async function loadData() {
   const resultsContainer = document.getElementById('hdr-models');
   const qContainer = document.getElementById('hdr-questions');
   const apiBase = getApiBase();
 
+  // 1) Bootstrap pré-généré (SEO / premier paint)
+  await loadBootstrap();
+
+  // 2) API live (écrase le bootstrap si dispo)
   try {
     const [results, questions] = await Promise.all([
       fetchJson(`${apiBase}/results?limit=1000`),
       fetchJson(`${apiBase}/questions?limit=500`),
     ]);
-    AppState.results = Array.isArray(results) ? results : [];
-    AppState.questions = Array.isArray(questions) ? questions : [];
+    AppState.results = Array.isArray(results) ? results : AppState.results;
+    AppState.questions = Array.isArray(questions) ? questions : AppState.questions;
     AppState.dataSource = 'api';
   } catch (err) {
-    console.warn('API unavailable, falling back to static JSON', err);
-    AppState.dataSource = 'static';
-    try {
-      const resp = await fetch('data/results.json');
-      if (resp.ok) AppState.results = await resp.json();
-    } catch { /* ignore */ }
-    try {
-      const resp = await fetch('data/questions.json');
-      if (resp.ok) AppState.questions = await resp.json();
-    } catch { /* ignore */ }
+    if (AppState.dataSource !== 'bootstrap') {
+      console.warn('API unavailable, falling back to static JSON', err);
+      AppState.dataSource = 'static';
+      try {
+        const resp = await fetch('data/results.json');
+        if (resp.ok) AppState.results = await resp.json();
+      } catch { /* ignore */ }
+      try {
+        const resp = await fetch('data/questions.json');
+        if (resp.ok) AppState.questions = await resp.json();
+      } catch { /* ignore */ }
+    }
   }
 
   if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;

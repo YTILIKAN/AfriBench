@@ -46,3 +46,9 @@ categories:
     label: "Raisonnement Culturel"
     description: "Questions de logique et raisonnement contextuel africain"
     color: "#A1887F"
+
+  # Baseline non-africaine (jeux witness uniquement — pas dans le scoring principal UI)
+  temoin:
+    label: "Témoin (baseline)"
+    description: "Questions de contrôle non-africaines pour comparaison"
+    color: "#9E9E9E"

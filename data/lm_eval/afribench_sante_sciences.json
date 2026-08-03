@@ -188,5 +188,62 @@
     "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-011",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Programme élargi de vaccination (PEV) en Afrique vise principalement à :",
+    "options": {
+      "A": "Remplacer l'eau potable",
+      "B": "Prévenir des maladies infectieuses graves chez les enfants par la vaccination",
+      "C": "Former uniquement des chirurgiens",
+      "D": "Interdire la médecine traditionnelle"
+    },
+    "answer": "B",
+    "explanation": "Le PEV (EPI) organise la vaccination de routine contre des maladies comme la rougeole, la polio, etc.",
+    "source": "OMS / UNICEF — Expanded Programme on Immunization",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-012",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les moustiques Anopheles sont-ils centraux dans la lutte antipaludique ?",
+    "options": {
+      "A": "Ils produisent la quinine",
+      "B": "Ils sont les vecteurs principaux de transmission de Plasmodium à l'humain",
+      "C": "Ils n'existent qu'en Europe",
+      "D": "Ils soignent le paludisme"
+    },
+    "answer": "B",
+    "explanation": "Le paludisme est transmis à l'humain par des moustiques Anopheles infectés par le parasite Plasmodium.",
+    "source": "OMS — Malaria fact sheet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-013",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Centre international de recherche sur le cancer (CIRC/IARC) de l'OMS a son siège à Lyon, mais de nombreux registres du cancer africains collaborent pour :",
+    "options": {
+      "A": "Mesurer et suivre l'incidence des cancers",
+      "B": "Interdire la recherche génétique",
+      "C": "Remplacer les hôpitaux",
+      "D": "Produire des vaccins anti-grippaux uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les registres du cancer permettent de documenter l'incidence et d'orienter les politiques de prévention et de soin.",
+    "source": "IARC / GICR — cancer registries",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

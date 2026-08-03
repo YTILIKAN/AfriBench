@@ -190,6 +190,63 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "POL-011",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le principal organe judiciaire de l'Union africaine pour les droits de l'homme ?",
+    "options": {
+      "A": "Cour pénale internationale",
+      "B": "Cour africaine des droits de l'homme et des peuples",
+      "C": "Cour internationale de Justice",
+      "D": "Tribunal de la CEDEAO uniquement"
+    },
+    "answer": "B",
+    "explanation": "La Cour africaine des droits de l'homme et des peuples (Arusha) est l'organe judiciaire continental compétent en matière de droits humains au sein du système UA.",
+    "source": "Site officiel African Court ; Charte africaine des droits de l'homme et des peuples",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-012",
+    "category": "droit_politique",
+    "subcategory": "charte",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Charte africaine de la démocratie, des élections et de la gouvernance (2007) vise notamment à :",
+    "options": {
+      "A": "Interdire les élections",
+      "B": "Promouvoir des élections démocratiques et condamner les changements anticonstitutionnels de gouvernement",
+      "C": "Créer une monnaie unique",
+      "D": "Remplacer toutes les constitutions nationales"
+    },
+    "answer": "B",
+    "explanation": "Cette charte de l'UA fixe des normes démocratiques et s'oppose aux coups d'État et autres changements anticonstitutionnels.",
+    "source": "Union africaine — ACDEG (2007)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-013",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La CEDEAO est une organisation régionale principalement associée à quelle partie du continent ?",
+    "options": {
+      "A": "Afrique australe",
+      "B": "Afrique de l'Ouest",
+      "C": "Afrique du Nord",
+      "D": "Corne de l'Afrique"
+    },
+    "answer": "B",
+    "explanation": "La Communauté économique des États de l'Afrique de l'Ouest (CEDEAO/ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+    "source": "Site officiel CEDEAO/ECOWAS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "ECON-001",
     "category": "economie",
     "subcategory": "pib_croissance",
@@ -378,6 +435,63 @@
     "source": "BAD (afdb.org) ; FMI",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-011",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Que signifie l'acronyme ZLECAf ?",
+    "options": {
+      "A": "Zone de libre-échange continentale africaine",
+      "B": "Zone légale d'exportation des cafés africains",
+      "C": "Zone locale d'épargne des coopératives africaines",
+      "D": "Zone lagunaire d'économie côtière africaine"
+    },
+    "answer": "A",
+    "explanation": "La ZLECAf (AfCFTA) est l'accord de libre-échange continental visant à créer un marché unique africain.",
+    "source": "Union africaine — AfCFTA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-012",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le franc CFA est historiquement lié à quelle zone monétaire ?",
+    "options": {
+      "A": "Dollar US uniquement",
+      "B": "Zone franc (lien avec le Trésor français / euro)",
+      "C": "Yen japonais",
+      "D": "Roupie indienne"
+    },
+    "answer": "B",
+    "explanation": "Les francs CFA (UEMOA/CEMAC) s'inscrivent dans la zone franc, avec une parité historiquement garantie via des arrangements avec la France, puis l'euro.",
+    "source": "Banque de France / BCEAO — zone franc",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-013",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le cobalt, stratégique pour les batteries, est produit en très grande quantité notamment en :",
+    "options": {
+      "A": "République démocratique du Congo",
+      "B": "Namibie exclusivement",
+      "C": "Égypte",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "La RDC concentre une part dominante de la production mondiale de cobalt.",
+    "source": "USGS Mineral Commodity Summaries — Cobalt",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   },
   {
     "id": "GEOG-001",
@@ -684,6 +798,25 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "GEOG-017",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Kilimandjaro, point culminant de l'Afrique, se trouve en :",
+    "options": {
+      "A": "Kenya",
+      "B": "Tanzanie",
+      "C": "Ouganda",
+      "D": "Éthiopie"
+    },
+    "answer": "B",
+    "explanation": "Le Kilimandjaro est situé en Tanzanie, près de la frontière kényane.",
+    "source": "UNESCO — Kilimanjaro National Park",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "HIST-001",
     "category": "histoire",
     "subcategory": "empires_precoloniaux",
@@ -969,6 +1102,44 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "HIST-016",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Royaume du Monomotapa (Mutapa) était principalement situé dans la région de l'actuel :",
+    "options": {
+      "A": "Zimbabwe / Mozambique",
+      "B": "Sénégal",
+      "C": "Égypte",
+      "D": "Liberia"
+    },
+    "answer": "A",
+    "explanation": "L'État de Mutapa s'étendait sur des territoires correspondant surtout au Zimbabwe et au Mozambique actuels.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV–V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-017",
+    "category": "histoire",
+    "subcategory": "traite",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « commerce triangulaire » atlantique reliait principalement :",
+    "options": {
+      "A": "Europe, Afrique, Amériques",
+      "B": "Chine, Inde, Australie",
+      "C": "Russie, Perse, Japon",
+      "D": "Scandinavie, Groenland, Canada uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le commerce triangulaire classique impliquait l'Europe, l'Afrique et les Amériques (biens manufacturés, captifs, produits coloniaux).",
+    "source": "UNESCO — La traite négrière / Histoire Générale de l'Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "IA-001",
     "category": "ia_technologie",
     "subcategory": "ia_applications",
@@ -1157,6 +1328,63 @@
     "source": "CSIR (Afrique du Sud) ; ESO (eso.org)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-011",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Masakhane est surtout connu comme :",
+    "options": {
+      "A": "Une banque panafricaine",
+      "B": "Une communauté de recherche en NLP pour les langues africaines",
+      "C": "Un satellite météo",
+      "D": "Un réseau d'autoroutes"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est une initiative communautaire open-source visant à renforcer le traitement automatique des langues africaines.",
+    "source": "masakhane.io ; publications ACL/EMNLP associées",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-012",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi le manque de données annotées est-il un frein majeur pour l'IA en langues africaines ?",
+    "options": {
+      "A": "Parce que les GPU n'existent pas en Afrique",
+      "B": "Parce que les modèles supervisés et l'évaluation nécessitent des corpus étiquetés rares pour ces langues",
+      "C": "Parce que le français interdit les corpus",
+      "D": "Parce que l'Unicode ne supporte aucune langue africaine"
+    },
+    "answer": "B",
+    "explanation": "La plupart des approches d'apprentissage supervisé et des benchmarks exigent des données annotées ; or celles-ci restent rares pour de nombreuses langues africaines.",
+    "source": "Rapports sur les low-resource languages ; Masakhane / AfroBench literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-013",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La « data sovereignty » (souveraineté des données) en Afrique désigne surtout :",
+    "options": {
+      "A": "L'interdiction totale d'Internet",
+      "B": "La capacité des États et communautés à contrôler le stockage et l'usage de leurs données",
+      "C": "Un protocole Wi-Fi local",
+      "D": "Une cryptomonnaie unique continentale"
+    },
+    "answer": "B",
+    "explanation": "La souveraineté des données porte sur le contrôle juridictionnel et politique des données produites localement, face aux plateformes et clouds étrangers.",
+    "source": "Discussions UA / Smart Africa sur la gouvernance des données",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   },
   {
     "id": "LANG-001",
@@ -1387,6 +1615,44 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "LANG-013",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est une langue surtout répandue en :",
+    "options": {
+      "A": "Afrique de l'Est",
+      "B": "Patagonie",
+      "C": "Sibérie",
+      "D": "Polynésie exclusivement"
+    },
+    "answer": "A",
+    "explanation": "Le swahili (kiswahili) est une langue véhiculaire majeure d'Afrique de l'Est (Tanzanie, Kenya, etc.).",
+    "source": "Ethnologue / Union africaine — langues de travail",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-014",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Chinua Achebe est notamment l'auteur de :",
+    "options": {
+      "A": "Things Fall Apart",
+      "B": "Les Fleurs du mal",
+      "C": "Guerre et Paix",
+      "D": "Le Petit Prince"
+    },
+    "answer": "A",
+    "explanation": "Things Fall Apart (1958) est le roman le plus célèbre de Chinua Achebe, figure majeure de la littérature africaine anglophone.",
+    "source": "Encyclopædia Britannica — Chinua Achebe",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "CULT-001",
     "category": "raisonnement_culturel",
     "subcategory": "proverbes_sagesse",
@@ -1537,6 +1803,82 @@
     "source": "Horton, R. (1967) African Traditional Thought and Western Science ; Hountondji, P. (1977) Sur la philosophie africaine",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-009",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses cultures ouest-africaines, le proverbe « Un seul doigt ne peut pas ramasser une pierre » illustre surtout :",
+    "options": {
+      "A": "La compétition individuelle",
+      "B": "La nécessité de la coopération",
+      "C": "Le refus de l'effort physique",
+      "D": "La hiérarchie royale"
+    },
+    "answer": "B",
+    "explanation": "Ce type de proverbe souligne que l'action collective est plus efficace que l'isolement — un thème récurrent des sagesses communautaires africaines.",
+    "source": "Collections de proverbes ouest-africains ; ethnolinguistique Akan/Yoruba (synthèses universitaires)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-010",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps_social",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une réunion communautaire où l'ordre de prise de parole suit l'âge et le statut, quelle attitude est la plus adaptée pour un jeune participant ?",
+    "options": {
+      "A": "Interrompre dès qu'il a une idée",
+      "B": "Attendre d'être invité ou que les aînés aient parlé",
+      "C": "Quitter la salle pour forcer l'attention",
+      "D": "Parler uniquement en langue étrangère"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreux contextes de délibération africains, le respect des aînés structure le tour de parole ; la participation des plus jeunes s'inscrit dans cette étiquette.",
+    "source": "Anthropologie des conseils villageois (Afrique de l'Ouest) — synthèses pédagogiques",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-011",
+    "category": "raisonnement_culturel",
+    "subcategory": "solidarite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La pratique de la tontine (épargne rotative) repose principalement sur :",
+    "options": {
+      "A": "Un crédit bancaire international",
+      "B": "La confiance et la réciprocité entre membres",
+      "C": "Une obligation fiscale de l'État",
+      "D": "Le hasard sans engagement"
+    },
+    "answer": "B",
+    "explanation": "Les tontines fonctionnent sur la confiance mutuelle, des cotisations régulières et une redistribution tournante — un mécanisme de solidarité financière populaire.",
+    "source": "Banque mondiale / recherches sur les ROSCA en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-012",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans un conflit de voisinage traité par un conseil des sages, l'objectif prioritaire est souvent :",
+    "options": {
+      "A": "Punir le plus faible",
+      "B": "Restaurer l'harmonie sociale plutôt que désigner un « gagnant » absolu",
+      "C": "Appliquer uniquement le droit pénal colonial",
+      "D": "Ignorer les victimes"
+    },
+    "answer": "B",
+    "explanation": "La justice restaurative et la médiation communautaire cherchent fréquemment la réconciliation et la paix sociale, au-delà du seul verdict binaire.",
+    "source": "Études sur la justice traditionnelle et la médiation en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   },
   {
     "id": "SANTE-001",
@@ -1729,6 +2071,63 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "SANTE-011",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Programme élargi de vaccination (PEV) en Afrique vise principalement à :",
+    "options": {
+      "A": "Remplacer l'eau potable",
+      "B": "Prévenir des maladies infectieuses graves chez les enfants par la vaccination",
+      "C": "Former uniquement des chirurgiens",
+      "D": "Interdire la médecine traditionnelle"
+    },
+    "answer": "B",
+    "explanation": "Le PEV (EPI) organise la vaccination de routine contre des maladies comme la rougeole, la polio, etc.",
+    "source": "OMS / UNICEF — Expanded Programme on Immunization",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-012",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les moustiques Anopheles sont-ils centraux dans la lutte antipaludique ?",
+    "options": {
+      "A": "Ils produisent la quinine",
+      "B": "Ils sont les vecteurs principaux de transmission de Plasmodium à l'humain",
+      "C": "Ils n'existent qu'en Europe",
+      "D": "Ils soignent le paludisme"
+    },
+    "answer": "B",
+    "explanation": "Le paludisme est transmis à l'humain par des moustiques Anopheles infectés par le parasite Plasmodium.",
+    "source": "OMS — Malaria fact sheet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-013",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Centre international de recherche sur le cancer (CIRC/IARC) de l'OMS a son siège à Lyon, mais de nombreux registres du cancer africains collaborent pour :",
+    "options": {
+      "A": "Mesurer et suivre l'incidence des cancers",
+      "B": "Interdire la recherche génétique",
+      "C": "Remplacer les hôpitaux",
+      "D": "Produire des vaccins anti-grippaux uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les registres du cancer permettent de documenter l'incidence et d'orienter les politiques de prévention et de soin.",
+    "source": "IARC / GICR — cancer registries",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "SOC-001",
     "category": "societe",
     "subcategory": "demographie",
@@ -1917,5 +2316,62 @@
     "source": "Union africaine (Agenda 2063) ; AU Diaspora Division",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-011",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Lagos, Kinshasa ou Le Caire illustrent surtout quel phénomène démographique contemporain ?",
+    "options": {
+      "A": "La désertification rurale exclusive",
+      "B": "La métropolisation et la croissance urbaine rapide",
+      "C": "La disparition des langues",
+      "D": "L'absence totale d'infrastructures depuis toujours"
+    },
+    "answer": "B",
+    "explanation": "Ces très grandes villes africaines incarnent une urbanisation rapide et la formation de métropoles de plusieurs millions d'habitants.",
+    "source": "ONU-Habitat / World Urbanization Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-012",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'enseignement dans une langue maternelle africaine en début de scolarité est souvent défendu parce qu'il :",
+    "options": {
+      "A": "Diminue l'apprentissage",
+      "B": "Facilite la compréhension et les apprentissages fondamentaux",
+      "C": "Interdit le multilinguisme",
+      "D": "Remplace toutes les sciences"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études en éducation montrent que l'entrée dans les apprentissages via une langue maîtrisée améliore la compréhension.",
+    "source": "UNESCO — éducation multilingue / langue maternelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-013",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les transferts de fonds de la diaspora vers l'Afrique sont importants car ils :",
+    "options": {
+      "A": "Remplacent toute l'aide publique sans exception",
+      "B": "Constituent une source majeure de revenus pour de nombreux ménages",
+      "C": "Sont interdits par l'UA",
+      "D": "Ne concernent que l'or"
+    },
+    "answer": "B",
+    "explanation": "Les remittances représentent des flux financiers majeurs pour plusieurs économies et ménages africains.",
+    "source": "Banque mondiale — Migration and Development Brief",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

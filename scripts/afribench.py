@@ -56,16 +56,27 @@ def load_categories() -> dict:
 
 
 # ── Chargement questions ─────────────────────────────────────────────────
-def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
-    """Charge les questions validées d'une version."""
+def resolve_questions_dir(version: str = DEFAULT_QUESTIONS_VERSION) -> Path:
+    """Résout le dossier de questions.
+
+    - `v1` → data/questions/v1/validated (benchmark Afrique)
+    - `witness` → data/questions/v1/witness (témoins / baseline)
+    """
+    if version in {"witness", "control", "temoin"}:
+        return QUESTIONS_DIR / DEFAULT_QUESTIONS_VERSION / "witness"
     validated_dir = QUESTIONS_DIR / version / "validated"
-    if not validated_dir.exists():
-        # Fallback : toutes les questions .json dans le dossier de version
-        validated_dir = QUESTIONS_DIR / version
+    if validated_dir.exists():
+        return validated_dir
+    return QUESTIONS_DIR / version
+
+
+def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
+    """Charge les questions d'une version / jeu."""
+    questions_dir = resolve_questions_dir(version)
 
     questions = []
-    if validated_dir.exists():
-        for fpath in sorted(validated_dir.glob("*.json")):
+    if questions_dir.exists():
+        for fpath in sorted(questions_dir.glob("*.json")):
             if fpath.name == "template.json":
                 continue
             with open(fpath, encoding="utf-8") as f:
@@ -76,8 +87,8 @@ def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
                     questions.append(data)
 
     if not questions:
-        print(f"Aucune question trouvée dans {validated_dir}")
-        print(f"Placez des fichiers JSON dans {QUESTIONS_DIR / version / 'validated/'}")
+        print(f"Aucune question trouvée dans {questions_dir}")
+        print(f"Placez des fichiers JSON dans {questions_dir}/")
         sys.exit(1)
 
     return questions
@@ -602,7 +613,12 @@ def main():
     # run
     p_run = sub.add_parser("run", help="Lance l'évaluation des modèles")
     p_run.add_argument("--model", "-m", help="Nom du modèle (optionnel, tous par défaut)")
-    p_run.add_argument("--questions", "-q", default=DEFAULT_QUESTIONS_VERSION, help="Version des questions")
+    p_run.add_argument(
+        "--questions",
+        "-q",
+        default=DEFAULT_QUESTIONS_VERSION,
+        help="Jeu de questions : v1 (Afrique) ou witness (témoins baseline)",
+    )
     p_run.add_argument("--few-shot", "-f", type=int, default=0, help="Nombre d'exemples few-shot")
     p_run.add_argument("--verbose", "-v", action="store_true", help="Affiche chaque question")
     p_run.set_defaults(func=cmd_run)
