@@ -4,9 +4,9 @@
 > Benchmark public, ouvert, reproductible et contextuellement ancré.
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Août 2026 · **Questions :** 125 Afrique + 20 témoins · **Langues :** Français (multilingue planifié)
+**Version :** Août 2026 · **Questions :** 156 Afrique + 20 témoins · **Langues :** Français (multilingue planifié)
 
-> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — 125 questions restent insuffisantes pour des conclusions statistiquement fortes. Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
+> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — 156 questions restent insuffisantes pour des conclusions statistiquement fortes. Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 
 ---
 

@@ -245,5 +245,62 @@
     "source": "USGS Mineral Commodity Summaries — Cobalt",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-014",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le siège du secrétariat de la ZLECAf se trouve à :",
+    "options": {
+      "A": "Nairobi",
+      "B": "Accra",
+      "C": "Pretoria",
+      "D": "Dakar"
+    },
+    "answer": "B",
+    "explanation": "Le secrétariat de la Zone de libre-échange continentale africaine est basé à Accra (Ghana).",
+    "source": "AfCFTA Secretariat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-015",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "M-Pesa, pionnier du mobile money, a d'abord connu un succès massif au :",
+    "options": {
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "Lancé au Kenya (2007), M-Pesa est devenu une référence mondiale du paiement mobile.",
+    "source": "GSMA / Safaricom — M-Pesa case studies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-016",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « paradoxe de l'abondance » (resource curse) désigne le risque que :",
+    "options": {
+      "A": "Les ressources naturelles freinent la diversification et la gouvernance",
+      "B": "L'agriculture disparaisse partout",
+      "C": "Les pays sans ressources soient toujours plus riches",
+      "D": "Le commerce Sud-Sud soit impossible"
+    },
+    "answer": "A",
+    "explanation": "Le resource curse décrit les difficultés de développement associées à une dépendance forte aux matières premières.",
+    "source": "Littérature économique — resource curse (Sachs/Warner et suites)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

@@ -245,5 +245,62 @@
     "source": "Banque mondiale — Migration and Development Brief",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-014",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique est le continent où la population est :",
+    "options": {
+      "A": "En moyenne la plus âgée du monde",
+      "B": "Parmi les plus jeunes, avec une forte croissance démographique",
+      "C": "Stable depuis le Moyen Âge",
+      "D": "En déclin absolu partout"
+    },
+    "answer": "B",
+    "explanation": "La structure par âge est très jeune et la croissance démographique reste élevée dans de nombreux pays.",
+    "source": "UN World Population Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-015",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mouvements pour la scolarisation des filles en Afrique insistent souvent sur le fait que :",
+    "options": {
+      "A": "L'éducation des filles n'a aucun effet économique",
+      "B": "Elle améliore la santé, les revenus et le développement communautaire",
+      "C": "Seuls les garçons doivent apprendre à lire",
+      "D": "L'école doit être interdite"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études de développement lient l'éducation des filles à de meilleurs indicateurs de santé et de revenu.",
+    "source": "UNESCO / Banque mondiale — girls' education",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-016",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « journalism mobile » et les radios communautaires en Afrique jouent un rôle clé car ils :",
+    "options": {
+      "A": "Remplacent l'État",
+      "B": "Permettent une information locale accessible malgré des fractures numériques",
+      "C": "Interdisent les langues africaines",
+      "D": "N'existent que dans les capitales européennes"
+    },
+    "answer": "B",
+    "explanation": "Radios communautaires et reportages mobiles restent des canaux majeurs d'information de proximité.",
+    "source": "UNESCO — community media in Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

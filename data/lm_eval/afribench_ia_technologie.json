@@ -245,5 +245,62 @@
     "source": "Discussions UA / Smart Africa sur la gouvernance des données",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-014",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Deep Learning Indaba est principalement :",
+    "options": {
+      "A": "Une conférence/communauté de renforcement de l'apprentissage automatique en Afrique",
+      "B": "Une banque centrale",
+      "C": "Un opérateur télécom",
+      "D": "Un désert numérique"
+    },
+    "answer": "A",
+    "explanation": "L'Indaba est un événement et un réseau majeurs pour la communauté ML africaine.",
+    "source": "deeplearningindaba.com",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-015",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "AfroBench (McGill-NLP) se distingue d'AfriBench surtout parce qu'il :",
+    "options": {
+      "A": "Évalue surtout des tâches NLP multilingues sur de nombreuses langues africaines",
+      "B": "Ne concerne que le français QCM culturel",
+      "C": "Est un réseau social",
+      "D": "Remplace l'Union africaine"
+    },
+    "answer": "A",
+    "explanation": "AfroBench couvre de nombreuses langues et tâches NLP ; AfriBench (ce projet) est un QCM francophone sur les savoirs africains.",
+    "source": "AfroBench (EMNLP 2024) ; README AfriBench",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-016",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un enjeu fréquent des data centers en Afrique est :",
+    "options": {
+      "A": "L'énergie, la connectivité et la latence régionale",
+      "B": "L'absence totale d'utilisateurs Internet",
+      "C": "L'interdiction mondiale du cloud",
+      "D": "Le trop-plein de GPU locaux inutilisés partout"
+    },
+    "answer": "A",
+    "explanation": "Le déploiement d'infrastructures cloud dépend fortement de l'électricité fiable, de la fibre et des coûts de bande passante.",
+    "source": "Rapports d'écosystème numérique africain (GSMA, Banque mondiale)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
