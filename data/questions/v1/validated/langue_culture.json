@@ -226,5 +226,43 @@
     "source": "Rattray, R.S. (1923) Ashanti ; Meyer, J. (2005) Les Akan",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-013",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est une langue surtout répandue en :",
+    "options": {
+      "A": "Afrique de l'Est",
+      "B": "Patagonie",
+      "C": "Sibérie",
+      "D": "Polynésie exclusivement"
+    },
+    "answer": "A",
+    "explanation": "Le swahili (kiswahili) est une langue véhiculaire majeure d'Afrique de l'Est (Tanzanie, Kenya, etc.).",
+    "source": "Ethnologue / Union africaine — langues de travail",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-014",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Chinua Achebe est notamment l'auteur de :",
+    "options": {
+      "A": "Things Fall Apart",
+      "B": "Les Fleurs du mal",
+      "C": "Guerre et Paix",
+      "D": "Le Petit Prince"
+    },
+    "answer": "A",
+    "explanation": "Things Fall Apart (1958) est le roman le plus célèbre de Chinua Achebe, figure majeure de la littérature africaine anglophone.",
+    "source": "Encyclopædia Britannica — Chinua Achebe",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

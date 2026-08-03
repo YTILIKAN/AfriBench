@@ -188,5 +188,62 @@
     "source": "Union africaine (Agenda 2063) ; AU Diaspora Division",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-011",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Lagos, Kinshasa ou Le Caire illustrent surtout quel phénomène démographique contemporain ?",
+    "options": {
+      "A": "La désertification rurale exclusive",
+      "B": "La métropolisation et la croissance urbaine rapide",
+      "C": "La disparition des langues",
+      "D": "L'absence totale d'infrastructures depuis toujours"
+    },
+    "answer": "B",
+    "explanation": "Ces très grandes villes africaines incarnent une urbanisation rapide et la formation de métropoles de plusieurs millions d'habitants.",
+    "source": "ONU-Habitat / World Urbanization Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-012",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'enseignement dans une langue maternelle africaine en début de scolarité est souvent défendu parce qu'il :",
+    "options": {
+      "A": "Diminue l'apprentissage",
+      "B": "Facilite la compréhension et les apprentissages fondamentaux",
+      "C": "Interdit le multilinguisme",
+      "D": "Remplace toutes les sciences"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études en éducation montrent que l'entrée dans les apprentissages via une langue maîtrisée améliore la compréhension.",
+    "source": "UNESCO — éducation multilingue / langue maternelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-013",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les transferts de fonds de la diaspora vers l'Afrique sont importants car ils :",
+    "options": {
+      "A": "Remplacent toute l'aide publique sans exception",
+      "B": "Constituent une source majeure de revenus pour de nombreux ménages",
+      "C": "Sont interdits par l'UA",
+      "D": "Ne concernent que l'or"
+    },
+    "answer": "B",
+    "explanation": "Les remittances représentent des flux financiers majeurs pour plusieurs économies et ménages africains.",
+    "source": "Banque mondiale — Migration and Development Brief",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

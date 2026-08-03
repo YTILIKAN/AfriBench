@@ -188,5 +188,62 @@
     "source": "BAD (afdb.org) ; FMI",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-011",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Que signifie l'acronyme ZLECAf ?",
+    "options": {
+      "A": "Zone de libre-échange continentale africaine",
+      "B": "Zone légale d'exportation des cafés africains",
+      "C": "Zone locale d'épargne des coopératives africaines",
+      "D": "Zone lagunaire d'économie côtière africaine"
+    },
+    "answer": "A",
+    "explanation": "La ZLECAf (AfCFTA) est l'accord de libre-échange continental visant à créer un marché unique africain.",
+    "source": "Union africaine — AfCFTA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-012",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le franc CFA est historiquement lié à quelle zone monétaire ?",
+    "options": {
+      "A": "Dollar US uniquement",
+      "B": "Zone franc (lien avec le Trésor français / euro)",
+      "C": "Yen japonais",
+      "D": "Roupie indienne"
+    },
+    "answer": "B",
+    "explanation": "Les francs CFA (UEMOA/CEMAC) s'inscrivent dans la zone franc, avec une parité historiquement garantie via des arrangements avec la France, puis l'euro.",
+    "source": "Banque de France / BCEAO — zone franc",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-013",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le cobalt, stratégique pour les batteries, est produit en très grande quantité notamment en :",
+    "options": {
+      "A": "République démocratique du Congo",
+      "B": "Namibie exclusivement",
+      "C": "Égypte",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "La RDC concentre une part dominante de la production mondiale de cobalt.",
+    "source": "USGS Mineral Commodity Summaries — Cobalt",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

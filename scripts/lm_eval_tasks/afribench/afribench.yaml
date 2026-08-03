@@ -1,27 +1,30 @@
-# AfriBench — LM Evaluation Harness Task
+# AfriBench — toutes les catégories
+# Prérequis : python scripts/export_lm_eval_dataset.py
 #
-# Permet d'évaluer AfriBench via `lm-eval` :
-#   lm-eval --model openai-completions --model_args model=gpt-4o --tasks afribench
-#   lm-eval --model local-completions --model_args model=/path/to/model --tasks afribench
-#
-# Les questions sont chargées depuis data/questions/v1/validated/ (JSON).
-# Nécessite d'installer lm-eval d'abord : pip install lm-eval
+# lm_eval --model openai-chat-completions \
+#   --model_args model=gpt-4o,base_url=https://api.openai.com/v1 \
+#   --tasks afribench \
+#   --include_path scripts/lm_eval_tasks/ \
+#   --num_fewshot 0
 
+task: afribench
 dataset_path: json
 dataset_kwargs:
-  data_files: "data/questions/v1/validated/*.json"
-test_split: train
+  data_files:
+    test: data/lm_eval/afribench.json
+test_split: test
 output_type: multiple_choice
 doc_to_text: !function utils.doc_to_text
 doc_to_choice: !function utils.doc_to_choice
-doc_to_target: "answer"
+doc_to_target: !function utils.doc_to_target
 metric_list:
   - metric: acc
     aggregation: mean
     higher_is_better: true
 metadata:
-  version: 1.0
-  name: "AfriBench"
-  description: "Benchmark d'évaluation des LLMs sur les réalités africaines (francophone)"
-  languages: ["fr"]
-  contributor: "YTILIKAN"
+  version: 0.1
+  name: AfriBench
+  description: Benchmark LLM sur les réalités africaines (francophone, QCM)
+  languages:
+    - fr
+  contributor: YTILIKAN

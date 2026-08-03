@@ -188,5 +188,62 @@
     "source": "CSIR (Afrique du Sud) ; ESO (eso.org)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-011",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Masakhane est surtout connu comme :",
+    "options": {
+      "A": "Une banque panafricaine",
+      "B": "Une communauté de recherche en NLP pour les langues africaines",
+      "C": "Un satellite météo",
+      "D": "Un réseau d'autoroutes"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est une initiative communautaire open-source visant à renforcer le traitement automatique des langues africaines.",
+    "source": "masakhane.io ; publications ACL/EMNLP associées",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-012",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi le manque de données annotées est-il un frein majeur pour l'IA en langues africaines ?",
+    "options": {
+      "A": "Parce que les GPU n'existent pas en Afrique",
+      "B": "Parce que les modèles supervisés et l'évaluation nécessitent des corpus étiquetés rares pour ces langues",
+      "C": "Parce que le français interdit les corpus",
+      "D": "Parce que l'Unicode ne supporte aucune langue africaine"
+    },
+    "answer": "B",
+    "explanation": "La plupart des approches d'apprentissage supervisé et des benchmarks exigent des données annotées ; or celles-ci restent rares pour de nombreuses langues africaines.",
+    "source": "Rapports sur les low-resource languages ; Masakhane / AfroBench literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-013",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La « data sovereignty » (souveraineté des données) en Afrique désigne surtout :",
+    "options": {
+      "A": "L'interdiction totale d'Internet",
+      "B": "La capacité des États et communautés à contrôler le stockage et l'usage de leurs données",
+      "C": "Un protocole Wi-Fi local",
+      "D": "Une cryptomonnaie unique continentale"
+    },
+    "answer": "B",
+    "explanation": "La souveraineté des données porte sur le contrôle juridictionnel et politique des données produites localement, face aux plateformes et clouds étrangers.",
+    "source": "Discussions UA / Smart Africa sur la gouvernance des données",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

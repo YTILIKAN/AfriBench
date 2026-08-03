@@ -188,5 +188,62 @@
     "source": "EAC (eac.int) ; BBC Afrique",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-011",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le principal organe judiciaire de l'Union africaine pour les droits de l'homme ?",
+    "options": {
+      "A": "Cour pénale internationale",
+      "B": "Cour africaine des droits de l'homme et des peuples",
+      "C": "Cour internationale de Justice",
+      "D": "Tribunal de la CEDEAO uniquement"
+    },
+    "answer": "B",
+    "explanation": "La Cour africaine des droits de l'homme et des peuples (Arusha) est l'organe judiciaire continental compétent en matière de droits humains au sein du système UA.",
+    "source": "Site officiel African Court ; Charte africaine des droits de l'homme et des peuples",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-012",
+    "category": "droit_politique",
+    "subcategory": "charte",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Charte africaine de la démocratie, des élections et de la gouvernance (2007) vise notamment à :",
+    "options": {
+      "A": "Interdire les élections",
+      "B": "Promouvoir des élections démocratiques et condamner les changements anticonstitutionnels de gouvernement",
+      "C": "Créer une monnaie unique",
+      "D": "Remplacer toutes les constitutions nationales"
+    },
+    "answer": "B",
+    "explanation": "Cette charte de l'UA fixe des normes démocratiques et s'oppose aux coups d'État et autres changements anticonstitutionnels.",
+    "source": "Union africaine — ACDEG (2007)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-013",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La CEDEAO est une organisation régionale principalement associée à quelle partie du continent ?",
+    "options": {
+      "A": "Afrique australe",
+      "B": "Afrique de l'Ouest",
+      "C": "Afrique du Nord",
+      "D": "Corne de l'Afrique"
+    },
+    "answer": "B",
+    "explanation": "La Communauté économique des États de l'Afrique de l'Ouest (CEDEAO/ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+    "source": "Site officiel CEDEAO/ECOWAS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

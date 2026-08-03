@@ -283,5 +283,43 @@
     "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Lettres d'Affonso Ier au roi du Portugal (1526)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-016",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Royaume du Monomotapa (Mutapa) était principalement situé dans la région de l'actuel :",
+    "options": {
+      "A": "Zimbabwe / Mozambique",
+      "B": "Sénégal",
+      "C": "Égypte",
+      "D": "Liberia"
+    },
+    "answer": "A",
+    "explanation": "L'État de Mutapa s'étendait sur des territoires correspondant surtout au Zimbabwe et au Mozambique actuels.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV–V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-017",
+    "category": "histoire",
+    "subcategory": "traite",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « commerce triangulaire » atlantique reliait principalement :",
+    "options": {
+      "A": "Europe, Afrique, Amériques",
+      "B": "Chine, Inde, Australie",
+      "C": "Russie, Perse, Japon",
+      "D": "Scandinavie, Groenland, Canada uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le commerce triangulaire classique impliquait l'Europe, l'Afrique et les Amériques (biens manufacturés, captifs, produits coloniaux).",
+    "source": "UNESCO — La traite négrière / Histoire Générale de l'Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

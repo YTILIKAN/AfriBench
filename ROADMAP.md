@@ -1,52 +1,45 @@
 # Roadmap AfriBench — Solutions priorisées
 
-> Version actionnable du [CRITIQUE.md](CRITIQUE.md). Ce qu'on fait, dans quel ordre, avec quel budget.
+> Version actionnable du [CRITIQUE.md](CRITIQUE.md).
 
 ---
 
-## 🔴 Phase 1 — Corrections critiques (0€, ~4h de travail)
+## 🔴 Phase 1 — Corrections critiques
 
-**Objectif :** Réparer ce qui est cassé ou trompeur avant de construire plus.
+- [x] Bannière prototype / wording honnête / skip-link / noscript / fonts swap / XSS escape
+- [ ] Menu hamburger mobile — PR #18
 
-- [ ] **Bannière prototype** sur le site + README — remplacer "LEADER" par "Meilleur score (v0.1)"
-- [ ] **Échapper le HTML** dans les rendus JS (`escapeHtml()`) — correction XSS
-- [ ] **Google Fonts `display=swap`** — ne plus bloquer le rendu du texte
-- [ ] **Skip-link** — `<a href="#main-content">` pour l'accessibilité clavier
-- [ ] **Menu hamburger mobile** — la sidebar disparaît sous 768px sans alternative
-- [ ] **Contraste light mode** — ajuster `--bronze` pour ratio 4.5:1 minimum
-- [ ] **`<noscript>`** — message pour les utilisateurs sans JS
-- [ ] **Ajuster le wording** — remplacer "reproductible" par "reproductible (protocole documenté)" et linker la doc
+## 🟣 Phase 1.5 — Architecture services
 
-## 🟡 Phase 2 — Renforcement du benchmark (~0€, 3-6 semaines de travail)
+- [x] Backend FastAPI + frontend découplé + Docker Compose
+- [x] Auth / rate-limit + `POST /evaluate` + jobs
 
-**Objectif :** Donner au benchmark une signification statistique et une crédibilité externe.
+## 🟡 Phase 2 — Renforcement du benchmark
 
-- [ ] **200+ nouvelles questions** — cible : 300-350 questions total, 30-35 par catégorie
-- [ ] **20 questions témoins** — QCM non-africains pour servir de baseline comparative
-- [ ] **3 validateurs africains** — recruter via Masakhane, Deep Learning Indaba, Twitter
-- [ ] **10 questions de génération ouverte** — avec grille d'évaluation LLM-as-judge
-- [ ] **Documenter le protocole** sur le site : temperature, prompt, few-shot, seeds
-- [ ] **Publier le script d'évaluation** en lien direct sur le site
-- [ ] **Fichier `reproduce.sh`** — script bout-en-bout pour reproduire les résultats
+- [~] **200+ nouvelles questions** — 125 africaines (était 101) ; cible 300+
+- [x] **20 questions témoins** — `data/questions/v1/witness/` (`is_control`)
+- [ ] 3 validateurs africains
+- [ ] 10 questions de génération ouverte
+- [x] Protocole + lien script sur le site
+- [ ] `reproduce.sh` — PR #18
 
-## 🟢 Phase 3 — Scale et internationalisation (~500-1500€, 2-3 mois)
+## 🟢 Phase 3 — Scale
 
-- [ ] **Traduction en 2-3 langues africaines** (swahili, yoruba, amharique) avec traducteurs natifs
-- [ ] **Tâches non-QCM** — traduction FR↔langue africaine, résumé, QA ouverte
-- [ ] **Intégration LM Evaluation Harness** — task YAML, exécution standardisée
-- [ ] **Dockerfile** — conteneur reproductible avec seeds fixées
-- [ ] **Soumission académique** — ACL/NeurIPS datasets track
+- [ ] Traduction multilingue
+- [ ] Tâches non-QCM
+- [x] LM Evaluation Harness (`afribench` / `afribench_all`)
+- [x] Dockerfile d'évaluation + CI
+- [x] **Dataset HF prêt à publier** — `data/hf/YTILIKAN__AfriBench/` + `DATASET_CARD.md` (push Hub manuel)
+- [ ] Soumission académique
 
 ## 🔵 Phase 4 — Frontend long-terme
 
-- [ ] **HTML statique pré-généré** — plus de "Chargement..." pour les crawlers
-- [ ] **Structured data** JSON-LD (schema.org/Dataset)
-- [ ] **Filtres dans l'URL** — partage de vues filtrées
-- [ ] **Sitemap + robots.txt**
-- [ ] **Asset bundling** (esbuild) — minification, versionnement
-- [ ] **Tests frontend** (Vitest)
-- [ ] **Icônes SVG accessibles** — remplacer les icônes CSS-only
+- [x] HTML pré-généré (classement statique + `bootstrap.json` + noscript enrichi)
+- [x] JSON-LD Dataset + citation meta
+- [x] Filtres URL `?tab=&category=&difficulty=`
+- [x] Sitemap + robots.txt
+- [ ] Asset bundling / Vitest / icônes SVG
 
 ---
 
-*Dernière mise à jour : 21 juin 2026*
+*Dernière mise à jour : 3 août 2026*

@@ -6,7 +6,8 @@ let categoryFilter = null;
 
 // Expose for sidebar
 window.__categoryFilter = (cat) => {
-  categoryFilter = cat;
+  categoryFilter = cat && cat !== 'all' ? cat : null;
+  if (window.__setUrlCategory) window.__setUrlCategory(categoryFilter);
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'categories') {
     renderCategories(container);
@@ -101,6 +102,7 @@ function renderCategories(container) {
   container.querySelectorAll('[data-cat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       categoryFilter = btn.dataset.cat === 'all' ? null : btn.dataset.cat;
+      if (window.__setUrlCategory) window.__setUrlCategory(categoryFilter);
       renderCategories(container);
     });
   });

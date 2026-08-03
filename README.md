@@ -4,9 +4,9 @@
 > Benchmark public, ouvert, reproductible et contextuellement ancré.
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Juin 2026 · **Questions :** 101 · **Langues :** Français uniquement (multilingue planifié)
+**Version :** Août 2026 · **Questions :** 125 Afrique + 20 témoins · **Langues :** Français (multilingue planifié)
 
-> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — l'échantillon de 101 questions est trop petit pour tirer des conclusions statistiquement significatives. Consultez [CRITIQUE.md](CRITIQUE.md) pour l'analyse détaillée des limites et la roadmap.
+> ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif — 125 questions restent insuffisantes pour des conclusions statistiquement fortes. Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 
 ---
 
@@ -24,7 +24,7 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 | Limite | Détail | Plan |
 |--------|--------|------|
-| **101 questions** | ~11/catégorie — statistiquement insuffisant pour classer des modèles | Cible : 300+ (Phase 2) |
+| **125 questions Afrique** | encore insuffisant statistiquement (+ 20 témoins baseline) | Cible : 300+ (Phase 2) |
 | **Français uniquement** | Aucune langue africaine évaluée | Cible : swahili, yoruba, amharique (Phase 3) |
 | **Validation externe absente** | Toutes les questions écrites par une seule personne | Recrutement de validateurs en cours |
 | **Format QCM exclusif** | Pas de génération, traduction, raisonnement ouvert | Tâches ouvertes planifiées (Phase 3) |
@@ -33,76 +33,112 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 ---
 
-## Structure du repo
+## Architecture
 
 ```
 AfriBench/
-├── data/
-│   └── questions/          # Jeux de questions (template + v1)
-│       ├── template.json    # Schéma de référence
-│       └── v1/
-│           ├── raw/          # Questions brutes
-│           └── validated/    # Questions validées (9 fichiers JSON)
-├── scripts/                # Scripts d'évaluation
-│   ├── afribench.py         # CLI d'évaluation principale
-│   ├── export_frontend.py   # Export des données pour le frontend
-│   └── lm_eval_tasks/       # Intégration LM Evaluation Harness (à venir)
-├── configs/                # Configuration
-│   ├── models.yaml          # Modèles à évaluer
-│   └── categories.yaml      # Catégories du benchmark
-├── frontend/               # Application web statique
+├── backend/                # Service API FastAPI (:8080)
+│   ├── app/                # routers, services, config
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/               # UI statique (nginx :3000 ou http.server :8000)
 │   ├── index.html
-│   ├── css/style.css
-│   ├── js/                  # app.js, leaderboard.js, categories.js, etc.
-│   └── data/                # Généré par export_frontend.py
-├── research/               # Documents de cadrage
-│   ├── 01-finalite.md
-│   ├── 02-objectifs.md
-│   ├── 03-phases.md
-│   ├── 04-frameworks.md
-│   ├── 05-stack.md
-│   ├── 06-livrables.md
-│   └── 07-equipe.md
-├── CRITIQUE.md             # Analyse détaillée des forces/faiblesses
-└── README.md
+│   ├── css/ · js/
+│   ├── data/               # Fallback JSON (GitHub Pages / offline)
+│   ├── nginx.conf          # Proxy /api → backend
+│   └── Dockerfile
+├── data/                   # Source de vérité (questions + résultats)
+├── scripts/                # CLI d'évaluation (afribench.py)
+├── configs/                # models.yaml, categories.yaml
+├── docker-compose.yml      # backend + frontend
+└── research/ · CRITIQUE.md · ROADMAP.md
 ```
+
+Le frontend consomme `GET /api/v1/results` et `GET /api/v1/questions`.  
+S'il n'y a pas de backend, il retombe sur `frontend/data/*.json`.
 
 ---
 
 ## Démarrage rapide
 
+### Option A — Docker (recommandé)
+
+```bash
+docker compose up --build
+# Frontend : http://localhost:3000
+# API      : http://localhost:8080/api/v1
+# Docs     : http://localhost:8080/docs
+
+# Image d'évaluation seule
+docker build -t afribench:eval .
+docker run --rm --env-file .env afribench:eval run --model gpt-4o
+# ou
+docker compose --profile eval run --rm eval run --model gpt-4o
+```
+
+### LM Evaluation Harness
+
+```bash
+pip install lm-eval
+python scripts/export_lm_eval_dataset.py   # régénère data/lm_eval/
+lm_eval --model openai-chat-completions \
+  --model_args model=gpt-4o \
+  --tasks afribench \
+  --include_path scripts/lm_eval_tasks/ \
+  --num_fewshot 0
+```
+
+### Dataset Hugging Face (local → Hub)
+
+```bash
+python scripts/export_hf_dataset.py
+# Fichiers : data/hf/YTILIKAN__AfriBench/{african,control}.jsonl + README
+# Publication (optionnel) :
+#   pip install datasets huggingface_hub && huggingface-cli login
+#   python scripts/export_hf_dataset.py --push
+```
+
+### Questions témoins (baseline)
+
+```bash
+python scripts/afribench.py run --questions witness --model gpt-4o
+```
+
+125 questions Afrique + 20 témoins (`is_control`).
+
+### Régénérer le frontend (SEO)
+
+```bash
+python scripts/export_frontend.py
+python scripts/generate_static_html.py   # classement dans le HTML + bootstrap.json
+```
+
+### Option B — Services séparés
+
+```bash
+# Terminal 1 — backend
+cd backend && pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8080
+
+# Terminal 2 — frontend
+cd frontend && python3 -m http.server 8000
+# → http://localhost:8000  (appelle l'API sur :8080)
+```
+
 ### Évaluer un modèle
 
 ```bash
-# Installer les dépendances
+# CLI
 pip install pyyaml requests
-
-# Configurer les clés API (variables d'environnement)
 export OPENAI_API_KEY="sk-..."
-export ANTHROPIC_API_KEY="sk-ant-..."
-# etc.
+python3 scripts/afribench.py run --model gpt-4o
 
-# Lancer l'évaluation
-python scripts/afribench.py run
-
-# Évaluer un modèle spécifique
-python scripts/afribench.py run --model gpt-4o
-
-# Afficher le leaderboard
-python scripts/afribench.py leaderboard
-
-# Exporter les résultats
-python scripts/afribench.py export --format csv
-```
-
-### Lancer le frontend localement
-
-```bash
-# Générer les données pour le frontend
-python scripts/export_frontend.py
-
-# Servir le frontend
-cd frontend && python -m http.server 8000
+# Ou via l'API (backend démarré, AFRIBENCH_API_KEY défini)
+curl -X POST http://127.0.0.1:8080/api/v1/evaluate \
+  -H "X-API-Key: $AFRIBENCH_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"gpt-4o","limit":5}'
+curl -s http://127.0.0.1:8080/api/v1/jobs/<job_id>
 ```
 
 ---

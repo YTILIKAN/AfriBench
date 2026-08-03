@@ -18,6 +18,11 @@ function escapeHtml(str) {
   return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
 }
 
+const VALID_TABS = [
+  'leaderboard', 'models', 'categories', 'compare',
+  'evolution', 'questions', 'methodology', 'api',
+];
+
 const AppState = {
   results: [],
   questions: [],
@@ -26,6 +31,11 @@ const AppState = {
   filteredModels: [],
   comparePreset: null,
   favorites: new Set(loadFavorites()),
+  dataSource: null, // 'api' | 'static'
+  urlCategory: null,
+  urlDifficulty: null,
+  _skipUrlWrite: false,
+  _skipScroll: false,
 };
 
 /* ── Initialization ──────────────────────────────────── */
@@ -33,12 +43,66 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   setupTabs();
   setupSearch();
-  setActiveTab('leaderboard'); // initial active state for nav + tab bar
+  applyUrlState(); // tab (+ filters) depuis ?tab=&category=&difficulty=
   await loadData();
   renderActiveTab();
   renderTopModels();
   updateHeroStats();
+  // Appliquer filtres URL après rendu initial
+  applyUrlFilters();
+  window.addEventListener('popstate', () => {
+    applyUrlState();
+    renderActiveTab();
+    applyUrlFilters();
+  });
 });
+
+/* ── URL state (?tab=&category=&difficulty=) ─────────── */
+function applyUrlState() {
+  const params = new URLSearchParams(location.search);
+  const tab = params.get('tab');
+  AppState.urlCategory = params.get('category');
+  AppState.urlDifficulty = params.get('difficulty');
+  AppState._skipUrlWrite = true;
+  AppState._skipScroll = true;
+  setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
+  AppState._skipUrlWrite = false;
+  AppState._skipScroll = false;
+}
+
+function syncUrlState() {
+  if (AppState._skipUrlWrite) return;
+  const params = new URLSearchParams(location.search);
+  params.set('tab', AppState.activeTab);
+  if (AppState.urlCategory) params.set('category', AppState.urlCategory);
+  else params.delete('category');
+  if (AppState.urlDifficulty) params.set('difficulty', AppState.urlDifficulty);
+  else params.delete('difficulty');
+  const qs = params.toString();
+  const next = `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`;
+  if (next !== `${location.pathname}${location.search}${location.hash}`) {
+    history.replaceState(null, '', next);
+  }
+}
+
+function applyUrlFilters() {
+  if (AppState.activeTab === 'categories' && AppState.urlCategory && window.__categoryFilter) {
+    window.__categoryFilter(AppState.urlCategory);
+  }
+  if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
+    window.__applyQuestionFilters(AppState.urlCategory, AppState.urlDifficulty);
+  }
+}
+
+window.__setUrlCategory = (cat) => {
+  AppState.urlCategory = cat && cat !== 'all' ? cat : null;
+  syncUrlState();
+};
+
+window.__setUrlDifficulty = (diff) => {
+  AppState.urlDifficulty = diff && diff !== 'all' ? diff : null;
+  syncUrlState();
+};
 
 /* ── Theme ─────────────────────────────────────────────── */
 function initTheme() {
@@ -92,6 +156,7 @@ function setupTabs() {
 }
 
 function setActiveTab(tabId) {
+  if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
 
   // Update tab bar
@@ -105,12 +170,21 @@ function setActiveTab(tabId) {
     b.classList.toggle('active', b.dataset.tab === tabId);
   });
 
+  // Close mobile drawer after navigation (si présent)
+  if (typeof window.__closeMobileNav === 'function') {
+    window.__closeMobileNav();
+  }
+
+  syncUrlState();
   renderActiveTab();
+  applyUrlFilters();
 
   // Scroll to tab content area
-  var target = document.getElementById('tab-content');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!AppState._skipScroll) {
+    var target = document.getElementById('tab-content');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 
@@ -188,29 +262,76 @@ function applySearchFilter(models) {
   });
 }
 
-/* ── Data Loading ────────────────────────────────────── */
+/* ── API / Data Loading ──────────────────────────────── */
+function getApiBase() {
+  if (typeof window !== 'undefined' && window.AFRIBENCH_API_BASE) {
+    return String(window.AFRIBENCH_API_BASE).replace(/\/$/, '');
+  }
+  // Dev static server (python -m http.server 8000) → backend :8080
+  if (location.port === '8000') {
+    return 'http://127.0.0.1:8080/api/v1';
+  }
+  const meta = document.querySelector('meta[name="afribench-api"]');
+  if (meta && meta.content) {
+    return meta.content.replace(/\/$/, '');
+  }
+  // Docker nginx / same-origin proxy
+  return '/api/v1';
+}
+
+async function fetchJson(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
+  return resp.json();
+}
+
+async function loadBootstrap() {
+  try {
+    const data = await fetchJson('data/bootstrap.json');
+    if (data && Array.isArray(data.results)) AppState.results = data.results;
+    if (data && Array.isArray(data.questions)) AppState.questions = data.questions;
+    if (AppState.results.length || AppState.questions.length) {
+      AppState.dataSource = 'bootstrap';
+      return true;
+    }
+  } catch { /* ignore */ }
+  return false;
+}
+
 async function loadData() {
   const resultsContainer = document.getElementById('hdr-models');
+  const qContainer = document.getElementById('hdr-questions');
+  const apiBase = getApiBase();
+
+  // 1) Bootstrap pré-généré (SEO / premier paint)
+  await loadBootstrap();
+
+  // 2) API live (écrase le bootstrap si dispo)
   try {
-    const resp = await fetch('data/results.json');
-    if (resp.ok) {
-      AppState.results = await resp.json();
-      if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
+    const [results, questions] = await Promise.all([
+      fetchJson(`${apiBase}/results?limit=1000`),
+      fetchJson(`${apiBase}/questions?limit=500`),
+    ]);
+    AppState.results = Array.isArray(results) ? results : AppState.results;
+    AppState.questions = Array.isArray(questions) ? questions : AppState.questions;
+    AppState.dataSource = 'api';
+  } catch (err) {
+    if (AppState.dataSource !== 'bootstrap') {
+      console.warn('API unavailable, falling back to static JSON', err);
+      AppState.dataSource = 'static';
+      try {
+        const resp = await fetch('data/results.json');
+        if (resp.ok) AppState.results = await resp.json();
+      } catch { /* ignore */ }
+      try {
+        const resp = await fetch('data/questions.json');
+        if (resp.ok) AppState.questions = await resp.json();
+      } catch { /* ignore */ }
     }
-  } catch {
-    if (resultsContainer) resultsContainer.textContent = '0';
   }
 
-  const qContainer = document.getElementById('hdr-questions');
-  try {
-    const resp = await fetch('data/questions.json');
-    if (resp.ok) {
-      AppState.questions = await resp.json();
-      if (qContainer) qContainer.textContent = AppState.questions.length;
-    }
-  } catch {
-    if (qContainer) qContainer.textContent = '0';
-  }
+  if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
+  if (qContainer) qContainer.textContent = AppState.questions.length;
 
   renderSidebarCategories();
   renderDailyQuestion();

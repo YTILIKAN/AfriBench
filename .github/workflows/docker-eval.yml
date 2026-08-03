@@ -1,0 +1,46 @@
+name: Build evaluation image
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "requirements-eval.txt"
+      - "scripts/**"
+      - "data/questions/**"
+      - "configs/**"
+      - ".github/workflows/docker-eval.yml"
+  pull_request:
+    paths:
+      - "Dockerfile"
+      - "requirements-eval.txt"
+      - "scripts/**"
+      - "configs/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build evaluation image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          tags: |
+            afribench:eval
+            afribench:0.1.0
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke — validate questions in container
+        run: |
+          docker build -t afribench:eval .
+          docker run --rm afribench:eval validate data/questions/v1/validated
+          docker run --rm afribench:eval list-models

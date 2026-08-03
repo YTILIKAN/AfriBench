@@ -131,6 +131,7 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qcat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterCat = btn.dataset.qcat;
+      if (window.__setUrlCategory) window.__setUrlCategory(qFilterCat);
       renderQuestions(container);
     });
   });
@@ -139,7 +140,17 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qdiff]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterDiff = btn.dataset.qdiff;
+      if (window.__setUrlDifficulty) window.__setUrlDifficulty(qFilterDiff);
       renderQuestions(container);
     });
   });
 }
+
+window.__applyQuestionFilters = (cat, diff) => {
+  if (cat) qFilterCat = cat;
+  if (diff) qFilterDiff = diff;
+  const container = document.getElementById('tab-content');
+  if (container && AppState.activeTab === 'questions') {
+    renderQuestions(container);
+  }
+};

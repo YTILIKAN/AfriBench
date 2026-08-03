@@ -1,39 +1,42 @@
-"""Utilitaires pour le task config AfriBench dans LM Evaluation Harness."""
+"""Utilitaires AfriBench pour LM Evaluation Harness (multiple_choice)."""
 
-# Format du prompt AfriBench pour le multiple-choice
-# Chaque question a : question, options (dict A/B/C/D)
-# Le format standard suit MMLU : "Question: ...\nA. ...\nB. ...\nC. ...\nD. ...\nRéponse:"
+from __future__ import annotations
 
 
-def doc_to_text(doc):
-    """Formate une question en texte pour le modèle.
-
-    Args:
-        doc: dictionnaire représentant une question du dataset JSON.
-             Contient 'question' (str) et 'options' (dict {A: ..., B: ..., ...}).
-    """
+def doc_to_text(doc: dict) -> str:
+    """Formate une question en prompt zero-shot (aligné sur scripts/afribench.py)."""
     question = doc.get("question", "")
     options = doc.get("options", {})
 
-    # Format standard AfriBench
     if isinstance(options, dict):
         options_str = "\n".join(f"{k}. {v}" for k, v in options.items())
     else:
         options_str = str(options)
 
-    return f"Question : {question}\n{options_str}\nRéponse :"
+    return (
+        "Vous êtes un assistant spécialisé dans l'évaluation des connaissances "
+        "sur l'Afrique. Répondez UNIQUEMENT par la lettre de la bonne réponse "
+        "(A, B, C ou D).\n\n"
+        f"Question : {question}\n{options_str}\nRéponse :"
+    )
 
 
-def doc_to_choice(doc):
-    """Retourne la liste des choix possibles.
-
-    Args:
-        doc: dictionnaire représentant une question.
-
-    Returns:
-        Liste des lettres des choix (ex: ["A", "B", "C", "D"])
-    """
+def doc_to_choice(doc: dict) -> list[str]:
+    """Lettres des choix (ordre du dict options)."""
     options = doc.get("options", {})
-    if isinstance(options, dict):
+    if isinstance(options, dict) and options:
         return list(options.keys())
     return ["A", "B", "C", "D"]
+
+
+def doc_to_target(doc: dict) -> int:
+    """Index de la bonne réponse dans doc_to_choice (requis par lm-eval MCQ)."""
+    choices = doc_to_choice(doc)
+    answer = str(doc.get("answer", "")).strip().upper()
+    try:
+        return choices.index(answer)
+    except ValueError:
+        # Fallback : première lettre seule
+        if answer and answer[0] in choices:
+            return choices.index(answer[0])
+        return 0

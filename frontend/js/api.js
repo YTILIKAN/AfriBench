@@ -14,7 +14,9 @@ function renderAPI(container) {
       </p>
 
       <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--sp-lg)">
-        Base URL : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre)">https://ytilikan.github.io/AfriBench/api/v1</code>
+        Base URL (local) : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre)">http://127.0.0.1:8080/api/v1</code>
+        &nbsp;·&nbsp; Docs : <a href="http://127.0.0.1:8080/docs" target="_blank" rel="noopener">/docs</a>
+        &nbsp;·&nbsp; Source données : <code style="font-family:var(--mono);color:var(--ocre)">${AppState.dataSource || '—'}</code>
       </p>
 
       <div class="api-endpoint">
@@ -56,7 +58,7 @@ ${'  '}[
 
           <h4>Exemple</h4>
           <div class="api-code-sample">
-curl -s "https://ytilikan.github.io/AfriBench/api/v1/results?limit=3" | jq '.'
+curl -s "http://127.0.0.1:8080/api/v1/results?limit=3" | jq '.'
           </div>
         </div>
       </div>
@@ -99,7 +101,7 @@ ${'  '}[
 
           <h4>Exemple</h4>
           <div class="api-code-sample">
-curl -s "https://ytilikan.github.io/AfriBench/api/v1/questions?category=histoire&difficulty=hard" | jq '.'
+curl -s "http://127.0.0.1:8080/api/v1/questions?category=histoire&difficulty=hard" | jq '.'
           </div>
         </div>
       </div>
@@ -164,7 +166,7 @@ ${'  '}{
 
           <h4>Exemple avec JavaScript</h4>
           <div class="api-code-sample">
-const resp = await fetch('https://ytilikan.github.io/AfriBench/api/v1/stats');
+const resp = await fetch('http://127.0.0.1:8080/api/v1/stats');
 const stats = await resp.json();
 console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
           </div>
@@ -179,44 +181,60 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
         </div>
         <div class="api-endpoint-body">
           <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--space-1)">
-            Endpoint combine retournant le classement complet avec les top model cards, 
-            les tendances et les statistiques de distribution.
+            Endpoint combiné retournant le classement complet avec moyennes par catégorie.
           </p>
 
           <h4>Exemple Python</h4>
           <div class="api-code-sample">
 import requests
-import pandas as pd
-
-url = "https://ytilikan.github.io/AfriBench/api/v1/leaderboard"
+url = "http://127.0.0.1:8080/api/v1/leaderboard"
 data = requests.get(url).json()
+print(data['stats'])
+          </div>
+        </div>
+      </div>
 
-df = pd.DataFrame(data['models'])
-print(df[['label', 'accuracy', 'correct', 'total']])
+      <div class="api-endpoint">
+        <div class="api-endpoint-header">
+          <span class="http-method http-post">POST</span>
+          <span class="endpoint-url">/evaluate</span>
+          <span class="endpoint-desc">Lancer une évaluation (auth requise)</span>
+        </div>
+        <div class="api-endpoint-body">
+          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:8px">
+            Header requis : <code style="font-family:var(--mono);color:var(--ocre)">X-API-Key</code>
+            (= <code style="font-family:var(--mono)">AFRIBENCH_API_KEY</code>).
+            Job asynchrone — suivre via <code style="font-family:var(--mono)">GET /jobs/{id}</code>.
+          </p>
+          <div class="api-code-sample">
+curl -X POST http://127.0.0.1:8080/api/v1/evaluate \\
+  -H "X-API-Key: $AFRIBENCH_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"model":"gpt-4o","limit":5}'
 
-# Score moyen par categorie
-for cat, scores in data['category_averages'].items():
-    print(f"{cat}: {scores['average']:.1f}%")
+# Suivi
+curl -s http://127.0.0.1:8080/api/v1/jobs/JOB_ID | jq .
           </div>
         </div>
       </div>
 
       <div class="card" style="margin-top:var(--sp-md)">
         <div class="card-title">
-          Utilisation
-          <span class="badge">NOTE</span>
+          Architecture
+          <span class="badge">v0.1</span>
         </div>
         <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6">
-          L'API AfriBench est entierement statique et accessible via GitHub Pages. 
-          Les donnees sont mises a jour manuellement lors de chaque nouvelle evaluation.
-          Actuellement, les donnees brutes sont accessibles directement depuis le depot GitHub :
+          AfriBench est scindé en deux services :
         </p>
         <ul style="font-size:0.82rem;color:var(--charbon);line-height:1.8;margin-top:8px;padding-left:20px">
-          <li><code style="font-family:var(--mono);color:var(--ocre)">data/results.json</code> — Resultats complets</li>
-          <li><code style="font-family:var(--mono);color:var(--ocre)">data/questions.json</code> — Questions et reponses</li>
+          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre)">:8080</code>) + rate-limit + clé API pour l'écriture</li>
+          <li><strong>frontend/</strong> — UI statique (nginx ou <code style="font-family:var(--mono)">python -m http.server</code>)</li>
         </ul>
-        <p style="font-size:0.82rem;color:var(--muted);margin-top:8px">
-          Une API REST formelle est en cours de developpement (version 1.0).
+        <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6;margin-top:8px">
+          En local : <code style="font-family:var(--mono);color:var(--ocre)">docker compose up --build</code>
+          (frontend <code>:3000</code>, API <code>:8080</code>, docs <code>/docs</code>).
+          Sans backend, le frontend retombe sur les JSON statiques
+          <code style="font-family:var(--mono);color:var(--ocre)">frontend/data/*.json</code>.
         </p>
       </div>
 

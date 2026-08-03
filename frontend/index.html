@@ -7,24 +7,65 @@
   <meta name="description" content="AfriBench : évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert et reproductible (scripts publiés).">
   <meta name="keywords" content="LLM, benchmark, Afrique, intelligence artificielle, évaluation, NLP africain">
   <meta property="og:title" content="AfriBench — Benchmark LLM pour l'Afrique">
-  <meta property="og:description" content="Évaluer les modèles de langage sur les réalités africaines. 101 questions dans 9 catégories.">
+  <meta property="og:description" content="Évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert, avec questions témoins de contrôle.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://afribench.vercel.app/">
+  <meta property="og:url" content="https://ytilikan.github.io/AfriBench/">
+  <meta name="citation_title" content="AfriBench: Evaluating Language Models on African Realities">
+  <meta name="citation_author" content="YTILIKAN">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_language" content="fr">
+  <!-- Override API base if needed: window.AFRIBENCH_API_BASE = 'http://…/api/v1' -->
+  <meta name="afribench-api" content="/api/v1">
+  <link rel="canonical" href="https://ytilikan.github.io/AfriBench/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "AfriBench",
+    "description": "Benchmark public pour évaluer les modèles de langage sur les réalités africaines (histoire, géographie, culture, droit, santé, économie, IA, société).",
+    "url": "https://ytilikan.github.io/AfriBench/",
+    "license": "https://github.com/YTILIKAN/AfriBench",
+    "creator": {
+      "@type": "Organization",
+      "name": "YTILIKAN",
+      "url": "https://ytilikan.com"
+    },
+    "inLanguage": "fr",
+    "keywords": ["LLM", "benchmark", "Africa", "NLP", "evaluation", "AfriBench"],
+    "version": "0.1",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://ytilikan.github.io/AfriBench/data/questions.json"
+      },
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://ytilikan.github.io/AfriBench/data/results.json"
+      }
+    ],
+    "isAccessibleForFree": true
+  }
+  </script>
 </head>
 <body>
 
   <a href="#tab-content" class="skip-link">Aller au contenu principal</a>
 
-  <noscript>
-    <div style="background:var(--indigo);color:var(--ivoire);padding:40px;text-align:center;font-family:sans-serif">
-      <h2>JavaScript requis</h2>
-      <p>AfriBench nécessite JavaScript pour afficher le classement et les graphiques interactifs.</p>
-      <p>Consultez les résultats sur <a href="https://github.com/YTILIKAN/AfriBench" style="color:var(--ocre)">GitHub</a>.</p>
+    <noscript>
+    <div style="background:#0A0806;color:#FAF9F6;padding:40px;text-align:center;font-family:sans-serif">
+      <h2>AfriBench — Prototype v0.1</h2>
+      <p>JavaScript est recommandé pour l'expérience complète. Aperçu du classement (125 questions) :</p>
+      <ol style="display:inline-block;text-align:left"><li>DeepSeek V4 — 96.0%</li><li>Claude Sonnet 4 — 95.0%</li><li>GPT-4o — 94.1%</li><li>Mistral Large — 92.1%</li><li>GPT-4o Mini — 91.1%</li><li>Gemini 2.5 Flash — 90.1%</li><li>Claude Haiku 4.5 — 90.1%</li></ol>
+      <p>Données : <a href="data/results.json" style="color:#FFA726">results.json</a> ·
+      <a href="data/questions.json" style="color:#FFA726">questions.json</a> ·
+      <a href="https://github.com/YTILIKAN/AfriBench" style="color:#FFA726">GitHub</a></p>
     </div>
   </noscript>
 
@@ -97,7 +138,7 @@
               </p>
               <div class="hero-badges" id="hero-badges">
                 <div class="hero-badge"><strong id="hero-model-count">-</strong> modèles évalués</div>
-                <div class="hero-badge"><strong id="hero-q-count">101</strong> questions</div>
+                <div class="hero-badge"><strong id="hero-q-count">125</strong> questions</div>
                 <div class="hero-badge"><strong id="hero-cat-count">9</strong> catégories</div>
                 <div class="hero-badge">mis à jour <strong id="hero-date">-</strong></div>
               </div>
@@ -155,12 +196,29 @@
       <section class="section">
         <div class="wrap">
           <main class="content-area" id="tab-content" role="tabpanel">
-            <div class="card">
-              <div class="empty-state">
-                <h3>Chargement...</h3>
-                <p><span class="pulse"></span> Patientez</p>
+<!-- STATIC_LEADERBOARD_BEGIN -->
+            <div class="card" id="static-leaderboard">
+              <div class="card-title">Classement (v0.1 — indicatif)</div>
+              <p style="font-size:.85rem;color:var(--muted);margin-bottom:12px">
+                Contenu pré-généré pour les moteurs de recherche et lecteurs sans JavaScript.
+                125 questions · 7 modèles.
+              </p>
+              <div class="lb-table-wrap">
+                <table class="lb-table">
+                  <thead><tr><th>#</th><th>Modèle</th><th>Score</th><th>Détail</th></tr></thead>
+                  <tbody>
+<tr><td>1</td><td>DeepSeek V4</td><td>96.0%</td><td>97/101</td></tr>
+<tr><td>2</td><td>Claude Sonnet 4</td><td>95.0%</td><td>96/101</td></tr>
+<tr><td>3</td><td>GPT-4o</td><td>94.1%</td><td>95/101</td></tr>
+<tr><td>4</td><td>Mistral Large</td><td>92.1%</td><td>93/101</td></tr>
+<tr><td>5</td><td>GPT-4o Mini</td><td>91.1%</td><td>92/101</td></tr>
+<tr><td>6</td><td>Gemini 2.5 Flash</td><td>90.1%</td><td>91/101</td></tr>
+<tr><td>7</td><td>Claude Haiku 4.5</td><td>90.1%</td><td>91/101</td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
+            <!-- STATIC_LEADERBOARD_END -->
           </main>
         </div>
       </section>

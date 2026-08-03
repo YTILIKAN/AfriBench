@@ -1,0 +1,66 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: afribench-backend
+    ports:
+      - "8080:8080"
+    environment:
+      AFRIBENCH_CORS_ORIGINS: "*"
+      AFRIBENCH_API_KEY: ${AFRIBENCH_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      TOGETHER_API_KEY: ${TOGETHER_API_KEY:-}
+    volumes:
+      # Résultats écrits par POST /evaluate
+      - ./data:/app/data
+      - ./frontend/data:/app/frontend/data:ro
+      - ./configs:/app/configs:ro
+      - ./scripts:/app/scripts:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: afribench-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # Image d'évaluation reproductible (issue #13)
+  # Usage :
+  #   docker compose --profile eval run --rm eval list-models
+  #   docker compose --profile eval run --rm eval run --model gpt-4o
+  eval:
+    profiles: ["eval"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: afribench:eval
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      TOGETHER_API_KEY: ${TOGETHER_API_KEY:-}
+      PYTHONHASHSEED: "0"
+      AFRIBENCH_SEED: "42"
+    volumes:
+      - ./data/results:/app/data/results
+    entrypoint: ["python", "scripts/afribench.py"]
+    command: ["leaderboard"]

@@ -1,0 +1,402 @@
+[
+  {
+    "id": "CTRL-001",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la capitale de l'Australie ?",
+    "options": {
+      "A": "Sydney",
+      "B": "Melbourne",
+      "C": "Canberra",
+      "D": "Perth"
+    },
+    "answer": "C",
+    "explanation": "Canberra a été choisie comme compromis entre Sydney et Melbourne et est la capitale fédérale depuis 1913.",
+    "source": "Encyclopædia Britannica — Canberra",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-002",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel océan se trouve entre l'Europe et l'Amérique du Nord ?",
+    "options": {
+      "A": "Océan Pacifique",
+      "B": "Océan Atlantique",
+      "C": "Océan Indien",
+      "D": "Océan Arctique"
+    },
+    "answer": "B",
+    "explanation": "L'océan Atlantique sépare l'Europe de l'Amérique du Nord.",
+    "source": "National Geographic — Atlantic Ocean",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-003",
+    "category": "temoin",
+    "subcategory": "histoire_europe",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "En quelle année la Révolution française a-t-elle commencé ?",
+    "options": {
+      "A": "1689",
+      "B": "1789",
+      "C": "1848",
+      "D": "1917"
+    },
+    "answer": "B",
+    "explanation": "La prise de la Bastille le 14 juillet 1789 marque le début symbolique de la Révolution française.",
+    "source": "Larousse — Révolution française",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-004",
+    "category": "temoin",
+    "subcategory": "histoire_europe",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Qui a été le premier empereur de Rome (principat) ?",
+    "options": {
+      "A": "Jules César",
+      "B": "Auguste",
+      "C": "Néron",
+      "D": "Constantin"
+    },
+    "answer": "B",
+    "explanation": "Octave reçoit le titre d'Auguste en 27 av. J.-C. et inaugure le Principat ; Jules César n'a jamais porté le titre d'empereur.",
+    "source": "Encyclopædia Britannica — Augustus",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-005",
+    "category": "temoin",
+    "subcategory": "sciences",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel gaz les plantes absorbent-elles principalement pour la photosynthèse ?",
+    "options": {
+      "A": "Oxygène",
+      "B": "Azote",
+      "C": "Dioxyde de carbone",
+      "D": "Hydrogène"
+    },
+    "answer": "C",
+    "explanation": "Lors de la photosynthèse, les plantes fixent le CO₂ et libèrent de l'O₂.",
+    "source": "NASA Climate — Photosynthesis",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-006",
+    "category": "temoin",
+    "subcategory": "sciences",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle est l'unité SI de la force ?",
+    "options": {
+      "A": "Joule",
+      "B": "Watt",
+      "C": "Newton",
+      "D": "Pascal"
+    },
+    "answer": "C",
+    "explanation": "Le newton (N) est l'unité SI de la force ; le joule mesure l'énergie, le watt la puissance, le pascal la pression.",
+    "source": "BIPM — SI Brochure",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-007",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le plus long fleuve d'Asie ?",
+    "options": {
+      "A": "Gange",
+      "B": "Mékong",
+      "C": "Yangtsé",
+      "D": "Indus"
+    },
+    "answer": "C",
+    "explanation": "Le Yangtsé (Chang Jiang) est le plus long fleuve d'Asie et le troisième du monde.",
+    "source": "Encyclopædia Britannica — Yangtze River",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-008",
+    "category": "temoin",
+    "subcategory": "histoire_monde",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel empire d'Amérique précolombienne avait pour capitale Tenochtitlan ?",
+    "options": {
+      "A": "Inca",
+      "B": "Maya",
+      "C": "Aztèque",
+      "D": "Olmèque"
+    },
+    "answer": "C",
+    "explanation": "Tenochtitlan, sur l'emplacement actuel de Mexico, était la capitale de l'Empire aztèque.",
+    "source": "UNESCO — Historic Centre of Mexico City",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-009",
+    "category": "temoin",
+    "subcategory": "sciences",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de planètes le Système solaire compte-t-il officiellement depuis 2006 ?",
+    "options": {
+      "A": "7",
+      "B": "8",
+      "C": "9",
+      "D": "12"
+    },
+    "answer": "B",
+    "explanation": "Après la reclassification de Pluton en planète naine (2006), le Système solaire compte huit planètes.",
+    "source": "IAU 2006 Resolution — Pluto",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-010",
+    "category": "temoin",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Qui a écrit le roman « Don Quichotte » ?",
+    "options": {
+      "A": "Lope de Vega",
+      "B": "Miguel de Cervantes",
+      "C": "Gabriel García Márquez",
+      "D": "Jorge Luis Borges"
+    },
+    "answer": "B",
+    "explanation": "Miguel de Cervantes a publié la première partie de Don Quichotte en 1605.",
+    "source": "Encyclopædia Britannica — Don Quixote",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-011",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle mer intérieure est bordée par la Turquie, la Bulgarie, la Roumanie, l'Ukraine, la Russie et la Géorgie ?",
+    "options": {
+      "A": "Mer Caspienne",
+      "B": "Mer Méditerranée",
+      "C": "Mer Noire",
+      "D": "Mer Baltique"
+    },
+    "answer": "C",
+    "explanation": "La mer Noire est bordée par ces six États (la Géorgie sur sa côte orientale).",
+    "source": "Encyclopædia Britannica — Black Sea",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-012",
+    "category": "temoin",
+    "subcategory": "histoire_europe",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel traité de 1648 a mis fin à la guerre de Trente Ans ?",
+    "options": {
+      "A": "Traité de Versailles",
+      "B": "Paix de Westphalie",
+      "C": "Traité de Tordesillas",
+      "D": "Congrès de Vienne"
+    },
+    "answer": "B",
+    "explanation": "Les traités de Westphalie (1648) mettent fin à la guerre de Trente Ans et redessinent l'ordre européen.",
+    "source": "Encyclopædia Britannica — Peace of Westphalia",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-013",
+    "category": "temoin",
+    "subcategory": "sciences",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel scientifique a formulé les lois du mouvement planétaire au début du XVIIe siècle ?",
+    "options": {
+      "A": "Galilée",
+      "B": "Newton",
+      "C": "Kepler",
+      "D": "Copernic"
+    },
+    "answer": "C",
+    "explanation": "Johannes Kepler a établi les trois lois des orbites planétaires elliptiques.",
+    "source": "NASA — Johannes Kepler",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-014",
+    "category": "temoin",
+    "subcategory": "economie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Que désigne le PIB ?",
+    "options": {
+      "A": "Le total des dettes publiques",
+      "B": "La valeur des biens et services produits sur un territoire en une période",
+      "C": "Le solde de la balance commerciale",
+      "D": "Le taux d'inflation annuel"
+    },
+    "answer": "B",
+    "explanation": "Le produit intérieur brut mesure la production de biens et services sur un territoire pendant une période donnée.",
+    "source": "INSEE — PIB",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-015",
+    "category": "temoin",
+    "subcategory": "informatique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Que signifie l'acronyme HTTP ?",
+    "options": {
+      "A": "HyperText Transfer Protocol",
+      "B": "High Transfer Text Program",
+      "C": "Host Transfer Type Process",
+      "D": "Hyperlink Text Transmission Protocol"
+    },
+    "answer": "A",
+    "explanation": "HTTP (HyperText Transfer Protocol) est le protocole de communication du Web.",
+    "source": "IETF RFC 9110",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-016",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans quel pays se trouve le mont Fuji ?",
+    "options": {
+      "A": "Chine",
+      "B": "Corée du Sud",
+      "C": "Japon",
+      "D": "Philippines"
+    },
+    "answer": "C",
+    "explanation": "Le mont Fuji est le plus haut sommet du Japon et un symbole culturel majeur.",
+    "source": "UNESCO — Fujisan",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-017",
+    "category": "temoin",
+    "subcategory": "histoire_monde",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle dynastie chinoise est associée à l'unification de 221 av. J.-C. sous Qin Shi Huang ?",
+    "options": {
+      "A": "Han",
+      "B": "Tang",
+      "C": "Qin",
+      "D": "Ming"
+    },
+    "answer": "C",
+    "explanation": "Qin Shi Huang unifie la Chine en 221 av. J.-C. et fonde la dynastie Qin.",
+    "source": "Encyclopædia Britannica — Qin dynasty",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-018",
+    "category": "temoin",
+    "subcategory": "sciences",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel est le nombre atomique du carbone ?",
+    "options": {
+      "A": "6",
+      "B": "8",
+      "C": "12",
+      "D": "14"
+    },
+    "answer": "A",
+    "explanation": "Le carbone a 6 protons ; 12 et 14 renvoient à des nombres de masse d'isotopes (C-12, C-14).",
+    "source": "IUPAC — Periodic Table",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-019",
+    "category": "temoin",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui a écrit « Roméo et Juliette » ?",
+    "options": {
+      "A": "Christopher Marlowe",
+      "B": "William Shakespeare",
+      "C": "Charles Dickens",
+      "D": "Jane Austen"
+    },
+    "answer": "B",
+    "explanation": "La tragédie Roméo et Juliette est une œuvre de William Shakespeare (fin XVIe siècle).",
+    "source": "Encyclopædia Britannica — Romeo and Juliet",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CTRL-020",
+    "category": "temoin",
+    "subcategory": "geographie_mondiale",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle chaîne de montagnes sépare principalement l'Europe de l'Asie ?",
+    "options": {
+      "A": "Les Alpes",
+      "B": "Les Carpates",
+      "C": "L'Oural",
+      "D": "Le Caucase"
+    },
+    "answer": "C",
+    "explanation": "L'Oural est souvent retenu comme frontière conventionnelle Europe–Asie ; le Caucase est une autre limite discutée au sud.",
+    "source": "Encyclopædia Britannica — Ural Mountains",
+    "is_control": true,
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]
