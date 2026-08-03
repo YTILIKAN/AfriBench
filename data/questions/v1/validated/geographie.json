@@ -321,5 +321,195 @@
     "source": "UNESCO — Kilimanjaro National Park",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-018",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel désert couvre une grande partie de l'Afrique du Nord ?",
+    "options": {
+      "A": "Kalahari",
+      "B": "Sahara",
+      "C": "Namib",
+      "D": "Gobi"
+    },
+    "answer": "B",
+    "explanation": "Le Sahara est le plus grand désert chaud du monde et domine l'Afrique du Nord.",
+    "source": "National Geographic — Sahara",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-019",
+    "category": "geographie",
+    "subcategory": "hydrographie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Nil Blanc et le Nil Bleu se rejoignent principalement à :",
+    "options": {
+      "A": "Le Caire",
+      "B": "Khartoum",
+      "C": "Alexandrie",
+      "D": "Assouan"
+    },
+    "answer": "B",
+    "explanation": "À Khartoum (Soudan), le Nil Blanc et le Nil Bleu convergent pour former le Nil.",
+    "source": "Encyclopædia Britannica — Nile River",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-020",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel État insulaire d'Afrique de l'Est se trouve dans l'océan Indien et a pour capitale Moroni ?",
+    "options": {
+      "A": "Maurice",
+      "B": "Seychelles",
+      "C": "Comores",
+      "D": "Madagascar"
+    },
+    "answer": "C",
+    "explanation": "L'union des Comores a pour capitale Moroni (grande Comore).",
+    "source": "Encyclopædia Britannica — Comoros",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-021",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les chutes Victoria se trouvent sur le fleuve :",
+    "options": {
+      "A": "Congo",
+      "B": "Zambèze",
+      "C": "Limpopo",
+      "D": "Orange"
+    },
+    "answer": "B",
+    "explanation": "Les chutes Victoria (Mosi-oa-Tunya) sont formées par le Zambèze, entre la Zambie et le Zimbabwe.",
+    "source": "UNESCO — Mosi-oa-Tunya / Victoria Falls",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-022",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel est le plus grand lac d'Afrique par superficie ?",
+    "options": {
+      "A": "Lac Tchad",
+      "B": "Lac Victoria",
+      "C": "Lac Malawi",
+      "D": "Lac Turkana"
+    },
+    "answer": "B",
+    "explanation": "Le lac Victoria est le plus grand lac d'Afrique par superficie.",
+    "source": "Encyclopædia Britannica — Lake Victoria",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-023",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le rift est-africain est surtout connu comme :",
+    "options": {
+      "A": "Une zone de fracture tectonique allongée",
+      "B": "Un désert côtier d'Afrique de l'Ouest",
+      "C": "Un archipel volcanique atlantique",
+      "D": "Une chaîne glaciaire exclusive au Maghreb"
+    },
+    "answer": "A",
+    "explanation": "Le système de rifts est-africains résulte de l'extension de la lithosphère.",
+    "source": "USGS / Britannica — East African Rift",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle est la capitale de l'Éthiopie ?",
+    "options": {
+      "A": "Addis-Abeba",
+      "B": "Asmara",
+      "C": "Djibouti",
+      "D": "Khartoum"
+    },
+    "answer": "A",
+    "explanation": "Addis-Abeba est la capitale de l'Éthiopie et accueille le siège de l'UA.",
+    "source": "Encyclopædia Britannica — Addis Ababa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-025",
+    "category": "geographie",
+    "subcategory": "urbaine",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Caire est traversé / bordé principalement par quel fleuve ?",
+    "options": {
+      "A": "Le Nil",
+      "B": "Le Niger",
+      "C": "Le Sénégal",
+      "D": "Le Congo"
+    },
+    "answer": "A",
+    "explanation": "Le Caire s'est développé sur les rives du Nil.",
+    "source": "Encyclopædia Britannica — Cairo",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-026",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le désert du Namib se trouve principalement :",
+    "options": {
+      "A": "Le long de la côte sud-ouest de l'Afrique",
+      "B": "Au centre du Sahara algérien uniquement",
+      "C": "En Afrique de l'Est montagneuse",
+      "D": "Sur l'île de Madagascar"
+    },
+    "answer": "A",
+    "explanation": "Le Namib est un désert côtier d'Afrique australe (notamment Namibie).",
+    "source": "UNESCO / Britannica — Namib Desert",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-027",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la capitale du Sénégal ?",
+    "options": {
+      "A": "Dakar",
+      "B": "Saint-Louis uniquement",
+      "C": "Bamako",
+      "D": "Conakry"
+    },
+    "answer": "A",
+    "explanation": "Dakar est la capitale et principale métropole du Sénégal.",
+    "source": "Encyclopædia Britannica — Dakar",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "OPEN-001",
+    "category": "histoire",
+    "subcategory": "synthese",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Expliquez en 150–250 mots l'impact de la Conférence de Berlin (1884–1885) sur le partage colonial de l'Afrique.",
+    "reference_points": [
+      "Contexte des rivalités européennes",
+      "Principe d'occupation effective",
+      "Conséquences sur les frontières et souverainetés africaines",
+      "Nuance : l'agency africaine n'était pas nulle"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-002",
+    "category": "droit_politique",
+    "subcategory": "comparaison",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Comparez en 150–250 mots le droit coutumier et la common law/civil law hérités de la colonisation dans un pays africain de votre choix : complémentarités et tensions.",
+    "reference_points": [
+      "Définition courte des deux ordres",
+      "Exemple national concret",
+      "Zones de conflit (foncier, famille, justice)",
+      "Pistes d'articulation contemporaine"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "Littérature pluralisme juridique africain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-003",
+    "category": "economie",
+    "subcategory": "analyse",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Analysez en 150–250 mots les opportunités et risques de la ZLECAf pour les petites et moyennes entreprises africaines.",
+    "reference_points": [
+      "Accès marché continental",
+      "Barrières non tarifaires / normes",
+      "Infrastructures et logistique",
+      "Risque de concentration au profit d'acteurs dominants"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "AfCFTA Secretariat / BAD",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-004",
+    "category": "sante_sciences",
+    "subcategory": "synthese",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "question": "Synthétisez en 120–200 mots les principaux leviers de la lutte antipaludique en Afrique subsaharienne aujourd'hui.",
+    "reference_points": [
+      "Moustiquaires / vecteurs",
+      "Tests et traitements (ACT)",
+      "Vaccination (selon contexte)",
+      "Surveillance communautaire"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "OMS — Malaria",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-005",
+    "category": "langue_culture",
+    "subcategory": "analyse",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Pourquoi l'éducation bilingue (langue maternelle + langue officielle) est-elle défendue par de nombreux pédagogues en Afrique ? Argumentez en 150–250 mots.",
+    "reference_points": [
+      "Compréhension des apprentissages précoces",
+      "Identité et estime de soi",
+      "Transition vers langues officielles",
+      "Contraintes (enseignants, manuels)"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "UNESCO — éducation multilingue",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-006",
+    "category": "ia_technologie",
+    "subcategory": "analyse",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Quels obstacles techniques et politiques freinent le développement de modèles de langage pour les langues africaines à faibles ressources ? (150–250 mots)",
+    "reference_points": [
+      "Manque de données annotées",
+      "Tokenisation / scripts",
+      "Coût compute et talents",
+      "Souveraineté des données / priorités politiques"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "Masakhane / AfroBench literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-007",
+    "category": "societe",
+    "subcategory": "comparaison",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "question": "Comparez brièvement (150–250 mots) urbanisation planifiée et croissance des quartiers informels dans une grande ville africaine : causes et enjeux de service public.",
+    "reference_points": [
+      "Croissance démographique",
+      "Foncier et logement",
+      "Accès eau/électricité/transport",
+      "Politiques d'inclusion vs expulsion"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "ONU-Habitat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-008",
+    "category": "geographie",
+    "subcategory": "synthese",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "question": "Expliquez en 120–200 mots le rôle du fleuve Nil pour l'Égypte et les enjeux de coopération avec les pays d'amont.",
+    "reference_points": [
+      "Dépendance hydrique égyptienne",
+      "Barrages d'amont (ex. GERD)",
+      "Droit international de l'eau / négociations",
+      "Enjeux agricoles et énergétiques"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "Littérature hydropolitique du Nil",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-009",
+    "category": "histoire",
+    "subcategory": "analyse",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Analysez en 150–250 mots la contribution du panafricanisme intellectuel (ex. Nkrumah, Padmore, Césaire/Senghor selon votre angle) aux indépendances africaines.",
+    "reference_points": [
+      "Idées de solidarité continentale",
+      "Réseaux diasporiques",
+      "Lien avec mouvements nationaux",
+      "Limites et divergences"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "UNESCO HGA / histoire du panafricanisme",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "OPEN-010",
+    "category": "raisonnement_culturel",
+    "subcategory": "analyse",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "question": "Sans essentialiser « l'Afrique », expliquez en 150–250 mots comment des normes d'hospitalité et de respect des aînés peuvent influencer une négociation professionnelle — et quand ces normes varient.",
+    "reference_points": [
+      "Évite les généralisations absolues",
+      "Exemples de salutations / tours de parole",
+      "Variation urbaine/générations/secteurs",
+      "Risque de stéréotype"
+    ],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "Anthropologie des organisations / communication interculturelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

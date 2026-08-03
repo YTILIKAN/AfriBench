@@ -245,5 +245,176 @@
     "source": "USGS Mineral Commodity Summaries — Cobalt",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-014",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le siège du secrétariat de la ZLECAf se trouve à :",
+    "options": {
+      "A": "Nairobi",
+      "B": "Accra",
+      "C": "Pretoria",
+      "D": "Dakar"
+    },
+    "answer": "B",
+    "explanation": "Le secrétariat de la Zone de libre-échange continentale africaine est basé à Accra (Ghana).",
+    "source": "AfCFTA Secretariat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-015",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "M-Pesa, pionnier du mobile money, a d'abord connu un succès massif au :",
+    "options": {
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "Lancé au Kenya (2007), M-Pesa est devenu une référence mondiale du paiement mobile.",
+    "source": "GSMA / Safaricom — M-Pesa case studies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-016",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « paradoxe de l'abondance » (resource curse) désigne le risque que :",
+    "options": {
+      "A": "Les ressources naturelles freinent la diversification et la gouvernance",
+      "B": "L'agriculture disparaisse partout",
+      "C": "Les pays sans ressources soient toujours plus riches",
+      "D": "Le commerce Sud-Sud soit impossible"
+    },
+    "answer": "A",
+    "explanation": "Le resource curse décrit les difficultés de développement associées à une dépendance forte aux matières premières.",
+    "source": "Littérature économique — resource curse (Sachs/Warner et suites)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-017",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un objectif central de la ZLECAf est de :",
+    "options": {
+      "A": "Réduire les barrières commerciales intra-africaines",
+      "B": "Interdire toute exportation hors d'Afrique",
+      "C": "Remplacer l'agriculture par le tourisme uniquement",
+      "D": "Créer une seule langue officielle mondiale"
+    },
+    "answer": "A",
+    "explanation": "La ZLECAf vise un marché continental en abaissant droits de douane et barrières non tarifaires.",
+    "source": "AfCFTA Secretariat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-018",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le cacao africain est surtout produit en grande quantité en :",
+    "options": {
+      "A": "Côte d'Ivoire et Ghana",
+      "B": "Égypte et Libye",
+      "C": "Lesotho et Eswatini uniquement",
+      "D": "Namibie désertique"
+    },
+    "answer": "A",
+    "explanation": "Côte d'Ivoire et Ghana dominent la production mondiale de cacao.",
+    "source": "ICCO / FAO cocoa statistics",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-019",
+    "category": "economie",
+    "subcategory": "energie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le projet Grand Inga (RDC) concerne principalement :",
+    "options": {
+      "A": "L'hydroélectricité sur le fleuve Congo",
+      "B": "Une ligne de métro à Nairobi",
+      "C": "Un oléoduc en Alaska",
+      "D": "Une mine de diamants en Botswana uniquement"
+    },
+    "answer": "A",
+    "explanation": "Grand Inga désigne un vaste potentiel hydroélectrique sur le Congo.",
+    "source": "Banque africaine de développement / littérature Inga",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-020",
+    "category": "economie",
+    "subcategory": "emploi",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le secteur informel en Afrique est souvent important parce qu'il :",
+    "options": {
+      "A": "Emploie une part majeure de la main-d'œuvre urbaine",
+      "B": "N'existe dans aucun pays africain",
+      "C": "Remplace entièrement l'État",
+      "D": "Est interdit par l'UA"
+    },
+    "answer": "A",
+    "explanation": "L'emploi informel concentre une grande partie du travail non agricole dans de nombreuses villes.",
+    "source": "BIT / Banque mondiale — informal economy",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-021",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les « eurobonds » émis par des États africains sont :",
+    "options": {
+      "A": "Des obligations internationales souvent en devises fortes",
+      "B": "Des tickets de métro",
+      "C": "Des microcrédits villageois uniquement",
+      "D": "Des parts de tontine"
+    },
+    "answer": "A",
+    "explanation": "Les eurobonds sont des titres de dette émis sur les marchés internationaux, souvent en USD/EUR.",
+    "source": "Littérature dette souveraine africaine",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-022",
+    "category": "economie",
+    "subcategory": "commerce",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le port de Durban est un hub logistique majeur surtout pour :",
+    "options": {
+      "A": "L'Afrique du Sud et l'Afrique australe",
+      "B": "Le Sahel occidental uniquement",
+      "C": "La Corne de l'Afrique exclusivement",
+      "D": "L'Afrique du Nord méditerranéenne seule"
+    },
+    "answer": "A",
+    "explanation": "Durban est l'un des principaux ports à conteneurs d'Afrique australe.",
+    "source": "Transnet / UNCTAD port statistics",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

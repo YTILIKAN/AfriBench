@@ -245,5 +245,176 @@
     "source": "IARC / GICR — cancer registries",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-014",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'OMS Afrique (AFRO) a son bureau régional à :",
+    "options": {
+      "A": "Brazzaville",
+      "B": "Johannesburg",
+      "C": "Tunis",
+      "D": "Kigali"
+    },
+    "answer": "A",
+    "explanation": "Le Bureau régional de l'OMS pour l'Afrique est situé à Brazzaville (Congo).",
+    "source": "OMS AFRO — about",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-015",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La dracunculose (ver de Guinée) a été fortement réduite en Afrique grâce surtout à :",
+    "options": {
+      "A": "L'accès à l'eau potable filtrée et la surveillance des cas",
+      "B": "Un vaccin obligatoire mondial unique",
+      "C": "L'interdiction de l'agriculture",
+      "D": "La fermeture des frontières aériennes"
+    },
+    "answer": "A",
+    "explanation": "La lutte combine eau saine, filtres, éducation et confinement des cas — un succès majeur de santé publique.",
+    "source": "OMS / Carter Center — Guinea worm eradication",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-016",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les essais cliniques en Afrique sont-ils stratégiques pour la recherche biomédicale mondiale ?",
+    "options": {
+      "A": "Parce qu'ils remplacent toute la recherche occidentale",
+      "B": "Parce que la diversité génétique et le fardeau de certaines maladies y sont majeurs, sous conditions éthiques strictes",
+      "C": "Parce que l'éthique n'y s'applique pas",
+      "D": "Parce qu'il n'y a aucun hôpital"
+    },
+    "answer": "B",
+    "explanation": "L'Afrique concentre une part importante de la diversité génétique humaine et de certaines maladies ; la recherche doit respecter des standards éthiques élevés.",
+    "source": "OMS / discussions H3Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-017",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le VIH/sida demeure un enjeu majeur de santé publique en Afrique surtout parce que :",
+    "options": {
+      "A": "La prévalence et le besoin de traitement/prévention restent élevés dans plusieurs régions",
+      "B": "Le virus n'existe qu'en Europe",
+      "C": "Aucun traitement n'a jamais existé",
+      "D": "Il ne se transmet que par l'eau"
+    },
+    "answer": "A",
+    "explanation": "Malgré des progrès (ARV, PrEP), le fardeau reste important dans plusieurs pays.",
+    "source": "ONUSIDA — Global AIDS Update",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-018",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est liée principalement à :",
+    "options": {
+      "A": "Des vers parasites transmis via des eaux douces contaminées",
+      "B": "Un déficit en vitamine C uniquement",
+      "C": "Une carence en fer génétique universelle",
+      "D": "Une infection virale éradiquée en 1900"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes infectent l'humain via des stades larvaires dans l'eau douce.",
+    "source": "OMS — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-019",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le retard de croissance (stunting) chez l'enfant est surtout un indicateur de :",
+    "options": {
+      "A": "Malnutrition chronique et santé materno-infantile",
+      "B": "Performance sportive olympique",
+      "C": "Niveau de pollution sonore",
+      "D": "Taux de change"
+    },
+    "answer": "A",
+    "explanation": "Le stunting reflète des déficits nutritionnels et sanitaires prolongés.",
+    "source": "UNICEF / OMS — child malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-020",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "H3Africa est une initiative qui vise principalement à :",
+    "options": {
+      "A": "Renforcer la recherche génomique et biomédicale en Afrique",
+      "B": "Construire des autoroutes",
+      "C": "Interdire les hôpitaux universitaires",
+      "D": "Remplacer l'OMS"
+    },
+    "answer": "A",
+    "explanation": "Human Heredity and Health in Africa soutient la recherche et les capacités scientifiques locales.",
+    "source": "H3Africa consortium",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-021",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Lors d'épidémies d'Ebola, une mesure communautaire cruciale est :",
+    "options": {
+      "A": "L'engagement communautaire, le suivi des contacts et des enterrements sécurisés",
+      "B": "L'interdiction totale de boire de l'eau",
+      "C": "La fermeture définitive de toutes les écoles du monde",
+      "D": "Le remplacement des soignants par des robots uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le contrôle repose sur surveillance, isolation, contacts tracing et pratiques funéraires sûres.",
+    "source": "OMS — Ebola virus disease",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-022",
+    "category": "sante_sciences",
+    "subcategory": "pharmacopee",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'artémisinine, base de traitements antipaludiques, est dérivée d'une plante surtout associée à la médecine :",
+    "options": {
+      "A": "Chinoise (Artemisia annua), largement utilisée contre le paludisme en Afrique",
+      "B": "Inuite polaire",
+      "C": "Amazonienne du café",
+      "D": "Alpine du chocolat"
+    },
+    "answer": "A",
+    "explanation": "L'artémisinine, isolée d'Artemisia annua, est centrale dans les ACT contre le paludisme.",
+    "source": "OMS — artemisinin-based therapies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

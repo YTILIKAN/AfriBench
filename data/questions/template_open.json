@@ -1,0 +1,25 @@
+{
+  "id": "OPEN-001",
+  "category": "histoire",
+  "subcategory": "analyse",
+  "difficulty": "hard",
+  "language": "fr",
+  "format": "open",
+  "question": "Expliquez en 150–250 mots l'impact de la Conférence de Berlin (1884–1885) sur le partage colonial de l'Afrique.",
+  "reference_points": [
+    "Mentionne le principe d'occupation effective",
+    "Cite le contexte de rivalités européennes",
+    "Évoque les conséquences pour les sociétés africaines (frontières, souverainetés)"
+  ],
+  "rubric": {
+    "exactitude": "Faits historiques corrects (max 4)",
+    "profondeur": "Analyse au-delà de la paraphrase (max 3)",
+    "nuance_culturelle": "Évite les stéréotypes ; reconnaît l'agency africaine (max 3)"
+  },
+  "max_score": 10,
+  "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+  "author": "afribench",
+  "date_created": "2026-08-03",
+  "date_validated": null,
+  "validated_by": null
+}

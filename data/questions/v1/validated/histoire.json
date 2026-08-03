@@ -321,5 +321,195 @@
     "source": "UNESCO — La traite négrière / Histoire Générale de l'Afrique",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-018",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Empire ashanti (Asante) avait pour capitale historique :",
+    "options": {
+      "A": "Kumasi",
+      "B": "Accra",
+      "C": "Lagos",
+      "D": "Abomey"
+    },
+    "answer": "A",
+    "explanation": "Kumasi fut le centre politique et culturel de l'Empire ashanti au Ghana actuel.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-019",
+    "category": "histoire",
+    "subcategory": "resistance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Samory Touré est surtout connu pour :",
+    "options": {
+      "A": "Avoir fondé l'Empire du Mali médiéval",
+      "B": "Avoir résisté à la conquête coloniale française en Afrique de l'Ouest (État de Wassoulou)",
+      "C": "Avoir inventé l'écriture nsibidi",
+      "D": "Avoir dirigé l'Égypte pharaonique"
+    },
+    "answer": "B",
+    "explanation": "Samory Touré dirigea l'État de Wassoulou et opposa une longue résistance à la pénétration française à la fin du XIXe siècle.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-020",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a obtenu son indépendance de la Grande-Bretagne en 1957, devenant un symbole précoce de la décolonisation ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Ghana",
+      "C": "Kenya",
+      "D": "Zimbabwe"
+    },
+    "answer": "B",
+    "explanation": "Le Ghana (ex–Gold Coast) devient indépendant en 1957 sous Kwame Nkrumah.",
+    "source": "Encyclopædia Britannica — Ghana",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-021",
+    "category": "histoire",
+    "subcategory": "afrique_du_nord",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bataille d'Alger (1956–1957) s'inscrit dans quel conflit ?",
+    "options": {
+      "A": "Guerre d'indépendance algérienne",
+      "B": "Guerre des Boers",
+      "C": "Guerre du Biafra",
+      "D": "Guerre des Six Jours"
+    },
+    "answer": "A",
+    "explanation": "La bataille d'Alger est un épisode urbain majeur de la guerre d'Algérie (1954–1962).",
+    "source": "Encyclopædia Britannica — Algerian War",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-022",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Royaume du Kongo (XIVe–XIXe s.) était principalement situé dans la région de :",
+    "options": {
+      "A": "L'embouchure du Congo (Angola/RDC/Congo actuels)",
+      "B": "Le désert du Kalahari uniquement",
+      "C": "La Corne de l'Afrique",
+      "D": "Le Maghreb"
+    },
+    "answer": "A",
+    "explanation": "Le Royaume du Kongo s'étendait autour de l'embouchure du fleuve Congo.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. IV–V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-023",
+    "category": "histoire",
+    "subcategory": "traite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La traite transsaharienne reliait surtout l'Afrique subsaharienne à :",
+    "options": {
+      "A": "L'Afrique du Nord et le monde méditerranéen/moyen-oriental",
+      "B": "L'Australie",
+      "C": "Le Japon féodal uniquement",
+      "D": "L'Antarctique"
+    },
+    "answer": "A",
+    "explanation": "Les routes sahariennes connectaient le Sahel et la forêt aux marchés maghrébins et au-delà.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. III–IV",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-024",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Patrice Lumumba fut le premier Premier ministre de :",
+    "options": {
+      "A": "La République du Congo (Léopoldville) / Congo-Kinshasa",
+      "B": "Le Ghana",
+      "C": "Le Sénégal",
+      "D": "L'Éthiopie"
+    },
+    "answer": "A",
+    "explanation": "Lumumba dirigea le premier gouvernement du Congo indépendant en 1960.",
+    "source": "Encyclopædia Britannica — Patrice Lumumba",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-025",
+    "category": "histoire",
+    "subcategory": "afrique_du_sud",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les procès de Rivonia (1963–1964) aboutirent notamment à l'emprisonnement de :",
+    "options": {
+      "A": "Nelson Mandela et d'autres dirigeants anti-apartheid",
+      "B": "Kwame Nkrumah",
+      "C": "Haïlé Sélassié",
+      "D": "Léopold Sédar Senghor"
+    },
+    "answer": "A",
+    "explanation": "Le procès de Rivonia condamna Mandela et plusieurs camarades à de longues peines.",
+    "source": "Encyclopædia Britannica — Rivonia Trial",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-026",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Great Zimbabwe est un site monumental associé surtout à quelle période/région ?",
+    "options": {
+      "A": "Âge du fer tardif / plateau zimbabwéen",
+      "B": "Égypte pharaonique du Nouvel Empire uniquement",
+      "C": "Empire romain d'Occident",
+      "D": "Colonisation portugaise du XXe siècle"
+    },
+    "answer": "A",
+    "explanation": "Great Zimbabwe fut un centre politique et commercial majeur du plateau zimbabwéen (IIe millénaire).",
+    "source": "UNESCO — Great Zimbabwe National Monument",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-027",
+    "category": "histoire",
+    "subcategory": "panafricanisme",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Organisation de l'unité africaine (OUA) a été fondée en :",
+    "options": {
+      "A": "1963",
+      "B": "1945",
+      "C": "1991",
+      "D": "1885"
+    },
+    "answer": "A",
+    "explanation": "L'OUA fut créée à Addis-Abeba en 1963 ; elle précède l'Union africaine (2002).",
+    "source": "Union africaine — History of the OAU",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

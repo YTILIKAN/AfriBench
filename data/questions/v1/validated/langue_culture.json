@@ -264,5 +264,195 @@
     "source": "Encyclopædia Britannica — Chinua Achebe",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-015",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'alphabet n'ko a été inventé au XXe siècle pour noter principalement :",
+    "options": {
+      "A": "Le mandingue",
+      "B": "Le zoulou exclusivement",
+      "C": "Le berbère tifinagh antique",
+      "D": "Le latin ecclésiastique"
+    },
+    "answer": "A",
+    "explanation": "Créé par Solomana Kanté (1949), le n'ko sert surtout aux langues mandingues.",
+    "source": "Encyclopædia Britannica — N'Ko alphabet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-016",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Mariama Bâ est l'autrice sénégalaise de :",
+    "options": {
+      "A": "Une si longue lettre",
+      "B": "L'Étranger",
+      "C": "Le Rouge et le Noir",
+      "D": "Germinal"
+    },
+    "answer": "A",
+    "explanation": "Une si longue lettre (1979) est l'œuvre majeure de Mariama Bâ.",
+    "source": "Encyclopædia Britannica — Mariama Bâ",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-017",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les sculptures en bronze du Royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Carthage",
+      "D": "Mombasa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de la cour royale de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO — Benin Bronzes context",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-018",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le haoussa est une langue véhiculaire majeure surtout en :",
+    "options": {
+      "A": "Afrique de l'Ouest (Nigeria/Niger et au-delà)",
+      "B": "Patagonie",
+      "C": "Scandinavie",
+      "D": "Asie centrale"
+    },
+    "answer": "A",
+    "explanation": "Le haoussa est largement parlé au Nigeria, au Niger et comme lingua franca régionale.",
+    "source": "Ethnologue — Hausa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-019",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le yoruba est principalement parlé au :",
+    "options": {
+      "A": "Nigeria (et pays voisins)",
+      "B": "Maroc uniquement",
+      "C": "Botswana exclusivement",
+      "D": "Érythrée"
+    },
+    "answer": "A",
+    "explanation": "Le yoruba est une langue majeure du sud-ouest du Nigeria et de la diaspora.",
+    "source": "Ethnologue — Yoruba",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-020",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Wole Soyinka, prix Nobel de littérature, est originaire du :",
+    "options": {
+      "A": "Nigeria",
+      "B": "Sénégal",
+      "C": "Kenya",
+      "D": "Égypte"
+    },
+    "answer": "A",
+    "explanation": "Wole Soyinka, dramaturge et écrivain nigérian, reçut le Nobel en 1986.",
+    "source": "Nobel Prize — Wole Soyinka",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-021",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le genre musical « highlife » est surtout associé à l'Afrique de l'Ouest, notamment :",
+    "options": {
+      "A": "Ghana / Nigeria",
+      "B": "Lesotho uniquement",
+      "C": "Tunisie phénicienne",
+      "D": "Madagascar méridionale seule"
+    },
+    "answer": "A",
+    "explanation": "Le highlife s'est développé particulièrement au Ghana et a influencé la région.",
+    "source": "Grove Music / études highlife",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-022",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Nollywood désigne principalement :",
+    "options": {
+      "A": "L'industrie cinématographique nigériane",
+      "B": "Un festival de danse berbère",
+      "C": "Un réseau ferré sahélien",
+      "D": "Une monnaie numérique de l'UA"
+    },
+    "answer": "A",
+    "explanation": "Nollywood est l'appellation courante du cinéma populaire nigérian.",
+    "source": "UNESCO / études sur Nollywood",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-023",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tifinagh est un système d'écriture associé principalement aux :",
+    "options": {
+      "A": "Langues berbères (amazighes)",
+      "B": "Langues bantoues du Congo uniquement",
+      "C": "Créoles réunionnais",
+      "D": "Langues khoïsan d'Australie"
+    },
+    "answer": "A",
+    "explanation": "Le tifinagh note des variétés amazighes, notamment en Afrique du Nord.",
+    "source": "Encyclopædia Britannica — Tifinagh",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-024",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor est une figure majeure de :",
+    "options": {
+      "A": "La Négritude et de la littérature francophone africaine",
+      "B": "La physique quantique japonaise",
+      "C": "La peinture flamande du XVe siècle",
+      "D": "L'exploration polaire russe"
+    },
+    "answer": "A",
+    "explanation": "Senghor, poète et homme d'État sénégalais, est un pilier du mouvement de la Négritude.",
+    "source": "Encyclopædia Britannica — Léopold Senghor",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
