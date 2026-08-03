@@ -245,5 +245,62 @@
     "source": "Site officiel CEDEAO/ECOWAS",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-014",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel organe de l'UA est souvent décrit comme le « parlement » panafricain ?",
+    "options": {
+      "A": "Commission de l'UA",
+      "B": "Parlement panafricain",
+      "C": "Conseil de paix et de sécurité uniquement",
+      "D": "Nepad"
+    },
+    "answer": "B",
+    "explanation": "Le Parlement panafricain est l'organe législatif consultatif de l'Union africaine.",
+    "source": "Union africaine — Pan-African Parliament",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-015",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Charte africaine des droits de l'homme et des peuples (Charte de Banjul) a été adoptée en :",
+    "options": {
+      "A": "1981",
+      "B": "1948",
+      "C": "1963",
+      "D": "2002"
+    },
+    "answer": "A",
+    "explanation": "Adoptée le 27 juin 1981 à Nairobi par l'OUA, la Charte est aussi appelée Charte de Banjul.",
+    "source": "Charte africaine des droits de l'homme et des peuples (1981)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-016",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La SADC est une communauté économique régionale surtout active en :",
+    "options": {
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Maghreb exclusivement",
+      "D": "Afrique centrale francophone uniquement"
+    },
+    "answer": "B",
+    "explanation": "La Southern African Development Community (SADC) regroupe principalement des États d'Afrique australe.",
+    "source": "Site officiel SADC",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

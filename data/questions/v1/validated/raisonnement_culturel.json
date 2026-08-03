@@ -226,5 +226,81 @@
     "source": "Études sur la justice traditionnelle et la médiation en Afrique",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-013",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le proverbe « Si tu veux aller vite, vas-y seul ; si tu veux aller loin, allez-y ensemble » met surtout en avant :",
+    "options": {
+      "A": "L'isolement comme seule vertu",
+      "B": "La valeur du collectif pour la durée",
+      "C": "Le refus de tout voyage",
+      "D": "La vitesse à tout prix"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe (répandu sous des formes proches) valorise la coopération pour atteindre des objectifs durables.",
+    "source": "Anthologies de proverbes africains (variantes orales)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-014",
+    "category": "raisonnement_culturel",
+    "subcategory": "hospitalite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses sociétés africaines, offrir à boire/manger à un visiteur avant les affaires courantes exprime surtout :",
+    "options": {
+      "A": "Un refus de discussion",
+      "B": "L'hospitalité et la reconnaissance de la relation sociale",
+      "C": "Une obligation fiscale",
+      "D": "Un rite militaire"
+    },
+    "answer": "B",
+    "explanation": "L'hospitalité précède souvent la négociation : elle institue le lien avant le contenu transactionnel.",
+    "source": "Anthropologie de l'hospitalité en Afrique de l'Ouest (synthèses)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-015",
+    "category": "raisonnement_culturel",
+    "subcategory": "consensus",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une délibération qui cherche le consensus plutôt que le vote majoritaire immédiat vise souvent à :",
+    "options": {
+      "A": "Éliminer les minorités",
+      "B": "Préserver la cohésion du groupe après la décision",
+      "C": "Accélérer uniquement les affaires boursières",
+      "D": "Interdire la parole aux aînés"
+    },
+    "answer": "B",
+    "explanation": "Le consensus cherche une décision acceptable qui limite les fractures sociales post-délibération.",
+    "source": "Études sur les palabres et la démocratie délibérative",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-016",
+    "category": "raisonnement_culturel",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans l'éducation par les contes (griots, veillées), la morale de l'histoire sert surtout à :",
+    "options": {
+      "A": "Transmettre des normes et savoirs sociaux de façon mémorable",
+      "B": "Remplacer toute école moderne sans exception",
+      "C": "Mesurer le PIB",
+      "D": "Coder des algorithmes"
+    },
+    "answer": "A",
+    "explanation": "Le conte est un vecteur pédagogique d'éthique, d'histoire locale et de compétences narratives.",
+    "source": "Littérature orale africaine — fonctions du conte",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

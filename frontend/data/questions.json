@@ -247,6 +247,63 @@
     "date_created": "2026-08-03"
   },
   {
+    "id": "POL-014",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel organe de l'UA est souvent décrit comme le « parlement » panafricain ?",
+    "options": {
+      "A": "Commission de l'UA",
+      "B": "Parlement panafricain",
+      "C": "Conseil de paix et de sécurité uniquement",
+      "D": "Nepad"
+    },
+    "answer": "B",
+    "explanation": "Le Parlement panafricain est l'organe législatif consultatif de l'Union africaine.",
+    "source": "Union africaine — Pan-African Parliament",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-015",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Charte africaine des droits de l'homme et des peuples (Charte de Banjul) a été adoptée en :",
+    "options": {
+      "A": "1981",
+      "B": "1948",
+      "C": "1963",
+      "D": "2002"
+    },
+    "answer": "A",
+    "explanation": "Adoptée le 27 juin 1981 à Nairobi par l'OUA, la Charte est aussi appelée Charte de Banjul.",
+    "source": "Charte africaine des droits de l'homme et des peuples (1981)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-016",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La SADC est une communauté économique régionale surtout active en :",
+    "options": {
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Maghreb exclusivement",
+      "D": "Afrique centrale francophone uniquement"
+    },
+    "answer": "B",
+    "explanation": "La Southern African Development Community (SADC) regroupe principalement des États d'Afrique australe.",
+    "source": "Site officiel SADC",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "ECON-001",
     "category": "economie",
     "subcategory": "pib_croissance",
@@ -490,6 +547,63 @@
     "answer": "A",
     "explanation": "La RDC concentre une part dominante de la production mondiale de cobalt.",
     "source": "USGS Mineral Commodity Summaries — Cobalt",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-014",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le siège du secrétariat de la ZLECAf se trouve à :",
+    "options": {
+      "A": "Nairobi",
+      "B": "Accra",
+      "C": "Pretoria",
+      "D": "Dakar"
+    },
+    "answer": "B",
+    "explanation": "Le secrétariat de la Zone de libre-échange continentale africaine est basé à Accra (Ghana).",
+    "source": "AfCFTA Secretariat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-015",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "M-Pesa, pionnier du mobile money, a d'abord connu un succès massif au :",
+    "options": {
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "Lancé au Kenya (2007), M-Pesa est devenu une référence mondiale du paiement mobile.",
+    "source": "GSMA / Safaricom — M-Pesa case studies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-016",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « paradoxe de l'abondance » (resource curse) désigne le risque que :",
+    "options": {
+      "A": "Les ressources naturelles freinent la diversification et la gouvernance",
+      "B": "L'agriculture disparaisse partout",
+      "C": "Les pays sans ressources soient toujours plus riches",
+      "D": "Le commerce Sud-Sud soit impossible"
+    },
+    "answer": "A",
+    "explanation": "Le resource curse décrit les difficultés de développement associées à une dépendance forte aux matières premières.",
+    "source": "Littérature économique — resource curse (Sachs/Warner et suites)",
     "author": "afribench",
     "date_created": "2026-08-03"
   },
@@ -817,6 +931,82 @@
     "date_created": "2026-08-03"
   },
   {
+    "id": "GEOG-018",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel désert couvre une grande partie de l'Afrique du Nord ?",
+    "options": {
+      "A": "Kalahari",
+      "B": "Sahara",
+      "C": "Namib",
+      "D": "Gobi"
+    },
+    "answer": "B",
+    "explanation": "Le Sahara est le plus grand désert chaud du monde et domine l'Afrique du Nord.",
+    "source": "National Geographic — Sahara",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-019",
+    "category": "geographie",
+    "subcategory": "hydrographie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Nil Blanc et le Nil Bleu se rejoignent principalement à :",
+    "options": {
+      "A": "Le Caire",
+      "B": "Khartoum",
+      "C": "Alexandrie",
+      "D": "Assouan"
+    },
+    "answer": "B",
+    "explanation": "À Khartoum (Soudan), le Nil Blanc et le Nil Bleu convergent pour former le Nil.",
+    "source": "Encyclopædia Britannica — Nile River",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-020",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel État insulaire d'Afrique de l'Est se trouve dans l'océan Indien et a pour capitale Moroni ?",
+    "options": {
+      "A": "Maurice",
+      "B": "Seychelles",
+      "C": "Comores",
+      "D": "Madagascar"
+    },
+    "answer": "C",
+    "explanation": "L'union des Comores a pour capitale Moroni (grande Comore).",
+    "source": "Encyclopædia Britannica — Comoros",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-021",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les chutes Victoria se trouvent sur le fleuve :",
+    "options": {
+      "A": "Congo",
+      "B": "Zambèze",
+      "C": "Limpopo",
+      "D": "Orange"
+    },
+    "answer": "B",
+    "explanation": "Les chutes Victoria (Mosi-oa-Tunya) sont formées par le Zambèze, entre la Zambie et le Zimbabwe.",
+    "source": "UNESCO — Mosi-oa-Tunya / Victoria Falls",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "HIST-001",
     "category": "histoire",
     "subcategory": "empires_precoloniaux",
@@ -1140,6 +1330,82 @@
     "date_created": "2026-08-03"
   },
   {
+    "id": "HIST-018",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Empire ashanti (Asante) avait pour capitale historique :",
+    "options": {
+      "A": "Kumasi",
+      "B": "Accra",
+      "C": "Lagos",
+      "D": "Abomey"
+    },
+    "answer": "A",
+    "explanation": "Kumasi fut le centre politique et culturel de l'Empire ashanti au Ghana actuel.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-019",
+    "category": "histoire",
+    "subcategory": "resistance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Samory Touré est surtout connu pour :",
+    "options": {
+      "A": "Avoir fondé l'Empire du Mali médiéval",
+      "B": "Avoir résisté à la conquête coloniale française en Afrique de l'Ouest (État de Wassoulou)",
+      "C": "Avoir inventé l'écriture nsibidi",
+      "D": "Avoir dirigé l'Égypte pharaonique"
+    },
+    "answer": "B",
+    "explanation": "Samory Touré dirigea l'État de Wassoulou et opposa une longue résistance à la pénétration française à la fin du XIXe siècle.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-020",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a obtenu son indépendance de la Grande-Bretagne en 1957, devenant un symbole précoce de la décolonisation ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Ghana",
+      "C": "Kenya",
+      "D": "Zimbabwe"
+    },
+    "answer": "B",
+    "explanation": "Le Ghana (ex–Gold Coast) devient indépendant en 1957 sous Kwame Nkrumah.",
+    "source": "Encyclopædia Britannica — Ghana",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-021",
+    "category": "histoire",
+    "subcategory": "afrique_du_nord",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bataille d'Alger (1956–1957) s'inscrit dans quel conflit ?",
+    "options": {
+      "A": "Guerre d'indépendance algérienne",
+      "B": "Guerre des Boers",
+      "C": "Guerre du Biafra",
+      "D": "Guerre des Six Jours"
+    },
+    "answer": "A",
+    "explanation": "La bataille d'Alger est un épisode urbain majeur de la guerre d'Algérie (1954–1962).",
+    "source": "Encyclopædia Britannica — Algerian War",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "IA-001",
     "category": "ia_technologie",
     "subcategory": "ia_applications",
@@ -1383,6 +1649,63 @@
     "answer": "B",
     "explanation": "La souveraineté des données porte sur le contrôle juridictionnel et politique des données produites localement, face aux plateformes et clouds étrangers.",
     "source": "Discussions UA / Smart Africa sur la gouvernance des données",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-014",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Deep Learning Indaba est principalement :",
+    "options": {
+      "A": "Une conférence/communauté de renforcement de l'apprentissage automatique en Afrique",
+      "B": "Une banque centrale",
+      "C": "Un opérateur télécom",
+      "D": "Un désert numérique"
+    },
+    "answer": "A",
+    "explanation": "L'Indaba est un événement et un réseau majeurs pour la communauté ML africaine.",
+    "source": "deeplearningindaba.com",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-015",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "AfroBench (McGill-NLP) se distingue d'AfriBench surtout parce qu'il :",
+    "options": {
+      "A": "Évalue surtout des tâches NLP multilingues sur de nombreuses langues africaines",
+      "B": "Ne concerne que le français QCM culturel",
+      "C": "Est un réseau social",
+      "D": "Remplace l'Union africaine"
+    },
+    "answer": "A",
+    "explanation": "AfroBench couvre de nombreuses langues et tâches NLP ; AfriBench (ce projet) est un QCM francophone sur les savoirs africains.",
+    "source": "AfroBench (EMNLP 2024) ; README AfriBench",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-016",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un enjeu fréquent des data centers en Afrique est :",
+    "options": {
+      "A": "L'énergie, la connectivité et la latence régionale",
+      "B": "L'absence totale d'utilisateurs Internet",
+      "C": "L'interdiction mondiale du cloud",
+      "D": "Le trop-plein de GPU locaux inutilisés partout"
+    },
+    "answer": "A",
+    "explanation": "Le déploiement d'infrastructures cloud dépend fortement de l'électricité fiable, de la fibre et des coûts de bande passante.",
+    "source": "Rapports d'écosystème numérique africain (GSMA, Banque mondiale)",
     "author": "afribench",
     "date_created": "2026-08-03"
   },
@@ -1653,6 +1976,82 @@
     "date_created": "2026-08-03"
   },
   {
+    "id": "LANG-015",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'alphabet n'ko a été inventé au XXe siècle pour noter principalement :",
+    "options": {
+      "A": "Le mandingue",
+      "B": "Le zoulou exclusivement",
+      "C": "Le berbère tifinagh antique",
+      "D": "Le latin ecclésiastique"
+    },
+    "answer": "A",
+    "explanation": "Créé par Solomana Kanté (1949), le n'ko sert surtout aux langues mandingues.",
+    "source": "Encyclopædia Britannica — N'Ko alphabet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-016",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Mariama Bâ est l'autrice sénégalaise de :",
+    "options": {
+      "A": "Une si longue lettre",
+      "B": "L'Étranger",
+      "C": "Le Rouge et le Noir",
+      "D": "Germinal"
+    },
+    "answer": "A",
+    "explanation": "Une si longue lettre (1979) est l'œuvre majeure de Mariama Bâ.",
+    "source": "Encyclopædia Britannica — Mariama Bâ",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-017",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les sculptures en bronze du Royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Carthage",
+      "D": "Mombasa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de la cour royale de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO — Benin Bronzes context",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-018",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le haoussa est une langue véhiculaire majeure surtout en :",
+    "options": {
+      "A": "Afrique de l'Ouest (Nigeria/Niger et au-delà)",
+      "B": "Patagonie",
+      "C": "Scandinavie",
+      "D": "Asie centrale"
+    },
+    "answer": "A",
+    "explanation": "Le haoussa est largement parlé au Nigeria, au Niger et comme lingua franca régionale.",
+    "source": "Ethnologue — Hausa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "CULT-001",
     "category": "raisonnement_culturel",
     "subcategory": "proverbes_sagesse",
@@ -1877,6 +2276,82 @@
     "answer": "B",
     "explanation": "La justice restaurative et la médiation communautaire cherchent fréquemment la réconciliation et la paix sociale, au-delà du seul verdict binaire.",
     "source": "Études sur la justice traditionnelle et la médiation en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-013",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le proverbe « Si tu veux aller vite, vas-y seul ; si tu veux aller loin, allez-y ensemble » met surtout en avant :",
+    "options": {
+      "A": "L'isolement comme seule vertu",
+      "B": "La valeur du collectif pour la durée",
+      "C": "Le refus de tout voyage",
+      "D": "La vitesse à tout prix"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe (répandu sous des formes proches) valorise la coopération pour atteindre des objectifs durables.",
+    "source": "Anthologies de proverbes africains (variantes orales)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-014",
+    "category": "raisonnement_culturel",
+    "subcategory": "hospitalite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses sociétés africaines, offrir à boire/manger à un visiteur avant les affaires courantes exprime surtout :",
+    "options": {
+      "A": "Un refus de discussion",
+      "B": "L'hospitalité et la reconnaissance de la relation sociale",
+      "C": "Une obligation fiscale",
+      "D": "Un rite militaire"
+    },
+    "answer": "B",
+    "explanation": "L'hospitalité précède souvent la négociation : elle institue le lien avant le contenu transactionnel.",
+    "source": "Anthropologie de l'hospitalité en Afrique de l'Ouest (synthèses)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-015",
+    "category": "raisonnement_culturel",
+    "subcategory": "consensus",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une délibération qui cherche le consensus plutôt que le vote majoritaire immédiat vise souvent à :",
+    "options": {
+      "A": "Éliminer les minorités",
+      "B": "Préserver la cohésion du groupe après la décision",
+      "C": "Accélérer uniquement les affaires boursières",
+      "D": "Interdire la parole aux aînés"
+    },
+    "answer": "B",
+    "explanation": "Le consensus cherche une décision acceptable qui limite les fractures sociales post-délibération.",
+    "source": "Études sur les palabres et la démocratie délibérative",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-016",
+    "category": "raisonnement_culturel",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans l'éducation par les contes (griots, veillées), la morale de l'histoire sert surtout à :",
+    "options": {
+      "A": "Transmettre des normes et savoirs sociaux de façon mémorable",
+      "B": "Remplacer toute école moderne sans exception",
+      "C": "Mesurer le PIB",
+      "D": "Coder des algorithmes"
+    },
+    "answer": "A",
+    "explanation": "Le conte est un vecteur pédagogique d'éthique, d'histoire locale et de compétences narratives.",
+    "source": "Littérature orale africaine — fonctions du conte",
     "author": "afribench",
     "date_created": "2026-08-03"
   },
@@ -2128,6 +2603,63 @@
     "date_created": "2026-08-03"
   },
   {
+    "id": "SANTE-014",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'OMS Afrique (AFRO) a son bureau régional à :",
+    "options": {
+      "A": "Brazzaville",
+      "B": "Johannesburg",
+      "C": "Tunis",
+      "D": "Kigali"
+    },
+    "answer": "A",
+    "explanation": "Le Bureau régional de l'OMS pour l'Afrique est situé à Brazzaville (Congo).",
+    "source": "OMS AFRO — about",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-015",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La dracunculose (ver de Guinée) a été fortement réduite en Afrique grâce surtout à :",
+    "options": {
+      "A": "L'accès à l'eau potable filtrée et la surveillance des cas",
+      "B": "Un vaccin obligatoire mondial unique",
+      "C": "L'interdiction de l'agriculture",
+      "D": "La fermeture des frontières aériennes"
+    },
+    "answer": "A",
+    "explanation": "La lutte combine eau saine, filtres, éducation et confinement des cas — un succès majeur de santé publique.",
+    "source": "OMS / Carter Center — Guinea worm eradication",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-016",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les essais cliniques en Afrique sont-ils stratégiques pour la recherche biomédicale mondiale ?",
+    "options": {
+      "A": "Parce qu'ils remplacent toute la recherche occidentale",
+      "B": "Parce que la diversité génétique et le fardeau de certaines maladies y sont majeurs, sous conditions éthiques strictes",
+      "C": "Parce que l'éthique n'y s'applique pas",
+      "D": "Parce qu'il n'y a aucun hôpital"
+    },
+    "answer": "B",
+    "explanation": "L'Afrique concentre une part importante de la diversité génétique humaine et de certaines maladies ; la recherche doit respecter des standards éthiques élevés.",
+    "source": "OMS / discussions H3Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
     "id": "SOC-001",
     "category": "societe",
     "subcategory": "demographie",
@@ -2371,6 +2903,63 @@
     "answer": "B",
     "explanation": "Les remittances représentent des flux financiers majeurs pour plusieurs économies et ménages africains.",
     "source": "Banque mondiale — Migration and Development Brief",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-014",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique est le continent où la population est :",
+    "options": {
+      "A": "En moyenne la plus âgée du monde",
+      "B": "Parmi les plus jeunes, avec une forte croissance démographique",
+      "C": "Stable depuis le Moyen Âge",
+      "D": "En déclin absolu partout"
+    },
+    "answer": "B",
+    "explanation": "La structure par âge est très jeune et la croissance démographique reste élevée dans de nombreux pays.",
+    "source": "UN World Population Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-015",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mouvements pour la scolarisation des filles en Afrique insistent souvent sur le fait que :",
+    "options": {
+      "A": "L'éducation des filles n'a aucun effet économique",
+      "B": "Elle améliore la santé, les revenus et le développement communautaire",
+      "C": "Seuls les garçons doivent apprendre à lire",
+      "D": "L'école doit être interdite"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études de développement lient l'éducation des filles à de meilleurs indicateurs de santé et de revenu.",
+    "source": "UNESCO / Banque mondiale — girls' education",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-016",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « journalism mobile » et les radios communautaires en Afrique jouent un rôle clé car ils :",
+    "options": {
+      "A": "Remplacent l'État",
+      "B": "Permettent une information locale accessible malgré des fractures numériques",
+      "C": "Interdisent les langues africaines",
+      "D": "N'existent que dans les capitales européennes"
+    },
+    "answer": "B",
+    "explanation": "Radios communautaires et reportages mobiles restent des canaux majeurs d'information de proximité.",
+    "source": "UNESCO — community media in Africa",
     "author": "afribench",
     "date_created": "2026-08-03"
   }

@@ -245,5 +245,62 @@
     "source": "IARC / GICR — cancer registries",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-014",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'OMS Afrique (AFRO) a son bureau régional à :",
+    "options": {
+      "A": "Brazzaville",
+      "B": "Johannesburg",
+      "C": "Tunis",
+      "D": "Kigali"
+    },
+    "answer": "A",
+    "explanation": "Le Bureau régional de l'OMS pour l'Afrique est situé à Brazzaville (Congo).",
+    "source": "OMS AFRO — about",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-015",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La dracunculose (ver de Guinée) a été fortement réduite en Afrique grâce surtout à :",
+    "options": {
+      "A": "L'accès à l'eau potable filtrée et la surveillance des cas",
+      "B": "Un vaccin obligatoire mondial unique",
+      "C": "L'interdiction de l'agriculture",
+      "D": "La fermeture des frontières aériennes"
+    },
+    "answer": "A",
+    "explanation": "La lutte combine eau saine, filtres, éducation et confinement des cas — un succès majeur de santé publique.",
+    "source": "OMS / Carter Center — Guinea worm eradication",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-016",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les essais cliniques en Afrique sont-ils stratégiques pour la recherche biomédicale mondiale ?",
+    "options": {
+      "A": "Parce qu'ils remplacent toute la recherche occidentale",
+      "B": "Parce que la diversité génétique et le fardeau de certaines maladies y sont majeurs, sous conditions éthiques strictes",
+      "C": "Parce que l'éthique n'y s'applique pas",
+      "D": "Parce qu'il n'y a aucun hôpital"
+    },
+    "answer": "B",
+    "explanation": "L'Afrique concentre une part importante de la diversité génétique humaine et de certaines maladies ; la recherche doit respecter des standards éthiques élevés.",
+    "source": "OMS / discussions H3Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

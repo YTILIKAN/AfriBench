@@ -321,5 +321,81 @@
     "source": "UNESCO — La traite négrière / Histoire Générale de l'Afrique",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-018",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Empire ashanti (Asante) avait pour capitale historique :",
+    "options": {
+      "A": "Kumasi",
+      "B": "Accra",
+      "C": "Lagos",
+      "D": "Abomey"
+    },
+    "answer": "A",
+    "explanation": "Kumasi fut le centre politique et culturel de l'Empire ashanti au Ghana actuel.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-019",
+    "category": "histoire",
+    "subcategory": "resistance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Samory Touré est surtout connu pour :",
+    "options": {
+      "A": "Avoir fondé l'Empire du Mali médiéval",
+      "B": "Avoir résisté à la conquête coloniale française en Afrique de l'Ouest (État de Wassoulou)",
+      "C": "Avoir inventé l'écriture nsibidi",
+      "D": "Avoir dirigé l'Égypte pharaonique"
+    },
+    "answer": "B",
+    "explanation": "Samory Touré dirigea l'État de Wassoulou et opposa une longue résistance à la pénétration française à la fin du XIXe siècle.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-020",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a obtenu son indépendance de la Grande-Bretagne en 1957, devenant un symbole précoce de la décolonisation ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Ghana",
+      "C": "Kenya",
+      "D": "Zimbabwe"
+    },
+    "answer": "B",
+    "explanation": "Le Ghana (ex–Gold Coast) devient indépendant en 1957 sous Kwame Nkrumah.",
+    "source": "Encyclopædia Britannica — Ghana",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-021",
+    "category": "histoire",
+    "subcategory": "afrique_du_nord",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bataille d'Alger (1956–1957) s'inscrit dans quel conflit ?",
+    "options": {
+      "A": "Guerre d'indépendance algérienne",
+      "B": "Guerre des Boers",
+      "C": "Guerre du Biafra",
+      "D": "Guerre des Six Jours"
+    },
+    "answer": "A",
+    "explanation": "La bataille d'Alger est un épisode urbain majeur de la guerre d'Algérie (1954–1962).",
+    "source": "Encyclopædia Britannica — Algerian War",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

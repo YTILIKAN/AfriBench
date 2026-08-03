@@ -16,7 +16,7 @@
 
 ## 🟡 Phase 2 — Renforcement du benchmark
 
-- [~] **200+ nouvelles questions** — 125 africaines (était 101) ; cible 300+
+- [~] **200+ nouvelles questions** — 156 africaines (était 101) ; cible 300+
 - [x] **20 questions témoins** — `data/questions/v1/witness/` (`is_control`)
 - [ ] 3 validateurs africains
 - [ ] 10 questions de génération ouverte

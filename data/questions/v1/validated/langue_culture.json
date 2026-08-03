@@ -264,5 +264,81 @@
     "source": "Encyclopædia Britannica — Chinua Achebe",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-015",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'alphabet n'ko a été inventé au XXe siècle pour noter principalement :",
+    "options": {
+      "A": "Le mandingue",
+      "B": "Le zoulou exclusivement",
+      "C": "Le berbère tifinagh antique",
+      "D": "Le latin ecclésiastique"
+    },
+    "answer": "A",
+    "explanation": "Créé par Solomana Kanté (1949), le n'ko sert surtout aux langues mandingues.",
+    "source": "Encyclopædia Britannica — N'Ko alphabet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-016",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Mariama Bâ est l'autrice sénégalaise de :",
+    "options": {
+      "A": "Une si longue lettre",
+      "B": "L'Étranger",
+      "C": "Le Rouge et le Noir",
+      "D": "Germinal"
+    },
+    "answer": "A",
+    "explanation": "Une si longue lettre (1979) est l'œuvre majeure de Mariama Bâ.",
+    "source": "Encyclopædia Britannica — Mariama Bâ",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-017",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les sculptures en bronze du Royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Carthage",
+      "D": "Mombasa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de la cour royale de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO — Benin Bronzes context",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-018",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le haoussa est une langue véhiculaire majeure surtout en :",
+    "options": {
+      "A": "Afrique de l'Ouest (Nigeria/Niger et au-delà)",
+      "B": "Patagonie",
+      "C": "Scandinavie",
+      "D": "Asie centrale"
+    },
+    "answer": "A",
+    "explanation": "Le haoussa est largement parlé au Nigeria, au Niger et comme lingua franca régionale.",
+    "source": "Ethnologue — Hausa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
