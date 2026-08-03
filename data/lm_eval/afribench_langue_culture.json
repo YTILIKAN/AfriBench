@@ -644,5 +644,119 @@
     "source": "FESPACO — About",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-035",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est une langue bantu largement utilisée comme…",
+    "options": {
+      "A": "Langue véhiculaire en Afrique de l'Est",
+      "B": "Langue officielle unique du Maghreb",
+      "C": "Dialecte du portugais",
+      "D": "Langue isolée sans emprunts"
+    },
+    "answer": "A",
+    "explanation": "Le kiswahili sert de lingua franca en Afrique de l'Est et centrale.",
+    "source": "Ethnologue / AU Kiswahili",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-036",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Qui a écrit le roman « Things Fall Apart », référence de la littérature africaine anglophone ?",
+    "options": {
+      "A": "Chinua Achebe",
+      "B": "Wole Soyinka",
+      "C": "Ngũgĩ wa Thiong'o",
+      "D": "Ama Ata Aidoo"
+    },
+    "answer": "A",
+    "explanation": "Chinua Achebe (Nigeria) a publié Things Fall Apart en 1958.",
+    "source": "Encyclopædia Britannica — Chinua Achebe",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-037",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les sculptures en bronze du royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Gao",
+      "D": "Kilwa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-038",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le genre musical afrobeat est étroitement associé à quel artiste nigérian ?",
+    "options": {
+      "A": "Fela Kuti",
+      "B": "Salif Keïta",
+      "C": "Youssou N'Dour",
+      "D": "Hugh Masekela"
+    },
+    "answer": "A",
+    "explanation": "Fela Kuti a popularisé l'afrobeat, mélange de highlife, jazz et funk engagé.",
+    "source": "Encyclopædia Britannica — Fela Kuti",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-039",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Nollywood désigne principalement l'industrie cinématographique de…",
+    "options": {
+      "A": "Nigeria",
+      "B": "Égypte",
+      "C": "Afrique du Sud",
+      "D": "Sénégal"
+    },
+    "answer": "A",
+    "explanation": "Nollywood est le surnom de l'industrie du film nigériane, très productive.",
+    "source": "UNESCO / academic lit. on Nollywood",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-040",
+    "category": "langue_culture",
+    "subcategory": "patrimoine",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les manuscrits de Tombouctou témoignent surtout de…",
+    "options": {
+      "A": "Traditions savantes islamiques et africaines écrites",
+      "B": "Uniquement de la cartographie européenne",
+      "C": "Codes informatiques précoloniaux",
+      "D": "Partitions de jazz américain"
+    },
+    "answer": "A",
+    "explanation": "Les fonds manuscrits de Tombouctou documentent théologie, droit, sciences et histoire.",
+    "source": "UNESCO — Timbuktu manuscripts",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

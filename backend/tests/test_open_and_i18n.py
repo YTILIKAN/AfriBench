@@ -74,4 +74,4 @@ def test_african_question_count_floor():
     n = 0
     for p in validated.glob("*.json"):
         n += len(json.loads(p.read_text(encoding="utf-8")))
-    assert n >= 300
+    assert n >= 350

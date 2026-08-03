@@ -7,12 +7,12 @@ alternative **EMNLP 2027**.
 
 | Prérequis | État AfriBench (août 2026) |
 |-----------|----------------------------|
-| 300+ questions | ✅ 300 QCM Afrique |
+| 300+ questions | ✅ 350 QCM Afrique |
 | Validation 3+ experts africains | ❌ recrutement (`docs/VALIDATORS.md`) |
 | 2–3 langues africaines | 🟡 scaffolding SW/YO/AM (draft MT) |
 | LM Evaluation Harness | ✅ `afribench` / `afribench_all` |
 | 15–20 modèles évalués | 🟡 7 modèles seed (101 Q) — re-run 300 requis |
-| Analyse statistique (IC, tests) | ❌ à faire après re-run |
+| Analyse statistique (IC, tests) | 🟡 `scripts/stats_analysis.py` prêt (seed 101) ; à rejouer après eval 350 |
 | Dataset card / datasheet | ✅ `data/DATASET_CARD.md` |
 | Code + reproduce | ✅ `reproduce.sh`, Docker eval |
 | Leaderboard public | 🟡 Space code prêt — deploy Hub manuel |
@@ -41,7 +41,7 @@ alternative **EMNLP 2027**.
 ## Prochaines actions concrètes
 
 1. Recruter 3 validateurs → batches via `prepare_validation_batch.py`
-2. Re-run modèles sur 300 QCM (+ witness)
+2. Re-run modèles sur 350 QCM (+ witness) ; utiliser `scripts/stats_analysis.py`
 3. Traduction native d’un sous-ensemble (≥50/langue) avant scale
 4. Calculer IC bootstrap / McNemar pour paires de modèles
 5. Rédiger datasheet section « motivation / collection / uses »

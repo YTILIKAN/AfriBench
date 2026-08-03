@@ -43,7 +43,7 @@ Manuel équivalent :
 3. `python scripts/sync_hf_space_data.py` (copie `results.json` + `questions.json`)
 
 Le classement public peut encore refléter des scores **seed** (sous-ensemble)
-tant que les modèles n'ont pas été rejoués sur les 300 QCM.
+tant que les modèles n'ont pas été rejoués sur les 350 QCM.
 
 ## Fichiers
 

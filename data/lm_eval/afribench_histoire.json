@@ -701,5 +701,81 @@
     "source": "UNESCO — Island of Gorée",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-038",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel leader a proclamé l'indépendance de la Guinée en 1958 en refusant la Communauté française ?",
+    "options": {
+      "A": "Léopold Sédar Senghor",
+      "B": "Ahmed Sékou Touré",
+      "C": "Félix Houphouët-Boigny",
+      "D": "Modibo Keïta"
+    },
+    "answer": "B",
+    "explanation": "Sékou Touré a fait voter « non » au référendum de 1958, conduisant à l'indépendance immédiate de la Guinée.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-039",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel royaume du bassin du Congo est célèbre pour ses tissus en raphia et ses relations diplomatiques avec le Portugal dès le XVe siècle ?",
+    "options": {
+      "A": "Royaume du Kongo",
+      "B": "Empire Luba",
+      "C": "Royaume du Buganda",
+      "D": "Empire du Monomotapa"
+    },
+    "answer": "A",
+    "explanation": "Le royaume du Kongo établit tôt des contacts avec les Portugais ; sa culture matérielle (raphia) est bien documentée.",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-040",
+    "category": "histoire",
+    "subcategory": "resistances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La reine Yaa Asantewaa est associée à quelle résistance anticoloniale ?",
+    "options": {
+      "A": "Résistance ashanti contre les Britanniques",
+      "B": "Guerre des Zoulous contre les Boers",
+      "C": "Révolte des Maji Maji",
+      "D": "Résistance samory contre la France"
+    },
+    "answer": "A",
+    "explanation": "Yaa Asantewaa mena la guerre du Tabouret d'or (1900) contre l'occupation britannique en Asante (Ghana).",
+    "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "HIST-041",
+    "category": "histoire",
+    "subcategory": "traite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel comptoir français d'Afrique de l'Ouest fut un des principaux ports de la traite atlantique ?",
+    "options": {
+      "A": "Gorée",
+      "B": "Mombasa",
+      "C": "Sofala",
+      "D": "Zanzibar"
+    },
+    "answer": "A",
+    "explanation": "L'île de Gorée (Sénégal) est un site emblématique de la mémoire de la traite atlantique.",
+    "source": "UNESCO — Île de Gorée",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

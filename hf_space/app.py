@@ -22,11 +22,21 @@ THEME = gr.themes.Soft(primary_hue="orange", neutral_hue="stone")
 def build_leaderboard(open_only: bool):
     df = leaderboard_df(open_only=open_only)
     stats = stats_summary()
+    corpus = stats.get("corpus_questions")
+    eval_n = stats.get("n_questions")
+    seed_note = ""
+    if stats.get("seed_mismatch"):
+        seed_note = (
+            f" ⚠️ Scores basés sur **{eval_n}** questions (seed) alors que le corpus "
+            f"en compte **{corpus}** — re-run requis."
+        )
+    elif corpus:
+        seed_note = f" · corpus **{corpus}** QCM"
     banner = (
         f"**Prototype v0.1 (indicatif)** — "
-        f"{stats['n_models']} modèles · ~{stats['n_questions']} questions/run · "
+        f"{stats['n_models']} modèles · eval n≈{eval_n} · "
         f"Top : **{stats['top_model']}** ({stats['top_score']}%) · "
-        f"moyenne {stats['avg_score']}%"
+        f"moyenne {stats['avg_score']}%{seed_note}"
     )
     return banner, df
 

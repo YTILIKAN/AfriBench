@@ -6,7 +6,7 @@ Bonjour,
 
 AfriBench ([GitHub](https://github.com/YTILIKAN/AfriBench)) est un benchmark ouvert
 pour évaluer les LLM sur des connaissances africaines (histoire, géographie, droit,
-économie, santé, culture, société, IA). Le corpus compte aujourd’hui **300 QCM** en
+économie, santé, culture, société, IA). Le corpus compte aujourd’hui **350 QCM** en
 français (+ questions témoins et tâches ouvertes pilotes).
 
 Nous recherchons des **validateurs africains** (universitaires, doctorants, experts
