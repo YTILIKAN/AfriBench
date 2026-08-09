@@ -188,5 +188,233 @@
     "source": "EAC (eac.int) ; BBC Afrique",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "POL-011",
+    "category": "droit_politique",
+    "subcategory": "organisations_regionales",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Mali, le Burkina Faso et le Niger ont annoncé leur retrait de la CEDEAO en janvier 2024. À quelle date ce retrait est-il devenu effectif, et pourquoi ce délai ?",
+    "options": {
+      "A": "Le 29 janvier 2025, en raison du préavis d'un an prévu par le traité de la CEDEAO",
+      "B": "Immédiatement en janvier 2024, dès l'annonce",
+      "C": "En juillet 2024, à la création de la Confédération AES",
+      "D": "Le retrait n'a jamais pris effet"
+    },
+    "answer": "A",
+    "explanation": "Le traité révisé de la CEDEAO impose un préavis d'un an. Annoncé le 28 janvier 2024, le retrait du Mali, du Burkina Faso et du Niger est donc devenu effectif le 29 janvier 2025, réduisant l'organisation à douze membres. Une période de transition a été maintenue ensuite pour la médiation.",
+    "source": "CEDEAO ; communiqués officiels 2024-2025",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-012",
+    "category": "droit_politique",
+    "subcategory": "organisations_regionales",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle organisation le Mali, le Burkina Faso et le Niger ont-ils fondée d'abord comme pacte de défense mutuelle en septembre 2023, avant d'en faire une confédération ?",
+    "options": {
+      "A": "L'Alliance des États du Sahel (AES)",
+      "B": "L'Union du fleuve Mano",
+      "C": "Le G5 Sahel",
+      "D": "La Communauté sahélo-saharienne (CEN-SAD)"
+    },
+    "answer": "A",
+    "explanation": "L'Alliance des États du Sahel (AES) a été créée le 16 septembre 2023 comme pacte de défense mutuelle, puis transformée en Confédération lors du sommet de Niamey le 6 juillet 2024. Le G5 Sahel et la CEN-SAD sont des structures distinctes et antérieures.",
+    "source": "Communiqués officiels de l'AES ; presse régionale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-013",
+    "category": "droit_politique",
+    "subcategory": "droits_humains",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le principal instrument régional africain des droits humains est souvent appelé « Charte de Banjul ». Quel est son nom officiel et de quand date-t-il ?",
+    "options": {
+      "A": "La Charte africaine des droits de l'homme et des peuples, adoptée en 1981",
+      "B": "La Déclaration d'Addis-Abeba sur les libertés, de 1963",
+      "C": "Le Pacte panafricain des droits civiques, de 1990",
+      "D": "La Convention de Durban sur les droits humains, de 2002"
+    },
+    "answer": "A",
+    "explanation": "La Charte africaine des droits de l'homme et des peuples, dite Charte de Banjul, a été adoptée en 1981 sous l'égide de l'OUA et est entrée en vigueur en 1986. Elle est originale par sa reconnaissance des droits collectifs (« des peuples ») et des devoirs, en plus des droits individuels.",
+    "source": "Union africaine ; texte de la Charte de Banjul",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-014",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Il ne faut pas confondre la Commission et la Cour africaines des droits de l'homme et des peuples. Où siègent-elles respectivement ?",
+    "options": {
+      "A": "La Commission à Banjul (Gambie), la Cour à Arusha (Tanzanie)",
+      "B": "Les deux à Addis-Abeba (Éthiopie)",
+      "C": "La Commission à Arusha, la Cour à Banjul",
+      "D": "La Commission à Kigali, la Cour à Abuja"
+    },
+    "answer": "A",
+    "explanation": "La Commission africaine des droits de l'homme et des peuples siège à Banjul (Gambie) depuis 1987 ; la Cour africaine, créée par un protocole ultérieur, siège à Arusha (Tanzanie). La Commission instruit et formule des recommandations, tandis que la Cour rend des arrêts.",
+    "source": "Union africaine ; documentation institutionnelle",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-015",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Union africaine a succédé à une organisation continentale antérieure. Quelle était cette organisation, quand a-t-elle été fondée et quand l'UA l'a-t-elle remplacée ?",
+    "options": {
+      "A": "L'OUA, fondée en 1963, remplacée par l'UA en 2002",
+      "B": "La SDN-Afrique, fondée en 1945, remplacée en 1990",
+      "C": "La Ligue africaine, fondée en 1958, remplacée en 2000",
+      "D": "Le Mouvement panafricain, fondé en 1919, remplacé en 1980"
+    },
+    "answer": "A",
+    "explanation": "L'Organisation de l'unité africaine (OUA) a été fondée en 1963 à Addis-Abeba. Elle a été remplacée par l'Union africaine lors du sommet de Durban en 2002, l'UA se dotant d'institutions plus intégrées inspirées en partie du modèle européen.",
+    "source": "Union africaine ; histoire institutionnelle",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-016",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Où se trouve le siège du Parlement panafricain, organe législatif consultatif de l'Union africaine ?",
+    "options": {
+      "A": "À Midrand, en Afrique du Sud",
+      "B": "À Addis-Abeba, en Éthiopie",
+      "C": "À Arusha, en Tanzanie",
+      "D": "À Accra, au Ghana"
+    },
+    "answer": "A",
+    "explanation": "Le Parlement panafricain siège à Midrand, en Afrique du Sud. Il ne faut pas le confondre avec le siège de la Commission de l'Union africaine, situé à Addis-Abeba. Le Parlement dispose pour l'heure de pouvoirs essentiellement consultatifs.",
+    "source": "Union africaine ; documentation du Parlement panafricain",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "droit_des_affaires",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'OHADA harmonise le droit des affaires dans une partie de l'Afrique francophone (et au-delà). Où siège sa juridiction commune, la CCJA ?",
+    "options": {
+      "A": "À Abidjan, en Côte d'Ivoire",
+      "B": "À Dakar, au Sénégal",
+      "C": "À Yaoundé, au Cameroun",
+      "D": "À Lomé, au Togo"
+    },
+    "answer": "A",
+    "explanation": "L'OHADA (Organisation pour l'harmonisation en Afrique du droit des affaires) regroupe 17 États et adopte des « Actes uniformes » directement applicables. Sa Cour commune de justice et d'arbitrage (CCJA) siège à Abidjan. L'École régionale supérieure de la magistrature (ERSUMA) est, elle, à Porto-Novo au Bénin.",
+    "source": "OHADA ; documentation juridique",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-018",
+    "category": "droit_politique",
+    "subcategory": "justice_transitionnelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Après le génocide de 1994, le Rwanda a mobilisé des juridictions participatives d'inspiration traditionnelle pour juger un grand nombre d'accusés. Comment les nomme-t-on ?",
+    "options": {
+      "A": "Les juridictions Gacaca",
+      "B": "Les tribunaux Ubuntu",
+      "C": "Les cours Harambee",
+      "D": "Les conseils Indaba"
+    },
+    "answer": "A",
+    "explanation": "Les juridictions Gacaca, inspirées d'une justice communautaire de proximité, ont jugé plus d'un million d'affaires liées au génocide de 1994, faute de capacité des tribunaux classiques. Elles sont débattues quant à leurs garanties procédurales mais restent une expérience majeure de justice transitionnelle. Ubuntu, Harambee et Indaba renvoient à d'autres concepts africains.",
+    "source": "Sources sur la justice transitionnelle rwandaise",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-019",
+    "category": "droit_politique",
+    "subcategory": "droit_constitutionnel",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Constitution sud-africaine adoptée après l'apartheid est réputée pour son caractère progressiste, notamment sur les droits socio-économiques. De quelle année date-t-elle ?",
+    "options": {
+      "A": "1996",
+      "B": "1990",
+      "C": "1994",
+      "D": "2000"
+    },
+    "answer": "A",
+    "explanation": "La Constitution définitive de l'Afrique du Sud a été adoptée en 1996 (après une constitution intérimaire de 1993 et les premières élections multiraciales de 1994). Elle inscrit une déclaration des droits étendue et institue une Cour constitutionnelle chargée de la faire respecter.",
+    "source": "Constitution de la République d'Afrique du Sud",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-020",
+    "category": "droit_politique",
+    "subcategory": "systemes_juridiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Nigeria illustre le pluralisme juridique fréquent en Afrique. Quels systèmes de droit y coexistent ?",
+    "options": {
+      "A": "La common law héritée du Royaume-Uni, le droit coutumier et le droit musulman (charia) dans certains États du nord",
+      "B": "Uniquement le droit civil d'inspiration française",
+      "C": "Uniquement la common law britannique, sans autre source",
+      "D": "Un droit religieux unique appliqué sur tout le territoire"
+    },
+    "answer": "A",
+    "explanation": "Au Nigeria coexistent la common law héritée de la colonisation britannique, le droit coutumier des différentes communautés, et le droit musulman (charia) appliqué en matière notamment pénale dans plusieurs États du nord depuis 1999-2000. Ce pluralisme est caractéristique de nombreux systèmes juridiques africains.",
+    "source": "Sources de droit comparé africain",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-021",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Cour de justice de la CEDEAO, qui peut être saisie directement par des citoyens pour des violations des droits humains, a son siège dans quelle ville ?",
+    "options": {
+      "A": "Abuja, au Nigeria",
+      "B": "Accra, au Ghana",
+      "C": "Lomé, au Togo",
+      "D": "Dakar, au Sénégal"
+    },
+    "answer": "A",
+    "explanation": "La Cour de justice de la Communauté (CEDEAO) siège à Abuja, au Nigeria. Sa particularité est d'être accessible directement aux individus sans épuisement préalable des recours internes, ce qui en a fait un recours important en Afrique de l'Ouest, notamment pour les ressortissants des pays quittant l'organisation.",
+    "source": "CEDEAO ; documentation de la Cour de justice",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-022",
+    "category": "droit_politique",
+    "subcategory": "droits_humains",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Adopté en 2003, un protocole additionnel à la Charte africaine porte spécifiquement sur les droits des femmes en Afrique. Sous quel nom est-il connu ?",
+    "options": {
+      "A": "Le Protocole de Maputo",
+      "B": "Le Protocole de Kampala",
+      "C": "La Convention d'Abuja",
+      "D": "La Déclaration de Ouagadougou"
+    },
+    "answer": "A",
+    "explanation": "Le Protocole de Maputo (2003), additionnel à la Charte africaine des droits de l'homme et des peuples, garantit un large éventail de droits aux femmes africaines (santé, participation politique, protection contre les violences). C'est l'un des instruments régionaux les plus avancés en la matière, malgré des réserves de certains États.",
+    "source": "Union africaine ; texte du Protocole de Maputo",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   }
 ]

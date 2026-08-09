@@ -151,7 +151,7 @@ ${'  '}[
           <h4>Reponse</h4>
           <div class="api-code-sample">
 ${'  '}{
-  "total_questions": 101,
+  "total_questions": 189,
   "total_models": 7,
   "categories": 9,
   "languages": ["fr"],

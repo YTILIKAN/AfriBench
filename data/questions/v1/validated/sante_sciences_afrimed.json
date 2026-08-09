@@ -1,0 +1,1042 @@
+[
+  {
+    "id": "SANTE-AMQ-0011",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following statements about leprosy (Hansen’s disease) is NOT True?",
+    "options": {
+      "A": "Patients may present with asymmetrical, well-defined, anesthetic, hypopigmented or erythematous macules with elevated edges and a dry rough surface",
+      "B": "There are often nodular lesions on the patient’s face in the acute phase of the lepromatous variety.",
+      "C": "Patients have neural involvement characterized by thickening of nerves, which are tender",
+      "D": "The condition is diagnosed by demonstrating bacilli in urine",
+      "E": "The patient is treated by a multidisciplinary team of infection disease specialist and  surgeons"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "44636cdeeea116d19adf7ed2b0fa6530b90e3b791093c1f0ecce72168a2035ec",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0012",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A child with known history of bronchial asthma presents to the clinic with severe breathlessness, inability to complete a sentence and vomiting. He is cyanosed, restless with feeble pulses and has poor breath sounds. The immediate management need of this patient is:",
+    "options": {
+      "A": "Oral prednisolone therapy",
+      "B": "Mechanical ventilation.",
+      "C": "Nebulization with Normal Saline.",
+      "D": "Nebulization with Salbutamol.",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "11e280e90c938c1905956872841008ed564a5bc4c1f459df5ee6696be478d4e4",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0013",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following statements regarding nutritional requirements in infants is NOT TRUE?",
+    "options": {
+      "A": "The total daily water requirement is estimated to be 100 ml/kg",
+      "B": "The resting energy expenditure is approximately twice that of an adult",
+      "C": "The highest rate of nitrogen retention with parenteral nutrition occurs in infants given approximately 40% of the calories as carbohydrate and the remainder as fat",
+      "D": "The protein requirement for a newborn infant is approximately 1 g/kg/day",
+      "E": "The caloric intake needs to be adjusted based on growth and weight gain"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d3ca583693d44f2173a53e9a6b5370271d48bce42f7cb5bd6a7eb386c9e9fcd6",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0014",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Mr. Essien, a 32-year-old Diabetic with hypercholesterolemia, presents with delusions and hallucinations of over 3 months. Which of the following would you prescribe?",
+    "options": {
+      "A": "Clozapine",
+      "B": "Amisulpride",
+      "C": "Quetiapine",
+      "D": "Risperidone",
+      "E": "Chlorpromazine"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "b53b951648ebe527c836e313159619fbcb4a8a6f5859ed03adf1a1aa36640bf1",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0015",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following diabetes medications work by increasing insulin sensitivity?",
+    "options": {
+      "A": "Sitagliptin",
+      "B": "Glimepiride",
+      "C": "Empagliflozin",
+      "D": "Pioglitazone",
+      "E": "Gliclazide"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d5946f19cbc746b9b5180df13a9dedeea0856e6a620dd4093abb5f1ea5c52c79",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0016",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 6-day old infant delivered at 31 weeks who has been hospitalized from birth develops recurrent generalized seizures without fever. Lumbar puncture yields a uniformly bloody cerebrospinal fluid. The most likely aetiological factor is:",
+    "options": {
+      "A": "Perinatal asphyxia.",
+      "B": "Anencephaly.",
+      "C": "Subarachnoid haemorrhage",
+      "D": "Febrile seizure",
+      "E": "Intraventricular haemorrhage"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "917b5b645e63552581a427b330406f9f0d53cf1b710b035e8131aa066e45d1d0",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0017",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a risk factor for Postpartum depression?",
+    "options": {
+      "A": "Unmarried",
+      "B": "low self esteem",
+      "C": "Family support",
+      "D": "Poor relationship with partner",
+      "E": "Financial problems"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "a2e6d78655d9d8a5d9aa3981d97b21ddfbc3de29003a8db156a80e2a7ad12de1",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0018",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a cause of hypercalcaemia",
+    "options": {
+      "A": "Primary hyperparathyroidism",
+      "B": "Malignancy",
+      "C": "Sarcoidosis",
+      "D": "Hypothyroidism",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "3e99e13ab1a3be6fa1799b72195ec239fbf0653a91c83300053fe5aee72026c0",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0019",
+    "category": "sante_sciences",
+    "subcategory": "hematology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following is not components of the ABO blood group",
+    "options": {
+      "A": "a.\tA – Antigen;",
+      "B": "b.\tO – Antigen;",
+      "C": "b.\tB – Antigen;",
+      "D": "d.\tAnti-A Antibody;",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "42131f6e3118931cef25ffb76e83447f4a617f88ab71cbbf8c60585db3018787",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0020",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Paraganglioma occurs commonly in\r\nA.\t\r\nB.\t\r\nC.\r\nD.",
+    "options": {
+      "A": "Chest (thoracic region)",
+      "B": "Head and Neck region",
+      "C": "Abdomen",
+      "D": "Pelvis",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "5481ae9d89dfe623f07df3f115685d1f6bc509646ff0b71e3cfa85fad98cee00",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0021",
+    "category": "sante_sciences",
+    "subcategory": "infectious_disease",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which one of the following is consistent with scarlet fever",
+    "options": {
+      "A": "Punctae rash on neck and trunk",
+      "B": "cicumoral erythema",
+      "C": "geographic tongue",
+      "D": "only occurs in association with streptococcal pharyngitis",
+      "E": "resolution without desquamation"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "8e731482035e84fe414d30357e23ebfbd6126ccb24bba2bddbbb1ff7471be95e",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0022",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a common childhood hematologic disorder in Nigeria?",
+    "options": {
+      "A": "Beta Thalassemia",
+      "B": "Iron deficiency anaemia",
+      "C": "Malaria-induced hemolytic anaemia",
+      "D": "HbSC disease",
+      "E": "G6PD deficiency"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "90c5759938ef96bd006410ceebd77f4af4608d9d550302b2dcce32fb0773ac5c",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0023",
+    "category": "sante_sciences",
+    "subcategory": "infectious_disease",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which organism can be detected by antigen testing of csf, urine and serum?",
+    "options": {
+      "A": "cryptococcus neoformans",
+      "B": "TB",
+      "C": "E coli",
+      "D": "Hemophilus",
+      "E": "group B streptococcus"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1abb3a7ff1b20c93b227d65e87d53af81af4a592210a37d7206dcfa4e71ff5b5",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0024",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 7-month old infant who was delivered at term has a head circumference of 39 cm. What is the best explanation to give the parents?",
+    "options": {
+      "A": "The head circumference is normal.",
+      "B": "The child may have cortical atrophy",
+      "C": "The child may have hydrocephalus",
+      "D": "The child may have anencephaly",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "56646b9d8d1c99163f6e5f00f872e6db31ac465265e3d04d91ee74b33f1df60f",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0025",
+    "category": "sante_sciences",
+    "subcategory": "ophthalmology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Acetazolamide lowers intraocular Pressure by",
+    "options": {
+      "A": "Decreased aqueous production",
+      "B": "Increased aqueous drainage",
+      "C": "Lowering episcleral venous pressure",
+      "D": "all of the above",
+      "E": "none of the above"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "75d6cbf234d02f0adc0c9f6db937f99d49c2d3079a7da8933b05b01d51a28046",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0026",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "52)\tWhich of the following is NOT an Emergency Treatment and Triage (ETAT) respiratory emergency sign?",
+    "options": {
+      "A": "a)\tAbsent breathing",
+      "B": "b)\tCyanosis",
+      "C": "c)\tLoud wheezing",
+      "D": "d)\tObstructed breathing",
+      "E": "e)\tSevere respiratory distress"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "43fecb6cb1e023c50ced19fda4c8f8bc958fc2150a29673db0177aa193c6b1d9",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0027",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is a feature of aortic stenosis?",
+    "options": {
+      "A": "Loud second heart sound",
+      "B": "Collapsing pulse",
+      "C": "Diastolic murmur",
+      "D": "Opening snap",
+      "E": "Syncope on exertion"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c7fa69a8c23c6f572f3d25a0acf147728d79e664b04c4154968b258a01e54317",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0028",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is/are true about twin pregnancies with symptoms of preterm birth?",
+    "options": {
+      "A": "Most women will deliver within a week.",
+      "B": "Insufficient data are available to make evidence-based recommendations.",
+      "C": "The accuracy of cervical length measurement is higher than for asymptomatic women",
+      "D": "The accuracy of cervical length measurement is higher than for asymptomatic women",
+      "E": "Fetal fibronectin has high negative predictive value"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "7db9a7755d7d8ba54867cfdbedd541bf89a199e39e3a8b54674f89b2f6014f86",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0029",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A patient describes a periodic groin bulge; however, on physical examination, you are unable to identify a hernia. The next best step indiagnosis is:",
+    "options": {
+      "A": "Ultrasound",
+      "B": "Herniography (peritoneography)",
+      "C": "MRI",
+      "D": "CT scan",
+      "E": "None of the above"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "f32c5cc0e5f740d612e9a4782a52d1c119d4201d8947c41aa3e51de49e7f5c7f",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0030",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Blood pressure measurement for a 26-year-old man is 120/84 mmHg. What are the Korotkoff sounds used usually to measure the blood pressure.",
+    "options": {
+      "A": "2 and 5",
+      "B": "1 and 4",
+      "C": "1 and 3",
+      "D": "2 and 4",
+      "E": "1 and 5"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2cad2af0821131dae7bd9fc9e7bf57213e1b4a0da69ac3f36cb613e802b0a1d8",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0031",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following combinations constitute a major risk factors for preeclampsia",
+    "options": {
+      "A": "Prior preeclampsia, pre-existing hypertension and maternal family history",
+      "B": "Chronic hypertension, antiphospholipid syndrome, nulliparity",
+      "C": "Pre-gestational diabetes, multiple pregnancy and chronic hypertension",
+      "D": "Antiphospholipid syndrome, overweight, pre-gestational diabetes",
+      "E": "Dangerous father inheritance, strong family history and prior preeclampsia"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d94786f9553b6dc0e01e1ce0fef38b949b1d4c73000b194e09aef88ffe258f92",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0032",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following seems to be true of appendicitis \r\nin sub-Saharan Africa?",
+    "options": {
+      "A": "Complicated appendicitis is less frequent than in Western countries.",
+      "B": "A majority of patients present with the classic symptoms of vague periumbilical pain the migrates to the right lower quadrant with anorexia followed by nausea and vomiting",
+      "C": "Patients have a shorter duration of symptoms than in  Westerncountries.",
+      "D": "Right iliac fossa pain is the most common symptom",
+      "E": "Appendicitis is not common in sub Saharan Africa"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c20a294845d4d4549824fdbd4243bb2c07ac74939b2e07e89d9299670d5739cc",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0033",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The Saint’s triad describes the occurrence of flatulent dyspepsia associated with the following except",
+    "options": {
+      "A": "Diverticulosis",
+      "B": "Hiatus hernia",
+      "C": "Peptic ulceration",
+      "D": "Gallstones",
+      "E": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "fb3965aab51162d71f33be720460848d54f03f958096deb17715f75cc4dd9706",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0034",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Initial management of hypovolic shock in a 2 year old involves 20 ml/kg of",
+    "options": {
+      "A": "A. 10% dextrose over 10 mins",
+      "B": "B.1/5 NS in 4.3 dextrose",
+      "C": "0.9% Normal saline as bolus",
+      "D": "to intubate the child",
+      "E": "n/a"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "5c2b6caa91674c8d1f84f4b35dca2e33266d91edb525b78660e4359c44875440",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0035",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A resident doctor, after examining the chest of a 4-year old child who presents with fever and breathlessness declares that the baby has pleural rubs. What does that statement imply?",
+    "options": {
+      "A": "There is massive pleural effusion",
+      "B": "There is minimal pleural effusion",
+      "C": "There is massive pneumothorax",
+      "D": "There is multi-segmental consolidation",
+      "E": "There is congestive heart failure"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "7ce43bab73505aa2dcfb3d5d65b6ca7bb4c6e21992eaa3f0c1b8f647f86e208e",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0036",
+    "category": "sante_sciences",
+    "subcategory": "neurology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "6)\tThe dermatome supplying the anterior thigh is:",
+    "options": {
+      "A": "a)\tT12",
+      "B": "b)\tL1",
+      "C": "c)\tL2",
+      "D": "d)\tL4",
+      "E": "e)\tL5"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "749e0aa246687729113e0d4c482534cc14614f69bbd87fb75a3616a00d884ce2",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0037",
+    "category": "sante_sciences",
+    "subcategory": "internal_medicine",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 23-year-old university female student was brought to the emergency department after she had ingested an unknown poison because he had a break up with her boyfriend. On examination she had excess salivation, pin point pupils, pulse rate was 55 beats per minute, blood pressure was 100/75 mmHg.\r\nIn the above case what is the likely diagnosis?",
+    "options": {
+      "A": "Cyanide poisoning",
+      "B": "Organophosphate poisoning",
+      "C": "Lead poisoning",
+      "D": "Mercury poisoning",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "73ac620cbe0f33f9bf82a37237381fbdd0890c4c41892c5be365d8045275572c",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0038",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following are true about skin conductance-galvanic skin response except",
+    "options": {
+      "A": "increased in depression.",
+      "B": "increase with exposure -desensitisation and reduce after it.",
+      "C": "increased in Agoraphobia",
+      "D": "variable in chronic schizophrenia",
+      "E": "reduced when administering a short acting benzodiazepine"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "bb70a469093babf54519e2210688fcba6ffdc96a231aae3d420ebb6f701b7977",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0039",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is a common cause of cardiomyopathy in parts of Africa?",
+    "options": {
+      "A": "Trypanosomiasis (Chagas diseases)",
+      "B": "Alcohol abuse",
+      "C": "Iron deficiency",
+      "D": "Genetic mutations",
+      "E": "Viral infections"
+    },
+    "answer": "A",
+    "explanation": "Trypanosomiasis, or Chagas disease, is caused by the parasite Trypanosoma brucei in Africa. It can lead to cardiomyopathy due to the parasite infecting heart muscle, causing inflammation and damage. This can result in heart failure and arrhythmias. Proper diagnosis and treatment are essential to prevent complications.",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "b7788e424027ef06af9e4ce143780fe5106f71cbf704f6d861992fa5ef2a83ba",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0040",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "120. Which is not true about loop diuretics",
+    "options": {
+      "A": "A.​Can be given together with thiazide diuretics",
+      "B": "B.​Can treat hypercalcemia",
+      "C": "C.​Can treat hypertension",
+      "D": "D.​Can be given synergistically with aminoglycosides",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "N/a",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "3e8c2386cbdff0e7051be3b0bedf105f34327d0ce3b845d445054e897c702038",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0041",
+    "category": "sante_sciences",
+    "subcategory": "ophthalmology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The effective treatment of dendritic ulcer of the cornea is:",
+    "options": {
+      "A": "Surface anesthesia",
+      "B": "Local corticosteroids",
+      "C": "Systemic corticosteroids",
+      "D": "Acyclovir ointment",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1379e530ce50d14c33da471b8508770800dd3d969a2c50086858b6f54cc6efd5",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0042",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following are characteristic of pericarditis:",
+    "options": {
+      "A": "The chest pain is dull in nature",
+      "B": "There may be an associated pericardial effusion",
+      "C": "The pericardial rub may come and go",
+      "D": "The ECG usually shows pan ST elevation",
+      "E": "The ST elevation is concave"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c0545c5a5a34e3514751292294b9b8f3c71fea7730900b20edac3c8aea55c634",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0043",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A patient is awakened at night with distressing breathlessness and a fear of impending death. This cardiac symptom is known as?",
+    "options": {
+      "A": "Orthopnea",
+      "B": "Platypnea",
+      "C": "Paroxysmal nocturnal dyspnea",
+      "D": "Dyspnea",
+      "E": "Cheyne stokes breathing"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "6d9cb6bb4d00df8c3c6057f342b1f333ed5ab1cd1601f3a7a7fcf69e781d26f6",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0044",
+    "category": "sante_sciences",
+    "subcategory": "gastroenterology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "One of the commonest gastrointestinal diseases is irritable bowel syndrome which is said to be a functional disorder. The diagnostic criteria for this is?",
+    "options": {
+      "A": "Boston criteria",
+      "B": "Rome criteria",
+      "C": "Munich criteria",
+      "D": "Helsinki criteria",
+      "E": "Nairobi criteria"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "4dfb1aac72dac5f2def1dddeddd7a439c8b74f94ff8a942d10e9112d7bb21f8c",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0045",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "In ophthalmia neonatorum:",
+    "options": {
+      "A": "Discharges within the first 24 hours of life is usually due to Gonococcus.",
+      "B": "Scanty discharges occurring after the first week of life is usually due to Chlamydia trachomatis.",
+      "C": "Profuse discharges with massive conjunctival oedema occurring within the first week of life is usually due to Staphylococcus.",
+      "D": "Profuse discharges with massive conjunctival oedema within the first week of life is usually due to Pseudomonas.",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "ddf263913bca712450b7585fc6474837fc255803bd76662f38e3561562fb44a2",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0046",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a characteristic feature of psychosis?",
+    "options": {
+      "A": "Hallucination",
+      "B": "Illusion",
+      "C": "Delusion",
+      "D": "Disorganized speech",
+      "E": "None of the above"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2d40cc5bc4bea59bbab944a7eb36cf7814644821e3b4c07b047e38089baf11a7",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0047",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A seventeen-year-old girl who is not sexually active presents with left iliac fossa pain. An ultrasound scan shows a 5 cm cyst on the left ovary which is complex in nature, with solid, calcified elements and fatty deposits noted on MRI. The likely diagnosis is:",
+    "options": {
+      "A": "Thecal luteal cyst.",
+      "B": "Tubo-ovarian abscess.",
+      "C": "Serous cystadenoma.",
+      "D": "Fibroma.",
+      "E": "Dermoid cyst."
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1d2cee3a4de2b9d91388dec2926b8effa7a2c3e7b7b85b2b6048747656dc8b2e",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0048",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following defines JIA",
+    "options": {
+      "A": "A.5yr old with 2wks hx of fever and non-specific joint pain",
+      "B": "B.9yr old with 4wks hx of fever, joint swelling, rash",
+      "C": "C.A child with fleeting arthralgia",
+      "D": "D. 2 week history of fever",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "cdb1ba5fcac3233a8bd2019bf08a859356e9c1a911fb7fa7ff7d659accdb0280",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0049",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is false regarding ventricular septal defect",
+    "options": {
+      "A": "A.​causes symptoms in the first week of life",
+      "B": "B.​ closes spontaneously in most children",
+      "C": "C.​ a large septal defect is associated with recurrent chest infections",
+      "D": "D.​can lead to heart failure",
+      "E": "n/a"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "ea92a7fcb532a92d1d5e11343e0d3432b8c18b762097e9277c6849f612e722ab",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0050",
+    "category": "sante_sciences",
+    "subcategory": "pulmonary_medicine",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "73. Which of the following is NOT part of the definition (Berlin definition) for ARDS?",
+    "options": {
+      "A": "Acute in onset, within 1 week of injury or insult",
+      "B": "Bilateral opacities or fluffy infiltrates on CT or CXR",
+      "C": "Improved PaO2/FiO2 ratio when placed on PEEP",
+      "D": "Pulmonary edema not explained by cardiac failure or fluid overload",
+      "E": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2497d4586ad2c71ba74a7ffc2c2fd41121f36305c7c6ac646b0226cb58c31c5e",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  }
+]

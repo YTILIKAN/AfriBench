@@ -110,9 +110,9 @@ function renderMethodology(container) {
 
         <div class="meth-code-block">
           <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Score global</strong>
-          Pourcentage de reponses correctes sur l'ensemble du benchmark (101 questions).
+          Pourcentage de reponses correctes sur l'ensemble du benchmark (${totalQ} questions).
           Metrique principale de performance. Un score de 96% signifie que le modele a repondu
-          correctement a 97 questions sur 101.
+          correctement a ${Math.round(totalQ * 0.96)} questions sur ${totalQ}.
           <br><br>
           <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Scores par difficulte</strong>
           Les questions sont classees en 3 niveaux :
@@ -177,7 +177,7 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Limites et ameliorations futures</h3>
         <ul>
-          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (101 questions)</li>
+          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions)</li>
           <li>Les questions sont principalement en <strong>francais</strong> — les versions multilingues sont en cours</li>
           <li>Les categories seront etendues (sports, arts, religions, etc.)</li>
           <li>Le format pourra evoluer (questions ouvertes, generation de texte, etc.)</li>

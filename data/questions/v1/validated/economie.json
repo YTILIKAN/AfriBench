@@ -188,5 +188,233 @@
     "source": "BAD (afdb.org) ; FMI",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-011",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "On parle souvent « du franc CFA » au singulier. Quelle affirmation décrit correctement la réalité monétaire de la zone franc ?",
+    "options": {
+      "A": "Il existe deux francs CFA distincts et non interchangeables, émis par la BCEAO et la BEAC",
+      "B": "Il s'agit d'une monnaie unique émise par une seule banque centrale continentale",
+      "C": "Le franc CFA est émis directement par la Banque centrale européenne",
+      "D": "Le franc CFA est une monnaie flottante indexée sur le dollar"
+    },
+    "answer": "A",
+    "explanation": "Il existe en réalité deux francs CFA : celui de l'Afrique de l'Ouest (UEMOA), émis par la BCEAO, et celui d'Afrique centrale (CEMAC), émis par la BEAC. Ils ont la même parité avec l'euro mais ne sont pas interchangeables entre les deux zones. La parité est fixe (et non flottante) et arrimée à l'euro, non au dollar.",
+    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-012",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La CEDEAO projette depuis des années l'adoption d'une monnaie unique pour l'Afrique de l'Ouest. Quel nom a été retenu pour cette future monnaie ?",
+    "options": {
+      "A": "L'eco",
+      "B": "L'afro",
+      "C": "Le cauri",
+      "D": "Le naira-CFA"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO a retenu le nom « eco » pour sa future monnaie unique, dont le lancement a été plusieurs fois reporté en raison des divergences sur les critères de convergence et sur le lien avec l'euro. Le projet a ravivé le débat sur l'avenir du franc CFA.",
+    "source": "CEDEAO ; documentation économique régionale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-013",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le service de paiement mobile M-Pesa est devenu une référence mondiale de l'inclusion financière. Dans quel pays et par quel opérateur a-t-il été lancé en 2007 ?",
+    "options": {
+      "A": "Au Kenya, par Safaricom",
+      "B": "Au Nigeria, par MTN",
+      "C": "En Afrique du Sud, par Vodacom",
+      "D": "au Ghana, par Airtel"
+    },
+    "answer": "A",
+    "explanation": "M-Pesa a été lancé au Kenya en 2007 par Safaricom (filiale de Vodafone). Il a permis à des millions de personnes non bancarisées d'effectuer des transferts d'argent par téléphone, devenant un modèle étudié dans le monde entier. Les autres opérateurs cités proposent des services similaires mais postérieurs.",
+    "source": "Safaricom ; GSMA ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-014",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Début 2024, un pays africain a officiellement quitté l'OPEP après y avoir adhéré en 2007, en désaccord sur ses quotas de production. Lequel ?",
+    "options": {
+      "A": "L'Angola",
+      "B": "Le Nigeria",
+      "C": "Le Gabon",
+      "D": "La Guinée équatoriale"
+    },
+    "answer": "A",
+    "explanation": "L'Angola a quitté l'OPEP avec effet au 1er janvier 2024, estimant que le maintien dans le cartel l'obligeait à réduire une production qu'il souhaitait au contraire soutenir. Le Nigeria, le Gabon et la Guinée équatoriale sont restés membres.",
+    "source": "OPEP ; agences de presse économiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-015",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Longtemps dominé par l'Afrique du Sud, le classement du premier producteur d'or du continent a changé à la fin des années 2010. Quel pays est devenu le premier producteur d'or d'Afrique ?",
+    "options": {
+      "A": "Le Ghana",
+      "B": "Le Mali",
+      "C": "Le Soudan",
+      "D": "La Tanzanie"
+    },
+    "answer": "A",
+    "explanation": "Le Ghana a dépassé l'Afrique du Sud pour devenir le premier producteur d'or du continent vers 2019, la production sud-africaine déclinant en raison de gisements profonds et coûteux. Le Mali, le Soudan et la Tanzanie sont d'importants producteurs mais derrière le Ghana.",
+    "source": "World Gold Council ; chambres des mines nationales",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-016",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Où se trouve le siège du Secrétariat de la ZLECAf (Zone de libre-échange continentale africaine) ?",
+    "options": {
+      "A": "À Accra, au Ghana",
+      "B": "À Addis-Abeba, en Éthiopie",
+      "C": "À Kigali, au Rwanda",
+      "D": "À Abuja, au Nigeria"
+    },
+    "answer": "A",
+    "explanation": "Le Secrétariat de la ZLECAf est établi à Accra, au Ghana. L'accord a été signé à Kigali en 2018 et est entré en vigueur en 2019, les échanges commerciaux dans son cadre ayant démarré en 2021. Addis-Abeba accueille le siège de l'Union africaine, mais pas celui de la ZLECAf.",
+    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-017",
+    "category": "economie",
+    "subcategory": "politiques_publiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2023, le nouveau président d'un grand pays d'Afrique de l'Ouest a supprimé une coûteuse subvention aux carburants, provoquant une forte hausse des prix. De quel pays s'agit-il ?",
+    "options": {
+      "A": "Le Nigeria",
+      "B": "Le Ghana",
+      "C": "Le Sénégal",
+      "D": "La Côte d'Ivoire"
+    },
+    "answer": "A",
+    "explanation": "À son arrivée au pouvoir en 2023, le président nigérian Bola Tinubu a annoncé la fin de la subvention aux carburants, l'une des plus onéreuses du continent. La mesure a fait bondir les prix à la pompe et alimenté l'inflation, tout en visant à assainir les finances publiques.",
+    "source": "Sources économiques et de presse ; gouvernement du Nigeria",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-018",
+    "category": "economie",
+    "subcategory": "logistique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Éthiopie, pays enclavé, dépend fortement d'un voisin pour son commerce maritime. Quelle infrastructure inaugurée en 2018 relie Addis-Abeba à ce débouché portuaire ?",
+    "options": {
+      "A": "Une ligne ferroviaire électrifiée vers le port de Djibouti",
+      "B": "Un oléoduc vers le port de Mombasa au Kenya",
+      "C": "Une autoroute vers le port de Berbera au Somaliland",
+      "D": "Un canal fluvial vers Port-Soudan"
+    },
+    "answer": "A",
+    "explanation": "La ligne ferroviaire électrifiée Addis-Abeba–Djibouti, mise en service en 2018 et largement financée et construite par des acteurs chinois, relie la capitale éthiopienne au port de Djibouti, par lequel transite l'essentiel du commerce extérieur du pays. Le Somaliland et Berbera sont une voie alternative en développement, mais pas cette infrastructure de 2018.",
+    "source": "Sources sur les infrastructures est-africaines",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-019",
+    "category": "economie",
+    "subcategory": "modeles_de_developpement",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'île Maurice est souvent citée comme une réussite de diversification économique. Quelle trajectoire résume le mieux son développement depuis l'indépendance ?",
+    "options": {
+      "A": "D'une monoéconomie sucrière vers le textile, puis les services financiers et le tourisme",
+      "B": "D'une économie pétrolière vers l'agriculture vivrière",
+      "C": "D'une économie minière vers l'industrie lourde",
+      "D": "D'une économie de pêche vers l'exportation de café"
+    },
+    "answer": "A",
+    "explanation": "Maurice, longtemps dépendante de la canne à sucre, a diversifié son économie vers le textile (zones franches d'exportation), puis les services financiers offshore et le tourisme, atteignant l'un des PIB par habitant les plus élevés d'Afrique. Le pays ne dispose ni de pétrole ni de ressources minières significatives.",
+    "source": "Banque mondiale ; études sur le « miracle mauricien »",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-020",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Au Botswana, l'exploitation des diamants repose sur une coentreprise emblématique entre l'État et une multinationale. Comment s'appelle cette société et qui en sont les partenaires ?",
+    "options": {
+      "A": "Debswana, coentreprise entre l'État botswanais et De Beers",
+      "B": "Alrosa-Botswana, entre l'État et un groupe russe",
+      "C": "Anglo-Kimberley, entre l'État et Rio Tinto",
+      "D": "Okavango Mining, entièrement publique"
+    },
+    "answer": "A",
+    "explanation": "Debswana est une coentreprise à parts égales entre le gouvernement du Botswana et le groupe De Beers ; elle exploite les grandes mines de diamants du pays. Ce partenariat, associé à une gestion prudente des revenus, est souvent cité pour expliquer la stabilité économique botswanaise.",
+    "source": "Debswana ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-021",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel objectif principal la ZLECAf poursuit-elle à l'échelle du continent ?",
+    "options": {
+      "A": "Créer un marché continental unique en réduisant les droits de douane sur le commerce intra-africain",
+      "B": "Instaurer une monnaie unique africaine dès son entrée en vigueur",
+      "C": "Fusionner les banques centrales africaines en une seule institution",
+      "D": "Fixer un tarif douanier commun face à l'Union européenne uniquement"
+    },
+    "answer": "A",
+    "explanation": "La ZLECAf vise à créer un vaste marché continental en supprimant progressivement les droits de douane sur la majorité des biens échangés entre pays africains, afin de stimuler le commerce intra-africain, aujourd'hui faible. Elle ne prévoit pas de monnaie unique ni de fusion des banques centrales à ce stade.",
+    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-022",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle est la nature du régime de change du franc CFA vis-à-vis de l'euro ?",
+    "options": {
+      "A": "Une parité fixe, garantie par un arrimage à l'euro",
+      "B": "Un taux de change flottant fixé quotidiennement par le marché",
+      "C": "Une parité indexée sur un panier de matières premières",
+      "D": "Un taux ajusté chaque année par le FMI"
+    },
+    "answer": "A",
+    "explanation": "Le franc CFA est rattaché à l'euro par une parité fixe (héritée du rattachement antérieur au franc français). Ce régime assure une stabilité de change mais fait l'objet de débats quant à la compétitivité et à la souveraineté monétaire des pays concernés.",
+    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   }
 ]

@@ -52,6 +52,14 @@ models:
     max_tokens: 256
     temperature: 0.0
 
+  - name: gemini-2.5-flash-lite
+    label: "Gemini 2.5 Flash Lite"
+    provider: google
+    model_id: gemini-2.5-flash-lite
+    api_key_env: GEMINI_API_KEY
+    max_tokens: 256
+    temperature: 0.0
+
   - name: deepseek-chat
     label: "DeepSeek V4"
     provider: openai
@@ -76,6 +84,11 @@ models:
 # la grille afribench-judge-1.0 (voir scripts/judge_open.py).
 # temperature: null  ->  Opus 4.8 refuse le paramètre `temperature` (HTTP 400).
 # On l'omet donc ; le déterminisme repose sur la grille de notation fixe.
+#
+# Test GRATUIT possible : basculer temporairement ce bloc sur un modèle gratuit,
+# ex. provider: google / model_id: gemini-2.5-flash-lite / api_key_env:
+# GEMINI_API_KEY / temperature: 0.0 (biais d'auto-préférence si le modèle évalué
+# est aussi un Gemini -> réservé aux tests, pas aux scores publiables).
 judge:
   name: afribench-judge
   label: "AfriBench Judge (Claude Opus 4.8)"

@@ -190,6 +190,234 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "POL-011",
+    "category": "droit_politique",
+    "subcategory": "organisations_regionales",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Mali, le Burkina Faso et le Niger ont annoncé leur retrait de la CEDEAO en janvier 2024. À quelle date ce retrait est-il devenu effectif, et pourquoi ce délai ?",
+    "options": {
+      "A": "Le 29 janvier 2025, en raison du préavis d'un an prévu par le traité de la CEDEAO",
+      "B": "Immédiatement en janvier 2024, dès l'annonce",
+      "C": "En juillet 2024, à la création de la Confédération AES",
+      "D": "Le retrait n'a jamais pris effet"
+    },
+    "answer": "A",
+    "explanation": "Le traité révisé de la CEDEAO impose un préavis d'un an. Annoncé le 28 janvier 2024, le retrait du Mali, du Burkina Faso et du Niger est donc devenu effectif le 29 janvier 2025, réduisant l'organisation à douze membres. Une période de transition a été maintenue ensuite pour la médiation.",
+    "source": "CEDEAO ; communiqués officiels 2024-2025",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-012",
+    "category": "droit_politique",
+    "subcategory": "organisations_regionales",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle organisation le Mali, le Burkina Faso et le Niger ont-ils fondée d'abord comme pacte de défense mutuelle en septembre 2023, avant d'en faire une confédération ?",
+    "options": {
+      "A": "L'Alliance des États du Sahel (AES)",
+      "B": "L'Union du fleuve Mano",
+      "C": "Le G5 Sahel",
+      "D": "La Communauté sahélo-saharienne (CEN-SAD)"
+    },
+    "answer": "A",
+    "explanation": "L'Alliance des États du Sahel (AES) a été créée le 16 septembre 2023 comme pacte de défense mutuelle, puis transformée en Confédération lors du sommet de Niamey le 6 juillet 2024. Le G5 Sahel et la CEN-SAD sont des structures distinctes et antérieures.",
+    "source": "Communiqués officiels de l'AES ; presse régionale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-013",
+    "category": "droit_politique",
+    "subcategory": "droits_humains",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le principal instrument régional africain des droits humains est souvent appelé « Charte de Banjul ». Quel est son nom officiel et de quand date-t-il ?",
+    "options": {
+      "A": "La Charte africaine des droits de l'homme et des peuples, adoptée en 1981",
+      "B": "La Déclaration d'Addis-Abeba sur les libertés, de 1963",
+      "C": "Le Pacte panafricain des droits civiques, de 1990",
+      "D": "La Convention de Durban sur les droits humains, de 2002"
+    },
+    "answer": "A",
+    "explanation": "La Charte africaine des droits de l'homme et des peuples, dite Charte de Banjul, a été adoptée en 1981 sous l'égide de l'OUA et est entrée en vigueur en 1986. Elle est originale par sa reconnaissance des droits collectifs (« des peuples ») et des devoirs, en plus des droits individuels.",
+    "source": "Union africaine ; texte de la Charte de Banjul",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-014",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Il ne faut pas confondre la Commission et la Cour africaines des droits de l'homme et des peuples. Où siègent-elles respectivement ?",
+    "options": {
+      "A": "La Commission à Banjul (Gambie), la Cour à Arusha (Tanzanie)",
+      "B": "Les deux à Addis-Abeba (Éthiopie)",
+      "C": "La Commission à Arusha, la Cour à Banjul",
+      "D": "La Commission à Kigali, la Cour à Abuja"
+    },
+    "answer": "A",
+    "explanation": "La Commission africaine des droits de l'homme et des peuples siège à Banjul (Gambie) depuis 1987 ; la Cour africaine, créée par un protocole ultérieur, siège à Arusha (Tanzanie). La Commission instruit et formule des recommandations, tandis que la Cour rend des arrêts.",
+    "source": "Union africaine ; documentation institutionnelle",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-015",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Union africaine a succédé à une organisation continentale antérieure. Quelle était cette organisation, quand a-t-elle été fondée et quand l'UA l'a-t-elle remplacée ?",
+    "options": {
+      "A": "L'OUA, fondée en 1963, remplacée par l'UA en 2002",
+      "B": "La SDN-Afrique, fondée en 1945, remplacée en 1990",
+      "C": "La Ligue africaine, fondée en 1958, remplacée en 2000",
+      "D": "Le Mouvement panafricain, fondé en 1919, remplacé en 1980"
+    },
+    "answer": "A",
+    "explanation": "L'Organisation de l'unité africaine (OUA) a été fondée en 1963 à Addis-Abeba. Elle a été remplacée par l'Union africaine lors du sommet de Durban en 2002, l'UA se dotant d'institutions plus intégrées inspirées en partie du modèle européen.",
+    "source": "Union africaine ; histoire institutionnelle",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-016",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Où se trouve le siège du Parlement panafricain, organe législatif consultatif de l'Union africaine ?",
+    "options": {
+      "A": "À Midrand, en Afrique du Sud",
+      "B": "À Addis-Abeba, en Éthiopie",
+      "C": "À Arusha, en Tanzanie",
+      "D": "À Accra, au Ghana"
+    },
+    "answer": "A",
+    "explanation": "Le Parlement panafricain siège à Midrand, en Afrique du Sud. Il ne faut pas le confondre avec le siège de la Commission de l'Union africaine, situé à Addis-Abeba. Le Parlement dispose pour l'heure de pouvoirs essentiellement consultatifs.",
+    "source": "Union africaine ; documentation du Parlement panafricain",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "droit_des_affaires",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'OHADA harmonise le droit des affaires dans une partie de l'Afrique francophone (et au-delà). Où siège sa juridiction commune, la CCJA ?",
+    "options": {
+      "A": "À Abidjan, en Côte d'Ivoire",
+      "B": "À Dakar, au Sénégal",
+      "C": "À Yaoundé, au Cameroun",
+      "D": "À Lomé, au Togo"
+    },
+    "answer": "A",
+    "explanation": "L'OHADA (Organisation pour l'harmonisation en Afrique du droit des affaires) regroupe 17 États et adopte des « Actes uniformes » directement applicables. Sa Cour commune de justice et d'arbitrage (CCJA) siège à Abidjan. L'École régionale supérieure de la magistrature (ERSUMA) est, elle, à Porto-Novo au Bénin.",
+    "source": "OHADA ; documentation juridique",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-018",
+    "category": "droit_politique",
+    "subcategory": "justice_transitionnelle",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Après le génocide de 1994, le Rwanda a mobilisé des juridictions participatives d'inspiration traditionnelle pour juger un grand nombre d'accusés. Comment les nomme-t-on ?",
+    "options": {
+      "A": "Les juridictions Gacaca",
+      "B": "Les tribunaux Ubuntu",
+      "C": "Les cours Harambee",
+      "D": "Les conseils Indaba"
+    },
+    "answer": "A",
+    "explanation": "Les juridictions Gacaca, inspirées d'une justice communautaire de proximité, ont jugé plus d'un million d'affaires liées au génocide de 1994, faute de capacité des tribunaux classiques. Elles sont débattues quant à leurs garanties procédurales mais restent une expérience majeure de justice transitionnelle. Ubuntu, Harambee et Indaba renvoient à d'autres concepts africains.",
+    "source": "Sources sur la justice transitionnelle rwandaise",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-019",
+    "category": "droit_politique",
+    "subcategory": "droit_constitutionnel",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Constitution sud-africaine adoptée après l'apartheid est réputée pour son caractère progressiste, notamment sur les droits socio-économiques. De quelle année date-t-elle ?",
+    "options": {
+      "A": "1996",
+      "B": "1990",
+      "C": "1994",
+      "D": "2000"
+    },
+    "answer": "A",
+    "explanation": "La Constitution définitive de l'Afrique du Sud a été adoptée en 1996 (après une constitution intérimaire de 1993 et les premières élections multiraciales de 1994). Elle inscrit une déclaration des droits étendue et institue une Cour constitutionnelle chargée de la faire respecter.",
+    "source": "Constitution de la République d'Afrique du Sud",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-020",
+    "category": "droit_politique",
+    "subcategory": "systemes_juridiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le Nigeria illustre le pluralisme juridique fréquent en Afrique. Quels systèmes de droit y coexistent ?",
+    "options": {
+      "A": "La common law héritée du Royaume-Uni, le droit coutumier et le droit musulman (charia) dans certains États du nord",
+      "B": "Uniquement le droit civil d'inspiration française",
+      "C": "Uniquement la common law britannique, sans autre source",
+      "D": "Un droit religieux unique appliqué sur tout le territoire"
+    },
+    "answer": "A",
+    "explanation": "Au Nigeria coexistent la common law héritée de la colonisation britannique, le droit coutumier des différentes communautés, et le droit musulman (charia) appliqué en matière notamment pénale dans plusieurs États du nord depuis 1999-2000. Ce pluralisme est caractéristique de nombreux systèmes juridiques africains.",
+    "source": "Sources de droit comparé africain",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-021",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Cour de justice de la CEDEAO, qui peut être saisie directement par des citoyens pour des violations des droits humains, a son siège dans quelle ville ?",
+    "options": {
+      "A": "Abuja, au Nigeria",
+      "B": "Accra, au Ghana",
+      "C": "Lomé, au Togo",
+      "D": "Dakar, au Sénégal"
+    },
+    "answer": "A",
+    "explanation": "La Cour de justice de la Communauté (CEDEAO) siège à Abuja, au Nigeria. Sa particularité est d'être accessible directement aux individus sans épuisement préalable des recours internes, ce qui en a fait un recours important en Afrique de l'Ouest, notamment pour les ressortissants des pays quittant l'organisation.",
+    "source": "CEDEAO ; documentation de la Cour de justice",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "POL-022",
+    "category": "droit_politique",
+    "subcategory": "droits_humains",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Adopté en 2003, un protocole additionnel à la Charte africaine porte spécifiquement sur les droits des femmes en Afrique. Sous quel nom est-il connu ?",
+    "options": {
+      "A": "Le Protocole de Maputo",
+      "B": "Le Protocole de Kampala",
+      "C": "La Convention d'Abuja",
+      "D": "La Déclaration de Ouagadougou"
+    },
+    "answer": "A",
+    "explanation": "Le Protocole de Maputo (2003), additionnel à la Charte africaine des droits de l'homme et des peuples, garantit un large éventail de droits aux femmes africaines (santé, participation politique, protection contre les violences). C'est l'un des instruments régionaux les plus avancés en la matière, malgré des réserves de certains États.",
+    "source": "Union africaine ; texte du Protocole de Maputo",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
     "id": "ECON-001",
     "category": "economie",
     "subcategory": "pib_croissance",
@@ -378,6 +606,234 @@
     "source": "BAD (afdb.org) ; FMI",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "ECON-011",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "On parle souvent « du franc CFA » au singulier. Quelle affirmation décrit correctement la réalité monétaire de la zone franc ?",
+    "options": {
+      "A": "Il existe deux francs CFA distincts et non interchangeables, émis par la BCEAO et la BEAC",
+      "B": "Il s'agit d'une monnaie unique émise par une seule banque centrale continentale",
+      "C": "Le franc CFA est émis directement par la Banque centrale européenne",
+      "D": "Le franc CFA est une monnaie flottante indexée sur le dollar"
+    },
+    "answer": "A",
+    "explanation": "Il existe en réalité deux francs CFA : celui de l'Afrique de l'Ouest (UEMOA), émis par la BCEAO, et celui d'Afrique centrale (CEMAC), émis par la BEAC. Ils ont la même parité avec l'euro mais ne sont pas interchangeables entre les deux zones. La parité est fixe (et non flottante) et arrimée à l'euro, non au dollar.",
+    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-012",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La CEDEAO projette depuis des années l'adoption d'une monnaie unique pour l'Afrique de l'Ouest. Quel nom a été retenu pour cette future monnaie ?",
+    "options": {
+      "A": "L'eco",
+      "B": "L'afro",
+      "C": "Le cauri",
+      "D": "Le naira-CFA"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO a retenu le nom « eco » pour sa future monnaie unique, dont le lancement a été plusieurs fois reporté en raison des divergences sur les critères de convergence et sur le lien avec l'euro. Le projet a ravivé le débat sur l'avenir du franc CFA.",
+    "source": "CEDEAO ; documentation économique régionale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-013",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le service de paiement mobile M-Pesa est devenu une référence mondiale de l'inclusion financière. Dans quel pays et par quel opérateur a-t-il été lancé en 2007 ?",
+    "options": {
+      "A": "Au Kenya, par Safaricom",
+      "B": "Au Nigeria, par MTN",
+      "C": "En Afrique du Sud, par Vodacom",
+      "D": "au Ghana, par Airtel"
+    },
+    "answer": "A",
+    "explanation": "M-Pesa a été lancé au Kenya en 2007 par Safaricom (filiale de Vodafone). Il a permis à des millions de personnes non bancarisées d'effectuer des transferts d'argent par téléphone, devenant un modèle étudié dans le monde entier. Les autres opérateurs cités proposent des services similaires mais postérieurs.",
+    "source": "Safaricom ; GSMA ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-014",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Début 2024, un pays africain a officiellement quitté l'OPEP après y avoir adhéré en 2007, en désaccord sur ses quotas de production. Lequel ?",
+    "options": {
+      "A": "L'Angola",
+      "B": "Le Nigeria",
+      "C": "Le Gabon",
+      "D": "La Guinée équatoriale"
+    },
+    "answer": "A",
+    "explanation": "L'Angola a quitté l'OPEP avec effet au 1er janvier 2024, estimant que le maintien dans le cartel l'obligeait à réduire une production qu'il souhaitait au contraire soutenir. Le Nigeria, le Gabon et la Guinée équatoriale sont restés membres.",
+    "source": "OPEP ; agences de presse économiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-015",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Longtemps dominé par l'Afrique du Sud, le classement du premier producteur d'or du continent a changé à la fin des années 2010. Quel pays est devenu le premier producteur d'or d'Afrique ?",
+    "options": {
+      "A": "Le Ghana",
+      "B": "Le Mali",
+      "C": "Le Soudan",
+      "D": "La Tanzanie"
+    },
+    "answer": "A",
+    "explanation": "Le Ghana a dépassé l'Afrique du Sud pour devenir le premier producteur d'or du continent vers 2019, la production sud-africaine déclinant en raison de gisements profonds et coûteux. Le Mali, le Soudan et la Tanzanie sont d'importants producteurs mais derrière le Ghana.",
+    "source": "World Gold Council ; chambres des mines nationales",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-016",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Où se trouve le siège du Secrétariat de la ZLECAf (Zone de libre-échange continentale africaine) ?",
+    "options": {
+      "A": "À Accra, au Ghana",
+      "B": "À Addis-Abeba, en Éthiopie",
+      "C": "À Kigali, au Rwanda",
+      "D": "À Abuja, au Nigeria"
+    },
+    "answer": "A",
+    "explanation": "Le Secrétariat de la ZLECAf est établi à Accra, au Ghana. L'accord a été signé à Kigali en 2018 et est entré en vigueur en 2019, les échanges commerciaux dans son cadre ayant démarré en 2021. Addis-Abeba accueille le siège de l'Union africaine, mais pas celui de la ZLECAf.",
+    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-017",
+    "category": "economie",
+    "subcategory": "politiques_publiques",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2023, le nouveau président d'un grand pays d'Afrique de l'Ouest a supprimé une coûteuse subvention aux carburants, provoquant une forte hausse des prix. De quel pays s'agit-il ?",
+    "options": {
+      "A": "Le Nigeria",
+      "B": "Le Ghana",
+      "C": "Le Sénégal",
+      "D": "La Côte d'Ivoire"
+    },
+    "answer": "A",
+    "explanation": "À son arrivée au pouvoir en 2023, le président nigérian Bola Tinubu a annoncé la fin de la subvention aux carburants, l'une des plus onéreuses du continent. La mesure a fait bondir les prix à la pompe et alimenté l'inflation, tout en visant à assainir les finances publiques.",
+    "source": "Sources économiques et de presse ; gouvernement du Nigeria",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-018",
+    "category": "economie",
+    "subcategory": "logistique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Éthiopie, pays enclavé, dépend fortement d'un voisin pour son commerce maritime. Quelle infrastructure inaugurée en 2018 relie Addis-Abeba à ce débouché portuaire ?",
+    "options": {
+      "A": "Une ligne ferroviaire électrifiée vers le port de Djibouti",
+      "B": "Un oléoduc vers le port de Mombasa au Kenya",
+      "C": "Une autoroute vers le port de Berbera au Somaliland",
+      "D": "Un canal fluvial vers Port-Soudan"
+    },
+    "answer": "A",
+    "explanation": "La ligne ferroviaire électrifiée Addis-Abeba–Djibouti, mise en service en 2018 et largement financée et construite par des acteurs chinois, relie la capitale éthiopienne au port de Djibouti, par lequel transite l'essentiel du commerce extérieur du pays. Le Somaliland et Berbera sont une voie alternative en développement, mais pas cette infrastructure de 2018.",
+    "source": "Sources sur les infrastructures est-africaines",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-019",
+    "category": "economie",
+    "subcategory": "modeles_de_developpement",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'île Maurice est souvent citée comme une réussite de diversification économique. Quelle trajectoire résume le mieux son développement depuis l'indépendance ?",
+    "options": {
+      "A": "D'une monoéconomie sucrière vers le textile, puis les services financiers et le tourisme",
+      "B": "D'une économie pétrolière vers l'agriculture vivrière",
+      "C": "D'une économie minière vers l'industrie lourde",
+      "D": "D'une économie de pêche vers l'exportation de café"
+    },
+    "answer": "A",
+    "explanation": "Maurice, longtemps dépendante de la canne à sucre, a diversifié son économie vers le textile (zones franches d'exportation), puis les services financiers offshore et le tourisme, atteignant l'un des PIB par habitant les plus élevés d'Afrique. Le pays ne dispose ni de pétrole ni de ressources minières significatives.",
+    "source": "Banque mondiale ; études sur le « miracle mauricien »",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-020",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Au Botswana, l'exploitation des diamants repose sur une coentreprise emblématique entre l'État et une multinationale. Comment s'appelle cette société et qui en sont les partenaires ?",
+    "options": {
+      "A": "Debswana, coentreprise entre l'État botswanais et De Beers",
+      "B": "Alrosa-Botswana, entre l'État et un groupe russe",
+      "C": "Anglo-Kimberley, entre l'État et Rio Tinto",
+      "D": "Okavango Mining, entièrement publique"
+    },
+    "answer": "A",
+    "explanation": "Debswana est une coentreprise à parts égales entre le gouvernement du Botswana et le groupe De Beers ; elle exploite les grandes mines de diamants du pays. Ce partenariat, associé à une gestion prudente des revenus, est souvent cité pour expliquer la stabilité économique botswanaise.",
+    "source": "Debswana ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-021",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel objectif principal la ZLECAf poursuit-elle à l'échelle du continent ?",
+    "options": {
+      "A": "Créer un marché continental unique en réduisant les droits de douane sur le commerce intra-africain",
+      "B": "Instaurer une monnaie unique africaine dès son entrée en vigueur",
+      "C": "Fusionner les banques centrales africaines en une seule institution",
+      "D": "Fixer un tarif douanier commun face à l'Union européenne uniquement"
+    },
+    "answer": "A",
+    "explanation": "La ZLECAf vise à créer un vaste marché continental en supprimant progressivement les droits de douane sur la majorité des biens échangés entre pays africains, afin de stimuler le commerce intra-africain, aujourd'hui faible. Elle ne prévoit pas de monnaie unique ni de fusion des banques centrales à ce stade.",
+    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "ECON-022",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle est la nature du régime de change du franc CFA vis-à-vis de l'euro ?",
+    "options": {
+      "A": "Une parité fixe, garantie par un arrimage à l'euro",
+      "B": "Un taux de change flottant fixé quotidiennement par le marché",
+      "C": "Une parité indexée sur un panier de matières premières",
+      "D": "Un taux ajusté chaque année par le FMI"
+    },
+    "answer": "A",
+    "explanation": "Le franc CFA est rattaché à l'euro par une parité fixe (héritée du rattachement antérieur au franc français). Ce régime assure une stabilité de change mais fait l'objet de débats quant à la compétitivité et à la souveraineté monétaire des pays concernés.",
+    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   },
   {
     "id": "GEOG-001",
@@ -684,6 +1140,234 @@
     "date_created": "2026-06-04"
   },
   {
+    "id": "GEOG-017",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le point culminant de l'Afrique est un volcan situé dans un seul pays. Quel est ce sommet et dans quel pays se trouve-t-il ?",
+    "options": {
+      "A": "Le pic Uhuru (Kilimandjaro), en Tanzanie",
+      "B": "Le pic Batian (mont Kenya), au Kenya",
+      "C": "Le pic Margherita (mont Stanley), en Ouganda/RDC",
+      "D": "Le Ras Dashen (massif du Simien), en Éthiopie"
+    },
+    "answer": "A",
+    "explanation": "Le pic Uhuru, au sommet du Kilimandjaro (5 895 m), est le point culminant de l'Afrique, entièrement situé en Tanzanie. Les trois autres sont de véritables hauts sommets africains mais inférieurs : le mont Kenya (5 199 m) est le deuxième, le mont Stanley (5 109 m) est à la frontière RDC-Ouganda, et le Ras Dashen (4 550 m) est éthiopien.",
+    "source": "UNESCO ; programmes de géographie physique de l'Afrique",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-018",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le lac Victoria est le plus vaste lac d'Afrique par sa superficie. Mais quel lac africain est de loin le plus profond, se classant deuxième au monde derrière le lac Baïkal ?",
+    "options": {
+      "A": "Le lac Tanganyika",
+      "B": "Le lac Malawi (Nyassa)",
+      "C": "Le lac Victoria",
+      "D": "Le lac Turkana"
+    },
+    "answer": "A",
+    "explanation": "Le lac Tanganyika atteint environ 1 470 m de profondeur, ce qui en fait le deuxième lac le plus profond du monde après le Baïkal. Le lac Victoria, bien que le plus étendu d'Afrique, est peu profond (environ 80 m). Le Malawi est profond mais nettement moins que le Tanganyika.",
+    "source": "UNESCO ; limnologie des grands lacs africains",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-019",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le fleuve Niger présente un tracé paradoxal. Où prend-il sa source et quelle particularité caractérise son cours ?",
+    "options": {
+      "A": "Il naît en Guinée près de l'Atlantique, mais s'en éloigne d'abord vers le Sahara avant de revenir vers le golfe de Guinée",
+      "B": "Il naît au Nigeria et coule vers le nord jusqu'au lac Tchad",
+      "C": "Il naît en Éthiopie et rejoint directement la Méditerranée",
+      "D": "Il naît au Mali et se jette dans l'océan Indien"
+    },
+    "answer": "A",
+    "explanation": "Le Niger prend sa source dans le Fouta-Djalon en Guinée, à moins de 250 km de l'Atlantique, mais coule d'abord vers le nord-est jusqu'aux abords du Sahara (boucle de Tombouctou) avant de s'infléchir vers le sud-est et se jeter dans le golfe de Guinée au Nigeria. Ce coude désorientait les premiers explorateurs européens.",
+    "source": "UNESCO ; hydrographie du bassin du Niger",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-020",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Contrairement à une idée reçue, le point le plus méridional du continent africain n'est pas le cap de Bonne-Espérance. De quel cap s'agit-il réellement ?",
+    "options": {
+      "A": "Le cap des Aiguilles (Cape Agulhas)",
+      "B": "Le cap de Bonne-Espérance",
+      "C": "Le cap Sainte-Marie (Madagascar)",
+      "D": "Le cap Blanc"
+    },
+    "answer": "A",
+    "explanation": "Le cap des Aiguilles, à une centaine de kilomètres au sud-est du cap de Bonne-Espérance, est le véritable point le plus au sud de l'Afrique continentale et marque la limite entre l'Atlantique et l'océan Indien. Le cap Sainte-Marie est le point sud de Madagascar (île), et le cap Blanc concerne l'extrémité nord.",
+    "source": "Sources cartographiques ; géographie de l'Afrique australe",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-021",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Combien de pays africains sont enclavés (sans accès à la mer) ?",
+    "options": {
+      "A": "16",
+      "B": "12",
+      "C": "9",
+      "D": "20"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique compte 16 États enclavés (Botswana, Burkina Faso, Burundi, Centrafrique, Eswatini, Éthiopie, Lesotho, Malawi, Mali, Niger, Ouganda, Rwanda, Soudan du Sud, Tchad, Zambie, Zimbabwe), soit le plus grand nombre de tous les continents, ce qui pèse lourdement sur leurs coûts logistiques.",
+    "source": "Nations unies ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-022",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un seul pays africain est entièrement enclavé à l'intérieur d'un autre pays (cas rare partagé dans le monde avec Saint-Marin et le Vatican). Lequel ?",
+    "options": {
+      "A": "Le Lesotho, enclavé dans l'Afrique du Sud",
+      "B": "L'Eswatini, enclavé dans l'Afrique du Sud",
+      "C": "La Gambie, enclavée dans le Sénégal",
+      "D": "Le Burundi, enclavé dans la Tanzanie"
+    },
+    "answer": "A",
+    "explanation": "Le Lesotho est totalement entouré par l'Afrique du Sud, ce qui en fait une enclave complète. L'Eswatini borde à la fois l'Afrique du Sud et le Mozambique ; la Gambie possède une façade atlantique ; le Burundi a plusieurs voisins.",
+    "source": "Nations unies ; atlas géographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-023",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Depuis un événement de 2011, quel est le plus vaste pays d'Afrique par sa superficie ?",
+    "options": {
+      "A": "L'Algérie, devenue le plus grand après la partition du Soudan",
+      "B": "Le Soudan, resté le plus grand malgré la sécession du Sud",
+      "C": "La République démocratique du Congo",
+      "D": "La Libye"
+    },
+    "answer": "A",
+    "explanation": "Jusqu'en 2011, le Soudan était le plus grand pays d'Afrique. La sécession du Soudan du Sud (juillet 2011) l'a fait reculer, faisant de l'Algérie (environ 2,38 millions de km²) le plus vaste pays du continent. La RDC et la Libye viennent ensuite.",
+    "source": "Nations unies ; données de superficie officielles",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le point le plus bas d'Afrique se situe dans un pays de la Corne. Quel est-il ?",
+    "options": {
+      "A": "Le lac Assal, à Djibouti",
+      "B": "La dépression du Danakil, en Érythrée",
+      "C": "La dépression de Qattara, en Égypte",
+      "D": "Le lac Turkana, au Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le lac Assal, à Djibouti, se trouve à environ 155 m sous le niveau de la mer : c'est le point le plus bas d'Afrique et l'un des plus salés au monde. La dépression de Qattara (environ -133 m) est le point le plus bas d'Égypte mais pas d'Afrique, et le Danakil, bien que très déprimé, ne descend pas aussi bas.",
+    "source": "Sources géologiques et cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-025",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Cabinda est un territoire pétrolier séparé du reste de son pays par une bande de terre étrangère située à l'embouchure du fleuve Congo. À quel pays appartient Cabinda et quel pays l'en sépare ?",
+    "options": {
+      "A": "Une exclave de l'Angola, séparée par la République démocratique du Congo",
+      "B": "Une exclave du Congo-Brazzaville, séparée par le Gabon",
+      "C": "Une exclave de la RDC, séparée par l'Angola",
+      "D": "Une province autonome du Gabon"
+    },
+    "answer": "A",
+    "explanation": "Cabinda est une province exclavée de l'Angola, séparée du territoire principal par une étroite bande de la République démocratique du Congo à l'embouchure du fleuve Congo. Elle concentre une part majeure de la production pétrolière angolaise offshore.",
+    "source": "Sources géographiques ; documentation sur l'Angola",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-026",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le lac Tchad a considérablement rétréci depuis les années 1960. Quels sont les quatre pays qui se partagent ses rives ?",
+    "options": {
+      "A": "Tchad, Niger, Nigeria et Cameroun",
+      "B": "Tchad, Soudan, Niger et Mali",
+      "C": "Nigeria, Bénin, Niger et Tchad",
+      "D": "Cameroun, Centrafrique, Tchad et Soudan"
+    },
+    "answer": "A",
+    "explanation": "Le lac Tchad est bordé par le Tchad, le Niger, le Nigeria et le Cameroun. Sa surface s'est réduite de plus de 90 % depuis les années 1960 sous l'effet des sécheresses et des prélèvements, avec de lourdes conséquences pour les populations riveraines.",
+    "source": "Commission du Bassin du Lac Tchad ; FAO",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-027",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'équateur traverse plusieurs pays africains. Lequel de ces pays n'est PAS traversé par l'équateur ?",
+    "options": {
+      "A": "La Tanzanie",
+      "B": "Le Gabon",
+      "C": "L'Ouganda",
+      "D": "Le Kenya"
+    },
+    "answer": "A",
+    "explanation": "L'équateur traverse notamment le Gabon, le Congo, la RDC, l'Ouganda, le Kenya et la Somalie. La Tanzanie, elle, est située entièrement dans l'hémisphère sud, juste au sud de l'équateur ; c'est le piège de la question.",
+    "source": "Sources cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-028",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le méridien de Greenwich (longitude 0°) traverse l'Afrique de l'Ouest. Dans quel pays côtier passe-t-il très près d'un grand port, ce pays étant traversé à la fois par le méridien 0° et proche de l'équateur ?",
+    "options": {
+      "A": "Le Ghana",
+      "B": "Le Nigeria",
+      "C": "La Côte d'Ivoire",
+      "D": "Le Sénégal"
+    },
+    "answer": "A",
+    "explanation": "Le méridien de Greenwich traverse le Ghana, passant près de Tema, le grand port à l'est d'Accra. Il poursuit ensuite vers le nord à travers le Burkina Faso, le Mali puis l'Algérie. Le Nigeria est à l'est du méridien, la Côte d'Ivoire à l'ouest.",
+    "source": "Sources cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
     "id": "HIST-001",
     "category": "histoire",
     "subcategory": "empires_precoloniaux",
@@ -967,6 +1651,234 @@
     "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Lettres d'Affonso Ier au roi du Portugal (1526)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-016",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'épopée de Sundiata Keïta raconte la fondation de l'Empire du Mali. Selon la tradition mandingue, quelle bataille décisive marqua sa victoire sur le roi sosso Soumaoro Kanté vers 1235 ?",
+    "options": {
+      "A": "La bataille de Kirina",
+      "B": "La bataille de Tondibi",
+      "C": "La bataille de Kansala",
+      "D": "La bataille de Woyowayanko"
+    },
+    "answer": "A",
+    "explanation": "La bataille de Kirina (vers 1235) opposa Sundiata Keïta à Soumaoro Kanté, roi du Sosso, et fonda l'Empire du Mali. Tondibi (1591) marque au contraire la chute de l'Empire songhaï face aux Saadiens ; Kansala (1867) est liée à la fin du Kaabu ; Woyowayanko (1898) est une bataille de la résistance à la conquête française.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. IV ; épopée mandingue de Soundjata",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-017",
+    "category": "histoire",
+    "subcategory": "resistances_coloniales",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "En 1896, une puissance africaine infligea une défaite militaire majeure à une armée coloniale européenne, préservant son indépendance. Quel souverain remporta cette bataille et contre quelle puissance ?",
+    "options": {
+      "A": "Ménélik II d'Éthiopie, contre l'Italie",
+      "B": "Béhanzin du Dahomey, contre la France",
+      "C": "Cetshwayo des Zoulous, contre le Royaume-Uni",
+      "D": "Samory Touré du Wassoulou, contre la France"
+    },
+    "answer": "A",
+    "explanation": "À Adwa (1er mars 1896), l'armée de Ménélik II écrasa les forces italiennes, garantissant l'indépendance de l'Éthiopie. Béhanzin fut vaincu par la France (1894), Cetshwayo remporta Isandlwana (1879) mais fut finalement défait, et Samory Touré fut capturé en 1898.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-018",
+    "category": "histoire",
+    "subcategory": "royaumes",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La reine Njinga (Nzinga) mena au XVIIe siècle une résistance prolongée contre une puissance coloniale en Afrique centrale. De quels royaumes fut-elle la souveraine et contre qui luttait-elle ?",
+    "options": {
+      "A": "Ndongo et Matamba, contre le Portugal",
+      "B": "Kongo et Loango, contre les Pays-Bas",
+      "C": "Lunda et Luba, contre le Portugal",
+      "D": "Kuba et Kanem, contre la France"
+    },
+    "answer": "A",
+    "explanation": "Njinga Mbandi fut reine du Ndongo puis du Matamba (actuel Angola) et résista au Portugal de 1624 jusqu'à sa mort en 1663, alternant diplomatie et guerre. Le Kongo était un royaume distinct ; Lunda et Luba se situaient plus à l'intérieur du continent ; Kuba et Kanem sont sans rapport géographique.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-019",
+    "category": "histoire",
+    "subcategory": "commerce_transsaharien",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Empire du Ghana médiéval (Wagadou) prospéra grâce au commerce transsaharien. Quels étaient les deux principaux produits échangés qui fondaient sa richesse ?",
+    "options": {
+      "A": "L'or du sud contre le sel du Sahara",
+      "B": "L'ivoire contre les épices d'Orient",
+      "C": "Le cacao contre les textiles européens",
+      "D": "Le cuivre contre les esclaves du nord"
+    },
+    "answer": "A",
+    "explanation": "L'Empire du Ghana (VIIIe-XIIIe siècle), sans lien avec le Ghana moderne, contrôlait l'échange entre l'or des régions aurifères du sud (Bambouk, Bouré) et le sel des mines sahariennes (Taghaza). Le cacao est une culture bien plus tardive introduite d'Amérique, et le commerce décrit précède largement la présence européenne côtière.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. III",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-020",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Conférence de Berlin (1884-1885) est souvent citée à propos du « partage de l'Afrique ». Quel en fut le rôle réel dans ce processus ?",
+    "options": {
+      "A": "Elle fixa des règles de reconnaissance des annexions, sans découper elle-même le continent",
+      "B": "Elle traça directement les frontières définitives de toutes les colonies africaines",
+      "C": "Elle attribua l'ensemble de l'Afrique centrale à la France",
+      "D": "Elle interdit toute colonisation nouvelle au sud de l'équateur"
+    },
+    "answer": "A",
+    "explanation": "La Conférence de Berlin établit des principes (notamment l'« occupation effective » et la liberté de navigation sur le Congo et le Niger) encadrant la course coloniale, et reconnut l'État indépendant du Congo à Léopold II. Elle ne traça pas les frontières précises, qui résultèrent d'accords bilatéraux ultérieurs.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-021",
+    "category": "histoire",
+    "subcategory": "resistances_coloniales",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La révolte Maji Maji (1905-1907) fut une insurrection majeure contre la domination coloniale. Dans quelle colonie et contre quelle puissance eut-elle lieu ?",
+    "options": {
+      "A": "L'Afrique orientale allemande (Tanganyika), contre l'Allemagne",
+      "B": "Le Kenya, contre le Royaume-Uni",
+      "C": "Le Mozambique, contre le Portugal",
+      "D": "Le Congo, contre la Belgique"
+    },
+    "answer": "A",
+    "explanation": "La révolte Maji Maji se déroula dans l'Afrique orientale allemande (actuelle Tanzanie continentale) contre l'administration allemande, unissant plusieurs peuples autour d'une eau (maji) censée protéger des balles. Elle fut réprimée par une politique de terre brûlée provoquant une grande famine.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-022",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Sous quel souverain l'Empire songhaï atteignit-il son apogée administrative, avec une réorganisation en provinces et une réforme de la justice islamique à la fin du XVe siècle ?",
+    "options": {
+      "A": "Askia Mohammed (Askia le Grand)",
+      "B": "Sonni Ali Ber",
+      "C": "Kankou Moussa",
+      "D": "Ousmane dan Fodio"
+    },
+    "answer": "A",
+    "explanation": "Askia Mohammed (règne 1493-1528) réorganisa l'Empire songhaï en provinces, développa l'administration et renforça les institutions islamiques après son pèlerinage à La Mecque. Sonni Ali Ber, son prédécesseur, fut surtout un conquérant ; Kankou Moussa appartenait au Mali ; Ousmane dan Fodio fonda le califat de Sokoto au XIXe siècle.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. IV",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-023",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Ghana fut le premier pays d'Afrique subsaharienne à accéder à l'indépendance en 1957. Qui en fut le dirigeant et quel projet panafricain défendait-il ?",
+    "options": {
+      "A": "Kwame Nkrumah, partisan d'une union politique du continent",
+      "B": "Jomo Kenyatta, partisan d'une fédération est-africaine d'abord",
+      "C": "Léopold Sédar Senghor, promoteur de la Négritude",
+      "D": "Julius Nyerere, théoricien de l'Ujamaa"
+    },
+    "answer": "A",
+    "explanation": "Kwame Nkrumah mena le Ghana à l'indépendance en 1957 et prôna l'unité politique immédiate de l'Afrique (« l'Afrique doit s'unir »), position dite « maximaliste » face aux gradualistes. Kenyatta, Senghor et Nyerere sont bien des figures des indépendances, mais associés respectivement au Kenya, au Sénégal et à la Tanzanie.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-024",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'« État indépendant du Congo » (1885-1908) constitue un cas singulier de la colonisation. Qu'avait-il de particulier par rapport aux autres colonies de l'époque ?",
+    "options": {
+      "A": "Il était la propriété personnelle du roi Léopold II, et non de l'État belge",
+      "B": "Il était administré conjointement par la France et le Portugal",
+      "C": "Il jouissait d'une autonomie interne reconnue aux populations locales",
+      "D": "Il fut la première colonie africaine dotée d'un parlement élu"
+    },
+    "answer": "A",
+    "explanation": "L'État indépendant du Congo fut, de 1885 à 1908, la possession personnelle de Léopold II, exploitée pour le caoutchouc et l'ivoire dans des conditions de travail forcé dénoncées internationalement. Face au scandale, la Belgique en assuma la gestion en 1908 (Congo belge). Il n'y eut ni condominium franco-portugais, ni autonomie locale, ni parlement élu.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-025",
+    "category": "histoire",
+    "subcategory": "afrique_australe",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le terme « Mfecane » (ou Difaqane) désigne une période de bouleversements en Afrique australe au début du XIXe siècle. À quel phénomène renvoie-t-il principalement ?",
+    "options": {
+      "A": "Une vague de guerres et de migrations liée à l'expansion du royaume zoulou",
+      "B": "La grande sécheresse qui vida le désert du Kalahari",
+      "C": "L'arrivée des premiers colons néerlandais au Cap",
+      "D": "La conversion massive des Xhosa au christianisme"
+    },
+    "answer": "A",
+    "explanation": "Le Mfecane désigne les guerres, déplacements de populations et reconfigurations politiques liés notamment à la montée du royaume zoulou sous Chaka dans les années 1810-1830. L'arrivée néerlandaise au Cap date de 1652, bien antérieure, et les autres propositions renvoient à des processus distincts.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VI",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-026",
+    "category": "histoire",
+    "subcategory": "afrique_ancienne",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le royaume de Koush, situé en Nubie, domina un temps l'Égypte antique. Quelle dynastie égyptienne les rois koushites fondèrent-ils, et depuis quelle capitale gouvernaient-ils au départ ?",
+    "options": {
+      "A": "La XXVe dynastie, depuis Napata",
+      "B": "La XVIIIe dynastie, depuis Thèbes",
+      "C": "La dynastie ptolémaïque, depuis Alexandrie",
+      "D": "La XIIe dynastie, depuis Memphis"
+    },
+    "answer": "A",
+    "explanation": "Les rois koushites de Napata conquirent l'Égypte et formèrent la XXVe dynastie (les « pharaons noirs », VIIIe-VIIe siècle av. J.-C.), avant de se replier vers Méroé. La XVIIIe et la XIIe dynasties sont proprement égyptiennes ; les Ptolémées sont d'origine macédonienne.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. II",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-027",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La guerre d'indépendance algérienne (1954-1962) fut menée principalement par une organisation dont l'action déboucha sur des négociations mettant fin au conflit. Comment se nomment respectivement ce mouvement et les accords qui scellèrent l'indépendance ?",
+    "options": {
+      "A": "Le FLN et les accords d'Évian",
+      "B": "Le MNA et les accords de Genève",
+      "C": "Le FLN et les accords de Lancaster House",
+      "D": "L'OS et le traité de Fès"
+    },
+    "answer": "A",
+    "explanation": "Le Front de libération nationale (FLN) déclencha l'insurrection en novembre 1954 ; les accords d'Évian (mars 1962) mirent fin à la guerre et ouvrirent la voie à l'indépendance. Les accords de Lancaster House concernent le Kenya puis le Zimbabwe, et le traité de Fès (1912) institua le protectorat français au Maroc.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   },
   {
     "id": "IA-001",
@@ -1727,6 +2639,1046 @@
     "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-AMQ-0011",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following statements about leprosy (Hansen’s disease) is NOT True?",
+    "options": {
+      "A": "Patients may present with asymmetrical, well-defined, anesthetic, hypopigmented or erythematous macules with elevated edges and a dry rough surface",
+      "B": "There are often nodular lesions on the patient’s face in the acute phase of the lepromatous variety.",
+      "C": "Patients have neural involvement characterized by thickening of nerves, which are tender",
+      "D": "The condition is diagnosed by demonstrating bacilli in urine",
+      "E": "The patient is treated by a multidisciplinary team of infection disease specialist and  surgeons"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "44636cdeeea116d19adf7ed2b0fa6530b90e3b791093c1f0ecce72168a2035ec",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0012",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A child with known history of bronchial asthma presents to the clinic with severe breathlessness, inability to complete a sentence and vomiting. He is cyanosed, restless with feeble pulses and has poor breath sounds. The immediate management need of this patient is:",
+    "options": {
+      "A": "Oral prednisolone therapy",
+      "B": "Mechanical ventilation.",
+      "C": "Nebulization with Normal Saline.",
+      "D": "Nebulization with Salbutamol.",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "11e280e90c938c1905956872841008ed564a5bc4c1f459df5ee6696be478d4e4",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0013",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following statements regarding nutritional requirements in infants is NOT TRUE?",
+    "options": {
+      "A": "The total daily water requirement is estimated to be 100 ml/kg",
+      "B": "The resting energy expenditure is approximately twice that of an adult",
+      "C": "The highest rate of nitrogen retention with parenteral nutrition occurs in infants given approximately 40% of the calories as carbohydrate and the remainder as fat",
+      "D": "The protein requirement for a newborn infant is approximately 1 g/kg/day",
+      "E": "The caloric intake needs to be adjusted based on growth and weight gain"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d3ca583693d44f2173a53e9a6b5370271d48bce42f7cb5bd6a7eb386c9e9fcd6",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0014",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Mr. Essien, a 32-year-old Diabetic with hypercholesterolemia, presents with delusions and hallucinations of over 3 months. Which of the following would you prescribe?",
+    "options": {
+      "A": "Clozapine",
+      "B": "Amisulpride",
+      "C": "Quetiapine",
+      "D": "Risperidone",
+      "E": "Chlorpromazine"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "b53b951648ebe527c836e313159619fbcb4a8a6f5859ed03adf1a1aa36640bf1",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0015",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following diabetes medications work by increasing insulin sensitivity?",
+    "options": {
+      "A": "Sitagliptin",
+      "B": "Glimepiride",
+      "C": "Empagliflozin",
+      "D": "Pioglitazone",
+      "E": "Gliclazide"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d5946f19cbc746b9b5180df13a9dedeea0856e6a620dd4093abb5f1ea5c52c79",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0016",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 6-day old infant delivered at 31 weeks who has been hospitalized from birth develops recurrent generalized seizures without fever. Lumbar puncture yields a uniformly bloody cerebrospinal fluid. The most likely aetiological factor is:",
+    "options": {
+      "A": "Perinatal asphyxia.",
+      "B": "Anencephaly.",
+      "C": "Subarachnoid haemorrhage",
+      "D": "Febrile seizure",
+      "E": "Intraventricular haemorrhage"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "917b5b645e63552581a427b330406f9f0d53cf1b710b035e8131aa066e45d1d0",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0017",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a risk factor for Postpartum depression?",
+    "options": {
+      "A": "Unmarried",
+      "B": "low self esteem",
+      "C": "Family support",
+      "D": "Poor relationship with partner",
+      "E": "Financial problems"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "a2e6d78655d9d8a5d9aa3981d97b21ddfbc3de29003a8db156a80e2a7ad12de1",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0018",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a cause of hypercalcaemia",
+    "options": {
+      "A": "Primary hyperparathyroidism",
+      "B": "Malignancy",
+      "C": "Sarcoidosis",
+      "D": "Hypothyroidism",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "3e99e13ab1a3be6fa1799b72195ec239fbf0653a91c83300053fe5aee72026c0",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0019",
+    "category": "sante_sciences",
+    "subcategory": "hematology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following is not components of the ABO blood group",
+    "options": {
+      "A": "a.\tA – Antigen;",
+      "B": "b.\tO – Antigen;",
+      "C": "b.\tB – Antigen;",
+      "D": "d.\tAnti-A Antibody;",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "42131f6e3118931cef25ffb76e83447f4a617f88ab71cbbf8c60585db3018787",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0020",
+    "category": "sante_sciences",
+    "subcategory": "endocrinology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Paraganglioma occurs commonly in\r\nA.\t\r\nB.\t\r\nC.\r\nD.",
+    "options": {
+      "A": "Chest (thoracic region)",
+      "B": "Head and Neck region",
+      "C": "Abdomen",
+      "D": "Pelvis",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "5481ae9d89dfe623f07df3f115685d1f6bc509646ff0b71e3cfa85fad98cee00",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0021",
+    "category": "sante_sciences",
+    "subcategory": "infectious_disease",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which one of the following is consistent with scarlet fever",
+    "options": {
+      "A": "Punctae rash on neck and trunk",
+      "B": "cicumoral erythema",
+      "C": "geographic tongue",
+      "D": "only occurs in association with streptococcal pharyngitis",
+      "E": "resolution without desquamation"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "8e731482035e84fe414d30357e23ebfbd6126ccb24bba2bddbbb1ff7471be95e",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0022",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a common childhood hematologic disorder in Nigeria?",
+    "options": {
+      "A": "Beta Thalassemia",
+      "B": "Iron deficiency anaemia",
+      "C": "Malaria-induced hemolytic anaemia",
+      "D": "HbSC disease",
+      "E": "G6PD deficiency"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "90c5759938ef96bd006410ceebd77f4af4608d9d550302b2dcce32fb0773ac5c",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0023",
+    "category": "sante_sciences",
+    "subcategory": "infectious_disease",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which organism can be detected by antigen testing of csf, urine and serum?",
+    "options": {
+      "A": "cryptococcus neoformans",
+      "B": "TB",
+      "C": "E coli",
+      "D": "Hemophilus",
+      "E": "group B streptococcus"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1abb3a7ff1b20c93b227d65e87d53af81af4a592210a37d7206dcfa4e71ff5b5",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0024",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 7-month old infant who was delivered at term has a head circumference of 39 cm. What is the best explanation to give the parents?",
+    "options": {
+      "A": "The head circumference is normal.",
+      "B": "The child may have cortical atrophy",
+      "C": "The child may have hydrocephalus",
+      "D": "The child may have anencephaly",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "56646b9d8d1c99163f6e5f00f872e6db31ac465265e3d04d91ee74b33f1df60f",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0025",
+    "category": "sante_sciences",
+    "subcategory": "ophthalmology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Acetazolamide lowers intraocular Pressure by",
+    "options": {
+      "A": "Decreased aqueous production",
+      "B": "Increased aqueous drainage",
+      "C": "Lowering episcleral venous pressure",
+      "D": "all of the above",
+      "E": "none of the above"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "75d6cbf234d02f0adc0c9f6db937f99d49c2d3079a7da8933b05b01d51a28046",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0026",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "52)\tWhich of the following is NOT an Emergency Treatment and Triage (ETAT) respiratory emergency sign?",
+    "options": {
+      "A": "a)\tAbsent breathing",
+      "B": "b)\tCyanosis",
+      "C": "c)\tLoud wheezing",
+      "D": "d)\tObstructed breathing",
+      "E": "e)\tSevere respiratory distress"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "43fecb6cb1e023c50ced19fda4c8f8bc958fc2150a29673db0177aa193c6b1d9",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0027",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is a feature of aortic stenosis?",
+    "options": {
+      "A": "Loud second heart sound",
+      "B": "Collapsing pulse",
+      "C": "Diastolic murmur",
+      "D": "Opening snap",
+      "E": "Syncope on exertion"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c7fa69a8c23c6f572f3d25a0acf147728d79e664b04c4154968b258a01e54317",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0028",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is/are true about twin pregnancies with symptoms of preterm birth?",
+    "options": {
+      "A": "Most women will deliver within a week.",
+      "B": "Insufficient data are available to make evidence-based recommendations.",
+      "C": "The accuracy of cervical length measurement is higher than for asymptomatic women",
+      "D": "The accuracy of cervical length measurement is higher than for asymptomatic women",
+      "E": "Fetal fibronectin has high negative predictive value"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "7db9a7755d7d8ba54867cfdbedd541bf89a199e39e3a8b54674f89b2f6014f86",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0029",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A patient describes a periodic groin bulge; however, on physical examination, you are unable to identify a hernia. The next best step indiagnosis is:",
+    "options": {
+      "A": "Ultrasound",
+      "B": "Herniography (peritoneography)",
+      "C": "MRI",
+      "D": "CT scan",
+      "E": "None of the above"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "f32c5cc0e5f740d612e9a4782a52d1c119d4201d8947c41aa3e51de49e7f5c7f",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0030",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Blood pressure measurement for a 26-year-old man is 120/84 mmHg. What are the Korotkoff sounds used usually to measure the blood pressure.",
+    "options": {
+      "A": "2 and 5",
+      "B": "1 and 4",
+      "C": "1 and 3",
+      "D": "2 and 4",
+      "E": "1 and 5"
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2cad2af0821131dae7bd9fc9e7bf57213e1b4a0da69ac3f36cb613e802b0a1d8",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0031",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following combinations constitute a major risk factors for preeclampsia",
+    "options": {
+      "A": "Prior preeclampsia, pre-existing hypertension and maternal family history",
+      "B": "Chronic hypertension, antiphospholipid syndrome, nulliparity",
+      "C": "Pre-gestational diabetes, multiple pregnancy and chronic hypertension",
+      "D": "Antiphospholipid syndrome, overweight, pre-gestational diabetes",
+      "E": "Dangerous father inheritance, strong family history and prior preeclampsia"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "d94786f9553b6dc0e01e1ce0fef38b949b1d4c73000b194e09aef88ffe258f92",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0032",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following seems to be true of appendicitis \r\nin sub-Saharan Africa?",
+    "options": {
+      "A": "Complicated appendicitis is less frequent than in Western countries.",
+      "B": "A majority of patients present with the classic symptoms of vague periumbilical pain the migrates to the right lower quadrant with anorexia followed by nausea and vomiting",
+      "C": "Patients have a shorter duration of symptoms than in  Westerncountries.",
+      "D": "Right iliac fossa pain is the most common symptom",
+      "E": "Appendicitis is not common in sub Saharan Africa"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c20a294845d4d4549824fdbd4243bb2c07ac74939b2e07e89d9299670d5739cc",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0033",
+    "category": "sante_sciences",
+    "subcategory": "general_surgery",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The Saint’s triad describes the occurrence of flatulent dyspepsia associated with the following except",
+    "options": {
+      "A": "Diverticulosis",
+      "B": "Hiatus hernia",
+      "C": "Peptic ulceration",
+      "D": "Gallstones",
+      "E": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "fb3965aab51162d71f33be720460848d54f03f958096deb17715f75cc4dd9706",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0034",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Initial management of hypovolic shock in a 2 year old involves 20 ml/kg of",
+    "options": {
+      "A": "A. 10% dextrose over 10 mins",
+      "B": "B.1/5 NS in 4.3 dextrose",
+      "C": "0.9% Normal saline as bolus",
+      "D": "to intubate the child",
+      "E": "n/a"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "5c2b6caa91674c8d1f84f4b35dca2e33266d91edb525b78660e4359c44875440",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0035",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A resident doctor, after examining the chest of a 4-year old child who presents with fever and breathlessness declares that the baby has pleural rubs. What does that statement imply?",
+    "options": {
+      "A": "There is massive pleural effusion",
+      "B": "There is minimal pleural effusion",
+      "C": "There is massive pneumothorax",
+      "D": "There is multi-segmental consolidation",
+      "E": "There is congestive heart failure"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "7ce43bab73505aa2dcfb3d5d65b6ca7bb4c6e21992eaa3f0c1b8f647f86e208e",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0036",
+    "category": "sante_sciences",
+    "subcategory": "neurology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "6)\tThe dermatome supplying the anterior thigh is:",
+    "options": {
+      "A": "a)\tT12",
+      "B": "b)\tL1",
+      "C": "c)\tL2",
+      "D": "d)\tL4",
+      "E": "e)\tL5"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "749e0aa246687729113e0d4c482534cc14614f69bbd87fb75a3616a00d884ce2",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0037",
+    "category": "sante_sciences",
+    "subcategory": "internal_medicine",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A 23-year-old university female student was brought to the emergency department after she had ingested an unknown poison because he had a break up with her boyfriend. On examination she had excess salivation, pin point pupils, pulse rate was 55 beats per minute, blood pressure was 100/75 mmHg.\r\nIn the above case what is the likely diagnosis?",
+    "options": {
+      "A": "Cyanide poisoning",
+      "B": "Organophosphate poisoning",
+      "C": "Lead poisoning",
+      "D": "Mercury poisoning",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "73ac620cbe0f33f9bf82a37237381fbdd0890c4c41892c5be365d8045275572c",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0038",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following are true about skin conductance-galvanic skin response except",
+    "options": {
+      "A": "increased in depression.",
+      "B": "increase with exposure -desensitisation and reduce after it.",
+      "C": "increased in Agoraphobia",
+      "D": "variable in chronic schizophrenia",
+      "E": "reduced when administering a short acting benzodiazepine"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "bb70a469093babf54519e2210688fcba6ffdc96a231aae3d420ebb6f701b7977",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0039",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is a common cause of cardiomyopathy in parts of Africa?",
+    "options": {
+      "A": "Trypanosomiasis (Chagas diseases)",
+      "B": "Alcohol abuse",
+      "C": "Iron deficiency",
+      "D": "Genetic mutations",
+      "E": "Viral infections"
+    },
+    "answer": "A",
+    "explanation": "Trypanosomiasis, or Chagas disease, is caused by the parasite Trypanosoma brucei in Africa. It can lead to cardiomyopathy due to the parasite infecting heart muscle, causing inflammation and damage. This can result in heart failure and arrhythmias. Proper diagnosis and treatment are essential to prevent complications.",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "b7788e424027ef06af9e4ce143780fe5106f71cbf704f6d861992fa5ef2a83ba",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0040",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "120. Which is not true about loop diuretics",
+    "options": {
+      "A": "A.​Can be given together with thiazide diuretics",
+      "B": "B.​Can treat hypercalcemia",
+      "C": "C.​Can treat hypertension",
+      "D": "D.​Can be given synergistically with aminoglycosides",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "N/a",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "3e8c2386cbdff0e7051be3b0bedf105f34327d0ce3b845d445054e897c702038",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0041",
+    "category": "sante_sciences",
+    "subcategory": "ophthalmology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The effective treatment of dendritic ulcer of the cornea is:",
+    "options": {
+      "A": "Surface anesthesia",
+      "B": "Local corticosteroids",
+      "C": "Systemic corticosteroids",
+      "D": "Acyclovir ointment",
+      "E": "n/a"
+    },
+    "answer": "D",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1379e530ce50d14c33da471b8508770800dd3d969a2c50086858b6f54cc6efd5",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0042",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "The following are characteristic of pericarditis:",
+    "options": {
+      "A": "The chest pain is dull in nature",
+      "B": "There may be an associated pericardial effusion",
+      "C": "The pericardial rub may come and go",
+      "D": "The ECG usually shows pan ST elevation",
+      "E": "The ST elevation is concave"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "c0545c5a5a34e3514751292294b9b8f3c71fea7730900b20edac3c8aea55c634",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0043",
+    "category": "sante_sciences",
+    "subcategory": "cardiology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A patient is awakened at night with distressing breathlessness and a fear of impending death. This cardiac symptom is known as?",
+    "options": {
+      "A": "Orthopnea",
+      "B": "Platypnea",
+      "C": "Paroxysmal nocturnal dyspnea",
+      "D": "Dyspnea",
+      "E": "Cheyne stokes breathing"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "6d9cb6bb4d00df8c3c6057f342b1f333ed5ab1cd1601f3a7a7fcf69e781d26f6",
+      "country": "KE"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0044",
+    "category": "sante_sciences",
+    "subcategory": "gastroenterology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "One of the commonest gastrointestinal diseases is irritable bowel syndrome which is said to be a functional disorder. The diagnostic criteria for this is?",
+    "options": {
+      "A": "Boston criteria",
+      "B": "Rome criteria",
+      "C": "Munich criteria",
+      "D": "Helsinki criteria",
+      "E": "Nairobi criteria"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "4dfb1aac72dac5f2def1dddeddd7a439c8b74f94ff8a942d10e9112d7bb21f8c",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0045",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "In ophthalmia neonatorum:",
+    "options": {
+      "A": "Discharges within the first 24 hours of life is usually due to Gonococcus.",
+      "B": "Scanty discharges occurring after the first week of life is usually due to Chlamydia trachomatis.",
+      "C": "Profuse discharges with massive conjunctival oedema occurring within the first week of life is usually due to Staphylococcus.",
+      "D": "Profuse discharges with massive conjunctival oedema within the first week of life is usually due to Pseudomonas.",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "ddf263913bca712450b7585fc6474837fc255803bd76662f38e3561562fb44a2",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0046",
+    "category": "sante_sciences",
+    "subcategory": "psychiatry",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is not a characteristic feature of psychosis?",
+    "options": {
+      "A": "Hallucination",
+      "B": "Illusion",
+      "C": "Delusion",
+      "D": "Disorganized speech",
+      "E": "None of the above"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2d40cc5bc4bea59bbab944a7eb36cf7814644821e3b4c07b047e38089baf11a7",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0047",
+    "category": "sante_sciences",
+    "subcategory": "obstetrics_and_gynecology",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "A seventeen-year-old girl who is not sexually active presents with left iliac fossa pain. An ultrasound scan shows a 5 cm cyst on the left ovary which is complex in nature, with solid, calcified elements and fatty deposits noted on MRI. The likely diagnosis is:",
+    "options": {
+      "A": "Thecal luteal cyst.",
+      "B": "Tubo-ovarian abscess.",
+      "C": "Serous cystadenoma.",
+      "D": "Fibroma.",
+      "E": "Dermoid cyst."
+    },
+    "answer": "E",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "1d2cee3a4de2b9d91388dec2926b8effa7a2c3e7b7b85b2b6048747656dc8b2e",
+      "country": "NG"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0048",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following defines JIA",
+    "options": {
+      "A": "A.5yr old with 2wks hx of fever and non-specific joint pain",
+      "B": "B.9yr old with 4wks hx of fever, joint swelling, rash",
+      "C": "C.A child with fleeting arthralgia",
+      "D": "D. 2 week history of fever",
+      "E": "n/a"
+    },
+    "answer": "B",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "cdb1ba5fcac3233a8bd2019bf08a859356e9c1a911fb7fa7ff7d659accdb0280",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0049",
+    "category": "sante_sciences",
+    "subcategory": "pediatrics",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "Which of the following is false regarding ventricular septal defect",
+    "options": {
+      "A": "A.​causes symptoms in the first week of life",
+      "B": "B.​ closes spontaneously in most children",
+      "C": "C.​ a large septal defect is associated with recurrent chest infections",
+      "D": "D.​can lead to heart failure",
+      "E": "n/a"
+    },
+    "answer": "A",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "ea92a7fcb532a92d1d5e11343e0d3432b8c18b762097e9277c6849f612e722ab",
+      "country": "GH"
+    },
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "SANTE-AMQ-0050",
+    "category": "sante_sciences",
+    "subcategory": "pulmonary_medicine",
+    "difficulty": "hard",
+    "language": "en",
+    "question": "73. Which of the following is NOT part of the definition (Berlin definition) for ARDS?",
+    "options": {
+      "A": "Acute in onset, within 1 week of injury or insult",
+      "B": "Bilateral opacities or fluffy infiltrates on CT or CXR",
+      "C": "Improved PaO2/FiO2 ratio when placed on PEEP",
+      "D": "Pulmonary edema not explained by cardiac failure or fluid overload",
+      "E": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "None",
+    "source": "AfriMed-QA (Olatunji et al., 2025), intronhealth/afrimedqa_v2, CC-BY-NC-SA 4.0",
+    "author": "afrimedqa",
+    "license": "CC-BY-NC-SA-4.0",
+    "provenance": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "sample_id": "2497d4586ad2c71ba74a7ffc2c2fd41121f36305c7c6ac646b0226cb58c31c5e",
+      "country": "MW"
+    },
+    "date_created": "2026-07-03"
   },
   {
     "id": "SOC-001",

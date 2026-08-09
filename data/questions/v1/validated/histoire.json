@@ -283,5 +283,233 @@
     "source": "UNESCO Histoire Générale de l'Afrique, Vol. V ; Lettres d'Affonso Ier au roi du Portugal (1526)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "HIST-016",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'épopée de Sundiata Keïta raconte la fondation de l'Empire du Mali. Selon la tradition mandingue, quelle bataille décisive marqua sa victoire sur le roi sosso Soumaoro Kanté vers 1235 ?",
+    "options": {
+      "A": "La bataille de Kirina",
+      "B": "La bataille de Tondibi",
+      "C": "La bataille de Kansala",
+      "D": "La bataille de Woyowayanko"
+    },
+    "answer": "A",
+    "explanation": "La bataille de Kirina (vers 1235) opposa Sundiata Keïta à Soumaoro Kanté, roi du Sosso, et fonda l'Empire du Mali. Tondibi (1591) marque au contraire la chute de l'Empire songhaï face aux Saadiens ; Kansala (1867) est liée à la fin du Kaabu ; Woyowayanko (1898) est une bataille de la résistance à la conquête française.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. IV ; épopée mandingue de Soundjata",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-017",
+    "category": "histoire",
+    "subcategory": "resistances_coloniales",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "En 1896, une puissance africaine infligea une défaite militaire majeure à une armée coloniale européenne, préservant son indépendance. Quel souverain remporta cette bataille et contre quelle puissance ?",
+    "options": {
+      "A": "Ménélik II d'Éthiopie, contre l'Italie",
+      "B": "Béhanzin du Dahomey, contre la France",
+      "C": "Cetshwayo des Zoulous, contre le Royaume-Uni",
+      "D": "Samory Touré du Wassoulou, contre la France"
+    },
+    "answer": "A",
+    "explanation": "À Adwa (1er mars 1896), l'armée de Ménélik II écrasa les forces italiennes, garantissant l'indépendance de l'Éthiopie. Béhanzin fut vaincu par la France (1894), Cetshwayo remporta Isandlwana (1879) mais fut finalement défait, et Samory Touré fut capturé en 1898.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-018",
+    "category": "histoire",
+    "subcategory": "royaumes",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La reine Njinga (Nzinga) mena au XVIIe siècle une résistance prolongée contre une puissance coloniale en Afrique centrale. De quels royaumes fut-elle la souveraine et contre qui luttait-elle ?",
+    "options": {
+      "A": "Ndongo et Matamba, contre le Portugal",
+      "B": "Kongo et Loango, contre les Pays-Bas",
+      "C": "Lunda et Luba, contre le Portugal",
+      "D": "Kuba et Kanem, contre la France"
+    },
+    "answer": "A",
+    "explanation": "Njinga Mbandi fut reine du Ndongo puis du Matamba (actuel Angola) et résista au Portugal de 1624 jusqu'à sa mort en 1663, alternant diplomatie et guerre. Le Kongo était un royaume distinct ; Lunda et Luba se situaient plus à l'intérieur du continent ; Kuba et Kanem sont sans rapport géographique.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. V",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-019",
+    "category": "histoire",
+    "subcategory": "commerce_transsaharien",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Empire du Ghana médiéval (Wagadou) prospéra grâce au commerce transsaharien. Quels étaient les deux principaux produits échangés qui fondaient sa richesse ?",
+    "options": {
+      "A": "L'or du sud contre le sel du Sahara",
+      "B": "L'ivoire contre les épices d'Orient",
+      "C": "Le cacao contre les textiles européens",
+      "D": "Le cuivre contre les esclaves du nord"
+    },
+    "answer": "A",
+    "explanation": "L'Empire du Ghana (VIIIe-XIIIe siècle), sans lien avec le Ghana moderne, contrôlait l'échange entre l'or des régions aurifères du sud (Bambouk, Bouré) et le sel des mines sahariennes (Taghaza). Le cacao est une culture bien plus tardive introduite d'Amérique, et le commerce décrit précède largement la présence européenne côtière.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. III",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-020",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Conférence de Berlin (1884-1885) est souvent citée à propos du « partage de l'Afrique ». Quel en fut le rôle réel dans ce processus ?",
+    "options": {
+      "A": "Elle fixa des règles de reconnaissance des annexions, sans découper elle-même le continent",
+      "B": "Elle traça directement les frontières définitives de toutes les colonies africaines",
+      "C": "Elle attribua l'ensemble de l'Afrique centrale à la France",
+      "D": "Elle interdit toute colonisation nouvelle au sud de l'équateur"
+    },
+    "answer": "A",
+    "explanation": "La Conférence de Berlin établit des principes (notamment l'« occupation effective » et la liberté de navigation sur le Congo et le Niger) encadrant la course coloniale, et reconnut l'État indépendant du Congo à Léopold II. Elle ne traça pas les frontières précises, qui résultèrent d'accords bilatéraux ultérieurs.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-021",
+    "category": "histoire",
+    "subcategory": "resistances_coloniales",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La révolte Maji Maji (1905-1907) fut une insurrection majeure contre la domination coloniale. Dans quelle colonie et contre quelle puissance eut-elle lieu ?",
+    "options": {
+      "A": "L'Afrique orientale allemande (Tanganyika), contre l'Allemagne",
+      "B": "Le Kenya, contre le Royaume-Uni",
+      "C": "Le Mozambique, contre le Portugal",
+      "D": "Le Congo, contre la Belgique"
+    },
+    "answer": "A",
+    "explanation": "La révolte Maji Maji se déroula dans l'Afrique orientale allemande (actuelle Tanzanie continentale) contre l'administration allemande, unissant plusieurs peuples autour d'une eau (maji) censée protéger des balles. Elle fut réprimée par une politique de terre brûlée provoquant une grande famine.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-022",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Sous quel souverain l'Empire songhaï atteignit-il son apogée administrative, avec une réorganisation en provinces et une réforme de la justice islamique à la fin du XVe siècle ?",
+    "options": {
+      "A": "Askia Mohammed (Askia le Grand)",
+      "B": "Sonni Ali Ber",
+      "C": "Kankou Moussa",
+      "D": "Ousmane dan Fodio"
+    },
+    "answer": "A",
+    "explanation": "Askia Mohammed (règne 1493-1528) réorganisa l'Empire songhaï en provinces, développa l'administration et renforça les institutions islamiques après son pèlerinage à La Mecque. Sonni Ali Ber, son prédécesseur, fut surtout un conquérant ; Kankou Moussa appartenait au Mali ; Ousmane dan Fodio fonda le califat de Sokoto au XIXe siècle.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. IV",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-023",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Ghana fut le premier pays d'Afrique subsaharienne à accéder à l'indépendance en 1957. Qui en fut le dirigeant et quel projet panafricain défendait-il ?",
+    "options": {
+      "A": "Kwame Nkrumah, partisan d'une union politique du continent",
+      "B": "Jomo Kenyatta, partisan d'une fédération est-africaine d'abord",
+      "C": "Léopold Sédar Senghor, promoteur de la Négritude",
+      "D": "Julius Nyerere, théoricien de l'Ujamaa"
+    },
+    "answer": "A",
+    "explanation": "Kwame Nkrumah mena le Ghana à l'indépendance en 1957 et prôna l'unité politique immédiate de l'Afrique (« l'Afrique doit s'unir »), position dite « maximaliste » face aux gradualistes. Kenyatta, Senghor et Nyerere sont bien des figures des indépendances, mais associés respectivement au Kenya, au Sénégal et à la Tanzanie.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-024",
+    "category": "histoire",
+    "subcategory": "colonisation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'« État indépendant du Congo » (1885-1908) constitue un cas singulier de la colonisation. Qu'avait-il de particulier par rapport aux autres colonies de l'époque ?",
+    "options": {
+      "A": "Il était la propriété personnelle du roi Léopold II, et non de l'État belge",
+      "B": "Il était administré conjointement par la France et le Portugal",
+      "C": "Il jouissait d'une autonomie interne reconnue aux populations locales",
+      "D": "Il fut la première colonie africaine dotée d'un parlement élu"
+    },
+    "answer": "A",
+    "explanation": "L'État indépendant du Congo fut, de 1885 à 1908, la possession personnelle de Léopold II, exploitée pour le caoutchouc et l'ivoire dans des conditions de travail forcé dénoncées internationalement. Face au scandale, la Belgique en assuma la gestion en 1908 (Congo belge). Il n'y eut ni condominium franco-portugais, ni autonomie locale, ni parlement élu.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-025",
+    "category": "histoire",
+    "subcategory": "afrique_australe",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le terme « Mfecane » (ou Difaqane) désigne une période de bouleversements en Afrique australe au début du XIXe siècle. À quel phénomène renvoie-t-il principalement ?",
+    "options": {
+      "A": "Une vague de guerres et de migrations liée à l'expansion du royaume zoulou",
+      "B": "La grande sécheresse qui vida le désert du Kalahari",
+      "C": "L'arrivée des premiers colons néerlandais au Cap",
+      "D": "La conversion massive des Xhosa au christianisme"
+    },
+    "answer": "A",
+    "explanation": "Le Mfecane désigne les guerres, déplacements de populations et reconfigurations politiques liés notamment à la montée du royaume zoulou sous Chaka dans les années 1810-1830. L'arrivée néerlandaise au Cap date de 1652, bien antérieure, et les autres propositions renvoient à des processus distincts.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VI",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-026",
+    "category": "histoire",
+    "subcategory": "afrique_ancienne",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le royaume de Koush, situé en Nubie, domina un temps l'Égypte antique. Quelle dynastie égyptienne les rois koushites fondèrent-ils, et depuis quelle capitale gouvernaient-ils au départ ?",
+    "options": {
+      "A": "La XXVe dynastie, depuis Napata",
+      "B": "La XVIIIe dynastie, depuis Thèbes",
+      "C": "La dynastie ptolémaïque, depuis Alexandrie",
+      "D": "La XIIe dynastie, depuis Memphis"
+    },
+    "answer": "A",
+    "explanation": "Les rois koushites de Napata conquirent l'Égypte et formèrent la XXVe dynastie (les « pharaons noirs », VIIIe-VIIe siècle av. J.-C.), avant de se replier vers Méroé. La XVIIIe et la XIIe dynasties sont proprement égyptiennes ; les Ptolémées sont d'origine macédonienne.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. II",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "HIST-027",
+    "category": "histoire",
+    "subcategory": "independances",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La guerre d'indépendance algérienne (1954-1962) fut menée principalement par une organisation dont l'action déboucha sur des négociations mettant fin au conflit. Comment se nomment respectivement ce mouvement et les accords qui scellèrent l'indépendance ?",
+    "options": {
+      "A": "Le FLN et les accords d'Évian",
+      "B": "Le MNA et les accords de Genève",
+      "C": "Le FLN et les accords de Lancaster House",
+      "D": "L'OS et le traité de Fès"
+    },
+    "answer": "A",
+    "explanation": "Le Front de libération nationale (FLN) déclencha l'insurrection en novembre 1954 ; les accords d'Évian (mars 1962) mirent fin à la guerre et ouvrirent la voie à l'indépendance. Les accords de Lancaster House concernent le Kenya puis le Zimbabwe, et le traité de Fès (1912) institua le protectorat français au Maroc.",
+    "source": "UNESCO, Histoire Générale de l'Afrique, Vol. VIII",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   }
 ]

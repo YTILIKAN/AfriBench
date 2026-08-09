@@ -302,5 +302,233 @@
     "source": "FAO ; Lake Tanganyika Authority",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "GEOG-017",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le point culminant de l'Afrique est un volcan situé dans un seul pays. Quel est ce sommet et dans quel pays se trouve-t-il ?",
+    "options": {
+      "A": "Le pic Uhuru (Kilimandjaro), en Tanzanie",
+      "B": "Le pic Batian (mont Kenya), au Kenya",
+      "C": "Le pic Margherita (mont Stanley), en Ouganda/RDC",
+      "D": "Le Ras Dashen (massif du Simien), en Éthiopie"
+    },
+    "answer": "A",
+    "explanation": "Le pic Uhuru, au sommet du Kilimandjaro (5 895 m), est le point culminant de l'Afrique, entièrement situé en Tanzanie. Les trois autres sont de véritables hauts sommets africains mais inférieurs : le mont Kenya (5 199 m) est le deuxième, le mont Stanley (5 109 m) est à la frontière RDC-Ouganda, et le Ras Dashen (4 550 m) est éthiopien.",
+    "source": "UNESCO ; programmes de géographie physique de l'Afrique",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-018",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le lac Victoria est le plus vaste lac d'Afrique par sa superficie. Mais quel lac africain est de loin le plus profond, se classant deuxième au monde derrière le lac Baïkal ?",
+    "options": {
+      "A": "Le lac Tanganyika",
+      "B": "Le lac Malawi (Nyassa)",
+      "C": "Le lac Victoria",
+      "D": "Le lac Turkana"
+    },
+    "answer": "A",
+    "explanation": "Le lac Tanganyika atteint environ 1 470 m de profondeur, ce qui en fait le deuxième lac le plus profond du monde après le Baïkal. Le lac Victoria, bien que le plus étendu d'Afrique, est peu profond (environ 80 m). Le Malawi est profond mais nettement moins que le Tanganyika.",
+    "source": "UNESCO ; limnologie des grands lacs africains",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-019",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le fleuve Niger présente un tracé paradoxal. Où prend-il sa source et quelle particularité caractérise son cours ?",
+    "options": {
+      "A": "Il naît en Guinée près de l'Atlantique, mais s'en éloigne d'abord vers le Sahara avant de revenir vers le golfe de Guinée",
+      "B": "Il naît au Nigeria et coule vers le nord jusqu'au lac Tchad",
+      "C": "Il naît en Éthiopie et rejoint directement la Méditerranée",
+      "D": "Il naît au Mali et se jette dans l'océan Indien"
+    },
+    "answer": "A",
+    "explanation": "Le Niger prend sa source dans le Fouta-Djalon en Guinée, à moins de 250 km de l'Atlantique, mais coule d'abord vers le nord-est jusqu'aux abords du Sahara (boucle de Tombouctou) avant de s'infléchir vers le sud-est et se jeter dans le golfe de Guinée au Nigeria. Ce coude désorientait les premiers explorateurs européens.",
+    "source": "UNESCO ; hydrographie du bassin du Niger",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-020",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Contrairement à une idée reçue, le point le plus méridional du continent africain n'est pas le cap de Bonne-Espérance. De quel cap s'agit-il réellement ?",
+    "options": {
+      "A": "Le cap des Aiguilles (Cape Agulhas)",
+      "B": "Le cap de Bonne-Espérance",
+      "C": "Le cap Sainte-Marie (Madagascar)",
+      "D": "Le cap Blanc"
+    },
+    "answer": "A",
+    "explanation": "Le cap des Aiguilles, à une centaine de kilomètres au sud-est du cap de Bonne-Espérance, est le véritable point le plus au sud de l'Afrique continentale et marque la limite entre l'Atlantique et l'océan Indien. Le cap Sainte-Marie est le point sud de Madagascar (île), et le cap Blanc concerne l'extrémité nord.",
+    "source": "Sources cartographiques ; géographie de l'Afrique australe",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-021",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Combien de pays africains sont enclavés (sans accès à la mer) ?",
+    "options": {
+      "A": "16",
+      "B": "12",
+      "C": "9",
+      "D": "20"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique compte 16 États enclavés (Botswana, Burkina Faso, Burundi, Centrafrique, Eswatini, Éthiopie, Lesotho, Malawi, Mali, Niger, Ouganda, Rwanda, Soudan du Sud, Tchad, Zambie, Zimbabwe), soit le plus grand nombre de tous les continents, ce qui pèse lourdement sur leurs coûts logistiques.",
+    "source": "Nations unies ; Banque mondiale",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-022",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un seul pays africain est entièrement enclavé à l'intérieur d'un autre pays (cas rare partagé dans le monde avec Saint-Marin et le Vatican). Lequel ?",
+    "options": {
+      "A": "Le Lesotho, enclavé dans l'Afrique du Sud",
+      "B": "L'Eswatini, enclavé dans l'Afrique du Sud",
+      "C": "La Gambie, enclavée dans le Sénégal",
+      "D": "Le Burundi, enclavé dans la Tanzanie"
+    },
+    "answer": "A",
+    "explanation": "Le Lesotho est totalement entouré par l'Afrique du Sud, ce qui en fait une enclave complète. L'Eswatini borde à la fois l'Afrique du Sud et le Mozambique ; la Gambie possède une façade atlantique ; le Burundi a plusieurs voisins.",
+    "source": "Nations unies ; atlas géographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-023",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Depuis un événement de 2011, quel est le plus vaste pays d'Afrique par sa superficie ?",
+    "options": {
+      "A": "L'Algérie, devenue le plus grand après la partition du Soudan",
+      "B": "Le Soudan, resté le plus grand malgré la sécession du Sud",
+      "C": "La République démocratique du Congo",
+      "D": "La Libye"
+    },
+    "answer": "A",
+    "explanation": "Jusqu'en 2011, le Soudan était le plus grand pays d'Afrique. La sécession du Soudan du Sud (juillet 2011) l'a fait reculer, faisant de l'Algérie (environ 2,38 millions de km²) le plus vaste pays du continent. La RDC et la Libye viennent ensuite.",
+    "source": "Nations unies ; données de superficie officielles",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le point le plus bas d'Afrique se situe dans un pays de la Corne. Quel est-il ?",
+    "options": {
+      "A": "Le lac Assal, à Djibouti",
+      "B": "La dépression du Danakil, en Érythrée",
+      "C": "La dépression de Qattara, en Égypte",
+      "D": "Le lac Turkana, au Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le lac Assal, à Djibouti, se trouve à environ 155 m sous le niveau de la mer : c'est le point le plus bas d'Afrique et l'un des plus salés au monde. La dépression de Qattara (environ -133 m) est le point le plus bas d'Égypte mais pas d'Afrique, et le Danakil, bien que très déprimé, ne descend pas aussi bas.",
+    "source": "Sources géologiques et cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-025",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Cabinda est un territoire pétrolier séparé du reste de son pays par une bande de terre étrangère située à l'embouchure du fleuve Congo. À quel pays appartient Cabinda et quel pays l'en sépare ?",
+    "options": {
+      "A": "Une exclave de l'Angola, séparée par la République démocratique du Congo",
+      "B": "Une exclave du Congo-Brazzaville, séparée par le Gabon",
+      "C": "Une exclave de la RDC, séparée par l'Angola",
+      "D": "Une province autonome du Gabon"
+    },
+    "answer": "A",
+    "explanation": "Cabinda est une province exclavée de l'Angola, séparée du territoire principal par une étroite bande de la République démocratique du Congo à l'embouchure du fleuve Congo. Elle concentre une part majeure de la production pétrolière angolaise offshore.",
+    "source": "Sources géographiques ; documentation sur l'Angola",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-026",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le lac Tchad a considérablement rétréci depuis les années 1960. Quels sont les quatre pays qui se partagent ses rives ?",
+    "options": {
+      "A": "Tchad, Niger, Nigeria et Cameroun",
+      "B": "Tchad, Soudan, Niger et Mali",
+      "C": "Nigeria, Bénin, Niger et Tchad",
+      "D": "Cameroun, Centrafrique, Tchad et Soudan"
+    },
+    "answer": "A",
+    "explanation": "Le lac Tchad est bordé par le Tchad, le Niger, le Nigeria et le Cameroun. Sa surface s'est réduite de plus de 90 % depuis les années 1960 sous l'effet des sécheresses et des prélèvements, avec de lourdes conséquences pour les populations riveraines.",
+    "source": "Commission du Bassin du Lac Tchad ; FAO",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-027",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'équateur traverse plusieurs pays africains. Lequel de ces pays n'est PAS traversé par l'équateur ?",
+    "options": {
+      "A": "La Tanzanie",
+      "B": "Le Gabon",
+      "C": "L'Ouganda",
+      "D": "Le Kenya"
+    },
+    "answer": "A",
+    "explanation": "L'équateur traverse notamment le Gabon, le Congo, la RDC, l'Ouganda, le Kenya et la Somalie. La Tanzanie, elle, est située entièrement dans l'hémisphère sud, juste au sud de l'équateur ; c'est le piège de la question.",
+    "source": "Sources cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
+  },
+  {
+    "id": "GEOG-028",
+    "category": "geographie",
+    "subcategory": "physique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le méridien de Greenwich (longitude 0°) traverse l'Afrique de l'Ouest. Dans quel pays côtier passe-t-il très près d'un grand port, ce pays étant traversé à la fois par le méridien 0° et proche de l'équateur ?",
+    "options": {
+      "A": "Le Ghana",
+      "B": "Le Nigeria",
+      "C": "La Côte d'Ivoire",
+      "D": "Le Sénégal"
+    },
+    "answer": "A",
+    "explanation": "Le méridien de Greenwich traverse le Ghana, passant près de Tema, le grand port à l'est d'Accra. Il poursuit ensuite vers le nord à travers le Burkina Faso, le Mali puis l'Algérie. Le Nigeria est à l'est du méridien, la Côte d'Ivoire à l'ouest.",
+    "source": "Sources cartographiques",
+    "author": "afribench",
+    "date_created": "2026-07-03"
   }
 ]
