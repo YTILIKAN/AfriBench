@@ -102,6 +102,7 @@ function renderActiveTab() {
     case 'questions': renderQuestions(container); break;
     case 'methodology': renderMethodology(container); break;
     case 'api': renderAPI(container); break;
+    case 'reliability': renderReliability(container); break;
   }
 }
 
@@ -166,6 +167,14 @@ function applySearchFilter(models) {
 }
 
 /* ── Data Loading ────────────────────────────────────── */
+async function fetchJSON(url, fallback) {
+  try {
+    const resp = await fetch(url);
+    if (resp.ok) return await resp.json();
+  } catch { /* fichier absent : on garde le fallback */ }
+  return fallback;
+}
+
 async function loadData() {
   const resultsContainer = document.getElementById('hdr-models');
   try {
@@ -188,6 +197,11 @@ async function loadData() {
   } catch {
     if (qContainer) qContainer.textContent = '0';
   }
+
+  // Analyses de fiabilité (optionnelles — absentes tant qu'aucune analyse n'a tourné)
+  AppState.contamination = await fetchJSON('data/contamination.json', { noise: [], permute: [] });
+  AppState.stats = await fetchJSON('data/stats.json', { models: [] });
+  AppState.openScores = await fetchJSON('data/open_scores.json', []);
 
   renderSidebarCategories();
   renderDailyQuestion();

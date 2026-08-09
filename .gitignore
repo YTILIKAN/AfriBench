@@ -6,8 +6,9 @@ __pycache__/
 venv/
 env/
 
-# Data
-data/results/*.json
+# Data — résultats éphémères, y compris les sous-dossiers d'analyse
+# (contamination/, stats/). On garde le dossier via .gitkeep.
+data/results/*
 !data/results/.gitkeep
 
 # Config secrets (if any)

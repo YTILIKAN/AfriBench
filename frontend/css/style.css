@@ -2191,3 +2191,23 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .top-models-row { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Fiabilité (contamination, IC, scores ouverts) ── */
+.rl-table-wrap { overflow-x: auto; }
+.rl-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+.rl-table th {
+  text-align: left; padding: 8px 12px; color: var(--text-muted);
+  font-weight: var(--font-weight-semibold); font-size: var(--font-size-xs);
+  text-transform: uppercase; letter-spacing: .04em;
+  border-bottom: 1px solid var(--border-default); white-space: nowrap;
+}
+.rl-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); color: var(--text-primary); }
+.rl-table tr:hover td { background: var(--surface-hover); }
+.rl-table .rl-group td { border-top: 1px solid var(--border-default); }
+.rl-num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); white-space: nowrap; }
+.rl-muted { color: var(--text-muted); }
+.rl-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.rl-badge {
+  display: inline-block; padding: 2px 8px; border-radius: var(--radius-full);
+  font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold);
+}
