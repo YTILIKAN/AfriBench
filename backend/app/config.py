@@ -1,5 +1,7 @@
 """Configuration du service backend AfriBench."""
 
+from __future__ import annotations
+
 from functools import lru_cache
 from pathlib import Path
 
@@ -24,6 +26,13 @@ class Settings(BaseSettings):
     # Clé pour POST /evaluate et /reload (vide = écriture désactivée)
     api_key: str = ""
 
+    # Base de données PostgreSQL (vide = désactivée, fallback fichiers JSON)
+    database_url: str = ""
+    # Mot de passe du backoffice (vide = login désactivé)
+    admin_password: str = ""
+    # Durée de vie d'une session backoffice (secondes)
+    admin_session_ttl: int = 60 * 60 * 12
+
     # Rate limits (fenêtre glissante, par IP+path)
     rate_limit_read: int = 120
     rate_limit_read_window: float = 60.0
@@ -33,8 +42,8 @@ class Settings(BaseSettings):
     # Source of truth for benchmark data
     data_dir: Path = REPO_ROOT / "data"
     questions_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "validated"
+    questions_witness_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "witness"
     results_dir: Path = REPO_ROOT / "data" / "results"
-    # Fallback when data/results is empty (legacy static export)
     results_fallback: Path = REPO_ROOT / "frontend" / "data" / "results.json"
 
     host: str = "0.0.0.0"
@@ -43,6 +52,22 @@ class Settings(BaseSettings):
     @property
     def cors_origin_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
+
+    @property
+    def db_enabled(self) -> bool:
+        return bool(self.database_url.strip())
+
+    @property
+    def admin_enabled(self) -> bool:
+        return bool(self.admin_password.strip())
+
+    @property
+    def sqlalchemy_database_url(self) -> str:
+        """Railway fournit postgresql:// → SQLAlchemy + psycopg attend postgresql+psycopg://."""
+        url = self.database_url.strip()
+        if url.startswith("postgresql://"):
+            url = url.replace("postgresql://", "postgresql+psycopg://", 1)
+        return url
 
 
 @lru_cache

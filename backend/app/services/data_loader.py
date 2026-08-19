@@ -230,8 +230,22 @@ def clear_catalog_cache() -> None:
 
 
 def get_questions() -> list[dict[str, Any]]:
+    if get_settings().db_enabled:
+        try:
+            from app import repository
+
+            return repository.list_questions()
+        except Exception:  # noqa: BLE001 — DB indisponible → fallback fichiers
+            pass
     return list(get_catalog()[0])
 
 
 def get_results() -> list[dict[str, Any]]:
+    if get_settings().db_enabled:
+        try:
+            from app import repository
+
+            return repository.list_results()
+        except Exception:  # noqa: BLE001 — DB indisponible → fallback fichiers
+            pass
     return list(get_catalog()[1])
