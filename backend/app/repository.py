@@ -13,6 +13,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
 from app.db import get_session
 from app.models import Model, Question, Result
 
@@ -246,6 +247,44 @@ _MODEL_FIELDS = (
 )
 
 
+def _fernet():
+    """Clé Fernet depuis la config (None si absente ou cryptography manquant)."""
+    try:
+        from cryptography.fernet import Fernet
+    except ImportError:
+        return None
+    key = (get_settings().encryption_key or "").strip()
+    if not key:
+        return None
+    try:
+        return Fernet(key.encode())
+    except Exception:
+        return None
+
+
+def _encrypt_secret(plaintext: str | None) -> str | None:
+    if not plaintext:
+        return None
+    f = _fernet()
+    if f is None:
+        return plaintext
+    return "enc:" + f.encrypt(plaintext.encode()).decode()
+
+
+def _decrypt_secret(stored: str | None) -> str | None:
+    if not stored:
+        return None
+    if not stored.startswith("enc:"):
+        return stored  # legacy (stocké en clair avant chiffrement)
+    f = _fernet()
+    if f is None:
+        return None
+    try:
+        return f.decrypt(stored[4:].encode()).decode()
+    except Exception:
+        return None
+
+
 def model_to_dict(m: Model, *, include_secret: bool = False) -> dict[str, Any]:
     out = {
         "name": m.name,
@@ -258,7 +297,7 @@ def model_to_dict(m: Model, *, include_secret: bool = False) -> dict[str, Any]:
         "temperature": m.temperature,
     }
     if include_secret:
-        out["api_key"] = m.api_key
+        out["api_key"] = _decrypt_secret(m.api_key)
     else:
         out["api_key_set"] = bool(
             m.api_key or (m.api_key_env and os.environ.get(m.api_key_env))
@@ -268,8 +307,7 @@ def model_to_dict(m: Model, *, include_secret: bool = False) -> dict[str, Any]:
 
 def model_from_dict(data: dict[str, Any]) -> dict[str, Any]:
     cols = {k: data.get(k) for k in _MODEL_FIELDS}
-    if not cols.get("api_key"):
-        cols["api_key"] = None
+    cols["api_key"] = _encrypt_secret(data.get("api_key"))
     return cols
 
 

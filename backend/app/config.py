@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     database_url: str = ""
     # Mot de passe du backoffice (vide = login désactivé)
     admin_password: str = ""
+    # Clé Fernet (base64) pour chiffrer les clés API en base (vide = stockage en clair)
+    encryption_key: str = ""
     # Durée de vie d'une session backoffice (secondes)
     admin_session_ttl: int = 60 * 60 * 12
 
