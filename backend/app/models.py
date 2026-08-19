@@ -62,3 +62,23 @@ class Result(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_now, onupdate=_now
     )
+
+
+class Model(Base):
+    """Modèle configuré pour l'évaluation (fournisseur, id, clé API)."""
+
+    __tablename__ = "models"
+
+    name: Mapped[str] = mapped_column(String(128), primary_key=True)
+    label: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    provider: Mapped[str] = mapped_column(String(32), default="openai")
+    model_id: Mapped[str] = mapped_column(String(256), default="")
+    api_base: Mapped[str | None] = mapped_column(String(256), nullable=True)
+    api_key: Mapped[str | None] = mapped_column(Text, nullable=True)
+    api_key_env: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    max_tokens: Mapped[int] = mapped_column(Integer, default=256)
+    temperature: Mapped[float] = mapped_column(Float, default=0.0)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )

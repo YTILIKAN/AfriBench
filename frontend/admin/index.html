@@ -212,6 +212,8 @@
     <div class="tabs">
       <button class="tab active" data-tab="questions">Questions <span class="count" id="qCount"></span></button>
       <button class="tab" data-tab="results">Résultats <span class="count" id="rCount"></span></button>
+      <button class="tab" data-tab="models">Modèles</button>
+      <button class="tab" data-tab="evaluation">Évaluation</button>
     </div>
     <div class="toolbar">
       <input type="search" id="search" placeholder="Rechercher…" autocomplete="off">
@@ -249,7 +251,7 @@ const CATEGORIES = [
   'economie','ia_technologie','societe','raisonnement_culturel','temoin'
 ];
 const DIFFICULTIES = ['easy','medium','hard'];
-const state = { token: localStorage.getItem('afribench_admin_token') || '', tab: 'questions', questions: [], results: [] };
+const state = { token: localStorage.getItem('afribench_admin_token') || '', tab: 'questions', questions: [], results: [], models: [] };
 
 // ── helpers ──────────────────────────────────────────────
 const $ = (s) => document.querySelector(s);
@@ -299,7 +301,7 @@ function showApp() {
 // ── data ─────────────────────────────────────────────────
 async function loadAll() {
   try {
-    [state.questions, state.results] = await Promise.all([api('/questions'), api('/results')]);
+    [state.questions, state.results, state.models] = await Promise.all([api('/questions'), api('/results'), api('/models')]);
   } catch (e) { toast(e.message, true); }
   render();
 }
@@ -308,7 +310,10 @@ function render() {
   $('#qCount').textContent = state.questions.length;
   $('#rCount').textContent = state.results.length;
   const q = ($('#search').value || '').toLowerCase();
-  if (state.tab === 'questions') renderQuestions(q); else renderResults(q);
+  if (state.tab === 'questions') renderQuestions(q);
+  else if (state.tab === 'results') renderResults(q);
+  else if (state.tab === 'models') renderModels(q);
+  else renderEvaluation();
 }
 
 function renderQuestions(q) {
@@ -493,6 +498,123 @@ async function deleteResult(id) {
   catch (err) { toast(err.message, true); }
 }
 
+// ── modèles CRUD ─────────────────────────────────────────
+const PROVIDERS = ['openai', 'anthropic', 'google'];
+
+function renderModels(q) {
+  const rows = state.models.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
+  $('#dataTable').innerHTML =
+    '<thead><tr><th>Nom</th><th>Label</th><th>Provider</th><th>Model ID</th><th>Clé</th><th></th></tr></thead><tbody>' +
+    rows.map(x => `<tr>
+      <td class="mono">${esc(x.name)}</td>
+      <td>${esc(x.label || '')}</td>
+      <td><span class="pill">${esc(x.provider || '')}</span></td>
+      <td class="mono">${esc(x.model_id || '')}</td>
+      <td>${x.api_key_set ? '<span class="pill ok">configurée</span>' : '<span class="pill">manquante</span>'}</td>
+      <td><div class="actions">
+        <button class="btn ghost sm" onclick="editModel('${esc(x.name)}')">Éditer</button>
+        <button class="btn sm" onclick="launchEval('${esc(x.name)}')">Évaluer</button>
+        <button class="btn danger sm" onclick="deleteModel('${esc(x.name)}')">Suppr.</button>
+      </div></td>
+    </tr>`).join('') +
+    (rows.length ? '' : '<tr><td colspan="6" class="empty">Aucun modèle</td></tr>') + '</tbody>';
+}
+
+function modelFields(x = {}) {
+  return `
+    ${field('name', 'Nom (id)', { required: true, value: x.name || '' })}
+    ${field('label', 'Label', { value: x.label || '' })}
+    ${field('provider', 'Provider', { options: PROVIDERS, value: x.provider || 'openai' })}
+    ${field('model_id', 'Model ID', { value: x.model_id || '' })}
+    ${field('api_base', 'API base (optionnel)', { value: x.api_base || '' })}
+    ${field('api_key', 'Clé API', { type: 'password', value: x.api_key || '', full: true })}
+    ${field('max_tokens', 'Max tokens', { type: 'number', value: x.max_tokens ?? 256 })}
+    ${field('temperature', 'Temperature', { type: 'number', value: x.temperature ?? 0 })}
+  `;
+}
+
+function editModel(name) {
+  const x = state.models.find(m => m.name === name);
+  openModal('Éditer le modèle', modelFields(x));
+  $('#modalForm').onsubmit = async (e) => {
+    e.preventDefault();
+    try { await api('/models/' + encodeURIComponent(name), { method: 'PUT', body: JSON.stringify(readForm()) }); toast('Modèle mis à jour'); closeModal(); await loadAll(); }
+    catch (err) { toast(err.message, true); }
+  };
+}
+
+function newModel() {
+  openModal('Nouveau modèle', modelFields());
+  $('#modalForm').onsubmit = async (e) => {
+    e.preventDefault();
+    try { await api('/models', { method: 'POST', body: JSON.stringify(readForm()) }); toast('Modèle créé'); closeModal(); await loadAll(); }
+    catch (err) { toast(err.message, true); }
+  };
+}
+
+async function deleteModel(name) {
+  if (!confirm('Supprimer le modèle ' + name + ' ?')) return;
+  try { await api('/models/' + encodeURIComponent(name), { method: 'DELETE' }); toast('Modèle supprimé'); await loadAll(); }
+  catch (err) { toast(err.message, true); }
+}
+
+// ── évaluation ──────────────────────────────────────────
+function renderEvaluation() {
+  const m = state.models;
+  const modelOpts = m.map(x => `<option value="${esc(x.name)}">${esc(x.label || x.name)}</option>`).join('');
+  const catOpts = ['<option value="">Toutes</option>'].concat(CATEGORIES.map(c => `<option value="${c}">${c}</option>`)).join('');
+  $('#dataTable').innerHTML = `
+    <tr><td colspan="2" style="padding:28px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px">
+        <div class="field"><label>Modèle</label><select id="evModel">${modelOpts}</select></div>
+        <div class="field"><label>Catégorie</label><select id="evCategory">${catOpts}</select></div>
+        <div class="field"><label>Few-shot</label><input type="number" id="evFewShot" value="0"></div>
+        <div class="field"><label>Limite (optionnel)</label><input type="number" id="evLimit" value=""></div>
+      </div>
+      <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+        <button class="btn" onclick="launchEvalFromForm()">Lancer l'évaluation</button>
+        <span id="evalStatus" style="color:var(--muted);font-size:13px"></span>
+      </div>
+      ${m.length ? '' : '<p style="color:var(--muted);margin-top:12px">Aucun modèle configuré. Ajoutez-en un dans l\'onglet Modèles.</p>'}
+    </td></tr>
+  `;
+}
+
+async function launchEvalFromForm() {
+  await launchEvalJob({
+    model: $('#evModel').value,
+    few_shot: Number($('#evFewShot').value) || 0,
+    limit: $('#evLimit').value === '' ? null : Number($('#evLimit').value),
+    category: $('#evCategory').value || null,
+  });
+}
+
+async function launchEval(modelName) {
+  await launchEvalJob({ model: modelName, few_shot: 0, limit: null, category: null });
+}
+
+async function launchEvalJob(body) {
+  const st = $('#evalStatus');
+  if (st) st.textContent = 'Lancement…';
+  try {
+    const out = await api('/evaluate', { method: 'POST', body: JSON.stringify(body) });
+    toast('Évaluation lancée (job ' + out.job_id + ')');
+    pollJob(out.job_id, st);
+  } catch (err) { toast(err.message, true); if (st) st.textContent = ''; }
+}
+
+async function pollJob(jobId, st) {
+  if (st) st.textContent = 'Job ' + jobId + ' : en cours…';
+  const t = setInterval(async () => {
+    try {
+      const j = await (await fetch('/api/v1/jobs/' + jobId)).json();
+      if (st) st.textContent = 'Job ' + jobId + ' : ' + j.status;
+      if (j.status === 'completed') { clearInterval(t); toast('Évaluation terminée'); await loadAll(); }
+      else if (j.status === 'failed') { clearInterval(t); toast('Échec : ' + (j.error || ''), true); if (st) st.textContent = 'Échec : ' + (j.error || ''); }
+    } catch (e) { clearInterval(t); }
+  }, 3000);
+}
+
 // ── wiring ───────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   if (state.token) { showApp(); loadAll(); }
@@ -510,7 +632,11 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
   }));
   $('#search').addEventListener('input', render);
-  $('#newBtn').addEventListener('click', () => state.tab === 'questions' ? newQuestion() : newResult());
+  $('#newBtn').addEventListener('click', () => {
+    if (state.tab === 'questions') newQuestion();
+    else if (state.tab === 'results') newResult();
+    else if (state.tab === 'models') newModel();
+  });
   $('#modalClose').addEventListener('click', closeModal);
   $('#modalCancel').addEventListener('click', closeModal);
   $('#modalBackdrop').addEventListener('click', (e) => { if (e.target === $('#modalBackdrop')) closeModal(); });

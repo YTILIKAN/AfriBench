@@ -6,6 +6,7 @@ la couche d'agrégation de ``data_loader`` reste inchangée.
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from sqlalchemy import select
@@ -13,7 +14,7 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from app.db import get_session
-from app.models import Question, Result
+from app.models import Model, Question, Result
 
 # ── Conversion modèle ↔ dict ──────────────────────────────────────────────
 
@@ -228,3 +229,127 @@ def _seed_results(session: Session, results: list[dict[str, Any]]) -> int:
     )
     session.execute(stmt)
     return len(rows)
+
+
+# ── Modèles (config évaluation) ─────────────────────────────────────────
+
+_MODEL_FIELDS = (
+    "name",
+    "label",
+    "provider",
+    "model_id",
+    "api_base",
+    "api_key",
+    "api_key_env",
+    "max_tokens",
+    "temperature",
+)
+
+
+def model_to_dict(m: Model, *, include_secret: bool = False) -> dict[str, Any]:
+    out = {
+        "name": m.name,
+        "label": m.label,
+        "provider": m.provider,
+        "model_id": m.model_id,
+        "api_base": m.api_base,
+        "api_key_env": m.api_key_env,
+        "max_tokens": m.max_tokens,
+        "temperature": m.temperature,
+    }
+    if include_secret:
+        out["api_key"] = m.api_key
+    else:
+        out["api_key_set"] = bool(
+            m.api_key or (m.api_key_env and os.environ.get(m.api_key_env))
+        )
+    return out
+
+
+def model_from_dict(data: dict[str, Any]) -> dict[str, Any]:
+    cols = {k: data.get(k) for k in _MODEL_FIELDS}
+    if not cols.get("api_key"):
+        cols["api_key"] = None
+    return cols
+
+
+def list_models(*, include_secret: bool = False) -> list[dict[str, Any]]:
+    session = get_session()
+    try:
+        rows = session.scalars(select(Model).order_by(Model.name)).all()
+        return [model_to_dict(m, include_secret=include_secret) for m in rows]
+    finally:
+        session.close()
+
+
+def get_model_dict(name: str, *, include_secret: bool = False) -> dict[str, Any] | None:
+    session = get_session()
+    try:
+        m = session.get(Model, name)
+        return model_to_dict(m, include_secret=include_secret) if m else None
+    finally:
+        session.close()
+
+
+def get_model(session: Session, name: str) -> Model | None:
+    return session.get(Model, name)
+
+
+def create_model(session: Session, data: dict[str, Any]) -> Model:
+    m = Model(**model_from_dict(data))
+    session.add(m)
+    return m
+
+
+def update_model(session: Session, name: str, data: dict[str, Any]) -> Model | None:
+    m = session.get(Model, name)
+    if m is None:
+        return None
+    cols = model_from_dict(data)
+    cols.pop("name", None)
+    # Préserver la clé existante si le payload ne fournit pas de nouvelle clé
+    if not cols.get("api_key"):
+        cols.pop("api_key", None)
+    for key, value in cols.items():
+        setattr(m, key, value)
+    return m
+
+
+def delete_model(session: Session, name: str) -> bool:
+    m = session.get(Model, name)
+    if m is None:
+        return False
+    session.delete(m)
+    return True
+
+
+def seed_models(models_list: list[dict[str, Any]]) -> int:
+    session = get_session()
+    try:
+        rows = [model_from_dict(m) for m in models_list if m.get("name")]
+        if not rows:
+            return 0
+        stmt = pg_insert(Model).values(rows).on_conflict_do_nothing(
+            index_elements=[Model.name]
+        )
+        session.execute(stmt)
+        session.commit()
+        return len(rows)
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+def add_result(result: dict[str, Any]) -> None:
+    """Insère un résultat d'évaluation (session dédiée, commit immédiat)."""
+    session = get_session()
+    try:
+        session.add(Result(**result_from_dict(result)))
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()

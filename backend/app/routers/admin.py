@@ -1,4 +1,4 @@
-"""Endpoints backoffice (CRUD questions/résultats) — protégés par session admin."""
+"""Endpoints backoffice (CRUD + évaluation) — protégés par session admin."""
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from app import repository as repo
 from app.admin_auth import issue_token, require_admin, verify_admin_password
 from app.config import Settings, get_settings
 from app.db import get_db
+from app.services import evaluate as evalsvc
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -118,3 +119,76 @@ def admin_delete_result(
         raise HTTPException(status_code=404, detail="Résultat introuvable.")
     session.commit()
     return {"deleted": True, "id": rid}
+
+
+# ── Modèles (config évaluation) ──────────────────────────────────────────
+
+@router.get("/models", dependencies=[Depends(require_admin)])
+def admin_list_models() -> list[dict[str, Any]]:
+    return repo.list_models()
+
+
+@router.post(
+    "/models",
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(require_admin)],
+)
+def admin_create_model(
+    body: dict[str, Any], session: Session = Depends(get_db)
+) -> dict[str, Any]:
+    if not body.get("name"):
+        raise HTTPException(status_code=422, detail="Le champ 'name' est obligatoire.")
+    if repo.get_model(session, body["name"]):
+        raise HTTPException(status_code=409, detail=f"Le modèle '{body['name']}' existe déjà.")
+    m = repo.create_model(session, body)
+    session.commit()
+    return repo.model_to_dict(m)
+
+
+@router.put("/models/{name}", dependencies=[Depends(require_admin)])
+def admin_update_model(
+    name: str, body: dict[str, Any], session: Session = Depends(get_db)
+) -> dict[str, Any]:
+    m = repo.update_model(session, name, body)
+    if m is None:
+        raise HTTPException(status_code=404, detail="Modèle introuvable.")
+    session.commit()
+    return repo.model_to_dict(m)
+
+
+@router.delete("/models/{name}", dependencies=[Depends(require_admin)])
+def admin_delete_model(
+    name: str, session: Session = Depends(get_db)
+) -> dict[str, Any]:
+    if not repo.delete_model(session, name):
+        raise HTTPException(status_code=404, detail="Modèle introuvable.")
+    session.commit()
+    return {"deleted": True, "name": name}
+
+
+# ── Évaluation ───────────────────────────────────────────────────────────
+
+class EvaluateIn(BaseModel):
+    model: str = Field(..., description="Nom du modèle (tel qu'enregistré)")
+    few_shot: int = Field(0, ge=0, le=10)
+    limit: int | None = Field(None, ge=1, le=500, description="Limiter le nombre de questions")
+    category: str | None = Field(None, description="Évaluer une seule catégorie")
+
+
+@router.post(
+    "/evaluate",
+    status_code=status.HTTP_202_ACCEPTED,
+    dependencies=[Depends(require_admin)],
+)
+def admin_evaluate(body: EvaluateIn) -> dict[str, Any]:
+    """Lance une évaluation asynchrone (thread worker). Suivi via GET /api/v1/jobs/{id}."""
+    job = evalsvc.create_job(body.model, body.few_shot, body.limit, body.category)
+    evalsvc.start_job_async(
+        job["job_id"], body.model, body.few_shot, body.limit, body.category
+    )
+    return {
+        "job_id": job["job_id"],
+        "status": "queued",
+        "model": body.model,
+        "message": f"Suivi : GET /api/v1/jobs/{job['job_id']}",
+    }

@@ -7,7 +7,9 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from app.config import Settings, get_settings
+import yaml
+
+from app.config import REPO_ROOT, Settings, get_settings
 
 OPEN_WEIGHT_KEYWORDS = (
     "llama",
@@ -68,6 +70,16 @@ def load_results(settings: Settings | None = None) -> list[dict[str, Any]]:
 
     results.sort(key=lambda r: r.get("timestamp", ""), reverse=True)
     return results
+
+
+def load_models() -> list[dict[str, Any]]:
+    """Charge la config des modèles depuis configs/models.yaml."""
+    path = REPO_ROOT / "configs" / "models.yaml"
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    return data.get("models", []) or []
 
 
 def is_open_weights(model: dict[str, Any]) -> bool:

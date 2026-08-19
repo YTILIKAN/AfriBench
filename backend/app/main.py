@@ -27,7 +27,8 @@ async def lifespan(_: FastAPI):
 
             init_db()
             seeded = repository.seed(dl.load_questions(), dl.load_results())
-            logger.info("DB initialisée + seed : %s", seeded)
+            models_n = repository.seed_models(dl.load_models())
+            logger.info("DB initialisée + seed : %s (modèles : %s)", seeded, models_n)
         except Exception as exc:  # noqa: BLE001
             logger.exception("Initialisation DB échouée, fallback fichiers : %s", exc)
     yield

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import sys
 import threading
 import uuid
@@ -39,18 +40,51 @@ def _load_afribench():
     return mod
 
 
-def list_configured_models() -> list[dict[str, Any]]:
+def _resolve_model(model_name: str) -> dict[str, Any] | None:
+    """Résout un modèle depuis la DB (clé incluse) sinon configs/models.yaml."""
+    if get_settings().db_enabled:
+        try:
+            from app import repository
+
+            m = repository.get_model_dict(model_name, include_secret=True)
+            if m:
+                return m
+        except Exception:  # noqa: BLE001 — DB indisponible → fallback yaml
+            pass
     afri = _load_afribench()
-    models = afri.load_models()
+    for m in afri.load_models():
+        if m["name"] == model_name:
+            return m
+    return None
+
+
+def list_configured_models() -> list[dict[str, Any]]:
+    if get_settings().db_enabled:
+        try:
+            from app import repository
+
+            return [
+                {
+                    "name": m["name"],
+                    "label": m.get("label") or m["name"],
+                    "provider": m.get("provider"),
+                    "api_key_env": m.get("api_key_env"),
+                    "api_key_set": m.get("api_key_set"),
+                }
+                for m in repository.list_models()
+            ]
+        except Exception:  # noqa: BLE001
+            pass
+    afri = _load_afribench()
     return [
         {
             "name": m["name"],
             "label": m.get("label", m["name"]),
             "provider": m.get("provider"),
             "api_key_env": m.get("api_key_env"),
-            "api_key_set": bool(__import__("os").environ.get(m.get("api_key_env", ""), "")),
+            "api_key_set": bool(os.environ.get(m.get("api_key_env", ""), "")),
         }
-        for m in models
+        for m in afri.load_models()
     ]
 
 
@@ -114,20 +148,15 @@ def run_evaluation(
     try:
         _update_job(job_id, status="running", started_at=_utc_now())
         afri = _load_afribench()
-        models = [m for m in afri.load_models() if m["name"] == model_name]
-        if not models:
-            raise ValueError(
-                f"Modèle '{model_name}' introuvable. "
-                f"Disponibles : {[m['name'] for m in afri.load_models()]}"
-            )
-        model = models[0]
+        model = _resolve_model(model_name)
+        if model is None:
+            raise ValueError(f"Modèle '{model_name}' introuvable (DB ou configs/models.yaml).")
 
-        import os
-
-        key_env = model.get("api_key_env")
-        if key_env and not os.environ.get(key_env):
+        # Échec rapide si aucune clé API n'est disponible (évite un run à 0%)
+        if not (model.get("api_key") or os.environ.get(model.get("api_key_env", ""))):
             raise RuntimeError(
-                f"Variable d'environnement {key_env} non définie pour {model_name}."
+                f"Clé API manquante pour '{model_name}'. "
+                f"Ajoutez-la dans l'onglet Modèles du backoffice."
             )
 
         questions = afri.load_questions("v1")
@@ -146,6 +175,15 @@ def run_evaluation(
 
         results = afri.evaluate_model(model, eval_questions, few, verbose=False)
         path = afri.save_results(results)
+
+        # Persister le résultat dans la DB (source de vérité)
+        if get_settings().db_enabled:
+            try:
+                from app import repository
+
+                repository.add_result(results)
+            except Exception:  # noqa: BLE001 — non fatal
+                pass
 
         # Invalider le cache API
         dl.clear_catalog_cache()

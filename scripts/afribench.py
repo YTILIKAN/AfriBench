@@ -154,13 +154,22 @@ def extract_answer(response_text: str) -> str | None:
 
 
 # ── Providers API ─────────────────────────────────────────────────────────
+def _resolve_api_key(model: dict) -> str:
+    """Clé API fournie directement (backoffice) sinon variable d'environnement."""
+    key = model.get("api_key") or os.environ.get(model.get("api_key_env", ""))
+    if not key:
+        raise ValueError(
+            f"Clé API manquante pour {model.get('name')} "
+            f"(définir api_key ou {model.get('api_key_env')})"
+        )
+    return key
+
+
 def call_openai(model: dict, prompt: str) -> str:
     """Appelle une API compatible OpenAI (OpenAI, Mistral, Together, DeepSeek)."""
     import requests
 
-    api_key = os.environ.get(model["api_key_env"])
-    if not api_key:
-        raise ValueError(f"Variable {model['api_key_env']} non définie")
+    api_key = _resolve_api_key(model)
 
     base = model.get("api_base", "https://api.openai.com/v1")
     headers = {
@@ -188,9 +197,7 @@ def call_anthropic(model: dict, prompt: str) -> str:
     """Appelle l'API Anthropic Claude."""
     import requests
 
-    api_key = os.environ.get(model["api_key_env"])
-    if not api_key:
-        raise ValueError(f"Variable {model['api_key_env']} non définie")
+    api_key = _resolve_api_key(model)
 
     headers = {
         "x-api-key": api_key,
@@ -218,9 +225,7 @@ def call_google(model: dict, prompt: str) -> str:
     """Appelle l'API Google Gemini."""
     import requests
 
-    api_key = os.environ.get(model["api_key_env"])
-    if not api_key:
-        raise ValueError(f"Variable {model['api_key_env']} non définie")
+    api_key = _resolve_api_key(model)
 
     model_id = model["model_id"]
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
