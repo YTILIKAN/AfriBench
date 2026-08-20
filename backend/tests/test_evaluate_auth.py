@@ -9,16 +9,16 @@ from fastapi.testclient import TestClient
 
 from app.config import get_settings
 from app.main import app
-from app.security import rate_limiter
+from app.rate_limit import rate_limiter
 
 
 @pytest.fixture(autouse=True)
 def _reset_settings(monkeypatch):
     get_settings.cache_clear()
-    rate_limiter._hits.clear()
+    rate_limiter.reset()
     yield
     get_settings.cache_clear()
-    rate_limiter._hits.clear()
+    rate_limiter.reset()
 
 
 client = TestClient(app)

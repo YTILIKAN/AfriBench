@@ -64,6 +64,36 @@ class Result(Base):
     )
 
 
+class EvalJob(Base):
+    """Job d'évaluation asynchrone (persistant entre redéploiements / réplicas)."""
+
+    __tablename__ = "eval_jobs"
+
+    job_id: Mapped[str] = mapped_column(String(32), primary_key=True)
+    status: Mapped[str] = mapped_column(String(16), index=True, default="queued")
+    model: Mapped[str] = mapped_column(String(128))
+    few_shot: Mapped[int] = mapped_column(Integer, default=0)
+    limit: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    category: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, index=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    result_summary: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    result_path: Mapped[str | None] = mapped_column(Text, nullable=True)
+    worker_id: Mapped[str | None] = mapped_column(String(128), nullable=True)
+
+
+class RateLimitHit(Base):
+    """Frappe rate-limit (fenêtre glissante, partagée entre réplicas)."""
+
+    __tablename__ = "rate_limit_hits"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    key: Mapped[str] = mapped_column(String(512), index=True)
+    hit_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, index=True)
+
+
 class Model(Base):
     """Modèle configuré pour l'évaluation (fournisseur, id, clé API)."""
 

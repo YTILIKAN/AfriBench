@@ -3,24 +3,35 @@
 from __future__ import annotations
 
 import importlib.util
+import logging
 import os
+import socket
 import sys
 import threading
 import uuid
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from app.config import REPO_ROOT, get_settings
 from app.services import data_loader as dl
 
+logger = logging.getLogger("afribench")
+
 _jobs: dict[str, dict[str, Any]] = {}
 _jobs_lock = threading.Lock()
-_runner_lock = threading.Lock()  # une évaluation à la fois
+_runner_lock = threading.Lock()  # fallback single-process
 
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _worker_id() -> str:
+    return f"{socket.gethostname()}:{os.getpid()}"
+
+
+def _db_jobs_enabled() -> bool:
+    return get_settings().db_enabled
 
 
 def _load_afribench():
@@ -32,7 +43,6 @@ def _load_afribench():
     if spec is None or spec.loader is None:
         raise ImportError("Impossible de charger afribench.py")
     mod = importlib.util.module_from_spec(spec)
-    # Évite de ré-exécuter main si déjà chargé
     if "afribench_cli" in sys.modules:
         return sys.modules["afribench_cli"]
     sys.modules["afribench_cli"] = mod
@@ -42,7 +52,7 @@ def _load_afribench():
 
 def _resolve_model(model_name: str) -> dict[str, Any] | None:
     """Résout un modèle depuis la DB (clé incluse) sinon configs/models.yaml."""
-    if get_settings().db_enabled:
+    if _db_jobs_enabled():
         try:
             from app import repository
 
@@ -59,7 +69,7 @@ def _resolve_model(model_name: str) -> dict[str, Any] | None:
 
 
 def list_configured_models() -> list[dict[str, Any]]:
-    if get_settings().db_enabled:
+    if _db_jobs_enabled():
         try:
             from app import repository
 
@@ -89,12 +99,28 @@ def list_configured_models() -> list[dict[str, Any]]:
 
 
 def get_job(job_id: str) -> dict[str, Any] | None:
+    if _db_jobs_enabled():
+        try:
+            from app import repository
+
+            job = repository.get_job(job_id)
+            if job:
+                return job
+        except Exception:  # noqa: BLE001
+            pass
     with _jobs_lock:
         job = _jobs.get(job_id)
         return dict(job) if job else None
 
 
 def list_jobs(limit: int = 20) -> list[dict[str, Any]]:
+    if _db_jobs_enabled():
+        try:
+            from app import repository
+
+            return repository.list_jobs(limit=limit)
+        except Exception:  # noqa: BLE001
+            pass
     with _jobs_lock:
         jobs = sorted(_jobs.values(), key=lambda j: j["created_at"], reverse=True)
         return [dict(j) for j in jobs[:limit]]
@@ -102,6 +128,17 @@ def list_jobs(limit: int = 20) -> list[dict[str, Any]]:
 
 def create_job(model: str, few_shot: int, limit: int | None, category: str | None) -> dict[str, Any]:
     job_id = uuid.uuid4().hex[:12]
+    created_at = _utc_now()
+    if _db_jobs_enabled():
+        try:
+            from app import repository
+
+            return repository.create_job(
+                job_id, model, few_shot, limit, category, created_at=created_at
+            )
+        except Exception:  # noqa: BLE001
+            logger.warning("Création job en DB échouée, fallback mémoire", exc_info=True)
+
     job = {
         "job_id": job_id,
         "status": "queued",
@@ -109,7 +146,7 @@ def create_job(model: str, few_shot: int, limit: int | None, category: str | Non
         "few_shot": few_shot,
         "limit": limit,
         "category": category,
-        "created_at": _utc_now(),
+        "created_at": created_at,
         "started_at": None,
         "finished_at": None,
         "error": None,
@@ -122,9 +159,42 @@ def create_job(model: str, few_shot: int, limit: int | None, category: str | Non
 
 
 def _update_job(job_id: str, **kwargs: Any) -> None:
+    if _db_jobs_enabled():
+        try:
+            from app import repository
+
+            repository.update_job(job_id, **kwargs)
+            return
+        except Exception:  # noqa: BLE001
+            logger.warning("Mise à jour job en DB échouée, fallback mémoire", exc_info=True)
     with _jobs_lock:
         if job_id in _jobs:
             _jobs[job_id].update(kwargs)
+
+
+def _acquire_runner() -> tuple[bool, str]:
+    if _db_jobs_enabled():
+        try:
+            from app import repository
+
+            if repository.try_acquire_eval_runner_lock():
+                return True, "postgres"
+        except Exception:  # noqa: BLE001
+            logger.warning("Verrou Postgres indisponible, fallback mémoire", exc_info=True)
+    acquired = _runner_lock.acquire(blocking=False)
+    return acquired, "memory"
+
+
+def _release_runner(backend: str) -> None:
+    if backend == "postgres":
+        try:
+            from app import repository
+
+            repository.release_eval_runner_lock()
+        except Exception:  # noqa: BLE001
+            logger.warning("Libération verrou Postgres échouée", exc_info=True)
+    elif backend == "memory":
+        _runner_lock.release()
 
 
 def run_evaluation(
@@ -135,7 +205,7 @@ def run_evaluation(
     category: str | None = None,
 ) -> None:
     """Exécute l'évaluation (thread worker). Une seule à la fois."""
-    acquired = _runner_lock.acquire(blocking=False)
+    acquired, lock_backend = _acquire_runner()
     if not acquired:
         _update_job(
             job_id,
@@ -146,13 +216,17 @@ def run_evaluation(
         return
 
     try:
-        _update_job(job_id, status="running", started_at=_utc_now())
+        _update_job(
+            job_id,
+            status="running",
+            started_at=_utc_now(),
+            worker_id=_worker_id(),
+        )
         afri = _load_afribench()
         model = _resolve_model(model_name)
         if model is None:
             raise ValueError(f"Modèle '{model_name}' introuvable (DB ou configs/models.yaml).")
 
-        # Échec rapide si aucune clé API n'est disponible (évite un run à 0%)
         if not (model.get("api_key") or os.environ.get(model.get("api_key_env", ""))):
             raise RuntimeError(
                 f"Clé API manquante pour '{model_name}'. "
@@ -168,7 +242,6 @@ def run_evaluation(
             questions = questions[:limit]
 
         few = questions[:few_shot] if few_shot > 0 else None
-        # Ne pas réutiliser les few-shot dans le set évalué
         eval_questions = questions[few_shot:] if few_shot > 0 else questions
         if not eval_questions:
             raise ValueError("Aucune question à évaluer après few-shot/limit.")
@@ -176,8 +249,7 @@ def run_evaluation(
         results = afri.evaluate_model(model, eval_questions, few, verbose=False)
         path = afri.save_results(results)
 
-        # Persister le résultat dans la DB (source de vérité)
-        if get_settings().db_enabled:
+        if _db_jobs_enabled():
             try:
                 from app import repository
 
@@ -185,7 +257,6 @@ def run_evaluation(
             except Exception:  # noqa: BLE001 — non fatal
                 pass
 
-        # Invalider le cache API
         dl.clear_catalog_cache()
 
         summary = {
@@ -211,7 +282,7 @@ def run_evaluation(
             error=str(exc),
         )
     finally:
-        _runner_lock.release()
+        _release_runner(lock_backend)
 
 
 def start_job_async(
@@ -241,3 +312,27 @@ def run_job_sync(
     job = get_job(job_id)
     assert job is not None
     return job
+
+
+def resume_queued_jobs() -> int:
+    """Relance les jobs en attente après redémarrage (DB requise)."""
+    if not _db_jobs_enabled():
+        return 0
+    try:
+        from app import repository
+
+        queued = repository.list_jobs_by_status("queued")
+        for job in queued:
+            start_job_async(
+                job["job_id"],
+                job["model"],
+                job["few_shot"],
+                job["limit"],
+                job["category"],
+            )
+        if queued:
+            logger.info("Reprise de %s job(s) en attente", len(queued))
+        return len(queued)
+    except Exception:  # noqa: BLE001
+        logger.exception("Reprise des jobs en attente échouée")
+        return 0
