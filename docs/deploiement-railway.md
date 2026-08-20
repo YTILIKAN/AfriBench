@@ -59,6 +59,35 @@ le frontend démarre quand même et sert les données statiques de repli — seu
 - Backend : `GET /api/v1/health` (voir `railway.backend.toml`)
 - Frontend : `GET /` (voir `railway.frontend.toml`)
 
+## Domaines publics (requis pour le healthcheck de la CLI)
+
+⚠️ **Point critique** : le healthcheck exécuté par `railway up` (workflow
+`deploy.yml`) vérifie le service via son **URL publique**. Si le service n'a pas
+de domaine généré, le healthcheck boucle sur « service unavailable » puis
+échoue (« Deploy failed ») **même si le conteneur fonctionne**.
+
+Pour chaque service (`afribench-api` et `afribench-web`) :
+
+1. *Settings → Networking → Public Networking*
+2. **Generate Domain** (accepter le port proposé — 8080)
+
+L'API est publique par design (endpoints GET sans auth), exposer un domaine sur
+le backend est donc attendu. Le frontend y accède quand même en priorité via le
+réseau privé (`*.railway.internal`).
+
+## Dépannage
+
+| Symptôme | Cause probable | Solution |
+|---|---|---|
+| `Deploy failed` après N× « service unavailable » | Pas de domaine public sur le service | Generate Domain (voir ci-dessus) |
+| Build échoue sur `COPY data /app/data` | Root Directory du service ≠ racine | Laisser Root Directory vide |
+| Les deux services buildent le frontend | Config file path non renseigné | `railway.backend.toml` / `railway.frontend.toml` par service |
+| Frontend up mais `/api/*` en 502 | `BACKEND_URL` ne correspond pas au nom du service backend | `BACKEND_URL=http://<nom-service>.railway.internal:8080` |
+| `railway up` : unauthorized | `RAILWAY_TOKEN` n'est pas un *project token* | Créer un Project Token (Project → Settings → Tokens) et maj le secret GitHub |
+
+Le backend embarque aussi un `HEALTHCHECK` Docker (vérification interne au
+conteneur, indépendante du domaine public).
+
 ## Vérification après déploiement
 
 ```bash
