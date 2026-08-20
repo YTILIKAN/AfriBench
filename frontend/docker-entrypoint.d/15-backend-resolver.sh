@@ -9,4 +9,10 @@ if [ -z "$NS" ]; then
   NS="1.1.1.1"
 fi
 
+# nginx exige les crochets autour des adresses IPv6 (sinon "invalid port in resolver").
+# Railway expose souvent fd12::10 comme nameserver.
+case "$NS" in
+  *:*) NS="[$NS]" ;;
+esac
+
 echo "resolver $NS valid=10s;" > /etc/nginx/conf.d/resolver.conf
