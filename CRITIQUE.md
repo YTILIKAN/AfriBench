@@ -1,5 +1,10 @@
 # Critique AfriBench — v1.0 (Juin 2026)
 
+> **⚠️ Document historique (juin 2026).** La plupart des points « forme » sont résolus depuis :
+> API FastAPI + Postgres, Docker, pipeline de validation, i18n, tâches ouvertes, bundle Vite,
+> tests backend (58) et frontend (Vitest), ESLint, a11y (skip-link, ARIA, navigation clavier),
+> thème sombre, exports HF. Voir [ROADMAP.md](ROADMAP.md) pour l'état courant.
+>
 > **Document d'auto-critique structurée** — à lire comme une roadmap d'amélioration, pas comme un constat d'échec. Ce benchmark en est à sa phase de prototypage. Voici ce qui cloche, pourquoi, et comment y remédier.
 
 ---

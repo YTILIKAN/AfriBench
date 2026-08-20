@@ -42,24 +42,30 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 ```
 AfriBench/
 ├── backend/                # Service API FastAPI (:8080)
-│   ├── app/                # routers, services, config
+│   ├── app/                # routers, services, config, modèles SQLAlchemy
+│   ├── alembic/            # Migrations Postgres
+│   ├── tests/              # pytest (58 tests)
 │   ├── Dockerfile
 │   └── requirements.txt
-├── frontend/               # UI statique (nginx :3000 ou http.server :8000)
-│   ├── index.html
-│   ├── css/ · js/
+├── frontend/               # SPA vanilla JS bundlée avec Vite (nginx :3000)
+│   ├── index.html · src/   # Shell + entrée Vite (Chart.js, Sora)
+│   ├── css/ · js/          # Design tokens (clair/sombre) + vues par onglet
+│   ├── admin/              # Backoffice d'administration
 │   ├── data/               # Fallback JSON (GitHub Pages / offline)
 │   ├── nginx.conf          # Proxy /api → backend
 │   └── Dockerfile
 ├── data/                   # Source de vérité (questions + résultats)
-├── scripts/                # CLI d'évaluation (afribench.py)
+├── scripts/                # CLI d'évaluation (afribench.py) + lm_eval_tasks/
 ├── configs/                # models.yaml, categories.yaml
-├── docker-compose.yml      # backend + frontend
+├── hf_space/ · hf_evaluator/  # Exports Hugging Face
+├── docker-compose.yml      # postgres + backend + frontend (+ eval)
 └── research/ · CRITIQUE.md · ROADMAP.md
 ```
 
 Le frontend consomme `GET /api/v1/results` et `GET /api/v1/questions`.  
 S'il n'y a pas de backend, il retombe sur `frontend/data/*.json`.
+Le backend utilise PostgreSQL (migrations Alembic) quand `AFRIBENCH_DATABASE_URL` est défini,
+sinon il lit directement les fichiers JSON.
 
 ---
 
@@ -147,9 +153,9 @@ python scripts/generate_static_html.py   # classement dans le HTML + bootstrap.j
 cd backend && pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8080
 
-# Terminal 2 — frontend
-cd frontend && python3 -m http.server 8000
-# → http://localhost:8000  (appelle l'API sur :8080)
+# Terminal 2 — frontend (Vite, proxy /api → :8080)
+cd frontend && npm install && npm run dev
+# → http://localhost:3000  (appelle l'API sur :8080)
 ```
 
 ### Évaluer un modèle
