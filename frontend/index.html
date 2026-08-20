@@ -71,7 +71,7 @@
       <span class="menu-toggle__bars" aria-hidden="true"></span>
     </button>
     <span class="mobile-bar__brand">Afri<span>B</span>ench</span>
-    <span class="mobile-bar__badge">v0.1</span>
+    <span class="mobile-bar__view" id="mobile-view-title">Classement</span>
   </header>
   <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
 
@@ -91,38 +91,54 @@
       <div class="sidebar-search">
         <input type="search" id="global-search" class="sidebar-search__input"
                placeholder="Rechercher un modèle, une question…"
-               aria-label="Recherche globale" autocomplete="off">
+               aria-label="Recherche globale (Ctrl+K)" autocomplete="off">
+        <kbd class="sidebar-search__kbd" aria-hidden="true">Ctrl K</kbd>
       </div>
 
-      <nav class="sidebar-nav">
-        <div class="sidebar-section-title">Navigation</div>
-        <button class="sidebar-btn active" data-tab="leaderboard" data-sidebar>
-          <span class="icon">▦</span> Classement
-        </button>
-        <button class="sidebar-btn" data-tab="models" data-sidebar>
-          <span class="icon">⊞</span> Modèles
-        </button>
-        <button class="sidebar-btn" data-tab="categories" data-sidebar>
-          <span class="icon">⊡</span> Catégories
-        </button>
-        <button class="sidebar-btn" data-tab="compare" data-sidebar>
-          <span class="icon">⊙</span> Comparer
-        </button>
-        <button class="sidebar-btn" data-tab="evolution" data-sidebar>
-          <span class="icon">↗</span> Évolution
-        </button>
-        <button class="sidebar-btn" data-tab="questions" data-sidebar>
-          <span class="icon">?</span> Questions
-        </button>
-        <button class="sidebar-btn" data-tab="open_tasks" data-sidebar>
-          <span class="icon">✎</span> Tâches ouvertes
-        </button>
-        <button class="sidebar-btn" data-tab="methodology" data-sidebar>
-          <span class="icon">≡</span> Méthodologie
-        </button>
-        <button class="sidebar-btn" data-tab="api" data-sidebar>
-          <span class="icon">{}</span> API
-        </button>
+      <nav class="sidebar-nav" aria-label="Navigation principale">
+        <div class="sidebar-tablist" role="tablist" aria-orientation="vertical" aria-label="Sections du tableau de bord">
+          <div class="sidebar-section-title" role="presentation">Analyse</div>
+          <button class="sidebar-btn active" role="tab" id="nav-leaderboard"
+                  aria-selected="true" aria-controls="tab-content" data-tab="leaderboard" data-sidebar>
+            <span class="icon">▦</span> Classement
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-models" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="models" data-sidebar>
+            <span class="icon">⊞</span> Modèles
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-categories" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="categories" data-sidebar>
+            <span class="icon">⊡</span> Catégories
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-compare" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="compare" data-sidebar>
+            <span class="icon">⊙</span> Comparer
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-evolution" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="evolution" data-sidebar>
+            <span class="icon">↗</span> Évolution
+          </button>
+
+          <div class="sidebar-section-title" role="presentation">Données</div>
+          <button class="sidebar-btn" role="tab" id="nav-questions" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="questions" data-sidebar>
+            <span class="icon">?</span> Questions
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-open_tasks" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="open_tasks" data-sidebar>
+            <span class="icon">✎</span> Tâches ouvertes
+          </button>
+
+          <div class="sidebar-section-title" role="presentation">Projet</div>
+          <button class="sidebar-btn" role="tab" id="nav-methodology" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="methodology" data-sidebar>
+            <span class="icon">≡</span> Méthodologie
+          </button>
+          <button class="sidebar-btn" role="tab" id="nav-api" tabindex="-1"
+                  aria-selected="false" aria-controls="tab-content" data-tab="api" data-sidebar>
+            <span class="icon">{}</span> API
+          </button>
+        </div>
 
         <div class="sidebar-section-title">Catégories</div>
         <div id="sidebar-categories">
@@ -202,32 +218,14 @@
         </div>
       </section>
 
-      <!-- ═══ TAB NAVIGATION ═══ -->
-      <section class="section" style="padding-top:var(--sp-md);padding-bottom:0">
+      <!-- ═══ CONTENT AREA (vue courante) ═══ -->
+      <section class="section" style="padding-top:var(--sp-md)">
         <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">04 / Classement &amp; analyse</span>
-            <h2 class="sec-title">Le tableau de bord.</h2>
-            <p class="lead">Classement, modèles, catégories, comparaisons : tout ce qu'il faut pour évaluer les LLMs sur l'Afrique.</p>
-          </div>
-          <nav class="tab-bar" role="tablist" aria-label="Sections" style="margin:0 -28px;padding:0 28px">
-            <button class="tab-btn active" role="tab" id="tab-leaderboard" aria-selected="true" aria-controls="tab-content" data-tab="leaderboard">Classement</button>
-            <button class="tab-btn" role="tab" id="tab-models" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="models">Modèles</button>
-            <button class="tab-btn" role="tab" id="tab-categories" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="categories">Catégories</button>
-            <button class="tab-btn" role="tab" id="tab-compare" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="compare">Comparer</button>
-            <button class="tab-btn" role="tab" id="tab-evolution" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="evolution">Évolution</button>
-            <button class="tab-btn" role="tab" id="tab-questions" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="questions">Questions</button>
-            <button class="tab-btn" role="tab" id="tab-open_tasks" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="open_tasks">Tâches ouvertes</button>
-            <button class="tab-btn" role="tab" id="tab-methodology" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="methodology">Méthodologie</button>
-            <button class="tab-btn" role="tab" id="tab-api" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="api">API</button>
-          </nav>
-        </div>
-      </section>
-
-      <!-- ═══ CONTENT AREA ═══ -->
-      <section class="section">
-        <div class="wrap">
-          <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="tab-leaderboard" tabindex="0">
+          <header class="view-header" id="view-header">
+            <h2 class="view-header__title" id="view-title">Classement</h2>
+            <p class="view-header__desc" id="view-desc">Performance globale des modèles sur le benchmark.</p>
+          </header>
+          <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="nav-leaderboard" tabindex="0">
 <!-- STATIC_LEADERBOARD_BEGIN -->
             <div class="card" id="static-leaderboard">
               <div class="card-title">Classement (v0.1 — indicatif)</div>

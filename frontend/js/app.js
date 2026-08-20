@@ -23,6 +23,46 @@ const VALID_TABS = [
   'evolution', 'questions', 'open_tasks', 'methodology', 'api',
 ];
 
+/* Titre + description affichés dans l'en-tête de vue (et barre mobile) */
+const VIEW_META = {
+  leaderboard: {
+    title: 'Classement',
+    desc: 'Performance globale des modèles sur le benchmark (tri, filtres, exports).',
+  },
+  models: {
+    title: 'Modèles',
+    desc: 'Fiches détaillées par modèle : provider, radar par catégorie, actions.',
+  },
+  categories: {
+    title: 'Catégories',
+    desc: 'Scores par domaine de connaissance et comparaison radar.',
+  },
+  compare: {
+    title: 'Comparer',
+    desc: 'Comparaison côte à côte des modèles sélectionnés.',
+  },
+  evolution: {
+    title: 'Évolution',
+    desc: 'Progression des scores dans le temps, par modèle.',
+  },
+  questions: {
+    title: 'Questions',
+    desc: 'Parcourir les questions du benchmark (filtres par catégorie et difficulté).',
+  },
+  open_tasks: {
+    title: 'Tâches ouvertes',
+    desc: 'Pilotes non-QCM : traduction, résumé, QA ouverte, NER, sentiment.',
+  },
+  methodology: {
+    title: 'Méthodologie',
+    desc: 'Protocole d\'évaluation, métriques, reproductibilité et limites.',
+  },
+  api: {
+    title: 'API',
+    desc: 'Endpoints publics, paramètres et exemples d\'utilisation.',
+  },
+};
+
 const AppState = {
   results: [],
   questions: [],
@@ -56,6 +96,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderTopModels();
   updateHeroStats();
   applyUrlFilters();
+  // Deep link (?tab=X) : amener l'utilisateur directement à la vue demandée
+  if (AppState._deepLinked) {
+    const header = document.getElementById('view-header');
+    if (header) header.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
   window.addEventListener('popstate', () => {
     applyUrlState();
     renderActiveTab();
@@ -149,6 +194,8 @@ function applyUrlState() {
   const tab = params.get('tab');
   AppState.urlCategory = params.get('category');
   AppState.urlDifficulty = params.get('difficulty');
+  // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
+  AppState._deepLinked = Boolean(tab);
   AppState._skipUrlWrite = true;
   AppState._skipScroll = true;
   setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
@@ -226,44 +273,45 @@ function initTheme() {
   }
 }
 
-/* ── Tabs ─────────────────────────────────────────────── */
+/* ── Navigation (sidebar = tablist vertical) ──────────── */
 function setupTabs() {
-  // Top tab bar
-  const tabButtons = [...document.querySelectorAll('.tab-btn')];
-  tabButtons.forEach((btn) => {
+  const navButtons = [...document.querySelectorAll('.sidebar-tablist [data-sidebar]')];
+
+  navButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       setActiveTab(btn.dataset.tab);
       btn.focus();
     });
   });
 
-  // Navigation clavier ARIA (flèches, Home, End) sur la tablist
-  const tabBar = document.querySelector('.tab-bar[role="tablist"]');
-  if (tabBar) {
-    tabBar.addEventListener('keydown', (e) => {
+  // Navigation clavier ARIA (↑/↓/Home/End) dans la tablist verticale
+  const tablist = document.querySelector('.sidebar-tablist[role="tablist"]');
+  if (tablist) {
+    tablist.addEventListener('keydown', (e) => {
       const current = document.activeElement;
-      if (!current || !current.classList.contains('tab-btn')) return;
-      const idx = tabButtons.indexOf(current);
+      const idx = navButtons.indexOf(current);
       if (idx === -1) return;
       let nextIdx = null;
-      if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabButtons.length;
-      else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
+      if (e.key === 'ArrowDown') nextIdx = (idx + 1) % navButtons.length;
+      else if (e.key === 'ArrowUp') nextIdx = (idx - 1 + navButtons.length) % navButtons.length;
       else if (e.key === 'Home') nextIdx = 0;
-      else if (e.key === 'End') nextIdx = tabButtons.length - 1;
+      else if (e.key === 'End') nextIdx = navButtons.length - 1;
       if (nextIdx !== null) {
         e.preventDefault();
-        const next = tabButtons[nextIdx];
+        const next = navButtons[nextIdx];
         setActiveTab(next.dataset.tab);
         next.focus();
       }
     });
   }
 
-  // Sidebar buttons
-  document.querySelectorAll('[data-sidebar]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      setActiveTab(btn.dataset.tab);
-    });
+  // Raccourcis globaux : Ctrl+K / Cmd+K → recherche
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      const input = document.getElementById('global-search');
+      if (input) input.focus();
+    }
   });
 
   // Footer quick links
@@ -284,20 +332,24 @@ function setActiveTab(tabId) {
   if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
 
-  // Update tab bar (état + roving tabindex + aria-labelledby du panel)
-  document.querySelectorAll('.tab-btn').forEach((b) => {
+  // Sidebar tabs : état actif + roving tabindex + aria-selected
+  document.querySelectorAll('.sidebar-tablist [data-sidebar]').forEach((b) => {
     const isActive = b.dataset.tab === tabId;
     b.classList.toggle('active', isActive);
     b.setAttribute('aria-selected', isActive ? 'true' : 'false');
     b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
-  const panel = document.getElementById('tab-content');
-  if (panel) panel.setAttribute('aria-labelledby', `tab-${tabId}`);
 
-  // Update sidebar
-  document.querySelectorAll('[data-sidebar]').forEach((b) => {
-    b.classList.toggle('active', b.dataset.tab === tabId);
-  });
+  // En-tête de vue + barre mobile + aria-labelledby du panel
+  const meta = VIEW_META[tabId];
+  if (meta) {
+    setText('view-title', meta.title);
+    setText('view-desc', meta.desc);
+    setText('mobile-view-title', meta.title);
+    document.title = `AfriBench — ${meta.title}`;
+  }
+  const panel = document.getElementById('tab-content');
+  if (panel) panel.setAttribute('aria-labelledby', `nav-${tabId}`);
 
   // Close mobile drawer after navigation (si présent)
   if (typeof window.__closeMobileNav === 'function') {
@@ -308,9 +360,9 @@ function setActiveTab(tabId) {
   renderActiveTab();
   applyUrlFilters();
 
-  // Scroll to tab content area
+  // Scroll vers l'en-tête de la vue courante
   if (!AppState._skipScroll) {
-    var target = document.getElementById('tab-content');
+    var target = document.getElementById('view-header') || document.getElementById('tab-content');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -421,6 +473,16 @@ function setupSearch() {
     if (input.value === '') {
       AppState.searchQuery = '';
       if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
+    }
+  });
+
+  // Escape efface la recherche et rend le focus
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && input.value !== '') {
+      input.value = '';
+      AppState.searchQuery = '';
+      if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
+      input.blur();
     }
   });
 }
@@ -899,6 +961,7 @@ Object.assign(globalThis, {
   AppState,
   escapeHtml,
   VALID_TABS,
+  VIEW_META,
   getUniqueModels,
   getLatestResults,
   isOpenModel,
@@ -922,6 +985,8 @@ Object.assign(globalThis, {
   mountChart,
   chartTheme,
   setupRevealAnimations,
+  setupSearch,
+  setupTabs,
 });
 
 export {};
