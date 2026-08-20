@@ -1,0 +1,252 @@
+/**
+ * Smoke tests des vues AfriBench.
+ *
+ * Ces tests auraient attrapé les régressions de la refonte 2026 :
+ *  - leaderboard : variable `html` non déclarée (ReferenceError en ESM strict)
+ *  - models : tri exécuté au render → récursion infinie (stack overflow)
+ *  - reveal : sections invisibles sans IntersectionObserver
+ */
+import { beforeEach, describe, expect, it } from 'vitest';
+
+// L'ordre compte : app.js publie les helpers sur globalThis.
+import '../js/app.js';
+import '../js/leaderboard.js';
+import '../js/models.js';
+import '../js/categories.js';
+import '../js/compare.js';
+import '../js/evolution.js';
+import '../js/questions.js';
+import '../js/methodology.js';
+import '../js/api.js';
+
+const {
+  AppState, escapeHtml, getLatestResults, isOpenModel, setActiveTab,
+} = globalThis;
+
+const MOCK_RESULTS = [
+  {
+    model: 'gpt-4o',
+    model_label: 'GPT-4o',
+    timestamp: '2026-06-04T22:23:49',
+    total: 101,
+    correct: 95,
+    accuracy: 94.1,
+    by_category: {
+      histoire: { correct: 14, total: 15, accuracy: 93.3 },
+      geographie: { correct: 16, total: 16, accuracy: 100.0 },
+    },
+    by_difficulty: {
+      easy: { correct: 40, total: 41, accuracy: 97.6 },
+      medium: { correct: 35, total: 38, accuracy: 92.1 },
+      hard: { correct: 20, total: 22, accuracy: 90.9 },
+    },
+  },
+  {
+    model: 'llama-3-70b',
+    model_label: 'Llama 3 70B',
+    timestamp: '2026-06-04T22:23:49',
+    total: 101,
+    correct: 88,
+    accuracy: 87.1,
+    by_category: {
+      histoire: { correct: 12, total: 15, accuracy: 80.0 },
+      geographie: { correct: 14, total: 16, accuracy: 87.5 },
+    },
+    by_difficulty: {
+      easy: { correct: 38, total: 41, accuracy: 92.7 },
+      medium: { correct: 32, total: 38, accuracy: 84.2 },
+      hard: { correct: 18, total: 22, accuracy: 81.8 },
+    },
+  },
+];
+
+const MOCK_QUESTIONS = [
+  {
+    id: 'GEO-001',
+    category: 'geographie',
+    difficulty: 'easy',
+    language: 'fr',
+    question: 'Quelle est la capitale du Sénégal ?',
+    options: { A: 'Bamako', B: 'Dakar', C: 'Abidjan', D: 'Accra' },
+    answer: 'B',
+    explanation: 'Dakar est la capitale du Sénégal.',
+  },
+  {
+    id: 'HIS-001',
+    category: 'histoire',
+    difficulty: 'medium',
+    language: 'fr',
+    question: 'Quel empire africain a prospéré au XIVe siècle ?',
+    options: { A: 'Mali', B: 'Carthage', C: 'Rome', D: 'Byzance' },
+    answer: 'A',
+  },
+];
+
+function makeContainer() {
+  document.body.innerHTML = '<main id="tab-content"></main>';
+  return document.getElementById('tab-content');
+}
+
+beforeEach(() => {
+  AppState.results = structuredClone(MOCK_RESULTS);
+  AppState.questions = structuredClone(MOCK_QUESTIONS);
+  AppState.searchQuery = '';
+  AppState.comparePreset = null;
+  AppState.dataSource = 'api';
+  AppState.loading = false;
+});
+
+describe('escapeHtml', () => {
+  it('échappe les caractères dangereux', () => {
+    expect(escapeHtml('<script>"x"</script>')).toBe(
+      '&lt;script&gt;&quot;x&quot;&lt;&#x2F;script&gt;',
+    );
+  });
+  it('tolère les entrées vides', () => {
+    expect(escapeHtml('')).toBe('');
+    expect(escapeHtml(null)).toBe('');
+    expect(escapeHtml(undefined)).toBe('');
+  });
+});
+
+describe('getLatestResults', () => {
+  it('déduplique par modèle et trie par score décroissant', () => {
+    const results = getLatestResults();
+    expect(results).toHaveLength(2);
+    expect(results[0].model).toBe('gpt-4o');
+    expect(results[1].model).toBe('llama-3-70b');
+  });
+
+  it('garde le timestamp le plus récent', () => {
+    AppState.results.push({
+      ...MOCK_RESULTS[0],
+      timestamp: '2026-08-01T00:00:00',
+      accuracy: 99.0,
+    });
+    const results = getLatestResults();
+    expect(results.find((r) => r.model === 'gpt-4o').accuracy).toBe(99.0);
+  });
+});
+
+describe('isOpenModel', () => {
+  it('détecte les modèles open weights', () => {
+    expect(isOpenModel({ model: 'llama-3-70b' })).toBe(true);
+    expect(isOpenModel({ model: 'gpt-4o' })).toBe(false);
+  });
+});
+
+describe('renderLeaderboard', () => {
+  it('rend le tableau sans erreur (régression : html non déclaré)', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderLeaderboard(container)).not.toThrow();
+    expect(container.querySelector('.lb-table')).toBeTruthy();
+    expect(container.textContent).toContain('GPT-4o');
+  });
+
+  it('affiche un état vide sans résultats', () => {
+    AppState.results = [];
+    const container = makeContainer();
+    globalThis.renderLeaderboard(container);
+    expect(container.textContent).toContain('Aucun résultat');
+  });
+
+  it('échappe les noms de modèles (XSS)', () => {
+    AppState.results[0].model_label = '<img src=x onerror=alert(1)>';
+    const container = makeContainer();
+    globalThis.renderLeaderboard(container);
+    expect(container.querySelector('img')).toBeNull();
+    expect(container.textContent).toContain('<img src=x');
+  });
+
+  it('filtre par recherche globale', () => {
+    AppState.searchQuery = 'llama';
+    const container = makeContainer();
+    globalThis.renderLeaderboard(container);
+    expect(container.textContent).toContain('Llama 3 70B');
+    expect(container.textContent).not.toContain('GPT-4o');
+  });
+});
+
+describe('renderModels', () => {
+  it('rend les cartes sans récursion (régression : tri au render)', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderModels(container)).not.toThrow();
+    expect(container.querySelectorAll('.model-card')).toHaveLength(2);
+  });
+
+  it('le bouton de tri ne trie qu\'au clic', () => {
+    const container = makeContainer();
+    globalThis.renderModels(container);
+    const scoreBtn = container.querySelector('[data-msort="score"]');
+    expect(() => scoreBtn.click()).not.toThrow();
+    expect(container.querySelectorAll('.model-card')).toHaveLength(2);
+  });
+});
+
+describe('autres vues', () => {
+  it('renderCategories', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderCategories(container)).not.toThrow();
+    expect(container.textContent).toContain('Histoire');
+  });
+
+  it('renderCompare', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderCompare(container)).not.toThrow();
+    expect(container.querySelectorAll('.compare-check').length).toBe(2);
+  });
+
+  it('renderEvolution', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderEvolution(container)).not.toThrow();
+    expect(container.textContent).toContain('Evolution des scores');
+  });
+
+  it('renderQuestions avec filtres et XSS safe', () => {
+    AppState.questions[0].question = '<b>Capitale</b> du Sénégal ?';
+    const container = makeContainer();
+    expect(() => globalThis.renderQuestions(container)).not.toThrow();
+    expect(container.querySelectorAll('.q-item')).toHaveLength(2);
+    expect(container.querySelector('.q-item b')).toBeNull();
+  });
+
+  it('renderMethodology', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderMethodology(container)).not.toThrow();
+    expect(container.textContent).toContain('Methodologie');
+  });
+
+  it('renderAPI', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderAPI(container)).not.toThrow();
+    expect(container.textContent).toContain('API Publique');
+  });
+});
+
+describe('navigation par onglets', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <nav class="tab-bar" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="leaderboard" id="tab-leaderboard">Classement</button>
+        <button class="tab-btn" role="tab" data-tab="models" id="tab-models">Modèles</button>
+      </nav>
+      <main id="tab-content" role="tabpanel"></main>
+    `;
+  });
+
+  it('setActiveTab met à jour aria-selected et le roving tabindex', () => {
+    setActiveTab('models');
+    const modelsBtn = document.getElementById('tab-models');
+    const lbBtn = document.getElementById('tab-leaderboard');
+    expect(modelsBtn.getAttribute('aria-selected')).toBe('true');
+    expect(modelsBtn.getAttribute('tabindex')).toBe('0');
+    expect(lbBtn.getAttribute('aria-selected')).toBe('false');
+    expect(lbBtn.getAttribute('tabindex')).toBe('-1');
+    expect(document.getElementById('tab-content').getAttribute('aria-labelledby')).toBe('tab-models');
+  });
+
+  it('setActiveTab rejette les onglets inconnus', () => {
+    setActiveTab('nope');
+    expect(AppState.activeTab).toBe('leaderboard');
+  });
+});
