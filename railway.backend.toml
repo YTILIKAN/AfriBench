@@ -2,7 +2,10 @@
 builder = "DOCKERFILE"
 dockerfilePath = "backend/Dockerfile"
 
+# Pas de healthcheckPath ici : le healthcheck de `railway up` passe par l'URL
+# PUBLIQUE du service et échoue en boucle (« service unavailable ») si aucun
+# domaine n'est généré. Le backend n'a pas besoin d'être public (le frontend le
+# joint via le réseau privé) — le HEALTHCHECK du Dockerfile prend le relais,
+# visible dans le dashboard Railway.
 [deploy]
-healthcheckPath = "/api/v1/health"
-healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"

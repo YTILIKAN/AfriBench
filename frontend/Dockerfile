@@ -23,3 +23,7 @@ COPY frontend/nginx.template.conf /etc/nginx/templates/default.conf.template
 COPY --from=build /app/frontend/dist /usr/share/nginx/html/
 
 EXPOSE 8080
+
+# Healthcheck au niveau conteneur (indépendant du domaine public Railway)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget -q -O /dev/null "http://127.0.0.1:${PORT}/" || exit 1

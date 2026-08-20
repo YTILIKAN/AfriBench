@@ -2,7 +2,8 @@
 builder = "DOCKERFILE"
 dockerfilePath = "frontend/Dockerfile"
 
+# Le frontend est le service public : générer un domaine dessus
+# (Settings → Networking → Generate Domain). Le HEALTHCHECK du Dockerfile
+# (HTTP GET / en interne) suffit côté plateforme.
 [deploy]
-healthcheckPath = "/"
-healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
