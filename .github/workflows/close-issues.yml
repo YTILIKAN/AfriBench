@@ -1,0 +1,26 @@
+name: Close resolved issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_numbers:
+        description: "Comma-separated issue numbers"
+        required: true
+        default: "5,11,14,15,16"
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          IFS=',' read -ra NUMS <<< "${{ inputs.issue_numbers }}"
+          for n in "${NUMS[@]}"; do
+            n="${n// /}"
+            gh issue close "$n" --repo "${{ github.repository }}" --comment "Clôturé automatiquement — livré dans PR #29 (https://github.com/YTILIKAN/AfriBench/pull/29)."
+          done
