@@ -33,17 +33,29 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Install dependencies
         run: pip install pyyaml
 
       - name: Export frontend data
         run: python scripts/export_frontend.py
 
+      - name: Generate static HTML
+        run: python scripts/generate_static_html.py
+
+      - name: Build frontend (Vite)
+        working-directory: frontend
+        run: npm install && npm run build
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend
+          publish_dir: ./frontend/dist
           publish_branch: gh-pages
           force_orphan: true
           user_name: 'afribench-bot'

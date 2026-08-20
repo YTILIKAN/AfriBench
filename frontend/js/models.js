@@ -2,6 +2,11 @@
    AfriBench — Modeles page (model detail cards)
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  AppState, getLatestResults, isOpenModel, isFavorite, applySearchFilter,
+  formatDate, toggleFavorite, categoryKeys, categoryColor, categoryLabel,
+} = globalThis;
+
 let modelSortKey = 'score';
 let modelSortDir = 'desc';
 let modelFilter = 'all'; // 'all', 'open', 'closed'
@@ -248,3 +253,6 @@ function getModelProvider(name) {
   if (nameL.includes('haiku') || nameL.includes('sonnet') || nameL.includes('opus')) return 'Anthropic';
   return '—';
 }
+
+globalThis.renderModels = renderModels;
+export {};

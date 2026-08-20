@@ -3,6 +3,12 @@
    Ajout : meilleure catégorie, écart-type, tooltips, légende
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  getLatestResults, applySearchFilter, isOpenModel, isFavorite,
+  computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
+  categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
+} = globalThis;
+
 let lbSortField = null;
 let lbSortDir = 'desc';
 let lbFilterType = 'all';
@@ -437,3 +443,6 @@ function renderCategoryPodium(models) {
     `;
   }).join('');
 }
+
+globalThis.renderLeaderboard = renderLeaderboard;
+export {};

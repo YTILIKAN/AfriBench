@@ -2062,3 +2062,44 @@ th.th-with-tip { cursor: help; }
   .menu-toggle__bars::before,
   .menu-toggle__bars::after { transition: none; }
 }
+
+/* ── Skeleton loading ─────────────────────────────────── */
+.skeleton-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 20px;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(250, 249, 246, 0.08) 25%,
+    rgba(250, 249, 246, 0.16) 50%,
+    rgba(250, 249, 246, 0.08) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+.skeleton-line {
+  height: 14px;
+  width: 100%;
+}
+
+.skeleton-line:nth-child(2) { width: 85%; }
+.skeleton-line:nth-child(3) { width: 70%; }
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+body.is-loading .hero-badges strong {
+  opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}

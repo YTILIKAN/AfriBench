@@ -1,0 +1,19 @@
+{
+  "name": "afribench-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run copy-static",
+    "copy-static": "cp -r data admin robots.txt sitemap.xml dist/ 2>/dev/null || true",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@fontsource/sora": "^5.2.5",
+    "chart.js": "^4.4.7"
+  }
+}

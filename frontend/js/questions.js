@@ -2,6 +2,10 @@
    AfriBench — Questions Browser (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  AppState, categoryLabel, categoryColor, escapeHtml, formatDate, difficultyLabel,
+} = globalThis;
+
 let qFilterCat = 'all';
 let qFilterDiff = 'all';
 
@@ -154,3 +158,6 @@ window.__applyQuestionFilters = (cat, diff) => {
     renderQuestions(container);
   }
 };
+
+globalThis.renderQuestions = renderQuestions;
+export {};

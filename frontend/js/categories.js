@@ -2,6 +2,10 @@
    AfriBench — Categories View (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  AppState, getLatestResults, categoryLabel, categoryColor, categoryKeys,
+} = globalThis;
+
 let categoryFilter = null;
 
 // Expose for sidebar
@@ -167,3 +171,6 @@ function renderCategoryRadar(models, categories) {
     },
   });
 }
+
+globalThis.renderCategories = renderCategories;
+export {};
