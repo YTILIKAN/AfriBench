@@ -1,38 +1,62 @@
 # AfriBench — LM Evaluation Harness
 
-## Installation
+Tâches EleutherAI `lm-eval` pour le benchmark AfriBench.
+
+## Prérequis
 
 ```bash
 pip install lm-eval
+# Dataset aplati (déjà versionné sous data/lm_eval/, régénérable) :
+python scripts/export_lm_eval_dataset.py
 ```
 
-## Utilisation
+## Commandes
 
 ```bash
-# Depuis la racine du repo AfriBench
-lm-eval --model openai-chat-completions \
+# Toutes les questions
+lm_eval --model openai-chat-completions \
   --model_args model=gpt-4o \
   --tasks afribench \
   --include_path scripts/lm_eval_tasks/ \
   --num_fewshot 0
 
-# Avec un modèle local (GGUF, transformers)
-lm-eval --model local-completions \
-  --model_args model=/path/to/model \
-  --tasks afribench \
-  --include_path scripts/lm_eval_tasks/
+# Toutes les catégories (groupe)
+lm_eval --model openai-chat-completions \
+  --model_args model=gpt-4o \
+  --tasks afribench_all \
+  --include_path scripts/lm_eval_tasks/ \
+  --num_fewshot 0
+
+# Une catégorie
+lm_eval --model hf \
+  --model_args pretrained=gpt2 \
+  --tasks afribench_histoire \
+  --include_path scripts/lm_eval_tasks/ \
+  --num_fewshot 0 \
+  --limit 5
 ```
+
+## Tâches disponibles
+
+| Task | Description |
+|------|-------------|
+| `afribench` | 350 questions (toutes catégories) |
+| `afribench_all` | Groupe des 9 sous-tâches catégorie |
+| `afribench_<cat>` | Une catégorie (`histoire`, `geographie`, …) |
 
 ## Structure
 
 ```
 lm_eval_tasks/afribench/
-├── afribench.yaml     # Configuration de la tâche (multiple_choice)
-└── utils.py           # Fonctions doc_to_text, doc_to_choice
+├── afribench.yaml              # task globale
+├── afribench_all.yaml          # group
+├── afribench_<category>.yaml   # 9 catégories
+└── utils.py                    # doc_to_text / choice / target
 
-Les questions sont chargées depuis data/questions/v1/validated/*.json
+data/lm_eval/
+├── afribench.json
+├── afribench_<category>.json
+└── manifest.json
 ```
 
-## Format attendu des questions
-
-Le format JSON est défini dans `data/questions/template.json`.
+Les prompts sont alignés sur `scripts/afribench.py` (zero-shot, réponse lettre A–D).

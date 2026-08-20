@@ -1,15 +1,10 @@
-# Dépendances AfriBench
+# AfriBench — dépendances CLI et scripts d'analyse
+# Python ≥ 3.10
 
 # CLI d'évaluation (scripts/afribench.py)
-pyyaml
-requests
+pyyaml>=6.0
+requests>=2.31.0
 
 # Analyse statistique (scripts/stats.py) et contamination (scripts/contamination.py)
 numpy
 scipy
-
-# Extraction de datasets (scripts/afrimedqa_*_to_afribench.py)
-# datasets
-
-# Optimisation de prompt (scripts/optimize_prompt.py — à venir)
-# optuna

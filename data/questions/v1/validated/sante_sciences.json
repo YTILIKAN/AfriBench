@@ -188,5 +188,537 @@
     "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-011",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Programme élargi de vaccination (PEV) en Afrique vise principalement à :",
+    "options": {
+      "A": "Remplacer l'eau potable",
+      "B": "Prévenir des maladies infectieuses graves chez les enfants par la vaccination",
+      "C": "Former uniquement des chirurgiens",
+      "D": "Interdire la médecine traditionnelle"
+    },
+    "answer": "B",
+    "explanation": "Le PEV (EPI) organise la vaccination de routine contre des maladies comme la rougeole, la polio, etc.",
+    "source": "OMS / UNICEF — Expanded Programme on Immunization",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-012",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les moustiques Anopheles sont-ils centraux dans la lutte antipaludique ?",
+    "options": {
+      "A": "Ils produisent la quinine",
+      "B": "Ils sont les vecteurs principaux de transmission de Plasmodium à l'humain",
+      "C": "Ils n'existent qu'en Europe",
+      "D": "Ils soignent le paludisme"
+    },
+    "answer": "B",
+    "explanation": "Le paludisme est transmis à l'humain par des moustiques Anopheles infectés par le parasite Plasmodium.",
+    "source": "OMS — Malaria fact sheet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-013",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Centre international de recherche sur le cancer (CIRC/IARC) de l'OMS a son siège à Lyon, mais de nombreux registres du cancer africains collaborent pour :",
+    "options": {
+      "A": "Mesurer et suivre l'incidence des cancers",
+      "B": "Interdire la recherche génétique",
+      "C": "Remplacer les hôpitaux",
+      "D": "Produire des vaccins anti-grippaux uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les registres du cancer permettent de documenter l'incidence et d'orienter les politiques de prévention et de soin.",
+    "source": "IARC / GICR — cancer registries",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-014",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'OMS Afrique (AFRO) a son bureau régional à :",
+    "options": {
+      "A": "Brazzaville",
+      "B": "Johannesburg",
+      "C": "Tunis",
+      "D": "Kigali"
+    },
+    "answer": "A",
+    "explanation": "Le Bureau régional de l'OMS pour l'Afrique est situé à Brazzaville (Congo).",
+    "source": "OMS AFRO — about",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-015",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La dracunculose (ver de Guinée) a été fortement réduite en Afrique grâce surtout à :",
+    "options": {
+      "A": "L'accès à l'eau potable filtrée et la surveillance des cas",
+      "B": "Un vaccin obligatoire mondial unique",
+      "C": "L'interdiction de l'agriculture",
+      "D": "La fermeture des frontières aériennes"
+    },
+    "answer": "A",
+    "explanation": "La lutte combine eau saine, filtres, éducation et confinement des cas — un succès majeur de santé publique.",
+    "source": "OMS / Carter Center — Guinea worm eradication",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-016",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les essais cliniques en Afrique sont-ils stratégiques pour la recherche biomédicale mondiale ?",
+    "options": {
+      "A": "Parce qu'ils remplacent toute la recherche occidentale",
+      "B": "Parce que la diversité génétique et le fardeau de certaines maladies y sont majeurs, sous conditions éthiques strictes",
+      "C": "Parce que l'éthique n'y s'applique pas",
+      "D": "Parce qu'il n'y a aucun hôpital"
+    },
+    "answer": "B",
+    "explanation": "L'Afrique concentre une part importante de la diversité génétique humaine et de certaines maladies ; la recherche doit respecter des standards éthiques élevés.",
+    "source": "OMS / discussions H3Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-017",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le VIH/sida demeure un enjeu majeur de santé publique en Afrique surtout parce que :",
+    "options": {
+      "A": "La prévalence et le besoin de traitement/prévention restent élevés dans plusieurs régions",
+      "B": "Le virus n'existe qu'en Europe",
+      "C": "Aucun traitement n'a jamais existé",
+      "D": "Il ne se transmet que par l'eau"
+    },
+    "answer": "A",
+    "explanation": "Malgré des progrès (ARV, PrEP), le fardeau reste important dans plusieurs pays.",
+    "source": "ONUSIDA — Global AIDS Update",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-018",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est liée principalement à :",
+    "options": {
+      "A": "Des vers parasites transmis via des eaux douces contaminées",
+      "B": "Un déficit en vitamine C uniquement",
+      "C": "Une carence en fer génétique universelle",
+      "D": "Une infection virale éradiquée en 1900"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes infectent l'humain via des stades larvaires dans l'eau douce.",
+    "source": "OMS — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-019",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le retard de croissance (stunting) chez l'enfant est surtout un indicateur de :",
+    "options": {
+      "A": "Malnutrition chronique et santé materno-infantile",
+      "B": "Performance sportive olympique",
+      "C": "Niveau de pollution sonore",
+      "D": "Taux de change"
+    },
+    "answer": "A",
+    "explanation": "Le stunting reflète des déficits nutritionnels et sanitaires prolongés.",
+    "source": "UNICEF / OMS — child malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-020",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "H3Africa est une initiative qui vise principalement à :",
+    "options": {
+      "A": "Renforcer la recherche génomique et biomédicale en Afrique",
+      "B": "Construire des autoroutes",
+      "C": "Interdire les hôpitaux universitaires",
+      "D": "Remplacer l'OMS"
+    },
+    "answer": "A",
+    "explanation": "Human Heredity and Health in Africa soutient la recherche et les capacités scientifiques locales.",
+    "source": "H3Africa consortium",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-021",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Lors d'épidémies d'Ebola, une mesure communautaire cruciale est :",
+    "options": {
+      "A": "L'engagement communautaire, le suivi des contacts et des enterrements sécurisés",
+      "B": "L'interdiction totale de boire de l'eau",
+      "C": "La fermeture définitive de toutes les écoles du monde",
+      "D": "Le remplacement des soignants par des robots uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le contrôle repose sur surveillance, isolation, contacts tracing et pratiques funéraires sûres.",
+    "source": "OMS — Ebola virus disease",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-022",
+    "category": "sante_sciences",
+    "subcategory": "pharmacopee",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'artémisinine, base de traitements antipaludiques, est dérivée d'une plante surtout associée à la médecine :",
+    "options": {
+      "A": "Chinoise (Artemisia annua), largement utilisée contre le paludisme en Afrique",
+      "B": "Inuite polaire",
+      "C": "Amazonienne du café",
+      "D": "Alpine du chocolat"
+    },
+    "answer": "A",
+    "explanation": "L'artémisinine, isolée d'Artemisia annua, est centrale dans les ACT contre le paludisme.",
+    "source": "OMS — artemisinin-based therapies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-023",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La tuberculose reste un problème majeur en Afrique notamment en co-infection avec :",
+    "options": {
+      "A": "Le VIH",
+      "B": "Le rhume des foins uniquement",
+      "C": "La myopie",
+      "D": "L'intolérance au lactose"
+    },
+    "answer": "A",
+    "explanation": "La co-infection TB/VIH aggrave le fardeau.",
+    "source": "OMS — TB/HIV",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-024",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le choléra se transmet surtout par :",
+    "options": {
+      "A": "Eau et aliments contaminés",
+      "B": "Piqûres de moustiques Anopheles",
+      "C": "Air conditionné",
+      "D": "Rayons UV"
+    },
+    "answer": "A",
+    "explanation": "Vibrio cholerae se propage via contamination fécale-orale.",
+    "source": "OMS — Cholera",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-025",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le kwashiorkor est une forme de malnutrition marquée surtout par :",
+    "options": {
+      "A": "Un déficit protéique sévère (œdèmes, etc.)",
+      "B": "Un excès de vitamine D obligatoire",
+      "C": "Une hyperhydratation sportive",
+      "D": "Une intolérance au bruit"
+    },
+    "answer": "A",
+    "explanation": "Malnutrition protéino-énergétique avec tableau clinique spécifique.",
+    "source": "OMS — severe malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-026",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les agents de santé communautaires sont importants car ils :",
+    "options": {
+      "A": "Étendent la couverture sanitaire de base près des populations",
+      "B": "Remplacent les hôpitaux tertiaires",
+      "C": "Interdisent la vaccination",
+      "D": "Gèrent les banques centrales"
+    },
+    "answer": "A",
+    "explanation": "Ils assurent prévention, suivi et lien avec le système de santé.",
+    "source": "OMS — community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-027",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un essai clinique de phase III teste surtout :",
+    "options": {
+      "A": "Efficacité et sécurité à grande échelle avant autorisation",
+      "B": "La couleur du packaging",
+      "C": "Le prix de l'action en bourse",
+      "D": "La vitesse d'Internet"
+    },
+    "answer": "A",
+    "explanation": "La phase III confronte le traitement à grande échelle.",
+    "source": "OMS / ICH clinical trials",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-028",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'onchocercose (cécité des rivières) est transmise par :",
+    "options": {
+      "A": "Des simulies (mouches noires)",
+      "B": "Des tiques des neiges",
+      "C": "Des dauphins",
+      "D": "Des abeilles domestiques uniquement"
+    },
+    "answer": "A",
+    "explanation": "Onchocerca volvulus est transmis par Simulium.",
+    "source": "OMS — Onchocerciasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-029",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le renforcement des chaînes du froid vaccinal vise à :",
+    "options": {
+      "A": "Maintenir l'efficacité des vaccins thermosensibles",
+      "B": "Congeler les déserts",
+      "C": "Remplacer les infirmiers",
+      "D": "Interdire les frigos domestiques"
+    },
+    "answer": "A",
+    "explanation": "Température contrôlée indispensable à de nombreux vaccins.",
+    "source": "OMS — immunization supply chain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-030",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'allaitement maternel exclusif recommandé les 6 premiers mois vise à :",
+    "options": {
+      "A": "Optimiser nutrition et protection immunitaire du nourrisson",
+      "B": "Remplacer toute alimentation après 18 ans",
+      "C": "Interdire l'eau potable",
+      "D": "Augmenter le PIB pétrolier"
+    },
+    "answer": "A",
+    "explanation": "Recommandation OMS/UNICEF pour la petite enfance.",
+    "source": "OMS — breastfeeding",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-031",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une pharmacovigilance efficace après introduction d'un vaccin permet de :",
+    "options": {
+      "A": "Détecter et gérer les effets indésirables en population réelle",
+      "B": "Supprimer le besoin d'essais cliniques",
+      "C": "Garantir un profit boursier",
+      "D": "Éliminer toute maladie en 24 h"
+    },
+    "answer": "A",
+    "explanation": "Surveillance post-commercialisation essentielle.",
+    "source": "OMS — pharmacovigilance",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-032",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La fièvre jaune est prévenue principalement par :",
+    "options": {
+      "A": "La vaccination",
+      "B": "L'arrêt total de la respiration",
+      "C": "Le jeûne de vitamine C",
+      "D": "L'exposition volontaire aux moustiques"
+    },
+    "answer": "A",
+    "explanation": "Vaccin vivant atténué très efficace ; contrôle vectoriel complémentaire.",
+    "source": "OMS — Yellow fever",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-033",
+    "category": "sante_sciences",
+    "subcategory": "maladies",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie parasitaire transmise par les anophèles reste majeure en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "Choléra uniquement",
+      "C": "Rage",
+      "D": "Tétanos"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme, transmis par les moustiques Anopheles, reste un fardeau sanitaire majeur.",
+    "source": "WHO — Malaria",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-034",
+    "category": "sante_sciences",
+    "subcategory": "vaccination",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Gavi, l'Alliance du Vaccin, soutient principalement…",
+    "options": {
+      "A": "L'accès aux vaccins dans les pays à faible revenu",
+      "B": "La privatisation des hôpitaux universitaires",
+      "C": "La recherche spatiale biomédicale",
+      "D": "Le remplacement des systèmes de santé primaires"
+    },
+    "answer": "A",
+    "explanation": "Gavi finance et facilite l'accès aux vaccins pour les pays à revenu faible.",
+    "source": "Gavi — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-035",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le manioc est une culture vivrière importante en Afrique notamment parce qu'il…",
+    "options": {
+      "A": "Tolère relativement bien des sols pauvres et certaines sécheresses",
+      "B": "Nécessite un climat polaire",
+      "C": "Ne pousse qu'en altitude alpine",
+      "D": "Est exclusivement d'origine australienne"
+    },
+    "answer": "A",
+    "explanation": "Le manioc est rustique et central dans de nombreux systèmes alimentaires africains.",
+    "source": "FAO — Cassava",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-036",
+    "category": "sante_sciences",
+    "subcategory": "systemes",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les agents de santé communautaires en Afrique sont surtout mobilisés pour…",
+    "options": {
+      "A": "Étendre les soins de proximité et la prévention",
+      "B": "Remplacer entièrement les médecins spécialistes",
+      "C": "Gérer les banques centrales",
+      "D": "Superviser les élections"
+    },
+    "answer": "A",
+    "explanation": "Ils renforcent la couverture sanitaire de base, la vaccination et la sensibilisation.",
+    "source": "WHO — Community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-037",
+    "category": "sante_sciences",
+    "subcategory": "environnement",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est associée principalement à…",
+    "options": {
+      "A": "L'eau douce contaminée par des parasites",
+      "B": "L'air des hautes altitudes",
+      "C": "Le contact exclusif avec l'eau de mer",
+      "D": "La consommation de sel iodé"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes se transmettent via des eaux douces infestées (mollusques hôtes).",
+    "source": "WHO — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-038",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le centre Africa CDC a pour mission principale de…",
+    "options": {
+      "A": "Renforcer la prévention et la réponse aux épidémies en Afrique",
+      "B": "Émettre une monnaie continentale",
+      "C": "Réguler le football africain",
+      "D": "Gérer les visas touristiques"
+    },
+    "answer": "A",
+    "explanation": "L'Africa CDC (UA) coordonne la surveillance et la sécurité sanitaire continentale.",
+    "source": "Africa CDC — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

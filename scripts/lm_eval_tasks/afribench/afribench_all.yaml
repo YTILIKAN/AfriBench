@@ -1,0 +1,12 @@
+# Groupe AfriBench — toutes les sous-tâches catégorie
+group: afribench_all
+task:
+  - afribench_histoire
+  - afribench_geographie
+  - afribench_droit_politique
+  - afribench_sante_sciences
+  - afribench_langue_culture
+  - afribench_economie
+  - afribench_ia_technologie
+  - afribench_societe
+  - afribench_raisonnement_culturel

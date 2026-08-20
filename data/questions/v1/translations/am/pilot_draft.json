@@ -1,0 +1,68 @@
+[
+  {
+    "id": "HIST-001",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "am",
+    "question": "In the 14th century, which West African empire was known for its gold wealth and the university city of Timbuktu? [AM DRAFT PLACEHOLDER — replace with native Amharic]",
+    "options": {
+      "A": "Ghana Empire",
+      "B": "Mali Empire",
+      "C": "Songhai Empire",
+      "D": "Benin Kingdom"
+    },
+    "answer": "B",
+    "explanation": "DRAFT: Mali under Mansa Musa; Timbuktu as learning center. Native Amharic required.",
+    "source": "UNESCO General History of Africa, Vol. IV",
+    "translation_of": "HIST-001",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03",
+    "notes": "English placeholder kept to avoid corrupted Ethiopic in automated draft; native translator must replace."
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "medium",
+    "language": "am",
+    "question": "What is the capital of Ethiopia? [AM DRAFT PLACEHOLDER — replace with native Amharic]",
+    "options": {
+      "A": "Addis Ababa",
+      "B": "Asmara",
+      "C": "Djibouti",
+      "D": "Khartoum"
+    },
+    "answer": "A",
+    "explanation": "DRAFT: Addis Ababa is the capital of Ethiopia and AU seat.",
+    "source": "Encyclopædia Britannica — Addis Ababa",
+    "translation_of": "GEOG-024",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03",
+    "notes": "English placeholder — native Amharic required."
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "am",
+    "question": "Which country hosts the headquarters of the African Union? [AM DRAFT PLACEHOLDER — replace with native Amharic]",
+    "options": {
+      "A": "Ethiopia",
+      "B": "Nigeria",
+      "C": "South Africa",
+      "D": "Egypt"
+    },
+    "answer": "A",
+    "explanation": "DRAFT: AU HQ in Addis Ababa, Ethiopia.",
+    "source": "African Union — About",
+    "translation_of": "POL-017",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03",
+    "notes": "English placeholder — native Amharic required."
+  }
+]

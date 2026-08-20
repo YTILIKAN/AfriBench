@@ -6,7 +6,8 @@ let categoryFilter = null;
 
 // Expose for sidebar
 window.__categoryFilter = (cat) => {
-  categoryFilter = cat;
+  categoryFilter = cat && cat !== 'all' ? cat : null;
+  if (window.__setUrlCategory) window.__setUrlCategory(categoryFilter);
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'categories') {
     renderCategories(container);
@@ -87,7 +88,7 @@ function renderCategories(container) {
 
   // ---- Radar Chart ----
   html += `
-    <div class="card" style="margin-top:var(--space-2)">
+    <div class="card" style="margin-top:var(--sp-md)">
       <div class="card-title">Comparaison radar par catégorie</div>
       <div class="chart-container" style="min-height:350px">
         <canvas id="cat-radar-chart"></canvas>
@@ -101,6 +102,7 @@ function renderCategories(container) {
   container.querySelectorAll('[data-cat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       categoryFilter = btn.dataset.cat === 'all' ? null : btn.dataset.cat;
+      if (window.__setUrlCategory) window.__setUrlCategory(categoryFilter);
       renderCategories(container);
     });
   });

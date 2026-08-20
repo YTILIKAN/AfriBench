@@ -4,7 +4,7 @@
 
 function renderReliability(container) {
   const contam = AppState.contamination || { noise: [], permute: [] };
-  const stats = AppState.stats || { models: [] };
+  const stats = AppState.reliabilityStats || { models: [] };
   const openScores = AppState.openScores || [];
 
   let html = `

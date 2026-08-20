@@ -1,0 +1,65 @@
+[
+  {
+    "id": "NER-001",
+    "task_type": "ner",
+    "category": "langue_culture",
+    "subcategory": "entities",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "text": "Kwame Nkrumah a dirigé le Ghana indépendant depuis Accra et a promu le panafricanisme au sein de l'OUA.",
+    "question": "Extraire les entités nommées (PER, LOC, ORG) du texte.",
+    "entities": [
+      {"span": "Kwame Nkrumah", "label": "PER"},
+      {"span": "Ghana", "label": "LOC"},
+      {"span": "Accra", "label": "LOC"},
+      {"span": "OUA", "label": "ORG"}
+    ],
+    "metrics": ["entity_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "NER-002",
+    "task_type": "ner",
+    "category": "economie",
+    "subcategory": "entities",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "text": "La ZLECAf, portée par l'Union africaine, vise à intégrer les marchés de Lagos à Nairobi.",
+    "question": "Extraire les entités nommées (PER, LOC, ORG) du texte.",
+    "entities": [
+      {"span": "ZLECAf", "label": "ORG"},
+      {"span": "Union africaine", "label": "ORG"},
+      {"span": "Lagos", "label": "LOC"},
+      {"span": "Nairobi", "label": "LOC"}
+    ],
+    "metrics": ["entity_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "NER-003",
+    "task_type": "ner",
+    "category": "histoire",
+    "subcategory": "entities",
+    "difficulty": "hard",
+    "language": "fr",
+    "format": "open",
+    "text": "Mansa Musa, souverain du Mali, passa par Le Caire lors de son pèlerinage à La Mecque.",
+    "question": "Extraire les entités nommées (PER, LOC, ORG) du texte.",
+    "entities": [
+      {"span": "Mansa Musa", "label": "PER"},
+      {"span": "Mali", "label": "LOC"},
+      {"span": "Le Caire", "label": "LOC"},
+      {"span": "La Mecque", "label": "LOC"}
+    ],
+    "metrics": ["entity_f1"],
+    "status": "pilot",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

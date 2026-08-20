@@ -1,0 +1,96 @@
+[
+  {
+    "id": "TR-001",
+    "task_type": "translation",
+    "category": "langue_culture",
+    "subcategory": "fr_sw",
+    "difficulty": "medium",
+    "language": "fr",
+    "target_language": "sw",
+    "format": "open",
+    "direction": "fr→sw",
+    "source_text": "L'Union africaine a son siège à Addis-Abeba, en Éthiopie.",
+    "question": "Traduisez le texte source du français vers le swahili. Conservez le sens et les noms propres.",
+    "reference_translation": "Umoja wa Afrika una makao yake makuu Addis Ababa, Ethiopia.",
+    "reference_points": [
+      "Umoja wa Afrika (Union africaine)",
+      "makao makuu / makao yake makuu (siège)",
+      "Addis Ababa / Addis-Abeba",
+      "Ethiopia / Uhabeshi acceptable selon variante"
+    ],
+    "metrics": ["exactitude_semantique", "fluency", "named_entities"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  },
+  {
+    "id": "TR-002",
+    "task_type": "translation",
+    "category": "histoire",
+    "subcategory": "fr_yo",
+    "difficulty": "hard",
+    "language": "fr",
+    "target_language": "yo",
+    "format": "open",
+    "direction": "fr→yo",
+    "source_text": "La Conférence de Berlin de 1884–1885 a formalisé le partage colonial de l'Afrique entre puissances européennes.",
+    "question": "Traduisez le texte source du français vers le yoruba. Conservez les dates et le sens historique.",
+    "reference_translation": "Àpérò Berlin ti ọdún 1884–1885 ṣe ìfilọ́lẹ̀ pínpín ilẹ̀ Áfíríkà láàárín àwọn agbára Yúróòpù ní àkókò ìṣàkóso amúnisìn.",
+    "reference_points": [
+      "Àpérò Berlin / Berlin Conference",
+      "1884–1885 conservé",
+      "Áfíríkà",
+      "Sens de partage colonial / occupation"
+    ],
+    "metrics": ["exactitude_semantique", "fluency", "named_entities"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot",
+    "notes": "Référence yoruba à valider par locuteur natif avant scoring officiel."
+  },
+  {
+    "id": "TR-003",
+    "task_type": "translation",
+    "category": "sante_sciences",
+    "subcategory": "sw_fr",
+    "difficulty": "medium",
+    "language": "sw",
+    "target_language": "fr",
+    "format": "open",
+    "direction": "sw→fr",
+    "source_text": "Malaria bado ni tishio kubwa kwa afya ya umma katika nchi nyingi za Afrika Kusini mwa Sahara.",
+    "question": "Traduisez le texte source du swahili vers le français.",
+    "reference_translation": "Le paludisme reste une menace majeure pour la santé publique dans de nombreux pays d'Afrique subsaharienne.",
+    "reference_points": [
+      "paludisme / malaria",
+      "santé publique",
+      "Afrique subsaharienne",
+      "Sens de menace persistante"
+    ],
+    "metrics": ["exactitude_semantique", "fluency", "named_entities"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "AfriBench protocol v0.1",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  }
+]

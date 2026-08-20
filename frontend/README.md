@@ -1,56 +1,42 @@
 # Frontend AfriBench
 
-Dashboard statique pour visualiser les resultats du benchmark.
+UI statique (vanilla JS) qui consomme l'API backend.
 
-## Utilisation
+## Modes de chargement
+
+1. **API** (prioritaire) — `GET /api/v1/results` + `/questions`
+2. **Fallback statique** — `frontend/data/*.json` si l'API est injoignable
+
+Base API configurable via :
+- `window.AFRIBENCH_API_BASE = 'http://…/api/v1'`
+- `<meta name="afribench-api" content="/api/v1">`
+- Port `8000` → `http://127.0.0.1:8080/api/v1` automatiquement
+
+## Démarrage
 
 ```bash
-# 1. Generer les donnees pour le frontend
-python scripts/export_frontend.py
+# Avec Docker (proxy nginx /api → backend)
+docker compose up --build
+# → http://localhost:3000
 
-# 2. Servir le frontend (n'importe quel serveur statique)
-cd frontend
-python -m http.server 8000
-# ou
-npx serve .
+# Ou serveur statique + backend séparé
+cd backend && uvicorn app.main:app --port 8080
+cd frontend && python3 -m http.server 8000
 ```
-
-Le dashboard est accessible sur `http://localhost:8000`.
 
 ## Structure
 
 ```
 frontend/
-├── index.html           # Page principale (SPA)
-├── css/
-│   └── style.css        # Theme Y'TILIKAN (dark navy + bronze)
-├── js/
-│   ├── app.js           # Initialisation, tabs, data loading
-│   ├── leaderboard.js   # Classement avec scores et graphiques
-│   ├── categories.js    # Performance par categorie (radar)
-│   ├── compare.js       # Comparaison interactive de modeles
-│   └── questions.js     # Navigateur de questions
-└── data/
-    ├── results.json     # Resultats d'evaluation (genere)
-    └── questions.json   # Questions du benchmark (genere)
+├── index.html
+├── nginx.conf           # Proxy /api (image Docker)
+├── Dockerfile
+├── css/style.css
+├── js/                  # app.js charge l'API ; vues leaderboard, models, …
+└── data/                # Fallback JSON (export_frontend.py)
 ```
 
-## Fonctionnalites
+## Déploiement
 
-- **Classement** : tableau des modeles tries par score, avec barres de progression
-- **Categories** : graphique radar comparant les modeles par categorie
-- **Comparer** : selection interactive de modeles a comparer
-- **Questions** : parcourir et filtrer les questions du benchmark
-
-## Dependances
-
-- Chart.js 4.x (charge depuis CDN)
-- Aucun build tool requis
-
-## Deploiement
-
-Le frontend est une application statique. Deployable sur :
-- GitHub Pages
-- Hugging Face Spaces (Static)
-- Netlify, Vercel
-- N'importe quel serveur HTTP
+- **Stack complète** : `docker compose` (frontend + backend)
+- **Pages statiques seules** (GitHub Pages) : fallback JSON, sans API live

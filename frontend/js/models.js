@@ -43,7 +43,7 @@ function renderModels(container) {
     <div class="models-header">
       <div>
         <h2>Modeles</h2>
-        <div class="models-count">${sorted.length} modele${sorted.length > 1 ? 's' : ''} evalue${sorted.length > 1 ? 's' : ''}</div>
+        <div class="models-count">${sorted.length} modèle${sorted.length > 1 ? 's' : ''} évalué${sorted.length > 1 ? 's' : ''}</div>
       </div>
     </div>
 
@@ -216,7 +216,7 @@ function drawMiniRadar(canvas, m) {
 }
 
 function renderCategoryMiniBars(m) {
-  if (!m.by_category) return '<div style="font-size:9px;color:var(--text-muted)">Aucune donnee</div>';
+  if (!m.by_category) return '<div style="font-size:9px;color:var(--muted)">Aucune donnee</div>';
 
   const cats = Object.entries(m.by_category).sort((a, b) => (b[1].accuracy || 0) - (a[1].accuracy || 0));
 

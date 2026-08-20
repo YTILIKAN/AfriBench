@@ -6,10 +6,17 @@ __pycache__/
 venv/
 env/
 
-# Data — résultats éphémères, y compris les sous-dossiers d'analyse
-# (contamination/, stats/). On garde le dossier via .gitkeep.
+# Data — résultats d'évaluation locaux (ne pas versionner chaque run)
 data/results/*
 !data/results/.gitkeep
+!data/results/_seed*.json
+
+# Batches de validation / exports traduction locaux
+data/validation/
+data/translations_export/
+
+# Rapports stats locaux volumineux (garder les seed reports versionnés via !)
+data/stats/mock_and_seed_report.json
 
 # Config secrets (if any)
 configs/*.local.yaml
@@ -26,3 +33,4 @@ Thumbs.db
 
 # Environment
 .env
+frontend/dist/

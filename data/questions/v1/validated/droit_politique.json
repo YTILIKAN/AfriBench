@@ -192,229 +192,533 @@
   {
     "id": "POL-011",
     "category": "droit_politique",
-    "subcategory": "organisations_regionales",
-    "difficulty": "hard",
+    "subcategory": "organisations",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "Le Mali, le Burkina Faso et le Niger ont annoncé leur retrait de la CEDEAO en janvier 2024. À quelle date ce retrait est-il devenu effectif, et pourquoi ce délai ?",
+    "question": "Quel est le principal organe judiciaire de l'Union africaine pour les droits de l'homme ?",
     "options": {
-      "A": "Le 29 janvier 2025, en raison du préavis d'un an prévu par le traité de la CEDEAO",
-      "B": "Immédiatement en janvier 2024, dès l'annonce",
-      "C": "En juillet 2024, à la création de la Confédération AES",
-      "D": "Le retrait n'a jamais pris effet"
+      "A": "Cour pénale internationale",
+      "B": "Cour africaine des droits de l'homme et des peuples",
+      "C": "Cour internationale de Justice",
+      "D": "Tribunal de la CEDEAO uniquement"
     },
-    "answer": "A",
-    "explanation": "Le traité révisé de la CEDEAO impose un préavis d'un an. Annoncé le 28 janvier 2024, le retrait du Mali, du Burkina Faso et du Niger est donc devenu effectif le 29 janvier 2025, réduisant l'organisation à douze membres. Une période de transition a été maintenue ensuite pour la médiation.",
-    "source": "CEDEAO ; communiqués officiels 2024-2025",
+    "answer": "B",
+    "explanation": "La Cour africaine des droits de l'homme et des peuples (Arusha) est l'organe judiciaire continental compétent en matière de droits humains au sein du système UA.",
+    "source": "Site officiel African Court ; Charte africaine des droits de l'homme et des peuples",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-012",
     "category": "droit_politique",
-    "subcategory": "organisations_regionales",
+    "subcategory": "charte",
     "difficulty": "medium",
     "language": "fr",
-    "question": "Quelle organisation le Mali, le Burkina Faso et le Niger ont-ils fondée d'abord comme pacte de défense mutuelle en septembre 2023, avant d'en faire une confédération ?",
+    "question": "La Charte africaine de la démocratie, des élections et de la gouvernance (2007) vise notamment à :",
     "options": {
-      "A": "L'Alliance des États du Sahel (AES)",
-      "B": "L'Union du fleuve Mano",
-      "C": "Le G5 Sahel",
-      "D": "La Communauté sahélo-saharienne (CEN-SAD)"
+      "A": "Interdire les élections",
+      "B": "Promouvoir des élections démocratiques et condamner les changements anticonstitutionnels de gouvernement",
+      "C": "Créer une monnaie unique",
+      "D": "Remplacer toutes les constitutions nationales"
     },
-    "answer": "A",
-    "explanation": "L'Alliance des États du Sahel (AES) a été créée le 16 septembre 2023 comme pacte de défense mutuelle, puis transformée en Confédération lors du sommet de Niamey le 6 juillet 2024. Le G5 Sahel et la CEN-SAD sont des structures distinctes et antérieures.",
-    "source": "Communiqués officiels de l'AES ; presse régionale",
+    "answer": "B",
+    "explanation": "Cette charte de l'UA fixe des normes démocratiques et s'oppose aux coups d'État et autres changements anticonstitutionnels.",
+    "source": "Union africaine — ACDEG (2007)",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-013",
     "category": "droit_politique",
-    "subcategory": "droits_humains",
+    "subcategory": "regional",
     "difficulty": "hard",
     "language": "fr",
-    "question": "Le principal instrument régional africain des droits humains est souvent appelé « Charte de Banjul ». Quel est son nom officiel et de quand date-t-il ?",
+    "question": "La CEDEAO est une organisation régionale principalement associée à quelle partie du continent ?",
     "options": {
-      "A": "La Charte africaine des droits de l'homme et des peuples, adoptée en 1981",
-      "B": "La Déclaration d'Addis-Abeba sur les libertés, de 1963",
-      "C": "Le Pacte panafricain des droits civiques, de 1990",
-      "D": "La Convention de Durban sur les droits humains, de 2002"
+      "A": "Afrique australe",
+      "B": "Afrique de l'Ouest",
+      "C": "Afrique du Nord",
+      "D": "Corne de l'Afrique"
     },
-    "answer": "A",
-    "explanation": "La Charte africaine des droits de l'homme et des peuples, dite Charte de Banjul, a été adoptée en 1981 sous l'égide de l'OUA et est entrée en vigueur en 1986. Elle est originale par sa reconnaissance des droits collectifs (« des peuples ») et des devoirs, en plus des droits individuels.",
-    "source": "Union africaine ; texte de la Charte de Banjul",
+    "answer": "B",
+    "explanation": "La Communauté économique des États de l'Afrique de l'Ouest (CEDEAO/ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+    "source": "Site officiel CEDEAO/ECOWAS",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-014",
     "category": "droit_politique",
-    "subcategory": "institutions",
-    "difficulty": "hard",
+    "subcategory": "organisations",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "Il ne faut pas confondre la Commission et la Cour africaines des droits de l'homme et des peuples. Où siègent-elles respectivement ?",
+    "question": "Quel organe de l'UA est souvent décrit comme le « parlement » panafricain ?",
     "options": {
-      "A": "La Commission à Banjul (Gambie), la Cour à Arusha (Tanzanie)",
-      "B": "Les deux à Addis-Abeba (Éthiopie)",
-      "C": "La Commission à Arusha, la Cour à Banjul",
-      "D": "La Commission à Kigali, la Cour à Abuja"
+      "A": "Commission de l'UA",
+      "B": "Parlement panafricain",
+      "C": "Conseil de paix et de sécurité uniquement",
+      "D": "Nepad"
     },
-    "answer": "A",
-    "explanation": "La Commission africaine des droits de l'homme et des peuples siège à Banjul (Gambie) depuis 1987 ; la Cour africaine, créée par un protocole ultérieur, siège à Arusha (Tanzanie). La Commission instruit et formule des recommandations, tandis que la Cour rend des arrêts.",
-    "source": "Union africaine ; documentation institutionnelle",
+    "answer": "B",
+    "explanation": "Le Parlement panafricain est l'organe législatif consultatif de l'Union africaine.",
+    "source": "Union africaine — Pan-African Parliament",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-015",
     "category": "droit_politique",
-    "subcategory": "institutions",
-    "difficulty": "medium",
+    "subcategory": "droits",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "L'Union africaine a succédé à une organisation continentale antérieure. Quelle était cette organisation, quand a-t-elle été fondée et quand l'UA l'a-t-elle remplacée ?",
+    "question": "La Charte africaine des droits de l'homme et des peuples (Charte de Banjul) a été adoptée en :",
     "options": {
-      "A": "L'OUA, fondée en 1963, remplacée par l'UA en 2002",
-      "B": "La SDN-Afrique, fondée en 1945, remplacée en 1990",
-      "C": "La Ligue africaine, fondée en 1958, remplacée en 2000",
-      "D": "Le Mouvement panafricain, fondé en 1919, remplacé en 1980"
+      "A": "1981",
+      "B": "1948",
+      "C": "1963",
+      "D": "2002"
     },
     "answer": "A",
-    "explanation": "L'Organisation de l'unité africaine (OUA) a été fondée en 1963 à Addis-Abeba. Elle a été remplacée par l'Union africaine lors du sommet de Durban en 2002, l'UA se dotant d'institutions plus intégrées inspirées en partie du modèle européen.",
-    "source": "Union africaine ; histoire institutionnelle",
+    "explanation": "Adoptée le 27 juin 1981 à Nairobi par l'OUA, la Charte est aussi appelée Charte de Banjul.",
+    "source": "Charte africaine des droits de l'homme et des peuples (1981)",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-016",
     "category": "droit_politique",
-    "subcategory": "institutions",
+    "subcategory": "regional",
     "difficulty": "hard",
     "language": "fr",
-    "question": "Où se trouve le siège du Parlement panafricain, organe législatif consultatif de l'Union africaine ?",
+    "question": "La SADC est une communauté économique régionale surtout active en :",
     "options": {
-      "A": "À Midrand, en Afrique du Sud",
-      "B": "À Addis-Abeba, en Éthiopie",
-      "C": "À Arusha, en Tanzanie",
-      "D": "À Accra, au Ghana"
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Maghreb exclusivement",
+      "D": "Afrique centrale francophone uniquement"
     },
-    "answer": "A",
-    "explanation": "Le Parlement panafricain siège à Midrand, en Afrique du Sud. Il ne faut pas le confondre avec le siège de la Commission de l'Union africaine, situé à Addis-Abeba. Le Parlement dispose pour l'heure de pouvoirs essentiellement consultatifs.",
-    "source": "Union africaine ; documentation du Parlement panafricain",
+    "answer": "B",
+    "explanation": "La Southern African Development Community (SADC) regroupe principalement des États d'Afrique australe.",
+    "source": "Site officiel SADC",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-017",
     "category": "droit_politique",
-    "subcategory": "droit_des_affaires",
-    "difficulty": "hard",
+    "subcategory": "organisations",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "L'OHADA harmonise le droit des affaires dans une partie de l'Afrique francophone (et au-delà). Où siège sa juridiction commune, la CCJA ?",
+    "question": "Quel pays accueille le siège de l'Union africaine ?",
     "options": {
-      "A": "À Abidjan, en Côte d'Ivoire",
-      "B": "À Dakar, au Sénégal",
-      "C": "À Yaoundé, au Cameroun",
-      "D": "À Lomé, au Togo"
+      "A": "Éthiopie",
+      "B": "Nigeria",
+      "C": "Afrique du Sud",
+      "D": "Égypte"
     },
     "answer": "A",
-    "explanation": "L'OHADA (Organisation pour l'harmonisation en Afrique du droit des affaires) regroupe 17 États et adopte des « Actes uniformes » directement applicables. Sa Cour commune de justice et d'arbitrage (CCJA) siège à Abidjan. L'École régionale supérieure de la magistrature (ERSUMA) est, elle, à Porto-Novo au Bénin.",
-    "source": "OHADA ; documentation juridique",
+    "explanation": "Le siège de l'UA est à Addis-Abeba, Éthiopie.",
+    "source": "Union africaine — About",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-018",
     "category": "droit_politique",
-    "subcategory": "justice_transitionnelle",
-    "difficulty": "hard",
+    "subcategory": "regional",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "Après le génocide de 1994, le Rwanda a mobilisé des juridictions participatives d'inspiration traditionnelle pour juger un grand nombre d'accusés. Comment les nomme-t-on ?",
+    "question": "L'UEMOA regroupe des États surtout liés par :",
     "options": {
-      "A": "Les juridictions Gacaca",
-      "B": "Les tribunaux Ubuntu",
-      "C": "Les cours Harambee",
-      "D": "Les conseils Indaba"
+      "A": "Une union économique et monétaire en Afrique de l'Ouest (franc CFA)",
+      "B": "Une alliance militaire exclusive d'Afrique australe",
+      "C": "Un marché unique asiatique",
+      "D": "Une fédération linguistique berbère"
     },
     "answer": "A",
-    "explanation": "Les juridictions Gacaca, inspirées d'une justice communautaire de proximité, ont jugé plus d'un million d'affaires liées au génocide de 1994, faute de capacité des tribunaux classiques. Elles sont débattues quant à leurs garanties procédurales mais restent une expérience majeure de justice transitionnelle. Ubuntu, Harambee et Indaba renvoient à d'autres concepts africains.",
-    "source": "Sources sur la justice transitionnelle rwandaise",
+    "explanation": "L'Union économique et monétaire ouest-africaine partage notamment le franc CFA UEMOA.",
+    "source": "Site officiel UEMOA",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-019",
     "category": "droit_politique",
-    "subcategory": "droit_constitutionnel",
-    "difficulty": "medium",
+    "subcategory": "gouvernance",
+    "difficulty": "hard",
     "language": "fr",
-    "question": "La Constitution sud-africaine adoptée après l'apartheid est réputée pour son caractère progressiste, notamment sur les droits socio-économiques. De quelle année date-t-elle ?",
+    "question": "Le Conseil de paix et de sécurité de l'UA a pour mandat principal de :",
     "options": {
-      "A": "1996",
-      "B": "1990",
-      "C": "1994",
-      "D": "2000"
+      "A": "Prévenir et gérer les conflits et les crises sur le continent",
+      "B": "Émettre la monnaie unique mondiale",
+      "C": "Remplacer tous les parlements nationaux",
+      "D": "Gérer uniquement le sport"
     },
     "answer": "A",
-    "explanation": "La Constitution définitive de l'Afrique du Sud a été adoptée en 1996 (après une constitution intérimaire de 1993 et les premières élections multiraciales de 1994). Elle inscrit une déclaration des droits étendue et institue une Cour constitutionnelle chargée de la faire respecter.",
-    "source": "Constitution de la République d'Afrique du Sud",
+    "explanation": "Le CPS est l'organe permanent de l'UA pour la paix, la sécurité et la gestion des crises.",
+    "source": "UA — Peace and Security Council",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-020",
     "category": "droit_politique",
-    "subcategory": "systemes_juridiques",
-    "difficulty": "hard",
+    "subcategory": "droits",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "Le Nigeria illustre le pluralisme juridique fréquent en Afrique. Quels systèmes de droit y coexistent ?",
+    "question": "Le Protocole de Maputo (2003) porte principalement sur :",
     "options": {
-      "A": "La common law héritée du Royaume-Uni, le droit coutumier et le droit musulman (charia) dans certains États du nord",
-      "B": "Uniquement le droit civil d'inspiration française",
-      "C": "Uniquement la common law britannique, sans autre source",
-      "D": "Un droit religieux unique appliqué sur tout le territoire"
+      "A": "Les droits des femmes en Afrique",
+      "B": "La régulation des cryptomonnaies",
+      "C": "La chasse sportive",
+      "D": "Les quotas de pêche en Antarctique"
     },
     "answer": "A",
-    "explanation": "Au Nigeria coexistent la common law héritée de la colonisation britannique, le droit coutumier des différentes communautés, et le droit musulman (charia) appliqué en matière notamment pénale dans plusieurs États du nord depuis 1999-2000. Ce pluralisme est caractéristique de nombreux systèmes juridiques africains.",
-    "source": "Sources de droit comparé africain",
+    "explanation": "Le Protocole de Maputo complète la Charte africaine sur les droits des femmes.",
+    "source": "UA — Maputo Protocol",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-021",
     "category": "droit_politique",
-    "subcategory": "institutions",
+    "subcategory": "regional",
     "difficulty": "hard",
     "language": "fr",
-    "question": "La Cour de justice de la CEDEAO, qui peut être saisie directement par des citoyens pour des violations des droits humains, a son siège dans quelle ville ?",
+    "question": "La CEMAC est une communauté économique surtout située en :",
     "options": {
-      "A": "Abuja, au Nigeria",
-      "B": "Accra, au Ghana",
-      "C": "Lomé, au Togo",
-      "D": "Dakar, au Sénégal"
+      "A": "Afrique centrale",
+      "B": "Afrique australe",
+      "C": "Afrique de l'Est anglophone uniquement",
+      "D": "Afrique du Nord"
     },
     "answer": "A",
-    "explanation": "La Cour de justice de la Communauté (CEDEAO) siège à Abuja, au Nigeria. Sa particularité est d'être accessible directement aux individus sans épuisement préalable des recours internes, ce qui en a fait un recours important en Afrique de l'Ouest, notamment pour les ressortissants des pays quittant l'organisation.",
-    "source": "CEDEAO ; documentation de la Cour de justice",
+    "explanation": "La Communauté économique et monétaire de l'Afrique centrale regroupe des États d'Afrique centrale.",
+    "source": "Site officiel CEMAC",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "POL-022",
     "category": "droit_politique",
-    "subcategory": "droits_humains",
-    "difficulty": "hard",
+    "subcategory": "institutions",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "Adopté en 2003, un protocole additionnel à la Charte africaine porte spécifiquement sur les droits des femmes en Afrique. Sous quel nom est-il connu ?",
+    "question": "Le NEPAD (désormais intégré à l'UA) visait surtout :",
     "options": {
-      "A": "Le Protocole de Maputo",
-      "B": "Le Protocole de Kampala",
-      "C": "La Convention d'Abuja",
-      "D": "La Déclaration de Ouagadougou"
+      "A": "Le développement économique et le partenariat pour l'Afrique",
+      "B": "La suppression des universités",
+      "C": "L'interdiction du commerce",
+      "D": "La colonisation numérique"
     },
     "answer": "A",
-    "explanation": "Le Protocole de Maputo (2003), additionnel à la Charte africaine des droits de l'homme et des peuples, garantit un large éventail de droits aux femmes africaines (santé, participation politique, protection contre les violences). C'est l'un des instruments régionaux les plus avancés en la matière, malgré des réserves de certains États.",
-    "source": "Union africaine ; texte du Protocole de Maputo",
+    "explanation": "Le Nouveau Partenariat pour le développement de l'Afrique promeut croissance, gouvernance et infrastructures.",
+    "source": "UA / AUDA-NEPAD",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-023",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Union africaine a remplacé l'OUA en :",
+    "options": {
+      "A": "2002",
+      "B": "1963",
+      "C": "1994",
+      "D": "2015"
+    },
+    "answer": "A",
+    "explanation": "L'UA succède à l'OUA au début des années 2000 (Durban 2002).",
+    "source": "UA — History",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-024",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La CEDEAO compte parmi ses langues de travail notamment :",
+    "options": {
+      "A": "Anglais, français et portugais",
+      "B": "Uniquement le swahili",
+      "C": "Uniquement le chinois",
+      "D": "Uniquement l'arabe classique"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO est multilingue (EN/FR/PT).",
+    "source": "ECOWAS — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-025",
+    "category": "droit_politique",
+    "subcategory": "gouvernance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte de Lomé (2000) de l'OUA/UA porte surtout sur :",
+    "options": {
+      "A": "Les changements anticonstitutionnels de gouvernement",
+      "B": "La régulation du football",
+      "C": "Les brevets pharmaceutiques mondiaux",
+      "D": "Le droit spatial"
+    },
+    "answer": "A",
+    "explanation": "Elle condamne les coups d'État et cadre les réponses continentales.",
+    "source": "UA — Lomé Declaration",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-026",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Banque africaine de développement (BAD) a son siège à :",
+    "options": {
+      "A": "Abidjan",
+      "B": "Addis-Abeba",
+      "C": "Nairobi",
+      "D": "Le Caire"
+    },
+    "answer": "A",
+    "explanation": "La BAD a son siège à Abidjan (Côte d'Ivoire).",
+    "source": "AfDB — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-027",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Journée de l'Afrique est célébrée le :",
+    "options": {
+      "A": "25 mai",
+      "B": "1er janvier",
+      "C": "14 juillet",
+      "D": "11 novembre"
+    },
+    "answer": "A",
+    "explanation": "Le 25 mai commémore la création de l'OUA (1963).",
+    "source": "UA — Africa Day",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-028",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'EAC (East African Community) regroupe surtout des États d' :",
+    "options": {
+      "A": "Afrique de l'Est",
+      "B": "Afrique australe",
+      "C": "Maghreb",
+      "D": "Afrique centrale francophone uniquement"
+    },
+    "answer": "A",
+    "explanation": "La Communauté d'Afrique de l'Est intègre des États est-africains.",
+    "source": "EAC — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-029",
+    "category": "droit_politique",
+    "subcategory": "gouvernance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un « gouvernement d'union nationale » en période de crise vise souvent à :",
+    "options": {
+      "A": "Intégrer des forces politiques rivales pour stabiliser le pays",
+      "B": "Supprimer toute élection à jamais",
+      "C": "Remplacer la constitution par un code sportif",
+      "D": "Interdire les partis d'opposition sans exception mondiale"
+    },
+    "answer": "A",
+    "explanation": "Ces formules cherchent un compromis politique temporaire.",
+    "source": "Science politique — power-sharing",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-030",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Qui peut devenir membre de l'Union africaine ?",
+    "options": {
+      "A": "Les États africains (selon l'Acte constitutif)",
+      "B": "Uniquement les entreprises privées",
+      "C": "Uniquement les ONG européennes",
+      "D": "Les continents non africains automatiquement"
+    },
+    "answer": "A",
+    "explanation": "L'UA est une organisation d'États africains.",
+    "source": "Acte constitutif de l'UA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-031",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Commission africaine des droits de l'homme et des peuples siège principalement à :",
+    "options": {
+      "A": "Banjul",
+      "B": "Genève uniquement",
+      "C": "New York",
+      "D": "Bruxelles"
+    },
+    "answer": "A",
+    "explanation": "La Commission a son siège à Banjul (Gambie).",
+    "source": "ACHPR — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-032",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Conseil de sécurité de l'ONU compte des débats fréquents sur l'Afrique car :",
+    "options": {
+      "A": "Une part importante de ses dossiers concerne paix et sécurité africaines",
+      "B": "L'Afrique n'a aucun conflit historique",
+      "C": "L'ONU n'a pas de mandat hors Europe",
+      "D": "L'UA a dissous l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Les opérations et crises africaines occupent une place majeure à l'ONU.",
+    "source": "ONU — Peace and security",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-033",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel organe de l'Union africaine regroupe les chefs d'État et de gouvernement ?",
+    "options": {
+      "A": "Commission de l'UA",
+      "B": "Conseil de paix et de sécurité",
+      "C": "Conférence de l'Union",
+      "D": "Parlement panafricain"
+    },
+    "answer": "C",
+    "explanation": "La Conférence (Assembly) est l'organe suprême composé des chefs d'État et de gouvernement.",
+    "source": "African Union — Constitutive Act",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-034",
+    "category": "droit_politique",
+    "subcategory": "elections",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte africaine de la démocratie, des élections et de la gouvernance a été adoptée en quelle année ?",
+    "options": {
+      "A": "1990",
+      "B": "2000",
+      "C": "2007",
+      "D": "2015"
+    },
+    "answer": "C",
+    "explanation": "Adoptée en 2007 à Addis-Abeba, elle fixe des normes démocratiques pour les États membres.",
+    "source": "African Union — ACDEG",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-035",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La CEDEAO est une communauté économique régionale d'Afrique…",
+    "options": {
+      "A": "de l'Ouest",
+      "B": "centrale",
+      "C": "orientale",
+      "D": "australe"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO (ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+    "source": "ECOWAS — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-036",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Charte africaine des droits de l'homme et des peuples est aussi appelée Charte de…",
+    "options": {
+      "A": "Banjul",
+      "B": "Maputo",
+      "C": "Lomé",
+      "D": "Arusha"
+    },
+    "answer": "A",
+    "explanation": "Adoptée à Nairobi mais souvent dite Charte de Banjul (siège de la Commission africaine).",
+    "source": "ACHPR — African Charter",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-037",
+    "category": "droit_politique",
+    "subcategory": "transitions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel principe de l'UA condamne les changements anticonstitutionnels de gouvernement ?",
+    "options": {
+      "A": "Non-ingérence absolue",
+      "B": "Tolérance zéro envers les coups d'État",
+      "C": "Souveraineté monétaire unique",
+      "D": "Unicité du parti"
+    },
+    "answer": "B",
+    "explanation": "L'UA a développé une norme de rejet des coups d'État et changements anticonstitutionnels.",
+    "source": "AU — Lomé Declaration / ACDEG",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-038",
+    "category": "droit_politique",
+    "subcategory": "justice",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Cour africaine des droits de l'homme et des peuples a son siège à…",
+    "options": {
+      "A": "Addis-Abeba",
+      "B": "Arusha",
+      "C": "Johannesburg",
+      "D": "Dakar"
+    },
+    "answer": "B",
+    "explanation": "La Cour siège à Arusha, en Tanzanie.",
+    "source": "African Court — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

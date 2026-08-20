@@ -2,6 +2,27 @@
    AfriBench — Application Core (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+/* ── Security ────────────────────────────────────────── */
+function escapeHtml(str) {
+  if (!str || typeof str !== 'string') return '';
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#96;',
+    '=': '&#61;'
+  };
+  return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
+}
+
+const VALID_TABS = [
+  'leaderboard', 'models', 'categories', 'compare',
+  'evolution', 'questions', 'methodology', 'reliability', 'api',
+];
+
 const AppState = {
   results: [],
   questions: [],
@@ -10,18 +31,130 @@ const AppState = {
   filteredModels: [],
   comparePreset: null,
   favorites: new Set(loadFavorites()),
+  dataSource: null, // 'api' | 'static' | 'bootstrap'
+  contamination: { noise: [], permute: [] },
+  reliabilityStats: { models: [] },
+  openScores: [],
+  urlCategory: null,
+  urlDifficulty: null,
+  _skipUrlWrite: false,
+  _skipScroll: false,
 };
 
 /* ── Initialization ──────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
+  setupMobileNav();
   setupTabs();
   setupSearch();
+  applyUrlState(); // tab (+ filters) depuis ?tab=&category=&difficulty=
   await loadData();
   renderActiveTab();
   renderTopModels();
   updateHeroStats();
+  // Appliquer filtres URL après rendu initial
+  applyUrlFilters();
+  window.addEventListener('popstate', () => {
+    applyUrlState();
+    renderActiveTab();
+    applyUrlFilters();
+  });
 });
+
+/* ── Mobile sidebar (hamburger) ───────────────────────── */
+function setupMobileNav() {
+  const toggle = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('sidebar-close');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (!toggle) return;
+
+  const open = () => {
+    document.body.classList.add('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fermer le menu');
+    if (backdrop) backdrop.hidden = false;
+  };
+
+  const close = () => {
+    document.body.classList.remove('sidebar-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+    if (backdrop) backdrop.hidden = true;
+  };
+
+  const toggleMenu = () => {
+    if (document.body.classList.contains('sidebar-open')) close();
+    else open();
+  };
+
+  window.__closeMobileNav = close;
+
+  toggle.addEventListener('click', toggleMenu);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  if (backdrop) backdrop.addEventListener('click', close);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('sidebar-open')) {
+      close();
+      toggle.focus();
+    }
+  });
+
+  // Close when leaving mobile breakpoint
+  const mq = window.matchMedia('(max-width: 768px)');
+  const onBreakpoint = (e) => {
+    if (!e.matches) close();
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
+  else if (mq.addListener) mq.addListener(onBreakpoint);
+}
+
+/* ── URL state (?tab=&category=&difficulty=) ─────────── */
+function applyUrlState() {
+  const params = new URLSearchParams(location.search);
+  const tab = params.get('tab');
+  AppState.urlCategory = params.get('category');
+  AppState.urlDifficulty = params.get('difficulty');
+  AppState._skipUrlWrite = true;
+  AppState._skipScroll = true;
+  setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
+  AppState._skipUrlWrite = false;
+  AppState._skipScroll = false;
+}
+
+function syncUrlState() {
+  if (AppState._skipUrlWrite) return;
+  const params = new URLSearchParams(location.search);
+  params.set('tab', AppState.activeTab);
+  if (AppState.urlCategory) params.set('category', AppState.urlCategory);
+  else params.delete('category');
+  if (AppState.urlDifficulty) params.set('difficulty', AppState.urlDifficulty);
+  else params.delete('difficulty');
+  const qs = params.toString();
+  const next = `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`;
+  if (next !== `${location.pathname}${location.search}${location.hash}`) {
+    history.replaceState(null, '', next);
+  }
+}
+
+function applyUrlFilters() {
+  if (AppState.activeTab === 'categories' && AppState.urlCategory && window.__categoryFilter) {
+    window.__categoryFilter(AppState.urlCategory);
+  }
+  if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
+    window.__applyQuestionFilters(AppState.urlCategory, AppState.urlDifficulty);
+  }
+}
+
+window.__setUrlCategory = (cat) => {
+  AppState.urlCategory = cat && cat !== 'all' ? cat : null;
+  syncUrlState();
+};
+
+window.__setUrlDifficulty = (diff) => {
+  AppState.urlDifficulty = diff && diff !== 'all' ? diff : null;
+  syncUrlState();
+};
 
 /* ── Theme ─────────────────────────────────────────────── */
 function initTheme() {
@@ -66,7 +199,7 @@ function setupTabs() {
       e.preventDefault();
       const tab = link.dataset.quicktab;
       setActiveTab(tab);
-      // If it also has a category filter, pass to categories view
+      // If it also has a category filter, pass to catégories view
       if (link.dataset.filter && window.__categoryFilter) {
         setTimeout(() => window.__categoryFilter(link.dataset.filter), 100);
       }
@@ -75,6 +208,7 @@ function setupTabs() {
 }
 
 function setActiveTab(tabId) {
+  if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
 
   // Update tab bar
@@ -88,7 +222,22 @@ function setActiveTab(tabId) {
     b.classList.toggle('active', b.dataset.tab === tabId);
   });
 
+  // Close mobile drawer after navigation (si présent)
+  if (typeof window.__closeMobileNav === 'function') {
+    window.__closeMobileNav();
+  }
+
+  syncUrlState();
   renderActiveTab();
+  applyUrlFilters();
+
+  // Scroll to tab content area
+  if (!AppState._skipScroll) {
+    var target = document.getElementById('tab-content');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 
 function renderActiveTab() {
@@ -101,8 +250,8 @@ function renderActiveTab() {
     case 'evolution': renderEvolution(container); break;
     case 'questions': renderQuestions(container); break;
     case 'methodology': renderMethodology(container); break;
-    case 'api': renderAPI(container); break;
     case 'reliability': renderReliability(container); break;
+    case 'api': renderAPI(container); break;
   }
 }
 
@@ -133,7 +282,7 @@ function renderSidebarCategories() {
   sidebar.querySelectorAll('[data-filter-cat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       setActiveTab('categories');
-      // Signal categories view to filter
+      // Signal catégories view to filter
       if (window.__categoryFilter) window.__categoryFilter(btn.dataset.filterCat);
     });
   });
@@ -166,41 +315,87 @@ function applySearchFilter(models) {
   });
 }
 
-/* ── Data Loading ────────────────────────────────────── */
+/* ── API / Data Loading ──────────────────────────────── */
+function getApiBase() {
+  if (typeof window !== 'undefined' && window.AFRIBENCH_API_BASE) {
+    return String(window.AFRIBENCH_API_BASE).replace(/\/$/, '');
+  }
+  // Dev static server (python -m http.server 8000) → backend :8080
+  if (location.port === '8000') {
+    return 'http://127.0.0.1:8080/api/v1';
+  }
+  const meta = document.querySelector('meta[name="afribench-api"]');
+  if (meta && meta.content) {
+    return meta.content.replace(/\/$/, '');
+  }
+  // Docker nginx / same-origin proxy
+  return '/api/v1';
+}
+
+async function fetchJson(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
+  return resp.json();
+}
+
 async function fetchJSON(url, fallback) {
   try {
     const resp = await fetch(url);
     if (resp.ok) return await resp.json();
-  } catch { /* fichier absent : on garde le fallback */ }
+  } catch { /* fichier absent */ }
   return fallback;
+}
+
+async function loadBootstrap() {
+  try {
+    const data = await fetchJson('data/bootstrap.json');
+    if (data && Array.isArray(data.results)) AppState.results = data.results;
+    if (data && Array.isArray(data.questions)) AppState.questions = data.questions;
+    if (AppState.results.length || AppState.questions.length) {
+      AppState.dataSource = 'bootstrap';
+      return true;
+    }
+  } catch { /* ignore */ }
+  return false;
 }
 
 async function loadData() {
   const resultsContainer = document.getElementById('hdr-models');
-  try {
-    const resp = await fetch('data/results.json');
-    if (resp.ok) {
-      AppState.results = await resp.json();
-      if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
-    }
-  } catch {
-    if (resultsContainer) resultsContainer.textContent = '0';
-  }
-
   const qContainer = document.getElementById('hdr-questions');
+  const apiBase = getApiBase();
+
+  // 1) Bootstrap pré-généré (SEO / premier paint)
+  await loadBootstrap();
+
+  // 2) API live (écrase le bootstrap si dispo)
   try {
-    const resp = await fetch('data/questions.json');
-    if (resp.ok) {
-      AppState.questions = await resp.json();
-      if (qContainer) qContainer.textContent = AppState.questions.length;
+    const [results, questions] = await Promise.all([
+      fetchJson(`${apiBase}/results?limit=1000`),
+      fetchJson(`${apiBase}/questions?limit=500`),
+    ]);
+    AppState.results = Array.isArray(results) ? results : AppState.results;
+    AppState.questions = Array.isArray(questions) ? questions : AppState.questions;
+    AppState.dataSource = 'api';
+  } catch (err) {
+    if (AppState.dataSource !== 'bootstrap') {
+      console.warn('API unavailable, falling back to static JSON', err);
+      AppState.dataSource = 'static';
+      try {
+        const resp = await fetch('data/results.json');
+        if (resp.ok) AppState.results = await resp.json();
+      } catch { /* ignore */ }
+      try {
+        const resp = await fetch('data/questions.json');
+        if (resp.ok) AppState.questions = await resp.json();
+      } catch { /* ignore */ }
     }
-  } catch {
-    if (qContainer) qContainer.textContent = '0';
   }
 
-  // Analyses de fiabilité (optionnelles — absentes tant qu'aucune analyse n'a tourné)
+  if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
+  if (qContainer) qContainer.textContent = AppState.questions.length;
+
   AppState.contamination = await fetchJSON('data/contamination.json', { noise: [], permute: [] });
-  AppState.stats = await fetchJSON('data/stats.json', { models: [] });
+  AppState.reliabilityStats = await fetchJSON('data/stats.json', { models: [] });
   AppState.openScores = await fetchJSON('data/open_scores.json', []);
 
   renderSidebarCategories();
@@ -217,22 +412,14 @@ function updateHeroStats() {
   AppState.questions.forEach((q) => cats.add(q.category));
   setText('hero-cat-count', cats.size);
 
-  // Last update date from results timestamps
-  const timestamps = AppState.results
-    .map((r) => r.timestamp)
-    .filter(Boolean)
-    .sort()
-    .reverse();
-
-  if (timestamps.length > 0) {
-    const d = new Date(timestamps[0]);
-    const formatted = d.toLocaleDateString('fr-FR', {
-      day: 'numeric', month: 'short', year: 'numeric',
-    });
-    setText('hero-date', formatted);
-    setText('hdr-date', formatted);
-    document.getElementById('hdr-last-update').style.display = 'flex';
-  }
+  // Last update: current date (site deployment, not evaluation)
+  const d = new Date();
+  const formatted = d.toLocaleDateString('fr-FR', {
+    day: 'numeric', month: 'short', year: 'numeric',
+  });
+  setText('hero-date', formatted);
+  setText('hdr-date', formatted);
+  document.getElementById('hdr-last-update').style.display = 'flex';
 }
 
 /* ── Top Models Row ──────────────────────────────────── */
@@ -249,7 +436,7 @@ function renderTopModels() {
   container.style.display = 'grid';
 
   const highlights = [
-    { label: 'Leader', getter: () => models[0] },
+    { label: 'Meilleur score (v0.1)', getter: () => models[0] },
     { label: 'Open Weights', getter: () => models.find((m) => isOpenModel(m)) },
   ];
 
@@ -276,10 +463,10 @@ function renderTopModels() {
   const top = models[0];
   let html = `
     <div class="top-model-card">
-      <div class="label">Leader</div>
+      <div class="label">Meilleur score (v0.1)</div>
       <div class="model-name">${top.model_label || top.model}</div>
       <div class="score">${top.accuracy}%</div>
-      <div class="sub">${top.correct}/${top.total} questions</div>
+      <div class="sub">${top.correct}/${top.total} questions${top.total && AppState.questions.length && top.total !== AppState.questions.length ? ' · seed' : ''}</div>
     </div>
   `;
 
@@ -456,7 +643,7 @@ function renderDailyQuestion() {
         <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
           ${categoryLabel(q.category)}
         </span>
-        <span class="dq-badge" style="background:var(--surface-muted);color:var(--text-muted)">
+        <span class="dq-badge" style="background:var(--surface-2);color:var(--muted)">
           ${difficultyLabel(q.difficulty)}
         </span>
         <span class="dq-date">${today}</span>
@@ -469,7 +656,7 @@ function renderDailyQuestion() {
       </div>
       <div class="dq-reveal" id="dq-reveal" style="display:none">
         <div class="dq-answer">
-          Reponse : <strong>${q.answer}</strong>
+          Réponse : <strong>${q.answer}</strong>
           ${q.explanation ? `<span class="dq-exp">— ${q.explanation}</span>` : ''}
         </div>
       </div>
@@ -570,7 +757,7 @@ function formatDate(ts) {
 
 /* ── Chart.js Global Defaults ────────────────────────── */
 if (typeof Chart !== 'undefined') {
-  Chart.defaults.color = '#8a8a9e';
-  Chart.defaults.font.family = "'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif";
-  Chart.defaults.font.size = 10;
+  Chart.defaults.color = '#5B5854';
+  Chart.defaults.font.family = "'Sora', sans-serif";
+  Chart.defaults.font.size = 11;
 }

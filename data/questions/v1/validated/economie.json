@@ -192,229 +192,533 @@
   {
     "id": "ECON-011",
     "category": "economie",
-    "subcategory": "monnaie",
-    "difficulty": "hard",
+    "subcategory": "integration",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "On parle souvent « du franc CFA » au singulier. Quelle affirmation décrit correctement la réalité monétaire de la zone franc ?",
+    "question": "Que signifie l'acronyme ZLECAf ?",
     "options": {
-      "A": "Il existe deux francs CFA distincts et non interchangeables, émis par la BCEAO et la BEAC",
-      "B": "Il s'agit d'une monnaie unique émise par une seule banque centrale continentale",
-      "C": "Le franc CFA est émis directement par la Banque centrale européenne",
-      "D": "Le franc CFA est une monnaie flottante indexée sur le dollar"
+      "A": "Zone de libre-échange continentale africaine",
+      "B": "Zone légale d'exportation des cafés africains",
+      "C": "Zone locale d'épargne des coopératives africaines",
+      "D": "Zone lagunaire d'économie côtière africaine"
     },
     "answer": "A",
-    "explanation": "Il existe en réalité deux francs CFA : celui de l'Afrique de l'Ouest (UEMOA), émis par la BCEAO, et celui d'Afrique centrale (CEMAC), émis par la BEAC. Ils ont la même parité avec l'euro mais ne sont pas interchangeables entre les deux zones. La parité est fixe (et non flottante) et arrimée à l'euro, non au dollar.",
-    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "explanation": "La ZLECAf (AfCFTA) est l'accord de libre-échange continental visant à créer un marché unique africain.",
+    "source": "Union africaine — AfCFTA",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-012",
     "category": "economie",
-    "subcategory": "integration",
+    "subcategory": "monnaie",
     "difficulty": "hard",
     "language": "fr",
-    "question": "La CEDEAO projette depuis des années l'adoption d'une monnaie unique pour l'Afrique de l'Ouest. Quel nom a été retenu pour cette future monnaie ?",
+    "question": "Le franc CFA est historiquement lié à quelle zone monétaire ?",
     "options": {
-      "A": "L'eco",
-      "B": "L'afro",
-      "C": "Le cauri",
-      "D": "Le naira-CFA"
+      "A": "Dollar US uniquement",
+      "B": "Zone franc (lien avec le Trésor français / euro)",
+      "C": "Yen japonais",
+      "D": "Roupie indienne"
     },
-    "answer": "A",
-    "explanation": "La CEDEAO a retenu le nom « eco » pour sa future monnaie unique, dont le lancement a été plusieurs fois reporté en raison des divergences sur les critères de convergence et sur le lien avec l'euro. Le projet a ravivé le débat sur l'avenir du franc CFA.",
-    "source": "CEDEAO ; documentation économique régionale",
+    "answer": "B",
+    "explanation": "Les francs CFA (UEMOA/CEMAC) s'inscrivent dans la zone franc, avec une parité historiquement garantie via des arrangements avec la France, puis l'euro.",
+    "source": "Banque de France / BCEAO — zone franc",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-013",
     "category": "economie",
-    "subcategory": "numerique",
-    "difficulty": "medium",
+    "subcategory": "ressources",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "Le service de paiement mobile M-Pesa est devenu une référence mondiale de l'inclusion financière. Dans quel pays et par quel opérateur a-t-il été lancé en 2007 ?",
+    "question": "Le cobalt, stratégique pour les batteries, est produit en très grande quantité notamment en :",
     "options": {
-      "A": "Au Kenya, par Safaricom",
-      "B": "Au Nigeria, par MTN",
-      "C": "En Afrique du Sud, par Vodacom",
-      "D": "au Ghana, par Airtel"
+      "A": "République démocratique du Congo",
+      "B": "Namibie exclusivement",
+      "C": "Égypte",
+      "D": "Lesotho"
     },
     "answer": "A",
-    "explanation": "M-Pesa a été lancé au Kenya en 2007 par Safaricom (filiale de Vodafone). Il a permis à des millions de personnes non bancarisées d'effectuer des transferts d'argent par téléphone, devenant un modèle étudié dans le monde entier. Les autres opérateurs cités proposent des services similaires mais postérieurs.",
-    "source": "Safaricom ; GSMA ; Banque mondiale",
+    "explanation": "La RDC concentre une part dominante de la production mondiale de cobalt.",
+    "source": "USGS Mineral Commodity Summaries — Cobalt",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-014",
     "category": "economie",
-    "subcategory": "ressources",
-    "difficulty": "hard",
+    "subcategory": "integration",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "Début 2024, un pays africain a officiellement quitté l'OPEP après y avoir adhéré en 2007, en désaccord sur ses quotas de production. Lequel ?",
+    "question": "Le siège du secrétariat de la ZLECAf se trouve à :",
     "options": {
-      "A": "L'Angola",
-      "B": "Le Nigeria",
-      "C": "Le Gabon",
-      "D": "La Guinée équatoriale"
+      "A": "Nairobi",
+      "B": "Accra",
+      "C": "Pretoria",
+      "D": "Dakar"
     },
-    "answer": "A",
-    "explanation": "L'Angola a quitté l'OPEP avec effet au 1er janvier 2024, estimant que le maintien dans le cartel l'obligeait à réduire une production qu'il souhaitait au contraire soutenir. Le Nigeria, le Gabon et la Guinée équatoriale sont restés membres.",
-    "source": "OPEP ; agences de presse économiques",
+    "answer": "B",
+    "explanation": "Le secrétariat de la Zone de libre-échange continentale africaine est basé à Accra (Ghana).",
+    "source": "AfCFTA Secretariat",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-015",
     "category": "economie",
-    "subcategory": "ressources",
-    "difficulty": "hard",
+    "subcategory": "numerique",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "Longtemps dominé par l'Afrique du Sud, le classement du premier producteur d'or du continent a changé à la fin des années 2010. Quel pays est devenu le premier producteur d'or d'Afrique ?",
+    "question": "M-Pesa, pionnier du mobile money, a d'abord connu un succès massif au :",
     "options": {
-      "A": "Le Ghana",
-      "B": "Le Mali",
-      "C": "Le Soudan",
-      "D": "La Tanzanie"
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Lesotho"
     },
     "answer": "A",
-    "explanation": "Le Ghana a dépassé l'Afrique du Sud pour devenir le premier producteur d'or du continent vers 2019, la production sud-africaine déclinant en raison de gisements profonds et coûteux. Le Mali, le Soudan et la Tanzanie sont d'importants producteurs mais derrière le Ghana.",
-    "source": "World Gold Council ; chambres des mines nationales",
+    "explanation": "Lancé au Kenya (2007), M-Pesa est devenu une référence mondiale du paiement mobile.",
+    "source": "GSMA / Safaricom — M-Pesa case studies",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-016",
     "category": "economie",
-    "subcategory": "integration",
-    "difficulty": "medium",
+    "subcategory": "ressources",
+    "difficulty": "hard",
     "language": "fr",
-    "question": "Où se trouve le siège du Secrétariat de la ZLECAf (Zone de libre-échange continentale africaine) ?",
+    "question": "Le « paradoxe de l'abondance » (resource curse) désigne le risque que :",
     "options": {
-      "A": "À Accra, au Ghana",
-      "B": "À Addis-Abeba, en Éthiopie",
-      "C": "À Kigali, au Rwanda",
-      "D": "À Abuja, au Nigeria"
+      "A": "Les ressources naturelles freinent la diversification et la gouvernance",
+      "B": "L'agriculture disparaisse partout",
+      "C": "Les pays sans ressources soient toujours plus riches",
+      "D": "Le commerce Sud-Sud soit impossible"
     },
     "answer": "A",
-    "explanation": "Le Secrétariat de la ZLECAf est établi à Accra, au Ghana. L'accord a été signé à Kigali en 2018 et est entré en vigueur en 2019, les échanges commerciaux dans son cadre ayant démarré en 2021. Addis-Abeba accueille le siège de l'Union africaine, mais pas celui de la ZLECAf.",
-    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "explanation": "Le resource curse décrit les difficultés de développement associées à une dépendance forte aux matières premières.",
+    "source": "Littérature économique — resource curse (Sachs/Warner et suites)",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-017",
     "category": "economie",
-    "subcategory": "politiques_publiques",
-    "difficulty": "hard",
+    "subcategory": "integration",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "En 2023, le nouveau président d'un grand pays d'Afrique de l'Ouest a supprimé une coûteuse subvention aux carburants, provoquant une forte hausse des prix. De quel pays s'agit-il ?",
+    "question": "Un objectif central de la ZLECAf est de :",
     "options": {
-      "A": "Le Nigeria",
-      "B": "Le Ghana",
-      "C": "Le Sénégal",
-      "D": "La Côte d'Ivoire"
+      "A": "Réduire les barrières commerciales intra-africaines",
+      "B": "Interdire toute exportation hors d'Afrique",
+      "C": "Remplacer l'agriculture par le tourisme uniquement",
+      "D": "Créer une seule langue officielle mondiale"
     },
     "answer": "A",
-    "explanation": "À son arrivée au pouvoir en 2023, le président nigérian Bola Tinubu a annoncé la fin de la subvention aux carburants, l'une des plus onéreuses du continent. La mesure a fait bondir les prix à la pompe et alimenté l'inflation, tout en visant à assainir les finances publiques.",
-    "source": "Sources économiques et de presse ; gouvernement du Nigeria",
+    "explanation": "La ZLECAf vise un marché continental en abaissant droits de douane et barrières non tarifaires.",
+    "source": "AfCFTA Secretariat",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-018",
     "category": "economie",
-    "subcategory": "logistique",
-    "difficulty": "hard",
+    "subcategory": "agriculture",
+    "difficulty": "easy",
     "language": "fr",
-    "question": "L'Éthiopie, pays enclavé, dépend fortement d'un voisin pour son commerce maritime. Quelle infrastructure inaugurée en 2018 relie Addis-Abeba à ce débouché portuaire ?",
+    "question": "Le cacao africain est surtout produit en grande quantité en :",
     "options": {
-      "A": "Une ligne ferroviaire électrifiée vers le port de Djibouti",
-      "B": "Un oléoduc vers le port de Mombasa au Kenya",
-      "C": "Une autoroute vers le port de Berbera au Somaliland",
-      "D": "Un canal fluvial vers Port-Soudan"
+      "A": "Côte d'Ivoire et Ghana",
+      "B": "Égypte et Libye",
+      "C": "Lesotho et Eswatini uniquement",
+      "D": "Namibie désertique"
     },
     "answer": "A",
-    "explanation": "La ligne ferroviaire électrifiée Addis-Abeba–Djibouti, mise en service en 2018 et largement financée et construite par des acteurs chinois, relie la capitale éthiopienne au port de Djibouti, par lequel transite l'essentiel du commerce extérieur du pays. Le Somaliland et Berbera sont une voie alternative en développement, mais pas cette infrastructure de 2018.",
-    "source": "Sources sur les infrastructures est-africaines",
+    "explanation": "Côte d'Ivoire et Ghana dominent la production mondiale de cacao.",
+    "source": "ICCO / FAO cocoa statistics",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-019",
     "category": "economie",
-    "subcategory": "modeles_de_developpement",
+    "subcategory": "energie",
     "difficulty": "hard",
     "language": "fr",
-    "question": "L'île Maurice est souvent citée comme une réussite de diversification économique. Quelle trajectoire résume le mieux son développement depuis l'indépendance ?",
+    "question": "Le projet Grand Inga (RDC) concerne principalement :",
     "options": {
-      "A": "D'une monoéconomie sucrière vers le textile, puis les services financiers et le tourisme",
-      "B": "D'une économie pétrolière vers l'agriculture vivrière",
-      "C": "D'une économie minière vers l'industrie lourde",
-      "D": "D'une économie de pêche vers l'exportation de café"
+      "A": "L'hydroélectricité sur le fleuve Congo",
+      "B": "Une ligne de métro à Nairobi",
+      "C": "Un oléoduc en Alaska",
+      "D": "Une mine de diamants en Botswana uniquement"
     },
     "answer": "A",
-    "explanation": "Maurice, longtemps dépendante de la canne à sucre, a diversifié son économie vers le textile (zones franches d'exportation), puis les services financiers offshore et le tourisme, atteignant l'un des PIB par habitant les plus élevés d'Afrique. Le pays ne dispose ni de pétrole ni de ressources minières significatives.",
-    "source": "Banque mondiale ; études sur le « miracle mauricien »",
+    "explanation": "Grand Inga désigne un vaste potentiel hydroélectrique sur le Congo.",
+    "source": "Banque africaine de développement / littérature Inga",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-020",
     "category": "economie",
-    "subcategory": "ressources",
-    "difficulty": "hard",
+    "subcategory": "emploi",
+    "difficulty": "medium",
     "language": "fr",
-    "question": "Au Botswana, l'exploitation des diamants repose sur une coentreprise emblématique entre l'État et une multinationale. Comment s'appelle cette société et qui en sont les partenaires ?",
+    "question": "Le secteur informel en Afrique est souvent important parce qu'il :",
     "options": {
-      "A": "Debswana, coentreprise entre l'État botswanais et De Beers",
-      "B": "Alrosa-Botswana, entre l'État et un groupe russe",
-      "C": "Anglo-Kimberley, entre l'État et Rio Tinto",
-      "D": "Okavango Mining, entièrement publique"
+      "A": "Emploie une part majeure de la main-d'œuvre urbaine",
+      "B": "N'existe dans aucun pays africain",
+      "C": "Remplace entièrement l'État",
+      "D": "Est interdit par l'UA"
     },
     "answer": "A",
-    "explanation": "Debswana est une coentreprise à parts égales entre le gouvernement du Botswana et le groupe De Beers ; elle exploite les grandes mines de diamants du pays. Ce partenariat, associé à une gestion prudente des revenus, est souvent cité pour expliquer la stabilité économique botswanaise.",
-    "source": "Debswana ; Banque mondiale",
+    "explanation": "L'emploi informel concentre une grande partie du travail non agricole dans de nombreuses villes.",
+    "source": "BIT / Banque mondiale — informal economy",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-021",
     "category": "economie",
-    "subcategory": "integration",
-    "difficulty": "medium",
+    "subcategory": "finance",
+    "difficulty": "hard",
     "language": "fr",
-    "question": "Quel objectif principal la ZLECAf poursuit-elle à l'échelle du continent ?",
+    "question": "Les « eurobonds » émis par des États africains sont :",
     "options": {
-      "A": "Créer un marché continental unique en réduisant les droits de douane sur le commerce intra-africain",
-      "B": "Instaurer une monnaie unique africaine dès son entrée en vigueur",
-      "C": "Fusionner les banques centrales africaines en une seule institution",
-      "D": "Fixer un tarif douanier commun face à l'Union européenne uniquement"
+      "A": "Des obligations internationales souvent en devises fortes",
+      "B": "Des tickets de métro",
+      "C": "Des microcrédits villageois uniquement",
+      "D": "Des parts de tontine"
     },
     "answer": "A",
-    "explanation": "La ZLECAf vise à créer un vaste marché continental en supprimant progressivement les droits de douane sur la majorité des biens échangés entre pays africains, afin de stimuler le commerce intra-africain, aujourd'hui faible. Elle ne prévoit pas de monnaie unique ni de fusion des banques centrales à ce stade.",
-    "source": "Union africaine ; Secrétariat de la ZLECAf",
+    "explanation": "Les eurobonds sont des titres de dette émis sur les marchés internationaux, souvent en USD/EUR.",
+    "source": "Littérature dette souveraine africaine",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
   },
   {
     "id": "ECON-022",
     "category": "economie",
+    "subcategory": "commerce",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le port de Durban est un hub logistique majeur surtout pour :",
+    "options": {
+      "A": "L'Afrique du Sud et l'Afrique australe",
+      "B": "Le Sahel occidental uniquement",
+      "C": "La Corne de l'Afrique exclusivement",
+      "D": "L'Afrique du Nord méditerranéenne seule"
+    },
+    "answer": "A",
+    "explanation": "Durban est l'un des principaux ports à conteneurs d'Afrique australe.",
+    "source": "Transnet / UNCTAD port statistics",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-023",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le thé kenyan est surtout produit dans quelles zones ?",
+    "options": {
+      "A": "Hautes terres / Rift",
+      "B": "Désert du Chalbi uniquement",
+      "C": "Mangroves côtières exclusives",
+      "D": "Banquise"
+    },
+    "answer": "A",
+    "explanation": "Les hautes terres kenyanes offrent des conditions favorables au thé.",
+    "source": "FAO / Kenya tea sector",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-024",
+    "category": "economie",
+    "subcategory": "energie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le gaz naturel du Mozambique attire des investissements surtout pour :",
+    "options": {
+      "A": "L'exploitation offshore et l'export de GNL",
+      "B": "La culture du cacao",
+      "C": "Le tourisme spatial",
+      "D": "La production de neige artificielle"
+    },
+    "answer": "A",
+    "explanation": "D'importantes réserves gazières offshore structurèrent des projets GNL.",
+    "source": "Littérature énergie Mozambique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-025",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une barrière non tarifaire dans le commerce africain peut être :",
+    "options": {
+      "A": "Des normes sanitaires ou procédures douanières complexes",
+      "B": "Uniquement un droit de douane ad valorem",
+      "C": "Un taux de change flottant mondial",
+      "D": "Une langue nationale"
+    },
+    "answer": "A",
+    "explanation": "Les BNT incluent normes, licences, délais frontaliers, etc.",
+    "source": "OMC / BAD — trade barriers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-026",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La microfinance en Afrique vise surtout à :",
+    "options": {
+      "A": "Fournir des services financiers aux populations peu bancarisées",
+      "B": "Remplacer les banques centrales",
+      "C": "Interdire l'épargne",
+      "D": "Financer uniquement les États du G7"
+    },
+    "answer": "A",
+    "explanation": "Crédit, épargne et paiements pour petites activités et ménages.",
+    "source": "CGAP / BAD microfinance",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-027",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le pétrole nigérian est surtout extrait dans :",
+    "options": {
+      "A": "Le delta du Niger",
+      "B": "Le désert du Kalahari",
+      "C": "L'Atlas marocain",
+      "D": "Les montagnes du Drakensberg"
+    },
+    "answer": "A",
+    "explanation": "La production pétrolière nigériane est concentrée dans le delta.",
+    "source": "OPEC / Nigeria oil",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-028",
+    "category": "economie",
+    "subcategory": "numerique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'économie des plateformes (ride-hailing, delivery) en Afrique dépend fortement de :",
+    "options": {
+      "A": "Smartphones, data mobile et densité urbaine",
+      "B": "L'absence d'Internet",
+      "C": "La disparition des villes",
+      "D": "Un monopole postal colonial"
+    },
+    "answer": "A",
+    "explanation": "Ces services naissent là où connectivité et marchés urbains existent.",
+    "source": "GSMA / rapports économie numérique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-029",
+    "category": "economie",
+    "subcategory": "commerce",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Corridor Nord (Northern Corridor) en Afrique de l'Est relie surtout :",
+    "options": {
+      "A": "Des ports (ex. Mombasa) à l'hinterland régional",
+      "B": "Le Maroc à l'Espagne uniquement",
+      "C": "Le Cap à Buenos Aires",
+      "D": "Le Nil à l'Amazonie"
+    },
+    "answer": "A",
+    "explanation": "Il structure le commerce Est-africain vers l'intérieur.",
+    "source": "Northern Corridor Transit agreements",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-030",
+    "category": "economie",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'agroalimentaire est stratégique en Afrique car il :",
+    "options": {
+      "A": "Emploie une grande part de la population et assure la sécurité alimentaire",
+      "B": "N'existe dans aucun pays africain",
+      "C": "Remplace toute industrie sans exception",
+      "D": "Est interdit par la ZLECAf"
+    },
+    "answer": "A",
+    "explanation": "Agriculture et transformation restent centrales pour l'emploi.",
+    "source": "FAO / BAD agriculture",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-031",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un « haircut » sur dette souveraine désigne :",
+    "options": {
+      "A": "Une réduction de la valeur remboursée aux créanciers",
+      "B": "Une coupe de cheveux obligatoire",
+      "C": "Une hausse automatique du PIB",
+      "D": "Un type de moustique"
+    },
+    "answer": "A",
+    "explanation": "Terme de restructuration de dette.",
+    "source": "Littérature dette souveraine",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-032",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "ECOWAS Trade Liberalisation Scheme vise à :",
+    "options": {
+      "A": "Faciliter la circulation des marchandises dans la CEDEAO",
+      "B": "Interdire le commerce régional",
+      "C": "Créer une monnaie mondiale",
+      "D": "Remplacer les ports par des aéroports uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le schéma libéralise certains échanges intra-CEDEAO.",
+    "source": "ECOWAS — ETLS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-033",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est l'objectif principal de la ZLECAf ?",
+    "options": {
+      "A": "Créer une monnaie unique immédiate",
+      "B": "Créer un marché continental de biens et services",
+      "C": "Remplacer toutes les CER régionales",
+      "D": "Nationaliser les industries extractives"
+    },
+    "answer": "B",
+    "explanation": "La ZLECAf vise un marché unique africain en réduisant les barrières commerciales.",
+    "source": "AU — AfCFTA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-034",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Nigeria est particulièrement connu pour l'exportation de…",
+    "options": {
+      "A": "Pétrole brut",
+      "B": "Cuivre",
+      "C": "Diamants industriels uniquement",
+      "D": "Blé"
+    },
+    "answer": "A",
+    "explanation": "Le pétrole reste une ressource d'exportation majeure de l'économie nigériane.",
+    "source": "OPEC / World Bank Nigeria overview",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-035",
+    "category": "economie",
     "subcategory": "monnaie",
     "difficulty": "medium",
     "language": "fr",
-    "question": "Quelle est la nature du régime de change du franc CFA vis-à-vis de l'euro ?",
+    "question": "Le franc CFA d'Afrique de l'Ouest est utiliséé par la…",
     "options": {
-      "A": "Une parité fixe, garantie par un arrimage à l'euro",
-      "B": "Un taux de change flottant fixé quotidiennement par le marché",
-      "C": "Une parité indexée sur un panier de matières premières",
-      "D": "Un taux ajusté chaque année par le FMI"
+      "A": "SADC",
+      "B": "CEMAC",
+      "C": "UEMOA",
+      "D": "EAC"
+    },
+    "answer": "C",
+    "explanation": "L'UEMOA regroupe des États ouest-africains utilisant le franc CFA (XOF).",
+    "source": "BCEAO — UEMOA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-036",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel pays africain est historiquement l'un des premiers producteurs mondiaux de cacao ?",
+    "options": {
+      "A": "Côte d'Ivoire",
+      "B": "Égypte",
+      "C": "Namibie",
+      "D": "Lesotho"
     },
     "answer": "A",
-    "explanation": "Le franc CFA est rattaché à l'euro par une parité fixe (héritée du rattachement antérieur au franc français). Ce régime assure une stabilité de change mais fait l'objet de débats quant à la compétitivité et à la souveraineté monétaire des pays concernés.",
-    "source": "BCEAO ; BEAC ; documentation zone franc",
+    "explanation": "La Côte d'Ivoire est le premier producteur mondial de cacao.",
+    "source": "ICCO / FAO",
     "author": "afribench",
-    "date_created": "2026-07-03"
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-037",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le mobile money (ex. M-Pesa) s'est d'abord massivement diffusé dans quel pays ?",
+    "options": {
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Botswana"
+    },
+    "answer": "A",
+    "explanation": "M-Pesa, lancé au Kenya (2007), a popularisé le paiement mobile en Afrique.",
+    "source": "GSMA — Mobile Money",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-038",
+    "category": "economie",
+    "subcategory": "industrie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Initiative pour la transparence dans les industries extractives (ITIE) vise surtout à…",
+    "options": {
+      "A": "Fixer les prix du pétrole",
+      "B": "Améliorer la transparence des revenus extractifs",
+      "C": "Interdire l'exploitation minière artisanale",
+      "D": "Remplacer les banques centrales"
+    },
+    "answer": "B",
+    "explanation": "L'ITIE (EITI) publie et vérifie les paiements liés aux industries extractives.",
+    "source": "EITI — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

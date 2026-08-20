@@ -49,14 +49,14 @@ function renderQuestions(container) {
 
       <!-- Filters -->
       <div class="filter-bar">
-        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Catégorie:</span>
+        <span style="font-size:0.68rem;color:var(--muted)">Catégorie:</span>
         <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
         ${cats.map((c) => `
           <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
         `).join('')}
       </div>
       <div class="filter-bar">
-        <span style="font-size:var(--font-size-xs);color:var(--text-muted)">Difficulté:</span>
+        <span style="font-size:0.68rem;color:var(--muted)">Difficulté:</span>
         <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
         ${diffs.map((d) => `
           <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">
@@ -81,7 +81,11 @@ function renderQuestions(container) {
     filtered.forEach((q, i) => {
       const diffClass = q.difficulty || 'medium';
       const catColor = categoryColor(q.category);
-      const sourceInfo = q.source ? q.source : '';
+      const safeQuestion = escapeHtml(q.question || '');
+      const safeId = escapeHtml(q.id || '');
+      const safeAnswer = escapeHtml(q.answer || '');
+      const safeExplanation = q.explanation ? escapeHtml(q.explanation) : '';
+      const safeSource = q.source ? escapeHtml(q.source) : '';
       const dateInfo = q.date_created ? formatDate(q.date_created) : '';
 
       html += `
@@ -91,19 +95,19 @@ function renderQuestions(container) {
               ${categoryLabel(q.category)}
             </span>
             <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>
-            <span class="q-meta-badge subtle">${q.id || ''}</span>
+            <span class="q-meta-badge subtle">${safeId}</span>
             ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
           </div>
-          <div class="q-text">${q.question}</div>
+          <div class="q-text">${safeQuestion}</div>
           <div class="q-options">
             ${Object.entries(q.options || {}).map(([k, v]) => `
-              <div class="q-option"><strong>${k}.</strong> ${v}</div>
+              <div class="q-option"><strong>${escapeHtml(k)}.</strong> ${escapeHtml(v)}</div>
             `).join('')}
           </div>
           <div class="q-answer">
-            <div class="label">Reponse : ${q.answer}</div>
-            ${q.explanation ? `<div class="explanation">${q.explanation}</div>` : ''}
-            ${sourceInfo ? `<div class="q-source">Source : ${sourceInfo}</div>` : ''}
+            <div class="label">Reponse : ${safeAnswer}</div>
+            ${safeExplanation ? `<div class="explanation">${safeExplanation}</div>` : ''}
+            ${safeSource ? `<div class="q-source">Source : ${safeSource}</div>` : ''}
           </div>
         </div>
       `;
@@ -127,6 +131,7 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qcat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterCat = btn.dataset.qcat;
+      if (window.__setUrlCategory) window.__setUrlCategory(qFilterCat);
       renderQuestions(container);
     });
   });
@@ -135,7 +140,17 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qdiff]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterDiff = btn.dataset.qdiff;
+      if (window.__setUrlDifficulty) window.__setUrlDifficulty(qFilterDiff);
       renderQuestions(container);
     });
   });
 }
+
+window.__applyQuestionFilters = (cat, diff) => {
+  if (cat) qFilterCat = cat;
+  if (diff) qFilterDiff = diff;
+  const container = document.getElementById('tab-content');
+  if (container && AppState.activeTab === 'questions') {
+    renderQuestions(container);
+  }
+};

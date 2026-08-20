@@ -1,0 +1,135 @@
+{
+  "dry_run": true,
+  "tasks": {
+    "open_generation": {
+      "n": 10,
+      "items": [
+        {
+          "id": "OPEN-001",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-002",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-003",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-004",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-005",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-006",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-007",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-008",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-009",
+          "rubric_ready": true
+        },
+        {
+          "id": "OPEN-010",
+          "rubric_ready": true
+        }
+      ]
+    },
+    "open_qa": {
+      "n": 3,
+      "items": [
+        {
+          "id": "QA-001",
+          "token_f1": 1.0
+        },
+        {
+          "id": "QA-002",
+          "token_f1": 1.0
+        },
+        {
+          "id": "QA-003",
+          "token_f1": 1.0
+        }
+      ]
+    },
+    "translation": {
+      "n": 3,
+      "items": [
+        {
+          "id": "TR-001",
+          "bleu_proxy": 1.0
+        },
+        {
+          "id": "TR-002",
+          "bleu_proxy": 1.0
+        },
+        {
+          "id": "TR-003",
+          "bleu_proxy": 1.0
+        }
+      ]
+    },
+    "summarization": {
+      "n": 3,
+      "items": [
+        {
+          "id": "SUM-001",
+          "rouge_l_proxy": 1.0
+        },
+        {
+          "id": "SUM-002",
+          "rouge_l_proxy": 1.0
+        },
+        {
+          "id": "SUM-003",
+          "rouge_l_proxy": 1.0
+        }
+      ]
+    },
+    "ner": {
+      "n": 3,
+      "items": [
+        {
+          "id": "NER-001",
+          "entity_f1": 1.0
+        },
+        {
+          "id": "NER-002",
+          "entity_f1": 1.0
+        },
+        {
+          "id": "NER-003",
+          "entity_f1": 1.0
+        }
+      ]
+    },
+    "sentiment": {
+      "n": 3,
+      "items": [
+        {
+          "id": "SENT-001",
+          "accuracy": 1.0
+        },
+        {
+          "id": "SENT-002",
+          "accuracy": 1.0
+        },
+        {
+          "id": "SENT-003",
+          "accuracy": 1.0
+        }
+      ]
+    }
+  }
+}

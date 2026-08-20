@@ -1,0 +1,724 @@
+[
+  {
+    "id": "IA-001",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel groupe de recherche africain est à l'avant-garde du traitement automatique des langues africaines ?",
+    "options": {
+      "A": "DeepMind Africa",
+      "B": "Masakhane",
+      "C": "Data Science Africa",
+      "D": "Deep Learning Indaba"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est un collectif de chercheurs qui travaille sur le NLP (Natural Language Processing) pour les langues africaines. Fondé en 2019, il regroupe des centaines de chercheurs africains et de la diaspora, travaillant sur plus de 70 langues africaines.",
+    "source": "Masakhane (masakhane.io) ; ACL (Association for Computational Linguistics)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-002",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écosystème technologique africain est surnommé la « Silicon Savannah » et est considéré comme le hub tech le plus dynamique du continent ?",
+    "options": {
+      "A": "Lagos, Nigeria",
+      "B": "Nairobi, Kenya",
+      "C": "Le Cap, Afrique du Sud",
+      "D": "Accra, Ghana"
+    },
+    "answer": "B",
+    "explanation": "Nairobi est surnommé la « Silicon Savannah » et abrite le plus grand écosystème tech d'Afrique de l'Est, avec des centaines de startups, des hubs d'innovation (iHub, Nairobi Garage) et des innovations comme M-Pesa. Lagos et Le Cap sont également des hubs majeurs.",
+    "source": "GSMA ; Briter Bridges",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-003",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'IA est utilisée en Afrique pour relever des défis agricoles. Quelle application agricole de l'IA est la plus répandue ?",
+    "options": {
+      "A": "Les robots de récolte autonomes",
+      "B": "La détection précoce des maladies des cultures par analyse d'images",
+      "C": "Les drones de pulvérisation automatique",
+      "D": "Les serres intelligentes climatisées"
+    },
+    "answer": "B",
+    "explanation": "L'application la plus répandue de l'IA en agriculture africaine est la détection précoce des maladies et parasites via l'analyse d'images par smartphone (ex: PlantVillage, Nuru, Plantix). Accessible même aux petits producteurs, elle permet de réduire les pertes de récolte de 30 à 50%.",
+    "source": "FAO ; CGIAR ; PlantVillage (Penn State)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-004",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'Indaba africain sur l'apprentissage profond (Deep Learning Indaba) est un événement majeur pour l'IA en Afrique. Quel en est l'objectif principal ?",
+    "options": {
+      "A": "Attirer les investissements des GAFAM en Afrique",
+      "B": "Renforcer les capacités en IA des chercheurs africains",
+      "C": "Créer le plus grand modèle de langage africain",
+      "D": "Organiser des compétitions annuelles d'IA entre pays africains"
+    },
+    "answer": "B",
+    "explanation": "Le Deep Learning Indaba, fondé en 2017, est un événement annuel qui vise à renforcer l'expertise africaine en IA et apprentissage profond. Il se tient chaque année dans un pays africain différent et a formé des milliers de chercheurs africains.",
+    "source": "Deep Learning Indaba (deeplearningindaba.com)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-005",
+    "category": "ia_technologie",
+    "subcategory": "ia_applications",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Plusieurs startups africaines développent des LLMs (grands modèles de langage) adaptés au contexte africain. Quel modèle, formé pour comprendre et générer du texte en swahili, yoruba, haoussa et autres langues africaines, a été lancé en 2024 ?",
+    "options": {
+      "A": "AfriBERTa",
+      "B": "LLaMA-afrique",
+      "C": "GloVe Africa",
+      "D": "AfriLLaMA"
+    },
+    "answer": "A",
+    "explanation": "AfriBERTa (ou ses dérivés comme AfroLM, AfriTeVa) est un modèle multilingue pré-entraîné sur des langues africaines. En 2024-2025, plusieurs modèles ont émergé : AfriLLaMA (fine-tuning de LLaMA sur données africaines) et d'autres modèles développés par Masakhane, Lelapa AI (Afrique du Sud) et InstaDeep.",
+    "source": "Masakhane ; Hugging Face ; Lelapa AI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-006",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'accès à Internet en Afrique progresse mais reste inégal. Quel pourcentage de la population africaine avait accès à Internet en 2025 ?",
+    "options": {
+      "A": "25%",
+      "B": "37%",
+      "C": "45%",
+      "D": "55%"
+    },
+    "answer": "B",
+    "explanation": "Environ 37% des Africains avaient accès à Internet en 2025, contre 65% en Asie et 90% en Europe. Les disparités sont fortes : plus de 70% en Afrique du Nord et Maurice, moins de 25% en Afrique centrale. Le mobile représente 80% des connexions.",
+    "source": "UIT (Union internationale des télécommunications) ; GSMA",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-007",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Zipline, une startup américaine, a révolutionné un secteur en Afrique grâce à des drones autonomes. Quel service a-t-elle transformé au Rwanda et au Ghana ?",
+    "options": {
+      "A": "La livraison de repas dans les zones rurales",
+      "B": "La livraison de médicaments et de sang par drones",
+      "C": "La surveillance agricole par satellite",
+      "D": "La distribution de vaccins mobiles"
+    },
+    "answer": "B",
+    "explanation": "Zipline utilise des drones autonomes pour livrer des médicaments, du sang et des vaccins dans les zones reculées du Rwanda et du Ghana. Elle a effectué plus d'un million de livraisons, réduisant le délai d'approvisionnement de 3 jours à 30 minutes.",
+    "source": "Zipline (flyzipline.com) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-008",
+    "category": "ia_technologie",
+    "subcategory": "infrastructure",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'infrastructure cloud en Afrique connaît une croissance rapide. Quels acteurs mondiaux investissent massivement dans les régions cloud africaines ?",
+    "options": {
+      "A": "Google Cloud (Afrique du Sud) et AWS (Le Cap)",
+      "B": "Microsoft Azure (Afrique du Sud), AWS (Le Cap), Google Cloud (Afrique du Sud)",
+      "C": "Oracle et IBM uniquement",
+      "D": "Alibaba Cloud (Nigeria) et Tencent (Égypte)"
+    },
+    "answer": "B",
+    "explanation": "Les trois grands du cloud (AWS, Microsoft Azure, Google Cloud) ont tous ouvert des régions cloud en Afrique du Sud. AWS a ouvert sa région du Cap en 2020, Microsoft Azure en 2019, Google Cloud en 2024. AWS prévoit une nouvelle région au Nigeria.",
+    "source": "AWS ; Microsoft ; Google Cloud",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-009",
+    "category": "ia_technologie",
+    "subcategory": "ecosysteme",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2023, l'Union africaine a adopté une stratégie continentale pour l'intelligence artificielle. Quel en est le principe directeur ?",
+    "options": {
+      "A": "L'interdiction de certaines applications d'IA jugées dangereuses",
+      "B": "L'IA au service du développement durable et de l'inclusion",
+      "C": "La création d'un régulateur continental unique",
+      "D": "Le développement prioritaire des armes autonomes africaines"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour l'IA (2023) repose sur le principe que l'IA doit servir le développement durable, l'inclusion et les priorités africaines (agriculture, santé, éducation). Elle promeut une approche éthique, centrée sur l'humain et adaptée au contexte africain.",
+    "source": "Union africaine (2023) Continental AI Strategy ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-010",
+    "category": "ia_technologie",
+    "subcategory": "innovation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle innovation technologique majeure, développée en Afrique du Sud, a été utilisée par le European Southern Observatory (ESO) pour la construction du plus grand télescope du monde (ELT) ?",
+    "options": {
+      "A": "Le système de contrôle par IA des miroirs adaptatifs",
+      "B": "Le capteur optique hyperspectral",
+      "C": "Le robot d'assemblage autonome de segments de miroir",
+      "D": "Le logiciel de traitement d'images astronomiques"
+    },
+    "answer": "C",
+    "explanation": "Les chercheurs sud-africains du CSIR (Council for Scientific and Industrial Research) ont développé des robots autonomes d'assemblage pour les 798 segments du miroir principal (39m) du Extremely Large Telescope (ELT) de l'ESO, actuellement en construction au Chili.",
+    "source": "CSIR (Afrique du Sud) ; ESO (eso.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "IA-011",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Masakhane est surtout connu comme :",
+    "options": {
+      "A": "Une banque panafricaine",
+      "B": "Une communauté de recherche en NLP pour les langues africaines",
+      "C": "Un satellite météo",
+      "D": "Un réseau d'autoroutes"
+    },
+    "answer": "B",
+    "explanation": "Masakhane est une initiative communautaire open-source visant à renforcer le traitement automatique des langues africaines.",
+    "source": "masakhane.io ; publications ACL/EMNLP associées",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-012",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi le manque de données annotées est-il un frein majeur pour l'IA en langues africaines ?",
+    "options": {
+      "A": "Parce que les GPU n'existent pas en Afrique",
+      "B": "Parce que les modèles supervisés et l'évaluation nécessitent des corpus étiquetés rares pour ces langues",
+      "C": "Parce que le français interdit les corpus",
+      "D": "Parce que l'Unicode ne supporte aucune langue africaine"
+    },
+    "answer": "B",
+    "explanation": "La plupart des approches d'apprentissage supervisé et des benchmarks exigent des données annotées ; or celles-ci restent rares pour de nombreuses langues africaines.",
+    "source": "Rapports sur les low-resource languages ; Masakhane / AfroBench literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-013",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La « data sovereignty » (souveraineté des données) en Afrique désigne surtout :",
+    "options": {
+      "A": "L'interdiction totale d'Internet",
+      "B": "La capacité des États et communautés à contrôler le stockage et l'usage de leurs données",
+      "C": "Un protocole Wi-Fi local",
+      "D": "Une cryptomonnaie unique continentale"
+    },
+    "answer": "B",
+    "explanation": "La souveraineté des données porte sur le contrôle juridictionnel et politique des données produites localement, face aux plateformes et clouds étrangers.",
+    "source": "Discussions UA / Smart Africa sur la gouvernance des données",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-014",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Deep Learning Indaba est principalement :",
+    "options": {
+      "A": "Une conférence/communauté de renforcement de l'apprentissage automatique en Afrique",
+      "B": "Une banque centrale",
+      "C": "Un opérateur télécom",
+      "D": "Un désert numérique"
+    },
+    "answer": "A",
+    "explanation": "L'Indaba est un événement et un réseau majeurs pour la communauté ML africaine.",
+    "source": "deeplearningindaba.com",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-015",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "AfroBench (McGill-NLP) se distingue d'AfriBench surtout parce qu'il :",
+    "options": {
+      "A": "Évalue surtout des tâches NLP multilingues sur de nombreuses langues africaines",
+      "B": "Ne concerne que le français QCM culturel",
+      "C": "Est un réseau social",
+      "D": "Remplace l'Union africaine"
+    },
+    "answer": "A",
+    "explanation": "AfroBench couvre de nombreuses langues et tâches NLP ; AfriBench (ce projet) est un QCM francophone sur les savoirs africains.",
+    "source": "AfroBench (EMNLP 2024) ; README AfriBench",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-016",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un enjeu fréquent des data centers en Afrique est :",
+    "options": {
+      "A": "L'énergie, la connectivité et la latence régionale",
+      "B": "L'absence totale d'utilisateurs Internet",
+      "C": "L'interdiction mondiale du cloud",
+      "D": "Le trop-plein de GPU locaux inutilisés partout"
+    },
+    "answer": "A",
+    "explanation": "Le déploiement d'infrastructures cloud dépend fortement de l'électricité fiable, de la fibre et des coûts de bande passante.",
+    "source": "Rapports d'écosystème numérique africain (GSMA, Banque mondiale)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-017",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le projet Lacuna Fund soutient surtout :",
+    "options": {
+      "A": "La création de jeux de données pour l'IA dans les régions sous-représentées",
+      "B": "La construction de stades",
+      "C": "L'interdiction de l'open source",
+      "D": "Le remplacement des universités africaines"
+    },
+    "answer": "A",
+    "explanation": "Lacuna Fund finance des datasets d'intérêt public, y compris en Afrique.",
+    "source": "lacunafund.org",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-018",
+    "category": "ia_technologie",
+    "subcategory": "telecom",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La pénétration du mobile money en Afrique a été favorisée par :",
+    "options": {
+      "A": "Une forte adoption du mobile et des besoins d'inclusion financière",
+      "B": "L'absence totale de téléphones",
+      "C": "L'interdiction des SIM",
+      "D": "Un réseau postal exclusivement maritime"
+    },
+    "answer": "A",
+    "explanation": "Le mobile a permis des services financiers là où la bancarisation classique était limitée.",
+    "source": "GSMA Mobile Money reports",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-019",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un risque éthique spécifique des modèles de langage sur l'Afrique est :",
+    "options": {
+      "A": "Les biais et stéréotypes dus à des données d'entraînement peu représentatives",
+      "B": "Leur incapacité physique à utiliser l'électricité",
+      "C": "Leur obligation légale de parler toutes les langues dès 1990",
+      "D": "L'interdiction mondiale de toute API"
+    },
+    "answer": "A",
+    "explanation": "Sous-représentation des langues/contextes africains → erreurs et stéréotypes.",
+    "source": "Littérature bias/low-resource NLP",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-020",
+    "category": "ia_technologie",
+    "subcategory": "startups",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les hubs technologiques comme Yaba (Lagos) ou Station F Africa-focused networks illustrent :",
+    "options": {
+      "A": "La croissance d'écosystèmes startup africains",
+      "B": "La disparition d'Internet en Afrique",
+      "C": "L'interdiction du venture capital",
+      "D": "Un retour exclusif à l'économie de traite"
+    },
+    "answer": "A",
+    "explanation": "Des clusters urbains concentrent talents, capital et services numériques.",
+    "source": "Rapports écosystèmes startup africains",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-021",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi l'open source est-il stratégique pour le NLP africain ?",
+    "options": {
+      "A": "Il permet le partage de modèles/données et la collaboration communautaire",
+      "B": "Il interdit toute publication scientifique",
+      "C": "Il force l'usage exclusif de l'anglais",
+      "D": "Il remplace le besoin d'électricité"
+    },
+    "answer": "A",
+    "explanation": "Des communautés comme Masakhane misent sur l'ouverture pour accélérer les langues peu dotées.",
+    "source": "Masakhane / AfroLM literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-022",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La stratégie de transformation numérique de l'UA vise notamment à :",
+    "options": {
+      "A": "Accélérer l'inclusion numérique et l'économie digitale continentale",
+      "B": "Supprimer les smartphones",
+      "C": "Interdire la fibre optique",
+      "D": "Remplacer l'école par des chatbots uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les cadres UA/Smart Africa promeuvent infrastructures, compétences et marchés numériques.",
+    "source": "UA Digital Transformation Strategy",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-023",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Black in AI est surtout :",
+    "options": {
+      "A": "Une communauté pour diversifier l'IA et soutenir les chercheurs noirs",
+      "B": "Une banque centrale",
+      "C": "Un protocole TCP",
+      "D": "Un désert"
+    },
+    "answer": "A",
+    "explanation": "Organisation communautaire en intelligence artificielle.",
+    "source": "blackinai.org",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-024",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un corpus oral annoté est crucial pour l'ASR (reconnaissance vocale) des langues africaines car :",
+    "options": {
+      "A": "Il aligne audio et transcription pour l'apprentissage",
+      "B": "Il remplace les microphones",
+      "C": "Il interdit le multilinguisme",
+      "D": "Il mesure le PIB"
+    },
+    "answer": "A",
+    "explanation": "L'ASR supervisé nécessite des paires audio–texte.",
+    "source": "Littérature speech low-resource",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-025",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le consentement éclairé pour collecter des données vocales communautaires doit surtout garantir :",
+    "options": {
+      "A": "Compréhension des usages, risques et droits de retrait",
+      "B": "Un profit maximal sans information",
+      "C": "La cession perpétuelle sans explication",
+      "D": "L'anonymat impossible à concevoir"
+    },
+    "answer": "A",
+    "explanation": "Éthique de la donnée : information, finalités, retrait.",
+    "source": "Cadres éthiques data/IA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-026",
+    "category": "ia_technologie",
+    "subcategory": "infrastructures",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les câbles sous-marins aboutissant en Afrique sont stratégiques car ils :",
+    "options": {
+      "A": "Portent l'essentiel du trafic Internet international",
+      "B": "Transportent uniquement du pétrole",
+      "C": "Servent de rails ferroviaires",
+      "D": "Remplacent les satellites météo"
+    },
+    "answer": "A",
+    "explanation": "La connectivité intercontinentale repose largement sur ces câbles.",
+    "source": "Rapports infrastructures numériques Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-027",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Hugging Face est surtout utilisé comme :",
+    "options": {
+      "A": "Une plateforme de modèles et datasets ML",
+      "B": "Une compagnie aérienne",
+      "C": "Une mine de cobalt",
+      "D": "Un parti politique"
+    },
+    "answer": "A",
+    "explanation": "Hub de modèles, datasets et Spaces.",
+    "source": "huggingface.co",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-028",
+    "category": "ia_technologie",
+    "subcategory": "politique_tech",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une politique de données ouvertes gouvernementales peut aider l'innovation si elle :",
+    "options": {
+      "A": "Publie des données utiles tout en protégeant la vie privée",
+      "B": "Divulgue tous les dossiers médicaux nominatifs",
+      "C": "Interdit toute API",
+      "D": "Supprime les statistiques nationales"
+    },
+    "answer": "A",
+    "explanation": "Open data ≠ exposition de données personnelles sensibles.",
+    "source": "Principes open data",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-029",
+    "category": "ia_technologie",
+    "subcategory": "startups",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un « sandbox » réglementaire fintech permet souvent de :",
+    "options": {
+      "A": "Tester des services innovants sous supervision",
+      "B": "Échapper à toute loi pénale",
+      "C": "Interdire les paiements mobiles",
+      "D": "Nationaliser automatiquement les startups"
+    },
+    "answer": "A",
+    "explanation": "Cadre d'expérimentation contrôlée.",
+    "source": "Littérature fintech regulation",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-030",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le web scrapé sans licence claire pose problème pour l'IA car :",
+    "options": {
+      "A": "Droits d'auteur, consentement et biais de sources",
+      "B": "Il améliore toujours la légalité",
+      "C": "Il garantit l'équité",
+      "D": "Il remplace l'éthique"
+    },
+    "answer": "A",
+    "explanation": "Questions juridiques et de représentativité.",
+    "source": "Débats data governance / copyright",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-031",
+    "category": "ia_technologie",
+    "subcategory": "initiatives",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le programme AI4D (Artificial Intelligence for Development) vise surtout à :",
+    "options": {
+      "A": "Soutenir recherche et politiques d'IA pour le développement",
+      "B": "Interdire l'IA en Afrique",
+      "C": "Remplacer les parlements",
+      "D": "Créer une seule langue mondiale"
+    },
+    "answer": "A",
+    "explanation": "Initiatives de renforcement des capacités et politiques.",
+    "source": "AI4D literature / funders",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-032",
+    "category": "ia_technologie",
+    "subcategory": "telecom",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La 4G/5G en Afrique progresse inégalement surtout à cause de :",
+    "options": {
+      "A": "Coûts d'infrastructure, spectre et pouvoir d'achat",
+      "B": "L'absence totale d'utilisateurs de téléphones",
+      "C": "L'interdiction mondiale du mobile",
+      "D": "Un excès de fibre partout sans exception"
+    },
+    "answer": "A",
+    "explanation": "Déploiement contraint par économie et régulation.",
+    "source": "GSMA Mobile Economy Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-033",
+    "category": "ia_technologie",
+    "subcategory": "nlp",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Masakhane est surtout connu comme…",
+    "options": {
+      "A": "Une communauté de recherche NLP pour les langues africaines",
+      "B": "Un opérateur télécoms panafricain",
+      "C": "Une banque centrale numérique",
+      "D": "Un protocole minier"
+    },
+    "answer": "A",
+    "explanation": "Masakhane fédère des chercheurs autour de la NLP pour les langues africaines.",
+    "source": "Masakhane — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-034",
+    "category": "ia_technologie",
+    "subcategory": "infra",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le principal frein à l'IA en Afrique souvent cité est…",
+    "options": {
+      "A": "Le manque de données locales et d'infrastructures de calcul",
+      "B": "L'interdiction mondiale du deep learning",
+      "C": "L'absence totale de téléphones mobiles",
+      "D": "La surabondance de GPU publics"
+    },
+    "answer": "A",
+    "explanation": "Données sous-représentées, coûts de calcul et connectivité restent des défis structurels.",
+    "source": "AI4D / academic reviews",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-035",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les modèles multilingues « web-scale » sous-performent-ils souvent sur les langues africaines ?",
+    "options": {
+      "A": "Faible représentation de ces langues dans les corpus d'entraînement",
+      "B": "Elles sont syntaxiquement impossibles à modéliser",
+      "C": "Elles n'ont aucun emprunt lexical",
+      "D": "Elles n'existent qu'à l'oral sans aucun texte"
+    },
+    "answer": "A",
+    "explanation": "Le déséquilibre des données web biaise les modèles contre les langues peu dotées.",
+    "source": "NLP literature on low-resource languages",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-036",
+    "category": "ia_technologie",
+    "subcategory": "applications",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Une application prioritaire de l'IA en agriculture africaine est…",
+    "options": {
+      "A": "Aide au diagnostic des maladies des cultures via images",
+      "B": "Remplacement des saisons climatiques",
+      "C": "Interdiction des coopératives",
+      "D": "Traduction automatique des codes miniers uniquement"
+    },
+    "answer": "A",
+    "explanation": "Vision par ordinateur et conseil agronomique mobile sont des cas d'usage fréquents.",
+    "source": "FAO / AI4Agriculture reviews",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-037",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un risque éthique majeur des systèmes de crédit scoring IA en Afrique est…",
+    "options": {
+      "A": "La discrimination via des proxies socio-économiques biaisés",
+      "B": "L'élimination automatique de l'inflation",
+      "C": "La création d'or numérique",
+      "D": "La disparition des langues"
+    },
+    "answer": "A",
+    "explanation": "Des variables proxies peuvent reproduire des inégalités d'accès au crédit.",
+    "source": "AI ethics / digital finance literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-038",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les benchmarks de type AfriBench cherchent surtout à…",
+    "options": {
+      "A": "Mesurer les LLM sur des connaissances et contextes africains",
+      "B": "Remplacer Internet en Afrique",
+      "C": "Certifier le matériel GPU",
+      "D": "Standardiser les visas Schengen"
+    },
+    "answer": "A",
+    "explanation": "AfriBench évalue les modèles sur des questions ancrées dans les réalités africaines.",
+    "source": "AfriBench README",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

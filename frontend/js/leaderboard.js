@@ -12,7 +12,7 @@ let lbShowLegend = false;
 const METRICS = {
   score: {
     label: 'Score global',
-    desc: 'Pourcentage de réponses correctes sur l\'ensemble du benchmark (189 questions). Métrique principale de performance.',
+    desc: 'Pourcentage de réponses correctes sur l\'ensemble du benchmark. Métrique principale de performance.',
   },
   facile: {
     label: 'Facile',
@@ -115,7 +115,7 @@ function renderLeaderboard(container) {
       <span style="flex:1"></span>
       <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
       <button class="filter-btn" id="lb-export-json" title="Exporter en JSON">JSON</button>
-      <span style="font-size:var(--font-size-xs);color:var(--text-muted);margin-left:8px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
+      <span style="font-size:0.68rem;color:var(--muted);margin-left:8px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
   `;
 
@@ -179,9 +179,9 @@ function renderLeaderboard(container) {
     const isBestOpen = isOpen && name === bestOpenName;
 
     let badges = '';
-    if (i === 0) badges += '<span class="perf-badge bronze">LEADER</span>';
-    if (isBestStd) badges += '<span class="perf-badge green">CONSISTENT</span>';
-    if (isBestOpen && i > 0) badges += '<span class="perf-badge blue">TOP OPEN</span>';
+    if (i === 0) badges += '<span class="perf-badge bronze">Meilleur score (v0.1)</span>';
+    if (isBestOpen && i !== 0) badges += '<span class="perf-badge bronze">Meilleur open</span>';
+    if (isBestStd) badges += '<span class="perf-badge bronze">Plus constant</span>';
 
     const favStar = isFavorite(name) ? '★' : '☆';
 
@@ -209,7 +209,7 @@ function renderLeaderboard(container) {
         <td class="metadata">${easy}</td>
         <td class="metadata">${med}</td>
         <td class="metadata">${hard}</td>
-        <td class="metadata" style="color:${best ? categoryColor(best.key) : 'var(--text-muted)'}">
+        <td class="metadata" style="color:${best ? categoryColor(best.key) : 'var(--muted)'}">
           ${best ? `${categoryLabel(best.key)} ${best.accuracy.toFixed(0)}%` : '-'}
         </td>
         <td class="metadata ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
@@ -244,7 +244,7 @@ function renderLeaderboard(container) {
   `;
   html += `</div>`;
 
-  // ── Podium par categorie ──
+  // ── Podium par catégorie ──
   html += `
     <div class="card">
       <div class="card-title">

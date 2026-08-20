@@ -1,0 +1,724 @@
+[
+  {
+    "id": "SOC-001",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique a la population la plus jeune du monde. Quel pourcentage de sa population a moins de 25 ans ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "70%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine a moins de 25 ans (contre 27% en Europe et 30% en Amérique du Nord). L'âge médian en Afrique est d'environ 19 ans, contre 38 ans en Europe.",
+    "source": "ONU (World Population Prospects) ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-002",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel pays africain a le taux d'alphabétisation le plus élevé du continent ?",
+    "options": {
+      "A": "Maurice",
+      "B": "Afrique du Sud",
+      "C": "Seychelles",
+      "D": "Tunisie"
+    },
+    "answer": "C",
+    "explanation": "Les Seychelles ont le taux d'alphabétisation le plus élevé d'Afrique (environ 96%), suivies de Maurice (91%) et de la Tunisie (81%). L'investissement dans l'éducation primaire universelle y est la clé.",
+    "source": "UNESCO (Institut de statistique)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-003",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la ville la plus peuplée d'Afrique ?",
+    "options": {
+      "A": "Le Caire",
+      "B": "Lagos",
+      "C": "Kinshasa",
+      "D": "Johannesbourg"
+    },
+    "answer": "B",
+    "explanation": "Lagos (Nigeria) est la ville la plus peuplée d'Afrique avec environ 20 millions d'habitants (aire métropolitaine). Le Caire suit avec ~15 millions, Kinshasa avec ~14 millions.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-004",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le système éducatif africain fait face à un défi majeur malgré les progrès de la scolarisation primaire. Lequel ?",
+    "options": {
+      "A": "La pénurie d'écoles primaires",
+      "B": "Le faible taux de transition vers le secondaire et la qualité de l'apprentissage",
+      "C": "Le manque d'écoles privées",
+      "D": "La langue d'enseignement étrangère dans tous les pays"
+    },
+    "answer": "B",
+    "explanation": "Si la scolarisation primaire atteint 80% en Afrique subsaharienne, seulement 40% des enfants achèvent le secondaire. De plus, 80% des enfants en Afrique subsaharienne ne maîtrisent pas les compétences de base en lecture à 10 ans (crise de l'apprentissage).",
+    "source": "UNESCO ; Banque Mondiale (Rapport sur le capital humain)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-005",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'urbanisation en Afrique progresse rapidement. Quel pourcentage de la population africaine vivra en ville d'ici 2050 ?",
+    "options": {
+      "A": "40%",
+      "B": "50%",
+      "C": "60%",
+      "D": "75%"
+    },
+    "answer": "C",
+    "explanation": "Environ 60% de la population africaine vivra en zone urbaine d'ici 2050, contre 40% actuellement. L'Afrique est le continent qui s'urbanise le plus rapidement au monde, avec 15 à 20 millions de nouveaux citadins par an.",
+    "source": "ONU-Habitat ; Banque Mondiale",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-006",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est le moyen de communication le plus utilisé pour accéder à l'information en Afrique subsaharienne ?",
+    "options": {
+      "A": "La télévision",
+      "B": "La radio",
+      "C": "Les réseaux sociaux (WhatsApp, Facebook)",
+      "D": "Les journaux papier"
+    },
+    "answer": "B",
+    "explanation": "La radio reste le média le plus accessible et le plus utilisé en Afrique subsaharienne, touchant environ 80% des ménages. Dans les zones rurales (où vit encore ~60% de la population), la radio est souvent le seul média accessible, notamment avec les radios solaires.",
+    "source": "UNESCO ; BBC Media Action",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-007",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La transition démographique africaine diffère de celle des autres continents. Quelle en est la principale caractéristique ?",
+    "options": {
+      "A": "Baisse rapide de la natalité comme en Asie",
+      "B": "Baisse de la mortalité sans baisse équivalente de la natalité",
+      "C": "Stabilité de la mortalité et de la natalité",
+      "D": "Hausse de la natalité accompagnée d'une baisse de la mortalité"
+    },
+    "answer": "B",
+    "explanation": "Contrairement à l'Asie et l'Amérique latine, l'Afrique connaît une baisse rapide de la mortalité (grâce aux progrès médicaux) mais une baisse plus lente de la natalité. Cela crée une « fenêtre démographique » prolongée mais aussi une pression sur les services publics.",
+    "source": "ONU ; FMI (Rapport sur la transition démographique africaine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-008",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les transferts d'argent de la diaspora africaine (remittances) représentent une source de financement majeure pour le continent. Quel pays africain reçoit le plus de remittances en valeur absolue ?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Égypte",
+      "C": "Ghana",
+      "D": "Kenya"
+    },
+    "answer": "A",
+    "explanation": "Le Nigeria reçoit environ 25 milliards $ de remittances par an (2025), suivi de l'Égypte (~20Mds) et du Ghana (~5Mds). Au total, les remittances vers l'Afrique dépassent les 100 milliards $, soit plus que l'aide publique au développement.",
+    "source": "Banque Mondiale (KNOMAD) ; FMI",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-009",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Plusieurs pays africains ont réformé leur système éducatif pour inclure des langues nationales dans l'enseignement primaire. Quel pays a introduit l'enseignement en swahili comme langue d'instruction obligatoire dans le primaire en 2022 ?",
+    "options": {
+      "A": "Tanzanie",
+      "B": "Kenya",
+      "C": "Ouganda",
+      "D": "Rwanda"
+    },
+    "answer": "B",
+    "explanation": "Le Kenya a introduit l'enseignement en swahili (et en langues locales) comme langue d'instruction obligatoire dans les 3 premières années du primaire à partir de 2022, dans le cadre de la réforme du Competency-Based Curriculum (CBC). La Tanzanie enseignait déjà en swahili depuis l'indépendance.",
+    "source": "Kenya Institute of Curriculum Development ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-010",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Union africaine a déclaré la diaspora africaine comme la « sixième région » de l'Afrique. Quel événement bisannuel a été institué pour la mobiliser ?",
+    "options": {
+      "A": "Le Forum de la diaspora africaine",
+      "B": "Le sommet des diasporas africaines dans le cadre de l'UA",
+      "C": "Le Festival panafricain de la diaspora",
+      "D": "Le Global African Investment Summit"
+    },
+    "answer": "B",
+    "explanation": "Le Sommet des diasporas africaines (African Diaspora Summit) est organisé tous les deux ans par l'UA. La diaspora africaine compte environ 200 millions de personnes dans le monde, contribuant via les remittances, les compétences et les investissements.",
+    "source": "Union africaine (Agenda 2063) ; AU Diaspora Division",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SOC-011",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Lagos, Kinshasa ou Le Caire illustrent surtout quel phénomène démographique contemporain ?",
+    "options": {
+      "A": "La désertification rurale exclusive",
+      "B": "La métropolisation et la croissance urbaine rapide",
+      "C": "La disparition des langues",
+      "D": "L'absence totale d'infrastructures depuis toujours"
+    },
+    "answer": "B",
+    "explanation": "Ces très grandes villes africaines incarnent une urbanisation rapide et la formation de métropoles de plusieurs millions d'habitants.",
+    "source": "ONU-Habitat / World Urbanization Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-012",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'enseignement dans une langue maternelle africaine en début de scolarité est souvent défendu parce qu'il :",
+    "options": {
+      "A": "Diminue l'apprentissage",
+      "B": "Facilite la compréhension et les apprentissages fondamentaux",
+      "C": "Interdit le multilinguisme",
+      "D": "Remplace toutes les sciences"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études en éducation montrent que l'entrée dans les apprentissages via une langue maîtrisée améliore la compréhension.",
+    "source": "UNESCO — éducation multilingue / langue maternelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-013",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les transferts de fonds de la diaspora vers l'Afrique sont importants car ils :",
+    "options": {
+      "A": "Remplacent toute l'aide publique sans exception",
+      "B": "Constituent une source majeure de revenus pour de nombreux ménages",
+      "C": "Sont interdits par l'UA",
+      "D": "Ne concernent que l'or"
+    },
+    "answer": "B",
+    "explanation": "Les remittances représentent des flux financiers majeurs pour plusieurs économies et ménages africains.",
+    "source": "Banque mondiale — Migration and Development Brief",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-014",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'Afrique est le continent où la population est :",
+    "options": {
+      "A": "En moyenne la plus âgée du monde",
+      "B": "Parmi les plus jeunes, avec une forte croissance démographique",
+      "C": "Stable depuis le Moyen Âge",
+      "D": "En déclin absolu partout"
+    },
+    "answer": "B",
+    "explanation": "La structure par âge est très jeune et la croissance démographique reste élevée dans de nombreux pays.",
+    "source": "UN World Population Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-015",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mouvements pour la scolarisation des filles en Afrique insistent souvent sur le fait que :",
+    "options": {
+      "A": "L'éducation des filles n'a aucun effet économique",
+      "B": "Elle améliore la santé, les revenus et le développement communautaire",
+      "C": "Seuls les garçons doivent apprendre à lire",
+      "D": "L'école doit être interdite"
+    },
+    "answer": "B",
+    "explanation": "De nombreuses études de développement lient l'éducation des filles à de meilleurs indicateurs de santé et de revenu.",
+    "source": "UNESCO / Banque mondiale — girls' education",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-016",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le « journalism mobile » et les radios communautaires en Afrique jouent un rôle clé car ils :",
+    "options": {
+      "A": "Remplacent l'État",
+      "B": "Permettent une information locale accessible malgré des fractures numériques",
+      "C": "Interdisent les langues africaines",
+      "D": "N'existent que dans les capitales européennes"
+    },
+    "answer": "B",
+    "explanation": "Radios communautaires et reportages mobiles restent des canaux majeurs d'information de proximité.",
+    "source": "UNESCO — community media in Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-017",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les « villes secondaires » africaines sont importantes car elles :",
+    "options": {
+      "A": "Absorbent une part croissante de l'urbanisation hors mégapoles",
+      "B": "N'existent pas démographiquement",
+      "C": "Remplacent les États",
+      "D": "Sont interdites par l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Une part majeure de la croissance urbaine se fait hors des très grandes capitales.",
+    "source": "ONU-Habitat — urbanisation Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-018",
+    "category": "societe",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le défi de l'« emploi des jeunes » en Afrique est lié surtout à :",
+    "options": {
+      "A": "Une cohorte jeune nombreuse entrant sur le marché du travail",
+      "B": "L'absence totale de population jeune",
+      "C": "Un excès d'emplois formels non pourvus partout",
+      "D": "La disparition de l'agriculture mondiale"
+    },
+    "answer": "A",
+    "explanation": "La structure démographique jeune crée une pression forte sur la création d'emplois.",
+    "source": "BAD / BIT — youth employment Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-019",
+    "category": "societe",
+    "subcategory": "religion",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le syncrétisme religieux observé dans certaines sociétés africaines désigne :",
+    "options": {
+      "A": "Le mélange/creative coexistence de pratiques et croyances",
+      "B": "L'interdiction de toute religion",
+      "C": "Un impôt unique continental",
+      "D": "Un style architectural grec classique exclusif"
+    },
+    "answer": "A",
+    "explanation": "Syncrétisme : articulation de traditions locales et de religions mondiales.",
+    "source": "Anthropologie des religions en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-020",
+    "category": "societe",
+    "subcategory": "migration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La migration intra-africaine est souvent plus importante quantitativement que :",
+    "options": {
+      "A": "La migration Afrique→Europe seule, dans plusieurs analyses de flux",
+      "B": "Toute migration interne chinoise",
+      "C": "Le tourisme lunaire",
+      "D": "Le commerce de l'Antiquité romaine"
+    },
+    "answer": "A",
+    "explanation": "Une grande part des mouvements migratoires africains reste régionale/continentale.",
+    "source": "UA / OIM — migration in Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-021",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les « learning poverty » indicators soulignent surtout :",
+    "options": {
+      "A": "Que trop d'enfants n'acquièrent pas des compétences de lecture de base",
+      "B": "Que toutes les universités africaines sont fermées",
+      "C": "Que le français est interdit",
+      "D": "Que l'école n'existe qu'en ligne"
+    },
+    "answer": "A",
+    "explanation": "Learning poverty mesure l'incapacité à lire et comprendre un texte simple à un âge donné.",
+    "source": "Banque mondiale — Learning Poverty",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-022",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les quotas de genre dans certains parlements africains visent à :",
+    "options": {
+      "A": "Augmenter la représentation politique des femmes",
+      "B": "Interdire le vote",
+      "C": "Remplacer les élections",
+      "D": "Limiter l'éducation"
+    },
+    "answer": "A",
+    "explanation": "Des mécanismes de quotas cherchent à corriger sous-représentation politique féminine.",
+    "source": "IDEA / UA — women in politics",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-023",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les examens nationaux à fort enjeu (high-stakes) peuvent produire :",
+    "options": {
+      "A": "Du bachotage et des inégalités d'accès au soutien",
+      "B": "Une disparition automatique de l'illettrisme",
+      "C": "Une égalité parfaite garantie",
+      "D": "La fin des écoles privées mondiales"
+    },
+    "answer": "A",
+    "explanation": "Effets pervers possibles des examens sélectifs.",
+    "source": "Sociologie de l'éducation",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-024",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un « bidonville » / quartier informel se caractérise souvent par :",
+    "options": {
+      "A": "Un habitat précaire et un accès limité aux services",
+      "B": "Des gratte-ciel réglementés exclusivement",
+      "C": "Une absence totale d'habitants",
+      "D": "Un statut de parc national"
+    },
+    "answer": "A",
+    "explanation": "Définition opérationnelle ONU-Habitat (approximative).",
+    "source": "ONU-Habitat",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-025",
+    "category": "societe",
+    "subcategory": "demographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le dividende démographique désigne la possibilité que :",
+    "options": {
+      "A": "Une baisse relative de dépendance booste la croissance si emplois/éducation suivent",
+      "B": "La population diminue toujours le PIB",
+      "C": "Les naissances cessent",
+      "D": "L'urbanisation disparaisse"
+    },
+    "answer": "A",
+    "explanation": "Fenêtre démographique conditionnelle aux politiques.",
+    "source": "UNFPA — demographic dividend",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-026",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La désinformation via WhatsApp en période électorale est préoccupante car :",
+    "options": {
+      "A": "Les messages privés se propagent vite hors modération publique",
+      "B": "WhatsApp interdit toute élection",
+      "C": "Les électeurs n'existent pas",
+      "D": "Les médias n'ont aucun rôle"
+    },
+    "answer": "A",
+    "explanation": "Canaux chiffrés/fermetés compliquent la régulation.",
+    "source": "Études désinformation Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-027",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les mutilations génitales féminines (MGF) sont combattues car elles :",
+    "options": {
+      "A": "Violent les droits humains et la santé des filles/femmes",
+      "B": "Améliorent toujours la scolarisation",
+      "C": "Sont recommandées par l'OMS",
+      "D": "N'existent dans aucune société"
+    },
+    "answer": "A",
+    "explanation": "Pratiques néfastes ciblées par OMS/UNICEF et lois nationales.",
+    "source": "OMS — FGM",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-028",
+    "category": "societe",
+    "subcategory": "migration",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les déplacés internes (IDP) diffèrent des réfugiés surtout parce qu'ils :",
+    "options": {
+      "A": "Restent à l'intérieur des frontières de leur pays",
+      "B": "Ont forcément traversé une frontière internationale",
+      "C": "Ne peuvent jamais recevoir d'aide",
+      "D": "Sont uniquement des touristes"
+    },
+    "answer": "A",
+    "explanation": "IDP = déplacement interne ; réfugié = protection internationale.",
+    "source": "HCR — IDPs",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-029",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les écoles coraniques / médersas en Afrique de l'Ouest posent l'enjeu de :",
+    "options": {
+      "A": "L'articulation entre éducation religieuse et compétences de base",
+      "B": "L'interdiction totale de toute foi",
+      "C": "La suppression du français mondial",
+      "D": "Un remplacement des hôpitaux"
+    },
+    "answer": "A",
+    "explanation": "Débats d'intégration curriculaire et protection de l'enfance.",
+    "source": "Études éducation Sahel",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-030",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La gentrification dans certaines métropoles africaines peut entraîner :",
+    "options": {
+      "A": "L'éviction de ménages pauvres des quartiers revalorisés",
+      "B": "Une baisse garantie des loyers pour tous",
+      "C": "La fin de toute construction",
+      "D": "L'interdiction des transports"
+    },
+    "answer": "A",
+    "explanation": "Hausse des prix et déplacement de populations vulnérables.",
+    "source": "Études urbaines",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-031",
+    "category": "societe",
+    "subcategory": "emploi",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le sous-emploi désigne surtout :",
+    "options": {
+      "A": "Travailler moins d'heures ou en deçà de ses compétences/besoins",
+      "B": "Avoir trop d'emplois formels",
+      "C": "La retraite anticipée obligatoire",
+      "D": "Un type de vaccin"
+    },
+    "answer": "A",
+    "explanation": "Concept BIT distinct du chômage strict.",
+    "source": "BIT — underemployment",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-032",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les radios en langues locales restent centrales car elles :",
+    "options": {
+      "A": "Touchent des publics peu connectés ou peu alphabétisés en langues officielles",
+      "B": "Ont disparu en 1990",
+      "C": "Interdisent l'information météo",
+      "D": "Remplacent les hôpitaux"
+    },
+    "answer": "A",
+    "explanation": "Accessibilité linguistique et géographique.",
+    "source": "UNESCO community radio",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-033",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La croissance urbaine rapide en Afrique s'accompagne souvent de…",
+    "options": {
+      "A": "Expansion des quartiers informels et défis d'infrastructures",
+      "B": "Disparition totale des villes secondaires",
+      "C": "Interdiction des transports collectifs",
+      "D": "Refroidissement climatique local garanti"
+    },
+    "answer": "A",
+    "explanation": "Urbanisation rapide + déficits de logement/services = importance de l'informel urbain.",
+    "source": "UN-Habitat — African cities",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-034",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un défi fréquent des systèmes éducatifs africains est…",
+    "options": {
+      "A": "Surpeuplement des classes et pénurie d'enseignants",
+      "B": "Excès d'enseignants par élève partout",
+      "C": "Absence totale d'écoles primaires dans tous les pays",
+      "D": "Interdiction des langues africaines par l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Ratios élèves/enseignant élevés et pénuries restent documentés dans plusieurs pays.",
+    "source": "UNESCO UIS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-035",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mouvements pour les droits des femmes en Afrique combattent notamment…",
+    "options": {
+      "A": "Les discriminations légales et les violences basées sur le genre",
+      "B": "L'accès universel à l'eau potable comme objectif unique",
+      "C": "La disparition du commerce transfrontalier",
+      "D": "L'usage du mobile money"
+    },
+    "answer": "A",
+    "explanation": "Réformes juridiques, lutte contre VBG et participation politique sont des axes majeurs.",
+    "source": "UN Women / ACHPR",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-036",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les transferts de fonds de la diaspora africaine sont importants parce qu'ils…",
+    "options": {
+      "A": "Constituent une source majeure de revenus extérieurs pour de nombreux pays",
+      "B": "Remplacent le commerce international",
+      "C": "Sont interdits par l'UA",
+      "D": "Ne concernent que l'Afrique du Nord"
+    },
+    "answer": "A",
+    "explanation": "Les remittances financent ménages, éducation, santé et parfois l'investissement local.",
+    "source": "World Bank — Migration & Remittances",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-037",
+    "category": "societe",
+    "subcategory": "jeunesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La structure démographique africaine se caractérise souvent par…",
+    "options": {
+      "A": "Une population jeune et une transition démographique en cours",
+      "B": "Une médiane d'âge supérieure à 60 ans partout",
+      "C": "Une natalité nulle",
+      "D": "Une population exclusivement urbaine depuis 1900"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique a une des populations les plus jeunes au monde, avec urbanisation croissante.",
+    "source": "UN DESA Population Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-038",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les radios communautaires en Afrique jouent souvent un rôle clé pour…",
+    "options": {
+      "A": "L'information locale et la sensibilisation en langues nationales",
+      "B": "Le remplacement des parlements",
+      "C": "La fixation des taux directeurs",
+      "D": "La certification des diamants"
+    },
+    "answer": "A",
+    "explanation": "Elles touchent des publics ruraux et diffusent en langues locales des contenus de service public.",
+    "source": "UNESCO community media",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

@@ -150,5 +150,575 @@
     "source": "Horton, R. (1967) African Traditional Thought and Western Science ; Hountondji, P. (1977) Sur la philosophie africaine",
     "author": "afribench",
     "date_created": "2026-06-04"
+  },
+  {
+    "id": "CULT-009",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses cultures ouest-africaines, le proverbe « Un seul doigt ne peut pas ramasser une pierre » illustre surtout :",
+    "options": {
+      "A": "La compétition individuelle",
+      "B": "La nécessité de la coopération",
+      "C": "Le refus de l'effort physique",
+      "D": "La hiérarchie royale"
+    },
+    "answer": "B",
+    "explanation": "Ce type de proverbe souligne que l'action collective est plus efficace que l'isolement — un thème récurrent des sagesses communautaires africaines.",
+    "source": "Collections de proverbes ouest-africains ; ethnolinguistique Akan/Yoruba (synthèses universitaires)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-010",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps_social",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une réunion communautaire où l'ordre de prise de parole suit l'âge et le statut, quelle attitude est la plus adaptée pour un jeune participant ?",
+    "options": {
+      "A": "Interrompre dès qu'il a une idée",
+      "B": "Attendre d'être invité ou que les aînés aient parlé",
+      "C": "Quitter la salle pour forcer l'attention",
+      "D": "Parler uniquement en langue étrangère"
+    },
+    "answer": "B",
+    "explanation": "Dans de nombreux contextes de délibération africains, le respect des aînés structure le tour de parole ; la participation des plus jeunes s'inscrit dans cette étiquette.",
+    "source": "Anthropologie des conseils villageois (Afrique de l'Ouest) — synthèses pédagogiques",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-011",
+    "category": "raisonnement_culturel",
+    "subcategory": "solidarite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La pratique de la tontine (épargne rotative) repose principalement sur :",
+    "options": {
+      "A": "Un crédit bancaire international",
+      "B": "La confiance et la réciprocité entre membres",
+      "C": "Une obligation fiscale de l'État",
+      "D": "Le hasard sans engagement"
+    },
+    "answer": "B",
+    "explanation": "Les tontines fonctionnent sur la confiance mutuelle, des cotisations régulières et une redistribution tournante — un mécanisme de solidarité financière populaire.",
+    "source": "Banque mondiale / recherches sur les ROSCA en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-012",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans un conflit de voisinage traité par un conseil des sages, l'objectif prioritaire est souvent :",
+    "options": {
+      "A": "Punir le plus faible",
+      "B": "Restaurer l'harmonie sociale plutôt que désigner un « gagnant » absolu",
+      "C": "Appliquer uniquement le droit pénal colonial",
+      "D": "Ignorer les victimes"
+    },
+    "answer": "B",
+    "explanation": "La justice restaurative et la médiation communautaire cherchent fréquemment la réconciliation et la paix sociale, au-delà du seul verdict binaire.",
+    "source": "Études sur la justice traditionnelle et la médiation en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-013",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le proverbe « Si tu veux aller vite, vas-y seul ; si tu veux aller loin, allez-y ensemble » met surtout en avant :",
+    "options": {
+      "A": "L'isolement comme seule vertu",
+      "B": "La valeur du collectif pour la durée",
+      "C": "Le refus de tout voyage",
+      "D": "La vitesse à tout prix"
+    },
+    "answer": "B",
+    "explanation": "Ce proverbe (répandu sous des formes proches) valorise la coopération pour atteindre des objectifs durables.",
+    "source": "Anthologies de proverbes africains (variantes orales)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-014",
+    "category": "raisonnement_culturel",
+    "subcategory": "hospitalite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses sociétés africaines, offrir à boire/manger à un visiteur avant les affaires courantes exprime surtout :",
+    "options": {
+      "A": "Un refus de discussion",
+      "B": "L'hospitalité et la reconnaissance de la relation sociale",
+      "C": "Une obligation fiscale",
+      "D": "Un rite militaire"
+    },
+    "answer": "B",
+    "explanation": "L'hospitalité précède souvent la négociation : elle institue le lien avant le contenu transactionnel.",
+    "source": "Anthropologie de l'hospitalité en Afrique de l'Ouest (synthèses)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-015",
+    "category": "raisonnement_culturel",
+    "subcategory": "consensus",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une délibération qui cherche le consensus plutôt que le vote majoritaire immédiat vise souvent à :",
+    "options": {
+      "A": "Éliminer les minorités",
+      "B": "Préserver la cohésion du groupe après la décision",
+      "C": "Accélérer uniquement les affaires boursières",
+      "D": "Interdire la parole aux aînés"
+    },
+    "answer": "B",
+    "explanation": "Le consensus cherche une décision acceptable qui limite les fractures sociales post-délibération.",
+    "source": "Études sur les palabres et la démocratie délibérative",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-016",
+    "category": "raisonnement_culturel",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans l'éducation par les contes (griots, veillées), la morale de l'histoire sert surtout à :",
+    "options": {
+      "A": "Transmettre des normes et savoirs sociaux de façon mémorable",
+      "B": "Remplacer toute école moderne sans exception",
+      "C": "Mesurer le PIB",
+      "D": "Coder des algorithmes"
+    },
+    "answer": "A",
+    "explanation": "Le conte est un vecteur pédagogique d'éthique, d'histoire locale et de compétences narratives.",
+    "source": "Littérature orale africaine — fonctions du conte",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-017",
+    "category": "raisonnement_culturel",
+    "subcategory": "parenté",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans plusieurs sociétés africaines, appeler « mon frère/ma sœur » une personne non biologique peut exprimer :",
+    "options": {
+      "A": "Une parenté sociale / solidarité élargie",
+      "B": "Une erreur d'état civil obligatoire",
+      "C": "Un refus de toute famille",
+      "D": "Un terme exclusivement juridique colonial"
+    },
+    "answer": "A",
+    "explanation": "La parenté classificatoire étend les termes familiaux au-delà du sang.",
+    "source": "Anthropologie de la parenté en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-018",
+    "category": "raisonnement_culturel",
+    "subcategory": "respect",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Saluer longuement avant d'aborder le sujet d'une visite est souvent une façon de :",
+    "options": {
+      "A": "Honorer la relation et préparer l'échange",
+      "B": "Perdre volontairement du temps sans sens social",
+      "C": "Remplacer le droit commercial",
+      "D": "Interdire la discussion"
+    },
+    "answer": "A",
+    "explanation": "Les salutations étendues instaurent le respect et le cadre relationnel.",
+    "source": "Pragmatique des interactions en Afrique de l'Ouest",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-019",
+    "category": "raisonnement_culturel",
+    "subcategory": "parole",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une culture de la parole où « la vérité se dit en proverbe », une critique directe trop brutale peut être perçue comme :",
+    "options": {
+      "A": "Manque de doigté / rupture du tact social",
+      "B": "Seule forme acceptable de science",
+      "C": "Preuve de neutralité comptable",
+      "D": "Obligation constitutionnelle"
+    },
+    "answer": "A",
+    "explanation": "L'indirection et le proverbe permettent souvent de critiquer sans humilier.",
+    "source": "Études sur la parole et l'indirection",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-020",
+    "category": "raisonnement_culturel",
+    "subcategory": "entraide",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le principe d'entraide lors des funérailles (contributions, présence) illustre surtout :",
+    "options": {
+      "A": "La solidarité communautaire face à l'épreuve",
+      "B": "Un marché boursier",
+      "C": "Une règle FIFA",
+      "D": "Un algorithme de tri"
+    },
+    "answer": "A",
+    "explanation": "Les funérailles mobilisent réseaux et obligations réciproques de soutien.",
+    "source": "Anthropologie des rites funéraires",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-021",
+    "category": "raisonnement_culturel",
+    "subcategory": "espace",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans une cour familiale partagée, laisser la porte « ouverte » aux parents peut signifier :",
+    "options": {
+      "A": "Une norme d'accessibilité et d'appartenance élargie",
+      "B": "Un défaut de serrure uniquement technique",
+      "C": "Une violation du droit international humanitaire",
+      "D": "Une mode architecturale scandinave obligatoire"
+    },
+    "answer": "A",
+    "explanation": "L'espace domestique exprime souvent des normes d'accueil et de parenté élargie.",
+    "source": "Anthropologie de l'espace domestique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-022",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Arriver « après les salutations » à une cérémonie peut être moins grave qu'ignorer les aînés, car :",
+    "options": {
+      "A": "La reconnaissance sociale prime souvent sur la ponctualité stricte",
+      "B": "Le temps n'existe pas en Afrique (stéréotype à rejeter comme loi)",
+      "C": "Les horloges sont interdites",
+      "D": "Les aînés refusent toute organisation"
+    },
+    "answer": "A",
+    "explanation": "Sans essentialiser, de nombreux contextes valorisent d'abord le respect relationnel ; la ponctualité varie selon les cadres (bureau vs cérémonie).",
+    "source": "Anthropologie du temps social (avec nuance)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-023",
+    "category": "raisonnement_culturel",
+    "subcategory": "don",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Offrir un cadeau au retour d'un voyage à la famille élargie illustre souvent :",
+    "options": {
+      "A": "Des obligations de partage et de reconnaissance",
+      "B": "Une règle comptable IFRS",
+      "C": "Un crime",
+      "D": "Une interdiction de voyager"
+    },
+    "answer": "A",
+    "explanation": "Le don entretient les liens.",
+    "source": "Anthropologie du don",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-024",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Faire appel à un oncle respecté pour calmer un conflit familial relève de :",
+    "options": {
+      "A": "La médiation par aînés / parents pivots",
+      "B": "La Cour pénale internationale",
+      "C": "Un algorithme de tri",
+      "D": "Un référendum onusien"
+    },
+    "answer": "A",
+    "explanation": "Rôle classique des médiateurs familiaux.",
+    "source": "Anthropologie de la parenté",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-025",
+    "category": "raisonnement_culturel",
+    "subcategory": "parole",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Dans certains contextes, « dire à moitié » une vérité gênante vise à :",
+    "options": {
+      "A": "Préserver la face et la relation",
+      "B": "Maximiser la confusion légale internationale",
+      "C": "Remplacer les preuves scientifiques",
+      "D": "Interdire toute conversation"
+    },
+    "answer": "A",
+    "explanation": "Stratégies d'indirection et de politesse.",
+    "source": "Pragmatique conversationnelle",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-026",
+    "category": "raisonnement_culturel",
+    "subcategory": "solidarite",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Cotiser pour un mariage dans la famille élargie s'apparente à :",
+    "options": {
+      "A": "Une assurance sociale informelle / réciprocité",
+      "B": "Une taxe foncière étatique",
+      "C": "Un produit dérivé boursier",
+      "D": "Une amende pénale"
+    },
+    "answer": "A",
+    "explanation": "Mutualisation des coûts rituels.",
+    "source": "Anthropologie économique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-027",
+    "category": "raisonnement_culturel",
+    "subcategory": "espace",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Enlever ses chaussures en entrant chez certains hôtes peut exprimer :",
+    "options": {
+      "A": "Le respect de l'espace domestique",
+      "B": "Une obligation FIFA",
+      "C": "Un refus d'hospitalité",
+      "D": "Une norme universelle sans exception"
+    },
+    "answer": "A",
+    "explanation": "Geste de respect variable selon foyers/cultures.",
+    "source": "Étiquette domestique (variable)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-028",
+    "category": "raisonnement_culturel",
+    "subcategory": "temps",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Planifier une cérémonie « après la saison des pluies » plutôt qu'à une date calendaire fixe illustre :",
+    "options": {
+      "A": "Un temps social indexé sur l'environnement/activités",
+      "B": "L'absence totale de calendriers en Afrique",
+      "C": "L'interdiction des montres",
+      "D": "Un stéréotype vrai partout sans nuance"
+    },
+    "answer": "A",
+    "explanation": "Temporalités agricoles/rituelles coexistent avec le temps horloge.",
+    "source": "Anthropologie du temps",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-029",
+    "category": "raisonnement_culturel",
+    "subcategory": "education",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Corriger un enfant en public peut être mal vu dans certains milieux car :",
+    "options": {
+      "A": "Cela expose la famille / blesse la dignité",
+      "B": "La pédagogie interdit toute règle",
+      "C": "Les enfants n'apprennent jamais",
+      "D": "L'école est illégale"
+    },
+    "answer": "A",
+    "explanation": "Normes de face et d'honneur varient.",
+    "source": "Sociologie de l'éducation familiale",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-030",
+    "category": "raisonnement_culturel",
+    "subcategory": "hospitalite",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Préparer le thé/café pour un visiteur avant les affaires courantes manifeste souvent :",
+    "options": {
+      "A": "L'hospitalité comme préalable à l'échange",
+      "B": "Un refus de discuter",
+      "C": "Une obligation fiscale",
+      "D": "Une procédure notariale"
+    },
+    "answer": "A",
+    "explanation": "Rituel d'accueil fréquent (avec variations).",
+    "source": "Anthropologie de l'hospitalité",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-031",
+    "category": "raisonnement_culturel",
+    "subcategory": "consensus",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Chercher l'accord des branches familiales avant une vente foncière vise à :",
+    "options": {
+      "A": "Éviter des conflits ultérieurs sur des droits collectifs",
+      "B": "Accélérer la spéculation mondiale",
+      "C": "Interdire l'agriculture",
+      "D": "Remplacer le cadastre par le hasard"
+    },
+    "answer": "A",
+    "explanation": "Foncier coutumier : décisions souvent collectives.",
+    "source": "Études foncier africain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-032",
+    "category": "raisonnement_culturel",
+    "subcategory": "proverbes",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Un proverbe utilisé pour conclure une palabre sert souvent à :",
+    "options": {
+      "A": "Résumer la norme et clôturer légitimement le débat",
+      "B": "Remplacer toute preuve matérielle en droit pénal international",
+      "C": "Mesurer la température",
+      "D": "Coder un réseau neuronal"
+    },
+    "answer": "A",
+    "explanation": "Fonction rhétorique et normative du proverbe.",
+    "source": "Littérature orale",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-033",
+    "category": "raisonnement_culturel",
+    "subcategory": "valeurs",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans plusieurs sociétés africaines, le concept d'ubuntu met surtout l'accent sur…",
+    "options": {
+      "A": "L'interdépendance et l'humanité partagée",
+      "B": "L'individualisme possessif absolu",
+      "C": "Le refus de toute solidarité",
+      "D": "La centralité exclusive du marché boursier"
+    },
+    "answer": "A",
+    "explanation": "Ubuntu est souvent résumé par l'idée qu'on devient humain par les relations aux autres.",
+    "source": "Philosophical literature on Ubuntu",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-034",
+    "category": "raisonnement_culturel",
+    "subcategory": "rituels",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les rites de passage (initiation) servent souvent à…",
+    "options": {
+      "A": "Marquer la transition vers un nouveau statut social",
+      "B": "Remplacer l'état civil moderne exclusivement",
+      "C": "Interdire toute transmission orale",
+      "D": "Mesurer le PIB local"
+    },
+    "answer": "A",
+    "explanation": "Ils socialisent les individus et symbolisent le changement de statut (âge, genre, métier).",
+    "source": "Anthropologie africaniste (synthèse)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-035",
+    "category": "raisonnement_culturel",
+    "subcategory": "parenté",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses sociétés africaines, la famille élargie implique que…",
+    "options": {
+      "A": "Les obligations de solidarité dépassent le ménage nucléaire",
+      "B": "Seuls les cousins germains existent légalement",
+      "C": "Il n'y a pas de liens de parenté",
+      "D": "La parenté est identique au droit romain partout"
+    },
+    "answer": "A",
+    "explanation": "Soutien économique, éducation et résidence impliquent souvent un réseau élargi.",
+    "source": "Sociologie de la famille en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-036",
+    "category": "raisonnement_culturel",
+    "subcategory": "religion",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Sur le continent africain, le paysage religieux se caractérise souvent par…",
+    "options": {
+      "A": "Une coexistence de christianismes, islams et religions endogènes",
+      "B": "Une religion unique uniforme depuis l'Antiquité",
+      "C": "L'absence totale de pratiques spirituelles",
+      "D": "Uniquement des cultes importés au XXIe siècle"
+    },
+    "answer": "A",
+    "explanation": "Diversité et syncrétismes varient fortement selon les régions et histoires locales.",
+    "source": "Pew / religious demography Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-037",
+    "category": "raisonnement_culturel",
+    "subcategory": "stereotype",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle approche est la plus pertinente pour éviter l'essentialisation de « la culture africaine » ?",
+    "options": {
+      "A": "Reconnaître la pluralité des sociétés, langues et trajectoires historiques",
+      "B": "Attribuer un trait unique à tout le continent",
+      "C": "Ignorer les sources africaines",
+      "D": "Réduire l'Afrique à la pauvreté"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique n'est pas monolithique ; l'analyse doit être située et différenciée.",
+    "source": "CRITIQUE.md / postcolonial methods",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-038",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mécanismes coutumiers de médiation des conflits visent souvent à…",
+    "options": {
+      "A": "Restaurer le lien social autant qu'à trancher un litige",
+      "B": "Remplacer toute constitution écrite",
+      "C": "Interdire l'appel aux cours modernes",
+      "D": "Maximiser les peines carcérales"
+    },
+    "answer": "A",
+    "explanation": "Beaucoup de justices endogènes privilégient réconciliation et réparation communautaire.",
+    "source": "Legal pluralism literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

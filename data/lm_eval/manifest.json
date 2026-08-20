@@ -1,0 +1,23 @@
+{
+  "version": "v1",
+  "total": 350,
+  "by_category": {
+    "droit_politique": 38,
+    "economie": 38,
+    "geographie": 41,
+    "histoire": 41,
+    "ia_technologie": 38,
+    "langue_culture": 40,
+    "raisonnement_culturel": 38,
+    "sante_sciences": 38,
+    "societe": 38
+  },
+  "by_difficulty": {
+    "easy": 102,
+    "hard": 112,
+    "medium": 136
+  },
+  "languages": [
+    "fr"
+  ]
+}

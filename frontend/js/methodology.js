@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   AfriBench — Methodologie page (documentation)
+   AfriBench — Méthodologie page (documentation)
    ═══════════════════════════════════════════════════════════ */
 
 function renderMethodology(container) {
@@ -12,7 +12,7 @@ function renderMethodology(container) {
 
       <h2>Methodologie</h2>
       <p class="lead">
-        AfriBench est un benchmark concu specifiquement pour evaluer la performance des modeles
+        AfriBench est un benchmark conçu specifiquement pour évaluer la performance des modeles
         de langage (LLMs) sur des connaissances et contextes africains. Voici comment il fonctionne.
       </p>
 
@@ -39,8 +39,8 @@ function renderMethodology(container) {
         <h3>Conception du benchmark</h3>
         <p>
           AfriBench est un benchmark <strong>a choix multiples</strong> (4 options par question) 
-          concu pour mesurer la capacite des LLMs a repondre correctement a des questions portant
-          sur les realites africaines.
+          conçu pour mesurer la capacité des LLMs a répondre correctement a des questions portant
+          sur les réalités africaines.
         </p>
         <p>
           Chaque question est accompagnee :
@@ -55,7 +55,7 @@ function renderMethodology(container) {
 
       <div class="meth-section">
         <h3>Categories</h3>
-        <p>Les questions sont organisees en ${cats.size} categories couvrant les aspects fondamentaux des societes africaines :</p>
+        <p>Les questions sont organisees en ${cats.size} catégories couvrant les aspects fondamentaux des societes africaines :</p>
         <p>
           ${categoryKeys().map(key =>
             `<span class="meth-tag bronze" style="border-color:${categoryColor(key)};color:${categoryColor(key)}">${categoryLabel(key)}</span>`
@@ -66,28 +66,35 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Evaluation des modeles</h3>
         <p>
-          Chaque modele est evalue sur l'ensemble des questions (${totalQ} questions). 
+          Chaque modèle est évalué sur l'ensemble des questions (${totalQ} questions).
           Le protocole est le suivant :
         </p>
         <ol>
-          <li>Chaque question est envoyee au modele via son API avec un prompt standardise</li>
-          <li>Le modele doit choisir parmi 4 options (A, B, C ou D)</li>
-          <li>La reponse est comparee a la reponse attendue</li>
-          <li>Les resultats sont aggregates par categorie et globalement</li>
+          <li>Chaque question est envoyée au modèle via son API avec un prompt standardisé</li>
+          <li>Paramètres par défaut : <code>temperature = 0.0</code>, <code>max_tokens = 256</code>, few-shot = 0 (zero-shot)</li>
+          <li>Retries exponentiels sur erreurs / HTTP 429 (jusqu'à 5 tentatives) ; délai ~0,5&nbsp;s entre questions</li>
+          <li>Le modèle doit choisir parmi 4 options (A, B, C ou D) ; seule la lettre est scoree</li>
+          <li>Scoring : 1 point par bonne réponse ; moyennes par catégorie et difficulté</li>
+          <li>Pas de seed API globale (déterminisme via temperature 0) ; le mode <code>--mock</code> utilise un seed dérivé du nom du modèle</li>
         </ol>
+        <p>
+          Script : <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/afribench.py" target="_blank" rel="noopener">scripts/afribench.py</a>
+          · Reproduction : <a href="https://github.com/YTILIKAN/AfriBench/blob/main/scripts/reproduce.sh" target="_blank" rel="noopener">scripts/reproduce.sh</a>
+          (<code>--mock</code> pour un run offline CI).
+        </p>
         <div class="meth-code-block">
           // Exemple de prompt standardise
           {
             "question": "Où se trouve le siege de l'Union africaine ?",
             "options": ["Nairobi, Kenya", "Addis-Abeba, Ethiopie", "Pretoria, Afrique du Sud", "Dakar, Senegal"]
-            "instruction": "Repondez UNIQUEMENT par la lettre de la bonne reponse (A, B, C ou D)."
+            "instruction": "Repondez UNIQUEMENT par la lettre de la bonne réponse (A, B, C ou D)."
           }
         </div>
       </div>
 
       <div class="meth-section">
         <h3>Metriques</h3>
-        <p>AfriBench utilise 8 metriques standard pour evaluer et comparer les modeles :</p>
+        <p>AfriBench utilise 8 métriques standard pour évaluer et comparer les modèles :</p>
 
         <div class="meth-stat-grid">
           <div class="meth-stat-card">
@@ -109,30 +116,29 @@ function renderMethodology(container) {
         </div>
 
         <div class="meth-code-block">
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Score global</strong>
-          Pourcentage de reponses correctes sur l'ensemble du benchmark (${totalQ} questions).
-          Metrique principale de performance. Un score de 96% signifie que le modele a repondu
-          correctement a ${Math.round(totalQ * 0.96)} questions sur ${totalQ}.
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Score global</strong>
+          Pourcentage de réponses correctes sur l'ensemble du benchmark (${totalQ} questions).
+          Métrique principale de performance.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Scores par difficulte</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Scores par difficulte</strong>
           Les questions sont classees en 3 niveaux :
           <strong>Facile</strong> (connaissances de base),
           <strong>Moyen</strong> (connaissances intermediaires),
           <strong>Difficile</strong> (raisonnement avance).
           Ces scores permettent d'evaluer la profondeur des connaissances du modele.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Meilleure categorie</strong>
-          La categorie thematique dans laquelle le modele obtient son meilleur score.
-          Revele le domaine de predilection du modele (ex: Droit et Politique, Geographie).
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Meilleure categorie</strong>
+          La catégorie thematique dans laquelle le modèle obtient son meilleur score.
+          Revele le domaine de predilection du modèle (ex: Droit et Politique, Geographie).
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--bronze);font-size:var(--font-size-sm)">Ecart-type (consistance)</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Ecart-type (consistance)</strong>
           Mesure de la regularite des performances a travers les 9 categories.
           <br>
           <span style="color:var(--success)">Faible (&lt;5) :</span> performances homogenes
           <br>
           <span style="color:var(--warning)">Moyen (5-8) :</span> legeres variations
           <br>
-          <span style="color:var(--danger)">Eleve (&gt;8) :</span> forte disparite selon les sujets
+          <span style="color:var(--danger)">Eleve (&gt;8) :</span> forte disparité selon les sujets
         </div>
 
         <p><strong>Interpretation :</strong></p>
@@ -140,20 +146,22 @@ function renderMethodology(container) {
           <li><strong>DeepSeek V4</strong> (ecart-type 4.7) est le plus <strong>consistant</strong> sur toutes les categories</li>
           <li><strong>Gemini 2.5 Flash</strong> (ecart-type 12.0) montre une forte <strong>disparite</strong> (excellent en Droit, faible en IA)</li>
           <li><strong>Tous les modeles</strong> performent mieux en Droit et Politique et Geographie</li>
-          <li><strong>IA et Technologie</strong> est la categorie la plus difficile pour tous les modeles</li>
+          <li><strong>IA et Technologie</strong> est la catégorie la plus difficile pour tous les modeles</li>
         </ul>
       </div>
 
       <div class="meth-section">
         <h3>Reproductibilite</h3>
         <p>
-          AfriBench est entierement <strong>open source</strong> et <strong>reproductible</strong> :
+          AfriBench est entièrement <strong>open source</strong> et
+          <strong>reproductible (protocole documenté)</strong> :
         </p>
         <ul>
-          <li>Les <strong>donnees</strong> (questions, reponses) sont publiees sur GitHub</li>
-          <li>Le <strong>code d'evaluation</strong> est ouvert et auditable</li>
-          <li>Les <strong>resultats</strong> sont accompagnes d'un timestamp et du modele exact</li>
-          <li>Tout le monde peut <strong>soumettre un nouveau modele</strong> ou une nouvelle question</li>
+          <li>Les <strong>données</strong> (questions, réponses) sont publiées sur GitHub</li>
+          <li>Le <strong>code d'évaluation</strong> est ouvert (<code>scripts/afribench.py</code>)</li>
+          <li>Le script <code>reproduce.sh</code> enchaîne validation → eval → export frontend</li>
+          <li>Les <strong>résultats</strong> portent un timestamp et le modèle exact</li>
+          <li>Tout le monde peut <strong>soumettre un nouveau modèle</strong> ou une nouvelle question</li>
         </ul>
       </div>
 
@@ -163,9 +171,9 @@ function renderMethodology(container) {
           Vous voulez contribuer a AfriBench ? Plusieurs facons de participer :
         </p>
         <ul>
-          <li><strong>Soumettre un modele</strong> — faites evaluer votre modele via notre protocole standard</li>
-          <li><strong>Proposer des questions</strong> — ajoutez des questions dans les categories existantes ou nouvelles</li>
-          <li><strong>Reviser les questions</strong> — aidez a valider et ameliorer la qualite des questions</li>
+          <li><strong>Soumettre un modele</strong> — faites évaluer votre modèle via notre protocole standard</li>
+          <li><strong>Proposer des questions</strong> — ajoutez des questions dans les catégories existantes ou nouvelles</li>
+          <li><strong>Reviser les questions</strong> — aidez a valider et améliorer la qualite des questions</li>
           <li><strong>Traductions</strong> — ajoutez des traductions en langues africaines (wolof, haoussa, swahili, etc.)</li>
         </ul>
         <p>
@@ -175,11 +183,11 @@ function renderMethodology(container) {
       </div>
 
       <div class="meth-section">
-        <h3>Limites et ameliorations futures</h3>
+        <h3>Limites et améliorations futures</h3>
         <ul>
-          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions)</li>
+          <li>Le benchmark est actuellement en <strong>version 0.1</strong> (${totalQ} questions Afrique ; classement encore indicatif)</li>
           <li>Les questions sont principalement en <strong>francais</strong> — les versions multilingues sont en cours</li>
-          <li>Les categories seront etendues (sports, arts, religions, etc.)</li>
+          <li>Les catégories seront étendues (sports, arts, religions, etc.)</li>
           <li>Le format pourra evoluer (questions ouvertes, generation de texte, etc.)</li>
           <li>Un systeme de <strong>votation communautaire</strong> pour la qualite des questions est prevu</li>
         </ul>

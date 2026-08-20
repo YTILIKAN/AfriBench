@@ -1,0 +1,65 @@
+[
+  {
+    "id": "HIST-001",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "sw",
+    "question": "Dola gani ya Afrika Magharibi ilijulikana kwa utajiri wake wa dhahabu na mji wake wa vyuo vikuu wa Timbuktu katika karne ya 14?",
+    "options": {
+      "A": "Dola ya Ghana",
+      "B": "Dola ya Mali",
+      "C": "Dola ya Songhai",
+      "D": "Ufalme wa Benin"
+    },
+    "answer": "B",
+    "explanation": "Dola ya Mali chini ya Mansa Musa ilikuwa maarufu kwa dhahabu; Timbuktu ikawa kituo cha elimu.",
+    "source": "UNESCO General History of Africa, Vol. IV",
+    "translation_of": "HIST-001",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "medium",
+    "language": "sw",
+    "question": "Mji mkuu wa Ethiopia ni upi?",
+    "options": {
+      "A": "Addis Ababa",
+      "B": "Asmara",
+      "C": "Djibouti",
+      "D": "Khartoum"
+    },
+    "answer": "A",
+    "explanation": "Addis Ababa ni mji mkuu wa Ethiopia na makao makuu ya Umoja wa Afrika.",
+    "source": "Encyclopædia Britannica — Addis Ababa",
+    "translation_of": "GEOG-024",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "sw",
+    "question": "Nchi gani inakaribisha makao makuu ya Umoja wa Afrika?",
+    "options": {
+      "A": "Ethiopia",
+      "B": "Nigeria",
+      "C": "Afrika Kusini",
+      "D": "Misri"
+    },
+    "answer": "A",
+    "explanation": "Makao makuu ya UA yako Addis Ababa, Ethiopia.",
+    "source": "African Union — About",
+    "translation_of": "POL-017",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03"
+  }
+]

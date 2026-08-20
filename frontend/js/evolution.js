@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   AfriBench — Evolution page (timeline chart)
+   AfriBench — Évolution page (timeline chart)
    ═══════════════════════════════════════════════════════════ */
 
 let evoSelectedModels = new Set();
@@ -44,7 +44,7 @@ function renderEvolution(container) {
   container.innerHTML = `
     <div class="evolution-header">
       <h2>Evolution des scores</h2>
-      <p>Suivez la progression des modeles dans le temps. Selectionnez les modeles a comparer.</p>
+      <p>Suivez la progression des modèles dans le temps. Selectionnez les modèles a comparer.</p>
     </div>
 
     <div class="evolution-controls" id="evo-selectors">
@@ -64,7 +64,7 @@ function renderEvolution(container) {
 
     <div class="card">
       <div class="card-title">
-        Evolution detaillee
+        Évolution detaillee
         <span class="count-badge">${chartLabels.length} dates</span>
       </div>
       <div class="evolution-table-wrap">

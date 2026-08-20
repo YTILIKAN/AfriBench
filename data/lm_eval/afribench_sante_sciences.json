@@ -1,0 +1,724 @@
+[
+  {
+    "id": "SANTE-001",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie infectieuse est la première cause de mortalité en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "VIH/SIDA",
+      "C": "Tuberculose",
+      "D": "Diabète"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme (malaria) est la première cause de mortalité en Afrique subsaharienne, avec environ 600 000 décès par an, dont 80% d'enfants de moins de 5 ans. L'Afrique supporte 95% des cas mondiaux de paludisme.",
+    "source": "OMS (Rapport sur le paludisme dans le monde)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-002",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Les Centers for Disease Control and Prevention (CDC) africains ont été créés pour renforcer la réponse du continent aux urgences sanitaires. En quelle année et dans quel pays se trouve leur siège ?",
+    "options": {
+      "A": "2015 — Nairobi, Kenya",
+      "B": "2017 — Addis-Abeba, Éthiopie",
+      "C": "2020 — Dakar, Sénégal",
+      "D": "2018 — Abuja, Nigeria"
+    },
+    "answer": "B",
+    "explanation": "Les CDC Afrique ont été officiellement lancés en 2017 par l'Union africaine, avec leur siège à Addis-Abeba (Éthiopie). Ils ont joué un rôle crucial pendant la pandémie de COVID-19 pour coordonner la réponse continentale.",
+    "source": "Union africaine (Africa CDC)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-003",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "En 2024, l'Afrique a atteint une étape importante dans la production locale de vaccins avec l'inauguration d'une grande installation. Dans quel pays se trouve-t-elle ?",
+    "options": {
+      "A": "Afrique du Sud",
+      "B": "Rwanda",
+      "C": "Sénégal",
+      "D": "Maroc"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique du Sud a inauguré en 2024 une installation de production de vaccins à grande échelle (vaccins ARNm, dont ceux contre la COVID-19 et le paludisme), visant à réduire la dépendance africaine aux importations (moins de 1% des vaccins utilisés en Afrique y sont produits).",
+    "source": "OMS ; Africa CDC",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-004",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'espérance de vie en Afrique subsaharienne a augmenté significativement depuis 2000. Quelle en a été la cause principale ?",
+    "options": {
+      "A": "L'amélioration de l'alimentation",
+      "B": "La baisse de la mortalité infantile et l'accès aux antirétroviraux pour le VIH",
+      "C": "La réduction du tabagisme",
+      "D": "L'augmentation du nombre de médecins par habitant"
+    },
+    "answer": "B",
+    "explanation": "L'espérance de vie en Afrique subsaharienne est passée d'environ 50 ans en 2000 à près de 62 ans en 2025. Les progrès sont principalement dus à la baisse de la mortalité infantile et à l'accès massif aux antirétroviraux (plus de 20 millions de personnes traitées pour le VIH).",
+    "source": "OMS ; UNAIDS",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-005",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Square Kilometre Array (SKA), le plus grand radiotélescope du monde, est en partie construit en Afrique. Dans quel pays se trouve sa composante africaine ?",
+    "options": {
+      "A": "Namibie",
+      "B": "Afrique du Sud (Karoo)",
+      "C": "Kenya",
+      "D": "Botswana"
+    },
+    "answer": "B",
+    "explanation": "Le SKA est un projet international de radiotélescope géant réparti entre l'Australie et l'Afrique du Sud (désert du Karoo). La phase 1 (SKA-Mid) comprend 197 antennes dans le Karoo sud-africain, avec des stations supplémentaires prévues dans d'autres pays africains.",
+    "source": "SKA Observatory (skao.int)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-006",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quelle maladie tropicale négligée, transmise par la mouche tsé-tsé, est endémique en Afrique subsaharienne et peut être fatale sans traitement ?",
+    "options": {
+      "A": "Dengue",
+      "B": "Maladie du sommeil (trypanosomiase africaine)",
+      "C": "Bilharziose",
+      "D": "Onchocercose"
+    },
+    "answer": "B",
+    "explanation": "La trypanosomiase africaine (maladie du sommeil) est transmise par la piqûre de la mouche tsé-tsé. Sans traitement, elle est mortelle. Les cas ont diminué de 95% depuis 2000 grâce aux programmes de contrôle, mais elle reste endémique en RDC et en Afrique centrale.",
+    "source": "OMS ; DNDi (Drugs for Neglected Diseases initiative)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-007",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le vaccin antipaludique RTS,S/AS01 (Mosquirix) a été recommandé par l'OMS en 2021 après des décennies de recherche. Quelle institution africaine a mené les essais cliniques décisifs ?",
+    "options": {
+      "A": "KEMRI (Kenya Medical Research Institute)",
+      "B": "Wits Reproductive Health Institute (Afrique du Sud)",
+      "C": "Institut Pasteur de Dakar",
+      "D": "Centre de Recherche Médicale de Lambaréné (Gabon)"
+    },
+    "answer": "A",
+    "explanation": "Le KEMRI (Kenya Medical Research Institute), en collaboration avec l'Université d'Oxford et GSK, a mené les essais cliniques du RTS,S (phase 3, 15 000 enfants dans 7 pays africains). Le vaccin réduit de 30% les cas de paludisme sévère. Un second vaccin (R21/Matrix-M, développé à Oxford) a suivi en 2023.",
+    "source": "OMS ; NEJM (New England Journal of Medicine)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-008",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le radiotélescope MeerKAT, précurseur sud-africain du SKA, a permis une découverte majeure en astrophysique en 2024. Laquelle ?",
+    "options": {
+      "A": "La première image d'un trou noir africain",
+      "B": "La détection d'ondes gravitationnelles depuis l'hémisphère sud",
+      "C": "La cartographie des trous noirs supermassifs au centre de la Voie lactée",
+      "D": "La découverte d'une nouvelle planète habitable"
+    },
+    "answer": "C",
+    "explanation": "MeerKAT (64 antennes dans le Karoo, Afrique du Sud) a produit en 2024 la carte la plus détaillée jamais réalisée du centre de la Voie lactée, révélant de nouvelles populations de trous noirs supermassifs et de filaments magnétiques.",
+    "source": "SARAO (South African Radio Astronomy Observatory) ; Nature Astronomy",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-009",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de santé rwandais est souvent cité comme un modèle pour l'Afrique. Quelle innovation organisationnelle en est le pilier central ?",
+    "options": {
+      "A": "Les hôpitaux universitaires de district",
+      "B": "Le système d'assurance maladie communautaire (Mutuelle de Santé)",
+      "C": "Les cliniques mobiles connectées par satellite",
+      "D": "Le télémédecine généralisée via téléphone"
+    },
+    "answer": "B",
+    "explanation": "La Mutuelle de Santé, un système d'assurance maladie communautaire obligatoire au Rwanda, couvre plus de 90% de la population. Combinée à la généralisation des agents de santé communautaires (45 000), elle a permis de réduire la mortalité infantile de 75% depuis 2000.",
+    "source": "OMS ; Banque Mondiale (Rwanda Health Sector Review)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-010",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "En 2024, l'Union africaine a adopté une stratégie pour la science ouverte en Afrique. Quel en est l'axe principal ?",
+    "options": {
+      "A": "La construction de 10 nouveaux laboratoires pharmaceutiques",
+      "B": "L'accès libre aux publications scientifiques et le partage des données de recherche",
+      "C": "L'interdiction des brevets sur les médicaments essentiels",
+      "D": "La création d'une académie des sciences panafricaine"
+    },
+    "answer": "B",
+    "explanation": "La Stratégie africaine pour la science ouverte (adoptée en 2024) vise à rendre les publications et données de recherche africaines librement accessibles, à développer des infrastructures de partage et à promouvoir la collaboration entre institutions africaines.",
+    "source": "Union africaine ; UNESCO (Recommandation sur la science ouverte)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "SANTE-011",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le Programme élargi de vaccination (PEV) en Afrique vise principalement à :",
+    "options": {
+      "A": "Remplacer l'eau potable",
+      "B": "Prévenir des maladies infectieuses graves chez les enfants par la vaccination",
+      "C": "Former uniquement des chirurgiens",
+      "D": "Interdire la médecine traditionnelle"
+    },
+    "answer": "B",
+    "explanation": "Le PEV (EPI) organise la vaccination de routine contre des maladies comme la rougeole, la polio, etc.",
+    "source": "OMS / UNICEF — Expanded Programme on Immunization",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-012",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les moustiques Anopheles sont-ils centraux dans la lutte antipaludique ?",
+    "options": {
+      "A": "Ils produisent la quinine",
+      "B": "Ils sont les vecteurs principaux de transmission de Plasmodium à l'humain",
+      "C": "Ils n'existent qu'en Europe",
+      "D": "Ils soignent le paludisme"
+    },
+    "answer": "B",
+    "explanation": "Le paludisme est transmis à l'humain par des moustiques Anopheles infectés par le parasite Plasmodium.",
+    "source": "OMS — Malaria fact sheet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-013",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Centre international de recherche sur le cancer (CIRC/IARC) de l'OMS a son siège à Lyon, mais de nombreux registres du cancer africains collaborent pour :",
+    "options": {
+      "A": "Mesurer et suivre l'incidence des cancers",
+      "B": "Interdire la recherche génétique",
+      "C": "Remplacer les hôpitaux",
+      "D": "Produire des vaccins anti-grippaux uniquement"
+    },
+    "answer": "A",
+    "explanation": "Les registres du cancer permettent de documenter l'incidence et d'orienter les politiques de prévention et de soin.",
+    "source": "IARC / GICR — cancer registries",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-014",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'OMS Afrique (AFRO) a son bureau régional à :",
+    "options": {
+      "A": "Brazzaville",
+      "B": "Johannesburg",
+      "C": "Tunis",
+      "D": "Kigali"
+    },
+    "answer": "A",
+    "explanation": "Le Bureau régional de l'OMS pour l'Afrique est situé à Brazzaville (Congo).",
+    "source": "OMS AFRO — about",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-015",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La dracunculose (ver de Guinée) a été fortement réduite en Afrique grâce surtout à :",
+    "options": {
+      "A": "L'accès à l'eau potable filtrée et la surveillance des cas",
+      "B": "Un vaccin obligatoire mondial unique",
+      "C": "L'interdiction de l'agriculture",
+      "D": "La fermeture des frontières aériennes"
+    },
+    "answer": "A",
+    "explanation": "La lutte combine eau saine, filtres, éducation et confinement des cas — un succès majeur de santé publique.",
+    "source": "OMS / Carter Center — Guinea worm eradication",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-016",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les essais cliniques en Afrique sont-ils stratégiques pour la recherche biomédicale mondiale ?",
+    "options": {
+      "A": "Parce qu'ils remplacent toute la recherche occidentale",
+      "B": "Parce que la diversité génétique et le fardeau de certaines maladies y sont majeurs, sous conditions éthiques strictes",
+      "C": "Parce que l'éthique n'y s'applique pas",
+      "D": "Parce qu'il n'y a aucun hôpital"
+    },
+    "answer": "B",
+    "explanation": "L'Afrique concentre une part importante de la diversité génétique humaine et de certaines maladies ; la recherche doit respecter des standards éthiques élevés.",
+    "source": "OMS / discussions H3Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-017",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le VIH/sida demeure un enjeu majeur de santé publique en Afrique surtout parce que :",
+    "options": {
+      "A": "La prévalence et le besoin de traitement/prévention restent élevés dans plusieurs régions",
+      "B": "Le virus n'existe qu'en Europe",
+      "C": "Aucun traitement n'a jamais existé",
+      "D": "Il ne se transmet que par l'eau"
+    },
+    "answer": "A",
+    "explanation": "Malgré des progrès (ARV, PrEP), le fardeau reste important dans plusieurs pays.",
+    "source": "ONUSIDA — Global AIDS Update",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-018",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est liée principalement à :",
+    "options": {
+      "A": "Des vers parasites transmis via des eaux douces contaminées",
+      "B": "Un déficit en vitamine C uniquement",
+      "C": "Une carence en fer génétique universelle",
+      "D": "Une infection virale éradiquée en 1900"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes infectent l'humain via des stades larvaires dans l'eau douce.",
+    "source": "OMS — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-019",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le retard de croissance (stunting) chez l'enfant est surtout un indicateur de :",
+    "options": {
+      "A": "Malnutrition chronique et santé materno-infantile",
+      "B": "Performance sportive olympique",
+      "C": "Niveau de pollution sonore",
+      "D": "Taux de change"
+    },
+    "answer": "A",
+    "explanation": "Le stunting reflète des déficits nutritionnels et sanitaires prolongés.",
+    "source": "UNICEF / OMS — child malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-020",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "H3Africa est une initiative qui vise principalement à :",
+    "options": {
+      "A": "Renforcer la recherche génomique et biomédicale en Afrique",
+      "B": "Construire des autoroutes",
+      "C": "Interdire les hôpitaux universitaires",
+      "D": "Remplacer l'OMS"
+    },
+    "answer": "A",
+    "explanation": "Human Heredity and Health in Africa soutient la recherche et les capacités scientifiques locales.",
+    "source": "H3Africa consortium",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-021",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Lors d'épidémies d'Ebola, une mesure communautaire cruciale est :",
+    "options": {
+      "A": "L'engagement communautaire, le suivi des contacts et des enterrements sécurisés",
+      "B": "L'interdiction totale de boire de l'eau",
+      "C": "La fermeture définitive de toutes les écoles du monde",
+      "D": "Le remplacement des soignants par des robots uniquement"
+    },
+    "answer": "A",
+    "explanation": "Le contrôle repose sur surveillance, isolation, contacts tracing et pratiques funéraires sûres.",
+    "source": "OMS — Ebola virus disease",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-022",
+    "category": "sante_sciences",
+    "subcategory": "pharmacopee",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'artémisinine, base de traitements antipaludiques, est dérivée d'une plante surtout associée à la médecine :",
+    "options": {
+      "A": "Chinoise (Artemisia annua), largement utilisée contre le paludisme en Afrique",
+      "B": "Inuite polaire",
+      "C": "Amazonienne du café",
+      "D": "Alpine du chocolat"
+    },
+    "answer": "A",
+    "explanation": "L'artémisinine, isolée d'Artemisia annua, est centrale dans les ACT contre le paludisme.",
+    "source": "OMS — artemisinin-based therapies",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-023",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La tuberculose reste un problème majeur en Afrique notamment en co-infection avec :",
+    "options": {
+      "A": "Le VIH",
+      "B": "Le rhume des foins uniquement",
+      "C": "La myopie",
+      "D": "L'intolérance au lactose"
+    },
+    "answer": "A",
+    "explanation": "La co-infection TB/VIH aggrave le fardeau.",
+    "source": "OMS — TB/HIV",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-024",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le choléra se transmet surtout par :",
+    "options": {
+      "A": "Eau et aliments contaminés",
+      "B": "Piqûres de moustiques Anopheles",
+      "C": "Air conditionné",
+      "D": "Rayons UV"
+    },
+    "answer": "A",
+    "explanation": "Vibrio cholerae se propage via contamination fécale-orale.",
+    "source": "OMS — Cholera",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-025",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le kwashiorkor est une forme de malnutrition marquée surtout par :",
+    "options": {
+      "A": "Un déficit protéique sévère (œdèmes, etc.)",
+      "B": "Un excès de vitamine D obligatoire",
+      "C": "Une hyperhydratation sportive",
+      "D": "Une intolérance au bruit"
+    },
+    "answer": "A",
+    "explanation": "Malnutrition protéino-énergétique avec tableau clinique spécifique.",
+    "source": "OMS — severe malnutrition",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-026",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les agents de santé communautaires sont importants car ils :",
+    "options": {
+      "A": "Étendent la couverture sanitaire de base près des populations",
+      "B": "Remplacent les hôpitaux tertiaires",
+      "C": "Interdisent la vaccination",
+      "D": "Gèrent les banques centrales"
+    },
+    "answer": "A",
+    "explanation": "Ils assurent prévention, suivi et lien avec le système de santé.",
+    "source": "OMS — community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-027",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un essai clinique de phase III teste surtout :",
+    "options": {
+      "A": "Efficacité et sécurité à grande échelle avant autorisation",
+      "B": "La couleur du packaging",
+      "C": "Le prix de l'action en bourse",
+      "D": "La vitesse d'Internet"
+    },
+    "answer": "A",
+    "explanation": "La phase III confronte le traitement à grande échelle.",
+    "source": "OMS / ICH clinical trials",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-028",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'onchocercose (cécité des rivières) est transmise par :",
+    "options": {
+      "A": "Des simulies (mouches noires)",
+      "B": "Des tiques des neiges",
+      "C": "Des dauphins",
+      "D": "Des abeilles domestiques uniquement"
+    },
+    "answer": "A",
+    "explanation": "Onchocerca volvulus est transmis par Simulium.",
+    "source": "OMS — Onchocerciasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-029",
+    "category": "sante_sciences",
+    "subcategory": "sante_publique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le renforcement des chaînes du froid vaccinal vise à :",
+    "options": {
+      "A": "Maintenir l'efficacité des vaccins thermosensibles",
+      "B": "Congeler les déserts",
+      "C": "Remplacer les infirmiers",
+      "D": "Interdire les frigos domestiques"
+    },
+    "answer": "A",
+    "explanation": "Température contrôlée indispensable à de nombreux vaccins.",
+    "source": "OMS — immunization supply chain",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-030",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "L'allaitement maternel exclusif recommandé les 6 premiers mois vise à :",
+    "options": {
+      "A": "Optimiser nutrition et protection immunitaire du nourrisson",
+      "B": "Remplacer toute alimentation après 18 ans",
+      "C": "Interdire l'eau potable",
+      "D": "Augmenter le PIB pétrolier"
+    },
+    "answer": "A",
+    "explanation": "Recommandation OMS/UNICEF pour la petite enfance.",
+    "source": "OMS — breastfeeding",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-031",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Une pharmacovigilance efficace après introduction d'un vaccin permet de :",
+    "options": {
+      "A": "Détecter et gérer les effets indésirables en population réelle",
+      "B": "Supprimer le besoin d'essais cliniques",
+      "C": "Garantir un profit boursier",
+      "D": "Éliminer toute maladie en 24 h"
+    },
+    "answer": "A",
+    "explanation": "Surveillance post-commercialisation essentielle.",
+    "source": "OMS — pharmacovigilance",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-032",
+    "category": "sante_sciences",
+    "subcategory": "epidemiologie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La fièvre jaune est prévenue principalement par :",
+    "options": {
+      "A": "La vaccination",
+      "B": "L'arrêt total de la respiration",
+      "C": "Le jeûne de vitamine C",
+      "D": "L'exposition volontaire aux moustiques"
+    },
+    "answer": "A",
+    "explanation": "Vaccin vivant atténué très efficace ; contrôle vectoriel complémentaire.",
+    "source": "OMS — Yellow fever",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-033",
+    "category": "sante_sciences",
+    "subcategory": "maladies",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie parasitaire transmise par les anophèles reste majeure en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "Choléra uniquement",
+      "C": "Rage",
+      "D": "Tétanos"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme, transmis par les moustiques Anopheles, reste un fardeau sanitaire majeur.",
+    "source": "WHO — Malaria",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-034",
+    "category": "sante_sciences",
+    "subcategory": "vaccination",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Gavi, l'Alliance du Vaccin, soutient principalement…",
+    "options": {
+      "A": "L'accès aux vaccins dans les pays à faible revenu",
+      "B": "La privatisation des hôpitaux universitaires",
+      "C": "La recherche spatiale biomédicale",
+      "D": "Le remplacement des systèmes de santé primaires"
+    },
+    "answer": "A",
+    "explanation": "Gavi finance et facilite l'accès aux vaccins pour les pays à revenu faible.",
+    "source": "Gavi — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-035",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le manioc est une culture vivrière importante en Afrique notamment parce qu'il…",
+    "options": {
+      "A": "Tolère relativement bien des sols pauvres et certaines sécheresses",
+      "B": "Nécessite un climat polaire",
+      "C": "Ne pousse qu'en altitude alpine",
+      "D": "Est exclusivement d'origine australienne"
+    },
+    "answer": "A",
+    "explanation": "Le manioc est rustique et central dans de nombreux systèmes alimentaires africains.",
+    "source": "FAO — Cassava",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-036",
+    "category": "sante_sciences",
+    "subcategory": "systemes",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les agents de santé communautaires en Afrique sont surtout mobilisés pour…",
+    "options": {
+      "A": "Étendre les soins de proximité et la prévention",
+      "B": "Remplacer entièrement les médecins spécialistes",
+      "C": "Gérer les banques centrales",
+      "D": "Superviser les élections"
+    },
+    "answer": "A",
+    "explanation": "Ils renforcent la couverture sanitaire de base, la vaccination et la sensibilisation.",
+    "source": "WHO — Community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-037",
+    "category": "sante_sciences",
+    "subcategory": "environnement",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est associée principalement à…",
+    "options": {
+      "A": "L'eau douce contaminée par des parasites",
+      "B": "L'air des hautes altitudes",
+      "C": "Le contact exclusif avec l'eau de mer",
+      "D": "La consommation de sel iodé"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes se transmettent via des eaux douces infestées (mollusques hôtes).",
+    "source": "WHO — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-038",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le centre Africa CDC a pour mission principale de…",
+    "options": {
+      "A": "Renforcer la prévention et la réponse aux épidémies en Afrique",
+      "B": "Émettre une monnaie continentale",
+      "C": "Réguler le football africain",
+      "D": "Gérer les visas touristiques"
+    },
+    "answer": "A",
+    "explanation": "L'Africa CDC (UA) coordonne la surveillance et la sécurité sanitaire continentale.",
+    "source": "Africa CDC — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]

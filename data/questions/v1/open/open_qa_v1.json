@@ -1,0 +1,93 @@
+[
+  {
+    "id": "QA-001",
+    "task_type": "open_qa",
+    "category": "histoire",
+    "subcategory": "qa",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "context": "Le Ghana ancien (Wagadu) contrôlait des routes commerciales reliant les forêts au Sahel. L'or et le sel étaient des marchandises centrales. La capitale Kumbi Saleh est mentionnée par des géographes arabes.",
+    "question": "Quelles marchandises structurantes du commerce transsaharien sont associées au Ghana ancien, et quelle capitale est citée par les sources arabes ?",
+    "reference_answers": [
+      "Or et sel ; Kumbi Saleh"
+    ],
+    "reference_points": [
+      "Or",
+      "Sel",
+      "Kumbi Saleh",
+      "Commerce transsaharien / routes"
+    ],
+    "metrics": ["token_f1", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "UNESCO Histoire Générale de l'Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  },
+  {
+    "id": "QA-002",
+    "task_type": "open_qa",
+    "category": "geographie",
+    "subcategory": "qa",
+    "difficulty": "easy",
+    "language": "fr",
+    "format": "open",
+    "context": "Le Nil Bleu prend sa source en Éthiopie (lac Tana) et conflue avec le Nil Blanc à Khartoum (Soudan) pour former le Nil.",
+    "question": "Où le Nil Bleu et le Nil Blanc se rejoignent-ils ?",
+    "reference_answers": [
+      "Khartoum",
+      "À Khartoum, au Soudan"
+    ],
+    "reference_points": [
+      "Khartoum",
+      "Soudan (bonus)"
+    ],
+    "metrics": ["token_f1", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "Encyclopædia Britannica — Nile",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  },
+  {
+    "id": "QA-003",
+    "task_type": "open_qa",
+    "category": "droit_politique",
+    "subcategory": "qa",
+    "difficulty": "medium",
+    "language": "fr",
+    "format": "open",
+    "context": "L'Union africaine a remplacé l'OUA en 2002. Son siège est à Addis-Abeba. Elle porte notamment le programme Agenda 2063.",
+    "question": "Quelle organisation a remplacé l'OUA en 2002, et où se trouve son siège ?",
+    "reference_answers": [
+      "Union africaine ; Addis-Abeba"
+    ],
+    "reference_points": [
+      "Union africaine / UA",
+      "Addis-Abeba",
+      "2002 (contexte)"
+    ],
+    "metrics": ["token_f1", "llm_judge"],
+    "rubric": {
+      "exactitude": 4,
+      "profondeur": 3,
+      "nuance_culturelle": 3
+    },
+    "max_score": 10,
+    "source": "African Union — About",
+    "author": "afribench",
+    "date_created": "2026-08-03",
+    "status": "pilot"
+  }
+]

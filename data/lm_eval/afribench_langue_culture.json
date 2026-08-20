@@ -1,0 +1,762 @@
+[
+  {
+    "id": "LANG-001",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Combien de langues sont parlées sur le continent africain (estimation) ?",
+    "options": {
+      "A": "500-700",
+      "B": "1 000-1 500",
+      "C": "2 000-3 000",
+      "D": "300-400"
+    },
+    "answer": "C",
+    "explanation": "L'Afrique compte entre 2 000 et 3 000 langues, soit environ un tiers des langues du monde. Le Nigeria à lui seul en compte plus de 520. Les principales familles linguistiques sont : Niger-Congo, afro-asiatique, nilo-saharienne et khoïsan.",
+    "source": "UNESCO Atlas des langues en danger ; Ethnologue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-002",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quel écrivain sénégalais a reçu le prix Nobel de littérature en 2022, devenant le premier auteur africain noir lauréat de ce prix ?",
+    "options": {
+      "A": "Wole Soyinka",
+      "B": "Chimamanda Ngozi Adichie",
+      "C": "Abdulrazak Gurnah",
+      "D": "Mariama Bâ"
+    },
+    "answer": "C",
+    "explanation": "Abdulrazak Gurnah, né à Zanzibar (Tanzanie) et basé au Royaume-Uni, a reçu le Nobel 2022 pour sa « pénétration sans compromis des effets du colonialisme et du destin des réfugiés ». Il est le premier écrivain noir africain lauréat (Wole Soyinka, Nobel 1986, est le premier Africain).",
+    "source": "Académie suédoise (nobelprize.org)",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-003",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est l'une des langues africaines les plus parlées. Dans quelle région est-elle principalement utilisée comme lingua franca ?",
+    "options": {
+      "A": "Afrique de l'Ouest",
+      "B": "Afrique australe",
+      "C": "Afrique de l'Est et des Grands Lacs",
+      "D": "Afrique centrale"
+    },
+    "answer": "C",
+    "explanation": "Le swahili (Kiswahili) est parlé par environ 150 à 200 millions de personnes en Afrique de l'Est et des Grands Lacs : Tanzanie, Kenya, Ouganda, RDC, Rwanda, Burundi, Mozambique. C'est la langue officielle de la Tanzanie et de l'Union africaine.",
+    "source": "UNESCO ; British Council",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-004",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Dans les sociétés d'Afrique de l'Ouest, les griots sont des figures culturelles importantes. Quel est leur rôle principal ?",
+    "options": {
+      "A": "Chefs de guerre",
+      "B": "Prêtres animistes",
+      "C": "Gardiens de la tradition orale, musiciens et généalogistes",
+      "D": "Marchands itinérants"
+    },
+    "answer": "C",
+    "explanation": "Les griots (ou djélis) sont des dépositaires de la tradition orale dans les sociétés mandingues et ouest-africaines. Ils sont à la fois historiens, généalogistes, musiciens et conseillers des rois. La transmission orale est encore essentielle dans de nombreuses cultures africaines.",
+    "source": "UNESCO ; Niane, D.T. (1960) Soundjata ou l'Épopée mandingue",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-005",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor, poète et premier président du Sénégal, a été un des fondateurs d'un mouvement littéraire et intellectuel majeur. Lequel ?",
+    "options": {
+      "A": "La Négritude",
+      "B": "Le Panafricanisme",
+      "C": "Le Réalisme africain",
+      "D": "L'Indigénisme"
+    },
+    "answer": "A",
+    "explanation": "Senghor, avec Aimé Césaire (Martinique) et Léon-Gontran Damas (Guyane), a fondé le mouvement de la Négritude dans les années 1930. Ce mouvement visait à revaloriser l'identité noire face à la domination coloniale française.",
+    "source": "Senghor, L.S. (1948) Anthologie de la nouvelle poésie nègre et malgache",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-006",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le wolof est une langue largement parlée au Sénégal et en Gambie. À quelle famille linguistique appartient-elle ?",
+    "options": {
+      "A": "Afro-asiatique",
+      "B": "Niger-Congo (atlantique occidental)",
+      "C": "Nilo-saharienne",
+      "D": "Khoïsan"
+    },
+    "answer": "B",
+    "explanation": "Le wolof appartient à la branche atlantique de la famille Niger-Congo, la plus grande famille linguistique d'Afrique. Il est parlé par environ 10 millions de personnes comme langue maternelle et par beaucoup plus comme seconde langue au Sénégal.",
+    "source": "Ethnologue ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-007",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les masques africains sont célèbres dans le monde pour leur diversité et leur symbolisme. Dans les traditions baoulé (Côte d'Ivoire), quelle est la fonction principale des masques Goli ?",
+    "options": {
+      "A": "Ils sont utilisés comme monnaie d'échange",
+      "B": "Ils servent à des rituels funéraires et à l'investiture des chefs",
+      "C": "Ils sont portés uniquement lors des fêtes de récolte",
+      "D": "Ils sont réservés aux cérémonies de mariage"
+    },
+    "answer": "B",
+    "explanation": "Les masques Goli des Baoulé jouent un rôle essentiel dans les funérailles et les cérémonies d'investiture des chefs. Chaque masque représente un esprit animal et a une signification sociale précise.",
+    "source": "Musée du Quai Branly ; UNESCO",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-008",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le roman « Une si longue lettre » de Mariama Bâ est une œuvre majeure de la littérature africaine féminine. De quel pays vient l'autrice et quel thème central y est traité ?",
+    "options": {
+      "A": "Côte d'Ivoire — la guerre civile",
+      "B": "Sénégal — la condition des femmes dans la société post-coloniale",
+      "C": "Cameroun — l'exil et l'immigration",
+      "D": "Mali — le commerce transsaharien"
+    },
+    "answer": "B",
+    "explanation": "Mariama Bâ (1929-1981), sénégalaise, a écrit « Une si longue lettre » (1979) qui dénonce la polygamie et les inégalités de genre dans la société sénégalaise post-coloniale. C'est un classique de la littérature féministe africaine.",
+    "source": "Bâ, M. (1979) Une si longue lettre",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-009",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tambour parlant (talking drum) est un instrument de communication dans plusieurs cultures d'Afrique de l'Ouest. Sur quel principe linguistique repose sa capacité à transmettre des messages complexes ?",
+    "options": {
+      "A": "Le code Morse africain",
+      "B": "La reproduction des tons de la langue parlée (langues tonales)",
+      "C": "Un alphabet secret transmis par les griots",
+      "D": "Des rythmes codés qui varient selon les villages"
+    },
+    "answer": "B",
+    "explanation": "Le tambour parlant (dùndún chez les Yoruba, tama chez les Mandingues) reproduit les tons (haut/bas) des langues tonales africaines comme le yoruba. Chaque mot peut être « dit » par le tambour, permettant de transmettre des messages sur des kilomètres.",
+    "source": "UNESCO ; Carrington, J.F. (1949) The Talking Drums of Africa",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-010",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte pour la Renaissance culturelle africaine, adoptée par l'Union africaine en 2006, réaffirme l'importance des langues africaines. Quel article de la charte traite spécifiquement de leur promotion dans l'éducation ?",
+    "options": {
+      "A": "Les langues africaines doivent être enseignées comme matières optionnelles",
+      "B": "Les États membres doivent intégrer les langues africaines comme langues d'enseignement dès le primaire",
+      "C": "Le français et l'anglais restent les seules langues d'enseignement, mais les langues locales peuvent être utilisées à l'oral",
+      "D": "Chaque pays peut choisir librement sa politique linguistique"
+    },
+    "answer": "B",
+    "explanation": "La Charte pour la Renaissance culturelle africaine (Article 18) stipule que les États membres doivent promouvoir l'utilisation des langues africaines comme langues d'enseignement à tous les niveaux. Elle encourage aussi leur usage dans les médias et la vie publique. C'est un texte fondateur mais peu appliqué.",
+    "source": "Union africaine (2006) Charte pour la Renaissance culturelle africaine",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-011",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le cinéma africain francophone a connu son essor dans les années 1960-70. Quel film du réalisateur sénégalais Ousmane Sembène est considéré comme le premier long-métrage réalisé par un Africain noir ?",
+    "options": {
+      "A": "Xala (1975)",
+      "B": "La Noire de... (1966)",
+      "C": "Le Mandat (1968)",
+      "D": "Emitaï (1971)"
+    },
+    "answer": "B",
+    "explanation": "« La Noire de... » (1966) est considéré comme le premier long-métrage réalisé par un Africain noir (Ousmane Sembène). Il traite de l'exploitation des domestiques africains en France. Sembène est surnommé « le père du cinéma africain ».",
+    "source": "FESPACO ; Sembène, O. (1966) La Noire de...",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-012",
+    "category": "langue_culture",
+    "subcategory": "traditions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le système de parenté dans les sociétés akan (Ghana, Côte d'Ivoire) est matrilinéaire. Concrètement, cela signifie que l'héritage et la filiation passent par quelle lignée ?",
+    "options": {
+      "A": "La lignée paternelle",
+      "B": "La lignée maternelle",
+      "C": "Le premier-né quel que soit son sexe",
+      "D": "Le chef du clan désigne l'héritier"
+    },
+    "answer": "B",
+    "explanation": "Dans le système matrilinéaire akan (abresc), l'enfant appartient au clan de sa mère (abusua), et l'héritage passe de l'oncle maternel au neveu plutôt que du père au fils. Le chef (ookoaman) est choisi par les anciens du clan maternel.",
+    "source": "Rattray, R.S. (1923) Ashanti ; Meyer, J. (2005) Les Akan",
+    "author": "afribench",
+    "date_created": "2026-06-04"
+  },
+  {
+    "id": "LANG-013",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est une langue surtout répandue en :",
+    "options": {
+      "A": "Afrique de l'Est",
+      "B": "Patagonie",
+      "C": "Sibérie",
+      "D": "Polynésie exclusivement"
+    },
+    "answer": "A",
+    "explanation": "Le swahili (kiswahili) est une langue véhiculaire majeure d'Afrique de l'Est (Tanzanie, Kenya, etc.).",
+    "source": "Ethnologue / Union africaine — langues de travail",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-014",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Chinua Achebe est notamment l'auteur de :",
+    "options": {
+      "A": "Things Fall Apart",
+      "B": "Les Fleurs du mal",
+      "C": "Guerre et Paix",
+      "D": "Le Petit Prince"
+    },
+    "answer": "A",
+    "explanation": "Things Fall Apart (1958) est le roman le plus célèbre de Chinua Achebe, figure majeure de la littérature africaine anglophone.",
+    "source": "Encyclopædia Britannica — Chinua Achebe",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-015",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'alphabet n'ko a été inventé au XXe siècle pour noter principalement :",
+    "options": {
+      "A": "Le mandingue",
+      "B": "Le zoulou exclusivement",
+      "C": "Le berbère tifinagh antique",
+      "D": "Le latin ecclésiastique"
+    },
+    "answer": "A",
+    "explanation": "Créé par Solomana Kanté (1949), le n'ko sert surtout aux langues mandingues.",
+    "source": "Encyclopædia Britannica — N'Ko alphabet",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-016",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Mariama Bâ est l'autrice sénégalaise de :",
+    "options": {
+      "A": "Une si longue lettre",
+      "B": "L'Étranger",
+      "C": "Le Rouge et le Noir",
+      "D": "Germinal"
+    },
+    "answer": "A",
+    "explanation": "Une si longue lettre (1979) est l'œuvre majeure de Mariama Bâ.",
+    "source": "Encyclopædia Britannica — Mariama Bâ",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-017",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les sculptures en bronze du Royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Carthage",
+      "D": "Mombasa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de la cour royale de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO — Benin Bronzes context",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-018",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le haoussa est une langue véhiculaire majeure surtout en :",
+    "options": {
+      "A": "Afrique de l'Ouest (Nigeria/Niger et au-delà)",
+      "B": "Patagonie",
+      "C": "Scandinavie",
+      "D": "Asie centrale"
+    },
+    "answer": "A",
+    "explanation": "Le haoussa est largement parlé au Nigeria, au Niger et comme lingua franca régionale.",
+    "source": "Ethnologue — Hausa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-019",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le yoruba est principalement parlé au :",
+    "options": {
+      "A": "Nigeria (et pays voisins)",
+      "B": "Maroc uniquement",
+      "C": "Botswana exclusivement",
+      "D": "Érythrée"
+    },
+    "answer": "A",
+    "explanation": "Le yoruba est une langue majeure du sud-ouest du Nigeria et de la diaspora.",
+    "source": "Ethnologue — Yoruba",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-020",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Wole Soyinka, prix Nobel de littérature, est originaire du :",
+    "options": {
+      "A": "Nigeria",
+      "B": "Sénégal",
+      "C": "Kenya",
+      "D": "Égypte"
+    },
+    "answer": "A",
+    "explanation": "Wole Soyinka, dramaturge et écrivain nigérian, reçut le Nobel en 1986.",
+    "source": "Nobel Prize — Wole Soyinka",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-021",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le genre musical « highlife » est surtout associé à l'Afrique de l'Ouest, notamment :",
+    "options": {
+      "A": "Ghana / Nigeria",
+      "B": "Lesotho uniquement",
+      "C": "Tunisie phénicienne",
+      "D": "Madagascar méridionale seule"
+    },
+    "answer": "A",
+    "explanation": "Le highlife s'est développé particulièrement au Ghana et a influencé la région.",
+    "source": "Grove Music / études highlife",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-022",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Nollywood désigne principalement :",
+    "options": {
+      "A": "L'industrie cinématographique nigériane",
+      "B": "Un festival de danse berbère",
+      "C": "Un réseau ferré sahélien",
+      "D": "Une monnaie numérique de l'UA"
+    },
+    "answer": "A",
+    "explanation": "Nollywood est l'appellation courante du cinéma populaire nigérian.",
+    "source": "UNESCO / études sur Nollywood",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-023",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le tifinagh est un système d'écriture associé principalement aux :",
+    "options": {
+      "A": "Langues berbères (amazighes)",
+      "B": "Langues bantoues du Congo uniquement",
+      "C": "Créoles réunionnais",
+      "D": "Langues khoïsan d'Australie"
+    },
+    "answer": "A",
+    "explanation": "Le tifinagh note des variétés amazighes, notamment en Afrique du Nord.",
+    "source": "Encyclopædia Britannica — Tifinagh",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-024",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Léopold Sédar Senghor est une figure majeure de :",
+    "options": {
+      "A": "La Négritude et de la littérature francophone africaine",
+      "B": "La physique quantique japonaise",
+      "C": "La peinture flamande du XVe siècle",
+      "D": "L'exploration polaire russe"
+    },
+    "answer": "A",
+    "explanation": "Senghor, poète et homme d'État sénégalais, est un pilier du mouvement de la Négritude.",
+    "source": "Encyclopædia Britannica — Léopold Senghor",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-025",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "L'amharique est une langue officielle principalement en :",
+    "options": {
+      "A": "Éthiopie",
+      "B": "Ghana",
+      "C": "Sénégal",
+      "D": "Namibie"
+    },
+    "answer": "A",
+    "explanation": "L'amharique est une langue majeure d'Éthiopie.",
+    "source": "Ethnologue — Amharic",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-026",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Ngũgĩ wa Thiong'o est un écrivain kenyan connu pour défendre :",
+    "options": {
+      "A": "L'écriture en langues africaines",
+      "B": "L'interdiction de la littérature",
+      "C": "Le silence total des romanciers",
+      "D": "La suppression des écoles"
+    },
+    "answer": "A",
+    "explanation": "Il a théorisé et pratiqué l'écriture en gĩkũyũ notamment.",
+    "source": "Britannica — Ngugi",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-027",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le genre « mbalax » est surtout associé au :",
+    "options": {
+      "A": "Sénégal",
+      "B": "Lesotho",
+      "C": "Érythrée",
+      "D": "Gabon exclusivement colonial"
+    },
+    "answer": "A",
+    "explanation": "Le mbalax est un genre populaire sénégalais.",
+    "source": "Grove / études musiques sénégalaises",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-028",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Ousmane Sembène est souvent appelé :",
+    "options": {
+      "A": "Le père du cinéma africain",
+      "B": "Le fondateur de Nollywood nigérian des années 2000",
+      "C": "Un peintre flamand",
+      "D": "Un astronaute"
+    },
+    "answer": "A",
+    "explanation": "Cinéaste et écrivain sénégalais pionnier.",
+    "source": "Britannica — Ousmane Sembène",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-029",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le wolof est largement parlé au :",
+    "options": {
+      "A": "Sénégal (et Gambie/Mauritanie)",
+      "B": "Japon",
+      "C": "Chili",
+      "D": "Finlande"
+    },
+    "answer": "A",
+    "explanation": "Langue véhiculaire majeure au Sénégal.",
+    "source": "Ethnologue — Wolof",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-030",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les tissus kente sont surtout associés culturellement au :",
+    "options": {
+      "A": "Ghana (Akan)",
+      "B": "Islande",
+      "C": "Mongolie",
+      "D": "Uruguay"
+    },
+    "answer": "A",
+    "explanation": "Le kente est un textile emblématique akan/ghanéen.",
+    "source": "Britannica — Kente cloth",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-031",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "« L'Enfant noir » est un roman de :",
+    "options": {
+      "A": "Camara Laye",
+      "B": "Albert Camus",
+      "C": "Victor Hugo",
+      "D": "Chinua Achebe"
+    },
+    "answer": "A",
+    "explanation": "Camara Laye (Guinée) publia L'Enfant noir en 1953.",
+    "source": "Britannica — Camara Laye",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-032",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le somali appartient principalement à quelle famille linguistique ?",
+    "options": {
+      "A": "Afro-asiatique (couchitique)",
+      "B": "Indo-européenne germanique",
+      "C": "Sino-tibétaine",
+      "D": "Isolat amazonien"
+    },
+    "answer": "A",
+    "explanation": "Le somali est une langue couchitique.",
+    "source": "Ethnologue — Somali",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-033",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Fela Kuti est une figure majeure de :",
+    "options": {
+      "A": "L'Afrobeat",
+      "B": "L'opéra wagnérien",
+      "C": "Le bluegrass Appalachian exclusif",
+      "D": "La musique baroque française"
+    },
+    "answer": "A",
+    "explanation": "Musicien nigérian pionnier de l'Afrobeat.",
+    "source": "Britannica — Fela Kuti",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-034",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le FESPACO est un festival de cinéma basé à :",
+    "options": {
+      "A": "Ouagadougou",
+      "B": "Paris",
+      "C": "Los Angeles",
+      "D": "Tokyo"
+    },
+    "answer": "A",
+    "explanation": "Festival panafricain du cinéma à Ouagadougou.",
+    "source": "FESPACO — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-035",
+    "category": "langue_culture",
+    "subcategory": "langues",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le swahili est une langue bantu largement utilisée comme…",
+    "options": {
+      "A": "Langue véhiculaire en Afrique de l'Est",
+      "B": "Langue officielle unique du Maghreb",
+      "C": "Dialecte du portugais",
+      "D": "Langue isolée sans emprunts"
+    },
+    "answer": "A",
+    "explanation": "Le kiswahili sert de lingua franca en Afrique de l'Est et centrale.",
+    "source": "Ethnologue / AU Kiswahili",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-036",
+    "category": "langue_culture",
+    "subcategory": "litterature",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Qui a écrit le roman « Things Fall Apart », référence de la littérature africaine anglophone ?",
+    "options": {
+      "A": "Chinua Achebe",
+      "B": "Wole Soyinka",
+      "C": "Ngũgĩ wa Thiong'o",
+      "D": "Ama Ata Aidoo"
+    },
+    "answer": "A",
+    "explanation": "Chinua Achebe (Nigeria) a publié Things Fall Apart en 1958.",
+    "source": "Encyclopædia Britannica — Chinua Achebe",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-037",
+    "category": "langue_culture",
+    "subcategory": "arts",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les sculptures en bronze du royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+    "options": {
+      "A": "Benin City",
+      "B": "Tombouctou",
+      "C": "Gao",
+      "D": "Kilwa"
+    },
+    "answer": "A",
+    "explanation": "Les fameux « bronzes du Bénin » proviennent de Benin City (actuel Nigeria).",
+    "source": "British Museum / UNESCO",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-038",
+    "category": "langue_culture",
+    "subcategory": "musique",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le genre musical afrobeat est étroitement associé à quel artiste nigérian ?",
+    "options": {
+      "A": "Fela Kuti",
+      "B": "Salif Keïta",
+      "C": "Youssou N'Dour",
+      "D": "Hugh Masekela"
+    },
+    "answer": "A",
+    "explanation": "Fela Kuti a popularisé l'afrobeat, mélange de highlife, jazz et funk engagé.",
+    "source": "Encyclopædia Britannica — Fela Kuti",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-039",
+    "category": "langue_culture",
+    "subcategory": "cinema",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Nollywood désigne principalement l'industrie cinématographique de…",
+    "options": {
+      "A": "Nigeria",
+      "B": "Égypte",
+      "C": "Afrique du Sud",
+      "D": "Sénégal"
+    },
+    "answer": "A",
+    "explanation": "Nollywood est le surnom de l'industrie du film nigériane, très productive.",
+    "source": "UNESCO / academic lit. on Nollywood",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "LANG-040",
+    "category": "langue_culture",
+    "subcategory": "patrimoine",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les manuscrits de Tombouctou témoignent surtout de…",
+    "options": {
+      "A": "Traditions savantes islamiques et africaines écrites",
+      "B": "Uniquement de la cartographie européenne",
+      "C": "Codes informatiques précoloniaux",
+      "D": "Partitions de jazz américain"
+    },
+    "answer": "A",
+    "explanation": "Les fonds manuscrits de Tombouctou documentent théologie, droit, sciences et histoire.",
+    "source": "UNESCO — Timbuktu manuscripts",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  }
+]
