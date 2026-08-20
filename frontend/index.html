@@ -88,6 +88,12 @@
         <div class="tagline">Benchmark LLM pour l'Afrique</div>
       </div>
 
+      <div class="sidebar-search">
+        <input type="search" id="global-search" class="sidebar-search__input"
+               placeholder="Rechercher un modèle, une question…"
+               aria-label="Recherche globale" autocomplete="off">
+      </div>
+
       <nav class="sidebar-nav">
         <div class="sidebar-section-title">Navigation</div>
         <button class="sidebar-btn active" data-tab="leaderboard" data-sidebar>
@@ -129,6 +135,12 @@
       </nav>
 
       <div class="sidebar-footer">
+        <button type="button" class="theme-toggle" id="theme-toggle"
+                aria-label="Basculer entre thème clair et sombre" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__label">Thème</span>
+        </button>
+        <span class="data-source-badge" id="data-source-badge" role="status"></span>
         v0.1 · benchmark ouvert
         <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
@@ -199,15 +211,15 @@
             <p class="lead">Classement, modèles, catégories, comparaisons : tout ce qu'il faut pour évaluer les LLMs sur l'Afrique.</p>
           </div>
           <nav class="tab-bar" role="tablist" aria-label="Sections" style="margin:0 -28px;padding:0 28px">
-            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="leaderboard">Classement</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="models">Modèles</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="categories">Catégories</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="compare">Comparer</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="evolution">Évolution</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="questions">Questions</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="open_tasks">Tâches ouvertes</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="methodology">Méthodologie</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-tab="api">API</button>
+            <button class="tab-btn active" role="tab" id="tab-leaderboard" aria-selected="true" aria-controls="tab-content" data-tab="leaderboard">Classement</button>
+            <button class="tab-btn" role="tab" id="tab-models" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="models">Modèles</button>
+            <button class="tab-btn" role="tab" id="tab-categories" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="categories">Catégories</button>
+            <button class="tab-btn" role="tab" id="tab-compare" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="compare">Comparer</button>
+            <button class="tab-btn" role="tab" id="tab-evolution" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="evolution">Évolution</button>
+            <button class="tab-btn" role="tab" id="tab-questions" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="questions">Questions</button>
+            <button class="tab-btn" role="tab" id="tab-open_tasks" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="open_tasks">Tâches ouvertes</button>
+            <button class="tab-btn" role="tab" id="tab-methodology" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="methodology">Méthodologie</button>
+            <button class="tab-btn" role="tab" id="tab-api" aria-selected="false" aria-controls="tab-content" tabindex="-1" data-tab="api">API</button>
           </nav>
         </div>
       </section>
@@ -215,7 +227,7 @@
       <!-- ═══ CONTENT AREA ═══ -->
       <section class="section">
         <div class="wrap">
-          <main class="content-area" id="tab-content" role="tabpanel">
+          <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="tab-leaderboard" tabindex="0">
 <!-- STATIC_LEADERBOARD_BEGIN -->
             <div class="card" id="static-leaderboard">
               <div class="card-title">Classement (v0.1 — indicatif)</div>
