@@ -7,15 +7,16 @@ la couche d'agrégation de ``data_loader`` reste inchangée.
 from __future__ import annotations
 
 import os
+from datetime import datetime, timezone
 from typing import Any
 
-from sqlalchemy import select
+from sqlalchemy import select, text
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.db import get_session
-from app.models import Model, Question, Result
+from app.models import EvalJob, Model, Question, Result
 
 # ── Conversion modèle ↔ dict ──────────────────────────────────────────────
 
@@ -385,6 +386,173 @@ def add_result(result: dict[str, Any]) -> None:
     session = get_session()
     try:
         session.add(Result(**result_from_dict(result)))
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+# ── Jobs d'évaluation (persistants) ───────────────────────────────────────
+
+_EVAL_RUNNER_LOCK_KEY = 42424242
+
+
+def _dt_to_iso(dt: datetime | None) -> str | None:
+    return dt.isoformat() if dt else None
+
+
+def _parse_iso(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def job_to_dict(j: EvalJob) -> dict[str, Any]:
+    return {
+        "job_id": j.job_id,
+        "status": j.status,
+        "model": j.model,
+        "few_shot": j.few_shot,
+        "limit": j.limit,
+        "category": j.category,
+        "created_at": _dt_to_iso(j.created_at) or "",
+        "started_at": _dt_to_iso(j.started_at),
+        "finished_at": _dt_to_iso(j.finished_at),
+        "error": j.error,
+        "result_summary": j.result_summary,
+        "result_path": j.result_path,
+    }
+
+
+def get_job(job_id: str) -> dict[str, Any] | None:
+    session = get_session()
+    try:
+        row = session.get(EvalJob, job_id)
+        return job_to_dict(row) if row else None
+    finally:
+        session.close()
+
+
+def list_jobs(limit: int = 20) -> list[dict[str, Any]]:
+    session = get_session()
+    try:
+        rows = session.scalars(
+            select(EvalJob).order_by(EvalJob.created_at.desc()).limit(limit)
+        ).all()
+        return [job_to_dict(j) for j in rows]
+    finally:
+        session.close()
+
+
+def list_jobs_by_status(status: str) -> list[dict[str, Any]]:
+    session = get_session()
+    try:
+        rows = session.scalars(
+            select(EvalJob)
+            .where(EvalJob.status == status)
+            .order_by(EvalJob.created_at.asc())
+        ).all()
+        return [job_to_dict(j) for j in rows]
+    finally:
+        session.close()
+
+
+def create_job(
+    job_id: str,
+    model: str,
+    few_shot: int,
+    limit: int | None,
+    category: str | None,
+    *,
+    created_at: str | None = None,
+) -> dict[str, Any]:
+    session = get_session()
+    try:
+        now = _parse_iso(created_at) or datetime.now(timezone.utc)
+        row = EvalJob(
+            job_id=job_id,
+            status="queued",
+            model=model,
+            few_shot=few_shot,
+            limit=limit,
+            category=category,
+            created_at=now,
+        )
+        session.add(row)
+        session.commit()
+        session.refresh(row)
+        return job_to_dict(row)
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+def update_job(job_id: str, **kwargs: Any) -> None:
+    iso_fields = {"created_at", "started_at", "finished_at"}
+    session = get_session()
+    try:
+        row = session.get(EvalJob, job_id)
+        if row is None:
+            return
+        for key, value in kwargs.items():
+            if key in iso_fields and isinstance(value, str):
+                value = _parse_iso(value)
+            setattr(row, key, value)
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+def recover_stale_jobs() -> dict[str, int]:
+    """Marque les jobs 'running' interrompus au redémarrage."""
+    session = get_session()
+    try:
+        now = datetime.now(timezone.utc)
+        running = session.scalars(select(EvalJob).where(EvalJob.status == "running")).all()
+        for job in running:
+            job.status = "failed"
+            job.finished_at = now
+            job.error = "Interrompu au redémarrage du serveur."
+        session.commit()
+        return {"failed_running": len(running)}
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+def try_acquire_eval_runner_lock() -> bool:
+    """Verrou exclusif d'évaluation (une seule à la fois, multi-réplica)."""
+    session = get_session()
+    try:
+        acquired = session.execute(
+            text("SELECT pg_try_advisory_lock(:key)"),
+            {"key": _EVAL_RUNNER_LOCK_KEY},
+        ).scalar()
+        session.commit()
+        return bool(acquired)
+    except Exception:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+
+def release_eval_runner_lock() -> None:
+    session = get_session()
+    try:
+        session.execute(
+            text("SELECT pg_advisory_unlock(:key)"),
+            {"key": _EVAL_RUNNER_LOCK_KEY},
+        )
         session.commit()
     except Exception:
         session.rollback()

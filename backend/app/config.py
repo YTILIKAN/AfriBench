@@ -40,6 +40,10 @@ class Settings(BaseSettings):
     rate_limit_read_window: float = 60.0
     rate_limit_write: int = 10
     rate_limit_write_window: float = 60.0
+    # auto | memory | postgres | redis
+    rate_limit_backend: str = "auto"
+    # Redis optionnel (prioritaire sur Postgres pour le rate-limit si défini)
+    redis_url: str = ""
 
     # Source of truth for benchmark data
     data_dir: Path = REPO_ROOT / "data"
@@ -62,6 +66,10 @@ class Settings(BaseSettings):
     @property
     def admin_enabled(self) -> bool:
         return bool(self.admin_password.strip())
+
+    @property
+    def redis_enabled(self) -> bool:
+        return bool(self.redis_url.strip())
 
     @property
     def sqlalchemy_database_url(self) -> str:

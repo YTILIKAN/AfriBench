@@ -28,7 +28,16 @@ async def lifespan(_: FastAPI):
             init_db()
             seeded = repository.seed(dl.load_questions(), dl.load_results())
             models_n = repository.seed_models(dl.load_models())
-            logger.info("DB initialisée + seed : %s (modèles : %s)", seeded, models_n)
+            recovered = repository.recover_stale_jobs()
+            logger.info(
+                "DB initialisée + seed : %s (modèles : %s, jobs interrompus : %s)",
+                seeded,
+                models_n,
+                recovered,
+            )
+            from app.services import evaluate as evalsvc
+
+            evalsvc.resume_queued_jobs()
         except Exception as exc:  # noqa: BLE001
             logger.exception("Initialisation DB échouée, fallback fichiers : %s", exc)
     yield
@@ -68,6 +77,11 @@ def root() -> dict:
         "docs": "/docs",
         "api": settings.api_prefix,
         "database": "postgresql" if settings.db_enabled else "none",
+        "rate_limit_backend": (
+            "redis"
+            if settings.redis_enabled
+            else ("postgres" if settings.db_enabled else "memory")
+        ),
         "admin_enabled": settings.admin_enabled,
         "endpoints": [
             f"{settings.api_prefix}/health",
