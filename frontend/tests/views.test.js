@@ -223,30 +223,55 @@ describe('autres vues', () => {
   });
 });
 
-describe('navigation par onglets', () => {
+describe('navigation par onglets (sidebar)', () => {
   beforeEach(() => {
     document.body.innerHTML = `
-      <nav class="tab-bar" role="tablist">
-        <button class="tab-btn active" role="tab" data-tab="leaderboard" id="tab-leaderboard">Classement</button>
-        <button class="tab-btn" role="tab" data-tab="models" id="tab-models">Modèles</button>
+      <nav class="sidebar-nav">
+        <div class="sidebar-tablist" role="tablist" aria-orientation="vertical">
+          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-sidebar id="nav-leaderboard">Classement</button>
+          <button class="sidebar-btn" role="tab" data-tab="models" data-sidebar id="nav-models">Modèles</button>
+        </div>
       </nav>
+      <header class="view-header">
+        <h2 id="view-title"></h2>
+        <p id="view-desc"></p>
+      </header>
+      <span id="mobile-view-title"></span>
       <main id="tab-content" role="tabpanel"></main>
     `;
   });
 
   it('setActiveTab met à jour aria-selected et le roving tabindex', () => {
     setActiveTab('models');
-    const modelsBtn = document.getElementById('tab-models');
-    const lbBtn = document.getElementById('tab-leaderboard');
+    const modelsBtn = document.getElementById('nav-models');
+    const lbBtn = document.getElementById('nav-leaderboard');
     expect(modelsBtn.getAttribute('aria-selected')).toBe('true');
     expect(modelsBtn.getAttribute('tabindex')).toBe('0');
+    expect(modelsBtn.classList.contains('active')).toBe(true);
     expect(lbBtn.getAttribute('aria-selected')).toBe('false');
     expect(lbBtn.getAttribute('tabindex')).toBe('-1');
-    expect(document.getElementById('tab-content').getAttribute('aria-labelledby')).toBe('tab-models');
+    expect(document.getElementById('tab-content').getAttribute('aria-labelledby')).toBe('nav-models');
+  });
+
+  it('setActiveTab met à jour l\'en-tête de vue et le titre mobile', () => {
+    setActiveTab('models');
+    expect(document.getElementById('view-title').textContent).toBe('Modèles');
+    expect(document.getElementById('view-desc').textContent.length).toBeGreaterThan(0);
+    expect(document.getElementById('mobile-view-title').textContent).toBe('Modèles');
+    expect(document.title).toContain('Modèles');
   });
 
   it('setActiveTab rejette les onglets inconnus', () => {
     setActiveTab('nope');
     expect(AppState.activeTab).toBe('leaderboard');
+  });
+
+  it('VIEW_META couvre tous les onglets valides', () => {
+    const { VALID_TABS, VIEW_META } = globalThis;
+    for (const tab of VALID_TABS) {
+      expect(VIEW_META[tab], `VIEW_META.${tab}`).toBeTruthy();
+      expect(VIEW_META[tab].title.length).toBeGreaterThan(0);
+      expect(VIEW_META[tab].desc.length).toBeGreaterThan(0);
+    }
   });
 });
