@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   setLoadingState(false);
   renderActiveTab();
-  renderTopModels();
   updateHeroStats();
   applyUrlFilters();
   // Deep link (?tab=X) : amener l'utilisateur directement à la vue demandée
@@ -313,19 +312,6 @@ function setupTabs() {
       if (input) input.focus();
     }
   });
-
-  // Footer quick links
-  document.querySelectorAll('[data-quicktab]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const tab = link.dataset.quicktab;
-      setActiveTab(tab);
-      // If it also has a category filter, pass to catégories view
-      if (link.dataset.filter && window.__categoryFilter) {
-        setTimeout(() => window.__categoryFilter(link.dataset.filter), 100);
-      }
-    });
-  });
 }
 
 function setActiveTab(tabId) {
@@ -391,7 +377,6 @@ function renderActiveTab() {
       await loadData();
       setLoadingState(false);
       renderActiveTab();
-      renderTopModels();
       updateHeroStats();
     });
     return;
@@ -614,96 +599,6 @@ function updateHeroStats() {
   setText('hero-date', formatted);
 }
 
-/* ── Top Models Row ──────────────────────────────────── */
-function renderTopModels() {
-  const container = document.getElementById('top-models-row');
-  if (!container) return;
-
-  const models = getLatestResults();
-  if (models.length === 0) {
-    container.style.display = 'none';
-    return;
-  }
-
-  container.style.display = 'grid';
-
-  // Top by category (pick the category with highest variance)
-  const catScores = {};
-  models.forEach((m) => {
-    if (m.by_category) {
-      Object.entries(m.by_category).forEach(([cat, info]) => {
-        if (!catScores[cat]) catScores[cat] = [];
-        catScores[cat].push(info.accuracy);
-      });
-    }
-  });
-
-  // Best category (highest average score)
-  let bestCat = null;
-  let bestAvg = 0;
-  Object.entries(catScores).forEach(([cat, scores]) => {
-    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-    if (avg > bestAvg) { bestAvg = avg; bestCat = cat; }
-  });
-
-  // Card: Best overall
-  const top = models[0];
-  let html = `
-    <div class="top-model-card">
-      <div class="label">Meilleur score (v0.1)</div>
-      <div class="model-name">${escapeHtml(top.model_label || top.model)}</div>
-      <div class="score">${top.accuracy}%</div>
-      <div class="sub">${top.correct}/${top.total} questions${top.total && AppState.questions.length && top.total !== AppState.questions.length ? ' · seed' : ''}</div>
-    </div>
-  `;
-
-  // Card: Best by category
-  if (bestCat) {
-    const bestInCat = models.reduce((best, m) => {
-      const score = m.by_category?.[bestCat]?.accuracy || 0;
-      return score > (best.score || 0) ? { model: m, score } : best;
-    }, {});
-    if (bestInCat.model) {
-      html += `
-        <div class="top-model-card">
-          <div class="label">Meilleur ${categoryLabel(bestCat)}</div>
-          <div class="model-name">${escapeHtml(bestInCat.model.model_label || bestInCat.model.model)}</div>
-          <div class="score">${bestInCat.score.toFixed(1)}%</div>
-          <div class="sub">${categoryLabel(bestCat)}</div>
-        </div>
-      `;
-    }
-  }
-
-  // Card: Open weights leader
-  const open = models.find((m) => isOpenModel(m));
-  if (open) {
-    html += `
-      <div class="top-model-card">
-        <div class="label">Open Weights</div>
-        <div class="model-name">${escapeHtml(open.model_label || open.model)}</div>
-        <div class="score">${open.accuracy}%</div>
-        <div class="sub">open-source</div>
-      </div>
-    `;
-  }
-
-  // Card: Best value (if we have meaningful comparison)
-  if (models.length >= 3) {
-    const cheapest = models[models.length - 1]; // lowest for now
-    html += `
-      <div class="top-model-card">
-        <div class="label">Meilleur ratio</div>
-        <div class="model-name">${escapeHtml(cheapest.model_label || cheapest.model)}</div>
-        <div class="score">${cheapest.accuracy}%</div>
-        <div class="sub">${cheapest.correct}/${cheapest.total}</div>
-      </div>
-    `;
-  }
-
-  container.innerHTML = html;
-}
-
 /* ── Utilities ────────────────────────────────────────── */
 
 /* ── Favorites ──────────────────────────────────────── */
@@ -752,6 +647,20 @@ function chartTheme() {
     grid: read('--chart-grid', 'rgba(43,43,43,0.12)'),
     label: read('--chart-label', '#2B2B2B'),
   };
+}
+
+/* Palette duotone discrète (orange + gris chauds), lisible en clair et sombre */
+const CHART_PALETTE = [
+  { bg: 'rgba(255, 167, 38, 0.75)', border: 'rgba(240, 138, 0, 1)' },
+  { bg: 'rgba(91, 88, 84, 0.55)', border: 'rgba(91, 88, 84, 0.9)' },
+  { bg: 'rgba(249, 160, 63, 0.45)', border: 'rgba(249, 160, 63, 0.85)' },
+  { bg: 'rgba(163, 158, 150, 0.5)', border: 'rgba(163, 158, 150, 0.9)' },
+  { bg: 'rgba(196, 127, 23, 0.6)', border: 'rgba(196, 127, 23, 1)' },
+  { bg: 'rgba(210, 204, 196, 0.55)', border: 'rgba(181, 175, 168, 0.95)' },
+];
+
+function chartSeriesColor(i) {
+  return CHART_PALETTE[i % CHART_PALETTE.length];
 }
 
 /* ── Compute helpers (shared with leaderboard & models) ─ */
@@ -840,13 +749,13 @@ function renderDailyQuestion() {
   container.innerHTML = `
     <div class="dq-card">
       <div class="dq-header">
+        <span class="dq-title">Question du jour</span>
         <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
           ${categoryLabel(q.category)}
         </span>
-        <span class="dq-badge" style="background:var(--surface-2);color:var(--muted)">
+        <span class="dq-badge dq-badge--muted">
           ${difficultyLabel(q.difficulty)}
         </span>
-        <span class="dq-date">${today}</span>
       </div>
       <div class="dq-question">${escapeHtml(q.question || '')}</div>
       <div class="dq-options">
@@ -861,7 +770,7 @@ function renderDailyQuestion() {
         </div>
       </div>
       <div class="dq-actions">
-        <button class="dq-btn" id="dq-show-answer">Voir la reponse</button>
+        <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
         <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Toutes les questions</button>
       </div>
     </div>
@@ -984,6 +893,7 @@ Object.assign(globalThis, {
   renderActiveTab,
   mountChart,
   chartTheme,
+  chartSeriesColor,
   setupRevealAnimations,
   setupSearch,
   setupTabs,

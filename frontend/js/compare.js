@@ -4,7 +4,7 @@
 
 const {
   AppState, getLatestResults, categoryColor, categoryLabel,
-  escapeHtml, mountChart, chartTheme,
+  escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
 function renderCompare(container) {
@@ -141,14 +141,14 @@ function updateCompare() {
 
   const datasets = selected.map((m, i) => {
     const data = catList.map((c) => m.by_category?.[c]?.accuracy || 0);
-    const hue = (i * 360) / Math.max(selected.length, 1);
+    const series = chartSeriesColor(i);
     return {
       label: `${m.model_label || m.model} (${m.accuracy}%)`,
       data,
-      backgroundColor: `hsla(${hue}, 60%, 55%, 0.08)`,
-      borderColor: `hsla(${hue}, 60%, 55%, 0.9)`,
+      backgroundColor: series.bg.replace(/[\d.]+\)$/, '0.10)'),
+      borderColor: series.border,
       borderWidth: 2,
-      pointBackgroundColor: `hsla(${hue}, 60%, 55%, 1)`,
+      pointBackgroundColor: series.border,
       pointRadius: 4,
     };
   });
