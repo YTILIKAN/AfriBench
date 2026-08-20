@@ -1,48 +1,38 @@
 # Tâches non-QCM AfriBench (v0.1)
 
-Jeux ouverts pour mesurer synthèse, traduction et résumé — complémentaires au QCM.
+Jeux ouverts / classification pour mesurer des compétences au-delà du QCM.
 
 ## Fichiers
 
 | Fichier | `task_type` | N | Statut |
 |---------|-------------|--:|--------|
-| `open_v1.json` | `open_generation` (implicite) | 10 | pilot |
-| `translation_v1.json` | `translation` | 3 | pilot (réfs à valider) |
+| `open_v1.json` | `open_generation` | 10 | pilot |
+| `open_qa_v1.json` | `open_qa` | 3 | pilot |
+| `translation_v1.json` | `translation` | 3 | pilot |
 | `summarization_v1.json` | `summarization` | 3 | pilot |
+| `ner_v1.json` | `ner` | 3 | pilot |
+| `sentiment_v1.json` | `sentiment` | 3 | pilot |
 
-Chaque item porte `reference_points` + `rubric` pour LLM-as-judge.
-Les tâches traduction/résumé restent **non officielles** tant que les références
-n'ont pas été validées par des locuteurs / annotateurs.
+Total pilotes non-QCM : **25** items. Non officiels tant que non validés.
 
-## Grille LLM-as-judge
+## Métriques
 
-| Critère | Max | Description |
-|---------|-----|-------------|
-| `exactitude` | 4 | Faits corrects, pas d'hallucination majeure |
-| `profondeur` | 3 | Analyse / couverture des points clés |
-| `nuance_culturelle` | 3 | Évite stéréotypes ; reconnaît la diversité |
+Stubs CI (sans deps lourdes) : `scripts/metrics/text_metrics.py`
 
-Score total /10.
+| Tâche | Métriques prévues |
+|-------|-------------------|
+| open / open_qa | LLM-as-judge + token F1 |
+| translation | BLEU/COMET (stub `bleu_proxy`) |
+| summarization | ROUGE/BERTScore (stub `rouge_l_proxy`) |
+| ner | entity F1 |
+| sentiment | accuracy / macro-F1 |
 
-Métriques automatiques prévues (non branchées) : BLEU/COMET (traduction), ROUGE/BERTScore (résumé).
-
-## Évaluer
+## Évaluer (génération / QA / traduction / résumé)
 
 ```bash
-# 1) Produire des réponses modèle (JSONL)
-# {"id":"OPEN-001","model":"gpt-4o","response":"..."}
-# {"id":"TR-001","model":"gpt-4o","response":"..."}
-# {"id":"SUM-001","model":"gpt-4o","response":"..."}
-
-# 2) Juger
-export OPENAI_API_KEY=...
 python scripts/judges/llm_as_judge.py \
   --responses data/results/open_responses.jsonl \
-  --out data/results/open_judgements.jsonl
-
-# Dry-run (sans API)
-python scripts/judges/llm_as_judge.py \
-  --responses examples.jsonl --out /tmp/j.jsonl --dry-run
+  --out data/results/open_judgements.jsonl --dry-run
 ```
 
-Contrôle humain recommandé sur un échantillon (≥20 %) des jugements.
+Contrôle humain recommandé sur ≥20 % des jugements.

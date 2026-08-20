@@ -1,0 +1,66 @@
+[
+  {
+    "id": "HIST-001",
+    "category": "histoire",
+    "subcategory": "empires_precoloniaux",
+    "difficulty": "easy",
+    "language": "yo",
+    "question": "Ijoba Afirika Iwoorun wo ni o gbajumo fun oro wura ati ilu eko Timbuktu ni orundun 14?",
+    "options": {
+      "A": "Ijoba Ghana",
+      "B": "Ijoba Mali",
+      "C": "Ijoba Songhai",
+      "D": "Ijoba Benin"
+    },
+    "answer": "B",
+    "explanation": "Ijoba Mali labẹ Mansa Musa gbajumo fun wura; Timbuktu di ibudo eko.",
+    "source": "UNESCO General History of Africa, Vol. IV",
+    "translation_of": "HIST-001",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03",
+    "notes": "Orthographe sans tons — à normaliser par locuteur natif."
+  },
+  {
+    "id": "GEOG-024",
+    "category": "geographie",
+    "subcategory": "politique",
+    "difficulty": "medium",
+    "language": "yo",
+    "question": "Ki ni olu-ilu Ethiopia?",
+    "options": {
+      "A": "Addis Ababa",
+      "B": "Asmara",
+      "C": "Djibouti",
+      "D": "Khartoum"
+    },
+    "answer": "A",
+    "explanation": "Addis Ababa ni olu-ilu Ethiopia ati ibudo Ajosepo Afirika.",
+    "source": "Encyclopædia Britannica — Addis Ababa",
+    "translation_of": "GEOG-024",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-017",
+    "category": "droit_politique",
+    "subcategory": "organisations",
+    "difficulty": "easy",
+    "language": "yo",
+    "question": "Orile-ede wo ni o gba ibudo Ajosepo Afirika?",
+    "options": {
+      "A": "Ethiopia",
+      "B": "Naijiria",
+      "C": "Guusu Afirika",
+      "D": "Egypt"
+    },
+    "answer": "A",
+    "explanation": "Ibudo UA wa ni Addis Ababa, Ethiopia.",
+    "source": "African Union — About",
+    "translation_of": "POL-017",
+    "translation_status": "draft_mt_unverified",
+    "author": "afribench-draft",
+    "date_created": "2026-08-03"
+  }
+]

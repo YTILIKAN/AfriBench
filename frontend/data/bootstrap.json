@@ -1129,6 +1129,120 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "POL-033",
+      "category": "droit_politique",
+      "subcategory": "institutions",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Quel organe de l'Union africaine regroupe les chefs d'État et de gouvernement ?",
+      "options": {
+        "A": "Commission de l'UA",
+        "B": "Conseil de paix et de sécurité",
+        "C": "Conférence de l'Union",
+        "D": "Parlement panafricain"
+      },
+      "answer": "C",
+      "explanation": "La Conférence (Assembly) est l'organe suprême composé des chefs d'État et de gouvernement.",
+      "source": "African Union — Constitutive Act",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-034",
+      "category": "droit_politique",
+      "subcategory": "elections",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "La Charte africaine de la démocratie, des élections et de la gouvernance a été adoptée en quelle année ?",
+      "options": {
+        "A": "1990",
+        "B": "2000",
+        "C": "2007",
+        "D": "2015"
+      },
+      "answer": "C",
+      "explanation": "Adoptée en 2007 à Addis-Abeba, elle fixe des normes démocratiques pour les États membres.",
+      "source": "African Union — ACDEG",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-035",
+      "category": "droit_politique",
+      "subcategory": "regional",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La CEDEAO est une communauté économique régionale d'Afrique…",
+      "options": {
+        "A": "de l'Ouest",
+        "B": "centrale",
+        "C": "orientale",
+        "D": "australe"
+      },
+      "answer": "A",
+      "explanation": "La CEDEAO (ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+      "source": "ECOWAS — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-036",
+      "category": "droit_politique",
+      "subcategory": "droits",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "La Charte africaine des droits de l'homme et des peuples est aussi appelée Charte de…",
+      "options": {
+        "A": "Banjul",
+        "B": "Maputo",
+        "C": "Lomé",
+        "D": "Arusha"
+      },
+      "answer": "A",
+      "explanation": "Adoptée à Nairobi mais souvent dite Charte de Banjul (siège de la Commission africaine).",
+      "source": "ACHPR — African Charter",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-037",
+      "category": "droit_politique",
+      "subcategory": "transitions",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Quel principe de l'UA condamne les changements anticonstitutionnels de gouvernement ?",
+      "options": {
+        "A": "Non-ingérence absolue",
+        "B": "Tolérance zéro envers les coups d'État",
+        "C": "Souveraineté monétaire unique",
+        "D": "Unicité du parti"
+      },
+      "answer": "B",
+      "explanation": "L'UA a développé une norme de rejet des coups d'État et changements anticonstitutionnels.",
+      "source": "AU — Lomé Declaration / ACDEG",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "POL-038",
+      "category": "droit_politique",
+      "subcategory": "justice",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La Cour africaine des droits de l'homme et des peuples a son siège à…",
+      "options": {
+        "A": "Addis-Abeba",
+        "B": "Arusha",
+        "C": "Johannesburg",
+        "D": "Dakar"
+      },
+      "answer": "B",
+      "explanation": "La Cour siège à Arusha, en Tanzanie.",
+      "source": "African Court — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "ECON-001",
       "category": "economie",
       "subcategory": "pib_croissance",
@@ -1733,6 +1847,120 @@
       "answer": "A",
       "explanation": "Le schéma libéralise certains échanges intra-CEDEAO.",
       "source": "ECOWAS — ETLS",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-033",
+      "category": "economie",
+      "subcategory": "integration",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Quel est l'objectif principal de la ZLECAf ?",
+      "options": {
+        "A": "Créer une monnaie unique immédiate",
+        "B": "Créer un marché continental de biens et services",
+        "C": "Remplacer toutes les CER régionales",
+        "D": "Nationaliser les industries extractives"
+      },
+      "answer": "B",
+      "explanation": "La ZLECAf vise un marché unique africain en réduisant les barrières commerciales.",
+      "source": "AU — AfCFTA",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-034",
+      "category": "economie",
+      "subcategory": "ressources",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le Nigeria est particulièrement connu pour l'exportation de…",
+      "options": {
+        "A": "Pétrole brut",
+        "B": "Cuivre",
+        "C": "Diamants industriels uniquement",
+        "D": "Blé"
+      },
+      "answer": "A",
+      "explanation": "Le pétrole reste une ressource d'exportation majeure de l'économie nigériane.",
+      "source": "OPEC / World Bank Nigeria overview",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-035",
+      "category": "economie",
+      "subcategory": "monnaie",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le franc CFA d'Afrique de l'Ouest est utiliséé par la…",
+      "options": {
+        "A": "SADC",
+        "B": "CEMAC",
+        "C": "UEMOA",
+        "D": "EAC"
+      },
+      "answer": "C",
+      "explanation": "L'UEMOA regroupe des États ouest-africains utilisant le franc CFA (XOF).",
+      "source": "BCEAO — UEMOA",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-036",
+      "category": "economie",
+      "subcategory": "agriculture",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Quel pays africain est historiquement l'un des premiers producteurs mondiaux de cacao ?",
+      "options": {
+        "A": "Côte d'Ivoire",
+        "B": "Égypte",
+        "C": "Namibie",
+        "D": "Lesotho"
+      },
+      "answer": "A",
+      "explanation": "La Côte d'Ivoire est le premier producteur mondial de cacao.",
+      "source": "ICCO / FAO",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-037",
+      "category": "economie",
+      "subcategory": "finance",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le mobile money (ex. M-Pesa) s'est d'abord massivement diffusé dans quel pays ?",
+      "options": {
+        "A": "Kenya",
+        "B": "Maroc",
+        "C": "Gabon",
+        "D": "Botswana"
+      },
+      "answer": "A",
+      "explanation": "M-Pesa, lancé au Kenya (2007), a popularisé le paiement mobile en Afrique.",
+      "source": "GSMA — Mobile Money",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "ECON-038",
+      "category": "economie",
+      "subcategory": "industrie",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "L'Initiative pour la transparence dans les industries extractives (ITIE) vise surtout à…",
+      "options": {
+        "A": "Fixer les prix du pétrole",
+        "B": "Améliorer la transparence des revenus extractifs",
+        "C": "Interdire l'exploitation minière artisanale",
+        "D": "Remplacer les banques centrales"
+      },
+      "answer": "B",
+      "explanation": "L'ITIE (EITI) publie et vérifie les paiements liés aux industries extractives.",
+      "source": "EITI — About",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -2440,6 +2668,82 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "GEOG-038",
+      "category": "geographie",
+      "subcategory": "relief",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Quel désert couvre une grande partie de la Namibie et de l'Angola côtier ?",
+      "options": {
+        "A": "Kalahari",
+        "B": "Namib",
+        "C": "Sahara",
+        "D": "Danakil"
+      },
+      "answer": "B",
+      "explanation": "Le Namib est un désert côtier d'Afrique australe, parmi les plus anciens du monde.",
+      "source": "Encyclopædia Britannica — Namib",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-039",
+      "category": "geographie",
+      "subcategory": "hydrographie",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le lac Malawi (Nyasa) est bordé principalement par quels trois pays ?",
+      "options": {
+        "A": "Malawi, Mozambique, Tanzanie",
+        "B": "Kenya, Ouganda, Tanzanie",
+        "C": "Zambie, Zimbabwe, Botswana",
+        "D": "RDC, Rwanda, Burundi"
+      },
+      "answer": "A",
+      "explanation": "Le lac Malawi est partagé entre le Malawi, le Mozambique et la Tanzanie.",
+      "source": "Encyclopædia Britannica — Lake Malawi",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-040",
+      "category": "geographie",
+      "subcategory": "climat",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Quel courant océanique froid contribue à l'aridité du littoral namibien ?",
+      "options": {
+        "A": "Courant des Canaries",
+        "B": "Courant de Benguela",
+        "C": "Courant de Guinée",
+        "D": "Courant des Aiguilles"
+      },
+      "answer": "B",
+      "explanation": "Le courant de Benguela, froid, stabilise l'air et limite les précipitations sur le Namib.",
+      "source": "Encyclopædia Britannica — Benguela Current",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "GEOG-041",
+      "category": "geographie",
+      "subcategory": "capitales",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Quelle est la capitale du Rwanda ?",
+      "options": {
+        "A": "Kigali",
+        "B": "Bujumbura",
+        "C": "Kampala",
+        "D": "Goma"
+      },
+      "answer": "A",
+      "explanation": "Kigali est la capitale du Rwanda.",
+      "source": "Encyclopædia Britannica — Kigali",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "HIST-001",
       "category": "histoire",
       "subcategory": "empires_precoloniaux",
@@ -3143,6 +3447,82 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "HIST-038",
+      "category": "histoire",
+      "subcategory": "independances",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Quel leader a proclamé l'indépendance de la Guinée en 1958 en refusant la Communauté française ?",
+      "options": {
+        "A": "Léopold Sédar Senghor",
+        "B": "Ahmed Sékou Touré",
+        "C": "Félix Houphouët-Boigny",
+        "D": "Modibo Keïta"
+      },
+      "answer": "B",
+      "explanation": "Sékou Touré a fait voter « non » au référendum de 1958, conduisant à l'indépendance immédiate de la Guinée.",
+      "source": "UNESCO Histoire Générale de l'Afrique, Vol. VIII",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-039",
+      "category": "histoire",
+      "subcategory": "empires_precoloniaux",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Quel royaume du bassin du Congo est célèbre pour ses tissus en raphia et ses relations diplomatiques avec le Portugal dès le XVe siècle ?",
+      "options": {
+        "A": "Royaume du Kongo",
+        "B": "Empire Luba",
+        "C": "Royaume du Buganda",
+        "D": "Empire du Monomotapa"
+      },
+      "answer": "A",
+      "explanation": "Le royaume du Kongo établit tôt des contacts avec les Portugais ; sa culture matérielle (raphia) est bien documentée.",
+      "source": "UNESCO Histoire Générale de l'Afrique, Vol. V",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-040",
+      "category": "histoire",
+      "subcategory": "resistances",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La reine Yaa Asantewaa est associée à quelle résistance anticoloniale ?",
+      "options": {
+        "A": "Résistance ashanti contre les Britanniques",
+        "B": "Guerre des Zoulous contre les Boers",
+        "C": "Révolte des Maji Maji",
+        "D": "Résistance samory contre la France"
+      },
+      "answer": "A",
+      "explanation": "Yaa Asantewaa mena la guerre du Tabouret d'or (1900) contre l'occupation britannique en Asante (Ghana).",
+      "source": "UNESCO Histoire Générale de l'Afrique, Vol. VII",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "HIST-041",
+      "category": "histoire",
+      "subcategory": "traite",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Quel comptoir français d'Afrique de l'Ouest fut un des principaux ports de la traite atlantique ?",
+      "options": {
+        "A": "Gorée",
+        "B": "Mombasa",
+        "C": "Sofala",
+        "D": "Zanzibar"
+      },
+      "answer": "A",
+      "explanation": "L'île de Gorée (Sénégal) est un site emblématique de la mémoire de la traite atlantique.",
+      "source": "UNESCO — Île de Gorée",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "IA-001",
       "category": "ia_technologie",
       "subcategory": "ia_applications",
@@ -3747,6 +4127,120 @@
       "answer": "A",
       "explanation": "Déploiement contraint par économie et régulation.",
       "source": "GSMA Mobile Economy Africa",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-033",
+      "category": "ia_technologie",
+      "subcategory": "nlp",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Masakhane est surtout connu comme…",
+      "options": {
+        "A": "Une communauté de recherche NLP pour les langues africaines",
+        "B": "Un opérateur télécoms panafricain",
+        "C": "Une banque centrale numérique",
+        "D": "Un protocole minier"
+      },
+      "answer": "A",
+      "explanation": "Masakhane fédère des chercheurs autour de la NLP pour les langues africaines.",
+      "source": "Masakhane — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-034",
+      "category": "ia_technologie",
+      "subcategory": "infra",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le principal frein à l'IA en Afrique souvent cité est…",
+      "options": {
+        "A": "Le manque de données locales et d'infrastructures de calcul",
+        "B": "L'interdiction mondiale du deep learning",
+        "C": "L'absence totale de téléphones mobiles",
+        "D": "La surabondance de GPU publics"
+      },
+      "answer": "A",
+      "explanation": "Données sous-représentées, coûts de calcul et connectivité restent des défis structurels.",
+      "source": "AI4D / academic reviews",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-035",
+      "category": "ia_technologie",
+      "subcategory": "open_source",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Pourquoi les modèles multilingues « web-scale » sous-performent-ils souvent sur les langues africaines ?",
+      "options": {
+        "A": "Faible représentation de ces langues dans les corpus d'entraînement",
+        "B": "Elles sont syntaxiquement impossibles à modéliser",
+        "C": "Elles n'ont aucun emprunt lexical",
+        "D": "Elles n'existent qu'à l'oral sans aucun texte"
+      },
+      "answer": "A",
+      "explanation": "Le déséquilibre des données web biaise les modèles contre les langues peu dotées.",
+      "source": "NLP literature on low-resource languages",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-036",
+      "category": "ia_technologie",
+      "subcategory": "applications",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Une application prioritaire de l'IA en agriculture africaine est…",
+      "options": {
+        "A": "Aide au diagnostic des maladies des cultures via images",
+        "B": "Remplacement des saisons climatiques",
+        "C": "Interdiction des coopératives",
+        "D": "Traduction automatique des codes miniers uniquement"
+      },
+      "answer": "A",
+      "explanation": "Vision par ordinateur et conseil agronomique mobile sont des cas d'usage fréquents.",
+      "source": "FAO / AI4Agriculture reviews",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-037",
+      "category": "ia_technologie",
+      "subcategory": "ethique",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Un risque éthique majeur des systèmes de crédit scoring IA en Afrique est…",
+      "options": {
+        "A": "La discrimination via des proxies socio-économiques biaisés",
+        "B": "L'élimination automatique de l'inflation",
+        "C": "La création d'or numérique",
+        "D": "La disparition des langues"
+      },
+      "answer": "A",
+      "explanation": "Des variables proxies peuvent reproduire des inégalités d'accès au crédit.",
+      "source": "AI ethics / digital finance literature",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "IA-038",
+      "category": "ia_technologie",
+      "subcategory": "donnees",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les benchmarks de type AfriBench cherchent surtout à…",
+      "options": {
+        "A": "Mesurer les LLM sur des connaissances et contextes africains",
+        "B": "Remplacer Internet en Afrique",
+        "C": "Certifier le matériel GPU",
+        "D": "Standardiser les visas Schengen"
+      },
+      "answer": "A",
+      "explanation": "AfriBench évalue les modèles sur des questions ancrées dans les réalités africaines.",
+      "source": "AfriBench README",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -4397,6 +4891,120 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "LANG-035",
+      "category": "langue_culture",
+      "subcategory": "langues",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le swahili est une langue bantu largement utilisée comme…",
+      "options": {
+        "A": "Langue véhiculaire en Afrique de l'Est",
+        "B": "Langue officielle unique du Maghreb",
+        "C": "Dialecte du portugais",
+        "D": "Langue isolée sans emprunts"
+      },
+      "answer": "A",
+      "explanation": "Le kiswahili sert de lingua franca en Afrique de l'Est et centrale.",
+      "source": "Ethnologue / AU Kiswahili",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-036",
+      "category": "langue_culture",
+      "subcategory": "litterature",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Qui a écrit le roman « Things Fall Apart », référence de la littérature africaine anglophone ?",
+      "options": {
+        "A": "Chinua Achebe",
+        "B": "Wole Soyinka",
+        "C": "Ngũgĩ wa Thiong'o",
+        "D": "Ama Ata Aidoo"
+      },
+      "answer": "A",
+      "explanation": "Chinua Achebe (Nigeria) a publié Things Fall Apart en 1958.",
+      "source": "Encyclopædia Britannica — Chinua Achebe",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-037",
+      "category": "langue_culture",
+      "subcategory": "arts",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les sculptures en bronze du royaume du Bénin (Edo) sont surtout associées à quelle ville historique ?",
+      "options": {
+        "A": "Benin City",
+        "B": "Tombouctou",
+        "C": "Gao",
+        "D": "Kilwa"
+      },
+      "answer": "A",
+      "explanation": "Les fameux « bronzes du Bénin » proviennent de Benin City (actuel Nigeria).",
+      "source": "British Museum / UNESCO",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-038",
+      "category": "langue_culture",
+      "subcategory": "musique",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Le genre musical afrobeat est étroitement associé à quel artiste nigérian ?",
+      "options": {
+        "A": "Fela Kuti",
+        "B": "Salif Keïta",
+        "C": "Youssou N'Dour",
+        "D": "Hugh Masekela"
+      },
+      "answer": "A",
+      "explanation": "Fela Kuti a popularisé l'afrobeat, mélange de highlife, jazz et funk engagé.",
+      "source": "Encyclopædia Britannica — Fela Kuti",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-039",
+      "category": "langue_culture",
+      "subcategory": "cinema",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Nollywood désigne principalement l'industrie cinématographique de…",
+      "options": {
+        "A": "Nigeria",
+        "B": "Égypte",
+        "C": "Afrique du Sud",
+        "D": "Sénégal"
+      },
+      "answer": "A",
+      "explanation": "Nollywood est le surnom de l'industrie du film nigériane, très productive.",
+      "source": "UNESCO / academic lit. on Nollywood",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "LANG-040",
+      "category": "langue_culture",
+      "subcategory": "patrimoine",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les manuscrits de Tombouctou témoignent surtout de…",
+      "options": {
+        "A": "Traditions savantes islamiques et africaines écrites",
+        "B": "Uniquement de la cartographie européenne",
+        "C": "Codes informatiques précoloniaux",
+        "D": "Partitions de jazz américain"
+      },
+      "answer": "A",
+      "explanation": "Les fonds manuscrits de Tombouctou documentent théologie, droit, sciences et histoire.",
+      "source": "UNESCO — Timbuktu manuscripts",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "CULT-001",
       "category": "raisonnement_culturel",
       "subcategory": "proverbes_sagesse",
@@ -5001,6 +5609,120 @@
       "answer": "A",
       "explanation": "Fonction rhétorique et normative du proverbe.",
       "source": "Littérature orale",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-033",
+      "category": "raisonnement_culturel",
+      "subcategory": "valeurs",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Dans plusieurs sociétés africaines, le concept d'ubuntu met surtout l'accent sur…",
+      "options": {
+        "A": "L'interdépendance et l'humanité partagée",
+        "B": "L'individualisme possessif absolu",
+        "C": "Le refus de toute solidarité",
+        "D": "La centralité exclusive du marché boursier"
+      },
+      "answer": "A",
+      "explanation": "Ubuntu est souvent résumé par l'idée qu'on devient humain par les relations aux autres.",
+      "source": "Philosophical literature on Ubuntu",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-034",
+      "category": "raisonnement_culturel",
+      "subcategory": "rituels",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les rites de passage (initiation) servent souvent à…",
+      "options": {
+        "A": "Marquer la transition vers un nouveau statut social",
+        "B": "Remplacer l'état civil moderne exclusivement",
+        "C": "Interdire toute transmission orale",
+        "D": "Mesurer le PIB local"
+      },
+      "answer": "A",
+      "explanation": "Ils socialisent les individus et symbolisent le changement de statut (âge, genre, métier).",
+      "source": "Anthropologie africaniste (synthèse)",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-035",
+      "category": "raisonnement_culturel",
+      "subcategory": "parenté",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Dans de nombreuses sociétés africaines, la famille élargie implique que…",
+      "options": {
+        "A": "Les obligations de solidarité dépassent le ménage nucléaire",
+        "B": "Seuls les cousins germains existent légalement",
+        "C": "Il n'y a pas de liens de parenté",
+        "D": "La parenté est identique au droit romain partout"
+      },
+      "answer": "A",
+      "explanation": "Soutien économique, éducation et résidence impliquent souvent un réseau élargi.",
+      "source": "Sociologie de la famille en Afrique",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-036",
+      "category": "raisonnement_culturel",
+      "subcategory": "religion",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Sur le continent africain, le paysage religieux se caractérise souvent par…",
+      "options": {
+        "A": "Une coexistence de christianismes, islams et religions endogènes",
+        "B": "Une religion unique uniforme depuis l'Antiquité",
+        "C": "L'absence totale de pratiques spirituelles",
+        "D": "Uniquement des cultes importés au XXIe siècle"
+      },
+      "answer": "A",
+      "explanation": "Diversité et syncrétismes varient fortement selon les régions et histoires locales.",
+      "source": "Pew / religious demography Africa",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-037",
+      "category": "raisonnement_culturel",
+      "subcategory": "stereotype",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Quelle approche est la plus pertinente pour éviter l'essentialisation de « la culture africaine » ?",
+      "options": {
+        "A": "Reconnaître la pluralité des sociétés, langues et trajectoires historiques",
+        "B": "Attribuer un trait unique à tout le continent",
+        "C": "Ignorer les sources africaines",
+        "D": "Réduire l'Afrique à la pauvreté"
+      },
+      "answer": "A",
+      "explanation": "L'Afrique n'est pas monolithique ; l'analyse doit être située et différenciée.",
+      "source": "CRITIQUE.md / postcolonial methods",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "CULT-038",
+      "category": "raisonnement_culturel",
+      "subcategory": "mediation",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les mécanismes coutumiers de médiation des conflits visent souvent à…",
+      "options": {
+        "A": "Restaurer le lien social autant qu'à trancher un litige",
+        "B": "Remplacer toute constitution écrite",
+        "C": "Interdire l'appel aux cours modernes",
+        "D": "Maximiser les peines carcérales"
+      },
+      "answer": "A",
+      "explanation": "Beaucoup de justices endogènes privilégient réconciliation et réparation communautaire.",
+      "source": "Legal pluralism literature",
       "author": "afribench",
       "date_created": "2026-08-03"
     },
@@ -5613,6 +6335,120 @@
       "date_created": "2026-08-03"
     },
     {
+      "id": "SANTE-033",
+      "category": "sante_sciences",
+      "subcategory": "maladies",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Quelle maladie parasitaire transmise par les anophèles reste majeure en Afrique subsaharienne ?",
+      "options": {
+        "A": "Paludisme",
+        "B": "Choléra uniquement",
+        "C": "Rage",
+        "D": "Tétanos"
+      },
+      "answer": "A",
+      "explanation": "Le paludisme, transmis par les moustiques Anopheles, reste un fardeau sanitaire majeur.",
+      "source": "WHO — Malaria",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-034",
+      "category": "sante_sciences",
+      "subcategory": "vaccination",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Gavi, l'Alliance du Vaccin, soutient principalement…",
+      "options": {
+        "A": "L'accès aux vaccins dans les pays à faible revenu",
+        "B": "La privatisation des hôpitaux universitaires",
+        "C": "La recherche spatiale biomédicale",
+        "D": "Le remplacement des systèmes de santé primaires"
+      },
+      "answer": "A",
+      "explanation": "Gavi finance et facilite l'accès aux vaccins pour les pays à revenu faible.",
+      "source": "Gavi — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-035",
+      "category": "sante_sciences",
+      "subcategory": "nutrition",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Le manioc est une culture vivrière importante en Afrique notamment parce qu'il…",
+      "options": {
+        "A": "Tolère relativement bien des sols pauvres et certaines sécheresses",
+        "B": "Nécessite un climat polaire",
+        "C": "Ne pousse qu'en altitude alpine",
+        "D": "Est exclusivement d'origine australienne"
+      },
+      "answer": "A",
+      "explanation": "Le manioc est rustique et central dans de nombreux systèmes alimentaires africains.",
+      "source": "FAO — Cassava",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-036",
+      "category": "sante_sciences",
+      "subcategory": "systemes",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les agents de santé communautaires en Afrique sont surtout mobilisés pour…",
+      "options": {
+        "A": "Étendre les soins de proximité et la prévention",
+        "B": "Remplacer entièrement les médecins spécialistes",
+        "C": "Gérer les banques centrales",
+        "D": "Superviser les élections"
+      },
+      "answer": "A",
+      "explanation": "Ils renforcent la couverture sanitaire de base, la vaccination et la sensibilisation.",
+      "source": "WHO — Community health workers",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-037",
+      "category": "sante_sciences",
+      "subcategory": "environnement",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La bilharziose (schistosomiase) est associée principalement à…",
+      "options": {
+        "A": "L'eau douce contaminée par des parasites",
+        "B": "L'air des hautes altitudes",
+        "C": "Le contact exclusif avec l'eau de mer",
+        "D": "La consommation de sel iodé"
+      },
+      "answer": "A",
+      "explanation": "Les schistosomes se transmettent via des eaux douces infestées (mollusques hôtes).",
+      "source": "WHO — Schistosomiasis",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SANTE-038",
+      "category": "sante_sciences",
+      "subcategory": "recherche",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Le centre Africa CDC a pour mission principale de…",
+      "options": {
+        "A": "Renforcer la prévention et la réponse aux épidémies en Afrique",
+        "B": "Émettre une monnaie continentale",
+        "C": "Réguler le football africain",
+        "D": "Gérer les visas touristiques"
+      },
+      "answer": "A",
+      "explanation": "L'Africa CDC (UA) coordonne la surveillance et la sécurité sanitaire continentale.",
+      "source": "Africa CDC — About",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
       "id": "SOC-001",
       "category": "societe",
       "subcategory": "demographie",
@@ -6217,6 +7053,120 @@
       "answer": "A",
       "explanation": "Accessibilité linguistique et géographique.",
       "source": "UNESCO community radio",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-033",
+      "category": "societe",
+      "subcategory": "urbanisation",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La croissance urbaine rapide en Afrique s'accompagne souvent de…",
+      "options": {
+        "A": "Expansion des quartiers informels et défis d'infrastructures",
+        "B": "Disparition totale des villes secondaires",
+        "C": "Interdiction des transports collectifs",
+        "D": "Refroidissement climatique local garanti"
+      },
+      "answer": "A",
+      "explanation": "Urbanisation rapide + déficits de logement/services = importance de l'informel urbain.",
+      "source": "UN-Habitat — African cities",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-034",
+      "category": "societe",
+      "subcategory": "education",
+      "difficulty": "easy",
+      "language": "fr",
+      "question": "Un défi fréquent des systèmes éducatifs africains est…",
+      "options": {
+        "A": "Surpeuplement des classes et pénurie d'enseignants",
+        "B": "Excès d'enseignants par élève partout",
+        "C": "Absence totale d'écoles primaires dans tous les pays",
+        "D": "Interdiction des langues africaines par l'ONU"
+      },
+      "answer": "A",
+      "explanation": "Ratios élèves/enseignant élevés et pénuries restent documentés dans plusieurs pays.",
+      "source": "UNESCO UIS",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-035",
+      "category": "societe",
+      "subcategory": "genre",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "Les mouvements pour les droits des femmes en Afrique combattent notamment…",
+      "options": {
+        "A": "Les discriminations légales et les violences basées sur le genre",
+        "B": "L'accès universel à l'eau potable comme objectif unique",
+        "C": "La disparition du commerce transfrontalier",
+        "D": "L'usage du mobile money"
+      },
+      "answer": "A",
+      "explanation": "Réformes juridiques, lutte contre VBG et participation politique sont des axes majeurs.",
+      "source": "UN Women / ACHPR",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-036",
+      "category": "societe",
+      "subcategory": "diaspora",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les transferts de fonds de la diaspora africaine sont importants parce qu'ils…",
+      "options": {
+        "A": "Constituent une source majeure de revenus extérieurs pour de nombreux pays",
+        "B": "Remplacent le commerce international",
+        "C": "Sont interdits par l'UA",
+        "D": "Ne concernent que l'Afrique du Nord"
+      },
+      "answer": "A",
+      "explanation": "Les remittances financent ménages, éducation, santé et parfois l'investissement local.",
+      "source": "World Bank — Migration & Remittances",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-037",
+      "category": "societe",
+      "subcategory": "jeunesse",
+      "difficulty": "medium",
+      "language": "fr",
+      "question": "La structure démographique africaine se caractérise souvent par…",
+      "options": {
+        "A": "Une population jeune et une transition démographique en cours",
+        "B": "Une médiane d'âge supérieure à 60 ans partout",
+        "C": "Une natalité nulle",
+        "D": "Une population exclusivement urbaine depuis 1900"
+      },
+      "answer": "A",
+      "explanation": "L'Afrique a une des populations les plus jeunes au monde, avec urbanisation croissante.",
+      "source": "UN DESA Population Prospects",
+      "author": "afribench",
+      "date_created": "2026-08-03"
+    },
+    {
+      "id": "SOC-038",
+      "category": "societe",
+      "subcategory": "medias",
+      "difficulty": "hard",
+      "language": "fr",
+      "question": "Les radios communautaires en Afrique jouent souvent un rôle clé pour…",
+      "options": {
+        "A": "L'information locale et la sensibilisation en langues nationales",
+        "B": "Le remplacement des parlements",
+        "C": "La fixation des taux directeurs",
+        "D": "La certification des diamants"
+      },
+      "answer": "A",
+      "explanation": "Elles touchent des publics ruraux et diffusent en langues locales des contenus de service public.",
+      "source": "UNESCO community media",
       "author": "afribench",
       "date_created": "2026-08-03"
     }

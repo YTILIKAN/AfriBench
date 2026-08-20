@@ -8,7 +8,7 @@
 [![Prototype](https://img.shields.io/badge/status-prototype%20v0.1-informational?style=flat-square)](CRITIQUE.md)
 
 **Statut : Prototype v0.1** 🚧  
-**Version :** Août 2026 · **Questions :** 300 Afrique + 20 témoins + 10 ouvertes (+ pilotes traduction/résumé) · **Langues :** FR (scaffolding SW/YO/AM)
+**Version :** Août 2026 · **Questions :** 350 Afrique + 20 témoins + tâches ouvertes pilotes · **Langues :** FR (scaffolding SW/YO/AM)
 
 > ⚠️ **AfriBench est en phase de prototypage.** Le classement actuel est indicatif (évaluations encore basées sur un sous-ensemble). Consultez [CRITIQUE.md](CRITIQUE.md) et [data/DATASET_CARD.md](data/DATASET_CARD.md).
 
@@ -28,7 +28,7 @@ AfriBench est un projet communautaire porté par [Y'TILIKAN](https://ytilikan.co
 
 | Limite | Détail | Plan |
 |--------|--------|------|
-| **300 questions Afrique** | cible Phase 2 atteinte (+ 20 témoins + 10 ouvertes) ; scores à re-évaluer | Validation externe + re-run modèles |
+| **350 questions Afrique** | cible 300–350 atteinte ; scores publics encore seed (101) | Validation externe + re-run modèles |
 | **Français uniquement** | Aucune langue africaine évaluée | Cible : swahili, yoruba, amharique (Phase 3) |
 | **Validation externe absente** | Toutes les questions écrites par une seule personne | Recrutement de validateurs en cours |
 | **Format QCM exclusif** | Pas de génération, traduction, raisonnement ouvert | Tâches ouvertes planifiées (Phase 3) |
@@ -108,7 +108,7 @@ python scripts/export_hf_dataset.py
 python scripts/afribench.py run --questions witness --model gpt-4o
 ```
 
-300 QCM Afrique + 20 témoins (`is_control`) + 10 ouvertes (`data/questions/v1/open/`).
+350 QCM Afrique + 20 témoins (`is_control`) + tâches ouvertes pilotes (`data/questions/v1/open/`).
 
 ```bash
 # LLM-as-judge (questions ouvertes)
@@ -122,6 +122,15 @@ pip install -r hf_space/requirements.txt
 python scripts/sync_hf_space_data.py
 python hf_space/app.py
 # → http://127.0.0.1:7860
+./scripts/deploy_hf_space.sh            # staging
+# ./scripts/deploy_hf_space.sh --push   # nécessite HF_TOKEN
+```
+
+### Stats & tâches ouvertes
+
+```bash
+python scripts/stats_analysis.py --results data/results/_seed_v0.1.json
+python scripts/eval_open_tasks.py --dry-run
 ```
 
 ### Régénérer le frontend (SEO)
@@ -174,9 +183,11 @@ Script d'évaluation : [`scripts/afribench.py`](scripts/afribench.py) · Protoco
 AfriBench est un projet communautaire. Vous pouvez :
 
 - **Ajouter des questions** — voir [CONTRIBUTING.md](CONTRIBUTING.md)
-- **Valider des questions existantes** — signalez les erreurs dans les [issues](https://github.com/YTILIKAN/AfriBench/issues)
-- **Proposer des modèles** — ajoutez-les dans `configs/models.yaml`
-- **Améliorer le site** — PR bienvenues sur le frontend
+- **Valider des questions** — kit validateurs [docs/VALIDATORS.md](docs/VALIDATORS.md) (issue #5)
+- **Traduire** — scaffolding SW/YO/AM dans `data/questions/v1/translations/`
+- **Proposer des modèles** — `configs/models.yaml` + `scripts/afribench.py`
+- **Space Gradio** — `./scripts/deploy_hf_space.sh` (token HF pour `--push`)
+- **Soumission académique** — checklist [research/08-soumission-academique.md](research/08-soumission-academique.md)
 
 ### Format d'une question
 

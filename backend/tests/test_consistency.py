@@ -22,7 +22,7 @@ def test_frontend_questions_match_validated():
         (REPO / "frontend" / "data" / "questions.json").read_text(encoding="utf-8")
     )
     assert len(frontend) == validated_n
-    assert validated_n >= 300
+    assert validated_n >= 350
 
 
 def test_lm_eval_manifest_matches_validated():

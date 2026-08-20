@@ -606,5 +606,119 @@
     "source": "ECOWAS — ETLS",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-033",
+    "category": "economie",
+    "subcategory": "integration",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel est l'objectif principal de la ZLECAf ?",
+    "options": {
+      "A": "Créer une monnaie unique immédiate",
+      "B": "Créer un marché continental de biens et services",
+      "C": "Remplacer toutes les CER régionales",
+      "D": "Nationaliser les industries extractives"
+    },
+    "answer": "B",
+    "explanation": "La ZLECAf vise un marché unique africain en réduisant les barrières commerciales.",
+    "source": "AU — AfCFTA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-034",
+    "category": "economie",
+    "subcategory": "ressources",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le Nigeria est particulièrement connu pour l'exportation de…",
+    "options": {
+      "A": "Pétrole brut",
+      "B": "Cuivre",
+      "C": "Diamants industriels uniquement",
+      "D": "Blé"
+    },
+    "answer": "A",
+    "explanation": "Le pétrole reste une ressource d'exportation majeure de l'économie nigériane.",
+    "source": "OPEC / World Bank Nigeria overview",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-035",
+    "category": "economie",
+    "subcategory": "monnaie",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le franc CFA d'Afrique de l'Ouest est utiliséé par la…",
+    "options": {
+      "A": "SADC",
+      "B": "CEMAC",
+      "C": "UEMOA",
+      "D": "EAC"
+    },
+    "answer": "C",
+    "explanation": "L'UEMOA regroupe des États ouest-africains utilisant le franc CFA (XOF).",
+    "source": "BCEAO — UEMOA",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-036",
+    "category": "economie",
+    "subcategory": "agriculture",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel pays africain est historiquement l'un des premiers producteurs mondiaux de cacao ?",
+    "options": {
+      "A": "Côte d'Ivoire",
+      "B": "Égypte",
+      "C": "Namibie",
+      "D": "Lesotho"
+    },
+    "answer": "A",
+    "explanation": "La Côte d'Ivoire est le premier producteur mondial de cacao.",
+    "source": "ICCO / FAO",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-037",
+    "category": "economie",
+    "subcategory": "finance",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le mobile money (ex. M-Pesa) s'est d'abord massivement diffusé dans quel pays ?",
+    "options": {
+      "A": "Kenya",
+      "B": "Maroc",
+      "C": "Gabon",
+      "D": "Botswana"
+    },
+    "answer": "A",
+    "explanation": "M-Pesa, lancé au Kenya (2007), a popularisé le paiement mobile en Afrique.",
+    "source": "GSMA — Mobile Money",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "ECON-038",
+    "category": "economie",
+    "subcategory": "industrie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "L'Initiative pour la transparence dans les industries extractives (ITIE) vise surtout à…",
+    "options": {
+      "A": "Fixer les prix du pétrole",
+      "B": "Améliorer la transparence des revenus extractifs",
+      "C": "Interdire l'exploitation minière artisanale",
+      "D": "Remplacer les banques centrales"
+    },
+    "answer": "B",
+    "explanation": "L'ITIE (EITI) publie et vérifie les paiements liés aux industries extractives.",
+    "source": "EITI — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

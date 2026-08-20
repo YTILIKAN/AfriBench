@@ -606,5 +606,119 @@
     "source": "ONU — Peace and security",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-033",
+    "category": "droit_politique",
+    "subcategory": "institutions",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel organe de l'Union africaine regroupe les chefs d'État et de gouvernement ?",
+    "options": {
+      "A": "Commission de l'UA",
+      "B": "Conseil de paix et de sécurité",
+      "C": "Conférence de l'Union",
+      "D": "Parlement panafricain"
+    },
+    "answer": "C",
+    "explanation": "La Conférence (Assembly) est l'organe suprême composé des chefs d'État et de gouvernement.",
+    "source": "African Union — Constitutive Act",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-034",
+    "category": "droit_politique",
+    "subcategory": "elections",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "La Charte africaine de la démocratie, des élections et de la gouvernance a été adoptée en quelle année ?",
+    "options": {
+      "A": "1990",
+      "B": "2000",
+      "C": "2007",
+      "D": "2015"
+    },
+    "answer": "C",
+    "explanation": "Adoptée en 2007 à Addis-Abeba, elle fixe des normes démocratiques pour les États membres.",
+    "source": "African Union — ACDEG",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-035",
+    "category": "droit_politique",
+    "subcategory": "regional",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La CEDEAO est une communauté économique régionale d'Afrique…",
+    "options": {
+      "A": "de l'Ouest",
+      "B": "centrale",
+      "C": "orientale",
+      "D": "australe"
+    },
+    "answer": "A",
+    "explanation": "La CEDEAO (ECOWAS) regroupe des États d'Afrique de l'Ouest.",
+    "source": "ECOWAS — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-036",
+    "category": "droit_politique",
+    "subcategory": "droits",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "La Charte africaine des droits de l'homme et des peuples est aussi appelée Charte de…",
+    "options": {
+      "A": "Banjul",
+      "B": "Maputo",
+      "C": "Lomé",
+      "D": "Arusha"
+    },
+    "answer": "A",
+    "explanation": "Adoptée à Nairobi mais souvent dite Charte de Banjul (siège de la Commission africaine).",
+    "source": "ACHPR — African Charter",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-037",
+    "category": "droit_politique",
+    "subcategory": "transitions",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quel principe de l'UA condamne les changements anticonstitutionnels de gouvernement ?",
+    "options": {
+      "A": "Non-ingérence absolue",
+      "B": "Tolérance zéro envers les coups d'État",
+      "C": "Souveraineté monétaire unique",
+      "D": "Unicité du parti"
+    },
+    "answer": "B",
+    "explanation": "L'UA a développé une norme de rejet des coups d'État et changements anticonstitutionnels.",
+    "source": "AU — Lomé Declaration / ACDEG",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "POL-038",
+    "category": "droit_politique",
+    "subcategory": "justice",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La Cour africaine des droits de l'homme et des peuples a son siège à…",
+    "options": {
+      "A": "Addis-Abeba",
+      "B": "Arusha",
+      "C": "Johannesburg",
+      "D": "Dakar"
+    },
+    "answer": "B",
+    "explanation": "La Cour siège à Arusha, en Tanzanie.",
+    "source": "African Court — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

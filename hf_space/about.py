@@ -10,7 +10,7 @@ Porté par [YTILIKAN](https://ytilikan.com) · code : [GitHub](https://github.co
 ## Statut
 
 > **Prototype v0.1** — le classement est **indicatif**.  
-> Corpus : **300 QCM** Afrique (+ 20 témoins + tâches ouvertes pilotes).  
+> Corpus : **350 QCM** Afrique (+ 20 témoins + tâches ouvertes pilotes).  
 > Les scores publics affichés ici peuvent encore provenir d'un sous-ensemble seed (ex. 101) tant que les modèles n'ont pas été rejoués.
 
 ## Méthodologie (résumé)

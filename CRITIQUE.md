@@ -32,7 +32,7 @@
 
 **Problème (historique v0.1 seed) :** 101 questions pour 9 catégories ≈ 11/catégorie. La différence DeepSeek V4 (96%) vs Claude Haiku (90.1%) tenait à 6 items.
 
-**État août 2026 :** le corpus africain est passé à **300 QCM** (~33/catégorie) + 20 témoins + 10 ouvertes. La taille reste sous les standards (MMLU 15k, HellaSwag 10k ; livrable projet 500+/langue). Les scores publics n'ont pas encore été rejoués sur les 300 items — le classement reste indicatif.
+**État août 2026 :** le corpus africain est passé à **350 QCM** (~38–41/catégorie) + 20 témoins + tâches ouvertes pilotes. La taille reste sous les standards (MMLU 15k, HellaSwag 10k ; livrable projet 500+/langue). Les scores publics n'ont pas encore été rejoués sur les 350 items — le classement reste indicatif (`scripts/stats_analysis.py` sur le seed 101).
 
 **Pourquoi c'est encore grave :** Même à 300, les IC restent larges pour départager des modèles proches. Impossible d'affirmer un ordre fin sans re-évaluation complète + validation externe.
 

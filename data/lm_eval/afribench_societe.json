@@ -606,5 +606,119 @@
     "source": "UNESCO community radio",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-033",
+    "category": "societe",
+    "subcategory": "urbanisation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La croissance urbaine rapide en Afrique s'accompagne souvent de…",
+    "options": {
+      "A": "Expansion des quartiers informels et défis d'infrastructures",
+      "B": "Disparition totale des villes secondaires",
+      "C": "Interdiction des transports collectifs",
+      "D": "Refroidissement climatique local garanti"
+    },
+    "answer": "A",
+    "explanation": "Urbanisation rapide + déficits de logement/services = importance de l'informel urbain.",
+    "source": "UN-Habitat — African cities",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-034",
+    "category": "societe",
+    "subcategory": "education",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Un défi fréquent des systèmes éducatifs africains est…",
+    "options": {
+      "A": "Surpeuplement des classes et pénurie d'enseignants",
+      "B": "Excès d'enseignants par élève partout",
+      "C": "Absence totale d'écoles primaires dans tous les pays",
+      "D": "Interdiction des langues africaines par l'ONU"
+    },
+    "answer": "A",
+    "explanation": "Ratios élèves/enseignant élevés et pénuries restent documentés dans plusieurs pays.",
+    "source": "UNESCO UIS",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-035",
+    "category": "societe",
+    "subcategory": "genre",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mouvements pour les droits des femmes en Afrique combattent notamment…",
+    "options": {
+      "A": "Les discriminations légales et les violences basées sur le genre",
+      "B": "L'accès universel à l'eau potable comme objectif unique",
+      "C": "La disparition du commerce transfrontalier",
+      "D": "L'usage du mobile money"
+    },
+    "answer": "A",
+    "explanation": "Réformes juridiques, lutte contre VBG et participation politique sont des axes majeurs.",
+    "source": "UN Women / ACHPR",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-036",
+    "category": "societe",
+    "subcategory": "diaspora",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les transferts de fonds de la diaspora africaine sont importants parce qu'ils…",
+    "options": {
+      "A": "Constituent une source majeure de revenus extérieurs pour de nombreux pays",
+      "B": "Remplacent le commerce international",
+      "C": "Sont interdits par l'UA",
+      "D": "Ne concernent que l'Afrique du Nord"
+    },
+    "answer": "A",
+    "explanation": "Les remittances financent ménages, éducation, santé et parfois l'investissement local.",
+    "source": "World Bank — Migration & Remittances",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-037",
+    "category": "societe",
+    "subcategory": "jeunesse",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La structure démographique africaine se caractérise souvent par…",
+    "options": {
+      "A": "Une population jeune et une transition démographique en cours",
+      "B": "Une médiane d'âge supérieure à 60 ans partout",
+      "C": "Une natalité nulle",
+      "D": "Une population exclusivement urbaine depuis 1900"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique a une des populations les plus jeunes au monde, avec urbanisation croissante.",
+    "source": "UN DESA Population Prospects",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SOC-038",
+    "category": "societe",
+    "subcategory": "medias",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les radios communautaires en Afrique jouent souvent un rôle clé pour…",
+    "options": {
+      "A": "L'information locale et la sensibilisation en langues nationales",
+      "B": "Le remplacement des parlements",
+      "C": "La fixation des taux directeurs",
+      "D": "La certification des diamants"
+    },
+    "answer": "A",
+    "explanation": "Elles touchent des publics ruraux et diffusent en langues locales des contenus de service public.",
+    "source": "UNESCO community media",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
