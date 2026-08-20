@@ -20,7 +20,7 @@ function escapeHtml(str) {
 
 const VALID_TABS = [
   'leaderboard', 'models', 'categories', 'compare',
-  'evolution', 'questions', 'methodology', 'api',
+  'evolution', 'questions', 'open_tasks', 'methodology', 'api',
 ];
 
 const AppState = {
@@ -32,6 +32,7 @@ const AppState = {
   filteredModels: [],
   comparePreset: null,
   favorites: new Set(loadFavorites()),
+  openScores: null,
   dataSource: null, // 'api' | 'static' | 'bootstrap'
   loading: true,
   urlCategory: null,
@@ -262,6 +263,7 @@ function renderActiveTab() {
     compare: globalThis.renderCompare,
     evolution: globalThis.renderEvolution,
     questions: globalThis.renderQuestions,
+    open_tasks: globalThis.renderOpenTasks,
     methodology: globalThis.renderMethodology,
     api: globalThis.renderAPI,
   };

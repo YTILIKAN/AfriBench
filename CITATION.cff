@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with respect to the AfriBench benchmark.
+cff-version: 1.2.0
+title: "AfriBench: Evaluating Language Models on African Realities"
+message: "If you use AfriBench, please cite it as below."
+type: software
+authors:
+  - name: "YTILIKAN"
+    website: "https://ytilikan.com"
+repository-code: "https://github.com/YTILIKAN/AfriBench"
+url: "https://ytilikan.github.io/AfriBench/"
+license: MIT
+version: 0.1.0
+date-released: 2026-08-20
+keywords:
+  - benchmark
+  - large language models
+  - Africa
+  - NLP
+  - evaluation
+preferred-citation:
+  type: article
+  title: "AfriBench: Evaluating Language Models on African Realities"
+  authors:
+    - name: "YTILIKAN"
+  year: 2027
+  notes: "Draft — ACL/NeurIPS 2027 datasets track submission in preparation"

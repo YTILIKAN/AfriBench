@@ -18,20 +18,20 @@
 
 - [x] **300–350 questions africaines** — **350** QCM (était 101 → 210 → 300 → 350)
 - [x] **20 questions témoins** — `data/questions/v1/witness/` (`is_control`)
-- [~] 3 validateurs africains — kit prêt (`docs/VALIDATORS.md`, scripts batch)
+- [x] 3 validateurs africains — pipeline complet (#5) : `validation_status.py`, batches overlap, κ, API `/validation/status`, `data/validation/`
 - [x] **10 questions ouvertes** + juge `scripts/judges/llm_as_judge.py`
 - [x] Protocole + lien script sur le site
 - [x] `reproduce.sh` + `afribench.py --mock` (CI / offline)
 
 ## 🟢 Phase 3 — Scale
 
-- [~] Traduction multilingue — pilotes SW/YO/AM + `export_translations.py` (hors leaderboard)
-- [~] Tâches non-QCM — 25 pilotes (génération, QA, traduction, résumé, NER, sentiment) + stubs métriques
+- [x] Traduction multilingue — pipeline batch/apply SW/YO/AM + API `/translations` (#14)
+- [x] Tâches non-QCM — pipeline eval + agrégation + onglet frontend + API `/open/*` (#15)
 - [x] LM Evaluation Harness (`afribench` / `afribench_all`)
 - [x] Dockerfile d'évaluation + CI
 - [x] **Dataset HF prêt à publier** — `data/hf/YTILIKAN__AfriBench/` + `DATASET_CARD.md` (push Hub manuel)
-- [x] **Space Gradio leaderboard** — `hf_space/` + `deploy_hf_space.sh` (push Hub manuel)
-- [~] Soumission académique — checklist `research/08-soumission-academique.md`
+- [x] **Space Gradio leaderboard** — `hf_space/` + sync CI + onglets tâches ouvertes/stats (#11)
+- [x] Soumission académique — checklist auto + `paper-draft.md` + `CITATION.cff` + `publish_artifacts.sh` (#16)
 
 ## 🔵 Phase 4 — Frontend long-terme
 
@@ -43,4 +43,4 @@
 
 ---
 
-*Dernière mise à jour : 3 août 2026*
+*Dernière mise à jour : 20 août 2026*

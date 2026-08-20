@@ -50,6 +50,8 @@ class Settings(BaseSettings):
     questions_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "validated"
     questions_manifest: Path = REPO_ROOT / "data" / "questions" / "v1" / "manifest.json"
     questions_witness_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "witness"
+    translations_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "translations"
+    open_tasks_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "open"
     results_dir: Path = REPO_ROOT / "data" / "results"
     results_fallback: Path = REPO_ROOT / "frontend" / "data" / "results.json"
 

@@ -107,8 +107,16 @@ def test_docs_exist():
         "docs/VALIDATORS.md",
         "docs/VALIDATION_PROTOCOL.md",
         "docs/templates/validator_outreach.md",
+        "docs/ANNOTATOR_CONSENT.md",
         "research/08-soumission-academique.md",
+        "research/paper-draft.md",
+        "CITATION.cff",
         "CONTRIBUTING.md",
         "scripts/deploy_hf_space.sh",
+        "scripts/validation_status.py",
+        "scripts/prepare_translation_batch.py",
+        "scripts/aggregate_open_scores.py",
+        "scripts/submission_readiness.py",
+        "data/validation/README.md",
     ):
         assert (REPO / rel).exists(), rel

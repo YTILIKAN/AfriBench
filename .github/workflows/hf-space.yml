@@ -1,0 +1,32 @@
+name: HF Space smoke test
+on:
+  push:
+    branches: [main]
+    paths:
+      - "hf_space/**"
+      - "scripts/sync_hf_space_data.py"
+      - "frontend/data/**"
+  pull_request:
+    paths:
+      - "hf_space/**"
+      - "scripts/sync_hf_space_data.py"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sync Space data
+        run: |
+          python scripts/export_frontend.py || true
+          python scripts/eval_open_tasks.py --dry-run
+          python scripts/aggregate_open_scores.py
+          python scripts/sync_hf_space_data.py || true
+      - name: Install Space deps
+        run: pip install -r hf_space/requirements.txt
+      - name: Import Space app
+        working-directory: hf_space
+        run: python -c "from app import create_app; create_app()"

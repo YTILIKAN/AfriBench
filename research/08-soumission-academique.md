@@ -45,3 +45,18 @@ alternative **EMNLP 2027**.
 3. Traduction native d’un sous-ensemble (≥50/langue) avant scale
 4. Calculer IC bootstrap / McNemar pour paires de modèles
 5. Rédiger datasheet section « motivation / collection / uses »
+
+## État auto-généré
+
+_Dernière mise à jour : `submission_readiness.py`_
+
+| Critère | État |
+|---------|------|
+| 300+ questions | ✅ |
+| Validation externe | 🟡 0.0% |
+| Multilingue SW/YO/AM | 🟡 pilotes |
+| Modèles évalués | ✅ (7) |
+| Tâches ouvertes | ✅ |
+| Space HF (code) | ✅ |
+| Brouillon papier | ✅ |
+| CITATION.cff | ✅ |

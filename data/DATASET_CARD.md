@@ -110,4 +110,4 @@ control = load_jsonl("control.jsonl")
 ## Licence / contribution
 
 Voir le dépôt GitHub. Contributions de questions et validations bienvenues.
-Carte générée le 2026-08-03.
+Carte générée le 2026-08-20.

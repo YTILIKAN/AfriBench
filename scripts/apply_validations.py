@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -32,6 +34,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--batch", type=Path, required=True)
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--export", action="store_true", help="Régénère export_frontend + export_translations")
     args = p.parse_args()
 
     items, homes = load_by_id()
@@ -100,6 +103,11 @@ def main() -> None:
         existing.extend(rejected)
         out.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Rejected → {out} ({len(rejected)})")
+
+    if args.export:
+        for script in ("export_frontend.py", "export_translations.py"):
+            subprocess.check_call([sys.executable, str(REPO / "scripts" / script)], cwd=REPO)
+        print("Artefacts régénérés (frontend + translations)")
 
 
 if __name__ == "__main__":

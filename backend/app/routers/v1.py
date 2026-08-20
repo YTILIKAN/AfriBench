@@ -10,6 +10,7 @@ from app.schemas import EvaluateAccepted, EvaluateRequest, JobStatus
 from app.security import enforce_rate_limit, require_api_key
 from app.services import data_loader as dl
 from app.services import evaluate as evalsvc
+from app.services import open_tasks as ot
 
 router = APIRouter(tags=["v1"], dependencies=[Depends(enforce_rate_limit)])
 
@@ -59,7 +60,50 @@ def list_configured_models() -> list[dict]:
 
 @router.get("/stats")
 def stats() -> dict:
-    return dl.build_stats(dl.get_questions(), dl.get_results())
+    payload = dl.build_stats(dl.get_questions(), dl.get_results())
+    payload["validation_coverage"] = ot.build_validation_status()
+    payload["translations"] = ot.load_translation_manifest()
+    payload["open_tasks"] = {
+        "n_tasks": len(ot.load_open_tasks()),
+        "scores_available": bool(ot.load_open_scores().get("tasks")),
+    }
+    return payload
+
+
+@router.get("/validation/status")
+def validation_status() -> dict:
+    return ot.build_validation_status()
+
+
+@router.get("/translations")
+def list_translations(
+    lang: str = Query(..., description="sw | yo | am"),
+    verified_only: bool = Query(False),
+    limit: int = Query(50, ge=1, le=500),
+) -> list[dict]:
+    if lang not in {"sw", "yo", "am"}:
+        raise HTTPException(status_code=400, detail="lang must be sw, yo, or am")
+    items = ot.load_translations(lang, verified_only=verified_only)
+    return items[:limit]
+
+
+@router.get("/translations/manifest")
+def translations_manifest() -> dict:
+    return ot.load_translation_manifest()
+
+
+@router.get("/open/tasks")
+def open_tasks(
+    task_type: str | None = Query(None, description="open_qa | translation | …"),
+    limit: int = Query(50, ge=1, le=200),
+) -> list[dict]:
+    items = ot.load_open_tasks(task_type=task_type)
+    return items[:limit]
+
+
+@router.get("/open/scores")
+def open_scores() -> dict:
+    return ot.load_open_scores()
 
 
 @router.get("/leaderboard")

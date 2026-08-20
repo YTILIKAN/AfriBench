@@ -30,12 +30,15 @@ def load_lang(lang: str) -> list[dict]:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--lang", choices=["sw", "yo", "am", "all"], default="all")
+    p.add_argument("--verified-only", action="store_true", help="N exporter que les traductions verified")
     args = p.parse_args()
     langs = ["sw", "yo", "am"] if args.lang == "all" else [args.lang]
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = {"official": False, "note": "draft_mt_unverified excluded from leaderboard", "langs": {}}
     for lang in langs:
         items = load_lang(lang)
+        if args.verified_only:
+            items = [q for q in items if q.get("translation_status") == "verified"]
         verified = [q for q in items if q.get("translation_status") == "verified"]
         drafts = [q for q in items if q.get("translation_status") != "verified"]
         out = OUT / f"{lang}.json"

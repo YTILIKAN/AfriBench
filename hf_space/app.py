@@ -14,7 +14,7 @@ import gradio as gr
 import plotly.express as px
 
 from about import ABOUT_MD
-from utils import category_matrix_df, leaderboard_df, stats_summary
+from utils import category_matrix_df, leaderboard_df, open_tasks_df, stats_summary, load_stats_report
 
 THEME = gr.themes.Soft(primary_hue="orange", neutral_hue="stone")
 
@@ -79,6 +79,17 @@ def create_app() -> gr.Blocks:
             refresh = gr.Button("Rafraîchir")
             refresh.click(build_category_view, outputs=[cat_table, cat_plot])
             demo.load(build_category_view, outputs=[cat_table, cat_plot])
+
+        with gr.Tab("Tâches ouvertes"):
+            open_banner = gr.Markdown(
+                "Scores pilotes des tâches non-QCM (traduction, résumé, QA, NER, sentiment)."
+            )
+            open_table = gr.Dataframe(interactive=False, wrap=True)
+            demo.load(lambda: open_tasks_df(), outputs=open_table)
+
+        with gr.Tab("Statistiques"):
+            stats_md = gr.Markdown()
+            demo.load(lambda: load_stats_report(), outputs=stats_md)
 
         with gr.Tab("À propos"):
             gr.Markdown(ABOUT_MD)

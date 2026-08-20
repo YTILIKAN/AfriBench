@@ -23,6 +23,17 @@ QUESTION_CANDIDATES = [
     SPACE_DIR.parent / "frontend" / "data" / "questions.json",
 ]
 
+OPEN_SCORES_CANDIDATES = [
+    SPACE_DIR / "data" / "open_scores.json",
+    SPACE_DIR.parent / "frontend" / "data" / "open_scores.json",
+]
+
+STATS_CANDIDATES = [
+    SPACE_DIR / "data" / "stats.json",
+    SPACE_DIR.parent / "data" / "stats" / "report.json",
+    SPACE_DIR.parent / "data" / "stats" / "seed_report.json",
+]
+
 CATEGORY_LABELS = {
     "histoire": "Histoire",
     "geographie": "Géographie",
@@ -140,3 +151,46 @@ def stats_summary() -> dict[str, Any]:
         "top_score": (models[0].get("accuracy") if models else None),
         "avg_score": round(sum(scores) / len(scores), 1) if scores else None,
     }
+
+
+def load_open_scores_raw() -> dict[str, Any]:
+    for path in OPEN_SCORES_CANDIDATES:
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+    return {}
+
+
+def open_tasks_df() -> pd.DataFrame:
+    data = load_open_scores_raw()
+    rows = []
+    for task, info in (data.get("tasks") or {}).items():
+        rows.append(
+            {
+                "Tâche": task,
+                "N": info.get("n"),
+                "Métrique": info.get("metric"),
+                "Moyenne": info.get("average"),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def load_stats_report() -> str:
+    for path in STATS_CANDIDATES:
+        if path.exists():
+            report = json.loads(path.read_text(encoding="utf-8"))
+            lines = ["## Rapport statistique", ""]
+            if isinstance(report, dict):
+                for key in ("n_models", "n_questions", "corpus_questions", "bootstrap_ci"):
+                    if key in report:
+                        lines.append(f"- **{key}** : {report[key]}")
+            return "\n".join(lines) + "\n\n_Données : `stats.json`_"
+    summary = stats_summary()
+    return (
+        f"## Statistiques\n\n"
+        f"- Modèles : **{summary['n_models']}**\n"
+        f"- Questions évaluées : **{summary['n_questions']}**\n"
+        f"- Corpus : **{summary.get('corpus_questions') or '—'}**\n"
+    )

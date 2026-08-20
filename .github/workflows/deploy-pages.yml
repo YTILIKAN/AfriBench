@@ -44,6 +44,12 @@ jobs:
       - name: Export frontend data
         run: python scripts/export_frontend.py
 
+      - name: Open tasks + HF Space sync
+        run: |
+          python scripts/eval_open_tasks.py --dry-run
+          python scripts/aggregate_open_scores.py
+          python scripts/sync_hf_space_data.py
+
       - name: Generate static HTML
         run: python scripts/generate_static_html.py
 

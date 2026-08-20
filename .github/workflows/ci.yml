@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install backend deps
+        run: pip install -r backend/requirements.txt pytest
+      - name: Run pytest
+        working-directory: backend
+        env:
+          PYTHONPATH: .
+        run: python -m pytest tests -q
+      - name: Validation status smoke
+        run: python scripts/validation_status.py
+      - name: Open tasks dry-run pipeline
+        run: |
+          python scripts/eval_open_tasks.py --dry-run
+          python scripts/aggregate_open_scores.py
+      - name: Submission readiness
+        run: python scripts/submission_readiness.py
