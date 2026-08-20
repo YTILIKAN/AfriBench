@@ -52,7 +52,7 @@ AfriBench/
 │   ├── css/ · js/          # Design tokens (clair/sombre) + vues par onglet
 │   ├── admin/              # Backoffice d'administration
 │   ├── data/               # Fallback JSON (GitHub Pages / offline)
-│   ├── nginx.conf          # Proxy /api → backend
+│   ├── nginx.template.conf # Proxy /api → backend (PORT + BACKEND_URL)
 │   └── Dockerfile
 ├── data/                   # Source de vérité (questions + résultats)
 ├── scripts/                # CLI d'évaluation (afribench.py) + lm_eval_tasks/
@@ -145,6 +145,12 @@ python scripts/eval_open_tasks.py --dry-run
 python scripts/export_frontend.py
 python scripts/generate_static_html.py   # classement dans le HTML + bootstrap.json
 ```
+
+### Déploiement (Railway)
+
+Voir [docs/deploiement-railway.md](docs/deploiement-railway.md) — deux services
+(backend + frontend), configuration des config file paths, variables d'environnement
+et healthchecks.
 
 ### Option B — Services séparés
 

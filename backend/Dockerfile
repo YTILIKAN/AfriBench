@@ -20,4 +20,8 @@ COPY scripts /app/scripts
 WORKDIR /app/backend
 EXPOSE 8080
 
+# Healthcheck au niveau conteneur (indépendant du domaine public Railway)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD python -c "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.environ.get('PORT', '8080') + '/api/v1/health', timeout=4)"
+
 CMD ["sh", "-c", "exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
