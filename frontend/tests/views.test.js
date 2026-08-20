@@ -275,3 +275,34 @@ describe('navigation par onglets (sidebar)', () => {
     }
   });
 });
+
+describe('recherche globale', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <input type="search" id="global-search">
+      <main id="tab-content" role="tabpanel"></main>
+    `;
+    AppState.activeTab = 'leaderboard';
+    globalThis.setupSearch();
+  });
+
+  it('Escape efface la recherche sans changer d\'onglet (vue searchable)', () => {
+    const input = document.getElementById('global-search');
+    input.value = 'gpt';
+    AppState.searchQuery = 'gpt';
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    expect(AppState.searchQuery).toBe('');
+    expect(input.value).toBe('');
+    expect(AppState.activeTab).toBe('leaderboard');
+  });
+
+  it('la saisie depuis une vue non searchable bascule vers Modèles', async () => {
+    AppState.activeTab = 'methodology';
+    const input = document.getElementById('global-search');
+    input.value = 'gpt';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    // debounce 200ms
+    await new Promise((r) => setTimeout(r, 250));
+    expect(AppState.activeTab).toBe('models');
+  });
+});

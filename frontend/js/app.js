@@ -96,6 +96,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderTopModels();
   updateHeroStats();
   applyUrlFilters();
+  // Deep link (?tab=X) : amener l'utilisateur directement à la vue demandée
+  if (AppState._deepLinked) {
+    const header = document.getElementById('view-header');
+    if (header) header.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
   window.addEventListener('popstate', () => {
     applyUrlState();
     renderActiveTab();
@@ -189,6 +194,8 @@ function applyUrlState() {
   const tab = params.get('tab');
   AppState.urlCategory = params.get('category');
   AppState.urlDifficulty = params.get('difficulty');
+  // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
+  AppState._deepLinked = Boolean(tab);
   AppState._skipUrlWrite = true;
   AppState._skipScroll = true;
   setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
@@ -978,6 +985,8 @@ Object.assign(globalThis, {
   mountChart,
   chartTheme,
   setupRevealAnimations,
+  setupSearch,
+  setupTabs,
 });
 
 export {};
