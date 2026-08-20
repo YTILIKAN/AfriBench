@@ -38,7 +38,8 @@ def run_migrations() -> None:
     from alembic import command
     from alembic.config import Config
 
-    ini_path = Path(__file__).resolve().parent / "alembic.ini"
+    # db.py est dans backend/app/ ; alembic.ini est à la racine de backend/.
+    ini_path = Path(__file__).resolve().parent.parent / "alembic.ini"
     cfg = Config(str(ini_path))
     cfg.set_main_option("sqlalchemy.url", get_settings().sqlalchemy_database_url)
     command.upgrade(cfg, "head")
