@@ -82,6 +82,19 @@ def load_models() -> list[dict[str, Any]]:
     return data.get("models", []) or []
 
 
+def load_questions_seed_version(settings: Settings | None = None) -> int:
+    """Version du corpus (manifest.json) — incrémenter pour forcer la mise à jour en DB."""
+    settings = settings or get_settings()
+    path = settings.questions_manifest
+    if not path.exists():
+        return 1
+    try:
+        data = _read_json(path)
+        return int(data.get("seed_version", 1))
+    except (TypeError, ValueError, json.JSONDecodeError):
+        return 1
+
+
 def is_open_weights(model: dict[str, Any]) -> bool:
     name = f"{model.get('model', '')} {model.get('model_label', '')}".lower()
     return any(k in name for k in OPEN_WEIGHT_KEYWORDS)

@@ -34,6 +34,8 @@ class Question(Base):
     date_validated: Mapped[str | None] = mapped_column(String(32), nullable=True)
     validated_by: Mapped[str | None] = mapped_column(String(128), nullable=True)
     is_control: Mapped[bool] = mapped_column(Boolean, default=False)
+    seed_version: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
+    locked_by_admin: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_now, onupdate=_now

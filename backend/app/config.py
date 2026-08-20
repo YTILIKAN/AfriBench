@@ -48,6 +48,7 @@ class Settings(BaseSettings):
     # Source of truth for benchmark data
     data_dir: Path = REPO_ROOT / "data"
     questions_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "validated"
+    questions_manifest: Path = REPO_ROOT / "data" / "questions" / "v1" / "manifest.json"
     questions_witness_dir: Path = REPO_ROOT / "data" / "questions" / "v1" / "witness"
     results_dir: Path = REPO_ROOT / "data" / "results"
     results_fallback: Path = REPO_ROOT / "frontend" / "data" / "results.json"

@@ -1,14 +1,18 @@
-"""Moteur SQLAlchemy + session + base déclarative."""
+"""Moteur SQLAlchemy + session + migrations Alembic."""
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterator
+from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 from app.config import get_settings
+
+logger = logging.getLogger("afribench")
 
 _engine: Engine | None = None
 _session_factory: sessionmaker | None = None
@@ -29,12 +33,21 @@ def _build() -> tuple[Engine, sessionmaker]:
     return _engine, _session_factory
 
 
-def init_db() -> None:
-    """Crée les tables (idempotent). Appelé au démarrage si la DB est activée."""
-    from app import models  # noqa: F401  (enregistre les modèles sur Base.metadata)
+def run_migrations() -> None:
+    """Applique les migrations Alembic jusqu'à head."""
+    from alembic import command
+    from alembic.config import Config
 
-    engine, _ = _build()
-    Base.metadata.create_all(bind=engine)
+    ini_path = Path(__file__).resolve().parent / "alembic.ini"
+    cfg = Config(str(ini_path))
+    cfg.set_main_option("sqlalchemy.url", get_settings().sqlalchemy_database_url)
+    command.upgrade(cfg, "head")
+    logger.info("Migrations Alembic appliquées (head)")
+
+
+def init_db() -> None:
+    """Initialise le schéma via Alembic (remplace create_all)."""
+    run_migrations()
 
 
 def get_session() -> Session:
