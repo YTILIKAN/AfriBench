@@ -14,7 +14,6 @@ function renderMethodology(container) {
   container.innerHTML = `
     <div class="methodology-content">
 
-      <h2>Methodologie</h2>
       <p class="lead">
         AfriBench est un benchmark conçu specifiquement pour évaluer la performance des modeles
         de langage (LLMs) sur des connaissances et contextes africains. Voici comment il fonctionne.

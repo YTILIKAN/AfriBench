@@ -199,7 +199,8 @@ describe('autres vues', () => {
   it('renderEvolution', () => {
     const container = makeContainer();
     expect(() => globalThis.renderEvolution(container)).not.toThrow();
-    expect(container.textContent).toContain('Evolution des scores');
+    expect(container.querySelector('#evolution-chart')).toBeTruthy();
+    expect(container.textContent).toContain('GPT-4o');
   });
 
   it('renderQuestions avec filtres et XSS safe', () => {
@@ -213,13 +214,13 @@ describe('autres vues', () => {
   it('renderMethodology', () => {
     const container = makeContainer();
     expect(() => globalThis.renderMethodology(container)).not.toThrow();
-    expect(container.textContent).toContain('Methodologie');
+    expect(container.textContent).toContain('benchmark');
   });
 
   it('renderAPI', () => {
     const container = makeContainer();
     expect(() => globalThis.renderAPI(container)).not.toThrow();
-    expect(container.textContent).toContain('API Publique');
+    expect(container.textContent).toContain('/results');
   });
 });
 
