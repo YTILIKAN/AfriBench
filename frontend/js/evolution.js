@@ -2,7 +2,7 @@
    AfriBench — Évolution page (timeline chart)
    ═══════════════════════════════════════════════════════════ */
 
-const { AppState, getLatestResults } = globalThis;
+const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme } = globalThis;
 
 let evoSelectedModels = new Set();
 
@@ -52,8 +52,8 @@ function renderEvolution(container) {
     <div class="evolution-controls" id="evo-selectors">
       ${modelList.map(name => `
         <label>
-          <input type="checkbox" value="${name}" ${evoSelectedModels.has(name) ? 'checked' : ''}>
-          <span>${name}</span>
+          <input type="checkbox" value="${escapeHtml(name)}" ${evoSelectedModels.has(name) ? 'checked' : ''}>
+          <span>${escapeHtml(name)}</span>
         </label>
       `).join('')}
       <button class="filter-btn" id="evo-select-all">Tout</button>
@@ -98,9 +98,10 @@ function renderEvolution(container) {
   });
 
   // Draw chart
-  const ctx = document.getElementById('evolution-chart');
-  if (ctx && datasets.length > 0) {
-    new Chart(ctx, {
+  const canvas = document.getElementById('evolution-chart');
+  if (canvas && datasets.length > 0) {
+    const theme = chartTheme();
+    mountChart(canvas, {
       type: 'line',
       data: { labels: chartLabels, datasets },
       options: {
@@ -113,7 +114,7 @@ function renderEvolution(container) {
         plugins: {
           legend: {
             position: 'top',
-            labels: { color: '#8a8a9e', font: { size: 10 }, padding: 16, usePointStyle: true, pointStyle: 'circle' },
+            labels: { color: theme.tick, font: { size: 10 }, padding: 16, usePointStyle: true, pointStyle: 'circle' },
           },
           tooltip: {
             backgroundColor: '#0f0f1a',
@@ -124,20 +125,20 @@ function renderEvolution(container) {
             padding: 12,
             cornerRadius: 8,
             callbacks: {
-              label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y !== null ? ctx.parsed.y.toFixed(1) + '%' : '—'}`,
+              label: (item) => `${item.dataset.label}: ${item.parsed.y !== null ? item.parsed.y.toFixed(1) + '%' : '—'}`,
             },
           },
         },
         scales: {
           x: {
-            grid: { color: '#2c2c2f' },
-            ticks: { color: '#8a8a9e', font: { size: 10 } },
+            grid: { color: theme.grid },
+            ticks: { color: theme.tick, font: { size: 10 } },
           },
           y: {
             beginAtZero: true,
             max: 100,
-            grid: { color: '#2c2c2f' },
-            ticks: { color: '#8a8a9e', font: { size: 10 }, callback: (v) => v + '%' },
+            grid: { color: theme.grid },
+            ticks: { color: theme.tick, font: { size: 10 }, callback: (v) => v + '%' },
           },
         },
       },
@@ -177,8 +178,6 @@ function getSortedDates(timelineData) {
 }
 
 function renderEvolutionTable(timelineData, modelList) {
-  const dates = getSortedDates(timelineData);
-
   // For each model, compute first and last score
   let html = `
     <table class="evolution-table">
@@ -206,7 +205,7 @@ function renderEvolutionTable(timelineData, modelList) {
 
     html += `
       <tr>
-        <td><span class="evo-model-name">${name}</span></td>
+        <td><span class="evo-model-name">${escapeHtml(name)}</span></td>
         <td>${first.date} — ${first.accuracy.toFixed(1)}%</td>
         <td>${last.date} — ${last.accuracy.toFixed(1)}%</td>
         <td class="${deltaClass}">${deltaStr}</td>

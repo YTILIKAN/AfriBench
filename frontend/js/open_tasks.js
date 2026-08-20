@@ -88,3 +88,4 @@ async function renderOpenTasks(container) {
 }
 
 globalThis.renderOpenTasks = renderOpenTasks;
+export {};

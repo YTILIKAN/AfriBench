@@ -82,7 +82,7 @@ function renderQuestions(container) {
       </div>
     `;
   } else {
-    filtered.forEach((q, i) => {
+    filtered.forEach((q) => {
       const diffClass = q.difficulty || 'medium';
       const catColor = categoryColor(q.category);
       const safeQuestion = escapeHtml(q.question || '');

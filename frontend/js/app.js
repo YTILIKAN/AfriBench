@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupMobileNav();
   setupTabs();
   setupSearch();
+  setupRevealAnimations();
   applyUrlState();
   setLoadingState(true);
   await loadData();
@@ -61,6 +62,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     applyUrlFilters();
   });
 });
+
+/* ── Reveal on scroll (.reveal → .in) ────────────────── */
+function setupRevealAnimations(root = document) {
+  const els = root.querySelectorAll('.reveal:not(.in)');
+  if (els.length === 0) return;
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('in'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+  els.forEach((el) => observer.observe(el));
+}
 
 function setLoadingState(loading) {
   AppState.loading = loading;
@@ -170,23 +190,38 @@ window.__setUrlDifficulty = (diff) => {
   syncUrlState();
 };
 
-/* ── Theme ─────────────────────────────────────────────── */
-function initTheme() {
-  const saved = localStorage.getItem('afribench-theme');
-  if (saved === 'light') {
-    document.body.setAttribute('data-theme', 'light');
+/* ── Theme (clair par défaut, sombre via data-theme) ───── */
+function applyTheme(theme) {
+  const dark = theme === 'dark';
+  if (dark) document.body.setAttribute('data-theme', 'dark');
+  else document.body.removeAttribute('data-theme');
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    const label = btn.querySelector('.theme-toggle__label');
+    if (label) label.textContent = dark ? 'Clair' : 'Sombre';
   }
+  if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = chartTheme().tick;
+  }
+}
+
+function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('afribench-theme'); } catch { /* mode privé */ }
+  const prefersDark = window.matchMedia
+    && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved === 'dark' || (saved === null && prefersDark) ? 'dark' : 'light');
+
   const btn = document.getElementById('theme-toggle');
   if (btn) {
     btn.addEventListener('click', () => {
-      const isLight = document.body.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.body.removeAttribute('data-theme');
-        localStorage.setItem('afribench-theme', 'dark');
-      } else {
-        document.body.setAttribute('data-theme', 'light');
-        localStorage.setItem('afribench-theme', 'light');
-      }
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('afribench-theme', next); } catch { /* ignore */ }
+      // Redessiner les graphiques avec les couleurs du nouveau thème
+      renderActiveTab();
     });
   }
 }
@@ -194,11 +229,35 @@ function initTheme() {
 /* ── Tabs ─────────────────────────────────────────────── */
 function setupTabs() {
   // Top tab bar
-  document.querySelectorAll('.tab-btn').forEach((btn) => {
+  const tabButtons = [...document.querySelectorAll('.tab-btn')];
+  tabButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       setActiveTab(btn.dataset.tab);
+      btn.focus();
     });
   });
+
+  // Navigation clavier ARIA (flèches, Home, End) sur la tablist
+  const tabBar = document.querySelector('.tab-bar[role="tablist"]');
+  if (tabBar) {
+    tabBar.addEventListener('keydown', (e) => {
+      const current = document.activeElement;
+      if (!current || !current.classList.contains('tab-btn')) return;
+      const idx = tabButtons.indexOf(current);
+      if (idx === -1) return;
+      let nextIdx = null;
+      if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabButtons.length;
+      else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
+      else if (e.key === 'Home') nextIdx = 0;
+      else if (e.key === 'End') nextIdx = tabButtons.length - 1;
+      if (nextIdx !== null) {
+        e.preventDefault();
+        const next = tabButtons[nextIdx];
+        setActiveTab(next.dataset.tab);
+        next.focus();
+      }
+    });
+  }
 
   // Sidebar buttons
   document.querySelectorAll('[data-sidebar]').forEach((btn) => {
@@ -225,11 +284,15 @@ function setActiveTab(tabId) {
   if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
 
-  // Update tab bar
+  // Update tab bar (état + roving tabindex + aria-labelledby du panel)
   document.querySelectorAll('.tab-btn').forEach((b) => {
-    b.classList.toggle('active', b.dataset.tab === tabId);
-    b.setAttribute('aria-selected', b.dataset.tab === tabId ? 'true' : 'false');
+    const isActive = b.dataset.tab === tabId;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
+  const panel = document.getElementById('tab-content');
+  if (panel) panel.setAttribute('aria-labelledby', `tab-${tabId}`);
 
   // Update sidebar
   document.querySelectorAll('[data-sidebar]').forEach((b) => {
@@ -256,6 +319,32 @@ function setActiveTab(tabId) {
 
 function renderActiveTab() {
   const container = document.getElementById('tab-content');
+  if (!container) return;
+
+  // Aucune source de données disponible : message d'erreur explicite
+  if (!AppState.loading && AppState.dataSource === 'none'
+      && AppState.activeTab !== 'methodology' && AppState.activeTab !== 'api') {
+    container.innerHTML = `
+      <div class="card">
+        <div class="empty-state">
+          <h3>Données indisponibles</h3>
+          <p>L'API et les fichiers statiques sont injoignables. Vérifiez votre connexion
+          ou lancez le backend (<code>docker compose up --build</code>).</p>
+          <p><button class="filter-btn" id="retry-load">Réessayer</button></p>
+        </div>
+      </div>
+    `;
+    document.getElementById('retry-load')?.addEventListener('click', async () => {
+      setLoadingState(true);
+      await loadData();
+      setLoadingState(false);
+      renderActiveTab();
+      renderTopModels();
+      updateHeroStats();
+    });
+    return;
+  }
+
   const tabs = {
     leaderboard: globalThis.renderLeaderboard,
     models: globalThis.renderModels,
@@ -274,6 +363,7 @@ function renderActiveTab() {
 /* ── Sidebar Categories ──────────────────────────────── */
 function renderSidebarCategories() {
   const sidebar = document.getElementById('sidebar-categories');
+  if (!sidebar) return;
   const catCounts = {};
   AppState.questions.forEach((q) => {
     const cat = q.category;
@@ -283,9 +373,8 @@ function renderSidebarCategories() {
   let html = '';
   categoryKeys().forEach((key) => {
     const count = catCounts[key] || 0;
-    const active = AppState.activeTab === 'categories' ? '' : '';
     html += `
-      <button class="sidebar-btn ${active}" data-sidebar data-tab="categories" data-filter-cat="${key}">
+      <button class="sidebar-btn" data-sidebar data-tab="categories" data-filter-cat="${key}">
         <span class="sidebar-cat-dot" style="color:${categoryColor(key)}"></span>
         ${categoryLabel(key)}
         <span class="count">${count}</span>
@@ -305,6 +394,8 @@ function renderSidebarCategories() {
 }
 
 /* ── Search ──────────────────────────────────────────── */
+const SEARCHABLE_TABS = ['leaderboard', 'models', 'questions'];
+
 function setupSearch() {
   const input = document.getElementById('global-search');
   if (!input) return;
@@ -314,11 +405,23 @@ function setupSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       AppState.searchQuery = input.value.trim().toLowerCase();
-      // Re-render current tab with filter
-      if (AppState.activeTab === 'leaderboard' || AppState.activeTab === 'models' || AppState.activeTab === 'questions') {
+      // Si l'onglet courant ne supporte pas la recherche, basculer sur Modèles
+      if (AppState.searchQuery && !SEARCHABLE_TABS.includes(AppState.activeTab)) {
+        setActiveTab('models');
+        return;
+      }
+      if (SEARCHABLE_TABS.includes(AppState.activeTab)) {
         renderActiveTab();
       }
     }, 200);
+  });
+
+  // La croix native d'input[type=search] déclenche 'search' quand vidé
+  input.addEventListener('search', () => {
+    if (input.value === '') {
+      AppState.searchQuery = '';
+      if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
+    }
   });
 }
 
@@ -404,8 +507,33 @@ async function loadData() {
     }
   }
 
+  if (AppState.results.length === 0 && AppState.questions.length === 0) {
+    AppState.dataSource = 'none';
+  }
+
+  updateDataSourceBadge();
   renderSidebarCategories();
   renderDailyQuestion();
+}
+
+/* ── Badge source de données (sidebar footer) ────────── */
+function updateDataSourceBadge() {
+  const badge = document.getElementById('data-source-badge');
+  if (!badge) return;
+  const map = {
+    api: ['Données : API live', 'ok'],
+    static: ['Données : statiques (API injoignable)', 'warn'],
+    bootstrap: ['Données : aperçu pré-généré', 'warn'],
+    none: ['Données indisponibles', 'err'],
+  };
+  const entry = map[AppState.dataSource];
+  if (!entry) {
+    badge.hidden = true;
+    return;
+  }
+  badge.hidden = false;
+  badge.textContent = entry[0];
+  badge.dataset.state = entry[1];
 }
 
 /* ── Hero Stats ──────────────────────────────────────── */
@@ -437,11 +565,6 @@ function renderTopModels() {
 
   container.style.display = 'grid';
 
-  const highlights = [
-    { label: 'Meilleur score (v0.1)', getter: () => models[0] },
-    { label: 'Open Weights', getter: () => models.find((m) => isOpenModel(m)) },
-  ];
-
   // Top by category (pick the category with highest variance)
   const catScores = {};
   models.forEach((m) => {
@@ -466,7 +589,7 @@ function renderTopModels() {
   let html = `
     <div class="top-model-card">
       <div class="label">Meilleur score (v0.1)</div>
-      <div class="model-name">${top.model_label || top.model}</div>
+      <div class="model-name">${escapeHtml(top.model_label || top.model)}</div>
       <div class="score">${top.accuracy}%</div>
       <div class="sub">${top.correct}/${top.total} questions${top.total && AppState.questions.length && top.total !== AppState.questions.length ? ' · seed' : ''}</div>
     </div>
@@ -482,7 +605,7 @@ function renderTopModels() {
       html += `
         <div class="top-model-card">
           <div class="label">Meilleur ${categoryLabel(bestCat)}</div>
-          <div class="model-name">${bestInCat.model.model_label || bestInCat.model.model}</div>
+          <div class="model-name">${escapeHtml(bestInCat.model.model_label || bestInCat.model.model)}</div>
           <div class="score">${bestInCat.score.toFixed(1)}%</div>
           <div class="sub">${categoryLabel(bestCat)}</div>
         </div>
@@ -496,7 +619,7 @@ function renderTopModels() {
     html += `
       <div class="top-model-card">
         <div class="label">Open Weights</div>
-        <div class="model-name">${open.model_label || open.model}</div>
+        <div class="model-name">${escapeHtml(open.model_label || open.model)}</div>
         <div class="score">${open.accuracy}%</div>
         <div class="sub">open-source</div>
       </div>
@@ -509,7 +632,7 @@ function renderTopModels() {
     html += `
       <div class="top-model-card">
         <div class="label">Meilleur ratio</div>
-        <div class="model-name">${cheapest.model_label || cheapest.model}</div>
+        <div class="model-name">${escapeHtml(cheapest.model_label || cheapest.model)}</div>
         <div class="score">${cheapest.accuracy}%</div>
         <div class="sub">${cheapest.correct}/${cheapest.total}</div>
       </div>
@@ -549,6 +672,24 @@ function toggleFavorite(name) {
 
 function isFavorite(name) {
   return AppState.favorites.has(name);
+}
+
+/* ── Chart.js helpers (registry anti-fuite + thème) ──── */
+function mountChart(canvas, config) {
+  if (typeof Chart === 'undefined' || !canvas) return null;
+  const existing = Chart.getChart(canvas);
+  if (existing) existing.destroy();
+  return new Chart(canvas, config);
+}
+
+function chartTheme() {
+  const styles = getComputedStyle(document.body);
+  const read = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+  return {
+    tick: read('--chart-tick', '#5B5854'),
+    grid: read('--chart-grid', 'rgba(43,43,43,0.12)'),
+    label: read('--chart-label', '#2B2B2B'),
+  };
 }
 
 /* ── Compute helpers (shared with leaderboard & models) ─ */
@@ -632,11 +773,6 @@ function renderDailyQuestion() {
   const idx = seed % AppState.questions.length;
   const q = AppState.questions[idx];
 
-  // Pick model answers for this question
-  const modelAnswers = [];
-  const results = getLatestResults();
-  // Check if any model answered this specific question (if we have per-question data)
-  // For now, just show the question with a prompt to test it
   const catColor = categoryColor(q.category);
 
   container.innerHTML = `
@@ -650,16 +786,16 @@ function renderDailyQuestion() {
         </span>
         <span class="dq-date">${today}</span>
       </div>
-      <div class="dq-question">${q.question}</div>
+      <div class="dq-question">${escapeHtml(q.question || '')}</div>
       <div class="dq-options">
         ${Object.entries(q.options || {}).map(([letter, text]) =>
-          `<div class="dq-option"><span class="dq-letter">${letter}</span> ${text}</div>`
+          `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`
         ).join('')}
       </div>
       <div class="dq-reveal" id="dq-reveal" style="display:none">
         <div class="dq-answer">
-          Réponse : <strong>${q.answer}</strong>
-          ${q.explanation ? `<span class="dq-exp">— ${q.explanation}</span>` : ''}
+          Réponse : <strong>${escapeHtml(q.answer || '')}</strong>
+          ${q.explanation ? `<span class="dq-exp">— ${escapeHtml(q.explanation)}</span>` : ''}
         </div>
       </div>
       <div class="dq-actions">
@@ -783,6 +919,9 @@ Object.assign(globalThis, {
   exportJSON,
   difficultyLabel,
   renderActiveTab,
+  mountChart,
+  chartTheme,
+  setupRevealAnimations,
 });
 
 export {};

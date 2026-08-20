@@ -7,6 +7,7 @@ const {
   getLatestResults, applySearchFilter, isOpenModel, isFavorite,
   computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
   categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
+  escapeHtml, mountChart, chartTheme,
 } = globalThis;
 
 let lbSortField = null;
@@ -109,7 +110,7 @@ function renderLeaderboard(container) {
   }
 
   // ── Filter bar ──
-  html = `
+  let html = `
     <div class="filter-bar">
       <button class="filter-btn ${lbFilterType === 'all' ? 'active' : ''}" data-filter="all">Tous</button>
       <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
@@ -128,13 +129,13 @@ function renderLeaderboard(container) {
   // ── Legend card ──
   if (lbShowLegend) {
     html += `
-      <div class="card legend-card" id="lb-legend">
+      <div class="card" id="lb-legend">
         <div class="card-title">Légende des métriques</div>
         <div class="legend-grid">
-          ${Object.entries(METRICS).map(([key, m]) => `
+          ${Object.values(METRICS).map((m) => `
             <div class="legend-item">
-              <strong>${m.label}</strong>
-              <span>${m.desc}</span>
+              <span class="legend-label">${m.label}</span>
+              <span class="legend-desc">${m.desc}</span>
             </div>
           `).join('')}
         </div>
@@ -172,13 +173,14 @@ function renderLeaderboard(container) {
   models.forEach((m, i) => {
     const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
     const name = m.model_label || m.model;
+    const safeName = escapeHtml(name);
     const barWidth = maxScore > 0 ? (m.accuracy / maxScore) * 100 : 0;
     const d = m.by_difficulty || {};
     const easy = d.easy ? `${(d.easy.accuracy || 0).toFixed(1)}%` : '-';
     const med = d.medium ? `${(d.medium.accuracy || 0).toFixed(1)}%` : '-';
     const hard = d.hard ? `${(d.hard.accuracy || 0).toFixed(1)}%` : '-';
     const isOpen = isOpenModel(m);
-    const providerClass = isOpen ? 'model-icon-open' : 'model-icon-closed';
+    const providerClass = isOpen ? 'open' : 'closed';
     const best = computeBestCategory(m);
     const stddev = computeStdDev(m);
     const isBestStd = stddev !== null && stddev === minStdDev;
@@ -196,9 +198,9 @@ function renderLeaderboard(container) {
         <td class="rank ${rankClass}">${i + 1}</td>
         <td>
           <div class="model-cell">
-            <span class="fav-star" data-fav="${name}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
+            <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
             <span class="model-icon ${providerClass}"></span>
-            <span class="model-name">${name}</span>
+            <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
             ${badges}
           </div>
@@ -332,7 +334,7 @@ function renderTH(field, label, tip) {
 function setupTooltips(container) {
   const tips = container.querySelectorAll('.th-with-tip');
   tips.forEach(th => {
-    th.addEventListener('mouseenter', (e) => {
+    th.addEventListener('mouseenter', () => {
       const tipText = th.dataset.tip;
       if (!tipText) return;
       const existing = document.querySelector('.metric-tooltip');
@@ -360,7 +362,7 @@ function setupTooltips(container) {
 function renderLBCategoryChart(models) {
   const canvas = document.getElementById('lb-cat-chart');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  const theme = chartTheme();
   const allCats = new Set();
   models.forEach((m) => {
     if (m.by_category) Object.keys(m.by_category).forEach((c) => allCats.add(c));
@@ -374,16 +376,16 @@ function renderLBCategoryChart(models) {
     borderWidth: 1,
     borderRadius: 2,
   }));
-  new Chart(ctx, {
+  mountChart(canvas, {
     type: 'bar',
     data: { labels: cats.map((c) => categoryLabel(c)), datasets },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: '#8a8a9e', font: { size: 10 } } } },
+      plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
-        x: { ticks: { color: '#8a8a9e', font: { size: 9 }, maxRotation: 45 }, grid: { color: '#2c2c2f' } },
-        y: { beginAtZero: true, max: 100, ticks: { color: '#8a8a9e', callback: (v) => v + '%' }, grid: { color: '#2c2c2f' } },
+        x: { ticks: { color: theme.tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
       },
     },
   });
@@ -392,7 +394,7 @@ function renderLBCategoryChart(models) {
 function renderLBDifficultyChart(models) {
   const canvas = document.getElementById('lb-diff-chart');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  const theme = chartTheme();
   const diffs = ['easy', 'medium', 'hard'];
   const diffLabels = ['Facile', 'Moyen', 'Difficile'];
   const topModels = models.slice(0, 6);
@@ -404,16 +406,16 @@ function renderLBDifficultyChart(models) {
     borderWidth: 1,
     borderRadius: 2,
   }));
-  new Chart(ctx, {
+  mountChart(canvas, {
     type: 'bar',
     data: { labels: diffLabels, datasets },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: '#8a8a9e', font: { size: 10 } } } },
+      plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
-        x: { ticks: { color: '#8a8a9e', font: { size: 10 } }, grid: { color: '#2c2c2f' } },
-        y: { beginAtZero: true, max: 100, ticks: { color: '#8a8a9e', callback: (v) => v + '%' }, grid: { color: '#2c2c2f' } },
+        x: { ticks: { color: theme.tick, font: { size: 10 } }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
       },
     },
   });
@@ -435,7 +437,7 @@ function renderCategoryPodium(models) {
         ${scores.map((s, i) => `
           <div class="podium-row ${i === 0 ? 'podium-gold' : ''}">
             <span class="podium-rank">${i + 1}</span>
-            <span class="podium-name">${s.name}</span>
+            <span class="podium-name">${escapeHtml(s.name)}</span>
             <span class="podium-score">${s.score.toFixed(0)}%</span>
           </div>
         `).join('')}
