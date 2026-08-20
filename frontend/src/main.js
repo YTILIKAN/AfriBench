@@ -24,5 +24,6 @@ import '../js/compare.js';
 import '../js/evolution.js';
 import '../js/questions.js';
 import '../js/open_tasks.js';
+import '../js/contribute.js';
 import '../js/methodology.js';
 import '../js/api.js';

@@ -20,7 +20,7 @@ function escapeHtml(str) {
 
 const VALID_TABS = [
   'leaderboard', 'models', 'categories', 'compare',
-  'evolution', 'questions', 'open_tasks', 'methodology', 'api',
+  'evolution', 'questions', 'open_tasks', 'contribute', 'methodology', 'api',
 ];
 
 /* Titre + description affichés dans l'en-tête de vue (et barre mobile) */
@@ -52,6 +52,10 @@ const VIEW_META = {
   open_tasks: {
     title: 'Tâches ouvertes',
     desc: 'Pilotes non-QCM : traduction, résumé, QA ouverte, NER, sentiment.',
+  },
+  contribute: {
+    title: 'Contribuer',
+    desc: 'Proposez une question d\'évaluation — revue communautaire publique avant intégration.',
   },
   methodology: {
     title: 'Méthodologie',
@@ -382,6 +386,7 @@ function renderActiveTab() {
     evolution: globalThis.renderEvolution,
     questions: globalThis.renderQuestions,
     open_tasks: globalThis.renderOpenTasks,
+    contribute: globalThis.renderContribute,
     methodology: globalThis.renderMethodology,
     api: globalThis.renderAPI,
   };

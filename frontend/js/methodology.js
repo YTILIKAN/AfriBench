@@ -59,11 +59,11 @@ function renderMethodology(container) {
       <div class="meth-section">
         <h3>Categories</h3>
         <p>Les questions sont organisees en ${cats.size} catégories couvrant les aspects fondamentaux des societes africaines :</p>
-        <p>
+        <div class="meth-tags">
           ${categoryKeys().map(key =>
-            `<span class="meth-tag bronze" style="border-color:${categoryColor(key)};color:${categoryColor(key)}">${categoryLabel(key)}</span>`
+            `<span class="meth-tag" style="border-color:${categoryColor(key)};color:${categoryColor(key)}">${categoryLabel(key)}</span>`
           ).join('')}
-        </p>
+        </div>
       </div>
 
       <div class="meth-section">

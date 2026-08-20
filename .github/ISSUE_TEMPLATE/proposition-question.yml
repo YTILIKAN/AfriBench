@@ -1,0 +1,88 @@
+name: Proposer une question d'évaluation
+description: Soumettre une nouvelle question QCM pour AfriBench (revue communautaire publique)
+title: "[Question] "
+labels: ["proposition", "question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de contribuer à AfriBench ! Chaque proposition est relue publiquement
+        avant d'être intégrée au corpus (`data/questions/v1/raw/` → validation → `validated/`).
+
+  - type: dropdown
+    id: categorie
+    attributes:
+      label: Catégorie
+      options:
+        - histoire
+        - geographie
+        - droit_politique
+        - sante_sciences
+        - langue_culture
+        - economie
+        - ia_technologie
+        - societe
+        - raisonnement_culturel
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulte
+    attributes:
+      label: Difficulté
+      options:
+        - easy
+        - medium
+        - hard
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: La question, en français, claire et sans ambiguïté.
+      placeholder: "Où se trouve le siège de l'Union africaine ?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options (A à D)
+      description: Une option par ligne, préfixée par la lettre.
+      placeholder: |
+        A. Nairobi, Kenya
+        B. Addis-Abeba, Éthiopie
+        C. Pretoria, Afrique du Sud
+        D. Dakar, Sénégal
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reponse
+    attributes:
+      label: Bonne réponse
+      options:
+        - A
+        - B
+        - C
+        - D
+    validations:
+      required: true
+
+  - type: textarea
+    id: explication
+    attributes:
+      label: Explication
+      description: Pourquoi cette réponse est correcte (affichée aux visiteurs).
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Lien ou référence vérifiable (fortement recommandé).
+    validations:
+      required: false
