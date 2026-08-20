@@ -46,27 +46,24 @@ function renderQuestions(container) {
 
   let html = `
     <div class="card">
-      <div class="card-title">
-        Parcourir les questions
-        <span class="count-badge">${filtered.length} / ${qs.length}</span>
-      </div>
-
       <!-- Filters -->
       <div class="filter-bar">
-        <span style="font-size:0.68rem;color:var(--muted)">Catégorie:</span>
+        <span class="filter-label">Catégorie :</span>
         <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
         ${cats.map((c) => `
           <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
         `).join('')}
       </div>
-      <div class="filter-bar">
-        <span style="font-size:0.68rem;color:var(--muted)">Difficulté:</span>
+      <div class="filter-bar" style="margin-bottom:0">
+        <span class="filter-label">Difficulté :</span>
         <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
         ${diffs.map((d) => `
           <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">
             ${difficultyLabel(d)}
           </button>
         `).join('')}
+        <span style="flex:1"></span>
+        <span class="filter-label">${filtered.length} / ${qs.length} questions</span>
       </div>
     </div>
   `;

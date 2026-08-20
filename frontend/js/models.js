@@ -46,25 +46,19 @@ function renderModels(container) {
   }
 
   let html = `
-    <div class="models-header">
-      <div>
-        <h2>Modeles</h2>
-        <div class="models-count">${sorted.length} modèle${sorted.length > 1 ? 's' : ''} évalué${sorted.length > 1 ? 's' : ''}</div>
-      </div>
-    </div>
-
     <div class="models-filters">
-      <span class="filter-label">Filtres</span>
       <button class="filter-btn ${modelFilter === 'all' ? 'active' : ''}" data-mfilter="all">Tous</button>
       <button class="filter-btn ${modelFilter === 'open' ? 'active' : ''}" data-mfilter="open">Open Weights</button>
       <button class="filter-btn ${modelFilter === 'closed' ? 'active' : ''}" data-mfilter="closed">Proprietaires</button>
       <button class="filter-btn ${modelFilter === 'favs' ? 'active' : ''}" data-mfilter="favs">★ Favoris</button>
-      <span class="filter-label" style="margin-left:12px">Trier</span>
+      <span style="flex:1"></span>
+      <span class="filter-label">Trier :</span>
       <button class="filter-btn ${modelSortKey === 'score' ? 'active' : ''}" data-msort="score">Score</button>
       <button class="filter-btn ${modelSortKey === 'name' ? 'active' : ''}" data-msort="name">Nom</button>
-      <button class="filter-btn" data-msortdir title="${modelSortDir === 'desc' ? 'Descendant' : 'Ascendant'}">
+      <button class="filter-btn" data-msortdir title="${modelSortDir === 'desc' ? 'Descendant' : 'Ascendant'}" aria-label="Inverser l'ordre de tri">
         ${modelSortDir === 'desc' ? '▼' : '▲'}
       </button>
+      <span class="filter-label" style="margin-left:8px">${sorted.length} modèle${sorted.length > 1 ? 's' : ''}</span>
     </div>
 
     <div class="models-grid">
@@ -114,7 +108,6 @@ function renderModels(container) {
 
         <div class="model-card-actions">
           <button class="mcard-btn mcard-btn-primary" data-action="compare" data-model="${safeName}">Comparer</button>
-          <button class="mcard-btn mcard-btn-secondary" data-action="leaderboard" data-model="${safeName}">Voir details</button>
         </div>
       </div>
     `;
@@ -155,15 +148,6 @@ function renderModels(container) {
     btn.addEventListener('click', () => {
       AppState.comparePreset = btn.dataset.model;
       setActiveTab('compare');
-    });
-  });
-
-  container.querySelectorAll('[data-action="leaderboard"]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      AppState.searchQuery = btn.dataset.model.toLowerCase();
-      const searchInput = document.getElementById('global-search');
-      if (searchInput) searchInput.value = btn.dataset.model;
-      setActiveTab('leaderboard');
     });
   });
 

@@ -8,7 +8,6 @@ function renderAPI(container) {
   container.innerHTML = `
     <div class="api-content">
 
-      <h2>API Publique</h2>
       <p class="lead">
         AfriBench propose une API publique pour acceder aux résultats des evaluations,
         aux questions du benchmark, et aux donnees des modeles. Tous les endpoints

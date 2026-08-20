@@ -129,14 +129,6 @@ function setupRevealAnimations(root = document) {
 function setLoadingState(loading) {
   AppState.loading = loading;
   document.body.classList.toggle('is-loading', loading);
-  const sidebar = document.getElementById('sidebar-categories');
-  if (!sidebar) return;
-  if (loading) {
-    sidebar.innerHTML = `
-      <div class="skeleton-stack" aria-hidden="true">
-        ${'<div class="skeleton skeleton-line"></div>'.repeat(6)}
-      </div>`;
-  }
 }
 
 /* ── Mobile sidebar (hamburger) ───────────────────────── */
@@ -397,38 +389,6 @@ function renderActiveTab() {
   if (typeof render === 'function') render(container);
 }
 
-/* ── Sidebar Categories ──────────────────────────────── */
-function renderSidebarCategories() {
-  const sidebar = document.getElementById('sidebar-categories');
-  if (!sidebar) return;
-  const catCounts = {};
-  AppState.questions.forEach((q) => {
-    const cat = q.category;
-    catCounts[cat] = (catCounts[cat] || 0) + 1;
-  });
-
-  let html = '';
-  categoryKeys().forEach((key) => {
-    const count = catCounts[key] || 0;
-    html += `
-      <button class="sidebar-btn" data-sidebar data-tab="categories" data-filter-cat="${key}">
-        <span class="sidebar-cat-dot" style="color:${categoryColor(key)}"></span>
-        ${categoryLabel(key)}
-        <span class="count">${count}</span>
-      </button>
-    `;
-  });
-  sidebar.innerHTML = html;
-
-  // Wire up category filter clicks in sidebar
-  sidebar.querySelectorAll('[data-filter-cat]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      setActiveTab('categories');
-      // Signal catégories view to filter
-      if (window.__categoryFilter) window.__categoryFilter(btn.dataset.filterCat);
-    });
-  });
-}
 
 /* ── Search ──────────────────────────────────────────── */
 const SEARCHABLE_TABS = ['leaderboard', 'models', 'questions'];
@@ -559,7 +519,6 @@ async function loadData() {
   }
 
   updateDataSourceBadge();
-  renderSidebarCategories();
   renderDailyQuestion();
 }
 

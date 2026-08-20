@@ -45,11 +45,6 @@ function renderEvolution(container) {
   });
 
   container.innerHTML = `
-    <div class="evolution-header">
-      <h2>Evolution des scores</h2>
-      <p>Suivez la progression des modèles dans le temps. Selectionnez les modèles a comparer.</p>
-    </div>
-
     <div class="evolution-controls" id="evo-selectors">
       ${modelList.map(name => `
         <label>

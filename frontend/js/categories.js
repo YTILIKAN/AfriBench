@@ -91,15 +91,17 @@ function renderCategories(container) {
 
   html += `</div>`;
 
-  // ---- Radar Chart ----
-  html += `
-    <div class="card" style="margin-top:var(--sp-md)">
-      <div class="card-title">Comparaison radar par catégorie</div>
-      <div class="chart-container" style="min-height:350px">
-        <canvas id="cat-radar-chart"></canvas>
+  // ---- Radar Chart (pertinent uniquement avec ≥ 3 axes) ----
+  if (cats.length >= 3) {
+    html += `
+      <div class="card" style="margin-top:var(--sp-md)">
+        <div class="card-title">Comparaison radar par catégorie</div>
+        <div class="chart-container" style="min-height:350px">
+          <canvas id="cat-radar-chart"></canvas>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 
   container.innerHTML = html;
 

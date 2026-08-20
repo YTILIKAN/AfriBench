@@ -116,13 +116,13 @@ function renderLeaderboard(container) {
       <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
       <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">Propriétaire</button>
       <button class="filter-btn ${lbFilterType === 'favs' ? 'active' : ''}" data-filter="favs">★ Favoris</button>
-      <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend" style="margin-left:8px">
+      <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend">
         ${lbShowLegend ? '▼' : '▶'} Légende
       </button>
       <span style="flex:1"></span>
       <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
       <button class="filter-btn" id="lb-export-json" title="Exporter en JSON">JSON</button>
-      <span style="font-size:0.68rem;color:var(--muted);margin-left:8px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
+      <span class="filter-label" style="margin-left:4px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
   `;
 
