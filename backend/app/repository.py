@@ -139,7 +139,9 @@ def get_question(session: Session, qid: str) -> Question | None:
 
 
 def create_question(session: Session, data: dict[str, Any]) -> Question:
-    q = Question(**question_from_dict(data))
+    cols = question_from_dict(data)
+    cols["locked_by_admin"] = True
+    q = Question(**cols)
     session.add(q)
     return q
 
@@ -152,6 +154,7 @@ def update_question(session: Session, qid: str, data: dict[str, Any]) -> Questio
     cols.pop("id", None)  # l'id n'est pas modifiable
     for key, value in cols.items():
         setattr(q, key, value)
+    q.locked_by_admin = True
     return q
 
 
@@ -194,16 +197,24 @@ def delete_result(session: Session, rid: int) -> bool:
     return True
 
 
-# ── Seed (idempotent, ON CONFLICT DO NOTHING) ─────────────────────────────
+# ── Seed (versionné : upsert si seed_version plus récent, sauf locked_by_admin) ─
 
-def seed(questions: list[dict[str, Any]], results: list[dict[str, Any]]) -> dict[str, int]:
-    """Insère questions/résultats sans écraser les lignes existantes (éditées via backoffice)."""
+def seed(
+    questions: list[dict[str, Any]],
+    results: list[dict[str, Any]],
+    *,
+    seed_version: int | None = None,
+) -> dict[str, Any]:
+    """Synchronise questions/résultats depuis les fichiers JSON."""
+    from app.services.data_loader import load_questions_seed_version
+
+    version = seed_version if seed_version is not None else load_questions_seed_version()
     session = get_session()
     try:
-        n_q = _seed_questions(session, questions)
+        q_stats = _seed_questions(session, questions, version)
         n_r = _seed_results(session, results)
         session.commit()
-        return {"questions": n_q, "results": n_r}
+        return {"questions": {**q_stats, "seed_version": version}, "results": n_r}
     except Exception:
         session.rollback()
         raise
@@ -211,15 +222,46 @@ def seed(questions: list[dict[str, Any]], results: list[dict[str, Any]]) -> dict
         session.close()
 
 
-def _seed_questions(session: Session, questions: list[dict[str, Any]]) -> int:
-    rows = [question_from_dict(q) for q in questions if q.get("id")]
+def _seed_questions(
+    session: Session, questions: list[dict[str, Any]], seed_version: int
+) -> dict[str, int]:
+    rows: list[dict[str, Any]] = []
+    for q in questions:
+        if not q.get("id"):
+            continue
+        cols = question_from_dict(q)
+        cols["seed_version"] = seed_version
+        rows.append(cols)
     if not rows:
-        return 0
-    stmt = pg_insert(Question).values(rows).on_conflict_do_nothing(
-        index_elements=[Question.id]
+        return {"processed": 0}
+
+    insert_stmt = pg_insert(Question).values(rows)
+    excluded = insert_stmt.excluded
+    update_set = {
+        "category": excluded.category,
+        "subcategory": excluded.subcategory,
+        "difficulty": excluded.difficulty,
+        "language": excluded.language,
+        "question": excluded.question,
+        "options": excluded.options,
+        "answer": excluded.answer,
+        "explanation": excluded.explanation,
+        "source": excluded.source,
+        "author": excluded.author,
+        "date_created": excluded.date_created,
+        "date_validated": excluded.date_validated,
+        "validated_by": excluded.validated_by,
+        "is_control": excluded.is_control,
+        "seed_version": excluded.seed_version,
+    }
+    stmt = insert_stmt.on_conflict_do_update(
+        index_elements=[Question.id],
+        set_=update_set,
+        where=(Question.locked_by_admin.is_(False))
+        & (excluded.seed_version > Question.seed_version),
     )
     session.execute(stmt)
-    return len(rows)
+    return {"processed": len(rows)}
 
 
 def _seed_results(session: Session, results: list[dict[str, Any]]) -> int:
