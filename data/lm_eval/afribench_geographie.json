@@ -701,5 +701,81 @@
     "source": "Britannica — Atlas Mountains",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-038",
+    "category": "geographie",
+    "subcategory": "relief",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel désert couvre une grande partie de la Namibie et de l'Angola côtier ?",
+    "options": {
+      "A": "Kalahari",
+      "B": "Namib",
+      "C": "Sahara",
+      "D": "Danakil"
+    },
+    "answer": "B",
+    "explanation": "Le Namib est un désert côtier d'Afrique australe, parmi les plus anciens du monde.",
+    "source": "Encyclopædia Britannica — Namib",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-039",
+    "category": "geographie",
+    "subcategory": "hydrographie",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le lac Malawi (Nyasa) est bordé principalement par quels trois pays ?",
+    "options": {
+      "A": "Malawi, Mozambique, Tanzanie",
+      "B": "Kenya, Ouganda, Tanzanie",
+      "C": "Zambie, Zimbabwe, Botswana",
+      "D": "RDC, Rwanda, Burundi"
+    },
+    "answer": "A",
+    "explanation": "Le lac Malawi est partagé entre le Malawi, le Mozambique et la Tanzanie.",
+    "source": "Encyclopædia Britannica — Lake Malawi",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-040",
+    "category": "geographie",
+    "subcategory": "climat",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Quel courant océanique froid contribue à l'aridité du littoral namibien ?",
+    "options": {
+      "A": "Courant des Canaries",
+      "B": "Courant de Benguela",
+      "C": "Courant de Guinée",
+      "D": "Courant des Aiguilles"
+    },
+    "answer": "B",
+    "explanation": "Le courant de Benguela, froid, stabilise l'air et limite les précipitations sur le Namib.",
+    "source": "Encyclopædia Britannica — Benguela Current",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "GEOG-041",
+    "category": "geographie",
+    "subcategory": "capitales",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle est la capitale du Rwanda ?",
+    "options": {
+      "A": "Kigali",
+      "B": "Bujumbura",
+      "C": "Kampala",
+      "D": "Goma"
+    },
+    "answer": "A",
+    "explanation": "Kigali est la capitale du Rwanda.",
+    "source": "Encyclopædia Britannica — Kigali",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

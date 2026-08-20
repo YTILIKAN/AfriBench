@@ -606,5 +606,119 @@
     "source": "GSMA Mobile Economy Africa",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-033",
+    "category": "ia_technologie",
+    "subcategory": "nlp",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Masakhane est surtout connu comme…",
+    "options": {
+      "A": "Une communauté de recherche NLP pour les langues africaines",
+      "B": "Un opérateur télécoms panafricain",
+      "C": "Une banque centrale numérique",
+      "D": "Un protocole minier"
+    },
+    "answer": "A",
+    "explanation": "Masakhane fédère des chercheurs autour de la NLP pour les langues africaines.",
+    "source": "Masakhane — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-034",
+    "category": "ia_technologie",
+    "subcategory": "infra",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Le principal frein à l'IA en Afrique souvent cité est…",
+    "options": {
+      "A": "Le manque de données locales et d'infrastructures de calcul",
+      "B": "L'interdiction mondiale du deep learning",
+      "C": "L'absence totale de téléphones mobiles",
+      "D": "La surabondance de GPU publics"
+    },
+    "answer": "A",
+    "explanation": "Données sous-représentées, coûts de calcul et connectivité restent des défis structurels.",
+    "source": "AI4D / academic reviews",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-035",
+    "category": "ia_technologie",
+    "subcategory": "open_source",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Pourquoi les modèles multilingues « web-scale » sous-performent-ils souvent sur les langues africaines ?",
+    "options": {
+      "A": "Faible représentation de ces langues dans les corpus d'entraînement",
+      "B": "Elles sont syntaxiquement impossibles à modéliser",
+      "C": "Elles n'ont aucun emprunt lexical",
+      "D": "Elles n'existent qu'à l'oral sans aucun texte"
+    },
+    "answer": "A",
+    "explanation": "Le déséquilibre des données web biaise les modèles contre les langues peu dotées.",
+    "source": "NLP literature on low-resource languages",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-036",
+    "category": "ia_technologie",
+    "subcategory": "applications",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Une application prioritaire de l'IA en agriculture africaine est…",
+    "options": {
+      "A": "Aide au diagnostic des maladies des cultures via images",
+      "B": "Remplacement des saisons climatiques",
+      "C": "Interdiction des coopératives",
+      "D": "Traduction automatique des codes miniers uniquement"
+    },
+    "answer": "A",
+    "explanation": "Vision par ordinateur et conseil agronomique mobile sont des cas d'usage fréquents.",
+    "source": "FAO / AI4Agriculture reviews",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-037",
+    "category": "ia_technologie",
+    "subcategory": "ethique",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Un risque éthique majeur des systèmes de crédit scoring IA en Afrique est…",
+    "options": {
+      "A": "La discrimination via des proxies socio-économiques biaisés",
+      "B": "L'élimination automatique de l'inflation",
+      "C": "La création d'or numérique",
+      "D": "La disparition des langues"
+    },
+    "answer": "A",
+    "explanation": "Des variables proxies peuvent reproduire des inégalités d'accès au crédit.",
+    "source": "AI ethics / digital finance literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "IA-038",
+    "category": "ia_technologie",
+    "subcategory": "donnees",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les benchmarks de type AfriBench cherchent surtout à…",
+    "options": {
+      "A": "Mesurer les LLM sur des connaissances et contextes africains",
+      "B": "Remplacer Internet en Afrique",
+      "C": "Certifier le matériel GPU",
+      "D": "Standardiser les visas Schengen"
+    },
+    "answer": "A",
+    "explanation": "AfriBench évalue les modèles sur des questions ancrées dans les réalités africaines.",
+    "source": "AfriBench README",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

@@ -606,5 +606,119 @@
     "source": "Littérature orale",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-033",
+    "category": "raisonnement_culturel",
+    "subcategory": "valeurs",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans plusieurs sociétés africaines, le concept d'ubuntu met surtout l'accent sur…",
+    "options": {
+      "A": "L'interdépendance et l'humanité partagée",
+      "B": "L'individualisme possessif absolu",
+      "C": "Le refus de toute solidarité",
+      "D": "La centralité exclusive du marché boursier"
+    },
+    "answer": "A",
+    "explanation": "Ubuntu est souvent résumé par l'idée qu'on devient humain par les relations aux autres.",
+    "source": "Philosophical literature on Ubuntu",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-034",
+    "category": "raisonnement_culturel",
+    "subcategory": "rituels",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les rites de passage (initiation) servent souvent à…",
+    "options": {
+      "A": "Marquer la transition vers un nouveau statut social",
+      "B": "Remplacer l'état civil moderne exclusivement",
+      "C": "Interdire toute transmission orale",
+      "D": "Mesurer le PIB local"
+    },
+    "answer": "A",
+    "explanation": "Ils socialisent les individus et symbolisent le changement de statut (âge, genre, métier).",
+    "source": "Anthropologie africaniste (synthèse)",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-035",
+    "category": "raisonnement_culturel",
+    "subcategory": "parenté",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Dans de nombreuses sociétés africaines, la famille élargie implique que…",
+    "options": {
+      "A": "Les obligations de solidarité dépassent le ménage nucléaire",
+      "B": "Seuls les cousins germains existent légalement",
+      "C": "Il n'y a pas de liens de parenté",
+      "D": "La parenté est identique au droit romain partout"
+    },
+    "answer": "A",
+    "explanation": "Soutien économique, éducation et résidence impliquent souvent un réseau élargi.",
+    "source": "Sociologie de la famille en Afrique",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-036",
+    "category": "raisonnement_culturel",
+    "subcategory": "religion",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Sur le continent africain, le paysage religieux se caractérise souvent par…",
+    "options": {
+      "A": "Une coexistence de christianismes, islams et religions endogènes",
+      "B": "Une religion unique uniforme depuis l'Antiquité",
+      "C": "L'absence totale de pratiques spirituelles",
+      "D": "Uniquement des cultes importés au XXIe siècle"
+    },
+    "answer": "A",
+    "explanation": "Diversité et syncrétismes varient fortement selon les régions et histoires locales.",
+    "source": "Pew / religious demography Africa",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-037",
+    "category": "raisonnement_culturel",
+    "subcategory": "stereotype",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Quelle approche est la plus pertinente pour éviter l'essentialisation de « la culture africaine » ?",
+    "options": {
+      "A": "Reconnaître la pluralité des sociétés, langues et trajectoires historiques",
+      "B": "Attribuer un trait unique à tout le continent",
+      "C": "Ignorer les sources africaines",
+      "D": "Réduire l'Afrique à la pauvreté"
+    },
+    "answer": "A",
+    "explanation": "L'Afrique n'est pas monolithique ; l'analyse doit être située et différenciée.",
+    "source": "CRITIQUE.md / postcolonial methods",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "CULT-038",
+    "category": "raisonnement_culturel",
+    "subcategory": "mediation",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Les mécanismes coutumiers de médiation des conflits visent souvent à…",
+    "options": {
+      "A": "Restaurer le lien social autant qu'à trancher un litige",
+      "B": "Remplacer toute constitution écrite",
+      "C": "Interdire l'appel aux cours modernes",
+      "D": "Maximiser les peines carcérales"
+    },
+    "answer": "A",
+    "explanation": "Beaucoup de justices endogènes privilégient réconciliation et réparation communautaire.",
+    "source": "Legal pluralism literature",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]

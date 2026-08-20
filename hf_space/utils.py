@@ -18,6 +18,11 @@ CANDIDATES = [
     SPACE_DIR.parent / "data" / "hf" / "results.json",
 ]
 
+QUESTION_CANDIDATES = [
+    SPACE_DIR / "data" / "questions.json",
+    SPACE_DIR.parent / "frontend" / "data" / "questions.json",
+]
+
 CATEGORY_LABELS = {
     "histoire": "Histoire",
     "geographie": "Géographie",
@@ -109,13 +114,28 @@ def category_matrix_df() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def corpus_question_count() -> int | None:
+    for path in QUESTION_CANDIDATES:
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                return len(data)
+    return None
+
+
 def stats_summary() -> dict[str, Any]:
     models = latest_by_model()
     scores = [m.get("accuracy") or 0 for m in models]
-    q_total = models[0].get("total") if models else 0
+    eval_total = models[0].get("total") if models else 0
+    corpus_n = corpus_question_count()
+    seed_mismatch = bool(
+        corpus_n and eval_total and isinstance(eval_total, int) and corpus_n != eval_total
+    )
     return {
         "n_models": len(models),
-        "n_questions": q_total,
+        "n_questions": eval_total,
+        "corpus_questions": corpus_n,
+        "seed_mismatch": seed_mismatch,
         "top_model": (models[0].get("model_label") if models else "—"),
         "top_score": (models[0].get("accuracy") if models else None),
         "avg_score": round(sum(scores) / len(scores), 1) if scores else None,

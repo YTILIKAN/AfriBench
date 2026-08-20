@@ -606,5 +606,119 @@
     "source": "OMS — Yellow fever",
     "author": "afribench",
     "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-033",
+    "category": "sante_sciences",
+    "subcategory": "maladies",
+    "difficulty": "easy",
+    "language": "fr",
+    "question": "Quelle maladie parasitaire transmise par les anophèles reste majeure en Afrique subsaharienne ?",
+    "options": {
+      "A": "Paludisme",
+      "B": "Choléra uniquement",
+      "C": "Rage",
+      "D": "Tétanos"
+    },
+    "answer": "A",
+    "explanation": "Le paludisme, transmis par les moustiques Anopheles, reste un fardeau sanitaire majeur.",
+    "source": "WHO — Malaria",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-034",
+    "category": "sante_sciences",
+    "subcategory": "vaccination",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Gavi, l'Alliance du Vaccin, soutient principalement…",
+    "options": {
+      "A": "L'accès aux vaccins dans les pays à faible revenu",
+      "B": "La privatisation des hôpitaux universitaires",
+      "C": "La recherche spatiale biomédicale",
+      "D": "Le remplacement des systèmes de santé primaires"
+    },
+    "answer": "A",
+    "explanation": "Gavi finance et facilite l'accès aux vaccins pour les pays à revenu faible.",
+    "source": "Gavi — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-035",
+    "category": "sante_sciences",
+    "subcategory": "nutrition",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "Le manioc est une culture vivrière importante en Afrique notamment parce qu'il…",
+    "options": {
+      "A": "Tolère relativement bien des sols pauvres et certaines sécheresses",
+      "B": "Nécessite un climat polaire",
+      "C": "Ne pousse qu'en altitude alpine",
+      "D": "Est exclusivement d'origine australienne"
+    },
+    "answer": "A",
+    "explanation": "Le manioc est rustique et central dans de nombreux systèmes alimentaires africains.",
+    "source": "FAO — Cassava",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-036",
+    "category": "sante_sciences",
+    "subcategory": "systemes",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Les agents de santé communautaires en Afrique sont surtout mobilisés pour…",
+    "options": {
+      "A": "Étendre les soins de proximité et la prévention",
+      "B": "Remplacer entièrement les médecins spécialistes",
+      "C": "Gérer les banques centrales",
+      "D": "Superviser les élections"
+    },
+    "answer": "A",
+    "explanation": "Ils renforcent la couverture sanitaire de base, la vaccination et la sensibilisation.",
+    "source": "WHO — Community health workers",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-037",
+    "category": "sante_sciences",
+    "subcategory": "environnement",
+    "difficulty": "medium",
+    "language": "fr",
+    "question": "La bilharziose (schistosomiase) est associée principalement à…",
+    "options": {
+      "A": "L'eau douce contaminée par des parasites",
+      "B": "L'air des hautes altitudes",
+      "C": "Le contact exclusif avec l'eau de mer",
+      "D": "La consommation de sel iodé"
+    },
+    "answer": "A",
+    "explanation": "Les schistosomes se transmettent via des eaux douces infestées (mollusques hôtes).",
+    "source": "WHO — Schistosomiasis",
+    "author": "afribench",
+    "date_created": "2026-08-03"
+  },
+  {
+    "id": "SANTE-038",
+    "category": "sante_sciences",
+    "subcategory": "recherche",
+    "difficulty": "hard",
+    "language": "fr",
+    "question": "Le centre Africa CDC a pour mission principale de…",
+    "options": {
+      "A": "Renforcer la prévention et la réponse aux épidémies en Afrique",
+      "B": "Émettre une monnaie continentale",
+      "C": "Réguler le football africain",
+      "D": "Gérer les visas touristiques"
+    },
+    "answer": "A",
+    "explanation": "L'Africa CDC (UA) coordonne la surveillance et la sécurité sanitaire continentale.",
+    "source": "Africa CDC — About",
+    "author": "afribench",
+    "date_created": "2026-08-03"
   }
 ]
