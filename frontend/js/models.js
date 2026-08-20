@@ -4,7 +4,8 @@
 
 const {
   AppState, getLatestResults, isOpenModel, isFavorite, applySearchFilter,
-  formatDate, toggleFavorite, categoryKeys, categoryColor, categoryLabel,
+  formatDate, toggleFavorite, categoryKeys, categoryLabel, setActiveTab,
+  escapeHtml, mountChart, chartTheme,
 } = globalThis;
 
 let modelSortKey = 'score';
@@ -71,6 +72,7 @@ function renderModels(container) {
 
   sorted.forEach((m) => {
     const name = m.model_label || m.model;
+    const safeName = escapeHtml(name);
     const acc = m.accuracy || 0;
     const correct = m.correct || 0;
     const total = m.total || 0;
@@ -82,8 +84,8 @@ function renderModels(container) {
       <div class="model-card">
         <div class="model-card-header">
           <div class="model-card-name">
-            <span class="fav-star" data-fav="${name}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFavorite(name) ? '★' : '☆'}</span>
-            ${name}
+            <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFavorite(name) ? '★' : '☆'}</span>
+            ${safeName}
           </div>
           <span class="model-card-badge ${open ? 'open' : 'closed'}">${open ? 'OPEN' : 'CLOSED'}</span>
         </div>
@@ -107,12 +109,12 @@ function renderModels(container) {
 
         <div class="model-card-categories">
           <div class="cat-mini-label">Scores par categorie</div>
-          <canvas class="model-mini-radar" id="mradar-${name.replace(/[^a-zA-Z0-9]/g, '')}" data-model="${name}" height="100" width="100"></canvas>
+          <canvas class="model-mini-radar" id="mradar-${name.replace(/[^a-zA-Z0-9]/g, '')}" data-model="${safeName}" height="100" width="100"></canvas>
         </div>
 
         <div class="model-card-actions">
-          <button class="mcard-btn mcard-btn-primary" data-action="compare" data-model="${name}">Comparer</button>
-          <button class="mcard-btn mcard-btn-secondary" data-action="leaderboard" data-model="${name}">Voir details</button>
+          <button class="mcard-btn mcard-btn-primary" data-action="compare" data-model="${safeName}">Comparer</button>
+          <button class="mcard-btn mcard-btn-secondary" data-action="leaderboard" data-model="${safeName}">Voir details</button>
         </div>
       </div>
     `;
@@ -130,17 +132,22 @@ function renderModels(container) {
   });
 
   container.querySelectorAll('[data-msort]').forEach((btn) => {
-    if (btn.dataset.msortdir !== undefined) {
-      modelSortDir = modelSortDir === 'desc' ? 'asc' : 'desc';
-    } else {
+    btn.addEventListener('click', () => {
       if (modelSortKey === btn.dataset.msort && modelSortDir === 'desc') {
         modelSortDir = 'asc';
       } else {
         modelSortKey = btn.dataset.msort;
         modelSortDir = 'desc';
       }
-    }
-    renderModels(container);
+      renderModels(container);
+    });
+  });
+
+  container.querySelectorAll('[data-msortdir]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modelSortDir = modelSortDir === 'desc' ? 'asc' : 'desc';
+      renderModels(container);
+    });
   });
 
   // Wire up actions
@@ -183,9 +190,9 @@ function renderModels(container) {
 function drawMiniRadar(canvas, m) {
   const cats = categoryKeys().filter(k => m.by_category[k]);
   if (cats.length === 0) return;
-  const ctx = canvas.getContext('2d');
+  const theme = chartTheme();
 
-  new Chart(ctx, {
+  mountChart(canvas, {
     type: 'radar',
     data: {
       labels: cats.map(c => categoryLabel(c).slice(0, 4)),
@@ -208,37 +215,16 @@ function drawMiniRadar(canvas, m) {
           beginAtZero: true,
           max: 100,
           ticks: { display: false, stepSize: 25 },
-          grid: { color: 'rgba(44,44,47,0.3)' },
-          angleLines: { color: 'rgba(44,44,47,0.2)' },
+          grid: { color: theme.grid },
+          angleLines: { color: theme.grid },
           pointLabels: {
-            color: '#8a8a9e',
+            color: theme.tick,
             font: { size: 7 },
           },
         },
       },
     },
   });
-}
-
-function renderCategoryMiniBars(m) {
-  if (!m.by_category) return '<div style="font-size:9px;color:var(--muted)">Aucune donnee</div>';
-
-  const cats = Object.entries(m.by_category).sort((a, b) => (b[1].accuracy || 0) - (a[1].accuracy || 0));
-
-  return cats.map(([key, info]) => {
-    const score = info.accuracy || 0;
-    const color = categoryColor(key);
-    const label = categoryLabel(key);
-    return `
-      <div class="cat-mini-bar">
-        <span class="cat-mini-name" title="${label}">${label}</span>
-        <div class="cat-mini-track">
-          <div class="cat-mini-fill" style="width:${score}%;background:${color}"></div>
-        </div>
-        <span class="cat-mini-score">${score.toFixed(0)}%</span>
-      </div>
-    `;
-  }).join('');
 }
 
 function getModelProvider(name) {

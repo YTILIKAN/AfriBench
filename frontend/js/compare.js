@@ -4,9 +4,8 @@
 
 const {
   AppState, getLatestResults, categoryColor, categoryLabel,
+  escapeHtml, mountChart, chartTheme,
 } = globalThis;
-
-let compareChartInstance = null;
 
 function renderCompare(container) {
   const models = getLatestResults();
@@ -40,7 +39,7 @@ function renderCompare(container) {
     html += `
       <label>
         <input type="checkbox" class="compare-check" value="${i}" ${checked ? 'checked' : ''}>
-        <span>${name}</span>
+        <span>${escapeHtml(name)}</span>
         <span style="color:var(--ocre);font-family:var(--mono);font-size:0.68rem">${m.accuracy}%</span>
       </label>
     `;
@@ -81,7 +80,7 @@ function renderCompare(container) {
 
   html += '<table class="lb-table"><thead><tr><th>Catégorie</th>';
   selected.forEach((m) => {
-    html += `<th style="text-align:center">${m.model_label || m.model}</th>`;
+    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
   });
   html += '</tr></thead><tbody>';
 
@@ -120,14 +119,16 @@ function updateCompare() {
   const canvas = document.getElementById('compare-radar');
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const theme = chartTheme();
   const checkboxes = document.querySelectorAll('.compare-check:checked');
-  const indices = Array.from(checkboxes).map((cb) => parseInt(cb.value));
+  const indices = Array.from(checkboxes).map((cb) => parseInt(cb.value, 10));
   const models = getLatestResults();
   const selected = indices.map((i) => models[i]).filter(Boolean);
 
   if (selected.length === 0) {
-    if (compareChartInstance) compareChartInstance.destroy();
+    const existing = Chart.getChart(canvas);
+    if (existing) existing.destroy();
+    updateCompareTable([], []);
     return;
   }
 
@@ -152,9 +153,7 @@ function updateCompare() {
     };
   });
 
-  if (compareChartInstance) compareChartInstance.destroy();
-
-  compareChartInstance = new Chart(ctx, {
+  mountChart(canvas, {
     type: 'radar',
     data: {
       labels: catList.map((c) => categoryLabel(c)),
@@ -165,7 +164,7 @@ function updateCompare() {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          labels: { color: '#8a8a9e', font: { size: 10 } },
+          labels: { color: theme.tick, font: { size: 10 } },
         },
       },
       scales: {
@@ -173,15 +172,15 @@ function updateCompare() {
           beginAtZero: true,
           max: 100,
           ticks: {
-            color: '#6B6980',
+            color: theme.tick,
             backdropColor: 'transparent',
             font: { size: 9 },
             stepSize: 25,
           },
-          grid: { color: '#2c2c2f' },
-          angleLines: { color: '#2c2c2f' },
+          grid: { color: theme.grid },
+          angleLines: { color: theme.grid },
           pointLabels: {
-            color: '#ebebeb',
+            color: theme.label,
             font: { size: 10 },
           },
         },
@@ -197,9 +196,14 @@ function updateCompareTable(selected, catList) {
   const container = document.getElementById('compare-table-detail');
   if (!container) return;
 
+  if (selected.length === 0) {
+    container.innerHTML = '<p style="padding:16px;font-size:0.85rem;color:var(--muted)">Sélectionnez au moins un modèle pour afficher le détail.</p>';
+    return;
+  }
+
   let html = '<table class="lb-table"><thead><tr><th>Catégorie</th>';
   selected.forEach((m) => {
-    html += `<th style="text-align:center">${m.model_label || m.model}</th>`;
+    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
   });
   html += '</tr></thead><tbody>';
 

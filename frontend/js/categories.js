@@ -3,7 +3,8 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, getLatestResults, categoryLabel, categoryColor, categoryKeys,
+  AppState, getLatestResults, categoryLabel, categoryColor,
+  escapeHtml, mountChart, chartTheme,
 } = globalThis;
 
 let categoryFilter = null;
@@ -83,7 +84,7 @@ function renderCategories(container) {
       <div class="cat-card">
         <div class="cat-label" style="color:${color}">${categoryLabel(c)}</div>
         <div class="cat-score">${bp.score >= 0 ? bp.score.toFixed(1) + '%' : '-'}</div>
-        <div class="cat-model">${bp.model ? bp.model.model_label || bp.model.model : '-'}</div>
+        <div class="cat-model">${bp.model ? escapeHtml(bp.model.model_label || bp.model.model) : '-'}</div>
       </div>
     `;
   });
@@ -117,7 +118,7 @@ function renderCategories(container) {
 function renderCategoryRadar(models, categories) {
   const canvas = document.getElementById('cat-radar-chart');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  const theme = chartTheme();
 
   const topModels = models.slice(0, 5);
 
@@ -136,7 +137,7 @@ function renderCategoryRadar(models, categories) {
     };
   });
 
-  new Chart(ctx, {
+  mountChart(canvas, {
     type: 'radar',
     data: {
       labels: categories.map((c) => categoryLabel(c)),
@@ -147,7 +148,7 @@ function renderCategoryRadar(models, categories) {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          labels: { color: '#8a8a9e', font: { size: 10 } },
+          labels: { color: theme.tick, font: { size: 10 } },
         },
       },
       scales: {
@@ -155,15 +156,15 @@ function renderCategoryRadar(models, categories) {
           beginAtZero: true,
           max: 100,
           ticks: {
-            color: '#6B6980',
+            color: theme.tick,
             backdropColor: 'transparent',
             font: { size: 9 },
             stepSize: 25,
           },
-          grid: { color: '#2c2c2f' },
-          angleLines: { color: '#2c2c2f' },
+          grid: { color: theme.grid },
+          angleLines: { color: theme.grid },
           pointLabels: {
-            color: '#ebebeb',
+            color: theme.label,
             font: { size: 10 },
           },
         },
