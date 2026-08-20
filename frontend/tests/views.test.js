@@ -16,6 +16,7 @@ import '../js/categories.js';
 import '../js/compare.js';
 import '../js/evolution.js';
 import '../js/questions.js';
+import '../js/contribute.js';
 import '../js/methodology.js';
 import '../js/api.js';
 
@@ -221,6 +222,36 @@ describe('autres vues', () => {
     const container = makeContainer();
     expect(() => globalThis.renderAPI(container)).not.toThrow();
     expect(container.textContent).toContain('/results');
+  });
+
+  it('renderContribute : formulaire complet et validation', () => {
+    const container = makeContainer();
+    expect(() => globalThis.renderContribute(container)).not.toThrow();
+    // Champs requis présents
+    expect(container.querySelector('#cq-category')).toBeTruthy();
+    expect(container.querySelector('#cq-question')).toBeTruthy();
+    expect(container.querySelectorAll('input[name="cq-answer"]')).toHaveLength(4);
+    expect(container.querySelector('#cq-preview')).toBeTruthy();
+    // Soumission vide → erreurs affichées, pas de navigation
+    container.querySelector('#cq-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    const errors = container.querySelector('#cq-errors');
+    expect(errors.hidden).toBe(false);
+    expect(errors.textContent).toContain('catégorie');
+  });
+
+  it('renderContribute : formulaire valide construit l\'aperçu', () => {
+    const container = makeContainer();
+    globalThis.renderContribute(container);
+    container.querySelector('#cq-question').value = 'Quelle est la capitale du Sénégal ?';
+    container.querySelector('#cq-option-A').value = 'Bamako';
+    container.querySelector('#cq-option-B').value = 'Dakar';
+    container.querySelector('#cq-option-C').value = 'Abidjan';
+    container.querySelector('#cq-option-D').value = 'Accra';
+    container.querySelector('#cq-answer-B').checked = true;
+    container.querySelector('#cq-form').dispatchEvent(new Event('input', { bubbles: true }));
+    const preview = container.querySelector('#cq-preview');
+    expect(preview.textContent).toContain('capitale du Sénégal');
+    expect(preview.textContent).toContain('Dakar');
   });
 });
 

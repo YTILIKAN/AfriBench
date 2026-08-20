@@ -48,14 +48,14 @@ function renderQuestions(container) {
     <div class="card">
       <!-- Filters -->
       <div class="filter-bar">
-        <span class="filter-label">Catégorie :</span>
+        <span class="filter-label filter-label--fixed">Catégorie :</span>
         <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
         ${cats.map((c) => `
           <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
         `).join('')}
       </div>
       <div class="filter-bar" style="margin-bottom:0">
-        <span class="filter-label">Difficulté :</span>
+        <span class="filter-label filter-label--fixed">Difficulté :</span>
         <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
         ${diffs.map((d) => `
           <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">
@@ -64,6 +64,9 @@ function renderQuestions(container) {
         `).join('')}
         <span style="flex:1"></span>
         <span class="filter-label">${filtered.length} / ${qs.length} questions</span>
+        <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
+          + Proposer une question
+        </button>
       </div>
     </div>
   `;
@@ -144,6 +147,11 @@ function renderQuestions(container) {
       if (window.__setUrlDifficulty) window.__setUrlDifficulty(qFilterDiff);
       renderQuestions(container);
     });
+  });
+
+  // CTA vers l'onglet Contribuer
+  document.getElementById('q-goto-contribute')?.addEventListener('click', () => {
+    globalThis.setActiveTab('contribute');
   });
 }
 
