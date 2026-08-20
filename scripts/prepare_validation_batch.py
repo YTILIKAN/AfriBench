@@ -18,10 +18,12 @@ REPO = Path(__file__).resolve().parent.parent
 VALIDATED = REPO / "data" / "questions" / "v1" / "validated"
 
 
-def load_all() -> list[dict]:
+def load_all(*, exclude_validated: bool = False) -> list[dict]:
     items: list[dict] = []
     for path in sorted(VALIDATED.glob("*.json")):
         items.extend(json.loads(path.read_text(encoding="utf-8")))
+    if exclude_validated:
+        items = [q for q in items if not q.get("validated_by")]
     return items
 
 
@@ -54,11 +56,26 @@ def main() -> None:
     p.add_argument("--size", type=int, default=40)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--validator", default="validator_pending")
+    p.add_argument("--exclude-validated", action="store_true", help="Ignorer les Q déjà validées")
+    p.add_argument(
+        "--overlap-from",
+        type=Path,
+        help="Reprendre les mêmes IDs qu'un batch existant (double annotation)",
+    )
     p.add_argument("--out", type=Path, required=True)
     args = p.parse_args()
 
     rng = random.Random(args.seed)
-    sample = stratified_sample(load_all(), args.size, rng)
+    if args.overlap_from:
+        ids = [
+            json.loads(line)["id"]
+            for line in args.overlap_from.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        by_id = {q["id"]: q for q in load_all()}
+        sample = [by_id[i] for i in ids if i in by_id][: args.size]
+    else:
+        sample = stratified_sample(load_all(exclude_validated=args.exclude_validated), args.size, rng)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", encoding="utf-8") as f:
         for q in sample:

@@ -1,0 +1,9 @@
+{
+  "synced_files": [
+    "results.json",
+    "questions.json",
+    "open_scores.json",
+    "bootstrap.json"
+  ],
+  "corpus_questions": 350
+}

@@ -1,0 +1,651 @@
+{
+  "generated_at": "2026-08-03T19:04:34.417911+00:00",
+  "n_models": 7,
+  "models": {
+    "deepseek-chat": {
+      "label": "DeepSeek V4",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 96.04,
+        "ci_low": 92.08,
+        "ci_high": 99.01,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 93.33,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    },
+    "claude-sonnet-4": {
+      "label": "Claude Sonnet 4",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 95.05,
+        "ci_low": 90.1,
+        "ci_high": 99.01,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 93.33,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    },
+    "gpt-4o-mini": {
+      "label": "GPT-4o Mini",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 91.09,
+        "ci_low": 85.15,
+        "ci_high": 96.04,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 93.33,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 91.67,
+          "ci_low": 75.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 80.0,
+          "ci_low": 60.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    },
+    "gpt-4o": {
+      "label": "GPT-4o",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 94.06,
+        "ci_low": 89.11,
+        "ci_high": 98.02,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 93.33,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 70.0,
+          "ci_low": 40.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    },
+    "mistral-large": {
+      "label": "Mistral Large",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 92.08,
+        "ci_low": 86.14,
+        "ci_high": 97.03,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 91.67,
+          "ci_low": 75.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 70.0,
+          "ci_low": 40.0,
+          "ci_high": 90.0,
+          "n": 10
+        }
+      }
+    },
+    "gemini-2.5-flash": {
+      "label": "Gemini 2.5 Flash",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 90.1,
+        "ci_low": 84.16,
+        "ci_high": 95.05,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 93.33,
+          "ci_low": 80.0,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 70.0,
+          "ci_low": 40.0,
+          "ci_high": 90.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 70.0,
+          "ci_low": 40.0,
+          "ci_high": 90.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    },
+    "claude-haiku-4.5": {
+      "label": "Claude Haiku 4.5",
+      "total": 101,
+      "mock": false,
+      "overall": {
+        "accuracy": 90.1,
+        "ci_low": 84.16,
+        "ci_high": 96.04,
+        "n": 101
+      },
+      "by_category": {
+        "droit_politique": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "economie": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "geographie": {
+          "accuracy": 93.75,
+          "ci_low": 81.25,
+          "ci_high": 100.0,
+          "n": 16
+        },
+        "histoire": {
+          "accuracy": 86.67,
+          "ci_low": 66.67,
+          "ci_high": 100.0,
+          "n": 15
+        },
+        "ia_technologie": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "langue_culture": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 12
+        },
+        "raisonnement_culturel": {
+          "accuracy": 100.0,
+          "ci_low": 100.0,
+          "ci_high": 100.0,
+          "n": 8
+        },
+        "sante_sciences": {
+          "accuracy": 90.0,
+          "ci_low": 70.0,
+          "ci_high": 100.0,
+          "n": 10
+        },
+        "societe": {
+          "accuracy": 80.0,
+          "ci_low": 50.0,
+          "ci_high": 100.0,
+          "n": 10
+        }
+      }
+    }
+  },
+  "mcnemar_pairs": {
+    "claude-haiku-4.5__vs__claude-sonnet-4": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 5,
+      "b10_a_right_b_wrong": 0,
+      "chi2_cc": 3.2,
+      "p_approx": 0.03125,
+      "significant_0.05": true
+    },
+    "claude-haiku-4.5__vs__deepseek-chat": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 8,
+      "b10_a_right_b_wrong": 2,
+      "chi2_cc": 2.5,
+      "p_approx": 0.06543,
+      "significant_0.05": false
+    },
+    "claude-haiku-4.5__vs__gemini-2.5-flash": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 0.0833,
+      "p_approx": 0.774414,
+      "significant_0.05": false
+    },
+    "claude-haiku-4.5__vs__gpt-4o": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 2,
+      "chi2_cc": 1.125,
+      "p_approx": 0.179688,
+      "significant_0.05": false
+    },
+    "claude-haiku-4.5__vs__gpt-4o-mini": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 5,
+      "b10_a_right_b_wrong": 4,
+      "chi2_cc": 0.0,
+      "p_approx": 0.753906,
+      "significant_0.05": false
+    },
+    "claude-haiku-4.5__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 4,
+      "chi2_cc": 0.1,
+      "p_approx": 0.548828,
+      "significant_0.05": false
+    },
+    "claude-sonnet-4__vs__deepseek-chat": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 4,
+      "b10_a_right_b_wrong": 3,
+      "chi2_cc": 0.0,
+      "p_approx": 0.726562,
+      "significant_0.05": false
+    },
+    "claude-sonnet-4__vs__gemini-2.5-flash": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 7,
+      "chi2_cc": 1.7778,
+      "p_approx": 0.109375,
+      "significant_0.05": false
+    },
+    "claude-sonnet-4__vs__gpt-4o": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 3,
+      "chi2_cc": 0.0,
+      "p_approx": 0.6875,
+      "significant_0.05": false
+    },
+    "claude-sonnet-4__vs__gpt-4o-mini": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 1.125,
+      "p_approx": 0.179688,
+      "significant_0.05": false
+    },
+    "claude-sonnet-4__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 5,
+      "chi2_cc": 0.5714,
+      "p_approx": 0.289062,
+      "significant_0.05": false
+    },
+    "deepseek-chat__vs__gemini-2.5-flash": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 1,
+      "b10_a_right_b_wrong": 7,
+      "chi2_cc": 3.125,
+      "p_approx": 0.039062,
+      "significant_0.05": true
+    },
+    "deepseek-chat__vs__gpt-4o": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 4,
+      "chi2_cc": 0.1667,
+      "p_approx": 0.453125,
+      "significant_0.05": false
+    },
+    "deepseek-chat__vs__gpt-4o-mini": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 1,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 2.2857,
+      "p_approx": 0.070312,
+      "significant_0.05": false
+    },
+    "deepseek-chat__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 2,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 1.125,
+      "p_approx": 0.179688,
+      "significant_0.05": false
+    },
+    "gemini-2.5-flash__vs__gpt-4o": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 2,
+      "chi2_cc": 1.125,
+      "p_approx": 0.179688,
+      "significant_0.05": false
+    },
+    "gemini-2.5-flash__vs__gpt-4o-mini": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 5,
+      "chi2_cc": 0.0,
+      "p_approx": 0.774414,
+      "significant_0.05": false
+    },
+    "gemini-2.5-flash__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 6,
+      "b10_a_right_b_wrong": 4,
+      "chi2_cc": 0.1,
+      "p_approx": 0.548828,
+      "significant_0.05": false
+    },
+    "gpt-4o__vs__gpt-4o-mini": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 3,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 0.4444,
+      "p_approx": 0.34375,
+      "significant_0.05": false
+    },
+    "gpt-4o__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 4,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 0.1,
+      "p_approx": 0.548828,
+      "significant_0.05": false
+    },
+    "gpt-4o-mini__vs__mistral-large": {
+      "n_common": 101,
+      "b01_a_wrong_b_right": 7,
+      "b10_a_right_b_wrong": 6,
+      "chi2_cc": 0.0,
+      "p_approx": 0.790527,
+      "significant_0.05": false
+    }
+  },
+  "top_comparison": {
+    "top": "deepseek-chat",
+    "second": "claude-sonnet-4",
+    "ci_overlap": true,
+    "message": "Les IC 95% des deux premiers se chevauchent — écart non concluant."
+  }
+}

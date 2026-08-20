@@ -12,8 +12,9 @@ data/results/mock/
 !data/results/.gitkeep
 !data/results/_seed*.json
 
-# Batches de validation / exports traduction locaux
-data/validation/
+# Batches de validation / exports traduction locaux (README versionné)
+data/validation/*
+!data/validation/README.md
 data/translations_export/
 
 # Rapports stats locaux volumineux (garder les seed reports versionnés via !)
