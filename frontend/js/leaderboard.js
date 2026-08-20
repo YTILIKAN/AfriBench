@@ -7,7 +7,7 @@ const {
   getLatestResults, applySearchFilter, isOpenModel, isFavorite,
   computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
   categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
-  escapeHtml, mountChart, chartTheme,
+  escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
 let lbSortField = null;
@@ -164,12 +164,6 @@ function renderLeaderboard(container) {
         <tbody>
   `;
 
-  // Compute badge data
-  const stdDevs = models.map(m => computeStdDev(m));
-  const minStdDev = Math.min(...stdDevs.filter(s => s !== null));
-  const bestOpen = models.find(m => isOpenModel(m));
-  const bestOpenName = bestOpen ? (bestOpen.model_label || bestOpen.model) : null;
-
   models.forEach((m, i) => {
     const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
     const name = m.model_label || m.model;
@@ -183,13 +177,6 @@ function renderLeaderboard(container) {
     const providerClass = isOpen ? 'open' : 'closed';
     const best = computeBestCategory(m);
     const stddev = computeStdDev(m);
-    const isBestStd = stddev !== null && stddev === minStdDev;
-    const isBestOpen = isOpen && name === bestOpenName;
-
-    let badges = '';
-    if (i === 0) badges += '<span class="perf-badge bronze">Meilleur score (v0.1)</span>';
-    if (isBestOpen && i !== 0) badges += '<span class="perf-badge bronze">Meilleur open</span>';
-    if (isBestStd) badges += '<span class="perf-badge bronze">Plus constant</span>';
 
     const favStar = isFavorite(name) ? '★' : '☆';
 
@@ -202,7 +189,6 @@ function renderLeaderboard(container) {
             <span class="model-icon ${providerClass}"></span>
             <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
-            ${badges}
           </div>
         </td>
         <td>
@@ -371,8 +357,8 @@ function renderLBCategoryChart(models) {
   const datasets = models.slice(0, 6).map((m, i) => ({
     label: m.model_label || m.model,
     data: cats.map((c) => m.by_category?.[c]?.accuracy || 0),
-    backgroundColor: `hsla(${i * 50}, 55%, 55%, 0.7)`,
-    borderColor: `hsla(${i * 50}, 55%, 45%, 1)`,
+    backgroundColor: chartSeriesColor(i).bg,
+    borderColor: chartSeriesColor(i).border,
     borderWidth: 1,
     borderRadius: 2,
   }));
@@ -401,8 +387,8 @@ function renderLBDifficultyChart(models) {
   const datasets = topModels.map((m, i) => ({
     label: m.model_label || m.model,
     data: diffs.map((d) => m.by_difficulty?.[d]?.accuracy || 0),
-    backgroundColor: `hsla(${i * 50}, 55%, 55%, 0.6)`,
-    borderColor: `hsla(${i * 50}, 55%, 45%, 1)`,
+    backgroundColor: chartSeriesColor(i).bg,
+    borderColor: chartSeriesColor(i).border,
     borderWidth: 1,
     borderRadius: 2,
   }));

@@ -2,7 +2,7 @@
    AfriBench — Évolution page (timeline chart)
    ═══════════════════════════════════════════════════════════ */
 
-const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme } = globalThis;
+const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme, chartSeriesColor } = globalThis;
 
 let evoSelectedModels = new Set();
 
@@ -30,11 +30,12 @@ function renderEvolution(container) {
       const pt = points.find(p => p.date === date);
       return pt ? pt.accuracy : null;
     });
+    const series = chartSeriesColor(idx);
     return {
       label: name,
       data: fullData,
-      borderColor: getColorForIndex(idx),
-      backgroundColor: getColorForIndex(idx) + '20',
+      borderColor: series.border,
+      backgroundColor: series.bg.replace(/[\d.]+\)$/, '0.12)'),
       borderWidth: 2,
       pointRadius: 3,
       pointHoverRadius: 5,
@@ -216,15 +217,6 @@ function renderEvolutionTable(timelineData, modelList) {
 
   html += `</tbody></table>`;
   return html;
-}
-
-function getColorForIndex(idx) {
-  const palette = [
-    '#C4A46A', '#4A90D9', '#E57373', '#81C784', '#FFB74D',
-    '#9575CD', '#4DB6AC', '#F06292', '#A1887F', '#64B5F6',
-    '#FF8A65', '#A5D6A7', '#CE93D8', '#EF5350', '#26C6DA',
-  ];
-  return palette[idx % palette.length];
 }
 
 globalThis.renderEvolution = renderEvolution;

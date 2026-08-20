@@ -164,62 +164,40 @@
 
     <div class="app-main">
 
-      <!-- ═══ HERO (YTILIKAN cover style) ═══ -->
-      <section class="cover" id="hero-section">
-        <div class="cover__overlay"></div>
-        <div class="cover__inner">
-          <div class="wrap">
-            <div class="cover__content">
-              <h1 class="cover__headline">
-                Évaluer les LLMs <em>sur les réalités africaines</em>
-              </h1>
-              <div class="prototype-banner">
-                <strong>Prototype v0.1</strong> — AfriBench est en phase de prototypage ; le classement actuel est indicatif
-                (scores encore basés sur un sous-ensemble de questions).
-                <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
-              </div>
-              <p class="cover__sub">
-                AfriBench est un benchmark public, ouvert et reproductible (scripts publiés) pour mesurer la performance
-                des modèles de langage sur des questions couvrant l'histoire, la géographie, la culture,
-                l'économie, le droit, la santé, la technologie et la société africaines.
-              </p>
-              <div class="hero-badges" id="hero-badges">
-                <div class="hero-badge"><strong id="hero-model-count">—</strong> modèles évalués</div>
-                <div class="hero-badge"><strong id="hero-q-count">—</strong> questions</div>
-                <div class="hero-badge"><strong id="hero-cat-count">—</strong> catégories</div>
-                <div class="hero-badge">mis à jour <strong id="hero-date">—</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═══ TOP MODELS ROW ═══ -->
-      <section class="section" style="padding-bottom:0">
+      <!-- ═══ HEADER (compact, épuré) ═══ -->
+      <header class="page-header">
         <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">02 / Modèles en tête</span>
-          </div>
-          <div class="top-models-row" id="top-models-row">
-            <!-- Rempli par JS -->
-          </div>
+          <h1 class="page-header__title">
+            Évaluer les LLMs sur les réalités africaines
+          </h1>
+          <p class="page-header__sub">
+            Benchmark public, ouvert et reproductible couvrant l'histoire, la géographie, la culture,
+            l'économie, le droit, la santé, la technologie et la société africaines.
+          </p>
+          <p class="page-header__stats">
+            <strong id="hero-model-count">—</strong> modèles évalués <span class="dot" aria-hidden="true">·</span>
+            <strong id="hero-q-count">—</strong> questions <span class="dot" aria-hidden="true">·</span>
+            <strong id="hero-cat-count">—</strong> catégories <span class="dot" aria-hidden="true">·</span>
+            mis à jour le <strong id="hero-date">—</strong>
+          </p>
+          <p class="page-header__note">
+            Prototype v0.1 — classement indicatif (scores sur un sous-ensemble de questions).
+            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
+          </p>
         </div>
-      </section>
+      </header>
 
       <!-- ═══ QUESTION DU JOUR ═══ -->
-      <section class="section" style="padding-top:var(--sp-md);padding-bottom:0">
+      <section class="section section--flush">
         <div class="wrap">
-          <div class="section-head reveal">
-            <span class="eyebrow">03 / Question du jour</span>
-          </div>
-          <div id="daily-question" class="daily-question-section">
+          <div id="daily-question">
             <!-- Rempli par JS -->
           </div>
         </div>
       </section>
 
       <!-- ═══ CONTENT AREA (vue courante) ═══ -->
-      <section class="section" style="padding-top:var(--sp-md)">
+      <section class="section section--flush">
         <div class="wrap">
           <header class="view-header" id="view-header">
             <h2 class="view-header__title" id="view-title">Classement</h2>
@@ -253,50 +231,17 @@
         </div>
       </section>
 
-      <!-- ═══ FOOTER ═══ -->
+      <!-- ═══ FOOTER (épuré) ═══ -->
       <footer class="app-footer">
-        <div class="wrap">
-          <div class="footer-grid">
-            <div class="footer-col">
-              <h4>Plateforme</h4>
-              <button data-quicktab="leaderboard">Classement</button>
-              <button data-quicktab="models">Modèles</button>
-              <button data-quicktab="categories">Catégories</button>
-              <button data-quicktab="compare">Comparer</button>
-              <button data-quicktab="evolution">Évolution</button>
-            </div>
-            <div class="footer-col">
-              <h4>Ressources</h4>
-              <button data-quicktab="questions">Questions</button>
-              <button data-quicktab="methodology">Méthodologie</button>
-              <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CONTRIBUTING.md" target="_blank">Contribuer</a>
-              <a href="https://github.com/YTILIKAN/AfriBench/issues" target="_blank">Signaler un problème</a>
-            </div>
-            <div class="footer-col">
-              <h4>Catégories</h4>
-              <button data-quicktab="categories" data-filter="histoire">Histoire</button>
-              <button data-quicktab="categories" data-filter="geographie">Géographie</button>
-              <button data-quicktab="categories" data-filter="droit_politique">Droit et Politique</button>
-              <button data-quicktab="categories" data-filter="sante_sciences">Santé et Sciences</button>
-              <button data-quicktab="categories" data-filter="langue_culture">Langue et Culture</button>
-              <button data-quicktab="categories" data-filter="economie">Économie</button>
-              <button data-quicktab="categories" data-filter="ia_technologie">IA et Technologie</button>
-              <button data-quicktab="categories" data-filter="societe">Société</button>
-              <button data-quicktab="categories" data-filter="raisonnement_culturel">Raisonnement Culturel</button>
-            </div>
-            <div class="footer-col">
-              <h4>AfriBench</h4>
-              <p class="footer-desc">Benchmark LLM pour l'Afrique. Projet communautaire porté par Y'TILIKAN.</p>
-              <a href="https://github.com/YTILIKAN/AfriBench" target="_blank">GitHub</a>
-              <a href="https://ytilikan.com" target="_blank">ytilikan.com</a>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            AfriBench <span class="dot">&middot;</span> Y'TILIKAN <span class="dot">&middot;</span>
-            <a href="https://github.com/YTILIKAN/AfriBench" target="_blank">Code source ouvert</a>
-            <span class="dot">&middot;</span> <a href="/admin/">Admin</a>
-            <span class="dot">&middot;</span> v0.1
-          </div>
+        <div class="wrap app-footer__row">
+          <span class="app-footer__brand">AfriBench <span class="dot" aria-hidden="true">·</span> Y'TILIKAN <span class="dot" aria-hidden="true">·</span> v0.1</span>
+          <nav class="app-footer__links" aria-label="Liens de pied de page">
+            <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribuer</a>
+            <a href="https://github.com/YTILIKAN/AfriBench/issues" target="_blank" rel="noopener">Signaler un problème</a>
+            <a href="https://ytilikan.com" target="_blank" rel="noopener">ytilikan.com</a>
+            <a href="/admin/">Admin</a>
+          </nav>
         </div>
       </footer>
 

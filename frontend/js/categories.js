@@ -4,7 +4,7 @@
 
 const {
   AppState, getLatestResults, categoryLabel, categoryColor,
-  escapeHtml, mountChart, chartTheme,
+  escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
 let categoryFilter = null;
@@ -124,14 +124,14 @@ function renderCategoryRadar(models, categories) {
 
   const datasets = topModels.map((m, i) => {
     const data = categories.map((c) => m.by_category?.[c]?.accuracy || 0);
-    const hue = i * 72;
+    const series = chartSeriesColor(i);
     return {
       label: m.model_label || m.model,
       data,
-      backgroundColor: `hsla(${hue}, 55%, 55%, 0.08)`,
-      borderColor: `hsla(${hue}, 55%, 55%, 0.9)`,
+      backgroundColor: series.bg.replace(/[\d.]+\)$/, '0.10)'),
+      borderColor: series.border,
       borderWidth: 2,
-      pointBackgroundColor: `hsla(${hue}, 55%, 55%, 1)`,
+      pointBackgroundColor: series.border,
       pointRadius: 3,
       tension: 0.3,
     };
