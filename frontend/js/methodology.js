@@ -2,6 +2,10 @@
    AfriBench — Méthodologie page (documentation)
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  AppState, getUniqueModels, categoryKeys, categoryColor, categoryLabel,
+} = globalThis;
+
 function renderMethodology(container) {
   const totalQ = AppState.questions.length;
   const cats = new Set(AppState.questions.map(q => q.category));
@@ -196,3 +200,6 @@ function renderMethodology(container) {
     </div>
   `;
 }
+
+globalThis.renderMethodology = renderMethodology;
+export {};

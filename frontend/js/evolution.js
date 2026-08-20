@@ -2,6 +2,8 @@
    AfriBench — Évolution page (timeline chart)
    ═══════════════════════════════════════════════════════════ */
 
+const { AppState, getLatestResults } = globalThis;
+
 let evoSelectedModels = new Set();
 
 function renderEvolution(container) {
@@ -225,3 +227,6 @@ function getColorForIndex(idx) {
   ];
   return palette[idx % palette.length];
 }
+
+globalThis.renderEvolution = renderEvolution;
+export {};

@@ -26,12 +26,14 @@ const VALID_TABS = [
 const AppState = {
   results: [],
   questions: [],
+  stats: null,
   activeTab: 'leaderboard',
   searchQuery: '',
   filteredModels: [],
   comparePreset: null,
   favorites: new Set(loadFavorites()),
-  dataSource: null, // 'api' | 'static'
+  dataSource: null, // 'api' | 'static' | 'bootstrap'
+  loading: true,
   urlCategory: null,
   urlDifficulty: null,
   _skipUrlWrite: false,
@@ -44,12 +46,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupMobileNav();
   setupTabs();
   setupSearch();
-  applyUrlState(); // tab (+ filters) depuis ?tab=&category=&difficulty=
+  applyUrlState();
+  setLoadingState(true);
   await loadData();
+  setLoadingState(false);
   renderActiveTab();
   renderTopModels();
   updateHeroStats();
-  // Appliquer filtres URL après rendu initial
   applyUrlFilters();
   window.addEventListener('popstate', () => {
     applyUrlState();
@@ -57,6 +60,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     applyUrlFilters();
   });
 });
+
+function setLoadingState(loading) {
+  AppState.loading = loading;
+  document.body.classList.toggle('is-loading', loading);
+  const sidebar = document.getElementById('sidebar-categories');
+  if (!sidebar) return;
+  if (loading) {
+    sidebar.innerHTML = `
+      <div class="skeleton-stack" aria-hidden="true">
+        ${'<div class="skeleton skeleton-line"></div>'.repeat(6)}
+      </div>`;
+  }
+}
 
 /* ── Mobile sidebar (hamburger) ───────────────────────── */
 function setupMobileNav() {
@@ -239,16 +255,18 @@ function setActiveTab(tabId) {
 
 function renderActiveTab() {
   const container = document.getElementById('tab-content');
-  switch (AppState.activeTab) {
-    case 'leaderboard': renderLeaderboard(container); break;
-    case 'models': renderModels(container); break;
-    case 'categories': renderCategories(container); break;
-    case 'compare': renderCompare(container); break;
-    case 'evolution': renderEvolution(container); break;
-    case 'questions': renderQuestions(container); break;
-    case 'methodology': renderMethodology(container); break;
-    case 'api': renderAPI(container); break;
-  }
+  const tabs = {
+    leaderboard: globalThis.renderLeaderboard,
+    models: globalThis.renderModels,
+    categories: globalThis.renderCategories,
+    compare: globalThis.renderCompare,
+    evolution: globalThis.renderEvolution,
+    questions: globalThis.renderQuestions,
+    methodology: globalThis.renderMethodology,
+    api: globalThis.renderAPI,
+  };
+  const render = tabs[AppState.activeTab];
+  if (typeof render === 'function') render(container);
 }
 
 /* ── Sidebar Categories ──────────────────────────────── */
@@ -339,6 +357,7 @@ async function loadBootstrap() {
     const data = await fetchJson('data/bootstrap.json');
     if (data && Array.isArray(data.results)) AppState.results = data.results;
     if (data && Array.isArray(data.questions)) AppState.questions = data.questions;
+    if (data && data.stats && typeof data.stats === 'object') AppState.stats = data.stats;
     if (AppState.results.length || AppState.questions.length) {
       AppState.dataSource = 'bootstrap';
       return true;
@@ -348,8 +367,6 @@ async function loadBootstrap() {
 }
 
 async function loadData() {
-  const resultsContainer = document.getElementById('hdr-models');
-  const qContainer = document.getElementById('hdr-questions');
   const apiBase = getApiBase();
 
   // 1) Bootstrap pré-généré (SEO / premier paint)
@@ -357,12 +374,14 @@ async function loadData() {
 
   // 2) API live (écrase le bootstrap si dispo)
   try {
-    const [results, questions] = await Promise.all([
+    const [results, questions, stats] = await Promise.all([
       fetchJson(`${apiBase}/results?limit=1000`),
       fetchJson(`${apiBase}/questions?limit=500`),
+      fetchJson(`${apiBase}/stats`).catch(() => null),
     ]);
     AppState.results = Array.isArray(results) ? results : AppState.results;
     AppState.questions = Array.isArray(questions) ? questions : AppState.questions;
+    if (stats && typeof stats === 'object') AppState.stats = stats;
     AppState.dataSource = 'api';
   } catch (err) {
     if (AppState.dataSource !== 'bootstrap') {
@@ -376,11 +395,12 @@ async function loadData() {
         const resp = await fetch('data/questions.json');
         if (resp.ok) AppState.questions = await resp.json();
       } catch { /* ignore */ }
+      try {
+        const resp = await fetch(`${apiBase}/stats`);
+        if (resp.ok) AppState.stats = await resp.json();
+      } catch { /* ignore */ }
     }
   }
-
-  if (resultsContainer) resultsContainer.textContent = getUniqueModels().length;
-  if (qContainer) qContainer.textContent = AppState.questions.length;
 
   renderSidebarCategories();
   renderDailyQuestion();
@@ -388,22 +408,18 @@ async function loadData() {
 
 /* ── Hero Stats ──────────────────────────────────────── */
 function updateHeroStats() {
+  const stats = AppState.stats;
   const models = getUniqueModels();
-  setText('hero-model-count', models.length);
-  setText('hero-q-count', AppState.questions.length);
-
   const cats = new Set();
   AppState.questions.forEach((q) => cats.add(q.category));
-  setText('hero-cat-count', cats.size);
 
-  // Last update: current date (site deployment, not evaluation)
-  const d = new Date();
-  const formatted = d.toLocaleDateString('fr-FR', {
-    day: 'numeric', month: 'short', year: 'numeric',
-  });
+  setText('hero-model-count', stats?.total_models ?? models.length);
+  setText('hero-q-count', stats?.total_questions ?? AppState.questions.length);
+  setText('hero-cat-count', stats?.categories ?? cats.size);
+
+  const lastUpdated = stats?.last_updated;
+  const formatted = lastUpdated ? formatDate(lastUpdated) : '—';
   setText('hero-date', formatted);
-  setText('hdr-date', formatted);
-  document.getElementById('hdr-last-update').style.display = 'flex';
 }
 
 /* ── Top Models Row ──────────────────────────────────── */
@@ -733,15 +749,38 @@ function setText(id, val) {
 }
 
 function formatDate(ts) {
-  const d = new Date(ts);
+  const raw = String(ts).slice(0, 10);
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return raw;
   return d.toLocaleDateString('fr-FR', {
     day: 'numeric', month: 'short', year: 'numeric',
   });
 }
 
-/* ── Chart.js Global Defaults ────────────────────────── */
-if (typeof Chart !== 'undefined') {
-  Chart.defaults.color = '#5B5854';
-  Chart.defaults.font.family = "'Sora', sans-serif";
-  Chart.defaults.font.size = 11;
-}
+Object.assign(globalThis, {
+  AppState,
+  escapeHtml,
+  VALID_TABS,
+  getUniqueModels,
+  getLatestResults,
+  isOpenModel,
+  applySearchFilter,
+  computeBestCategory,
+  computeStdDev,
+  categoryLabel,
+  categoryKeys,
+  categoryColor,
+  setText,
+  formatDate,
+  toggleFavorite,
+  isFavorite,
+  getApiBase,
+  fetchJson,
+  setActiveTab,
+  exportCSV,
+  exportJSON,
+  difficultyLabel,
+  renderActiveTab,
+});
+
+export {};

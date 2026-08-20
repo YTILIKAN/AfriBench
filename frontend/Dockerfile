@@ -1,10 +1,15 @@
+FROM node:20-alpine AS build
+
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm install
+
+COPY frontend/ ./
+RUN npm run build
+
 FROM nginx:1.27-alpine
 
-# Frontend statique servi par nginx ; l'API est proxifiée vers le backend
 COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
-COPY frontend/ /usr/share/nginx/html/
-
-# Ne pas servir les Dockerfiles / configs nginx comme assets
-RUN rm -f /usr/share/nginx/html/Dockerfile /usr/share/nginx/html/nginx.conf
+COPY --from=build /app/frontend/dist /usr/share/nginx/html/
 
 EXPOSE 80

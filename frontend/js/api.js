@@ -2,6 +2,8 @@
    AfriBench — API Documentation page
    ═══════════════════════════════════════════════════════════ */
 
+const { AppState } = globalThis;
+
 function renderAPI(container) {
   container.innerHTML = `
     <div class="api-content">
@@ -241,3 +243,6 @@ curl -s http://127.0.0.1:8080/api/v1/jobs/JOB_ID | jq .
     </div>
   `;
 }
+
+globalThis.renderAPI = renderAPI;
+export {};

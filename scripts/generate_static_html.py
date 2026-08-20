@@ -133,12 +133,29 @@ def main() -> None:
     questions = json.loads(QUESTIONS.read_text(encoding="utf-8")) if QUESTIONS.exists() else []
     models = latest_models(results if isinstance(results, list) else [])
     qcount = len(questions) if isinstance(questions, list) else 0
+    categories = len({q.get("category") for q in questions if isinstance(q, dict) and q.get("category")})
+    last_updated = None
+    if models:
+        last_updated = (models[0].get("timestamp") or "")[:10] or None
 
     # Bootstrap léger (sans details[] pour limiter la taille)
     light_results = [{k: v for k, v in r.items() if k != "details"} for r in (results or [])]
+    stats = {
+        "total_questions": qcount,
+        "total_models": len(models),
+        "categories": categories,
+        "last_updated": last_updated,
+        "top_score": models[0].get("accuracy") if models else None,
+        "top_model": models[0].get("model_label") or models[0].get("model") if models else None,
+    }
     BOOTSTRAP.write_text(
         json.dumps(
-            {"results": light_results, "questions": questions, "generated": True},
+            {
+                "results": light_results,
+                "questions": questions,
+                "stats": stats,
+                "generated": True,
+            },
             ensure_ascii=False,
             indent=2,
         ),

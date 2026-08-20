@@ -2,6 +2,10 @@
    AfriBench — Compare View (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+const {
+  AppState, getLatestResults, categoryColor, categoryLabel,
+} = globalThis;
+
 let compareChartInstance = null;
 
 function renderCompare(container) {
@@ -221,3 +225,6 @@ function updateCompareTable(selected, catList) {
   html += '</tbody></table>';
   container.innerHTML = html;
 }
+
+globalThis.renderCompare = renderCompare;
+export {};
