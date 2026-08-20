@@ -7,6 +7,10 @@ on:
         description: "Comma-separated issue numbers"
         required: true
         default: "5,11,14,15,16"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/close-issues.yml"
 
 permissions:
   issues: write
@@ -19,8 +23,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra NUMS <<< "${{ inputs.issue_numbers }}"
-          for n in "${NUMS[@]}"; do
+          NUMS="${{ inputs.issue_numbers || '5,11,14,15,16' }}"
+          IFS=',' read -ra ARR <<< "$NUMS"
+          for n in "${ARR[@]}"; do
             n="${n// /}"
             gh issue close "$n" --repo "${{ github.repository }}" --comment "Clôturé automatiquement — livré dans PR #29 (https://github.com/YTILIKAN/AfriBench/pull/29)."
           done
