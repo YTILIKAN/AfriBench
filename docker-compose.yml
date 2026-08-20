@@ -55,7 +55,10 @@ services:
       dockerfile: frontend/Dockerfile
     container_name: afribench-frontend
     ports:
-      - "3000:80"
+      - "3000:8080"
+    environment:
+      PORT: "8080"
+      BACKEND_URL: http://backend:8080
     depends_on:
       backend:
         condition: service_healthy

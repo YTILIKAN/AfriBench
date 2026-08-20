@@ -49,7 +49,7 @@ frontend/
 ├── css/style.css        # Design tokens Y'TILIKAN, thèmes clair/sombre
 ├── data/                # Fallback JSON (export_frontend.py)
 ├── admin/               # Backoffice (servi tel quel)
-├── nginx.conf           # Proxy /api (image Docker)
+├── nginx.template.conf  # Proxy /api (image Docker, PORT + BACKEND_URL)
 └── vite.config.js
 ```
 

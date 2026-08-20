@@ -1,0 +1,87 @@
+name: Build service images
+
+# Vérifie que les images backend et frontend buildent correctement
+# avant que Railway ne les déploie.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/Dockerfile"
+      - "frontend/Dockerfile"
+      - "frontend/nginx.template.conf"
+      - "frontend/docker-entrypoint.d/**"
+      - "backend/**"
+      - "frontend/package*.json"
+      - "frontend/src/**"
+      - "frontend/js/**"
+      - "frontend/css/**"
+      - "frontend/index.html"
+      - ".dockerignore"
+      - ".github/workflows/docker-services.yml"
+  pull_request:
+    paths:
+      - "backend/Dockerfile"
+      - "frontend/Dockerfile"
+      - "frontend/nginx.template.conf"
+      - "frontend/docker-entrypoint.d/**"
+      - "backend/**"
+      - "frontend/package*.json"
+      - "frontend/src/**"
+      - "frontend/js/**"
+      - "frontend/css/**"
+      - "frontend/index.html"
+      - ".dockerignore"
+      - ".github/workflows/docker-services.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: backend
+            file: backend/Dockerfile
+          - name: frontend
+            file: frontend/Dockerfile
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build ${{ matrix.name }} image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.file }}
+          push: false
+          tags: afribench-${{ matrix.name }}:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke — backend health endpoint
+        if: matrix.name == 'backend'
+        run: |
+          docker run -d --name api -e PORT=8080 -p 8080:8080 afribench-backend:ci
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8080/api/v1/health > /dev/null; then
+              echo "backend OK"; exit 0
+            fi
+            sleep 1
+          done
+          echo "backend n'a pas répondu à temps"; docker logs api; exit 1
+
+      - name: Smoke — frontend sert la page sans backend
+        if: matrix.name == 'frontend'
+        run: |
+          # BACKEND_URL volontairement invalide : nginx doit démarrer quand même
+          docker run -d --name web -e PORT=8080 -e BACKEND_URL=http://inexistant:8080 -p 8080:8080 afribench-frontend:ci
+          for i in $(seq 1 15); do
+            if curl -sf http://127.0.0.1:8080/ > /dev/null; then
+              echo "frontend OK (backend absent toléré)"; exit 0
+            fi
+            sleep 1
+          done
+          echo "frontend n'a pas répondu"; docker logs web; exit 1
