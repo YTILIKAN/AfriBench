@@ -156,8 +156,8 @@ function renderQuestions(container) {
 }
 
 window.__applyQuestionFilters = (cat, diff) => {
-  if (cat) qFilterCat = cat;
-  if (diff) qFilterDiff = diff;
+  qFilterCat = cat || 'all';
+  qFilterDiff = diff || 'all';
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'questions') {
     renderQuestions(container);

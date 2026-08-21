@@ -23,6 +23,44 @@ const VALID_TABS = [
   'evolution', 'questions', 'open_tasks', 'contribute', 'methodology', 'api',
 ];
 
+const WORKSPACES = {
+  overview: {
+    label: 'Vue d’ensemble',
+    tabs: [
+      ['leaderboard', 'Classement'],
+      ['models', 'Modèles'],
+    ],
+  },
+  analysis: {
+    label: 'Analyse',
+    tabs: [
+      ['categories', 'Catégories'],
+      ['compare', 'Comparer'],
+      ['evolution', 'Évolution'],
+    ],
+  },
+  data: {
+    label: 'Données',
+    tabs: [
+      ['questions', 'Questions'],
+      ['open_tasks', 'Tâches ouvertes'],
+    ],
+  },
+  project: {
+    label: 'Projet',
+    tabs: [
+      ['methodology', 'Méthodologie'],
+      ['contribute', 'Contribuer'],
+      ['api', 'API'],
+    ],
+  },
+};
+
+function workspaceForTab(tabId) {
+  return Object.entries(WORKSPACES).find(([, workspace]) =>
+    workspace.tabs.some(([id]) => id === tabId))?.[0] || 'overview';
+}
+
 /* Titre + description affichés dans l'en-tête de vue (et barre mobile) */
 const VIEW_META = {
   leaderboard: {
@@ -81,6 +119,7 @@ const AppState = {
   loading: true,
   urlCategory: null,
   urlDifficulty: null,
+  modelType: 'all',
   _skipUrlWrite: false,
   _skipScroll: false,
 };
@@ -313,10 +352,13 @@ function setupTabs() {
 function setActiveTab(tabId) {
   if (!VALID_TABS.includes(tabId)) tabId = 'leaderboard';
   AppState.activeTab = tabId;
+  const activeWorkspace = workspaceForTab(tabId);
 
-  // Sidebar tabs : état actif + roving tabindex + aria-selected
+  // Sidebar : quatre espaces stables, chacun ouvre sa vue principale.
   document.querySelectorAll('.sidebar-tablist [data-sidebar]').forEach((b) => {
-    const isActive = b.dataset.tab === tabId;
+    const isActive = b.dataset.workspace
+      ? b.dataset.workspace === activeWorkspace
+      : b.dataset.tab === tabId;
     b.classList.toggle('active', isActive);
     b.setAttribute('aria-selected', isActive ? 'true' : 'false');
     b.setAttribute('tabindex', isActive ? '0' : '-1');
@@ -331,7 +373,13 @@ function setActiveTab(tabId) {
     document.title = `AfriBench — ${meta.title}`;
   }
   const panel = document.getElementById('tab-content');
-  if (panel) panel.setAttribute('aria-labelledby', `nav-${tabId}`);
+  if (panel) {
+    const hasWorkspaceNav = Boolean(document.getElementById('workspace-nav'));
+    panel.setAttribute('aria-labelledby', hasWorkspaceNav ? `workspace-tab-${tabId}` : `nav-${tabId}`);
+  }
+
+  renderWorkspaceNavigation();
+  renderWorkspaceFilters();
 
   // Close mobile drawer after navigation (si présent)
   if (typeof window.__closeMobileNav === 'function') {
@@ -394,6 +442,128 @@ function renderActiveTab() {
   if (typeof render === 'function') render(container);
 }
 
+/* ── Navigation secondaire + filtres persistants ─────── */
+function renderWorkspaceNavigation() {
+  const container = document.getElementById('workspace-nav');
+  if (!container) return;
+  const workspace = WORKSPACES[workspaceForTab(AppState.activeTab)];
+
+  container.innerHTML = `
+    <span class="workspace-nav__label">${workspace.label}</span>
+    <div class="workspace-nav__tabs" role="tablist" aria-label="${workspace.label}">
+      ${workspace.tabs.map(([id, label]) => `
+        <button type="button" role="tab" id="workspace-tab-${id}"
+                class="workspace-nav__tab ${id === AppState.activeTab ? 'active' : ''}"
+                aria-selected="${id === AppState.activeTab}" data-workspace-tab="${id}">
+          ${label}
+        </button>
+      `).join('')}
+    </div>
+  `;
+
+  container.querySelectorAll('[data-workspace-tab]').forEach((button) => {
+    button.addEventListener('click', () => setActiveTab(button.dataset.workspaceTab));
+  });
+}
+
+function renderWorkspaceFilters() {
+  const container = document.getElementById('workspace-filters');
+  if (!container) return;
+  const workspace = workspaceForTab(AppState.activeTab);
+  const showModelType = workspace === 'overview';
+  const showCategory = AppState.activeTab === 'categories' || AppState.activeTab === 'questions';
+  const showDifficulty = AppState.activeTab === 'questions';
+
+  container.innerHTML = `
+    <div class="workspace-filter workspace-filter--search">
+      <label for="workspace-search">Recherche</label>
+      <input type="search" id="workspace-search" value="${escapeHtml(AppState.searchQuery)}"
+             placeholder="Modèle, question, mot-clé…" autocomplete="off">
+    </div>
+    ${showModelType ? `
+      <div class="workspace-filter">
+        <label for="workspace-model-type">Type de modèle</label>
+        <select id="workspace-model-type">
+          <option value="all" ${AppState.modelType === 'all' ? 'selected' : ''}>Tous les modèles</option>
+          <option value="open" ${AppState.modelType === 'open' ? 'selected' : ''}>Open weights</option>
+          <option value="closed" ${AppState.modelType === 'closed' ? 'selected' : ''}>Propriétaires</option>
+          <option value="favs" ${AppState.modelType === 'favs' ? 'selected' : ''}>Favoris</option>
+        </select>
+      </div>
+    ` : ''}
+    ${showCategory ? `
+      <div class="workspace-filter">
+        <label for="workspace-category">Catégorie</label>
+        <select id="workspace-category">
+          <option value="all">Toutes</option>
+          ${categoryKeys().map((key) => `
+            <option value="${key}" ${AppState.urlCategory === key ? 'selected' : ''}>${categoryLabel(key)}</option>
+          `).join('')}
+        </select>
+      </div>
+    ` : ''}
+    ${showDifficulty ? `
+      <div class="workspace-filter">
+        <label for="workspace-difficulty">Difficulté</label>
+        <select id="workspace-difficulty">
+          <option value="all">Toutes</option>
+          ${['easy', 'medium', 'hard'].map((key) => `
+            <option value="${key}" ${AppState.urlDifficulty === key ? 'selected' : ''}>${difficultyLabel(key)}</option>
+          `).join('')}
+        </select>
+      </div>
+    ` : ''}
+    <button type="button" class="workspace-filters__reset" id="workspace-reset"
+            title="Réinitialiser tous les filtres">Réinitialiser</button>
+  `;
+
+  const search = container.querySelector('#workspace-search');
+  let searchTimer;
+  search?.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      AppState.searchQuery = search.value.trim().toLowerCase();
+      const sidebarSearch = document.getElementById('global-search');
+      if (sidebarSearch) sidebarSearch.value = search.value;
+      if (AppState.searchQuery && !SEARCHABLE_TABS.includes(AppState.activeTab)) {
+        setActiveTab('models');
+      } else {
+        renderActiveTab();
+      }
+    }, 150);
+  });
+
+  container.querySelector('#workspace-model-type')?.addEventListener('change', (event) => {
+    AppState.modelType = event.target.value;
+    renderActiveTab();
+  });
+
+  container.querySelector('#workspace-category')?.addEventListener('change', (event) => {
+    AppState.urlCategory = event.target.value === 'all' ? null : event.target.value;
+    syncUrlState();
+    applyUrlFilters();
+  });
+
+  container.querySelector('#workspace-difficulty')?.addEventListener('change', (event) => {
+    AppState.urlDifficulty = event.target.value === 'all' ? null : event.target.value;
+    syncUrlState();
+    applyUrlFilters();
+  });
+
+  container.querySelector('#workspace-reset')?.addEventListener('click', () => {
+    AppState.searchQuery = '';
+    AppState.modelType = 'all';
+    AppState.urlCategory = null;
+    AppState.urlDifficulty = null;
+    const sidebarSearch = document.getElementById('global-search');
+    if (sidebarSearch) sidebarSearch.value = '';
+    syncUrlState();
+    renderWorkspaceFilters();
+    renderActiveTab();
+    applyUrlFilters();
+  });
+}
+
 
 /* ── Search ──────────────────────────────────────────── */
 const SEARCHABLE_TABS = ['leaderboard', 'models', 'questions'];
@@ -407,6 +577,8 @@ function setupSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       AppState.searchQuery = input.value.trim().toLowerCase();
+      const workspaceSearch = document.getElementById('workspace-search');
+      if (workspaceSearch) workspaceSearch.value = input.value;
       // Si l'onglet courant ne supporte pas la recherche, basculer sur Modèles
       if (AppState.searchQuery && !SEARCHABLE_TABS.includes(AppState.activeTab)) {
         setActiveTab('models');
@@ -422,6 +594,8 @@ function setupSearch() {
   input.addEventListener('search', () => {
     if (input.value === '') {
       AppState.searchQuery = '';
+      const workspaceSearch = document.getElementById('workspace-search');
+      if (workspaceSearch) workspaceSearch.value = '';
       if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
     }
   });
@@ -431,6 +605,8 @@ function setupSearch() {
     if (e.key === 'Escape' && input.value !== '') {
       input.value = '';
       AppState.searchQuery = '';
+      const workspaceSearch = document.getElementById('workspace-search');
+      if (workspaceSearch) workspaceSearch.value = '';
       if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
       input.blur();
     }
@@ -835,6 +1011,7 @@ Object.assign(globalThis, {
   escapeHtml,
   VALID_TABS,
   VIEW_META,
+  WORKSPACES,
   getUniqueModels,
   getLatestResults,
   isOpenModel,
@@ -855,6 +1032,7 @@ Object.assign(globalThis, {
   exportJSON,
   difficultyLabel,
   renderActiveTab,
+  renderWorkspaceFilters,
   mountChart,
   chartTheme,
   chartSeriesColor,

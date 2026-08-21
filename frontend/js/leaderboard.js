@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  getLatestResults, applySearchFilter, isOpenModel, isFavorite,
+  AppState, getLatestResults, applySearchFilter, isOpenModel, isFavorite,
   computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
   categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
@@ -12,7 +12,6 @@ const {
 
 let lbSortField = null;
 let lbSortDir = 'desc';
-let lbFilterType = 'all';
 let lbShowLegend = false;
 
 /* ── Metric definitions (used for tooltips + legend) ─── */
@@ -74,11 +73,11 @@ function renderLeaderboard(container) {
   models = applySearchFilter(models);
 
   // Apply type filter
-  if (lbFilterType === 'open') {
+  if (AppState.modelType === 'open') {
     models = models.filter((m) => isOpenModel(m));
-  } else if (lbFilterType === 'proprietary') {
+  } else if (AppState.modelType === 'closed') {
     models = models.filter((m) => !isOpenModel(m));
-  } else if (lbFilterType === 'favs') {
+  } else if (AppState.modelType === 'favs') {
     models = models.filter((m) => isFavorite(m.model_label || m.model));
   }
 
@@ -112,10 +111,7 @@ function renderLeaderboard(container) {
   // ── Filter bar ──
   let html = `
     <div class="filter-bar">
-      <button class="filter-btn ${lbFilterType === 'all' ? 'active' : ''}" data-filter="all">Tous</button>
-      <button class="filter-btn ${lbFilterType === 'open' ? 'active' : ''}" data-filter="open">Open Weights</button>
-      <button class="filter-btn ${lbFilterType === 'proprietary' ? 'active' : ''}" data-filter="proprietary">Propriétaire</button>
-      <button class="filter-btn ${lbFilterType === 'favs' ? 'active' : ''}" data-filter="favs">★ Favoris</button>
+      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-filter="favs">★ Favoris</button>
       <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend">
         ${lbShowLegend ? '▼' : '▶'} Légende
       </button>
@@ -256,7 +252,8 @@ function renderLeaderboard(container) {
   // ── Wire filters ──
   container.querySelectorAll('[data-filter]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      lbFilterType = btn.dataset.filter;
+      AppState.modelType = AppState.modelType === btn.dataset.filter ? 'all' : btn.dataset.filter;
+      globalThis.renderWorkspaceFilters?.();
       renderLeaderboard(container);
     });
   });

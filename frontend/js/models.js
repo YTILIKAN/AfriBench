@@ -10,7 +10,6 @@ const {
 
 let modelSortKey = 'score';
 let modelSortDir = 'desc';
-let modelFilter = 'all'; // 'all', 'open', 'closed'
 
 function renderModels(container) {
   const models = getLatestResults();
@@ -32,11 +31,11 @@ function renderModels(container) {
   }
 
   // Filter
-  if (modelFilter === 'open') {
+  if (AppState.modelType === 'open') {
     sorted = sorted.filter(m => isOpenModel(m));
-  } else if (modelFilter === 'closed') {
+  } else if (AppState.modelType === 'closed') {
     sorted = sorted.filter(m => !isOpenModel(m));
-  } else if (modelFilter === 'favs') {
+  } else if (AppState.modelType === 'favs') {
     sorted = sorted.filter(m => isFavorite(m.model_label || m.model));
   }
 
@@ -47,10 +46,7 @@ function renderModels(container) {
 
   let html = `
     <div class="models-filters">
-      <button class="filter-btn ${modelFilter === 'all' ? 'active' : ''}" data-mfilter="all">Tous</button>
-      <button class="filter-btn ${modelFilter === 'open' ? 'active' : ''}" data-mfilter="open">Open Weights</button>
-      <button class="filter-btn ${modelFilter === 'closed' ? 'active' : ''}" data-mfilter="closed">Proprietaires</button>
-      <button class="filter-btn ${modelFilter === 'favs' ? 'active' : ''}" data-mfilter="favs">★ Favoris</button>
+      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-mfilter="favs">★ Favoris</button>
       <span style="flex:1"></span>
       <span class="filter-label">Trier :</span>
       <button class="filter-btn ${modelSortKey === 'score' ? 'active' : ''}" data-msort="score">Score</button>
@@ -119,7 +115,8 @@ function renderModels(container) {
   // Wire up filters
   container.querySelectorAll('[data-mfilter]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      modelFilter = btn.dataset.mfilter;
+      AppState.modelType = AppState.modelType === btn.dataset.mfilter ? 'all' : btn.dataset.mfilter;
+      globalThis.renderWorkspaceFilters?.();
       renderModels(container);
     });
   });

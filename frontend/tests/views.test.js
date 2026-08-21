@@ -308,6 +308,62 @@ describe('navigation par onglets (sidebar)', () => {
   });
 });
 
+describe('navigation dynamique par espaces', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <nav class="sidebar-nav">
+        <div class="sidebar-tablist" role="tablist">
+          <button data-sidebar data-workspace="overview" data-tab="leaderboard"></button>
+          <button data-sidebar data-workspace="analysis" data-tab="categories"></button>
+          <button data-sidebar data-workspace="data" data-tab="questions"></button>
+          <button data-sidebar data-workspace="project" data-tab="methodology"></button>
+        </div>
+      </nav>
+      <input type="search" id="global-search">
+      <nav id="workspace-nav"></nav>
+      <div id="workspace-filters"></div>
+      <h2 id="view-title"></h2>
+      <p id="view-desc"></p>
+      <span id="mobile-view-title"></span>
+      <main id="tab-content" role="tabpanel"></main>
+    `;
+    AppState.modelType = 'all';
+    AppState.urlCategory = null;
+    AppState.urlDifficulty = null;
+  });
+
+  it('regroupe les vues dans le bon espace et rend les sous-onglets', () => {
+    setActiveTab('compare');
+    const analysis = document.querySelector('[data-workspace="analysis"]');
+    expect(analysis.classList.contains('active')).toBe(true);
+    expect(document.querySelectorAll('[data-workspace-tab]')).toHaveLength(3);
+    expect(document.querySelector('[data-workspace-tab="compare"]').classList.contains('active')).toBe(true);
+  });
+
+  it('le filtre global de type met à jour le contenu', () => {
+    setActiveTab('models');
+    const select = document.getElementById('workspace-model-type');
+    select.value = 'open';
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(AppState.modelType).toBe('open');
+    expect(document.getElementById('tab-content').textContent).toContain('Llama 3 70B');
+    expect(document.getElementById('tab-content').textContent).not.toContain('GPT-4o');
+  });
+
+  it('la réinitialisation efface tous les filtres partagés', () => {
+    AppState.searchQuery = 'gpt';
+    AppState.modelType = 'closed';
+    AppState.urlCategory = 'histoire';
+    AppState.urlDifficulty = 'hard';
+    setActiveTab('questions');
+    document.getElementById('workspace-reset').click();
+    expect(AppState.searchQuery).toBe('');
+    expect(AppState.modelType).toBe('all');
+    expect(AppState.urlCategory).toBeNull();
+    expect(AppState.urlDifficulty).toBeNull();
+  });
+});
+
 describe('recherche globale', () => {
   beforeEach(() => {
     document.body.innerHTML = `
