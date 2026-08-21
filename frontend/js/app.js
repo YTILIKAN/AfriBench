@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   setupMobileNav();
   setupTabs();
+  setupDashboardIntro();
   setupSearch();
   setupRevealAnimations();
   applyUrlState();
@@ -220,6 +221,23 @@ function setupMobileNav() {
   };
   if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
   else if (mq.addListener) mq.addListener(onBreakpoint);
+}
+
+/* ── Bandeau d'introduction compact ───────────────────── */
+function setupDashboardIntro() {
+  const toggle = document.getElementById('page-header-toggle');
+  const details = document.getElementById('page-header-details');
+  if (!toggle || !details) return;
+
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    details.hidden = expanded;
+    const label = toggle.querySelector('span:first-child');
+    const icon = toggle.querySelector('.page-header__toggle-icon');
+    if (label) label.textContent = expanded ? 'Détails' : 'Réduire';
+    if (icon) icon.textContent = expanded ? '+' : '−';
+  });
 }
 
 /* ── URL state (?tab=&category=&difficulty=) ─────────── */
@@ -1039,6 +1057,7 @@ Object.assign(globalThis, {
   setupRevealAnimations,
   setupSearch,
   setupTabs,
+  setupDashboardIntro,
 });
 
 export {};

@@ -147,39 +147,50 @@
       <!-- ═══ HEADER (compact, épuré) ═══ -->
       <header class="page-header">
         <div class="wrap">
-          <div class="page-header__eyebrow">
-            <span class="page-header__eyebrow-dot" aria-hidden="true"></span>
-            Benchmark public · Prototype v0.1
+          <div class="page-header__bar">
+            <div class="page-header__identity">
+              <div class="page-header__eyebrow">
+                <span class="page-header__eyebrow-dot" aria-hidden="true"></span>
+                Benchmark public · Prototype v0.1
+              </div>
+              <h1 class="page-header__title">
+                Évaluer les LLMs sur les réalités africaines
+              </h1>
+            </div>
+            <button type="button" class="page-header__toggle" id="page-header-toggle"
+                    aria-expanded="false" aria-controls="page-header-details">
+              <span>Détails</span>
+              <span class="page-header__toggle-icon" aria-hidden="true">+</span>
+            </button>
           </div>
-          <h1 class="page-header__title">
-            Évaluer les LLMs sur les réalités africaines
-          </h1>
-          <p class="page-header__sub">
-            Benchmark public, ouvert et reproductible couvrant l'histoire, la géographie, la culture,
-            l'économie, le droit, la santé, la technologie et la société africaines.
-          </p>
-          <dl class="page-header__stats" aria-label="Chiffres clés du benchmark">
-            <div class="page-header__stat">
-              <dt>Modèles évalués</dt>
-              <dd id="hero-model-count">—</dd>
-            </div>
-            <div class="page-header__stat">
-              <dt>Questions</dt>
-              <dd id="hero-q-count">—</dd>
-            </div>
-            <div class="page-header__stat">
-              <dt>Catégories</dt>
-              <dd id="hero-cat-count">—</dd>
-            </div>
-            <div class="page-header__stat page-header__stat--date">
-              <dt>Dernière mise à jour</dt>
-              <dd id="hero-date">—</dd>
-            </div>
-          </dl>
-          <p class="page-header__note">
-            <span aria-hidden="true">ⓘ</span> Classement indicatif — scores sur un sous-ensemble de questions.
-            <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
-          </p>
+          <div class="page-header__details" id="page-header-details" hidden>
+            <p class="page-header__sub">
+              Benchmark public, ouvert et reproductible couvrant l'histoire, la géographie, la culture,
+              l'économie, le droit, la santé, la technologie et la société africaines.
+            </p>
+            <dl class="page-header__stats" aria-label="Chiffres clés du benchmark">
+              <div class="page-header__stat">
+                <dt>Modèles évalués</dt>
+                <dd id="hero-model-count">—</dd>
+              </div>
+              <div class="page-header__stat">
+                <dt>Questions</dt>
+                <dd id="hero-q-count">—</dd>
+              </div>
+              <div class="page-header__stat">
+                <dt>Catégories</dt>
+                <dd id="hero-cat-count">—</dd>
+              </div>
+              <div class="page-header__stat page-header__stat--date">
+                <dt>Dernière mise à jour</dt>
+                <dd id="hero-date">—</dd>
+              </div>
+            </dl>
+            <p class="page-header__note">
+              <span aria-hidden="true">ⓘ</span> Classement indicatif — scores sur un sous-ensemble de questions.
+              <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
+            </p>
+          </div>
         </div>
       </header>
 

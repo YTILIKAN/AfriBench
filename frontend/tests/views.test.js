@@ -364,6 +364,33 @@ describe('navigation dynamique par espaces', () => {
   });
 });
 
+describe('bandeau d’introduction compact', () => {
+  it('déplie et replie les détails sans masquer le titre', () => {
+    document.body.innerHTML = `
+      <header>
+        <h1>Évaluer les LLMs</h1>
+        <button id="page-header-toggle" aria-expanded="false" aria-controls="page-header-details">
+          <span>Détails</span><span class="page-header__toggle-icon">+</span>
+        </button>
+        <div id="page-header-details" hidden>Statistiques</div>
+      </header>
+    `;
+    globalThis.setupDashboardIntro();
+    const toggle = document.getElementById('page-header-toggle');
+    const details = document.getElementById('page-header-details');
+
+    toggle.click();
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
+    expect(details.hidden).toBe(false);
+    expect(toggle.textContent).toContain('Réduire');
+
+    toggle.click();
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
+    expect(details.hidden).toBe(true);
+    expect(document.querySelector('h1')).toBeTruthy();
+  });
+});
+
 describe('recherche globale', () => {
   beforeEach(() => {
     document.body.innerHTML = `
