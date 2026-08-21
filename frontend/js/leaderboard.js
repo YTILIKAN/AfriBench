@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  getLatestResults, applySearchFilter, isOpenModel, isFavorite,
+  AppState, getLatestResults, applySearchFilter, isOpenModel, isFavorite,
   computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
   categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
