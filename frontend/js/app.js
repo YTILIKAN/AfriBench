@@ -19,7 +19,7 @@ function escapeHtml(str) {
 }
 
 const VALID_TABS = [
-  'leaderboard', 'models', 'categories', 'compare',
+  'leaderboard', 'models', 'compare',
   'evolution', 'questions', 'open_tasks', 'contribute', 'methodology', 'api',
 ];
 
@@ -34,7 +34,6 @@ const WORKSPACES = {
   analysis: {
     label: 'Analyse',
     tabs: [
-      ['categories', 'Catégories'],
       ['compare', 'Comparer'],
       ['evolution', 'Évolution'],
     ],
@@ -70,10 +69,6 @@ const VIEW_META = {
   models: {
     title: 'Modèles',
     desc: 'Fiches détaillées par modèle : provider, radar par catégorie, actions.',
-  },
-  categories: {
-    title: 'Catégories',
-    desc: 'Scores par domaine de connaissance et comparaison radar.',
   },
   compare: {
     title: 'Comparer',
@@ -129,6 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   setupMobileNav();
   setupTabs();
+  setupDashboardIntro();
   setupSearch();
   setupRevealAnimations();
   applyUrlState();
@@ -222,19 +218,38 @@ function setupMobileNav() {
   else if (mq.addListener) mq.addListener(onBreakpoint);
 }
 
+/* ── Bandeau d'introduction compact ───────────────────── */
+function setupDashboardIntro() {
+  const toggle = document.getElementById('page-header-toggle');
+  const details = document.getElementById('page-header-details');
+  if (!toggle || !details) return;
+
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    details.hidden = expanded;
+    const label = toggle.querySelector('span:first-child');
+    const icon = toggle.querySelector('.page-header__toggle-icon');
+    if (label) label.textContent = expanded ? 'Détails' : 'Réduire';
+    if (icon) icon.textContent = expanded ? '+' : '−';
+  });
+}
+
 /* ── URL state (?tab=&category=&difficulty=) ─────────── */
 function applyUrlState() {
   const params = new URLSearchParams(location.search);
-  const tab = params.get('tab');
+  const requestedTab = params.get('tab');
+  const tab = requestedTab === 'categories' ? 'leaderboard' : requestedTab;
   AppState.urlCategory = params.get('category');
   AppState.urlDifficulty = params.get('difficulty');
   // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
-  AppState._deepLinked = Boolean(tab);
+  AppState._deepLinked = Boolean(requestedTab);
   AppState._skipUrlWrite = true;
   AppState._skipScroll = true;
   setActiveTab(VALID_TABS.includes(tab) ? tab : 'leaderboard');
   AppState._skipUrlWrite = false;
   AppState._skipScroll = false;
+  if (requestedTab === 'categories') syncUrlState();
 }
 
 function syncUrlState() {
@@ -253,8 +268,8 @@ function syncUrlState() {
 }
 
 function applyUrlFilters() {
-  if (AppState.activeTab === 'categories' && AppState.urlCategory && window.__categoryFilter) {
-    window.__categoryFilter(AppState.urlCategory);
+  if (AppState.activeTab === 'leaderboard') {
+    renderActiveTab();
   }
   if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
     window.__applyQuestionFilters(AppState.urlCategory, AppState.urlDifficulty);
@@ -429,7 +444,6 @@ function renderActiveTab() {
   const tabs = {
     leaderboard: globalThis.renderLeaderboard,
     models: globalThis.renderModels,
-    categories: globalThis.renderCategories,
     compare: globalThis.renderCompare,
     evolution: globalThis.renderEvolution,
     questions: globalThis.renderQuestions,
@@ -471,7 +485,7 @@ function renderWorkspaceFilters() {
   if (!container) return;
   const workspace = workspaceForTab(AppState.activeTab);
   const showModelType = workspace === 'overview';
-  const showCategory = AppState.activeTab === 'categories' || AppState.activeTab === 'questions';
+  const showCategory = AppState.activeTab === 'leaderboard' || AppState.activeTab === 'questions';
   const showDifficulty = AppState.activeTab === 'questions';
 
   container.innerHTML = `
@@ -887,36 +901,59 @@ function renderDailyQuestion() {
   const catColor = categoryColor(q.category);
 
   container.innerHTML = `
-    <div class="dq-card">
-      <div class="dq-header">
-        <span class="dq-title">Question du jour</span>
-        <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
-          ${categoryLabel(q.category)}
-        </span>
-        <span class="dq-badge dq-badge--muted">
-          ${difficultyLabel(q.difficulty)}
-        </span>
-      </div>
-      <div class="dq-question">${escapeHtml(q.question || '')}</div>
-      <div class="dq-options">
-        ${Object.entries(q.options || {}).map(([letter, text]) =>
-          `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`
-        ).join('')}
-      </div>
-      <div class="dq-reveal" id="dq-reveal" style="display:none">
-        <div class="dq-answer">
-          Réponse : <strong>${escapeHtml(q.answer || '')}</strong>
-          ${q.explanation ? `<span class="dq-exp">— ${escapeHtml(q.explanation)}</span>` : ''}
+    <div class="dq-card dq-card--collapsed">
+      <div class="dq-summary">
+        <div class="dq-summary__content">
+          <span class="dq-title">Question du jour</span>
+          <span class="dq-summary__question">${escapeHtml(q.question || '')}</span>
         </div>
+        <button type="button" class="dq-collapse-toggle" id="dq-collapse-toggle"
+                aria-expanded="false" aria-controls="dq-content">
+          <span>Afficher</span>
+          <span class="dq-collapse-toggle__icon" aria-hidden="true">+</span>
+        </button>
       </div>
-      <div class="dq-actions">
-        <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
-        <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Toutes les questions</button>
+      <div class="dq-content" id="dq-content" hidden>
+        <div class="dq-header">
+          <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
+            ${categoryLabel(q.category)}
+          </span>
+          <span class="dq-badge dq-badge--muted">
+            ${difficultyLabel(q.difficulty)}
+          </span>
+        </div>
+        <div class="dq-question">${escapeHtml(q.question || '')}</div>
+        <div class="dq-options">
+          ${Object.entries(q.options || {}).map(([letter, text]) =>
+            `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`
+          ).join('')}
+        </div>
+        <div class="dq-reveal" id="dq-reveal" style="display:none">
+          <div class="dq-answer">
+            Réponse : <strong>${escapeHtml(q.answer || '')}</strong>
+            ${q.explanation ? `<span class="dq-exp">— ${escapeHtml(q.explanation)}</span>` : ''}
+          </div>
+        </div>
+        <div class="dq-actions">
+          <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
+          <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Toutes les questions</button>
+        </div>
       </div>
     </div>
   `;
 
   setTimeout(() => {
+    document.getElementById('dq-collapse-toggle')?.addEventListener('click', (event) => {
+      const button = event.currentTarget;
+      const content = document.getElementById('dq-content');
+      const card = button.closest('.dq-card');
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.querySelector('span:first-child').textContent = expanded ? 'Afficher' : 'Réduire';
+      button.querySelector('.dq-collapse-toggle__icon').textContent = expanded ? '+' : '−';
+      content.hidden = expanded;
+      card.classList.toggle('dq-card--collapsed', expanded);
+    });
     document.getElementById('dq-show-answer')?.addEventListener('click', () => {
       document.getElementById('dq-reveal').style.display = 'block';
       document.getElementById('dq-show-answer').style.display = 'none';
@@ -1039,6 +1076,8 @@ Object.assign(globalThis, {
   setupRevealAnimations,
   setupSearch,
   setupTabs,
+  setupDashboardIntro,
+  renderDailyQuestion,
 });
 
 export {};

@@ -22,7 +22,6 @@ Chart.defaults.font.size = 11;
 import '../js/app.js';
 import '../js/leaderboard.js';
 import '../js/models.js';
-import '../js/categories.js';
 import '../js/compare.js';
 import '../js/evolution.js';
 import '../js/questions.js';
