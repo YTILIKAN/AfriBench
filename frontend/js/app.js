@@ -49,7 +49,7 @@ const WORKSPACES = {
     label: 'Projet',
     tabs: [
       ['methodology', 'Méthodologie'],
-      ['contribute', 'Contribuer'],
+      ['contribute', 'Participer'],
       ['api', 'API'],
     ],
   },
@@ -87,8 +87,8 @@ const VIEW_META = {
     desc: 'Évaluations hors QCM.',
   },
   contribute: {
-    title: 'Contribuer',
-    desc: 'Proposer une question à valider.',
+    title: 'Participer',
+    desc: 'Proposer, examiner et voter.',
   },
   methodology: {
     title: 'Méthodologie',

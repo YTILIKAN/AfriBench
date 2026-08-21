@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Literal
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
@@ -24,6 +24,10 @@ class LoginIn(BaseModel):
 class LoginOut(BaseModel):
     token: str
     expires_in: int
+
+
+class ProposalStatusIn(BaseModel):
+    status: Literal["pending", "accepted", "rejected"]
 
 
 @router.post("/login", response_model=LoginOut)
@@ -76,6 +80,29 @@ def admin_delete_question(
         raise HTTPException(status_code=404, detail="Question introuvable.")
     session.commit()
     return {"deleted": True, "id": qid}
+
+
+# ── Propositions communautaires ─────────────────────────────────────────
+
+@router.get("/proposals", dependencies=[Depends(require_admin)])
+def admin_list_proposals(
+    proposal_status: str = Query("pending", alias="status"),
+    session: Session = Depends(get_db),
+) -> list[dict[str, Any]]:
+    return repo.list_proposals(session, status=proposal_status, sort="popular")
+
+
+@router.put("/proposals/{proposal_id}/status", dependencies=[Depends(require_admin)])
+def admin_update_proposal_status(
+    proposal_id: str,
+    body: ProposalStatusIn,
+    session: Session = Depends(get_db),
+) -> dict[str, Any]:
+    proposal = repo.update_proposal_status(session, proposal_id, body.status)
+    if proposal is None:
+        raise HTTPException(status_code=404, detail="Proposition introuvable.")
+    session.commit()
+    return repo.proposal_to_dict(session, proposal)
 
 
 # ── Résultats ────────────────────────────────────────────────────────────

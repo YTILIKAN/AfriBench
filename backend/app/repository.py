@@ -7,16 +7,24 @@ la couche d'agrégation de ``data_loader`` reste inchangée.
 from __future__ import annotations
 
 import os
+import uuid
 from datetime import datetime, timezone
 from typing import Any
 
-from sqlalchemy import select, text
+from sqlalchemy import func, select, text
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.db import get_session
-from app.models import EvalJob, Model, Question, Result
+from app.models import (
+    EvalJob,
+    Model,
+    ProposalVote,
+    Question,
+    QuestionProposal,
+    Result,
+)
 
 # ── Conversion modèle ↔ dict ──────────────────────────────────────────────
 
@@ -164,6 +172,144 @@ def delete_question(session: Session, qid: str) -> bool:
         return False
     session.delete(q)
     return True
+
+
+# ── Hub communautaire ─────────────────────────────────────────────────────
+
+def proposal_to_dict(
+    session: Session,
+    proposal: QuestionProposal,
+    voter_hash: str | None = None,
+) -> dict[str, Any]:
+    upvotes = session.scalar(
+        select(func.count()).select_from(ProposalVote).where(
+            ProposalVote.proposal_id == proposal.id,
+            ProposalVote.value == 1,
+        )
+    ) or 0
+    downvotes = session.scalar(
+        select(func.count()).select_from(ProposalVote).where(
+            ProposalVote.proposal_id == proposal.id,
+            ProposalVote.value == -1,
+        )
+    ) or 0
+    user_vote = 0
+    if voter_hash:
+        vote = session.scalar(
+            select(ProposalVote).where(
+                ProposalVote.proposal_id == proposal.id,
+                ProposalVote.voter_hash == voter_hash,
+            )
+        )
+        user_vote = vote.value if vote else 0
+    return {
+        "id": proposal.id,
+        "category": proposal.category,
+        "difficulty": proposal.difficulty,
+        "question": proposal.question,
+        "options": proposal.options or {},
+        "answer": proposal.answer,
+        "explanation": proposal.explanation,
+        "source": proposal.source,
+        "author": proposal.author,
+        "status": proposal.status,
+        "upvotes": upvotes,
+        "downvotes": downvotes,
+        "score": upvotes - downvotes,
+        "total_votes": upvotes + downvotes,
+        "user_vote": user_vote,
+        "created_at": proposal.created_at.isoformat(),
+    }
+
+
+def list_proposals(
+    session: Session,
+    *,
+    status: str = "pending",
+    sort: str = "needs_votes",
+    voter_hash: str | None = None,
+) -> list[dict[str, Any]]:
+    proposals = session.scalars(
+        select(QuestionProposal)
+        .where(QuestionProposal.status == status)
+        .order_by(QuestionProposal.created_at.desc())
+    ).all()
+    rows = [proposal_to_dict(session, proposal, voter_hash) for proposal in proposals]
+    if sort == "popular":
+        rows.sort(key=lambda row: (row["score"], row["total_votes"]), reverse=True)
+    elif sort == "new":
+        rows.sort(key=lambda row: row["created_at"], reverse=True)
+    else:
+        rows.sort(key=lambda row: (row["total_votes"], row["created_at"]))
+    return rows
+
+
+def create_proposal(session: Session, data: dict[str, Any]) -> QuestionProposal:
+    proposal = QuestionProposal(
+        id=uuid.uuid4().hex[:16],
+        category=data["category"],
+        difficulty=data["difficulty"],
+        question=data["question"].strip(),
+        options=data["options"],
+        answer=data["answer"],
+        explanation=data["explanation"].strip(),
+        source=data["source"].strip(),
+        author=(data.get("author") or "").strip() or None,
+        status="pending",
+    )
+    session.add(proposal)
+    return proposal
+
+
+def find_duplicate_proposal(session: Session, question: str) -> QuestionProposal | None:
+    return session.scalar(
+        select(QuestionProposal).where(
+            func.lower(QuestionProposal.question) == question.strip().lower(),
+            QuestionProposal.status == "pending",
+        )
+    )
+
+
+def cast_proposal_vote(
+    session: Session,
+    proposal_id: str,
+    voter_hash: str,
+    value: int,
+) -> QuestionProposal | None:
+    proposal = session.get(QuestionProposal, proposal_id)
+    if proposal is None or proposal.status != "pending":
+        return None
+    vote = session.scalar(
+        select(ProposalVote).where(
+            ProposalVote.proposal_id == proposal_id,
+            ProposalVote.voter_hash == voter_hash,
+        )
+    )
+    if vote is None:
+        session.add(
+            ProposalVote(
+                proposal_id=proposal_id,
+                voter_hash=voter_hash,
+                value=value,
+            )
+        )
+    elif vote.value == value:
+        session.delete(vote)
+    else:
+        vote.value = value
+    return proposal
+
+
+def update_proposal_status(
+    session: Session,
+    proposal_id: str,
+    status: str,
+) -> QuestionProposal | None:
+    proposal = session.get(QuestionProposal, proposal_id)
+    if proposal is None:
+        return None
+    proposal.status = status
+    return proposal
 
 
 # ── CRUD résultats ───────────────────────────────────────────────────────
