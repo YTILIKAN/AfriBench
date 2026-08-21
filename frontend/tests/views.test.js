@@ -6,7 +6,7 @@
  *  - models : tri exécuté au render → récursion infinie (stack overflow)
  *  - reveal : sections invisibles sans IntersectionObserver
  */
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // L'ordre compte : app.js publie les helpers sur globalThis.
 import '../js/app.js';
@@ -23,6 +23,10 @@ import '../js/api.js';
 const {
   AppState, escapeHtml, getLatestResults, isOpenModel, setActiveTab,
 } = globalThis;
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 const MOCK_RESULTS = [
   {
@@ -257,34 +261,64 @@ describe('autres vues', () => {
     expect(container.textContent).toContain('/results');
   });
 
-  it('renderContribute : formulaire complet et validation', () => {
+  it('renderContribute : hub et formulaire modal accessibles', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [],
+    }));
     const container = makeContainer();
-    expect(() => globalThis.renderContribute(container)).not.toThrow();
-    // Champs requis présents
+    await globalThis.renderContribute(container);
+    expect(container.querySelector('.hub-hero')).toBeTruthy();
+    expect(container.querySelector('#proposal-modal').hidden).toBe(true);
+    container.querySelector('[data-open-proposal]').click();
+    expect(container.querySelector('#proposal-modal').hidden).toBe(false);
     expect(container.querySelector('#cq-category')).toBeTruthy();
     expect(container.querySelector('#cq-question')).toBeTruthy();
     expect(container.querySelectorAll('input[name="cq-answer"]')).toHaveLength(4);
-    expect(container.querySelector('#cq-preview')).toBeTruthy();
-    // Soumission vide → erreurs affichées, pas de navigation
     container.querySelector('#cq-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     const errors = container.querySelector('#cq-errors');
     expect(errors.hidden).toBe(false);
-    expect(errors.textContent).toContain('catégorie');
+    expect(errors.textContent).toContain('Catégorie');
   });
 
-  it('renderContribute : formulaire valide construit l\'aperçu', () => {
+  it('renderContribute : publie une proposition dans le hub', async () => {
+    const proposal = {
+      id: 'p1',
+      category: 'geographie',
+      difficulty: 'easy',
+      question: 'Quelle est la capitale du Sénégal ?',
+      options: { A: 'Bamako', B: 'Dakar', C: 'Abidjan', D: 'Accra' },
+      answer: 'B',
+      explanation: 'Dakar est la capitale politique et économique du Sénégal.',
+      source: 'https://example.org/senegal',
+      author: null,
+      upvotes: 0,
+      downvotes: 0,
+      score: 0,
+      total_votes: 0,
+      user_vote: 0,
+      created_at: '2026-08-21T00:00:00Z',
+    };
+    vi.stubGlobal('fetch', vi.fn()
+      .mockResolvedValueOnce({ ok: true, json: async () => [] })
+      .mockResolvedValueOnce({ ok: true, json: async () => proposal }));
     const container = makeContainer();
-    globalThis.renderContribute(container);
+    await globalThis.renderContribute(container);
+    container.querySelector('[data-open-proposal]').click();
+    container.querySelector('#cq-category').value = 'geographie';
+    container.querySelector('#cq-difficulty').value = 'easy';
     container.querySelector('#cq-question').value = 'Quelle est la capitale du Sénégal ?';
     container.querySelector('#cq-option-A').value = 'Bamako';
     container.querySelector('#cq-option-B').value = 'Dakar';
     container.querySelector('#cq-option-C').value = 'Abidjan';
     container.querySelector('#cq-option-D').value = 'Accra';
     container.querySelector('#cq-answer-B').checked = true;
-    container.querySelector('#cq-form').dispatchEvent(new Event('input', { bubbles: true }));
-    const preview = container.querySelector('#cq-preview');
-    expect(preview.textContent).toContain('capitale du Sénégal');
-    expect(preview.textContent).toContain('Dakar');
+    container.querySelector('#cq-explanation').value = proposal.explanation;
+    container.querySelector('#cq-source').value = proposal.source;
+    container.querySelector('#cq-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(container.querySelector('#proposal-modal').hidden).toBe(true);
+    expect(container.querySelector('#hub-list').textContent).toContain('capitale du Sénégal');
   });
 });
 
