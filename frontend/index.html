@@ -81,11 +81,16 @@
     <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigation principale">
       <div class="sidebar-logo">
         <div class="sidebar-logo__row">
-          <h1>Afri<span>B</span>ench</h1>
+          <a class="sidebar-logo__brand" href="./" aria-label="AfriBench — Accueil">
+            <span class="sidebar-logo__mark" aria-hidden="true">A</span>
+            <span>
+              <h1>Afri<span>B</span>ench</h1>
+              <span class="tagline">Benchmark LLM pour l'Afrique</span>
+            </span>
+          </a>
           <button type="button" class="sidebar-close" id="sidebar-close"
                   aria-label="Fermer le menu">&times;</button>
         </div>
-        <div class="tagline">Benchmark LLM pour l'Afrique</div>
       </div>
 
       <div class="sidebar-search">
@@ -162,6 +167,10 @@
       <!-- ═══ HEADER (compact, épuré) ═══ -->
       <header class="page-header">
         <div class="wrap">
+          <div class="page-header__eyebrow">
+            <span class="page-header__eyebrow-dot" aria-hidden="true"></span>
+            Benchmark public · Prototype v0.1
+          </div>
           <h1 class="page-header__title">
             Évaluer les LLMs sur les réalités africaines
           </h1>
@@ -169,14 +178,26 @@
             Benchmark public, ouvert et reproductible couvrant l'histoire, la géographie, la culture,
             l'économie, le droit, la santé, la technologie et la société africaines.
           </p>
-          <p class="page-header__stats">
-            <strong id="hero-model-count">—</strong> modèles évalués <span class="dot" aria-hidden="true">·</span>
-            <strong id="hero-q-count">—</strong> questions <span class="dot" aria-hidden="true">·</span>
-            <strong id="hero-cat-count">—</strong> catégories <span class="dot" aria-hidden="true">·</span>
-            mis à jour le <strong id="hero-date">—</strong>
-          </p>
+          <dl class="page-header__stats" aria-label="Chiffres clés du benchmark">
+            <div class="page-header__stat">
+              <dt>Modèles évalués</dt>
+              <dd id="hero-model-count">—</dd>
+            </div>
+            <div class="page-header__stat">
+              <dt>Questions</dt>
+              <dd id="hero-q-count">—</dd>
+            </div>
+            <div class="page-header__stat">
+              <dt>Catégories</dt>
+              <dd id="hero-cat-count">—</dd>
+            </div>
+            <div class="page-header__stat page-header__stat--date">
+              <dt>Dernière mise à jour</dt>
+              <dd id="hero-date">—</dd>
+            </div>
+          </dl>
           <p class="page-header__note">
-            Prototype v0.1 — classement indicatif (scores sur un sous-ensemble de questions).
+            <span aria-hidden="true">ⓘ</span> Classement indicatif — scores sur un sous-ensemble de questions.
             <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
           </p>
         </div>
