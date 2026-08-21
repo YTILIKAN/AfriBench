@@ -95,6 +95,7 @@ beforeEach(() => {
   AppState.comparePreset = null;
   AppState.dataSource = 'api';
   AppState.loading = false;
+  AppState.questionPage = 1;
 });
 
 describe('escapeHtml', () => {
@@ -210,6 +211,28 @@ describe('autres vues', () => {
     expect(() => globalThis.renderQuestions(container)).not.toThrow();
     expect(container.querySelectorAll('.q-item')).toHaveLength(2);
     expect(container.querySelector('.q-item b')).toBeNull();
+  });
+
+  it('pagine les questions par groupes de 20 et synchronise la page', () => {
+    AppState.questions = Array.from({ length: 45 }, (_, index) => ({
+      ...MOCK_QUESTIONS[index % MOCK_QUESTIONS.length],
+      id: `QUESTION-${index + 1}`,
+      question: `Question numéro ${index + 1}`,
+    }));
+    const container = makeContainer();
+    globalThis.renderQuestions(container);
+
+    expect(container.querySelectorAll('.q-item')).toHaveLength(20);
+    expect(container.querySelector('[aria-current="page"]').textContent.trim()).toBe('1');
+
+    container.querySelector('[aria-label="Page suivante"]').click();
+    expect(AppState.questionPage).toBe(2);
+    expect(container.querySelectorAll('.q-item')).toHaveLength(20);
+
+    container.querySelector('[aria-label="Page suivante"]').click();
+    expect(AppState.questionPage).toBe(3);
+    expect(container.querySelectorAll('.q-item')).toHaveLength(5);
+    expect(container.textContent).toContain('41–45 sur 45 questions');
   });
 
   it('renderMethodology', () => {

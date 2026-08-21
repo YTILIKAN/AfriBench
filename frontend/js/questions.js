@@ -8,6 +8,41 @@ const {
 
 let qFilterCat = 'all';
 let qFilterDiff = 'all';
+const QUESTIONS_PER_PAGE = 20;
+
+function paginationItems(current, total) {
+  if (total <= 7) return Array.from({ length: total }, (_, index) => index + 1);
+  const pages = new Set([1, total, current - 1, current, current + 1]);
+  const sorted = [...pages].filter((page) => page > 0 && page <= total).sort((a, b) => a - b);
+  const items = [];
+  sorted.forEach((page, index) => {
+    if (index > 0 && page - sorted[index - 1] > 1) items.push(null);
+    items.push(page);
+  });
+  return items;
+}
+
+function renderPagination(current, total) {
+  if (total <= 1) return '';
+  return `
+    <nav class="questions-pagination" aria-label="Pagination des questions">
+      <button type="button" class="questions-pagination__button questions-pagination__button--nav"
+              data-question-page="${current - 1}" ${current === 1 ? 'disabled' : ''}
+              aria-label="Page précédente">← <span>Précédent</span></button>
+      <div class="questions-pagination__pages">
+        ${paginationItems(current, total).map((page) => page === null
+          ? '<span class="questions-pagination__ellipsis" aria-hidden="true">…</span>'
+          : `<button type="button" class="questions-pagination__button ${page === current ? 'active' : ''}"
+                     data-question-page="${page}" ${page === current ? 'aria-current="page"' : ''}>
+               ${page}
+             </button>`).join('')}
+      </div>
+      <button type="button" class="questions-pagination__button questions-pagination__button--nav"
+              data-question-page="${current + 1}" ${current === total ? 'disabled' : ''}
+              aria-label="Page suivante"><span>Suivant</span> →</button>
+    </nav>
+  `;
+}
 
 function renderQuestions(container) {
   const qs = AppState.questions;
@@ -44,6 +79,14 @@ function renderQuestions(container) {
     });
   }
 
+  const totalPages = Math.max(1, Math.ceil(filtered.length / QUESTIONS_PER_PAGE));
+  const currentPage = Math.min(Math.max(1, AppState.questionPage || 1), totalPages);
+  AppState.questionPage = currentPage;
+  const pageStart = (currentPage - 1) * QUESTIONS_PER_PAGE;
+  const pageQuestions = filtered.slice(pageStart, pageStart + QUESTIONS_PER_PAGE);
+  const visibleStart = filtered.length === 0 ? 0 : pageStart + 1;
+  const visibleEnd = Math.min(pageStart + QUESTIONS_PER_PAGE, filtered.length);
+
   let html = `
     <div class="card">
       <!-- Filters -->
@@ -63,7 +106,7 @@ function renderQuestions(container) {
           </button>
         `).join('')}
         <span style="flex:1"></span>
-        <span class="filter-label">${filtered.length} / ${qs.length} questions</span>
+        <span class="filter-label">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
         <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
           + Proposer une question
         </button>
@@ -82,7 +125,7 @@ function renderQuestions(container) {
       </div>
     `;
   } else {
-    filtered.forEach((q) => {
+    pageQuestions.forEach((q) => {
       const diffClass = q.difficulty || 'medium';
       const catColor = categoryColor(q.category);
       const safeQuestion = escapeHtml(q.question || '');
@@ -118,7 +161,7 @@ function renderQuestions(container) {
     });
   }
 
-  html += '</div></div>';
+  html += `</div></div>${renderPagination(currentPage, totalPages)}`;
 
   container.innerHTML = html;
 
@@ -135,7 +178,9 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qcat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterCat = btn.dataset.qcat;
+      AppState.questionPage = 1;
       if (window.__setUrlCategory) window.__setUrlCategory(qFilterCat);
+      if (window.__setQuestionPage) window.__setQuestionPage(1);
       renderQuestions(container);
     });
   });
@@ -144,7 +189,9 @@ function renderQuestions(container) {
   document.querySelectorAll('[data-qdiff]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterDiff = btn.dataset.qdiff;
+      AppState.questionPage = 1;
       if (window.__setUrlDifficulty) window.__setUrlDifficulty(qFilterDiff);
+      if (window.__setQuestionPage) window.__setQuestionPage(1);
       renderQuestions(container);
     });
   });
@@ -153,11 +200,23 @@ function renderQuestions(container) {
   document.getElementById('q-goto-contribute')?.addEventListener('click', () => {
     globalThis.setActiveTab('contribute');
   });
+
+  container.querySelectorAll('[data-question-page]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.disabled) return;
+      const nextPage = Number.parseInt(button.dataset.questionPage, 10);
+      AppState.questionPage = nextPage;
+      if (window.__setQuestionPage) window.__setQuestionPage(nextPage);
+      renderQuestions(container);
+      document.getElementById('view-header')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 }
 
-window.__applyQuestionFilters = (cat, diff) => {
+window.__applyQuestionFilters = (cat, diff, page = 1) => {
   qFilterCat = cat || 'all';
   qFilterDiff = diff || 'all';
+  AppState.questionPage = Math.max(1, Number.parseInt(page, 10) || 1);
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'questions') {
     renderQuestions(container);

@@ -114,6 +114,7 @@ const AppState = {
   loading: true,
   urlCategory: null,
   urlDifficulty: null,
+  questionPage: 1,
   modelType: 'all',
   _skipUrlWrite: false,
   _skipScroll: false,
@@ -235,13 +236,15 @@ function setupDashboardIntro() {
   });
 }
 
-/* ── URL state (?tab=&category=&difficulty=) ─────────── */
+/* ── URL state (?tab=&category=&difficulty=&page=) ───── */
 function applyUrlState() {
   const params = new URLSearchParams(location.search);
   const requestedTab = params.get('tab');
   const tab = requestedTab === 'categories' ? 'leaderboard' : requestedTab;
   AppState.urlCategory = params.get('category');
   AppState.urlDifficulty = params.get('difficulty');
+  const requestedPage = Number.parseInt(params.get('page') || '1', 10);
+  AppState.questionPage = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
   // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
   AppState._deepLinked = Boolean(requestedTab);
   AppState._skipUrlWrite = true;
@@ -260,6 +263,11 @@ function syncUrlState() {
   else params.delete('category');
   if (AppState.urlDifficulty) params.set('difficulty', AppState.urlDifficulty);
   else params.delete('difficulty');
+  if (AppState.activeTab === 'questions' && AppState.questionPage > 1) {
+    params.set('page', String(AppState.questionPage));
+  } else {
+    params.delete('page');
+  }
   const qs = params.toString();
   const next = `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`;
   if (next !== `${location.pathname}${location.search}${location.hash}`) {
@@ -272,7 +280,11 @@ function applyUrlFilters() {
     renderActiveTab();
   }
   if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
-    window.__applyQuestionFilters(AppState.urlCategory, AppState.urlDifficulty);
+    window.__applyQuestionFilters(
+      AppState.urlCategory,
+      AppState.urlDifficulty,
+      AppState.questionPage,
+    );
   }
 }
 
@@ -283,6 +295,11 @@ window.__setUrlCategory = (cat) => {
 
 window.__setUrlDifficulty = (diff) => {
   AppState.urlDifficulty = diff && diff !== 'all' ? diff : null;
+  syncUrlState();
+};
+
+window.__setQuestionPage = (page) => {
+  AppState.questionPage = Math.max(1, Number.parseInt(page, 10) || 1);
   syncUrlState();
 };
 
@@ -537,6 +554,7 @@ function renderWorkspaceFilters() {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
       AppState.searchQuery = search.value.trim().toLowerCase();
+      AppState.questionPage = 1;
       const sidebarSearch = document.getElementById('global-search');
       if (sidebarSearch) sidebarSearch.value = search.value;
       if (AppState.searchQuery && !SEARCHABLE_TABS.includes(AppState.activeTab)) {
@@ -554,12 +572,14 @@ function renderWorkspaceFilters() {
 
   container.querySelector('#workspace-category')?.addEventListener('change', (event) => {
     AppState.urlCategory = event.target.value === 'all' ? null : event.target.value;
+    if (AppState.activeTab === 'questions') AppState.questionPage = 1;
     syncUrlState();
     applyUrlFilters();
   });
 
   container.querySelector('#workspace-difficulty')?.addEventListener('change', (event) => {
     AppState.urlDifficulty = event.target.value === 'all' ? null : event.target.value;
+    AppState.questionPage = 1;
     syncUrlState();
     applyUrlFilters();
   });
@@ -569,6 +589,7 @@ function renderWorkspaceFilters() {
     AppState.modelType = 'all';
     AppState.urlCategory = null;
     AppState.urlDifficulty = null;
+    AppState.questionPage = 1;
     const sidebarSearch = document.getElementById('global-search');
     if (sidebarSearch) sidebarSearch.value = '';
     syncUrlState();
@@ -591,6 +612,7 @@ function setupSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       AppState.searchQuery = input.value.trim().toLowerCase();
+      AppState.questionPage = 1;
       const workspaceSearch = document.getElementById('workspace-search');
       if (workspaceSearch) workspaceSearch.value = input.value;
       // Si l'onglet courant ne supporte pas la recherche, basculer sur Modèles
@@ -608,6 +630,7 @@ function setupSearch() {
   input.addEventListener('search', () => {
     if (input.value === '') {
       AppState.searchQuery = '';
+      AppState.questionPage = 1;
       const workspaceSearch = document.getElementById('workspace-search');
       if (workspaceSearch) workspaceSearch.value = '';
       if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
@@ -619,6 +642,7 @@ function setupSearch() {
     if (e.key === 'Escape' && input.value !== '') {
       input.value = '';
       AppState.searchQuery = '';
+      AppState.questionPage = 1;
       const workspaceSearch = document.getElementById('workspace-search');
       if (workspaceSearch) workspaceSearch.value = '';
       if (SEARCHABLE_TABS.includes(AppState.activeTab)) renderActiveTab();
