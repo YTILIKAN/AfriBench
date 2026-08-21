@@ -211,6 +211,16 @@ describe('autres vues', () => {
     expect(() => globalThis.renderQuestions(container)).not.toThrow();
     expect(container.querySelectorAll('.q-item')).toHaveLength(2);
     expect(container.querySelector('.q-item b')).toBeNull();
+    const details = container.querySelector('.q-item__details');
+    const toggle = container.querySelector('[data-question-toggle]');
+    expect(details.hidden).toBe(true);
+    toggle.click();
+    expect(details.hidden).toBe(false);
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
+    container.querySelector('#q-toggle-all').click();
+    expect(container.querySelectorAll('.q-item__details[hidden]')).toHaveLength(0);
+    container.querySelector('#q-toggle-all').click();
+    expect(container.querySelectorAll('.q-item__details[hidden]')).toHaveLength(2);
   });
 
   it('pagine les questions par groupes de 20 et synchronise la page', () => {

@@ -107,6 +107,7 @@ function renderQuestions(container) {
         `).join('')}
         <span style="flex:1"></span>
         <span class="filter-label">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
+        <button class="filter-btn" id="q-toggle-all" aria-expanded="false">Tout déplier</button>
         <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
           + Proposer une question
         </button>
@@ -125,7 +126,7 @@ function renderQuestions(container) {
       </div>
     `;
   } else {
-    pageQuestions.forEach((q) => {
+    pageQuestions.forEach((q, index) => {
       const diffClass = q.difficulty || 'medium';
       const catColor = categoryColor(q.category);
       const safeQuestion = escapeHtml(q.question || '');
@@ -134,6 +135,7 @@ function renderQuestions(container) {
       const safeExplanation = q.explanation ? escapeHtml(q.explanation) : '';
       const safeSource = q.source ? escapeHtml(q.source) : '';
       const dateInfo = q.date_created ? formatDate(q.date_created) : '';
+      const detailsId = `q-details-${pageStart + index}`;
 
       html += `
         <div class="q-item" data-category="${q.category}" data-difficulty="${q.difficulty || ''}">
@@ -145,16 +147,24 @@ function renderQuestions(container) {
             <span class="q-meta-badge subtle">${safeId}</span>
             ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
           </div>
-          <div class="q-text">${safeQuestion}</div>
-          <div class="q-options">
-            ${Object.entries(q.options || {}).map(([k, v]) => `
-              <div class="q-option"><strong>${escapeHtml(k)}.</strong> ${escapeHtml(v)}</div>
-            `).join('')}
+          <div class="q-item__summary">
+            <div class="q-text">${safeQuestion}</div>
+            <button type="button" class="q-item__toggle" data-question-toggle
+                    aria-expanded="false" aria-controls="${detailsId}">
+              <span>Afficher</span><span class="q-item__toggle-icon" aria-hidden="true">+</span>
+            </button>
           </div>
-          <div class="q-answer">
-            <div class="label">Reponse : ${safeAnswer}</div>
-            ${safeExplanation ? `<div class="explanation">${safeExplanation}</div>` : ''}
-            ${safeSource ? `<div class="q-source">Source : ${safeSource}</div>` : ''}
+          <div class="q-item__details" id="${detailsId}" hidden>
+            <div class="q-options">
+              ${Object.entries(q.options || {}).map(([k, v]) => `
+                <div class="q-option"><strong>${escapeHtml(k)}.</strong> ${escapeHtml(v)}</div>
+              `).join('')}
+            </div>
+            <div class="q-answer">
+              <div class="label">Réponse : ${safeAnswer}</div>
+              ${safeExplanation ? `<div class="explanation">${safeExplanation}</div>` : ''}
+              ${safeSource ? `<div class="q-source">Source : ${safeSource}</div>` : ''}
+            </div>
           </div>
         </div>
       `;
@@ -165,13 +175,28 @@ function renderQuestions(container) {
 
   container.innerHTML = html;
 
-  // Wire up toggle expand/collapse
-  document.querySelectorAll('.q-item').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      // Don't toggle if user clicked a link
-      if (e.target.tagName === 'A') return;
-      el.classList.toggle('expanded');
+  // Déplier/replier une question sans alourdir la liste.
+  container.querySelectorAll('[data-question-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const details = document.getElementById(button.getAttribute('aria-controls'));
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.querySelector('span:first-child').textContent = expanded ? 'Afficher' : 'Réduire';
+      button.querySelector('.q-item__toggle-icon').textContent = expanded ? '+' : '−';
+      if (details) details.hidden = expanded;
+      button.closest('.q-item')?.classList.toggle('expanded', !expanded);
     });
+  });
+
+  document.getElementById('q-toggle-all')?.addEventListener('click', (event) => {
+    const button = event.currentTarget;
+    const expand = button.getAttribute('aria-expanded') !== 'true';
+    container.querySelectorAll('[data-question-toggle]').forEach((toggle) => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded !== expand) toggle.click();
+    });
+    button.setAttribute('aria-expanded', String(expand));
+    button.textContent = expand ? 'Tout replier' : 'Tout déplier';
   });
 
   // Wire up category filters
