@@ -11,6 +11,7 @@ let hubSort = 'needs_votes';
 let hubProposals = [];
 let hubLocalMode = false;
 let modalTrigger = null;
+let modalEscapeHandler = null;
 
 function voterId() {
   try {
@@ -258,6 +259,10 @@ function openModal(trigger) {
   modalTrigger = trigger || document.activeElement;
   modal.hidden = false;
   document.body.classList.add('modal-open');
+  modalEscapeHandler = (event) => {
+    if (event.key === 'Escape') closeModal();
+  };
+  document.addEventListener('keydown', modalEscapeHandler);
   modal.querySelector('#cq-category')?.focus();
 }
 
@@ -266,6 +271,10 @@ function closeModal() {
   if (!modal) return;
   modal.hidden = true;
   document.body.classList.remove('modal-open');
+  if (modalEscapeHandler) {
+    document.removeEventListener('keydown', modalEscapeHandler);
+    modalEscapeHandler = null;
+  }
   modalTrigger?.focus?.();
 }
 
@@ -359,7 +368,10 @@ async function renderContribute(container) {
 
   wireOpenButtons();
   container.querySelectorAll('[data-close-proposal]').forEach((button) => {
-    button.addEventListener('click', closeModal);
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      closeModal();
+    });
   });
   container.querySelector('#cq-form')?.addEventListener('submit', submitProposal);
   container.querySelector('#hub-sort')?.addEventListener('change', async (event) => {
@@ -368,7 +380,6 @@ async function renderContribute(container) {
     renderHubList();
   });
   container.querySelector('#proposal-modal')?.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeModal();
     if (event.key === 'Tab') {
       const focusable = [...event.currentTarget.querySelectorAll(
         'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])',

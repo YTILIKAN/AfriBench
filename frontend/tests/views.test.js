@@ -275,6 +275,12 @@ describe('autres vues', () => {
     expect(container.querySelector('#cq-category')).toBeTruthy();
     expect(container.querySelector('#cq-question')).toBeTruthy();
     expect(container.querySelectorAll('input[name="cq-answer"]')).toHaveLength(4);
+    container.querySelector('.cq-modal__backdrop').click();
+    expect(container.querySelector('#proposal-modal').hidden).toBe(true);
+    container.querySelector('[data-open-proposal]').click();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    expect(container.querySelector('#proposal-modal').hidden).toBe(true);
+    container.querySelector('[data-open-proposal]').click();
     container.querySelector('#cq-form').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     const errors = container.querySelector('#cq-errors');
     expect(errors.hidden).toBe(false);
