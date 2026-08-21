@@ -227,6 +227,23 @@ describe('autres vues', () => {
     expect(container.querySelectorAll('.q-item__details[hidden]')).toHaveLength(2);
   });
 
+  it('regroupe les catégories dans un menu compact', () => {
+    const container = makeContainer();
+    globalThis.renderQuestions(container);
+
+    // Les catégories ne consomment plus une rangée entière de chips.
+    expect(container.querySelectorAll('.q-toolbar')).toHaveLength(1);
+    expect(container.querySelectorAll('.q-toolbar__picker')).toHaveLength(2);
+    expect(container.querySelectorAll('.q-toolbar__chip')).toHaveLength(0);
+
+    container.querySelector('[data-qcat="histoire"]').click();
+    expect(container.querySelector('.q-toolbar__chip').textContent).toContain('Histoire');
+    expect(container.querySelectorAll('.q-item')).toHaveLength(1);
+
+    container.querySelector('[data-clear="qcat"]').click();
+    expect(container.querySelectorAll('.q-item')).toHaveLength(2);
+  });
+
   it('pagine les questions par groupes de 20 et synchronise la page', () => {
     AppState.questions = Array.from({ length: 45 }, (_, index) => ({
       ...MOCK_QUESTIONS[index % MOCK_QUESTIONS.length],
