@@ -15,7 +15,7 @@ function renderCompare(container) {
       <div class="card">
         <div class="empty-state">
           <h3>Pas assez de résultats</h3>
-          <p>Évaluez au moins un modèle pour utiliser la comparaison.</p>
+          <p>Un modèle minimum est requis.</p>
         </div>
       </div>
     `;
@@ -25,7 +25,7 @@ function renderCompare(container) {
   // ---- Model selector ----
   let html = `
     <div class="card">
-      <div class="card-title">Sélectionner les modèles à comparer</div>
+      <div class="card-title">Modèles à comparer</div>
       <div class="compare-selector">
   `;
 
@@ -197,7 +197,7 @@ function updateCompareTable(selected, catList) {
   if (!container) return;
 
   if (selected.length === 0) {
-    container.innerHTML = '<p style="padding:16px;font-size:0.85rem;color:var(--muted)">Sélectionnez au moins un modèle pour afficher le détail.</p>';
+    container.innerHTML = '<p style="padding:16px;font-size:0.85rem;color:var(--muted)">Sélectionnez un modèle.</p>';
     return;
   }
 

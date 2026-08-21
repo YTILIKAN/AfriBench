@@ -36,13 +36,12 @@ async function renderOpenTasks(container) {
   let html = `
     <div class="card">
       <div class="card-title">
-        Tâches ouvertes (non-QCM)
+        Tâches ouvertes
         ${scores.dry_run ? '<span class="count-badge">dry-run</span>' : ''}
       </div>
       <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px">
-        Pilotes pour traduction, résumé, QA ouverte, NER et sentiment.
-        Les scores affichés proviennent de <code>eval_open_tasks.py</code>
-        ${scores.dry_run ? '(mode dry-run — baseline indicatif)' : ''}.
+        Traduction, résumé, QA, NER et sentiment.
+        Source : <code>eval_open_tasks.py</code>${scores.dry_run ? ' · score indicatif' : ''}.
       </p>
     </div>
   `;
@@ -52,8 +51,7 @@ async function renderOpenTasks(container) {
       <div class="card">
         <div class="empty-state">
           <h3>Aucun score disponible</h3>
-          <p>Lancer <code>python scripts/eval_open_tasks.py --dry-run</code> puis
-          <code>python scripts/aggregate_open_scores.py</code>.</p>
+          <p>Exécutez le pipeline d'évaluation.</p>
         </div>
       </div>`;
     container.innerHTML = html;

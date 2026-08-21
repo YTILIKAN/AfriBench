@@ -14,7 +14,7 @@ let modelSortDir = 'desc';
 function renderModels(container) {
   const models = getLatestResults();
   if (models.length === 0) {
-    container.innerHTML = `<div class="card"><div class="empty-state"><h3>Aucun modele</h3><p>Les donnees ne sont pas encore chargees.</p></div></div>`;
+    container.innerHTML = `<div class="card"><div class="empty-state"><h3>Aucun modèle</h3><p>Données indisponibles.</p></div></div>`;
     return;
   }
 
@@ -77,19 +77,19 @@ function renderModels(container) {
             <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFavorite(name) ? '★' : '☆'}</span>
             ${safeName}
           </div>
-          <span class="model-card-badge ${open ? 'open' : 'closed'}">${open ? 'OPEN' : 'CLOSED'}</span>
+          <span class="model-card-badge ${open ? 'open' : 'closed'}">${open ? 'Ouvert' : 'Propriétaire'}</span>
         </div>
 
         <div class="model-card-score">
           <span class="big-score">${acc.toFixed(1)}%</span>
-          <span class="score-label">precision globale</span>
+          <span class="score-label">Précision globale</span>
           <span class="score-detail">${correct}/${total}</span>
         </div>
 
         <dl class="model-card-meta">
           <dt>Provider</dt>
           <dd>${provider}</dd>
-          <dt>Derniere eval</dt>
+          <dt>Dernière éval.</dt>
           <dd>${timestamp}</dd>
           <dt>Questions</dt>
           <dd>${total}</dd>
@@ -98,7 +98,7 @@ function renderModels(container) {
         </dl>
 
         <div class="model-card-categories">
-          <div class="cat-mini-label">Scores par categorie</div>
+          <div class="cat-mini-label">Par catégorie</div>
           <canvas class="model-mini-radar" id="mradar-${name.replace(/[^a-zA-Z0-9]/g, '')}" data-model="${safeName}" height="100" width="100"></canvas>
         </div>
 

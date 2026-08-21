@@ -128,14 +128,12 @@ function renderContribute(container) {
   container.innerHTML = `
     <div class="cq-intro card">
       <p>
-        AfriBench est un benchmark <strong>communautaire</strong> : tout visiteur peut proposer
-        une question d'évaluation. Chaque proposition est relue <strong>publiquement sur GitHub</strong>
-        avant d'être intégrée au corpus — c'est ce qui garantit la qualité et la transparence du benchmark.
+        Proposez une question. La communauté la valide publiquement sur GitHub.
       </p>
       <ol class="cq-steps">
-        <li><strong>1.</strong> Rédigez la question et ses 4 options</li>
-        <li><strong>2.</strong> Soumettez — une issue GitHub pré-remplie s'ouvre</li>
-        <li><strong>3.</strong> La communauté relit, puis la question est intégrée</li>
+        <li><strong>1.</strong> Rédiger</li>
+        <li><strong>2.</strong> Soumettre</li>
+        <li><strong>3.</strong> Valider</li>
       </ol>
     </div>
 
@@ -169,7 +167,7 @@ function renderContribute(container) {
         </div>
 
         <fieldset class="cq-field">
-          <legend>Options <span class="cq-req">*</span> <span class="cq-hint">— cochez la bonne réponse</span></legend>
+          <legend>Options <span class="cq-req">*</span> <span class="cq-hint">— bonne réponse</span></legend>
           ${LETTERS.map((l) => `
             <div class="cq-option-row">
               <input type="radio" name="cq-answer" id="cq-answer-${l}" value="${l}"
@@ -187,7 +185,7 @@ function renderContribute(container) {
         </div>
 
         <div class="cq-field">
-          <label for="cq-source">Source <span class="cq-hint">(lien ou référence vérifiable)</span></label>
+          <label for="cq-source">Source <span class="cq-hint">(lien ou référence)</span></label>
           <input type="text" id="cq-source" placeholder="https://…">
         </div>
 
@@ -196,8 +194,7 @@ function renderContribute(container) {
           <button type="button" class="cq-btn cq-btn--ghost" id="cq-copy-json">Copier le JSON</button>
         </div>
         <p class="cq-note">
-          Un compte GitHub (gratuit) est nécessaire pour la soumission publique.
-          Le JSON copié peut aussi être proposé en PR dans <code>data/questions/v1/raw/</code>.
+          Compte GitHub requis. Alternative : PR dans <code>data/questions/v1/raw/</code>.
         </p>
       </form>
 
