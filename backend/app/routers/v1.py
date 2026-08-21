@@ -2,17 +2,43 @@
 
 from __future__ import annotations
 
+import hashlib
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, Header, HTTPException, Query, status
+from sqlalchemy.orm import Session
 
-from app.schemas import EvaluateAccepted, EvaluateRequest, JobStatus
+from app import repository
+from app.config import get_settings
+from app.db import get_db
+from app.schemas import (
+    EvaluateAccepted,
+    EvaluateRequest,
+    JobStatus,
+    ProposalCreate,
+    ProposalVoteRequest,
+)
 from app.security import enforce_rate_limit, require_api_key
 from app.services import data_loader as dl
 from app.services import evaluate as evalsvc
 from app.services import open_tasks as ot
 
 router = APIRouter(tags=["v1"], dependencies=[Depends(enforce_rate_limit)])
+
+
+def proposal_db():
+    if not get_settings().db_enabled:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Le hub participatif nécessite PostgreSQL.",
+        )
+    yield from get_db()
+
+
+def _voter_hash(voter_id: str | None) -> str | None:
+    if not voter_id:
+        return None
+    return hashlib.sha256(voter_id.encode("utf-8")).hexdigest()
 
 
 @router.get("/health")
@@ -38,6 +64,66 @@ def list_questions(
     return dl.filter_questions(
         dl.get_questions(), category=category, difficulty=difficulty, limit=limit
     )
+
+
+@router.get("/proposals")
+def list_proposals(
+    sort: str = Query("needs_votes", pattern="^(needs_votes|popular|new)$"),
+    voter_id: str | None = Header(None, alias="X-Voter-ID", min_length=16, max_length=128),
+    session: Session = Depends(proposal_db),
+) -> list[dict]:
+    """Questions proposées, triées par besoin de votes par défaut."""
+    return repository.list_proposals(
+        session,
+        sort=sort,
+        voter_hash=_voter_hash(voter_id),
+    )
+
+
+@router.post("/proposals", status_code=status.HTTP_201_CREATED)
+def create_proposal(
+    body: ProposalCreate,
+    session: Session = Depends(proposal_db),
+) -> dict:
+    duplicate = repository.find_duplicate_proposal(session, body.question)
+    if duplicate:
+        raise HTTPException(status_code=409, detail="Cette question est déjà proposée.")
+    try:
+        proposal = repository.create_proposal(session, body.model_dump())
+        session.commit()
+        session.refresh(proposal)
+        return repository.proposal_to_dict(session, proposal)
+    except Exception:
+        session.rollback()
+        raise
+
+
+@router.post("/proposals/{proposal_id}/vote")
+def vote_proposal(
+    proposal_id: str,
+    body: ProposalVoteRequest,
+    session: Session = Depends(proposal_db),
+) -> dict:
+    voter_hash = _voter_hash(body.voter_id)
+    if voter_hash is None:
+        raise HTTPException(status_code=400, detail="Identifiant de vote requis.")
+    try:
+        proposal = repository.cast_proposal_vote(
+            session,
+            proposal_id,
+            voter_hash,
+            body.value,
+        )
+        if proposal is None:
+            raise HTTPException(status_code=404, detail="Proposition introuvable.")
+        session.commit()
+        return repository.proposal_to_dict(session, proposal, voter_hash)
+    except HTTPException:
+        session.rollback()
+        raise
+    except Exception:
+        session.rollback()
+        raise
 
 
 @router.get("/models")

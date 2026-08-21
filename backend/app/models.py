@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Any
 
-from sqlalchemy import Boolean, DateTime, Float, Integer, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -36,6 +36,47 @@ class Question(Base):
     is_control: Mapped[bool] = mapped_column(Boolean, default=False)
     seed_version: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
     locked_by_admin: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
+
+
+class QuestionProposal(Base):
+    """Question proposée par la communauté avant validation."""
+
+    __tablename__ = "question_proposals"
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True)
+    category: Mapped[str] = mapped_column(String(64), index=True)
+    difficulty: Mapped[str] = mapped_column(String(16))
+    question: Mapped[str] = mapped_column(Text)
+    options: Mapped[dict] = mapped_column(JSONB, default=dict)
+    answer: Mapped[str] = mapped_column(String(8))
+    explanation: Mapped[str] = mapped_column(Text)
+    source: Mapped[str] = mapped_column(Text)
+    author: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    status: Mapped[str] = mapped_column(String(16), default="pending", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
+
+
+class ProposalVote(Base):
+    """Vote anonyme unique et modifiable pour une proposition."""
+
+    __tablename__ = "proposal_votes"
+    __table_args__ = (
+        UniqueConstraint("proposal_id", "voter_hash", name="uq_proposal_voter"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    proposal_id: Mapped[str] = mapped_column(
+        ForeignKey("question_proposals.id", ondelete="CASCADE"), index=True
+    )
+    voter_hash: Mapped[str] = mapped_column(String(64))
+    value: Mapped[int] = mapped_column(Integer)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=_now, onupdate=_now

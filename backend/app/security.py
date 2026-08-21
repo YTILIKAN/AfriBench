@@ -23,7 +23,7 @@ def client_ip(request: Request) -> str:
 async def enforce_rate_limit(request: Request) -> None:
     settings = get_settings()
     path = request.url.path
-    if path.endswith("/evaluate") or path.endswith("/reload"):
+    if request.method not in {"GET", "HEAD", "OPTIONS"}:
         limit = settings.rate_limit_write
         window = settings.rate_limit_write_window
     else:

@@ -87,6 +87,7 @@ def root() -> dict:
             f"{settings.api_prefix}/health",
             f"{settings.api_prefix}/results",
             f"{settings.api_prefix}/questions",
+            f"{settings.api_prefix}/proposals",
             f"{settings.api_prefix}/models",
             f"{settings.api_prefix}/stats",
             f"{settings.api_prefix}/leaderboard",
