@@ -36,7 +36,7 @@ async function renderOpenTasks(container) {
   let html = `
     <div class="card">
       <div class="card-title">
-        Tâches ouvertes (non-QCM)
+        Tâches ouvertes
         ${scores.dry_run ? '<span class="count-badge">dry-run</span>' : ''}
       </div>
       <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px">

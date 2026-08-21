@@ -508,14 +508,14 @@ function renderWorkspaceFilters() {
     <div class="workspace-filter workspace-filter--search">
       <label for="workspace-search">Recherche</label>
       <input type="search" id="workspace-search" value="${escapeHtml(AppState.searchQuery)}"
-             placeholder="Modèle, question, mot-clé…" autocomplete="off">
+             placeholder="Rechercher…" autocomplete="off">
     </div>
     ${showModelType ? `
       <div class="workspace-filter">
         <label for="workspace-model-type">Type de modèle</label>
         <select id="workspace-model-type">
           <option value="all" ${AppState.modelType === 'all' ? 'selected' : ''}>Tous les modèles</option>
-          <option value="open" ${AppState.modelType === 'open' ? 'selected' : ''}>Open weights</option>
+          <option value="open" ${AppState.modelType === 'open' ? 'selected' : ''}>Poids ouverts</option>
           <option value="closed" ${AppState.modelType === 'closed' ? 'selected' : ''}>Propriétaires</option>
           <option value="favs" ${AppState.modelType === 'favs' ? 'selected' : ''}>Favoris</option>
         </select>
@@ -745,9 +745,9 @@ function updateDataSourceBadge() {
   const badge = document.getElementById('data-source-badge');
   if (!badge) return;
   const map = {
-    api: ['Données : API live', 'ok'],
-    static: ['Données : statiques (API injoignable)', 'warn'],
-    bootstrap: ['Données : aperçu pré-généré', 'warn'],
+    api: ['API en direct', 'ok'],
+    static: ['Données statiques', 'warn'],
+    bootstrap: ['Aperçu pré-généré', 'warn'],
     none: ['Données indisponibles', 'err'],
   };
   const entry = map[AppState.dataSource];
@@ -959,7 +959,7 @@ function renderDailyQuestion() {
         </div>
         <div class="dq-actions">
           <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
-          <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Toutes les questions</button>
+          <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Voir le corpus</button>
         </div>
       </div>
     </div>

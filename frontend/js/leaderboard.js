@@ -246,13 +246,13 @@ function renderLeaderboard(container) {
   html += `<div class="grid-2">`;
   html += `
     <div class="card">
-      <div class="card-title">Performance par catégorie</div>
+      <div class="card-title">Par catégorie</div>
       <div class="chart-container" style="min-height:300px">
         <canvas id="lb-cat-chart"></canvas>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Performance par difficulté</div>
+      <div class="card-title">Par difficulté</div>
       <div class="chart-container" style="min-height:300px">
         <canvas id="lb-diff-chart"></canvas>
       </div>

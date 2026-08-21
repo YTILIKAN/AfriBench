@@ -109,7 +109,7 @@ function renderQuestions(container) {
         <span class="filter-label">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
         <button class="filter-btn" id="q-toggle-all" aria-expanded="false">Tout déplier</button>
         <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
-          + Proposer une question
+          + Proposer
         </button>
       </div>
     </div>

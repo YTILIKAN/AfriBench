@@ -167,7 +167,7 @@ function renderContribute(container) {
         </div>
 
         <fieldset class="cq-field">
-          <legend>Options <span class="cq-req">*</span> <span class="cq-hint">— cochez la bonne réponse</span></legend>
+          <legend>Options <span class="cq-req">*</span> <span class="cq-hint">— bonne réponse</span></legend>
           ${LETTERS.map((l) => `
             <div class="cq-option-row">
               <input type="radio" name="cq-answer" id="cq-answer-${l}" value="${l}"
@@ -185,7 +185,7 @@ function renderContribute(container) {
         </div>
 
         <div class="cq-field">
-          <label for="cq-source">Source <span class="cq-hint">(lien ou référence vérifiable)</span></label>
+          <label for="cq-source">Source <span class="cq-hint">(lien ou référence)</span></label>
           <input type="text" id="cq-source" placeholder="https://…">
         </div>
 
