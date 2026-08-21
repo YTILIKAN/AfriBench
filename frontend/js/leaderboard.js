@@ -5,14 +5,30 @@
 
 const {
   AppState, getLatestResults, applySearchFilter, isOpenModel, isFavorite,
-  computeBestCategory, computeStdDev, categoryLabel, categoryKeys,
-  categoryColor, formatDate, exportCSV, exportJSON, toggleFavorite,
+  computeBestCategory, computeStdDev, categoryLabel, categoryColor,
+  formatDate, exportCSV, exportJSON, toggleFavorite,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
 let lbSortField = null;
 let lbSortDir = 'desc';
 let lbShowLegend = false;
+
+function resultMetric(model) {
+  if (!AppState.urlCategory) {
+    return {
+      accuracy: model.accuracy || 0,
+      correct: model.correct || 0,
+      total: model.total || 0,
+    };
+  }
+  const category = model.by_category?.[AppState.urlCategory] || {};
+  return {
+    accuracy: category.accuracy || 0,
+    correct: category.correct || 0,
+    total: category.total || 0,
+  };
+}
 
 /* ── Metric definitions (used for tooltips + legend) ─── */
 const METRICS = {
@@ -55,7 +71,7 @@ function getSortVal(m, field) {
   switch (field) {
     case 'rank': return 0;
     case 'name': return (m.model_label || m.model || '').toLowerCase();
-    case 'score': return m.accuracy || 0;
+    case 'score': return resultMetric(m).accuracy;
     case 'total': return m.total || 0;
     case 'date': return m.timestamp || '';
     case 'best_cat': return computeBestCategory(m)?.accuracy || 0;
@@ -81,6 +97,10 @@ function renderLeaderboard(container) {
     models = models.filter((m) => isFavorite(m.model_label || m.model));
   }
 
+  if (AppState.urlCategory && !lbSortField) {
+    models.sort((a, b) => resultMetric(b).accuracy - resultMetric(a).accuracy);
+  }
+
   // Sort
   if (lbSortField) {
     models.sort((a, b) => {
@@ -93,7 +113,9 @@ function renderLeaderboard(container) {
     });
   }
 
-  const maxScore = models.length > 0 ? Math.max(...models.map((m) => m.accuracy)) : 100;
+  const maxScore = models.length > 0
+    ? Math.max(...models.map((m) => resultMetric(m).accuracy))
+    : 100;
 
   if (models.length === 0) {
     container.innerHTML = `
@@ -118,6 +140,9 @@ function renderLeaderboard(container) {
       <span style="flex:1"></span>
       <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
       <button class="filter-btn" id="lb-export-json" title="Exporter en JSON">JSON</button>
+      ${AppState.urlCategory ? `
+        <span class="filter-context">Score · ${categoryLabel(AppState.urlCategory)}</span>
+      ` : ''}
       <span class="filter-label" style="margin-left:4px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
   `;
@@ -147,7 +172,7 @@ function renderLeaderboard(container) {
           <tr>
             ${renderTH('rank', '#')}
             ${renderTH('name', 'Modèle')}
-            ${renderTH('score', 'Score')}
+            ${renderTH('score', AppState.urlCategory ? categoryLabel(AppState.urlCategory) : 'Score')}
             <th class="th-with-tip" data-tip="${METRICS.questions.desc}">Questions <span class="tip-icon"></span></th>
             <th class="th-with-tip" data-tip="${METRICS.facile.desc}">Facile <span class="tip-icon"></span></th>
             <th class="th-with-tip" data-tip="${METRICS.moyen.desc}">Moyen <span class="tip-icon"></span></th>
@@ -164,7 +189,8 @@ function renderLeaderboard(container) {
     const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
     const name = m.model_label || m.model;
     const safeName = escapeHtml(name);
-    const barWidth = maxScore > 0 ? (m.accuracy / maxScore) * 100 : 0;
+    const metric = resultMetric(m);
+    const barWidth = maxScore > 0 ? (metric.accuracy / maxScore) * 100 : 0;
     const d = m.by_difficulty || {};
     const easy = d.easy ? `${(d.easy.accuracy || 0).toFixed(1)}%` : '-';
     const med = d.medium ? `${(d.medium.accuracy || 0).toFixed(1)}%` : '-';
@@ -189,13 +215,13 @@ function renderLeaderboard(container) {
         </td>
         <td>
           <div class="score-bar-wrap">
-            <span class="score-cell">${m.accuracy}%</span>
+            <span class="score-cell">${metric.accuracy.toFixed(1)}%</span>
             <div class="score-bar-bg">
               <div class="score-bar-fill" style="width:${barWidth}%"></div>
             </div>
           </div>
         </td>
-        <td class="metadata">${m.correct}/${m.total}</td>
+        <td class="metadata">${metric.correct}/${metric.total}</td>
         <td class="metadata">${easy}</td>
         <td class="metadata">${med}</td>
         <td class="metadata">${hard}</td>
@@ -233,19 +259,6 @@ function renderLeaderboard(container) {
     </div>
   `;
   html += `</div>`;
-
-  // ── Podium par catégorie ──
-  html += `
-    <div class="card">
-      <div class="card-title">
-        Classement par catégorie
-        <span class="count-badge">top 3 par domaine</span>
-      </div>
-      <div class="podium-grid">
-        ${renderCategoryPodium(models)}
-      </div>
-    </div>
-  `;
 
   container.innerHTML = html;
 
@@ -402,31 +415,6 @@ function renderLBDifficultyChart(models) {
       },
     },
   });
-}
-
-/* ── Category Podium ──────────────────────────────────── */
-function renderCategoryPodium(models) {
-  const cats = categoryKeys();
-  return cats.map(catKey => {
-    const scores = models
-      .map(m => ({ name: m.model_label || m.model, score: m.by_category?.[catKey]?.accuracy || 0 }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
-
-    const color = categoryColor(catKey);
-    return `
-      <div class="podium-item">
-        <div class="podium-cat" style="color:${color}">${categoryLabel(catKey)}</div>
-        ${scores.map((s, i) => `
-          <div class="podium-row ${i === 0 ? 'podium-gold' : ''}">
-            <span class="podium-rank">${i + 1}</span>
-            <span class="podium-name">${escapeHtml(s.name)}</span>
-            <span class="podium-score">${s.score.toFixed(0)}%</span>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  }).join('');
 }
 
 globalThis.renderLeaderboard = renderLeaderboard;

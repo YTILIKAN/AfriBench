@@ -314,7 +314,7 @@ describe('navigation dynamique par espaces', () => {
       <nav class="sidebar-nav">
         <div class="sidebar-tablist" role="tablist">
           <button data-sidebar data-workspace="overview" data-tab="leaderboard"></button>
-          <button data-sidebar data-workspace="analysis" data-tab="categories"></button>
+          <button data-sidebar data-workspace="analysis" data-tab="compare"></button>
           <button data-sidebar data-workspace="data" data-tab="questions"></button>
           <button data-sidebar data-workspace="project" data-tab="methodology"></button>
         </div>
@@ -336,8 +336,18 @@ describe('navigation dynamique par espaces', () => {
     setActiveTab('compare');
     const analysis = document.querySelector('[data-workspace="analysis"]');
     expect(analysis.classList.contains('active')).toBe(true);
-    expect(document.querySelectorAll('[data-workspace-tab]')).toHaveLength(3);
+    expect(document.querySelectorAll('[data-workspace-tab]')).toHaveLength(2);
     expect(document.querySelector('[data-workspace-tab="compare"]').classList.contains('active')).toBe(true);
+  });
+
+  it('intègre la catégorie comme filtre du classement principal', () => {
+    setActiveTab('leaderboard');
+    const select = document.getElementById('workspace-category');
+    select.value = 'geographie';
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(AppState.urlCategory).toBe('geographie');
+    expect(document.querySelector('.filter-context').textContent).toContain('Géographie');
+    expect(document.querySelector('.lb-table .score-cell').textContent).toBe('100.0%');
   });
 
   it('le filtre global de type met à jour le contenu', () => {
@@ -388,6 +398,20 @@ describe('bandeau d’introduction compact', () => {
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
     expect(details.hidden).toBe(true);
     expect(document.querySelector('h1')).toBeTruthy();
+  });
+
+  it('replie aussi la question du jour par défaut', async () => {
+    document.body.innerHTML = '<div id="daily-question"></div>';
+    globalThis.renderDailyQuestion();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    const toggle = document.getElementById('dq-collapse-toggle');
+    const content = document.getElementById('dq-content');
+    expect(content.hidden).toBe(true);
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
+
+    toggle.click();
+    expect(content.hidden).toBe(false);
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
   });
 });
 
