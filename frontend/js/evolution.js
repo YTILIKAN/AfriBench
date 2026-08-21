@@ -9,7 +9,7 @@ let evoSelectedModels = new Set();
 function renderEvolution(container) {
   const models = getLatestResults();
   if (models.length === 0) {
-    container.innerHTML = `<div class="card"><div class="empty-state"><h3>Aucune donnee</h3><p>Les donnees ne sont pas encore chargees.</p></div></div>`;
+    container.innerHTML = `<div class="card"><div class="empty-state"><h3>Aucune donnée</h3><p>Données indisponibles.</p></div></div>`;
     return;
   }
 

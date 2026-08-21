@@ -34,35 +34,35 @@ function resultMetric(model) {
 const METRICS = {
   score: {
     label: 'Score global',
-    desc: 'Pourcentage de réponses correctes sur l\'ensemble du benchmark (350 questions). Métrique principale de performance.',
+    desc: 'Part de réponses correctes.',
   },
   facile: {
     label: 'Facile',
-    desc: 'Précision sur les questions de niveau facile. Teste les connaissances de base sur l\'Afrique.',
+    desc: 'Score des questions faciles.',
   },
   moyen: {
     label: 'Moyen',
-    desc: 'Précision sur les questions de niveau intermédiaire. Évalue la profondeur des connaissances.',
+    desc: 'Score des questions intermédiaires.',
   },
   difficile: {
     label: 'Difficile',
-    desc: 'Précision sur les questions de niveau difficile. Mesure la capacité de raisonnement avancé sur des sujets spécialisés.',
+    desc: 'Score des questions difficiles.',
   },
   meilleure_cat: {
     label: 'Meilleure cat.',
-    desc: 'Catégorie où le modèle obtient le meilleur score. Indique le domaine de prédilection du modèle.',
+    desc: 'Catégorie au meilleur score.',
   },
   ecart_type: {
     label: 'Écart-type',
-    desc: 'Mesure de la régularité des performances entre les 9 catégories. Plus l\'écart-type est faible, plus le modèle est consistant.',
+    desc: 'Écart entre les catégories. Plus bas = plus régulier.',
   },
   questions: {
     label: 'Questions',
-    desc: 'Nombre de réponses correctes sur le total de questions (correct/total).',
+    desc: 'Réponses correctes / total.',
   },
   evalue: {
     label: 'Évalué',
-    desc: 'Date de la dernière évaluation du modèle sur AfriBench.',
+    desc: 'Dernière évaluation.',
   },
 };
 
@@ -122,7 +122,7 @@ function renderLeaderboard(container) {
       <div class="card">
         <div class="empty-state">
           <h3>Aucun résultat</h3>
-          <p>Lancez une évaluation depuis votre terminal :</p>
+          <p>Lancez une évaluation :</p>
           <p><code>python scripts/afribench.py run</code></p>
         </div>
       </div>

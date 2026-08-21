@@ -51,8 +51,8 @@ function renderQuestions(container) {
     container.innerHTML = `
       <div class="card">
         <div class="empty-state">
-          <h3>Questions non chargées</h3>
-          <p>Le fichier <code>data/questions.json</code> est requis.</p>
+          <h3>Questions indisponibles</h3>
+          <p>Source de données absente.</p>
         </div>
       </div>
     `;
@@ -122,7 +122,7 @@ function renderQuestions(container) {
     html += `
       <div class="empty-state" style="padding:30px">
         <h3>Aucune question trouvée</h3>
-        <p>Essayez de modifier les filtres.</p>
+        <p>Modifiez les filtres.</p>
       </div>
     `;
   } else {

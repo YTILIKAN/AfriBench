@@ -107,25 +107,25 @@
                   aria-selected="true" aria-controls="tab-content" data-tab="leaderboard"
                   data-workspace="overview" data-sidebar>
             <span class="icon">▦</span>
-            <span><strong>Vue d'ensemble</strong><small>Classement et modèles</small></span>
+            <span><strong>Vue d'ensemble</strong><small>Scores · Modèles</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-analysis" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="compare"
                   data-workspace="analysis" data-sidebar>
             <span class="icon">↗</span>
-            <span><strong>Analyse</strong><small>Comparer les performances</small></span>
+            <span><strong>Analyse</strong><small>Comparaison · Évolution</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-data" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="questions"
                   data-workspace="data" data-sidebar>
             <span class="icon">⊡</span>
-            <span><strong>Données</strong><small>Explorer le benchmark</small></span>
+            <span><strong>Données</strong><small>Questions · Tâches</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-project" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="methodology"
                   data-workspace="project" data-sidebar>
             <span class="icon">+</span>
-            <span><strong>Projet</strong><small>Méthode et contribution</small></span>
+            <span><strong>Projet</strong><small>Méthode · API</small></span>
           </button>
         </div>
       </nav>
@@ -158,10 +158,10 @@
             <div class="page-header__identity">
               <div class="page-header__eyebrow">
                 <span class="page-header__eyebrow-dot" aria-hidden="true"></span>
-                Benchmark public · Prototype v0.1
+                Benchmark public · v0.1
               </div>
               <h1 class="page-header__title">
-                Évaluer les LLMs sur les réalités africaines
+                Évaluer les LLM sur l'Afrique
               </h1>
             </div>
             <button type="button" class="page-header__toggle" id="page-header-toggle"
@@ -172,8 +172,7 @@
           </div>
           <div class="page-header__details" id="page-header-details" hidden>
             <p class="page-header__sub">
-              Benchmark public, ouvert et reproductible couvrant l'histoire, la géographie, la culture,
-              l'économie, le droit, la santé, la technologie et la société africaines.
+              Benchmark ouvert et reproductible sur les réalités africaines.
             </p>
             <dl class="page-header__stats" aria-label="Chiffres clés du benchmark">
               <div class="page-header__stat">
@@ -194,8 +193,8 @@
               </div>
             </dl>
             <p class="page-header__note">
-              <span aria-hidden="true">ⓘ</span> Classement indicatif — scores sur un sous-ensemble de questions.
-              <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">En savoir plus</a>
+              <span aria-hidden="true">ⓘ</span> Scores indicatifs sur un corpus partiel.
+              <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">Limites</a>
             </p>
           </div>
         </div>
@@ -217,7 +216,7 @@
           <div class="workspace-filters" id="workspace-filters" aria-label="Filtres du tableau de bord"></div>
           <header class="view-header" id="view-header">
             <h2 class="view-header__title" id="view-title">Classement</h2>
-            <p class="view-header__desc" id="view-desc">Performance globale des modèles sur le benchmark.</p>
+            <p class="view-header__desc" id="view-desc">Scores, filtres et exports.</p>
           </header>
           <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="nav-leaderboard" tabindex="0">
 <!-- STATIC_LEADERBOARD_BEGIN -->
