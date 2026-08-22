@@ -2,6 +2,8 @@
    AfriBench — Application Core (refonte 2026)
    ═══════════════════════════════════════════════════════════ */
 
+const renderIcon = globalThis.icon || (() => '');
+
 /* ── Security ────────────────────────────────────────── */
 function escapeHtml(str) {
   if (!str || typeof str !== 'string') return '';
@@ -232,7 +234,7 @@ function setupDashboardIntro() {
     const label = toggle.querySelector('span:first-child');
     const icon = toggle.querySelector('.page-header__toggle-icon');
     if (label) label.textContent = expanded ? 'Détails' : 'Réduire';
-    if (icon) icon.textContent = expanded ? '+' : '−';
+    if (icon) icon.classList.toggle('is-expanded', !expanded);
   });
 }
 
@@ -312,7 +314,9 @@ function applyTheme(theme) {
   if (btn) {
     btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
     const label = btn.querySelector('.theme-toggle__label');
+    const themeIcon = btn.querySelector('.theme-toggle__icon');
     if (label) label.textContent = dark ? 'Clair' : 'Sombre';
+    if (themeIcon) themeIcon.innerHTML = renderIcon(dark ? 'Sun' : 'Moon');
   }
   if (typeof Chart !== 'undefined') {
     Chart.defaults.color = chartTheme().tick;
@@ -933,7 +937,7 @@ function renderDailyQuestion() {
         <button type="button" class="dq-collapse-toggle" id="dq-collapse-toggle"
                 aria-expanded="false" aria-controls="dq-content">
           <span>Afficher</span>
-          <span class="dq-collapse-toggle__icon" aria-hidden="true">+</span>
+          <span class="dq-collapse-toggle__icon" aria-hidden="true">${renderIcon('ChevronDown')}</span>
         </button>
       </div>
       <div class="dq-content" id="dq-content" hidden>
@@ -973,7 +977,7 @@ function renderDailyQuestion() {
       const expanded = button.getAttribute('aria-expanded') === 'true';
       button.setAttribute('aria-expanded', String(!expanded));
       button.querySelector('span:first-child').textContent = expanded ? 'Afficher' : 'Réduire';
-      button.querySelector('.dq-collapse-toggle__icon').textContent = expanded ? '+' : '−';
+      button.querySelector('.dq-collapse-toggle__icon').classList.toggle('is-expanded', !expanded);
       content.hidden = expanded;
       card.classList.toggle('dq-card--collapsed', expanded);
     });

@@ -3,6 +3,7 @@
 const {
   escapeHtml, categoryLabel, categoryKeys, difficultyLabel, getApiBase,
 } = globalThis;
+const renderIcon = globalThis.icon || (() => '');
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const LOCAL_PROPOSALS_KEY = 'afribench-local-proposals';
@@ -109,18 +110,18 @@ function showFormErrors(errors) {
 function proposalCard(proposal) {
   const safeSource = escapeHtml(proposal.source || '');
   const source = /^https?:\/\//i.test(proposal.source || '')
-    ? `<a href="${safeSource}" target="_blank" rel="noopener">Source ↗</a>`
+    ? `<a href="${safeSource}" target="_blank" rel="noopener">Source ${renderIcon('ExternalLink')}</a>`
     : `<span>${safeSource}</span>`;
   return `
     <article class="hub-card" data-proposal-id="${escapeHtml(proposal.id)}">
       <div class="hub-votes" aria-label="${proposal.total_votes} votes">
         <button type="button" class="hub-vote ${proposal.user_vote === 1 ? 'active' : ''}"
                 data-vote="1" aria-label="Soutenir cette question"
-                aria-pressed="${proposal.user_vote === 1}">↑</button>
+                aria-pressed="${proposal.user_vote === 1}">${renderIcon('ArrowUp')}</button>
         <strong>${proposal.score}</strong>
         <button type="button" class="hub-vote ${proposal.user_vote === -1 ? 'active' : ''}"
                 data-vote="-1" aria-label="Signaler une question faible"
-                aria-pressed="${proposal.user_vote === -1}">↓</button>
+                aria-pressed="${proposal.user_vote === -1}">${renderIcon('ArrowDown')}</button>
       </div>
       <div class="hub-card__body">
         <div class="q-meta">
@@ -333,7 +334,9 @@ async function renderContribute(container) {
         <h2>Le hub des questions</h2>
         <p>Un visiteur, un vote modifiable. Scores publics. Validation finale documentée.</p>
       </div>
-      <button type="button" class="hub-hero__cta" data-open-proposal>+ Proposer une question</button>
+      <button type="button" class="hub-hero__cta" data-open-proposal>
+        ${renderIcon('Plus')} Proposer une question
+      </button>
     </section>
     <div class="hub-toolbar">
       <span id="hub-count">Chargement…</span>
@@ -359,7 +362,9 @@ async function renderContribute(container) {
             <span>Nouvelle proposition</span>
             <h2 id="proposal-modal-title">Suggérer une question</h2>
           </div>
-          <button type="button" class="cq-modal__close" data-close-proposal aria-label="Fermer">×</button>
+          <button type="button" class="cq-modal__close" data-close-proposal aria-label="Fermer">
+            ${renderIcon('X')}
+          </button>
         </header>
         <div class="cq-modal__body">${proposalForm()}</div>
       </section>

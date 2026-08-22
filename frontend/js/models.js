@@ -7,6 +7,7 @@ const {
   formatDate, toggleFavorite, categoryKeys, categoryLabel, setActiveTab,
   escapeHtml, mountChart, chartTheme,
 } = globalThis;
+const renderIcon = globalThis.icon || (() => '');
 
 let modelSortKey = 'score';
 let modelSortDir = 'desc';
@@ -46,13 +47,13 @@ function renderModels(container) {
 
   let html = `
     <div class="models-filters">
-      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-mfilter="favs">★ Favoris</button>
+      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-mfilter="favs">Favoris</button>
       <span style="flex:1"></span>
       <span class="filter-label">Trier :</span>
       <button class="filter-btn ${modelSortKey === 'score' ? 'active' : ''}" data-msort="score">Score</button>
       <button class="filter-btn ${modelSortKey === 'name' ? 'active' : ''}" data-msort="name">Nom</button>
       <button class="filter-btn" data-msortdir title="${modelSortDir === 'desc' ? 'Descendant' : 'Ascendant'}" aria-label="Inverser l'ordre de tri">
-        ${modelSortDir === 'desc' ? '▼' : '▲'}
+        ${renderIcon(modelSortDir === 'desc' ? 'ArrowDown' : 'ArrowUp')}
       </button>
       <span class="filter-label" style="margin-left:8px">${sorted.length} modèle${sorted.length > 1 ? 's' : ''}</span>
     </div>
@@ -69,12 +70,17 @@ function renderModels(container) {
     const open = isOpenModel(m);
     const provider = getModelProvider(name);
     const timestamp = m.timestamp ? formatDate(m.timestamp) : '—';
+    const favorite = isFavorite(name);
 
     html += `
       <div class="model-card">
         <div class="model-card-header">
           <div class="model-card-name">
-            <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${isFavorite(name) ? '★' : '☆'}</span>
+            <button type="button" class="fav-star ${favorite ? 'is-favorite' : ''}"
+                    data-fav="${safeName}" aria-pressed="${favorite}"
+                    aria-label="${favorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+              ${renderIcon('Star')}
+            </button>
             ${safeName}
           </div>
           <span class="model-card-badge ${open ? 'open' : 'closed'}">${open ? 'Ouvert' : 'Propriétaire'}</span>

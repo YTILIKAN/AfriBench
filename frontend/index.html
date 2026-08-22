@@ -89,11 +89,12 @@
             </span>
           </a>
           <button type="button" class="sidebar-close" id="sidebar-close"
-                  aria-label="Fermer le menu">&times;</button>
+                  aria-label="Fermer le menu"><span data-icon="X"></span></button>
         </div>
       </div>
 
       <div class="sidebar-search">
+        <span class="sidebar-search__icon" data-icon="Search" aria-hidden="true"></span>
         <input type="search" id="global-search" class="sidebar-search__input"
                placeholder="Modèle ou question…"
                aria-label="Recherche globale (Ctrl+K)" autocomplete="off">
@@ -106,25 +107,25 @@
           <button class="sidebar-btn active" role="tab" id="nav-overview"
                   aria-selected="true" aria-controls="tab-content" data-tab="leaderboard"
                   data-workspace="overview" data-sidebar>
-            <span class="icon">▦</span>
+            <span class="icon" data-icon="LayoutDashboard" aria-hidden="true"></span>
             <span><strong>Vue d'ensemble</strong><small>Scores · Modèles</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-analysis" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="compare"
                   data-workspace="analysis" data-sidebar>
-            <span class="icon">↗</span>
+            <span class="icon" data-icon="ChartNoAxesCombined" aria-hidden="true"></span>
             <span><strong>Analyse</strong><small>Comparaison · Évolution</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-data" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="questions"
                   data-workspace="data" data-sidebar>
-            <span class="icon">⊡</span>
+            <span class="icon" data-icon="Database" aria-hidden="true"></span>
             <span><strong>Données</strong><small>Questions · Tâches</small></span>
           </button>
           <button class="sidebar-btn" role="tab" id="nav-project" tabindex="-1"
                   aria-selected="false" aria-controls="tab-content" data-tab="methodology"
                   data-workspace="project" data-sidebar>
-            <span class="icon">+</span>
+            <span class="icon" data-icon="FolderKanban" aria-hidden="true"></span>
             <span><strong>Projet</strong><small>Méthode · API</small></span>
           </button>
         </div>
@@ -132,14 +133,14 @@
 
       <div class="sidebar-footer">
         <button type="button" class="participate-link" onclick="setActiveTab('contribute')">
-          <span class="participate-link__icon" aria-hidden="true">+</span>
+          <span class="participate-link__icon" data-icon="UserRoundPlus" aria-hidden="true"></span>
           <span>
             <strong>Participer</strong>
             <small>Proposer et voter</small>
           </span>
         </button>
         <a class="backoffice-link" href="/admin/">
-          <span class="backoffice-link__icon" aria-hidden="true">↗</span>
+          <span class="backoffice-link__icon" data-icon="BriefcaseBusiness" aria-hidden="true"></span>
           <span>
             <strong>Backoffice</strong>
             <small>Administration</small>
@@ -147,12 +148,12 @@
         </a>
         <button type="button" class="theme-toggle" id="theme-toggle"
                 aria-label="Basculer entre thème clair et sombre" aria-pressed="false">
-          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__icon" data-icon="Moon" aria-hidden="true"></span>
           <span class="theme-toggle__label">Thème</span>
         </button>
         <span class="data-source-badge" id="data-source-badge" role="status"></span>
         v0.1 · benchmark ouvert
-        <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/YTILIKAN/AfriBench" target="_blank" rel="noopener">GitHub</a>
       </div>
     </aside>
 
@@ -174,7 +175,7 @@
             <button type="button" class="page-header__toggle" id="page-header-toggle"
                     aria-expanded="false" aria-controls="page-header-details">
               <span>Détails</span>
-              <span class="page-header__toggle-icon" aria-hidden="true">+</span>
+              <span class="page-header__toggle-icon" data-icon="ChevronDown" aria-hidden="true"></span>
             </button>
           </div>
           <div class="page-header__details" id="page-header-details" hidden>
@@ -200,7 +201,8 @@
               </div>
             </dl>
             <p class="page-header__note">
-              <span aria-hidden="true">ⓘ</span> Scores indicatifs sur un corpus partiel.
+              <span class="page-header__note-icon" data-icon="Info" aria-hidden="true"></span>
+              Scores indicatifs sur un corpus partiel.
               <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CRITIQUE.md" target="_blank" rel="noopener">Limites</a>
             </p>
           </div>
