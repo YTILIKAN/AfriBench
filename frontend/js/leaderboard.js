@@ -9,6 +9,7 @@ const {
   formatDate, exportCSV, exportJSON, toggleFavorite,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
+const renderIcon = globalThis.icon || (() => '');
 
 let lbSortField = null;
 let lbSortDir = 'desc';
@@ -133,9 +134,9 @@ function renderLeaderboard(container) {
   // ── Filter bar ──
   let html = `
     <div class="filter-bar">
-      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-filter="favs">★ Favoris</button>
+      <button class="filter-btn ${AppState.modelType === 'favs' ? 'active' : ''}" data-filter="favs">Favoris</button>
       <button class="filter-btn ${lbShowLegend ? 'active' : ''}" id="lb-toggle-legend">
-        ${lbShowLegend ? '▼' : '▶'} Légende
+        ${renderIcon('ChevronDown', `ui-icon ${lbShowLegend ? 'is-expanded' : ''}`)} Légende
       </button>
       <span style="flex:1"></span>
       <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
@@ -173,10 +174,10 @@ function renderLeaderboard(container) {
             ${renderTH('rank', '#')}
             ${renderTH('name', 'Modèle')}
             ${renderTH('score', AppState.urlCategory ? categoryLabel(AppState.urlCategory) : 'Score')}
-            <th class="th-with-tip" data-tip="${METRICS.questions.desc}">Questions <span class="tip-icon"></span></th>
-            <th class="th-with-tip" data-tip="${METRICS.facile.desc}">Facile <span class="tip-icon"></span></th>
-            <th class="th-with-tip" data-tip="${METRICS.moyen.desc}">Moyen <span class="tip-icon"></span></th>
-            <th class="th-with-tip" data-tip="${METRICS.difficile.desc}">Difficile <span class="tip-icon"></span></th>
+            <th class="th-with-tip" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip" data-tip="${METRICS.difficile.desc}">Difficile ${renderIcon('CircleHelp', 'tip-icon')}</th>
             ${renderTH('best_cat', 'Meilleure cat.', METRICS.meilleure_cat.desc)}
             ${renderTH('stddev', 'Écart-type', METRICS.ecart_type.desc)}
             ${renderTH('date', 'Évalué', METRICS.evalue.desc)}
@@ -200,14 +201,18 @@ function renderLeaderboard(container) {
     const best = computeBestCategory(m);
     const stddev = computeStdDev(m);
 
-    const favStar = isFavorite(name) ? '★' : '☆';
+    const favorite = isFavorite(name);
 
     html += `
       <tr>
         <td class="rank ${rankClass}">${i + 1}</td>
         <td>
           <div class="model-cell">
-            <span class="fav-star" data-fav="${safeName}" title="${isFavorite(name) ? 'Retirer des favoris' : 'Ajouter aux favoris'}">${favStar}</span>
+            <button type="button" class="fav-star ${favorite ? 'is-favorite' : ''}"
+                    data-fav="${safeName}" aria-pressed="${favorite}"
+                    aria-label="${favorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+              ${renderIcon('Star')}
+            </button>
             <span class="model-icon ${providerClass}"></span>
             <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
@@ -318,10 +323,13 @@ function renderTH(field, label, tip) {
   const active = lbSortField === field;
   const cls = active ? (lbSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc') : '';
   const tipAttr = tip ? ` data-tip="${tip}"` : '';
-  const tipIcon = tip ? ' <span class="tip-icon"></span>' : '';
+  const tipIcon = tip ? ` ${renderIcon('CircleHelp', 'tip-icon')}` : '';
+  const sortIcon = active
+    ? renderIcon(lbSortDir === 'asc' ? 'ArrowUp' : 'ArrowDown', 'sort-icon')
+    : renderIcon('ChevronsUpDown', 'sort-icon');
   return `
     <th data-sort="${field}" class="${cls} th-with-tip"${tipAttr}>
-      ${label} <span class="sort-arrows"></span>${tipIcon}
+      ${label} ${sortIcon}${tipIcon}
     </th>
   `;
 }

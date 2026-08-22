@@ -5,6 +5,7 @@
 const {
   AppState, categoryLabel, categoryColor, escapeHtml, formatDate, difficultyLabel,
 } = globalThis;
+const renderIcon = globalThis.icon || (() => '');
 
 let qFilterCat = 'all';
 let qFilterDiff = 'all';
@@ -28,7 +29,7 @@ function renderPagination(current, total) {
     <nav class="questions-pagination" aria-label="Pagination des questions">
       <button type="button" class="questions-pagination__button questions-pagination__button--nav"
               data-question-page="${current - 1}" ${current === 1 ? 'disabled' : ''}
-              aria-label="Page précédente">← <span>Précédent</span></button>
+              aria-label="Page précédente">${renderIcon('ArrowLeft')} <span>Précédent</span></button>
       <div class="questions-pagination__pages">
         ${paginationItems(current, total).map((page) => page === null
           ? '<span class="questions-pagination__ellipsis" aria-hidden="true">…</span>'
@@ -39,7 +40,7 @@ function renderPagination(current, total) {
       </div>
       <button type="button" class="questions-pagination__button questions-pagination__button--nav"
               data-question-page="${current + 1}" ${current === total ? 'disabled' : ''}
-              aria-label="Page suivante"><span>Suivant</span> →</button>
+              aria-label="Page suivante"><span>Suivant</span> ${renderIcon('ArrowRight')}</button>
     </nav>
   `;
 }
@@ -109,7 +110,7 @@ function renderQuestions(container) {
         <span class="filter-label">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
         <button class="filter-btn" id="q-toggle-all" aria-expanded="false">Tout déplier</button>
         <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
-          + Proposer
+          ${renderIcon('Plus')} Proposer
         </button>
       </div>
     </div>
@@ -151,7 +152,8 @@ function renderQuestions(container) {
             <div class="q-text">${safeQuestion}</div>
             <button type="button" class="q-item__toggle" data-question-toggle
                     aria-expanded="false" aria-controls="${detailsId}">
-              <span>Afficher</span><span class="q-item__toggle-icon" aria-hidden="true">+</span>
+              <span>Afficher</span>
+              <span class="q-item__toggle-icon" aria-hidden="true">${renderIcon('ChevronDown')}</span>
             </button>
           </div>
           <div class="q-item__details" id="${detailsId}" hidden>
@@ -182,7 +184,7 @@ function renderQuestions(container) {
       const details = document.getElementById(button.getAttribute('aria-controls'));
       button.setAttribute('aria-expanded', String(!expanded));
       button.querySelector('span:first-child').textContent = expanded ? 'Afficher' : 'Réduire';
-      button.querySelector('.q-item__toggle-icon').textContent = expanded ? '+' : '−';
+      button.querySelector('.q-item__toggle-icon').classList.toggle('is-expanded', !expanded);
       if (details) details.hidden = expanded;
       button.closest('.q-item')?.classList.toggle('expanded', !expanded);
     });
