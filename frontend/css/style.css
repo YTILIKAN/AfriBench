@@ -3645,6 +3645,146 @@ body[data-theme="dark"] .hub-hero__cta {
   }
 }
 
+/* Barre de filtres compacte des questions */
+.q-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.q-toolbar__count {
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.q-toolbar__chip {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  border: 1px solid rgba(255, 167, 38, .28);
+  border-radius: var(--r-full);
+  background: rgba(255, 167, 38, .12);
+  color: var(--orange-d);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.q-toolbar__chip .ui-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.q-toolbar__picker {
+  position: relative;
+}
+
+.q-toolbar__picker summary {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.q-toolbar__picker summary::-webkit-details-marker {
+  display: none;
+}
+
+.q-toolbar__picker summary .ui-icon {
+  width: 13px;
+  height: 13px;
+  transition: transform .18s ease;
+}
+
+.q-toolbar__picker[open] summary .ui-icon {
+  transform: rotate(180deg);
+}
+
+.q-toolbar__picker[open] summary {
+  border-color: var(--noir);
+  color: var(--noir);
+}
+
+.q-toolbar__menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 5px);
+  right: 0;
+  display: grid;
+  width: max-content;
+  max-width: 260px;
+  max-height: 264px;
+  gap: 1px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+  overflow-y: auto;
+}
+
+.q-toolbar__option {
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--charbon);
+  cursor: pointer;
+  font-size: 11px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.q-toolbar__option:hover {
+  background: var(--surface-2);
+}
+
+.q-toolbar__option.active {
+  background: var(--noir);
+  color: var(--surface);
+  font-weight: 600;
+}
+
+body[data-theme="dark"] .q-toolbar__option.active {
+  background: #F7F5F1;
+  color: #0A0806;
+}
+
+@media (max-width: 620px) {
+  .q-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .q-toolbar__count {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .q-toolbar__menu {
+    left: 0;
+    right: auto;
+  }
+}
+
 /* Questions compactes et repliables */
 .q-item {
   transition: border-color .15s, background .15s;

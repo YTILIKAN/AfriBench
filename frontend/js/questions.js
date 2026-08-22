@@ -88,31 +88,40 @@ function renderQuestions(container) {
   const visibleStart = filtered.length === 0 ? 0 : pageStart + 1;
   const visibleEnd = Math.min(pageStart + QUESTIONS_PER_PAGE, filtered.length);
 
+  const activeFilters = [
+    qFilterCat !== 'all' ? ['qcat', categoryLabel(qFilterCat)] : null,
+    qFilterDiff !== 'all' ? ['qdiff', difficultyLabel(qFilterDiff)] : null,
+  ].filter(Boolean);
+
   let html = `
-    <div class="card">
-      <!-- Filters -->
-      <div class="filter-bar">
-        <span class="filter-label filter-label--fixed">Catégorie :</span>
-        <button class="filter-btn ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
-        ${cats.map((c) => `
-          <button class="filter-btn ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
-        `).join('')}
-      </div>
-      <div class="filter-bar" style="margin-bottom:0">
-        <span class="filter-label filter-label--fixed">Difficulté :</span>
-        <button class="filter-btn ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
-        ${diffs.map((d) => `
-          <button class="filter-btn ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">
-            ${difficultyLabel(d)}
-          </button>
-        `).join('')}
-        <span style="flex:1"></span>
-        <span class="filter-label">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
-        <button class="filter-btn" id="q-toggle-all" aria-expanded="false">Tout déplier</button>
-        <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
-          ${renderIcon('Plus')} Proposer
-        </button>
-      </div>
+    <div class="q-toolbar">
+      <span class="q-toolbar__count">${visibleStart}–${visibleEnd} sur ${filtered.length} question${filtered.length > 1 ? 's' : ''}</span>
+      ${activeFilters.map(([kind, label]) => `
+        <button type="button" class="q-toolbar__chip" data-clear="${kind}"
+                title="Retirer ce filtre">${escapeHtml(label)} ${renderIcon('X')}</button>
+      `).join('')}
+      <details class="q-toolbar__picker">
+        <summary>Catégories ${renderIcon('ChevronDown')}</summary>
+        <div class="q-toolbar__menu">
+          <button class="q-toolbar__option ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
+          ${cats.map((c) => `
+            <button class="q-toolbar__option ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
+          `).join('')}
+        </div>
+      </details>
+      <details class="q-toolbar__picker">
+        <summary>Difficulté ${renderIcon('ChevronDown')}</summary>
+        <div class="q-toolbar__menu">
+          <button class="q-toolbar__option ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
+          ${diffs.map((d) => `
+            <button class="q-toolbar__option ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">${difficultyLabel(d)}</button>
+          `).join('')}
+        </div>
+      </details>
+      <button class="filter-btn" id="q-toggle-all" aria-expanded="false">Tout déplier</button>
+      <button class="filter-btn" id="q-goto-contribute" title="Proposer une question d'évaluation">
+        ${renderIcon('Plus')} Proposer
+      </button>
     </div>
   `;
 
@@ -202,23 +211,55 @@ function renderQuestions(container) {
   });
 
   // Wire up category filters
-  document.querySelectorAll('[data-qcat]').forEach((btn) => {
+  container.querySelectorAll('[data-qcat]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterCat = btn.dataset.qcat;
       AppState.questionPage = 1;
       if (window.__setUrlCategory) window.__setUrlCategory(qFilterCat);
       if (window.__setQuestionPage) window.__setQuestionPage(1);
+      globalThis.renderWorkspaceFilters?.();
       renderQuestions(container);
     });
   });
 
   // Wire up difficulty filters
-  document.querySelectorAll('[data-qdiff]').forEach((btn) => {
+  container.querySelectorAll('[data-qdiff]').forEach((btn) => {
     btn.addEventListener('click', () => {
       qFilterDiff = btn.dataset.qdiff;
       AppState.questionPage = 1;
       if (window.__setUrlDifficulty) window.__setUrlDifficulty(qFilterDiff);
       if (window.__setQuestionPage) window.__setQuestionPage(1);
+      globalThis.renderWorkspaceFilters?.();
+      renderQuestions(container);
+    });
+  });
+
+  // Un seul menu ouvert à la fois, refermé après un clic extérieur.
+  const pickers = [...container.querySelectorAll('.q-toolbar__picker')];
+  pickers.forEach((picker) => {
+    picker.addEventListener('toggle', () => {
+      if (!picker.open) return;
+      pickers.filter((other) => other !== picker).forEach((other) => { other.open = false; });
+    });
+  });
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.q-toolbar__picker')) {
+      pickers.forEach((picker) => { picker.open = false; });
+    }
+  });
+
+  container.querySelectorAll('[data-clear]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      if (chip.dataset.clear === 'qcat') {
+        qFilterCat = 'all';
+        window.__setUrlCategory?.('all');
+      } else {
+        qFilterDiff = 'all';
+        window.__setUrlDifficulty?.('all');
+      }
+      AppState.questionPage = 1;
+      window.__setQuestionPage?.(1);
+      globalThis.renderWorkspaceFilters?.();
       renderQuestions(container);
     });
   });
