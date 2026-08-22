@@ -1517,9 +1517,6 @@ th.th-with-tip { cursor: help; }
 }
 
 .model-cell { display: flex; align-items: center; gap: 8px; }
-.model-cell .model-icon { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.model-icon.open { background: var(--ocre); }
-.model-icon.closed { background: var(--muted); }
 .model-cell .model-name { font-weight: 600; color: var(--noir); }
 .model-cell .model-provider {
   display: inline-flex;

@@ -197,7 +197,6 @@ function renderLeaderboard(container) {
     const med = d.medium ? `${(d.medium.accuracy || 0).toFixed(1)}%` : '-';
     const hard = d.hard ? `${(d.hard.accuracy || 0).toFixed(1)}%` : '-';
     const isOpen = isOpenModel(m);
-    const providerClass = isOpen ? 'open' : 'closed';
     const best = computeBestCategory(m);
     const stddev = computeStdDev(m);
 
@@ -213,7 +212,6 @@ function renderLeaderboard(container) {
                     aria-label="${favorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
               ${renderIcon('Star')}
             </button>
-            <span class="model-icon ${providerClass}"></span>
             <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
           </div>
