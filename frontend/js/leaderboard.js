@@ -167,17 +167,17 @@ function renderLeaderboard(container) {
 
   // ── Table ──
   html += `
-    <div class="card" style="padding:0;overflow-x:auto">
+    <div class="card lb-table-wrap">
       <table class="lb-table">
         <thead>
           <tr>
             ${renderTH('rank', '#')}
             ${renderTH('name', 'Modèle')}
             ${renderTH('score', AppState.urlCategory ? categoryLabel(AppState.urlCategory) : 'Score')}
-            <th class="th-with-tip" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip" data-tip="${METRICS.difficile.desc}">Difficile ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip col-questions" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip col-facile" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip col-moyen" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th class="th-with-tip col-difficile" data-tip="${METRICS.difficile.desc}">Difficile ${renderIcon('CircleHelp', 'tip-icon')}</th>
             ${renderTH('best_cat', 'Meilleure cat.', METRICS.meilleure_cat.desc)}
             ${renderTH('stddev', 'Écart-type', METRICS.ecart_type.desc)}
             ${renderTH('date', 'Évalué', METRICS.evalue.desc)}
@@ -204,8 +204,8 @@ function renderLeaderboard(container) {
 
     html += `
       <tr>
-        <td class="rank ${rankClass}">${i + 1}</td>
-        <td>
+        <td class="rank col-rank ${rankClass}">${i + 1}</td>
+        <td class="col-name">
           <div class="model-cell">
             <button type="button" class="fav-star ${favorite ? 'is-favorite' : ''}"
                     data-fav="${safeName}" aria-pressed="${favorite}"
@@ -216,7 +216,7 @@ function renderLeaderboard(container) {
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
           </div>
         </td>
-        <td>
+        <td class="col-score">
           <div class="score-bar-wrap">
             <span class="score-cell">${metric.accuracy.toFixed(1)}%</span>
             <div class="score-bar-bg">
@@ -224,17 +224,17 @@ function renderLeaderboard(container) {
             </div>
           </div>
         </td>
-        <td class="metadata">${metric.correct}/${metric.total}</td>
-        <td class="metadata">${easy}</td>
-        <td class="metadata">${med}</td>
-        <td class="metadata">${hard}</td>
-        <td class="metadata" style="color:${best ? categoryColor(best.key) : 'var(--muted)'}">
+        <td class="metadata col-questions">${metric.correct}/${metric.total}</td>
+        <td class="metadata col-facile">${easy}</td>
+        <td class="metadata col-moyen">${med}</td>
+        <td class="metadata col-difficile">${hard}</td>
+        <td class="metadata col-best_cat" style="color:${best ? categoryColor(best.key) : 'var(--muted)'}">
           ${best ? `${categoryLabel(best.key)} ${best.accuracy.toFixed(0)}%` : '-'}
         </td>
-        <td class="metadata ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
+        <td class="metadata col-stddev ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
           ${stddev !== null ? stddev.toFixed(1) : '-'}
         </td>
-        <td class="metadata">${m.timestamp ? formatDate(m.timestamp) : '-'}</td>
+        <td class="metadata col-date">${m.timestamp ? formatDate(m.timestamp) : '-'}</td>
       </tr>
     `;
   });
@@ -326,7 +326,7 @@ function renderTH(field, label, tip) {
     ? renderIcon(lbSortDir === 'asc' ? 'ArrowUp' : 'ArrowDown', 'sort-icon')
     : renderIcon('ChevronsUpDown', 'sort-icon');
   return `
-    <th data-sort="${field}" class="${cls} th-with-tip"${tipAttr}>
+    <th data-sort="${field}" class="${cls} th-with-tip col-${field}"${tipAttr}>
       ${label} ${sortIcon}${tipIcon}
     </th>
   `;

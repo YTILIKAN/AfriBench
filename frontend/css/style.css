@@ -1475,6 +1475,14 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
 }
 
 /* ── Leaderboard table ────────────────────────────────── */
+.card.lb-table-wrap {
+  padding: 0;
+  overflow-x: auto;
+  container-name: leaderboard;
+  container-type: inline-size;
+  overscroll-behavior-inline: contain;
+}
+
 .lb-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
 .lb-table thead th {
   text-align: left;
@@ -1536,7 +1544,7 @@ th.th-with-tip { cursor: help; }
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: 160px;
+  min-width: 130px;
 }
 .score-bar-bg {
   flex: 1;
@@ -1575,6 +1583,49 @@ th.th-with-tip { cursor: help; }
 
 th.sorted-asc .sort-icon,
 th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
+
+/* Réduit progressivement les colonnes secondaires avant qu'un scroll
+   horizontal n'apparaisse. Les données essentielles restent prioritaires. */
+@container leaderboard (max-width: 920px) {
+  .lb-table .col-stddev,
+  .lb-table .col-date {
+    display: none;
+  }
+}
+
+@container leaderboard (max-width: 740px) {
+  .lb-table .col-facile,
+  .lb-table .col-moyen,
+  .lb-table .col-difficile {
+    display: none;
+  }
+}
+
+@container leaderboard (max-width: 560px) {
+  .lb-table .col-best_cat {
+    display: none;
+  }
+
+  .lb-table .score-bar-wrap {
+    min-width: 0;
+  }
+
+  .lb-table .score-bar-bg,
+  .lb-table .model-provider {
+    display: none;
+  }
+}
+
+@container leaderboard (max-width: 420px) {
+  .lb-table .col-questions {
+    display: none;
+  }
+
+  .lb-table-wrap .lb-table thead th,
+  .lb-table-wrap .lb-table tbody td {
+    padding-inline: 8px;
+  }
+}
 
 /* ── Boutons des cartes modèles ───────────────────────── */
 .model-card-actions {
