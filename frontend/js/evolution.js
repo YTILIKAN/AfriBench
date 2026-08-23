@@ -36,9 +36,12 @@ function renderEvolution(container) {
       data: fullData,
       borderColor: series.border,
       backgroundColor: series.bg.replace(/[\d.]+\)$/, '0.12)'),
+      borderDash: series.dash,
       borderWidth: 2,
       pointRadius: 3,
       pointHoverRadius: 5,
+      pointBackgroundColor: series.border,
+      pointStyle: ['circle', 'rectRot', 'triangle', 'rect', 'star', 'crossRot'][idx % 6],
       spanGaps: true,
       tension: 0.2,
     };
@@ -110,7 +113,7 @@ function renderEvolution(container) {
         plugins: {
           legend: {
             position: 'top',
-            labels: { color: theme.tick, font: { size: 10 }, padding: 16, usePointStyle: true, pointStyle: 'circle' },
+            labels: { color: theme.tick, font: { size: 10 }, padding: 16, usePointStyle: true },
           },
           tooltip: {
             backgroundColor: '#0f0f1a',

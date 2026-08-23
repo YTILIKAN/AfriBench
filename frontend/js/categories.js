@@ -132,8 +132,10 @@ function renderCategoryRadar(models, categories) {
       data,
       backgroundColor: series.bg.replace(/[\d.]+\)$/, '0.10)'),
       borderColor: series.border,
+      borderDash: series.dash,
       borderWidth: 2,
       pointBackgroundColor: series.border,
+      pointStyle: ['circle', 'rectRot', 'triangle', 'rect', 'star', 'crossRot'][i % 6],
       pointRadius: 3,
       tension: 0.3,
     };
@@ -150,7 +152,12 @@ function renderCategoryRadar(models, categories) {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          labels: { color: theme.tick, font: { size: 10 } },
+          labels: {
+            color: theme.tick,
+            font: { size: 10 },
+            usePointStyle: true,
+            pointStyleWidth: 14,
+          },
         },
       },
       scales: {
