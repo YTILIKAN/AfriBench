@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, categoryLabel, categoryColor, escapeHtml, formatDate, difficultyLabel,
+  AppState, categoryLabel, escapeHtml, formatDate, difficultyLabel,
 } = globalThis;
 const renderIcon = globalThis.icon || (() => '');
 
@@ -138,7 +138,6 @@ function renderQuestions(container) {
   } else {
     pageQuestions.forEach((q, index) => {
       const diffClass = q.difficulty || 'medium';
-      const catColor = categoryColor(q.category);
       const safeQuestion = escapeHtml(q.question || '');
       const safeId = escapeHtml(q.id || '');
       const safeAnswer = escapeHtml(q.answer || '');
@@ -150,7 +149,7 @@ function renderQuestions(container) {
       html += `
         <div class="q-item" data-category="${q.category}" data-difficulty="${q.difficulty || ''}">
           <div class="q-meta">
-            <span class="q-meta-badge category" style="background:${catColor}22;color:${catColor}">
+            <span class="q-meta-badge category">
               ${categoryLabel(q.category)}
             </span>
             <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>

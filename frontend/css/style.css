@@ -1110,7 +1110,7 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   border-radius: var(--r-full);
   font-weight: 700;
 }
-.q-meta-badge.category { background: var(--ocre); color: var(--on-accent); }
+.q-meta-badge.category { background: var(--surface-2); color: var(--charbon); }
 .q-meta-badge.easy { background: rgba(5,150,105,.12); color: var(--success); }
 .q-meta-badge.medium { background: rgba(217,119,6,.12); color: var(--warning); }
 .q-meta-badge.hard { background: rgba(220,38,38,.12); color: var(--danger); }
@@ -1296,6 +1296,12 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   font-weight: 700;
 }
 
+.dq-badge--category {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--charbon);
+}
+
 .dq-badge--muted {
   background: var(--surface-2);
   color: var(--muted);
@@ -1467,8 +1473,10 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   text-transform: uppercase;
   letter-spacing: .06em;
   padding: 3px 12px;
-  border: 1.5px solid;
+  border: 1px solid var(--line);
   border-radius: var(--r-full);
+  background: var(--surface-2);
+  color: var(--muted);
 }
 
 .meth-code-block {
@@ -1773,6 +1781,7 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
   letter-spacing: .06em;
   font-weight: 700;
   margin-bottom: 4px;
+  color: var(--muted);
 }
 
 .cat-score {
@@ -1791,6 +1800,11 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 }
 
 /* ── Compare ──────────────────────────────────────────── */
+.compare-category {
+  color: var(--charbon);
+  font-weight: 600;
+}
+
 .compare-selector {
   display: flex;
   flex-wrap: wrap;

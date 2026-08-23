@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, getLatestResults, categoryColor, categoryLabel,
+  AppState, getLatestResults, categoryLabel,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
@@ -85,7 +85,7 @@ function renderCompare(container) {
   html += '</tr></thead><tbody>';
 
   catList.forEach((cat) => {
-    html += `<tr><td style="color:${categoryColor(cat)}">${categoryLabel(cat)}</td>`;
+    html += `<tr><td class="compare-category">${categoryLabel(cat)}</td>`;
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
@@ -217,7 +217,7 @@ function updateCompareTable(selected, catList) {
   html += '</tr></thead><tbody>';
 
   catList.forEach((cat) => {
-    html += `<tr><td style="color:${categoryColor(cat)}">${categoryLabel(cat)}</td>`;
+    html += `<tr><td class="compare-category">${categoryLabel(cat)}</td>`;
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';

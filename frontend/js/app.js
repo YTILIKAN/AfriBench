@@ -927,8 +927,6 @@ function renderDailyQuestion() {
   const idx = seed % AppState.questions.length;
   const q = AppState.questions[idx];
 
-  const catColor = categoryColor(q.category);
-
   container.innerHTML = `
     <div class="dq-card dq-card--collapsed">
       <div class="dq-summary">
@@ -944,7 +942,7 @@ function renderDailyQuestion() {
       </div>
       <div class="dq-content" id="dq-content" hidden>
         <div class="dq-header">
-          <span class="dq-badge" style="background:${catColor}22;color:${catColor};border:1px solid ${catColor}44">
+          <span class="dq-badge dq-badge--category">
             ${categoryLabel(q.category)}
           </span>
           <span class="dq-badge dq-badge--muted">
@@ -1034,28 +1032,12 @@ const CATEGORY_MAP = {
   raisonnement_culturel: 'Raisonnement Culturel',
 };
 
-const CATEGORY_COLORS = {
-  histoire: '#C4A46A',
-  geographie: '#4A90D9',
-  droit_politique: '#E57373',
-  sante_sciences: '#81C784',
-  langue_culture: '#FFB74D',
-  economie: '#9575CD',
-  ia_technologie: '#4DB6AC',
-  societe: '#F06292',
-  raisonnement_culturel: '#A1887F',
-};
-
 function categoryLabel(cat) {
   return CATEGORY_MAP[cat] || cat;
 }
 
 function categoryKeys() {
   return Object.keys(CATEGORY_MAP);
-}
-
-function categoryColor(cat) {
-  return CATEGORY_COLORS[cat] || '#C4A46A';
 }
 
 function setText(id, val) {
@@ -1086,7 +1068,6 @@ Object.assign(globalThis, {
   computeStdDev,
   categoryLabel,
   categoryKeys,
-  categoryColor,
   setText,
   formatDate,
   toggleFavorite,
