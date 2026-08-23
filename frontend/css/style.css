@@ -1477,10 +1477,9 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
 /* ── Leaderboard table ────────────────────────────────── */
 .card.lb-table-wrap {
   padding: 0;
-  overflow-x: auto;
+  overflow-x: clip;
   container-name: leaderboard;
   container-type: inline-size;
-  overscroll-behavior-inline: contain;
 }
 
 .lb-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
@@ -1617,8 +1616,21 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 }
 
 @container leaderboard (max-width: 420px) {
-  .lb-table .col-questions {
+  .lb-table .col-questions,
+  .lb-table .col-score {
     display: none;
+  }
+
+  .lb-table .col-rank {
+    width: 48px;
+  }
+
+  .lb-table .model-cell {
+    min-width: 0;
+  }
+
+  .lb-table .model-name {
+    overflow-wrap: anywhere;
   }
 
   .lb-table-wrap .lb-table thead th,
@@ -2205,7 +2217,6 @@ body[data-theme="dark"] .cq-option-row .cq-letter { color: var(--ocre); }
 
   .question-item .q-options { grid-template-columns: 1fr; }
   .dq-options { grid-template-columns: 1fr; }
-  .lb-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .app-footer__row { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 
