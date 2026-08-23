@@ -830,14 +830,16 @@ function chartTheme() {
   };
 }
 
-/* Palette duotone discrète (orange + gris chauds), lisible en clair et sombre */
+/* Palette qualitative contrastée : chaque série garde une teinte distincte.
+   Les tracés restent lisibles en clair, en sombre et pour la plupart des
+   déficiences de perception des couleurs. */
 const CHART_PALETTE = [
-  { bg: 'rgba(255, 167, 38, 0.75)', border: 'rgba(240, 138, 0, 1)' },
-  { bg: 'rgba(91, 88, 84, 0.55)', border: 'rgba(91, 88, 84, 0.9)' },
-  { bg: 'rgba(249, 160, 63, 0.45)', border: 'rgba(249, 160, 63, 0.85)' },
-  { bg: 'rgba(163, 158, 150, 0.5)', border: 'rgba(163, 158, 150, 0.9)' },
-  { bg: 'rgba(196, 127, 23, 0.6)', border: 'rgba(196, 127, 23, 1)' },
-  { bg: 'rgba(210, 204, 196, 0.55)', border: 'rgba(181, 175, 168, 0.95)' },
+  { bg: 'rgba(231, 111, 0, 0.68)', border: 'rgba(231, 111, 0, 1)', dash: [] },
+  { bg: 'rgba(37, 99, 235, 0.62)', border: 'rgba(37, 99, 235, 1)', dash: [7, 4] },
+  { bg: 'rgba(5, 150, 105, 0.62)', border: 'rgba(5, 150, 105, 1)', dash: [2, 3] },
+  { bg: 'rgba(147, 51, 234, 0.58)', border: 'rgba(147, 51, 234, 1)', dash: [10, 3, 2, 3] },
+  { bg: 'rgba(220, 38, 38, 0.58)', border: 'rgba(220, 38, 38, 1)', dash: [5, 3] },
+  { bg: 'rgba(8, 145, 178, 0.6)', border: 'rgba(8, 145, 178, 1)', dash: [1, 3] },
 ];
 
 function chartSeriesColor(i) {
