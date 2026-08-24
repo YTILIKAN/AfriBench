@@ -249,7 +249,9 @@ def call_google(model: dict, prompt: str) -> str:
     api_key = _resolve_api_key(model)
 
     model_id = model["model_id"]
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
+    # La clé passe par un en-tête, jamais par la query string : requests recopie
+    # l'URL complète dans le message des HTTPError, qui finit persisté puis exposé.
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent"
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -259,7 +261,7 @@ def call_google(model: dict, prompt: str) -> str:
         },
     }
 
-    resp = requests.post(url, json=payload, timeout=60)
+    resp = requests.post(url, json=payload, timeout=60, headers={"x-goog-api-key": api_key})
     resp.raise_for_status()
     data = resp.json()
     return data["candidates"][0]["content"]["parts"][0]["text"]
