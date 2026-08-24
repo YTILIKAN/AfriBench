@@ -21,6 +21,16 @@
   --indigo-d:     #050302;
   --ocre:         var(--orange);
   --ocre-d:       var(--orange-d);
+  /* L'orange de marque #FFA726 ne dépasse pas 1,94:1 sur blanc : il est
+     inutilisable comme couleur de texte ou d'indicateur de focus en thème
+     clair (WCAG 1.4.3 exige 4,5:1, WCAG 1.4.11 exige 3:1 hors texte).
+     On le conserve donc pour les remplissages — le noir dessus atteint
+     10,29:1 — et on dérive deux variantes sombres :
+       --ocre-ink : texte, ≥4,5:1 sur blanc, ivoire et surface-2
+       --ocre-ui  : icônes, bordures, anneau de focus, ≥3:1 sur les mêmes fonds
+     En thème sombre, les deux reviennent à l'orange de marque (9,12:1). */
+  --ocre-ink:     #A05A08;
+  --ocre-ui:      #C4740A;
   --on-accent:    #0A0806;
   --kola:         var(--charbon);
   --sable:        var(--surface-2);
@@ -44,10 +54,12 @@
   --maxw: 1120px;
   --nav-h: 68px;
 
-  /* AfriBench-specific tokens */
-  --success: #059669;
-  --danger:  #DC2626;
-  --warning: #D97706;
+  /* AfriBench-specific tokens.
+     Teintes assombries pour atteindre 4,5:1 sur blanc : #059669 plafonnait à
+     3,77:1 et #D97706 à 3,19:1, insuffisant pour du texte. */
+  --success: #047857;
+  --danger:  #CC2020;
+  --warning: #B45309;
   --info:    #2563EB;
 
   /* Couleurs des graphiques (lues par chartTheme() en JS) */
@@ -101,7 +113,7 @@ a { color: inherit; text-decoration: none; }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--ocre);
+  outline: 2px solid var(--ocre-ui);
   outline-offset: 3px;
 }
 
@@ -455,7 +467,7 @@ body.sidebar-open .sidebar-backdrop {
 .sidebar-search__input::placeholder { color: rgba(250, 249, 246, 0.35); }
 
 .sidebar-search__input:focus {
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
   background: rgba(250, 249, 246, 0.1);
 }
 
@@ -482,8 +494,8 @@ body.sidebar-open .sidebar-backdrop {
 }
 
 .theme-toggle:hover {
-  color: var(--ocre);
-  border-color: var(--ocre);
+  color: var(--ocre-ink);
+  border-color: var(--ocre-ui);
 }
 
 .theme-toggle__icon {
@@ -509,7 +521,7 @@ body.sidebar-open .sidebar-backdrop {
 }
 
 .data-source-badge[data-state="warn"] {
-  color: var(--orange);
+  color: var(--ocre-ink);
   border-color: rgba(255, 167, 38, 0.4);
   background: rgba(255, 167, 38, 0.1);
 }
@@ -593,12 +605,12 @@ body.sidebar-open .sidebar-backdrop {
 }
 
 .page-header__note a {
-  color: var(--ocre-d);
+  color: var(--ocre-ink);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-body[data-theme="dark"] .page-header__note a { color: var(--ocre); }
+body[data-theme="dark"] .page-header__note a { color: var(--ocre-ink); }
 
 /* ═══════════════════════════════════════════════════════════
    VIEW HEADER (titre de la vue courante)
@@ -866,7 +878,7 @@ td:first-child {
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: var(--ocre);
+  color: var(--ocre-ink);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -976,7 +988,7 @@ td:first-child {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .06em;
-  color: var(--ocre);
+  color: var(--ocre-ink);
   cursor: pointer;
   padding: 6px 0;
   background: none;
@@ -1005,7 +1017,7 @@ td:first-child {
 }
 .compare-selects select:focus {
   outline: none;
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1066,8 +1078,8 @@ code { font-size: .85em; padding: 2px 6px; border-radius: 3px; }
   transition: color .2s;
 }
 
-.app-footer__links a:hover { color: var(--ocre-d); }
-body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
+.app-footer__links a:hover { color: var(--ocre-ink); }
+body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre-ink); }
 
 /* ═══════════════════════════════════════════════════════════
    STATS / BADGES SECTION (inline stats bar)
@@ -1229,7 +1241,7 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   font-family: var(--display);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--ocre);
+  color: var(--ocre-ink);
 }
 
 .score-label {
@@ -1362,7 +1374,7 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   display: inline-block;
   font-weight: 700;
   font-family: var(--mono);
-  color: var(--ocre);
+  color: var(--ocre-ink);
   min-width: 18px;
 }
 
@@ -1413,7 +1425,7 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   font-family: var(--display);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--ocre);
+  color: var(--ocre-ink);
 }
 
 .meth-stat-card .stat-label {
@@ -1527,7 +1539,7 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre); }
   width: 40px;
   color: var(--muted);
 }
-.rank-1 { color: var(--ocre); }
+.rank-1 { color: var(--ocre-ink); }
 
 th.th-with-tip { cursor: help; }
 .tip-icon {
@@ -1586,7 +1598,7 @@ th.th-with-tip { cursor: help; }
 
 /* ── Tri du leaderboard (indicateurs) ─────────────────── */
 .lb-table th[data-sort] { cursor: pointer; user-select: none; }
-.lb-table th[data-sort]:hover { color: var(--ocre); }
+.lb-table th[data-sort]:hover { color: var(--ocre-ink); }
 
 .sort-icon {
   width: 12px;
@@ -1598,7 +1610,7 @@ th.th-with-tip { cursor: help; }
 }
 
 th.sorted-asc .sort-icon,
-th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
+th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre-ink); }
 
 /* Réduit progressivement les colonnes secondaires avant qu'un scroll
    horizontal n'apparaisse. Les données essentielles restent prioritaires. */
@@ -1687,7 +1699,7 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 .mcard-btn-primary {
   background: var(--ocre);
   color: var(--on-accent);
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
 }
 
 .mcard-btn-primary:hover { background: var(--ocre-d); border-color: var(--ocre-d); }
@@ -1697,7 +1709,7 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
   color: var(--charbon);
 }
 
-.mcard-btn-secondary:hover { border-color: var(--ocre); color: var(--ocre); }
+.mcard-btn-secondary:hover { border-color: var(--ocre-ui); color: var(--ocre-ink); }
 
 .evo-delta-pos { color: var(--success); font-weight: 600; }
 .evo-delta-neg { color: var(--danger); font-weight: 600; }
@@ -1724,7 +1736,7 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
   font-size: .62rem;
   text-transform: uppercase;
   letter-spacing: .06em;
-  color: var(--ocre);
+  color: var(--ocre-ink);
   font-weight: 700;
 }
 
@@ -1788,7 +1800,7 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
   font-family: var(--display);
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--ocre);
+  color: var(--ocre-ink);
 }
 
 .cat-model {
@@ -1825,11 +1837,11 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 }
 .compare-selector label:hover { border-color: var(--muted); }
 .compare-selector label:has(.compare-check:checked) {
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
   background: rgba(255, 167, 38, 0.08);
 }
 .compare-check {
-  accent-color: var(--ocre);
+  accent-color: var(--ocre-ui);
   width: 15px; height: 15px;
   margin: 0;
 }
@@ -1859,11 +1871,11 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 }
 .evolution-controls label:hover { border-color: var(--muted); }
 .evolution-controls label:has(input:checked) {
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
   background: rgba(255, 167, 38, 0.08);
 }
 .evolution-controls input[type="checkbox"] {
-  accent-color: var(--ocre);
+  accent-color: var(--ocre-ui);
   width: 15px;
   height: 15px;
   margin: 0;
@@ -2023,8 +2035,8 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre); }
 }
 
 .cq-steps li { display: flex; align-items: baseline; gap: 6px; }
-.cq-steps strong { color: var(--ocre-d); font-family: var(--mono); }
-body[data-theme="dark"] .cq-steps strong { color: var(--ocre); }
+.cq-steps strong { color: var(--ocre-ink); font-family: var(--mono); }
+body[data-theme="dark"] .cq-steps strong { color: var(--ocre-ink); }
 
 .cq-layout {
   display: grid;
@@ -2082,7 +2094,7 @@ body[data-theme="dark"] .cq-steps strong { color: var(--ocre); }
 .cq-field input:focus,
 .cq-field textarea:focus,
 .cq-field select:focus {
-  border-color: var(--ocre);
+  border-color: var(--ocre-ui);
 }
 
 .cq-field textarea { resize: vertical; }
@@ -2098,7 +2110,7 @@ body[data-theme="dark"] .cq-steps strong { color: var(--ocre); }
   width: 16px;
   height: 16px;
   margin: 0;
-  accent-color: var(--ocre);
+  accent-color: var(--ocre-ui);
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -2108,11 +2120,11 @@ body[data-theme="dark"] .cq-steps strong { color: var(--ocre); }
   font-weight: 700;
   font-size: .82rem;
   line-height: 1;
-  color: var(--ocre-d);
+  color: var(--ocre-ink);
   min-width: 16px;
   margin-bottom: 0;
 }
-body[data-theme="dark"] .cq-option-row .cq-letter { color: var(--ocre); }
+body[data-theme="dark"] .cq-option-row .cq-letter { color: var(--ocre-ink); }
 
 .cq-option-row input[type="text"] { flex: 1; }
 
@@ -2280,7 +2292,12 @@ body.is-loading .page-header__stats strong {
   --muted: #6F6B65;
   --display: 'Sora', sans-serif;
   --body: 'Inter', 'Sora', sans-serif;
-  --mono: 'Inter', 'Sora', sans-serif;
+  /* --mono doit être réellement monospace : les scores et les compteurs du
+     classement s'alignent en colonnes, et les blocs de commandes doivent se
+     lire comme du code. Le token pointait vers Inter, une police
+     proportionnelle. */
+  --mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas,
+          'Liberation Mono', monospace;
   --sp-xs: 8px;
   --sp-sm: 12px;
   --sp-md: 16px;
@@ -2313,7 +2330,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--ocre-ui);
   outline-offset: 2px;
 }
 
@@ -2657,7 +2674,7 @@ textarea:focus-visible {
 }
 
 .page-header__note a:hover {
-  color: var(--orange-d);
+  color: var(--ocre-ink);
 }
 
 /* Surfaces et contenu */
@@ -2982,6 +2999,10 @@ body[data-theme="dark"] {
   --noir: #F7F5F1;
   --charbon: #DDD9D2;
   --muted: #A8A29A;
+  /* Sur fond sombre, l'orange de marque atteint 9,12:1 : aucune variante
+     assombrie n'est nécessaire, et elle nuirait à la lisibilité. */
+  --ocre-ink: var(--orange);
+  --ocre-ui: var(--orange);
   background:
     radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .04) 1px, transparent 0) 0 0 / 20px 20px,
     var(--ivoire);
@@ -3092,7 +3113,7 @@ body[data-theme="dark"] .data-source-badge[data-state="ok"] {
   place-items: center;
   border-radius: 50%;
   background: var(--surface-2);
-  color: var(--orange-d);
+  color: var(--ocre-ui);
   transition: transform .18s ease;
 }
 
@@ -3122,7 +3143,7 @@ body[data-theme="dark"] .data-source-badge[data-state="ok"] {
   padding: 4px 9px;
   border-radius: var(--r-full);
   background: rgba(255, 167, 38, .12);
-  color: var(--orange-d);
+  color: var(--ocre-ink);
   font-size: 10px;
   font-weight: 600;
 }
@@ -3186,7 +3207,7 @@ body[data-theme="dark"] .data-source-badge[data-state="ok"] {
   place-items: center;
   border-radius: 6px;
   background: rgba(255, 255, 255, .12);
-  color: var(--orange);
+  color: var(--ocre-ink);
 }
 
 .backoffice-link__icon .ui-icon { width: 14px; height: 14px; }
@@ -3384,7 +3405,7 @@ body[data-theme="dark"] .questions-pagination__button.active {
 }
 
 .hub-hero__eyebrow {
-  color: var(--orange-d);
+  color: var(--ocre-ink);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -3519,7 +3540,7 @@ body[data-theme="dark"] .questions-pagination__button.active {
 .hub-vote.active {
   border-color: var(--line);
   background: var(--surface);
-  color: var(--orange-d);
+  color: var(--ocre-ui);
 }
 
 .hub-vote[data-vote="-1"].active {
@@ -3546,7 +3567,7 @@ body[data-theme="dark"] .questions-pagination__button.active {
 
 .hub-card__details summary {
   width: fit-content;
-  color: var(--orange-d);
+  color: var(--ocre-ink);
   cursor: pointer;
   font-weight: 600;
 }
@@ -3582,7 +3603,7 @@ body[data-theme="dark"] .questions-pagination__button.active {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--orange-d);
+  color: var(--ocre-ink);
   font-weight: 600;
 }
 
@@ -3763,7 +3784,7 @@ body[data-theme="dark"] .hub-hero__cta {
   border: 1px solid rgba(255, 167, 38, .28);
   border-radius: var(--r-full);
   background: rgba(255, 167, 38, .12);
-  color: var(--orange-d);
+  color: var(--ocre-ink);
   cursor: pointer;
   font-size: 10px;
   font-weight: 600;
@@ -3926,7 +3947,7 @@ body[data-theme="dark"] .q-toolbar__option.active {
   place-items: center;
   border-radius: 50%;
   background: var(--surface-2);
-  color: var(--orange-d);
+  color: var(--ocre-ui);
   transition: transform .18s ease;
 }
 
@@ -4373,7 +4394,7 @@ body[data-theme="dark"] .q-toolbar__option.active {
   place-items: center;
   border-radius: 50%;
   background: var(--surface-2);
-  color: var(--orange-d);
+  color: var(--ocre-ui);
   transition: transform .18s ease;
 }
 
