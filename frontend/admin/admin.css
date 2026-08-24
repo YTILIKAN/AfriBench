@@ -1,0 +1,189 @@
+/* Backoffice AfriBench — extrait de admin/index.html pour passer par le
+   build Vite : le style est désormais minifié, haché et vérifié par
+   Stylelint comme le reste de la feuille principale. */
+:root {
+  --bg: #0A0806;
+  --surface: #16120E;
+  --surface-2: #1F1913;
+  --border: #2A231B;
+  --text: #FAF9F6;
+  --muted: #8A8278;
+  --accent: #FFA726;
+  --accent-ink: #1C1917;
+  --danger: #E5533C;
+  /* Même pile monospace que l'application principale : Space Mono était
+     chargée depuis Google Fonts, ce qui ajoutait une origine tierce pour
+     une seule page d'administration. */
+  --mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
+          "Liberation Mono", monospace;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+a { color: var(--accent); }
+
+/* Login */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.login-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  width: 100%;
+  max-width: 360px;
+}
+.login-card h1 { margin: 0 0 4px; font-size: 20px; }
+.login-card .sub { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+.login-card label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 11px 13px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  outline: none;
+}
+.login-card input[type="password"]:focus { border-color: var(--accent); }
+.login-err { color: var(--danger); font-size: 12px; margin-top: 10px; min-height: 16px; }
+
+/* App shell */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar .brand { font-weight: 700; font-size: 16px; }
+.topbar .brand em { color: var(--accent); font-style: normal; }
+.topbar .spacer { flex: 1; }
+.topbar .db-badge { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+.tabs { display: flex; gap: 4px; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.tab {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.tab .count { color: var(--accent); font-family: var(--mono); font-size: 11px; margin-left: 4px; }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+}
+.toolbar input[type="search"] {
+  flex: 1;
+  max-width: 360px;
+  padding: 9px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+.toolbar input[type="search"]:focus { border-color: var(--accent); }
+
+button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 16px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+button.btn svg { width: 15px; height: 15px; stroke-width: 1.8; }
+button.btn:hover { filter: brightness(1.05); }
+button.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+button.btn.ghost:hover { border-color: var(--accent); }
+button.btn.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+button.btn.sm { padding: 5px 10px; font-size: 12px; border-radius: 6px; }
+
+.content { padding: 0 24px 48px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--surface); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,167,38,.03); }
+td.mono { font-family: var(--mono); font-size: 12px; }
+td .actions { display: flex; gap: 6px; }
+.pill { font-family: var(--mono); font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); white-space: nowrap; }
+.pill.ok { color: #7EC699; border-color: #2F4A3A; }
+.empty { padding: 40px; text-align: center; color: var(--muted); }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.6);
+  display: none; align-items: flex-start; justify-content: center;
+  padding: 32px 16px; overflow-y: auto; z-index: 100;
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 640px;
+  margin: auto 0;
+}
+.modal-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--border); }
+.modal-head h2 { margin: 0; font-size: 16px; }
+.modal-body { padding: 20px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.modal-body .full { grid-column: 1 / -1; }
+.field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 9px 11px; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 7px; color: var(--text);
+  font-family: inherit; font-size: 13px; outline: none;
+}
+.field textarea { resize: vertical; min-height: 72px; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+.field.check { display: flex; align-items: center; gap: 8px; padding-top: 18px; }
+.field.check input { width: auto; }
+.field.check label { margin: 0; color: var(--text); font-size: 13px; }
+.modal-foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 22px; border-top: 1px solid var(--border); }
+.opts-grid { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface-2); border: 1px solid var(--accent); border-radius: 8px; padding: 12px 18px; font-size: 13px; z-index: 200; display: none; }
+.toast.err { border-color: var(--danger); }
+.hidden { display: none !important; }

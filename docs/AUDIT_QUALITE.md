@@ -31,9 +31,15 @@ Un troisième défaut atteignait la validité scientifique du projet : **l'extra
 | Poids transféré au premier chargement | **395 Ko** | **115 Ko** (−71 %) |
 | Contrastes WCAG AA | 6 paires en échec | toutes conformes |
 | Tests backend | 61 | **98** |
-| Tests frontend | 33 | **49** |
+| Tests frontend | 33 | **58** |
 | Graphiques couverts par des tests | **aucun** | 5 tests |
 | Les tests salissent le dépôt | **oui** | non, vérifié en CI |
+| Lignes de CSS | 4 520 | **3 714** (−18 %) |
+| Classes CSS mortes | 32 | **0** |
+| Blocs de tokens dupliqués | 2 `:root` + 2 sombres | **1 + 1** |
+| Backoffice bundlé, linté, sous CSP stricte | **non** | oui |
+| Lint CSS, audit des dépendances en CI | **absents** | en place |
+| Règle de lint contre les interpolations non échappées | **absente** | en place (8 défauts trouvés) |
 
 ---
 
@@ -291,30 +297,91 @@ Mesuré : **76 allers-retours SQL pour 25 propositions** (1 + 3N), sans `LIMIT`,
 **R17. Index manquants pour les requêtes réellement émises** — `backend/app/models.py`
 `rate_limit_hits` a deux index séparés là où la requête chaude est `WHERE key = ? AND hit_at >= ?` (composite requis). `results` est trié par `timestamp` sans index utilisable sur cette colonne. `questions.category` est indexé mais le filtrage est fait en Python après chargement de toute la table — l'index n'est jamais utilisé.
 
-**R18. `bootstrap.json` : 283 Ko téléchargés puis jetés** — `frontend/js/app.js:703-745`
-`await loadBootstrap()` s'achève **avant** que les requêtes API démarrent, donc le temps d'interactivité est la *somme* et non le maximum. Sur un déploiement sain, ces 283 Ko sont téléchargés puis immédiatement écrasés par la réponse API, à chaque chargement de page. Ni délai d'expiration, ni `AbortController`, ni garde de réentrance — le bouton « Réessayer » peut déclencher des chargements concurrents dont les réponses arrivent dans le désordre.
-*Correctif :* mettre bootstrap et API en concurrence plutôt qu'en séquence, ajouter `AbortSignal.timeout()` et une garde de réentrance.
+**R18. `bootstrap.json` : 283 Ko téléchargés puis jetés** — *corrigé le 24 août (soir).*
+`await loadBootstrap()` s'achevait **avant** que les requêtes API démarrent, donc le temps
+d'interactivité était la *somme* des latences et non la plus grande. Sur un déploiement sain, ces
+283 Ko étaient téléchargés puis immédiatement écrasés par la réponse API, à chaque chargement de
+page. Ni délai d'expiration, ni `AbortController`, ni garde de réentrance — le bouton « Réessayer »
+pouvait déclencher des chargements concurrents dont les réponses arrivaient dans le désordre.
+*Correction :* les deux partent ensemble ; dès que l'API répond, le téléchargement de l'instantané
+est **interrompu** ; si l'API tarde, l'instantané est affiché puis remplacé (`onEarlyPaint`) ;
+délai d'expiration de 12 s et garde de réentrance ajoutés. 6 tests couvrent ces comportements,
+dont l'interruption effective et le repli en cascade.
 
 **R19. Un délai fixe de 0,5 s codé en dur** — `scripts/afribench.py:333`
-Non configurable, dans une boucle strictement séquentielle : 350 questions représentent 175 s de sommeil pur, avant toute latence d'API. Le thread est lancé en `daemon=True` depuis un handler HTTP : il n'est pas supervisé, ne peut pas être annulé, n'émet aucun signe de vie, et ne sait pas reprendre. Sur Railway, chaque déploiement détruit l'évaluation en cours et tout le travail effectué est perdu.
-*Correctif :* rendre le délai configurable, paralléliser avec un pool borné, et à terme sortir l'exécution du processus web vers un worker qui persiste la progression par question.
+Non configurable, dans une boucle strictement séquentielle : 350 questions représentent 175 s de
+sommeil pur, avant toute latence d'API. Le thread est lancé en `daemon=True` depuis un handler
+HTTP : il n'est pas supervisé, ne peut pas être annulé, n'émet aucun signe de vie, et ne sait pas
+reprendre. Sur Railway, chaque déploiement détruit l'évaluation en cours et tout le travail
+effectué est perdu.
+*Correctif :* rendre le délai configurable, paralléliser avec un pool borné, et à terme sortir
+l'exécution du processus web vers un worker qui persiste la progression par question.
 
-### 3.4 Accessibilité restante
+### 3.4 Accessibilité — *traitée le 24 août (soir)*
 
-**R20. Les tableaux n'ont ni `scope` ni `<caption>`** — 10 tableaux, 50 `<th>`, 0 `scope`. WCAG 1.3.1. Le classement est un tableau de dix colonnes où l'association ligne/colonne compte le plus.
+**R20. Tableaux sans `scope` ni `<caption>`** — *corrigé.* 9 tableaux, 48 `<th>`, 0 `scope`,
+0 `caption` (WCAG 1.3.1). Tous les en-têtes portent désormais `scope="col"`, chaque tableau a une
+`<caption class="sr-only">`, et le nom du modèle dans le classement est devenu un
+`<th scope="row">` — c'est lui qui identifie la ligne dans un tableau de dix colonnes. Une règle
+CSS étend le style de cellule de données à ce nouvel en-tête de ligne, et un test l'assert.
 
-**R21. Hiérarchie de titres incorrecte** — Deux `<h1>` sur la page (la marque de la barre latérale ne devrait pas en être un), et `js/api.js` émet onze `<h4>` sans aucun `<h3>` dans leur ascendance.
+**R21. Hiérarchie de titres** — *corrigé.* La marque de la barre latérale n'est plus un `<h1>`
+(la page n'en a plus qu'un, le titre de la vue), et l'URL d'endpoint de la vue API est devenue un
+`<h3>`, ce qui supprime le saut h2 → h4 sur onze titres.
 
-**R22. Deux listes d'onglets concurrentes sur un même panneau** — Les quatre boutons de la barre latérale et les onglets de `#workspace-nav` déclarent tous `aria-controls` vers `#tab-content`, ce qui rend la relation ambiguë pour une aide technique. `index.html` place aussi un `role="presentation"` dans une `tablist`, ce que la spécification n'autorise pas.
+**R22. Deux listes d'onglets concurrentes** — *corrigé.* La barre latérale choisit un *espace*,
+la barre secondaire une *vue* : deux `tablist` pointant vers le même panneau rendaient la relation
+ambiguë. La barre latérale est désormais une navigation (`aria-current`, plus de `role="tab"` ni
+d'`aria-controls`), `#workspace-nav` reste la seule `tablist`, et le `role="presentation"` placé
+dans une `tablist` — interdit par la spécification — a disparu. Trois tests verrouillent l'invariant.
 
-**R23. Le panneau principal n'est pas un repère `main`** — `<main role="tabpanel">` : le rôle explicite écrase le repère implicite, donc la page n'a aucun repère principal. Le lien d'évitement fonctionne, mais la navigation par repères, non.
+**R23. Absence de repère `main`** — *corrigé.* `<main role="tabpanel">` : le rôle explicite
+écrasait le repère implicite, donc la page n'avait aucun repère principal. Le conteneur applicatif
+est désormais le `<main>`, et `#tab-content` reste le `tabpanel`. Il a aussi reçu
+`aria-live="polite"` : tout y est remplacé sans rechargement, donc la navigation était jusqu'ici
+entièrement silencieuse pour un lecteur d'écran.
+
+**Reste ouvert :** aucune vérification automatisée de contraste ni d'axe (`axe-core`) n'est
+branchée en CI. Les ratios ont été calculés à la main lors de l'audit ; un contrôle automatique
+éviterait une régression silencieuse.
 
 ### 3.5 Dette de structure
 
-**R24. `frontend/admin/index.html` est un passif** — 656 lignes portant leur propre système de design qui duplique et diverge de `style.css` (ses propres `--accent`, `--surface`, `--muted`, `--radius`), chargeant Sora depuis Google Fonts alors que l'application auto-héberge la même police (incohérence, origine tierce, exposition RGPD). Non bundlé, non haché, non minifié, non linté, non testé. C'est aussi le fichier qui contenait les deux failles les plus graves du frontend. Le replier dans le build Vite comme second point d'entrée le placerait derrière la même chaîne de lint, de test et de bundling — et permettrait de supprimer la CSP permissive dédiée.
+**R24. Le backoffice était un passif** — *corrigé le 24 août (soir).* 689 lignes portant leur
+propre système de design qui dupliquait et divergeait de `style.css`, chargeant Sora depuis Google
+Fonts alors que l'application auto-héberge la même police. Non bundlé, non haché, non minifié, non
+linté, non testé. C'était aussi le fichier qui contenait les deux failles les plus graves du
+frontend.
+*Correction :* le `<style>` (182 lignes) et le `<script>` (429 lignes) en ligne sont extraits en
+`admin/admin.css` et `admin/admin.js`, et `admin/index.html` est devenu un **second point d'entrée
+Vite** — donc minifié, haché, et couvert par ESLint et Stylelint comme le reste. Les polices sont
+auto-hébergées : plus aucune requête vers `fonts.googleapis.com` (une origine tierce et une
+exposition RGPD en moins). N'ayant plus de script en ligne, le backoffice relève désormais de la
+**CSP stricte** du serveur : son exception permissive a été supprimée. La recherche a reçu un index
+mis en cache et un anti-rebond de 180 ms — elle re-sérialisait tout le jeu de données à chaque
+frappe. Le fichier HTML passe de 689 à 73 lignes.
 
-**R25. `style.css` est deux feuilles concaténées, pas une** — Les lignes 1–2270 sont le système de design d'origine ; à partir de la ligne 2272, une seconde couche redéfinit les mêmes composants au lieu de les modifier. Conséquences mesurées : **deux blocs `:root`** et **deux blocs de thème sombre** avec des valeurs proches mais différentes, **87 sélecteurs déclarés au moins deux fois** (`.dq-card` quatre fois, dont trois à moins de quarante lignes d'écart), **9 points de rupture ad hoc** dont un provablement inerte, **environ 207 lignes de CSS mort** (26 classes sans consommateur), 44 valeurs hexadécimales et 83 `rgba()` hors des blocs de tokens. Lire le bloc de tokens documenté en tête donne la mauvaise réponse pour la moitié du système. *Point positif à préserver :* seulement 3 `!important` en 4 490 lignes — il n'y a pas de guerre de spécificité ici, ce qui est rare.
-*Correctif :* fusionner les blocs de tokens, dédupliquer les sélecteurs, supprimer le CSS mort, consolider les points de rupture. Un Stylelint avec `no-duplicate-selectors` empêcherait la récidive.
+**R25. `style.css` était deux feuilles concaténées** — *largement corrigé le 24 août (soir).*
+Mesures avant : **2 blocs `:root`** et **2 blocs de thème sombre** aux valeurs proches mais
+différentes, **182 sélecteurs dupliqués**, **32 classes sans consommateur**, 9 points de rupture
+dont un provablement inerte, et des tokens référencés mais jamais définis (`--space-1`,
+`--shadow-subtle`). Lire le bloc de tokens documenté en tête donnait la mauvaise réponse pour la
+moitié du système.
+*Correction :* un seul bloc `:root` et un seul bloc de thème sombre, documentés, portant les
+valeurs effectives ; 32 classes mortes et leurs 51 sélecteurs supprimés ; 302 déclarations
+provablement écrasées retirées ; `@keyframes` orpheline supprimée ; les deux tokens fantômes
+corrigés ; le point de rupture inerte documenté et réduit à sa seule règle utile ; `clip`
+obsolète remplacé par `clip-path`. Résultat : **4 520 → 3 814 lignes**, bundle CSS **68,5 → 55,8 Ko**
+(gzip 12,2 → 10,5 Ko), **0 classe morte**.
+*Vérification :* un script compare la valeur finale de chaque couple (contexte, sélecteur,
+propriété) avant et après — **2 302 couples, 0 divergence** pour le retrait des déclarations
+écrasées — et les 202 déclarations perdues au total sont toutes attribuées à une classe morte, à
+un token supprimé ou au point de rupture inerte. Le rendu a ensuite été contrôlé en navigateur,
+thèmes clair et sombre, sur toutes les vues et jusqu'à 500 px de large.
+*Reste ouvert :* ~~135 sélecteurs restent déclarés plusieurs fois~~ — *corrigé le 24 août (fin de journée).*
+Les 135 doublons ont été fusionnés manuellement et via `tools/merge-duplicate-selectors.mjs`,
+avec vérification par `tools/style-snapshot.mjs` (90 contextes, styles calculés dans Chromium).
+**0 sélecteur dupliqué restant** ; Stylelint `no-duplicate-selectors` ne signale plus d'avertissement.
 
 **R26. Dépendances non épinglées** — `backend/requirements.txt` utilise `>=` sur ses treize entrées, et le Dockerfile fait `pip install` sans contrainte : deux builds à deux dates produisent deux images différentes. Ni la CI ni les déploiements ne sont reproductibles, et une version majeure amont casse la production sans qu'un seul commit ait changé. C'est en tension directe avec l'objectif de reproductibilité affiché par le projet — et `requirements-eval.txt` est, lui, correctement épinglé.
 *Correctif :* `pip-compile` avec hachages ; déplacer `pytest` vers un fichier de développement, il n'a rien à faire dans l'image de production.
@@ -322,7 +389,31 @@ Non configurable, dans une boucle strictement séquentielle : 350 questions repr
 **R27. Aucun lint Python** — Pas de `pyproject.toml`, `ruff.toml` ni `setup.cfg` dans le dépôt. La CI linte le frontend mais pas une ligne de Python. Preuve qu'une configuration a existé puis a été perdue : le code porte onze directives `# noqa` que `ruff` signale aujourd'hui comme inutiles, faute de règles activées. `ruff --select F` remonte 14 imports ou variables inutilisés.
 *Correctif :* committer un `pyproject.toml` correspondant à ces `noqa` et ajouter `ruff check` à la CI.
 
-**R28. ESLint trop permissif** — `no-unused-vars` en `warn` (donc n'échoue pas la CI), `eqeqeq`, `prefer-const` et `no-var` désactivés (`js/app.js` utilise encore `var`), aucune règle contre les globales alors que toute l'architecture repose sur des assignations à `globalThis`. `eslint-plugin-no-unsanitized` aurait directement détecté les deux XSS de cet audit. Ni `.editorconfig`, ni formateur, ni Stylelint, ni `npm audit` en CI. Le script `lint` ignore `admin/`, `index.html` et le CSS.
+**R28. Outillage de lint** — *corrigé le 24 août (soir), complété le 24 août (fin de journée).*
+`no-unused-vars` était en `warn`
+(donc n'échouait pas la CI) ; `eqeqeq`, `prefer-const` et `no-var` étaient désactivés ; aucune
+règle ne gardait les globales alors que toute l'architecture repose sur des assignations à
+`globalThis` ; ni `.editorconfig`, ni Stylelint, ni `npm audit` en CI ; le script `lint` ignorait
+`admin/`, `tests/` et le CSS.
+*Correction :* règles passées en erreur, périmètre étendu à `admin/`, `tests/` et `scripts/`,
+Stylelint ajouté sur `css/` et `admin/`, `npm audit --audit-level=high` en CI, `.editorconfig` à
+la racine.
+*Complément (contrôle automatique de contraste et axe-core) :* deux outils ajoutés dans
+`frontend/tools/` — `contrast-tokens.mjs` vérifie 25 paires de tokens (clair + sombre, seuils
+4,5:1 pour le texte et 3:1 pour les éléments d'interface) ; `a11y-check.mjs` lance axe-core via
+Playwright sur les 9 vues × 2 thèmes (18 analyses WCAG 2 AA). Les deux sont branchés en CI après
+le build Vite. L'exécution a immédiatement révélé et permis de corriger 30 violations réelles
+(`aria-orientation` sur une navigation sans `role="tablist"`, contrastes des badges de difficulté,
+du lien « Participer », des blocs de code et des étiquettes HTTP).
+*Point notable :* `eslint-plugin-no-unsanitized` a été **écarté** après essai. Il signale toute
+affectation à `innerHTML` sans pouvoir vérifier que les interpolations du gabarit sont échappées :
+sur ce projet, où tout le HTML est construit par littéraux de gabarit, il produisait 20 erreurs
+qu'il aurait fallu toutes supprimer — ce qui apprend à ignorer la règle. À sa place,
+`eslint-rules/no-unescaped-interpolation.js` vérifie l'invariant qui compte réellement : une valeur
+venant des données ou d'un assistant de libellé ne doit jamais atteindre le HTML sans passer par
+`escapeHtml()`. **Cette règle a immédiatement trouvé 8 interpolations non échappées** que la revue
+manuelle avait manquées, dont une exploitable (`formatDate()` sur un horodatage venant de l'API) et
+une dans le backoffice. Réintroduire volontairement la XSS de l'audit fait bien échouer le lint.
 
 **R29. Quatre implémentations du chargement du corpus** — `data_loader.load_questions`, `open_tasks.build_validation_status`, `afribench.load_questions` et `test_consistency._count_validated`, aux comportements divergents (l'une ignore les objets uniques, une autre n'exclut pas `template.json`). Les totaux peuvent donc différer selon l'endpoint interrogé, et chaque correction doit être appliquée quatre fois — c'est ce qui a rendu H3 possible.
 
@@ -333,7 +424,25 @@ Non configurable, dans une boucle strictement séquentielle : 350 questions repr
 
 **R32. Le CRUD d'administration n'est pas testé** — L'authentification et le rate limiting du backoffice le sont depuis cet audit ; les quinze handlers CRUD, non. Le cycle de vie de l'application n'est jamais exercé (aucun test n'utilise `with TestClient(app)`, donc migrations, seed et reprise des jobs ne tournent jamais en test), et toute la couche SQL de `repository.py` est mockée. C'est le prérequis de R1, R2, R9, R13 et R17 : sans un PostgreSQL de test, leurs correctifs ne sont pas vérifiables.
 
-**R33. Défauts frontend mineurs** — Les vues asynchrones peuvent écraser l'onglet courant si l'utilisateur navigue pendant le chargement (`open_tasks.js`, `contribute.js` écrivent dans `#tab-content` après un `await`, et `renderActiveTab` n'attend ni ne capture). Les identifiants de canvas des fiches modèles sont dérivés du nom par suppression des caractères non alphanumériques : `GPT-4o` et `gpt4o` collisionnent. `compare.js` construit un tableau « top 3 » aussitôt écrasé par `requestAnimationFrame`, et cliquer « Comparer » sur une fiche produit une comparaison à un seul modèle. Le formulaire de proposition n'est jamais réinitialisé après envoi : le bouton reste désactivé et libellé « Publication… ». La recherche du backoffice sérialise tout le jeu de données à chaque frappe, sans anti-rebond. Les scores du classement sont codés en dur en double dans `index.html` (bloc `<noscript>` et bloc statique).
+**R33. Défauts d'interface** — *corrigés le 24 août (soir).* Six défauts réels :
+les vues asynchrones pouvaient écraser l'onglet courant si l'utilisateur naviguait pendant le
+chargement (jeton de rendu ajouté, et `renderActiveTab` capture désormais les rejets) ; les
+identifiants de canvas des fiches modèles étaient dérivés du nom par suppression des caractères
+non alphanumériques, donc `GPT-4o` et `gpt4o` collisionnaient (index utilisé, et la recherche
+linéaire par canvas remplacée par une `Map`) ; `compare.js` construisait un tableau « top 3 »
+aussitôt écrasé au cadre suivant (33 lignes de logique dupliquée supprimées) et cliquer
+« Comparer » sur une fiche produisait une comparaison à **un seul** modèle (le modèle demandé est
+désormais accompagné des deux meilleurs autres) ; le formulaire de proposition n'était jamais
+réinitialisé après envoi, laissant un bouton désactivé libellé « Publication… » ; la recherche du
+backoffice re-sérialisait tout le jeu de données à chaque frappe (index en cache + anti-rebond).
+
+À cela s'ajoutent **17 styles en ligne dans le JavaScript** qui contournaient la correction de
+contraste appliquée au CSS : ils utilisaient encore l'orange non conforme comme couleur de texte.
+
+*Constat corrigé :* l'audit affirmait que les scores du classement étaient « codés en dur en double
+dans `index.html` ». C'est inexact — le bloc `<noscript>` et le bloc statique sont tous deux
+**générés** par `scripts/generate_static_html.py` depuis la même source. Il n'y a pas de double
+maintenance manuelle.
 
 ---
 
@@ -372,11 +481,14 @@ Le prérequis de presque tout le reste est **R32** : monter un PostgreSQL de tes
 3. **R3, R4** — intégrité des mesures publiées.
 4. **R5, R7, R8** — durcissement du backoffice.
 5. **R6, R12** — rendre le mode dégradé observable.
-6. **R27, R28** — lint Python et ESLint strict : travaux courts qui empêchent la moitié de la section 3.5 de récidiver.
-7. **R13, R14, R15, R18** — performance, par ordre de gain mesuré.
-8. **R20 à R23** — accessibilité restante.
-9. **R24, R25** — dette de structure : replier le backoffice dans Vite, fusionner les deux feuilles de style.
-10. **R26** — épingler les dépendances, ce qui est la condition d'une reproductibilité réellement tenue.
+6. **R27** — lint Python : travail court qui empêche la moitié de la section 3.5 de récidiver.
+   *(R28, son équivalent côté frontend, est fait.)*
+7. **R13, R14, R15** — performance backend, par ordre de gain mesuré.
+8. **R26** — épingler les dépendances, condition d'une reproductibilité réellement tenue.
+9. **R19** — sortir l'évaluation du processus web vers un worker qui persiste sa progression.
+
+Le périmètre frontend de cet audit est **entièrement traité** : **R18, R20, R21, R22, R23, R24,
+R25, R28 et R33** sont corrigés et vérifiés.
 
 ---
 
@@ -388,8 +500,8 @@ cd backend && PYTHONPATH=. python3 -m pytest -q          # 98 tests
 git diff --exit-code                                      # doit rester propre
 
 # Frontend
-cd frontend && npm ci && npm run lint && npm test         # 49 tests
-npm run build && du -sh dist
+cd frontend && npm ci && npm run lint:all && npm test         # 58 tests
+npm run build && npm run test:contrast && npm run test:a11y
 
 # Corpus et chaîne d'évaluation
 python3 scripts/afribench.py validate data/questions/v1/validated

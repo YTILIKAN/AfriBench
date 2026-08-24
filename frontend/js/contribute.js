@@ -206,7 +206,7 @@ function proposalForm() {
           <label for="cq-category">Catégorie *</label>
           <select id="cq-category" required>
             <option value="">Choisir…</option>
-            ${categoryKeys().map((key) => `<option value="${key}">${categoryLabel(key)}</option>`).join('')}
+            ${categoryKeys().map((key) => `<option value="${escapeHtml(key)}">${escapeHtml(categoryLabel(key))}</option>`).join('')}
           </select>
         </div>
         <div class="cq-field">
@@ -294,7 +294,9 @@ async function submitProposal(event) {
   const errors = validateForm(data);
   showFormErrors(errors);
   if (errors.length) return;
-  const submit = event.currentTarget.querySelector('[type="submit"]');
+  const form = event.currentTarget;
+  const submit = form.querySelector('[type="submit"]');
+  const submitLabel = submit.textContent;
   submit.disabled = true;
   submit.textContent = 'Publication…';
   try {
@@ -322,6 +324,13 @@ async function submitProposal(event) {
       created_at: new Date().toISOString(),
     });
     saveLocalProposals(hubProposals);
+  } finally {
+    // Sans cela, réouvrir la modale montrait la proposition précédente et un
+    // bouton définitivement désactivé, libellé « Publication… ».
+    form.reset();
+    showFormErrors([]);
+    submit.disabled = false;
+    submit.textContent = submitLabel;
   }
   closeModal();
   const note = document.getElementById('hub-local-note');
@@ -405,7 +414,11 @@ async function renderContribute(container) {
     }
   });
 
+  const token = globalThis.currentRenderToken?.();
   await fetchProposals();
+  // renderHubList() est déjà protégé par l'absence de #hub-list, mais le jeton
+  // évite d'écrire dans une vue que l'utilisateur a quittée entre-temps.
+  if (globalThis.isRenderStale?.(token)) return;
   const note = document.getElementById('hub-local-note');
   if (note) note.hidden = !hubLocalMode;
   renderHubList();

@@ -17,11 +17,13 @@ const RESULTS = [{
 
 beforeEach(() => {
   document.body.innerHTML = `
-    <nav role="tablist">
-      <button id="nav-overview" role="tab" data-workspace="overview"></button>
-      <button id="nav-analysis" role="tab" data-workspace="analysis"></button>
-      <button id="nav-data" role="tab" data-workspace="data"></button>
-      <button id="nav-project" role="tab" data-workspace="project"></button>
+    <nav aria-label="Navigation principale">
+      <div class="sidebar-tablist">
+        <button id="nav-overview" data-workspace="overview" data-sidebar data-tab="leaderboard"></button>
+        <button id="nav-analysis" data-workspace="analysis" data-sidebar data-tab="compare"></button>
+        <button id="nav-data" data-workspace="data" data-sidebar data-tab="questions"></button>
+        <button id="nav-project" data-workspace="project" data-sidebar data-tab="methodology"></button>
+      </div>
     </nav>
     <div id="workspace-nav"></div>
     <div id="workspace-filters"></div>
@@ -58,5 +60,53 @@ describe('references ARIA', () => {
     const ref = document.getElementById('tab-content').getAttribute('aria-labelledby');
     expect(ref).toBe('nav-analysis');
     expect(document.getElementById(ref)).toBeTruthy();
+  });
+
+  it('une seule tablist contrôle le panneau', () => {
+    setActiveTab('leaderboard');
+    // La barre latérale choisit un espace (navigation) ; seule #workspace-nav
+    // est une tablist et pointe vers #tab-content.
+    const controllers = [...document.querySelectorAll('[role="tab"]')];
+    expect(controllers.length).toBeGreaterThan(0);
+    controllers.forEach((tab) => {
+      expect(tab.closest('#workspace-nav'), `${tab.id} hors de #workspace-nav`).toBeTruthy();
+    });
+    expect(document.querySelectorAll('.sidebar-tablist [role="tab"]')).toHaveLength(0);
+  });
+
+  it('les boutons d espace utilisent aria-current, pas aria-selected', () => {
+    setActiveTab('questions');
+    const dataBtn = document.getElementById('nav-data');
+    expect(dataBtn.getAttribute('aria-current')).toBe('true');
+    expect(dataBtn.hasAttribute('aria-selected')).toBe(false);
+    expect(document.getElementById('nav-overview').getAttribute('aria-current')).toBe('false');
+  });
+});
+
+describe('structure des tableaux', () => {
+  const RESULTS = [{
+    model: 'gpt-4o', model_label: 'GPT-4o', timestamp: '2026-06-04T22:23:49',
+    total: 10, correct: 9, accuracy: 90,
+    by_category: { histoire: { correct: 9, total: 10, accuracy: 90 } },
+    by_difficulty: { easy: { correct: 9, total: 10, accuracy: 90 } },
+  }];
+
+  beforeEach(() => {
+    AppState.results = structuredClone(RESULTS);
+    document.body.innerHTML = '<main id="tab-content"></main>';
+  });
+
+  it('le classement a une legende et des en-tetes portee', () => {
+    const container = document.getElementById('tab-content');
+    globalThis.renderLeaderboard(container);
+    const table = container.querySelector('table.lb-table');
+    expect(table.querySelector('caption'), 'caption manquante').toBeTruthy();
+    const headers = [...table.querySelectorAll('thead th')];
+    expect(headers.length).toBeGreaterThan(0);
+    headers.forEach((th) => expect(th.getAttribute('scope')).toBe('col'));
+    // Le nom du modèle identifie la ligne : c'est un en-tête de ligne.
+    const rowHeader = table.querySelector('tbody th[scope="row"]');
+    expect(rowHeader, 'en-tête de ligne manquant').toBeTruthy();
+    expect(rowHeader.textContent).toContain('GPT-4o');
   });
 });

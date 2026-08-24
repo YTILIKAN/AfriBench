@@ -415,9 +415,9 @@ describe('navigation par onglets (sidebar)', () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <nav class="sidebar-nav">
-        <div class="sidebar-tablist" role="tablist" aria-orientation="vertical">
-          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-workspace="overview" data-sidebar id="nav-overview">Vue d'ensemble</button>
-          <button class="sidebar-btn" role="tab" data-tab="compare" data-workspace="analysis" data-sidebar id="nav-analysis">Analyse</button>
+        <div class="sidebar-tablist">
+          <button class="sidebar-btn active" aria-current="true" data-tab="leaderboard" data-workspace="overview" data-sidebar id="nav-overview">Vue d'ensemble</button>
+          <button class="sidebar-btn" aria-current="false" data-tab="compare" data-workspace="analysis" data-sidebar id="nav-analysis">Analyse</button>
         </div>
       </nav>
       <header class="view-header">
@@ -433,14 +433,14 @@ describe('navigation par onglets (sidebar)', () => {
   // latérale portent l'identifiant de l'ESPACE (nav-overview, nav-analysis),
   // jamais celui de la vue. L'ancien gabarit utilisait des ids par vue, qui
   // n'existent nulle part en production : le test validait un contrat fictif.
-  it('setActiveTab met à jour aria-selected et le roving tabindex', () => {
+  it('setActiveTab met à jour aria-current et le roving tabindex', () => {
     setActiveTab('compare');
     const analysisBtn = document.getElementById('nav-analysis');
     const overviewBtn = document.getElementById('nav-overview');
-    expect(analysisBtn.getAttribute('aria-selected')).toBe('true');
+    expect(analysisBtn.getAttribute('aria-current')).toBe('true');
     expect(analysisBtn.getAttribute('tabindex')).toBe('0');
     expect(analysisBtn.classList.contains('active')).toBe(true);
-    expect(overviewBtn.getAttribute('aria-selected')).toBe('false');
+    expect(overviewBtn.getAttribute('aria-current')).toBe('false');
     expect(overviewBtn.getAttribute('tabindex')).toBe('-1');
     const ref = document.getElementById('tab-content').getAttribute('aria-labelledby');
     expect(ref).toBe('nav-analysis');

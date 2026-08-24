@@ -13,22 +13,22 @@ function renderAPI(container) {
       </p>
 
       <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--sp-lg)">
-        Base URL (local) : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre)">http://127.0.0.1:8080/api/v1</code>
+        Base URL (local) : <code>http://127.0.0.1:8080/api/v1</code>
         &nbsp;·&nbsp; Docs : <a href="http://127.0.0.1:8080/docs" target="_blank" rel="noopener">/docs</a>
-        &nbsp;·&nbsp; Source données : <code style="font-family:var(--mono);color:var(--ocre)">${AppState.dataSource || '—'}</code>
+        &nbsp;·&nbsp; Source données : <code>${AppState.dataSource || '—'}</code>
       </p>
 
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/results</span>
+          <h3 class="endpoint-url">/results</h3>
           <span class="endpoint-desc">Liste de tous les resultats</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>model</td><td>string</td><td>Filtrer par modèle (optionnel)</td></tr>
@@ -65,14 +65,14 @@ curl -s "http://127.0.0.1:8080/api/v1/results?limit=3" | jq '.'
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/questions</span>
+          <h3 class="endpoint-url">/questions</h3>
           <span class="endpoint-desc">Liste de toutes les questions</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>category</td><td>string</td><td>Filtrer par catégorie (optionnel)</td></tr>
@@ -108,14 +108,14 @@ curl -s "http://127.0.0.1:8080/api/v1/questions?category=histoire&difficulty=har
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/models</span>
+          <h3 class="endpoint-url">/models</h3>
           <span class="endpoint-desc">Liste des modèles avec leurs scores agreges</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>sort</td><td>string</td><td>Trier par score (asc/desc, defaut: desc)</td></tr>
@@ -145,7 +145,7 @@ ${'  '}[
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/stats</span>
+          <h3 class="endpoint-url">/stats</h3>
           <span class="endpoint-desc">Statistiques globales du benchmark</span>
         </div>
         <div class="api-endpoint-body">
@@ -175,11 +175,11 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/leaderboard</span>
+          <h3 class="endpoint-url">/leaderboard</h3>
           <span class="endpoint-desc">Classement complet etendu</span>
         </div>
         <div class="api-endpoint-body">
-          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--space-1)">
+          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--sp-xs)">
             Endpoint combiné retournant le classement complet avec moyennes par catégorie.
           </p>
 
@@ -196,14 +196,14 @@ print(data['stats'])
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-post">POST</span>
-          <span class="endpoint-url">/evaluate</span>
+          <h3 class="endpoint-url">/evaluate</h3>
           <span class="endpoint-desc">Lancer une évaluation (auth requise)</span>
         </div>
         <div class="api-endpoint-body">
           <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:8px">
-            Header requis : <code style="font-family:var(--mono);color:var(--ocre)">X-API-Key</code>
-            (= <code style="font-family:var(--mono)">AFRIBENCH_API_KEY</code>).
-            Job asynchrone — suivre via <code style="font-family:var(--mono)">GET /jobs/{id}</code>.
+            Header requis : <code>X-API-Key</code>
+            (= <code>AFRIBENCH_API_KEY</code>).
+            Job asynchrone — suivre via <code>GET /jobs/{id}</code>.
           </p>
           <div class="api-code-sample">
 curl -X POST http://127.0.0.1:8080/api/v1/evaluate \\
@@ -226,14 +226,14 @@ curl -s http://127.0.0.1:8080/api/v1/jobs/JOB_ID | jq .
           AfriBench est scindé en deux services :
         </p>
         <ul style="font-size:0.82rem;color:var(--charbon);line-height:1.8;margin-top:8px;padding-left:20px">
-          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre)">:8080</code>) + rate-limit + clé API pour l'écriture</li>
-          <li><strong>frontend/</strong> — UI statique (nginx ou <code style="font-family:var(--mono)">python -m http.server</code>)</li>
+          <li><strong>backend/</strong> — API FastAPI (<code>:8080</code>) + rate-limit + clé API pour l'écriture</li>
+          <li><strong>frontend/</strong> — UI statique (nginx ou <code>python -m http.server</code>)</li>
         </ul>
         <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6;margin-top:8px">
-          En local : <code style="font-family:var(--mono);color:var(--ocre)">docker compose up --build</code>
+          En local : <code>docker compose up --build</code>
           (frontend <code>:3000</code>, API <code>:8080</code>, docs <code>/docs</code>).
           Sans backend, le frontend retombe sur les JSON statiques
-          <code style="font-family:var(--mono);color:var(--ocre)">frontend/data/*.json</code>.
+          <code>frontend/data/*.json</code>.
         </p>
       </div>
 

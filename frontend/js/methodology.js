@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, getUniqueModels, categoryKeys, categoryLabel,
+  AppState, getUniqueModels, categoryKeys, categoryLabel, escapeHtml,
 } = globalThis;
 
 function renderMethodology(container) {
@@ -60,7 +60,7 @@ function renderMethodology(container) {
         <p>Les questions sont organisees en ${cats.size} catégories couvrant les aspects fondamentaux des societes africaines :</p>
         <div class="meth-tags">
           ${categoryKeys().map(key =>
-            `<span class="meth-tag">${categoryLabel(key)}</span>`
+            `<span class="meth-tag">${escapeHtml(categoryLabel(key))}</span>`,
           ).join('')}
         </div>
       </div>
@@ -118,29 +118,29 @@ function renderMethodology(container) {
         </div>
 
         <div class="meth-code-block">
-          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Score global</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--orange);font-size:.82rem">Score global</strong>
           Pourcentage de réponses correctes sur l'ensemble du benchmark (${totalQ} questions).
           Métrique principale de performance.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Scores par difficulte</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--orange);font-size:.82rem">Scores par difficulte</strong>
           Les questions sont classees en 3 niveaux :
           <strong>Facile</strong> (connaissances de base),
           <strong>Moyen</strong> (connaissances intermediaires),
           <strong>Difficile</strong> (raisonnement avance).
           Ces scores permettent d'evaluer la profondeur des connaissances du modele.
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Meilleure categorie</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--orange);font-size:.82rem">Meilleure categorie</strong>
           La catégorie thematique dans laquelle le modèle obtient son meilleur score.
           Revele le domaine de predilection du modèle (ex: Droit et Politique, Geographie).
           <br><br>
-          <strong style="display:block;margin-bottom:8px;color:var(--ocre);font-size:.82rem">Ecart-type (consistance)</strong>
+          <strong style="display:block;margin-bottom:8px;color:var(--orange);font-size:.82rem">Ecart-type (consistance)</strong>
           Mesure de la regularite des performances a travers les 9 categories.
           <br>
-          <span style="color:var(--success)">Faible (&lt;5) :</span> performances homogenes
+          <span class="tone-success">Faible (&lt;5) :</span> performances homogenes
           <br>
-          <span style="color:var(--warning)">Moyen (5-8) :</span> legeres variations
+          <span class="tone-warning">Moyen (5-8) :</span> legeres variations
           <br>
-          <span style="color:var(--danger)">Eleve (&gt;8) :</span> forte disparité selon les sujets
+          <span class="tone-danger">Eleve (&gt;8) :</span> forte disparité selon les sujets
         </div>
 
         <p><strong>Interpretation :</strong></p>

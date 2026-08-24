@@ -29,7 +29,11 @@ async function ensureOpenScores() {
 }
 
 async function renderOpenTasks(container) {
+  // Le chargement précède l'écriture dans le DOM : sans ce jeton, changer
+  // d'onglet pendant la requête laissait cette vue écraser la nouvelle.
+  const token = globalThis.currentRenderToken?.();
   const scores = await ensureOpenScores();
+  if (globalThis.isRenderStale?.(token)) return;
   const tasks = scores.tasks || {};
   const taskKeys = Object.keys(tasks);
 
@@ -59,14 +63,15 @@ async function renderOpenTasks(container) {
   }
 
   html += '<div class="card"><div class="lb-table-wrap"><table class="lb-table">';
-  html += '<thead><tr><th>Tâche</th><th>N</th><th>Métrique</th><th>Moyenne</th></tr></thead><tbody>';
+  html += '<caption class="sr-only">Scores des tâches ouvertes par type de tâche.</caption>'
+    + '<thead><tr><th scope="col">Tâche</th><th scope="col">N</th><th scope="col">Métrique</th><th scope="col">Moyenne</th></tr></thead><tbody>';
   for (const key of taskKeys) {
     const t = tasks[key];
     html += `<tr>
       <td>${escapeHtml(TASK_LABELS[key] || key)}</td>
       <td>${t.n || '—'}</td>
       <td><code>${escapeHtml(t.metric || '—')}</code></td>
-      <td>${t.average != null ? (t.average * 100).toFixed(1) + '%' : '—'}</td>
+      <td>${t.average != null ? `${(t.average * 100).toFixed(1)  }%` : '—'}</td>
     </tr>`;
   }
   html += '</tbody></table></div></div>';

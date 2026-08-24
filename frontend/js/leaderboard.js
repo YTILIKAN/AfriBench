@@ -156,8 +156,8 @@ function renderLeaderboard(container) {
         <div class="legend-grid">
           ${Object.values(METRICS).map((m) => `
             <div class="legend-item">
-              <span class="legend-label">${m.label}</span>
-              <span class="legend-desc">${m.desc}</span>
+              <span class="legend-label">${escapeHtml(m.label)}</span>
+              <span class="legend-desc">${escapeHtml(m.desc)}</span>
             </div>
           `).join('')}
         </div>
@@ -169,15 +169,20 @@ function renderLeaderboard(container) {
   html += `
     <div class="card lb-table-wrap">
       <table class="lb-table">
+        <caption class="sr-only">
+          Classement des modèles évalués : rang, nom, score global, nombre de
+          réponses correctes, scores par niveau de difficulté, meilleure
+          catégorie, écart-type entre catégories et date d'évaluation.
+        </caption>
         <thead>
           <tr>
             ${renderTH('rank', '#')}
             ${renderTH('name', 'Modèle')}
             ${renderTH('score', AppState.urlCategory ? escapeHtml(categoryLabel(AppState.urlCategory)) : 'Score')}
-            <th class="th-with-tip col-questions" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip col-facile" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip col-moyen" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
-            <th class="th-with-tip col-difficile" data-tip="${METRICS.difficile.desc}">Difficile ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th scope="col" class="th-with-tip col-questions" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th scope="col" class="th-with-tip col-facile" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th scope="col" class="th-with-tip col-moyen" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
+            <th scope="col" class="th-with-tip col-difficile" data-tip="${METRICS.difficile.desc}">Difficile ${renderIcon('CircleHelp', 'tip-icon')}</th>
             ${renderTH('best_cat', 'Meilleure cat.', METRICS.meilleure_cat.desc)}
             ${renderTH('stddev', 'Écart-type', METRICS.ecart_type.desc)}
             ${renderTH('date', 'Évalué', METRICS.evalue.desc)}
@@ -205,7 +210,7 @@ function renderLeaderboard(container) {
     html += `
       <tr>
         <td class="rank col-rank ${rankClass}">${i + 1}</td>
-        <td class="col-name">
+        <th scope="row" class="col-name">
           <div class="model-cell">
             <button type="button" class="fav-star ${favorite ? 'is-favorite' : ''}"
                     data-fav="${safeName}" aria-pressed="${favorite}"
@@ -215,7 +220,7 @@ function renderLeaderboard(container) {
             <span class="model-name">${safeName}</span>
             <span class="model-provider">${isOpen ? 'open' : 'propriétaire'}</span>
           </div>
-        </td>
+        </th>
         <td class="col-score">
           <div class="score-bar-wrap">
             <span class="score-cell">${metric.accuracy.toFixed(1)}%</span>
@@ -234,7 +239,7 @@ function renderLeaderboard(container) {
         <td class="metadata col-stddev ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
           ${stddev !== null ? stddev.toFixed(1) : '-'}
         </td>
-        <td class="metadata col-date">${m.timestamp ? formatDate(m.timestamp) : '-'}</td>
+        <td class="metadata col-date">${m.timestamp ? escapeHtml(formatDate(m.timestamp)) : '-'}</td>
       </tr>
     `;
   });
@@ -326,7 +331,7 @@ function renderTH(field, label, tip) {
     ? renderIcon(lbSortDir === 'asc' ? 'ArrowUp' : 'ArrowDown', 'sort-icon')
     : renderIcon('ChevronsUpDown', 'sort-icon');
   return `
-    <th data-sort="${field}" class="${cls} th-with-tip col-${field}"${tipAttr}>
+    <th scope="col" data-sort="${field}" class="${cls} th-with-tip col-${field}"${tipAttr}>
       ${label} ${sortIcon}${tipIcon}
     </th>
   `;
@@ -350,8 +355,8 @@ function setupTooltips(container) {
       let left = rect.left + (rect.width / 2) - (ttRect.width / 2);
       if (left < 10) left = 10;
       if (left + ttRect.width > window.innerWidth - 10) left = window.innerWidth - ttRect.width - 10;
-      tooltip.style.left = left + 'px';
-      tooltip.style.top = (rect.bottom + 8) + 'px';
+      tooltip.style.left = `${left  }px`;
+      tooltip.style.top = `${rect.bottom + 8  }px`;
     });
     th.addEventListener('mouseleave', () => {
       const existing = document.querySelector('.metric-tooltip');
@@ -387,7 +392,7 @@ function renderLBCategoryChart(models) {
       plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
         x: { ticks: { color: theme.tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: theme.grid } },
-        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => `${v  }%` }, grid: { color: theme.grid } },
       },
     },
   });
@@ -417,7 +422,7 @@ function renderLBDifficultyChart(models) {
       plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
         x: { ticks: { color: theme.tick, font: { size: 10 } }, grid: { color: theme.grid } },
-        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => `${v  }%` }, grid: { color: theme.grid } },
       },
     },
   });

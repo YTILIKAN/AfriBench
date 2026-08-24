@@ -51,15 +51,29 @@ jobs:
       - name: Install frontend deps
         working-directory: frontend
         run: npm ci
-      - name: Lint
+      - name: Lint JavaScript
         working-directory: frontend
         run: npm run lint
+      - name: Lint CSS
+        working-directory: frontend
+        run: npm run lint:css
+      - name: Audit des dépendances
+        working-directory: frontend
+        # Bloque sur une vulnérabilité élevée ou critique ; les niveaux
+        # inférieurs restent visibles dans le journal sans faire échouer la CI.
+        run: npm audit --audit-level=high
       - name: Unit tests (Vitest)
         working-directory: frontend
         run: npm test
       - name: Build (Vite)
         working-directory: frontend
         run: npm run build
+      - name: Contraste des tokens du design system
+        working-directory: frontend
+        run: npm run test:contrast
+      - name: Accessibilité (axe-core, WCAG 2 AA)
+        working-directory: frontend
+        run: npx playwright install chromium && npm run test:a11y
       - name: Les assets doivent être référencés en relatif
         working-directory: frontend
         run: |

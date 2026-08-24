@@ -4,7 +4,7 @@
 
 const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme, chartSeriesColor } = globalThis;
 
-let evoSelectedModels = new Set();
+const evoSelectedModels = new Set();
 let evoInitialised = false;
 
 function renderEvolution(container) {
@@ -128,7 +128,7 @@ function renderEvolution(container) {
             padding: 12,
             cornerRadius: 8,
             callbacks: {
-              label: (item) => `${item.dataset.label}: ${item.parsed.y !== null ? item.parsed.y.toFixed(1) + '%' : '—'}`,
+              label: (item) => `${item.dataset.label}: ${item.parsed.y !== null ? `${item.parsed.y.toFixed(1)  }%` : '—'}`,
             },
           },
         },
@@ -141,7 +141,7 @@ function renderEvolution(container) {
             beginAtZero: true,
             max: 100,
             grid: { color: theme.grid },
-            ticks: { color: theme.tick, font: { size: 10 }, callback: (v) => v + '%' },
+            ticks: { color: theme.tick, font: { size: 10 }, callback: (v) => `${v  }%` },
           },
         },
       },
@@ -184,13 +184,17 @@ function renderEvolutionTable(timelineData, modelList) {
   // For each model, compute first and last score
   let html = `
     <table class="evolution-table">
+      <caption class="sr-only">
+        Évolution des scores dans le temps : premier score mesuré, score actuel,
+        écart et nombre d'évaluations par modèle.
+      </caption>
       <thead>
         <tr>
-          <th>Modele</th>
-          <th>Premier score</th>
-          <th>Score actuel</th>
-          <th>Evolution</th>
-          <th>Nb d'evaluations</th>
+          <th scope="col">Modele</th>
+          <th scope="col">Premier score</th>
+          <th scope="col">Score actuel</th>
+          <th scope="col">Evolution</th>
+          <th scope="col">Nb d'evaluations</th>
         </tr>
       </thead>
       <tbody>

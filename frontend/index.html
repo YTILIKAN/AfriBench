@@ -98,7 +98,9 @@
           <a class="sidebar-logo__brand" href="./" aria-label="AfriBench — Accueil">
             <span class="sidebar-logo__mark" aria-hidden="true">A</span>
             <span>
-              <h1>Afri<span>B</span>ench</h1>
+              <!-- La marque n'est pas le titre du document : le seul <h1> de
+                   la page est le titre de la vue. -->
+              <span class="sidebar-logo__name">Afri<span>B</span>ench</span>
               <span class="tagline">Benchmark LLM pour l'Afrique</span>
             </span>
           </a>
@@ -116,28 +118,33 @@
       </div>
 
       <nav class="sidebar-nav" aria-label="Navigation principale">
-        <div class="sidebar-tablist" role="tablist" aria-orientation="vertical" aria-label="Espaces du tableau de bord">
-          <div class="sidebar-section-title" role="presentation">Espaces</div>
-          <button class="sidebar-btn active" role="tab" id="nav-overview"
-                  aria-selected="true" aria-controls="tab-content" data-tab="leaderboard"
+        <!-- Ce n'est pas une tablist : la barre latérale choisit un ESPACE, la
+             barre secondaire choisit une VUE dans cet espace. Déclarer deux
+             tablists pointant vers le même panneau rendait la relation
+             ambiguë pour une aide technique. La barre latérale est donc une
+             navigation, et #workspace-nav reste la seule tablist. -->
+        <div class="sidebar-tablist" aria-label="Espaces du tableau de bord">
+          <div class="sidebar-section-title">Espaces</div>
+          <button class="sidebar-btn active" id="nav-overview"
+                  aria-current="true" data-tab="leaderboard"
                   data-workspace="overview" data-sidebar>
             <span class="icon" data-icon="LayoutDashboard" aria-hidden="true"></span>
             <span><strong>Vue d'ensemble</strong><small>Scores · Modèles</small></span>
           </button>
-          <button class="sidebar-btn" role="tab" id="nav-analysis" tabindex="-1"
-                  aria-selected="false" aria-controls="tab-content" data-tab="compare"
+          <button class="sidebar-btn" id="nav-analysis" tabindex="-1"
+                  aria-current="false" data-tab="compare"
                   data-workspace="analysis" data-sidebar>
             <span class="icon" data-icon="ChartNoAxesCombined" aria-hidden="true"></span>
             <span><strong>Analyse</strong><small>Comparaison · Évolution</small></span>
           </button>
-          <button class="sidebar-btn" role="tab" id="nav-data" tabindex="-1"
-                  aria-selected="false" aria-controls="tab-content" data-tab="questions"
+          <button class="sidebar-btn" id="nav-data" tabindex="-1"
+                  aria-current="false" data-tab="questions"
                   data-workspace="data" data-sidebar>
             <span class="icon" data-icon="Database" aria-hidden="true"></span>
             <span><strong>Données</strong><small>Questions · Tâches</small></span>
           </button>
-          <button class="sidebar-btn" role="tab" id="nav-project" tabindex="-1"
-                  aria-selected="false" aria-controls="tab-content" data-tab="methodology"
+          <button class="sidebar-btn" id="nav-project" tabindex="-1"
+                  aria-current="false" data-tab="methodology"
                   data-workspace="project" data-sidebar>
             <span class="icon" data-icon="FolderKanban" aria-hidden="true"></span>
             <span><strong>Projet</strong><small>Méthode · API</small></span>
@@ -171,7 +178,7 @@
       </div>
     </aside>
 
-    <div class="app-main">
+    <main class="app-main" id="app-main">
 
       <!-- ═══ HEADER (compact, épuré) ═══ -->
       <header class="page-header">
@@ -247,7 +254,7 @@
                aria-live annonce les changements de vue, de filtre et de page :
                sans lui, toute la navigation est silencieuse pour un lecteur
                d'écran, puisque le contenu est remplacé sans rechargement. -->
-          <main class="content-area" id="tab-content" role="tabpanel"
+          <div class="content-area" id="tab-content" role="tabpanel"
                 aria-labelledby="nav-overview" tabindex="0"
                 aria-live="polite" aria-busy="false">
 <!-- STATIC_LEADERBOARD_BEGIN -->
@@ -259,7 +266,8 @@
               </p>
               <div class="lb-table-wrap">
                 <table class="lb-table">
-                  <thead><tr><th>#</th><th>Modèle</th><th>Score</th><th>Détail</th></tr></thead>
+                  <caption class="sr-only">Classement pré-généré des modèles évalués.</caption>
+                  <thead><tr><th scope="col">#</th><th scope="col">Modèle</th><th scope="col">Score</th><th scope="col">Détail</th></tr></thead>
                   <tbody>
 <tr><td>1</td><td>DeepSeek V4</td><td>96.0%</td><td>97/101</td></tr>
 <tr><td>2</td><td>Claude Sonnet 4</td><td>95.0%</td><td>96/101</td></tr>
@@ -273,7 +281,7 @@
               </div>
             </div>
             <!-- STATIC_LEADERBOARD_END -->
-          </main>
+          </div>
         </div>
       </section>
 
@@ -291,7 +299,7 @@
         </div>
       </footer>
 
-    </div>
+    </main>
   </div>
 
   <script type="module" src="/src/main.js"></script>

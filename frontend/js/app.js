@@ -7,7 +7,7 @@ const renderIcon = globalThis.icon || (() => '');
 /* ── Security ────────────────────────────────────────── */
 function escapeHtml(str) {
   if (!str || typeof str !== 'string') return '';
-  var map = {
+  const map = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -15,7 +15,7 @@ function escapeHtml(str) {
     "'": '&#39;',
     '/': '&#x2F;',
     '`': '&#96;',
-    '=': '&#61;'
+    '=': '&#61;',
   };
   return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
 }
@@ -132,7 +132,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupRevealAnimations();
   applyUrlState();
   setLoadingState(true);
-  await loadData();
+  // Si l'instantané pré-généré arrive avant l'API, on affiche déjà quelque
+  // chose au lieu d'attendre la réponse du réseau.
+  await loadData({
+    onEarlyPaint: () => {
+      syncFilterState();
+      renderActiveTab();
+      updateHeroStats();
+    },
+  });
   setLoadingState(false);
   syncFilterState();
   renderActiveTab();
@@ -383,7 +391,9 @@ function setupTabs() {
   });
 
   // Navigation clavier ARIA (↑/↓/Home/End) dans la tablist verticale
-  const tablist = document.querySelector('.sidebar-tablist[role="tablist"]');
+  // Sélection par classe : la barre latérale n'est plus une tablist ARIA,
+  // mais la navigation aux flèches reste un confort qu'on conserve.
+  const tablist = document.querySelector('.sidebar-tablist');
   if (tablist) {
     tablist.addEventListener('keydown', (e) => {
       const current = document.activeElement;
@@ -424,7 +434,8 @@ function setActiveTab(tabId) {
       ? b.dataset.workspace === activeWorkspace
       : b.dataset.tab === tabId;
     b.classList.toggle('active', isActive);
-    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    // aria-current, et non aria-selected : ces boutons ne sont plus des tabs.
+    b.setAttribute('aria-current', isActive ? 'true' : 'false');
     b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
 
@@ -465,16 +476,30 @@ function setActiveTab(tabId) {
 
   // Scroll vers l'en-tête de la vue courante
   if (!AppState._skipScroll) {
-    var target = document.getElementById('view-header') || document.getElementById('tab-content');
+    const target = document.getElementById('view-header') || document.getElementById('tab-content');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }
 
+// Incrémenté à chaque rendu. Une vue asynchrone capture le jeton courant avant
+// son `await` et abandonne s'il a changé : sinon, naviguer pendant un
+// chargement laissait la vue précédente écraser la nouvelle.
+let renderGeneration = 0;
+
+function currentRenderToken() {
+  return renderGeneration;
+}
+
+function isRenderStale(token) {
+  return token !== renderGeneration;
+}
+
 function renderActiveTab() {
   const container = document.getElementById('tab-content');
   if (!container) return;
+  renderGeneration += 1;
 
   // Changer de vue détache la modale de proposition : on libère le verrou de
   // défilement et l'écouteur Échap avant de remplacer le contenu.
@@ -534,8 +559,8 @@ function renderWorkspaceNavigation() {
   const workspace = WORKSPACES[workspaceForTab(AppState.activeTab)];
 
   container.innerHTML = `
-    <span class="workspace-nav__label">${workspace.label}</span>
-    <div class="workspace-nav__tabs" role="tablist" aria-label="${workspace.label}">
+    <span class="workspace-nav__label">${escapeHtml(workspace.label)}</span>
+    <div class="workspace-nav__tabs" role="tablist" aria-label="${escapeHtml(workspace.label)}">
       ${workspace.tabs.map(([id, label]) => `
         <button type="button" role="tab" id="workspace-tab-${id}"
                 class="workspace-nav__tab ${id === AppState.activeTab ? 'active' : ''}"
@@ -582,7 +607,7 @@ function renderWorkspaceFilters() {
         <select id="workspace-category">
           <option value="all">Toutes</option>
           ${categoryKeys().map((key) => `
-            <option value="${key}" ${AppState.urlCategory === key ? 'selected' : ''}>${categoryLabel(key)}</option>
+            <option value="${escapeHtml(key)}" ${AppState.urlCategory === key ? 'selected' : ''}>${escapeHtml(categoryLabel(key))}</option>
           `).join('')}
         </select>
       </div>
@@ -593,7 +618,7 @@ function renderWorkspaceFilters() {
         <select id="workspace-difficulty">
           <option value="all">Toutes</option>
           ${['easy', 'medium', 'hard'].map((key) => `
-            <option value="${key}" ${AppState.urlDifficulty === key ? 'selected' : ''}>${difficultyLabel(key)}</option>
+            <option value="${escapeHtml(key)}" ${AppState.urlDifficulty === key ? 'selected' : ''}>${escapeHtml(difficultyLabel(key))}</option>
           `).join('')}
         </select>
       </div>
@@ -731,59 +756,103 @@ function getApiBase() {
   return '/api/v1';
 }
 
-async function fetchJson(url) {
-  const resp = await fetch(url);
+/** Délai au-delà duquel une requête de données est abandonnée. */
+const LOAD_TIMEOUT_MS = 12000;
+
+/**
+ * Signal combinant un délai d'expiration et un signal d'annulation optionnel.
+ * Sans expiration, une requête qui ne répond jamais laisse l'interface en
+ * chargement indéfiniment — cas courant sur une connexion mobile instable.
+ */
+function loadSignal(signal) {
+  const timeout = AbortSignal.timeout?.(LOAD_TIMEOUT_MS);
+  if (!signal) return timeout;
+  if (!timeout) return signal;
+  return AbortSignal.any ? AbortSignal.any([signal, timeout]) : signal;
+}
+
+async function fetchJson(url, signal) {
+  const resp = await fetch(url, { signal: loadSignal(signal) });
   if (!resp.ok) throw new Error(`HTTP ${resp.status} for ${url}`);
   return resp.json();
 }
 
-async function loadBootstrap() {
-  try {
-    const data = await fetchJson('data/bootstrap.json');
-    if (data && Array.isArray(data.results)) AppState.results = data.results;
-    if (data && Array.isArray(data.questions)) AppState.questions = data.questions;
-    if (data && data.stats && typeof data.stats === 'object') AppState.stats = data.stats;
-    if (AppState.results.length || AppState.questions.length) {
-      AppState.dataSource = 'bootstrap';
-      return true;
-    }
-  } catch { /* ignore */ }
-  return false;
+function applyDataset({ results, questions, stats }) {
+  if (Array.isArray(results)) AppState.results = results;
+  if (Array.isArray(questions)) AppState.questions = questions;
+  if (stats && typeof stats === 'object') AppState.stats = stats;
 }
 
-async function loadData() {
+async function fetchApiBundle(apiBase) {
+  const [results, questions, stats] = await Promise.all([
+    fetchJson(`${apiBase}/results?limit=1000`),
+    fetchJson(`${apiBase}/questions?limit=500`),
+    fetchJson(`${apiBase}/stats`).catch(() => null),
+  ]);
+  return { results, questions, stats };
+}
+
+async function fetchStaticFallback(apiBase) {
+  const [results, questions, stats] = await Promise.all([
+    fetchJson('data/results.json').catch(() => null),
+    fetchJson('data/questions.json').catch(() => null),
+    fetchJson(`${apiBase}/stats`).catch(() => null),
+  ]);
+  return { results, questions, stats };
+}
+
+// Une seule campagne de chargement à la fois : le bouton « Réessayer » pouvait
+// en déclencher plusieurs en parallèle, dont les réponses arrivaient dans le
+// désordre et écrasaient les plus récentes.
+let loadInFlight = null;
+
+function loadData(options) {
+  if (loadInFlight) return loadInFlight;
+  loadInFlight = performLoad(options).finally(() => { loadInFlight = null; });
+  return loadInFlight;
+}
+
+/**
+ * Charge les données. `onEarlyPaint` est appelé si l'instantané pré-généré
+ * arrive avant l'API, pour afficher quelque chose sans attendre.
+ */
+async function performLoad({ onEarlyPaint } = {}) {
   const apiBase = getApiBase();
+  const bootstrapAbort = new AbortController();
+  let apiDone = false;
 
-  // 1) Bootstrap pré-généré (SEO / premier paint)
-  await loadBootstrap();
+  // Les deux partent ensemble : les enchaîner faisait payer la somme des deux
+  // latences au lieu de la plus grande.
+  const apiPromise = fetchApiBundle(apiBase);
+  const bootstrapPromise = fetchJson('data/bootstrap.json', bootstrapAbort.signal)
+    .catch(() => null);
 
-  // 2) API live (écrase le bootstrap si dispo)
+  // L'API est la source autoritaire : dès qu'elle répond, l'instantané devient
+  // inutile et son téléchargement est interrompu — il pèse ~280 Ko qui étaient
+  // jusqu'ici téléchargés puis jetés à chaque visite.
+  apiPromise.then(
+    () => { apiDone = true; bootstrapAbort.abort(); },
+    () => {},
+  );
+
+  const bootstrap = await bootstrapPromise;
+  if (!apiDone && bootstrap) {
+    applyDataset(bootstrap);
+    if (AppState.results.length || AppState.questions.length) {
+      AppState.dataSource = 'bootstrap';
+      updateDataSourceBadge();
+      onEarlyPaint?.();
+    }
+  }
+
   try {
-    const [results, questions, stats] = await Promise.all([
-      fetchJson(`${apiBase}/results?limit=1000`),
-      fetchJson(`${apiBase}/questions?limit=500`),
-      fetchJson(`${apiBase}/stats`).catch(() => null),
-    ]);
-    AppState.results = Array.isArray(results) ? results : AppState.results;
-    AppState.questions = Array.isArray(questions) ? questions : AppState.questions;
-    if (stats && typeof stats === 'object') AppState.stats = stats;
+    applyDataset(await apiPromise);
     AppState.dataSource = 'api';
   } catch (err) {
     if (AppState.dataSource !== 'bootstrap') {
-      console.warn('API unavailable, falling back to static JSON', err);
+      console.warn('API indisponible, repli sur les fichiers statiques', err);
+      applyDataset(await fetchStaticFallback(apiBase));
       AppState.dataSource = 'static';
-      try {
-        const resp = await fetch('data/results.json');
-        if (resp.ok) AppState.results = await resp.json();
-      } catch { /* ignore */ }
-      try {
-        const resp = await fetch('data/questions.json');
-        if (resp.ok) AppState.questions = await resp.json();
-      } catch { /* ignore */ }
-      try {
-        const resp = await fetch(`${apiBase}/stats`);
-        if (resp.ok) AppState.stats = await resp.json();
-      } catch { /* ignore */ }
     }
   }
 
@@ -1030,7 +1099,7 @@ function renderDailyQuestion() {
         <div class="dq-question">${escapeHtml(q.question || '')}</div>
         <div class="dq-options">
           ${Object.entries(q.options || {}).map(([letter, text]) =>
-            `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`
+            `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`,
           ).join('')}
         </div>
         <div class="dq-reveal" id="dq-reveal" style="display:none">
@@ -1155,11 +1224,14 @@ Object.assign(globalThis, {
   isFavorite,
   getApiBase,
   fetchJson,
+  loadData,
   setActiveTab,
   exportCSV,
   exportJSON,
   difficultyLabel,
   renderActiveTab,
+  currentRenderToken,
+  isRenderStale,
   renderWorkspaceFilters,
   mountChart,
   chartTheme,
