@@ -245,6 +245,20 @@ AfriBench est un projet communautaire. Vous pouvez :
 
 ---
 
+## Documentation du projet
+
+| Document | Pour qui | Contenu |
+|----------|----------|---------|
+| **[docs/RAPPORT_TECHNIQUE.md](docs/RAPPORT_TECHNIQUE.md)** | Tous publics | Rapport complet : problème, alignement avec la mission Y'TILIKAN, corpus, méthodologie, résultats et leur marge d'erreur, architecture, UI/UX, qualité, déploiement, limites, feuille de route. Chaque section technique commence par un encadré « En clair » lisible sans bagage informatique. Glossaire en annexe. |
+| **[docs/presentation/index.html](docs/presentation/index.html)** | Soutenance | Support de présentation, 32 diapositives autonomes (aucune installation). Navigation `← →`, `F` plein écran, `P` pour exporter en PDF. |
+| **[docs/presentation/NOTES_ORATEUR.md](docs/presentation/NOTES_ORATEUR.md)** | Orateur | Déroulé diapositive par diapositive, minutage, versions courtes (10 et 5 min), questions attendues et réponses préparées. |
+| [CRITIQUE.md](CRITIQUE.md) | Tous publics | Autocritique publique : forces, faiblesses, gravité, solutions. |
+| [research/](research/) | Recherche | Notes de cadrage 01–08, brouillon d'article, checklist de soumission académique. |
+| [docs/VALIDATION_PROTOCOL.md](docs/VALIDATION_PROTOCOL.md) · [docs/VALIDATORS.md](docs/VALIDATORS.md) | Validateurs | Protocole d'annotation et kit de recrutement. |
+| [docs/deploiement-railway.md](docs/deploiement-railway.md) | Exploitation | Déploiement en production, deux services. |
+
+---
+
 ## Roadmap
 
 Voir [CRITIQUE.md](CRITIQUE.md#3-solutions-et-roadmap) pour le plan détaillé.
