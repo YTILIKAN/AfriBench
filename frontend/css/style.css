@@ -4242,10 +4242,19 @@ body[data-theme="dark"] .q-toolbar__option.active {
   padding: 7px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  outline: 0;
   background: var(--surface);
   color: var(--noir);
   font-size: 12px;
+}
+
+/* Cette règle apparaît après le `input:focus-visible` global et a la même
+   spécificité : un `outline: 0` ici supprimait l'anneau de focus sur la
+   recherche et les trois sélecteurs de la barre de filtres, c'est-à-dire sur
+   les commandes les plus utilisées de l'application. */
+.workspace-filter input:focus-visible,
+.workspace-filter select:focus-visible {
+  outline: 2px solid var(--ocre-ui);
+  outline-offset: 2px;
 }
 
 .workspace-filter input:focus,

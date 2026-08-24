@@ -438,8 +438,14 @@ function setActiveTab(tabId) {
   }
   const panel = document.getElementById('tab-content');
   if (panel) {
+    // Le repli doit désigner un élément qui existe : les boutons de la barre
+    // latérale portent l'identifiant de l'espace (nav-overview, nav-analysis…),
+    // jamais celui de la vue, donc `nav-${tabId}` ne référençait rien.
     const hasWorkspaceNav = Boolean(document.getElementById('workspace-nav'));
-    panel.setAttribute('aria-labelledby', hasWorkspaceNav ? `workspace-tab-${tabId}` : `nav-${tabId}`);
+    panel.setAttribute(
+      'aria-labelledby',
+      hasWorkspaceNav ? `workspace-tab-${tabId}` : `nav-${workspaceForTab(tabId)}`,
+    );
   }
 
   renderWorkspaceNavigation();

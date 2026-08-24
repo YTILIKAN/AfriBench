@@ -241,7 +241,15 @@
             <h2 class="view-header__title" id="view-title">Classement</h2>
             <p class="view-header__desc" id="view-desc">Scores, filtres et exports.</p>
           </header>
-          <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="nav-leaderboard" tabindex="0">
+          <!-- aria-labelledby est réécrit par setActiveTab ; la valeur initiale
+               doit référencer un élément existant (nav-overview est l'espace
+               contenant la vue Classement affichée au premier rendu).
+               aria-live annonce les changements de vue, de filtre et de page :
+               sans lui, toute la navigation est silencieuse pour un lecteur
+               d'écran, puisque le contenu est remplacé sans rechargement. -->
+          <main class="content-area" id="tab-content" role="tabpanel"
+                aria-labelledby="nav-overview" tabindex="0"
+                aria-live="polite" aria-busy="false">
 <!-- STATIC_LEADERBOARD_BEGIN -->
             <div class="card" id="static-leaderboard">
               <div class="card-title">Classement (v0.1 — indicatif)</div>
