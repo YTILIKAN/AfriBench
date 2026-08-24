@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Une seule URL. Les variantes ?tab=… servaient toutes le même index.html, dont
+  la balise <link rel="canonical"> pointe sur la racine : chaque entrée se
+  déclarait donc elle-même non canonique et était écartée par les moteurs.
+  Pour indexer les vues séparément, il faudrait émettre une canonique par vue.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ytilikan.github.io/AfriBench/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
