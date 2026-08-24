@@ -81,12 +81,18 @@ def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
         for fpath in sorted(questions_dir.glob("*.json")):
             if fpath.name == "template.json":
                 continue
-            with open(fpath, encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list):
-                    questions.extend(data)
-                else:
-                    questions.append(data)
+            try:
+                with open(fpath, encoding="utf-8") as f:
+                    data = json.load(f)
+            except (json.JSONDecodeError, OSError, UnicodeDecodeError) as exc:
+                # Un fichier illisible ne doit pas interrompre une campagne
+                # d'évaluation entière, mais il doit être signalé.
+                print(f"  ⚠ {fpath.name} ignoré : {exc}")
+                continue
+            if isinstance(data, list):
+                questions.extend(data)
+            else:
+                questions.append(data)
 
     if not questions:
         print(f"Aucune question trouvée dans {questions_dir}")
@@ -510,6 +516,7 @@ def validate_questions(path: str) -> bool:
     valid = True
     categories = load_categories()
     difficulty_levels = {"easy", "medium", "hard"}
+    seen_ids: dict[str, str] = {}
 
     for fpath in sorted(qdir.glob("*.json")):
         if fpath.name == "template.json":
@@ -550,12 +557,19 @@ def validate_questions(path: str) -> bool:
             if "difficulty" in item and item["difficulty"] not in difficulty_levels:
                 errors.append(f"difficulté '{item['difficulty']}' invalide. Utilisez easy/medium/hard")
 
+            item_id = item.get("id", fpath.name)
+            # Un id dupliqué entre deux fichiers fait échouer le seed
+            # PostgreSQL (« ON CONFLICT DO UPDATE cannot affect row a second
+            # time »), ce qui laisse la base vide sans alerte visible.
+            if item_id in seen_ids:
+                errors.append(f"id dupliqué (déjà vu dans {seen_ids[item_id]})")
+            else:
+                seen_ids[item_id] = fpath.name
+
             if errors:
-                item_id = item.get("id", fpath.name)
                 print(f"  ✗ {item_id} : {'; '.join(errors)}")
                 valid = False
             else:
-                item_id = item.get("id", fpath.name)
                 print(f"  ✓ {item_id}")
 
     return valid
@@ -632,14 +646,24 @@ def cmd_run(args):
             print(f"Modèle '{args.model}' introuvable. Utilisez --list-models.")
             sys.exit(1)
 
-    # Few-shot si demandé
+    # Few-shot si demandé. Les exemples sont retirés du jeu évalué : les inclure
+    # reviendrait à montrer la bonne réponse dans le prompt puis à la noter,
+    # c'est-à-dire à gonfler l'accuracy par contamination.
     few_shot = None
+    eval_questions = questions
     if args.few_shot > 0:
         few_shot = questions[:args.few_shot]
+        eval_questions = questions[args.few_shot:]
+        if not eval_questions:
+            print(
+                f"ERREUR : --few-shot {args.few_shot} consomme les "
+                f"{len(questions)} questions disponibles ; rien à évaluer."
+            )
+            sys.exit(1)
 
     total_models = len(models)
     print(f"\n📊  AfriBench — Évaluation{' (MOCK)' if mock else ''}")
-    print(f"    Questions : {len(questions)}")
+    print(f"    Questions : {len(eval_questions)}")
     print(f"    Modèles   : {total_models}")
     print(f"    Few-shot  : {args.few_shot if few_shot else 'non'}")
     if mock:
@@ -650,7 +674,7 @@ def cmd_run(args):
         print(f"[{i}/{total_models}] Évaluation de {model.get('label', model['name'])}...")
         try:
             results = evaluate_model(
-                model, questions, few_shot, verbose=args.verbose, mock=mock
+                model, eval_questions, few_shot, verbose=args.verbose, mock=mock
             )
             save_results(results)
             print_summary(results)
