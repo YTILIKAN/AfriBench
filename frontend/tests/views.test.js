@@ -416,8 +416,8 @@ describe('navigation par onglets (sidebar)', () => {
     document.body.innerHTML = `
       <nav class="sidebar-nav">
         <div class="sidebar-tablist" role="tablist" aria-orientation="vertical">
-          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-sidebar id="nav-leaderboard">Classement</button>
-          <button class="sidebar-btn" role="tab" data-tab="models" data-sidebar id="nav-models">Modèles</button>
+          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-workspace="overview" data-sidebar id="nav-overview">Vue d'ensemble</button>
+          <button class="sidebar-btn" role="tab" data-tab="compare" data-workspace="analysis" data-sidebar id="nav-analysis">Analyse</button>
         </div>
       </nav>
       <header class="view-header">
@@ -429,16 +429,22 @@ describe('navigation par onglets (sidebar)', () => {
     `;
   });
 
+  // Le gabarit reprend le balisage réel d'index.html : les boutons de la barre
+  // latérale portent l'identifiant de l'ESPACE (nav-overview, nav-analysis),
+  // jamais celui de la vue. L'ancien gabarit utilisait des ids par vue, qui
+  // n'existent nulle part en production : le test validait un contrat fictif.
   it('setActiveTab met à jour aria-selected et le roving tabindex', () => {
-    setActiveTab('models');
-    const modelsBtn = document.getElementById('nav-models');
-    const lbBtn = document.getElementById('nav-leaderboard');
-    expect(modelsBtn.getAttribute('aria-selected')).toBe('true');
-    expect(modelsBtn.getAttribute('tabindex')).toBe('0');
-    expect(modelsBtn.classList.contains('active')).toBe(true);
-    expect(lbBtn.getAttribute('aria-selected')).toBe('false');
-    expect(lbBtn.getAttribute('tabindex')).toBe('-1');
-    expect(document.getElementById('tab-content').getAttribute('aria-labelledby')).toBe('nav-models');
+    setActiveTab('compare');
+    const analysisBtn = document.getElementById('nav-analysis');
+    const overviewBtn = document.getElementById('nav-overview');
+    expect(analysisBtn.getAttribute('aria-selected')).toBe('true');
+    expect(analysisBtn.getAttribute('tabindex')).toBe('0');
+    expect(analysisBtn.classList.contains('active')).toBe(true);
+    expect(overviewBtn.getAttribute('aria-selected')).toBe('false');
+    expect(overviewBtn.getAttribute('tabindex')).toBe('-1');
+    const ref = document.getElementById('tab-content').getAttribute('aria-labelledby');
+    expect(ref).toBe('nav-analysis');
+    expect(document.getElementById(ref)).toBeTruthy();
   });
 
   it('setActiveTab met à jour l\'en-tête de vue et le titre mobile', () => {
