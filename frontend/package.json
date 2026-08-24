@@ -11,14 +11,18 @@
     "lint": "eslint js/ src/ admin/ tests/ scripts/",
     "test": "vitest run",
     "lint:css": "stylelint \"css/**/*.css\" \"admin/**/*.css\"",
-    "lint:all": "npm run lint && npm run lint:css"
+    "lint:all": "npm run lint && npm run lint:css",
+    "test:a11y": "node tools/a11y-check.mjs",
+    "test:contrast": "node tools/contrast-tokens.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.28.0",
     "eslint": "^9.28.0",
     "eslint-plugin-no-unsanitized": "^4.1.5",
     "globals": "^16.2.0",
     "jsdom": "^26.1.0",
+    "playwright": "^1.62.1",
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0",
     "vite": "^6.2.0",

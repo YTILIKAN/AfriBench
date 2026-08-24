@@ -415,7 +415,7 @@ describe('navigation par onglets (sidebar)', () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <nav class="sidebar-nav">
-        <div class="sidebar-tablist" aria-orientation="vertical">
+        <div class="sidebar-tablist">
           <button class="sidebar-btn active" aria-current="true" data-tab="leaderboard" data-workspace="overview" data-sidebar id="nav-overview">Vue d'ensemble</button>
           <button class="sidebar-btn" aria-current="false" data-tab="compare" data-workspace="analysis" data-sidebar id="nav-analysis">Analyse</button>
         </div>

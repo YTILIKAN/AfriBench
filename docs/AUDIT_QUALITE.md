@@ -34,7 +34,7 @@ Un troisième défaut atteignait la validité scientifique du projet : **l'extra
 | Tests frontend | 33 | **58** |
 | Graphiques couverts par des tests | **aucun** | 5 tests |
 | Les tests salissent le dépôt | **oui** | non, vérifié en CI |
-| Lignes de CSS | 4 520 | **3 814** (−16 %) |
+| Lignes de CSS | 4 520 | **3 714** (−18 %) |
 | Classes CSS mortes | 32 | **0** |
 | Blocs de tokens dupliqués | 2 `:root` + 2 sombres | **1 + 1** |
 | Backoffice bundlé, linté, sous CSP stricte | **non** | oui |
@@ -378,11 +378,10 @@ propriété) avant et après — **2 302 couples, 0 divergence** pour le retrait
 écrasées — et les 202 déclarations perdues au total sont toutes attribuées à une classe morte, à
 un token supprimé ou au point de rupture inerte. Le rendu a ensuite été contrôlé en navigateur,
 thèmes clair et sombre, sur toutes les vues et jusqu'à 500 px de large.
-*Reste ouvert :* **135 sélecteurs restent déclarés plusieurs fois** (`.sidebar` 7 fois,
-`.app-main` 6 fois). Chaque déclaration restante est vivante, mais les fusionner déplacerait
-l'ordre de cascade relativement aux autres sélecteurs, ce que la vérification mécanique ci-dessus
-ne couvre pas : cela demande une revue visuelle par composant. Stylelint les signale en
-avertissement pour que le nombre ne puisse pas croître sans être vu.
+*Reste ouvert :* ~~135 sélecteurs restent déclarés plusieurs fois~~ — *corrigé le 24 août (fin de journée).*
+Les 135 doublons ont été fusionnés manuellement et via `tools/merge-duplicate-selectors.mjs`,
+avec vérification par `tools/style-snapshot.mjs` (90 contextes, styles calculés dans Chromium).
+**0 sélecteur dupliqué restant** ; Stylelint `no-duplicate-selectors` ne signale plus d'avertissement.
 
 **R26. Dépendances non épinglées** — `backend/requirements.txt` utilise `>=` sur ses treize entrées, et le Dockerfile fait `pip install` sans contrainte : deux builds à deux dates produisent deux images différentes. Ni la CI ni les déploiements ne sont reproductibles, et une version majeure amont casse la production sans qu'un seul commit ait changé. C'est en tension directe avec l'objectif de reproductibilité affiché par le projet — et `requirements-eval.txt` est, lui, correctement épinglé.
 *Correctif :* `pip-compile` avec hachages ; déplacer `pytest` vers un fichier de développement, il n'a rien à faire dans l'image de production.
@@ -390,7 +389,8 @@ avertissement pour que le nombre ne puisse pas croître sans être vu.
 **R27. Aucun lint Python** — Pas de `pyproject.toml`, `ruff.toml` ni `setup.cfg` dans le dépôt. La CI linte le frontend mais pas une ligne de Python. Preuve qu'une configuration a existé puis a été perdue : le code porte onze directives `# noqa` que `ruff` signale aujourd'hui comme inutiles, faute de règles activées. `ruff --select F` remonte 14 imports ou variables inutilisés.
 *Correctif :* committer un `pyproject.toml` correspondant à ces `noqa` et ajouter `ruff check` à la CI.
 
-**R28. Outillage de lint** — *corrigé le 24 août (soir).* `no-unused-vars` était en `warn`
+**R28. Outillage de lint** — *corrigé le 24 août (soir), complété le 24 août (fin de journée).*
+`no-unused-vars` était en `warn`
 (donc n'échouait pas la CI) ; `eqeqeq`, `prefer-const` et `no-var` étaient désactivés ; aucune
 règle ne gardait les globales alors que toute l'architecture repose sur des assignations à
 `globalThis` ; ni `.editorconfig`, ni Stylelint, ni `npm audit` en CI ; le script `lint` ignorait
@@ -398,6 +398,13 @@ règle ne gardait les globales alors que toute l'architecture repose sur des ass
 *Correction :* règles passées en erreur, périmètre étendu à `admin/`, `tests/` et `scripts/`,
 Stylelint ajouté sur `css/` et `admin/`, `npm audit --audit-level=high` en CI, `.editorconfig` à
 la racine.
+*Complément (contrôle automatique de contraste et axe-core) :* deux outils ajoutés dans
+`frontend/tools/` — `contrast-tokens.mjs` vérifie 25 paires de tokens (clair + sombre, seuils
+4,5:1 pour le texte et 3:1 pour les éléments d'interface) ; `a11y-check.mjs` lance axe-core via
+Playwright sur les 9 vues × 2 thèmes (18 analyses WCAG 2 AA). Les deux sont branchés en CI après
+le build Vite. L'exécution a immédiatement révélé et permis de corriger 30 violations réelles
+(`aria-orientation` sur une navigation sans `role="tablist"`, contrastes des badges de difficulté,
+du lien « Participer », des blocs de code et des étiquettes HTTP).
 *Point notable :* `eslint-plugin-no-unsanitized` a été **écarté** après essai. Il signale toute
 affectation à `innerHTML` sans pouvoir vérifier que les interpolations du gabarit sont échappées :
 sur ce projet, où tout le HTML est construit par littéraux de gabarit, il produisait 20 erreurs
@@ -480,11 +487,8 @@ Le prérequis de presque tout le reste est **R32** : monter un PostgreSQL de tes
 8. **R26** — épingler les dépendances, condition d'une reproductibilité réellement tenue.
 9. **R19** — sortir l'évaluation du processus web vers un worker qui persiste sa progression.
 
-Le périmètre frontend de cet audit est traité : **R18, R20, R21, R22, R23, R24, R28 et R33** sont
-corrigés et vérifiés. Il reste, côté interface, deux chantiers volontairement différés parce qu'ils
-demandent une revue visuelle par composant plutôt qu'une transformation mécanique : la fusion des
-135 sélecteurs encore déclarés plusieurs fois (R25, dont chaque déclaration restante est vivante) et
-le branchement d'un contrôle automatique de contraste et d'`axe-core` en CI.
+Le périmètre frontend de cet audit est **entièrement traité** : **R18, R20, R21, R22, R23, R24,
+R25, R28 et R33** sont corrigés et vérifiés.
 
 ---
 
@@ -496,8 +500,8 @@ cd backend && PYTHONPATH=. python3 -m pytest -q          # 98 tests
 git diff --exit-code                                      # doit rester propre
 
 # Frontend
-cd frontend && npm ci && npm run lint && npm test         # 49 tests
-npm run build && du -sh dist
+cd frontend && npm ci && npm run lint:all && npm test         # 58 tests
+npm run build && npm run test:contrast && npm run test:a11y
 
 # Corpus et chaîne d'évaluation
 python3 scripts/afribench.py validate data/questions/v1/validated
