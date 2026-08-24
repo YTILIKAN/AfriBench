@@ -44,7 +44,7 @@ AfriBench/
 ├── backend/                # Service API FastAPI (:8080)
 │   ├── app/                # routers, services, config, modèles SQLAlchemy
 │   ├── alembic/            # Migrations Postgres
-│   ├── tests/              # pytest (58 tests)
+│   ├── tests/              # pytest (98 tests)
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── frontend/               # SPA vanilla JS bundlée avec Vite (nginx :3000)

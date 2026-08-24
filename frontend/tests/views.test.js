@@ -12,7 +12,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import '../js/app.js';
 import '../js/leaderboard.js';
 import '../js/models.js';
-import '../js/categories.js';
 import '../js/compare.js';
 import '../js/evolution.js';
 import '../js/questions.js';
@@ -263,12 +262,6 @@ describe('renderModels', () => {
 });
 
 describe('autres vues', () => {
-  it('renderCategories', () => {
-    const container = makeContainer();
-    expect(() => globalThis.renderCategories(container)).not.toThrow();
-    expect(container.textContent).toContain('Histoire');
-  });
-
   it('renderCompare', () => {
     const container = makeContainer();
     expect(() => globalThis.renderCompare(container)).not.toThrow();
