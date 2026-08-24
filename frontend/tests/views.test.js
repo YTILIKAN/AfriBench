@@ -115,6 +115,44 @@ describe('escapeHtml', () => {
   });
 });
 
+describe('fuites de ressources', () => {
+  it("renderQuestions n'ajoute pas d'écouteur document à chaque rendu", () => {
+    const container = makeContainer();
+    let added = 0;
+    const original = document.addEventListener.bind(document);
+    document.addEventListener = (type, ...rest) => {
+      if (type === 'click') added += 1;
+      return original(type, ...rest);
+    };
+    try {
+      for (let i = 0; i < 25; i += 1) globalThis.renderQuestions(container);
+    } finally {
+      document.addEventListener = original;
+    }
+    expect(added).toBe(0);
+  });
+
+  it('ne rend le classement qu\'une fois par navigation', () => {
+    document.body.innerHTML = `
+      <div id="workspace-nav"></div>
+      <div id="workspace-filters"></div>
+      <h2 id="view-title"></h2>
+      <p id="view-desc"></p>
+      <span id="mobile-view-title"></span>
+      <main id="tab-content" role="tabpanel"></main>
+    `;
+    const real = globalThis.renderLeaderboard;
+    let calls = 0;
+    globalThis.renderLeaderboard = (c) => { calls += 1; return real(c); };
+    try {
+      setActiveTab('leaderboard');
+    } finally {
+      globalThis.renderLeaderboard = real;
+    }
+    expect(calls).toBe(1);
+  });
+});
+
 describe('assainissement des libellés (XSS)', () => {
   const PAYLOAD = '<img src=x onerror=alert(1)>';
 

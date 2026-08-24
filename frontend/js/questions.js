@@ -241,12 +241,6 @@ function renderQuestions(container) {
       pickers.filter((other) => other !== picker).forEach((other) => { other.open = false; });
     });
   });
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('.q-toolbar__picker')) {
-      pickers.forEach((picker) => { picker.open = false; });
-    }
-  });
-
   container.querySelectorAll('[data-clear]').forEach((chip) => {
     chip.addEventListener('click', () => {
       if (chip.dataset.clear === 'qcat') {
@@ -280,15 +274,31 @@ function renderQuestions(container) {
   });
 }
 
-window.__applyQuestionFilters = (cat, diff, page = 1) => {
+// Synchronise l'état de filtrage sans déclencher de rendu : l'appelant décide
+// quand rendre, ce qui évite le double rendu à chaque navigation.
+window.__setQuestionFilters = (cat, diff, page = 1) => {
   qFilterCat = cat || 'all';
   qFilterDiff = diff || 'all';
   AppState.questionPage = Math.max(1, Number.parseInt(page, 10) || 1);
+};
+
+window.__applyQuestionFilters = (cat, diff, page = 1) => {
+  window.__setQuestionFilters(cat, diff, page);
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'questions') {
     renderQuestions(container);
   }
 };
+
+// Enregistré une seule fois au chargement du module. Placé dans renderQuestions,
+// cet écouteur s'accumulait à chaque filtre, chaque page et chaque frappe de
+// recherche, retenant à chaque fois un DOM détaché.
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.q-toolbar__picker')) return;
+  document.querySelectorAll('.q-toolbar__picker[open]').forEach((picker) => {
+    picker.open = false;
+  });
+});
 
 globalThis.renderQuestions = renderQuestions;
 export {};

@@ -5,6 +5,7 @@
 const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme, chartSeriesColor } = globalThis;
 
 let evoSelectedModels = new Set();
+let evoInitialised = false;
 
 function renderEvolution(container) {
   const models = getLatestResults();
@@ -13,9 +14,12 @@ function renderEvolution(container) {
     return;
   }
 
-  // By default select all models if none selected
-  if (evoSelectedModels.size === 0) {
+  // Sélection initiale : tous les modèles. Le drapeau distingue « pas encore
+  // initialisé » de « volontairement vide », sans quoi le bouton « Aucun »
+  // vidait la sélection puis la voyait aussitôt repeuplée au rendu suivant.
+  if (!evoInitialised) {
     models.forEach(m => evoSelectedModels.add(m.model_label || m.model));
+    evoInitialised = true;
   }
 
   // Build timeline data from results (group by date per model)
