@@ -12,9 +12,16 @@ from app import repository as repo
 from app.admin_auth import issue_token, require_admin, verify_admin_password
 from app.config import Settings, get_settings
 from app.db import get_db
+from app.security import enforce_rate_limit
 from app.services import evaluate as evalsvc
 
-router = APIRouter(prefix="/admin", tags=["admin"])
+# Le rate limiting s'applique aussi au backoffice : sans lui, /admin/login est
+# attaquable par dictionnaire à pleine vitesse sur un mot de passe unique.
+router = APIRouter(
+    prefix="/admin",
+    tags=["admin"],
+    dependencies=[Depends(enforce_rate_limit)],
+)
 
 
 class LoginIn(BaseModel):

@@ -35,6 +35,15 @@ Pour **chaque** service, dans *Settings → Source* et *Settings → Build* :
 | `AFRIBENCH_ADMIN_PASSWORD` | non | _(vide)_ | active le backoffice `/admin/` |
 | `AFRIBENCH_CORS_ORIGINS` | non | `*` | restreindre au domaine du frontend en prod |
 | `AFRIBENCH_REDIS_URL` | non | _(vide)_ | rate-limit distribué |
+| `AFRIBENCH_TRUSTED_PROXY_HOPS` | **oui sur Railway** | `0` | mettre `1` : le service est derrière le proxy Railway |
+
+> ⚠️ **`AFRIBENCH_TRUSTED_PROXY_HOPS=1` est nécessaire sur Railway.** Le rate
+> limiting identifie l'appelant par son IP. Laissé à `0`, l'en-tête
+> `X-Forwarded-For` est ignoré — comportement voulu en exposition directe, car
+> cet en-tête est fourni par le client et le faire tourner contournerait toute
+> limite. Mais derrière un proxy, toutes les requêtes portent l'IP du proxy :
+> tous les visiteurs partagent alors un même compteur et se bloquent
+> mutuellement. Avec `1`, l'API lit l'entrée écrite par le proxy Railway.
 
 Sans `AFRIBENCH_DATABASE_URL`, l'API lit les JSON du dépôt (mode dégradé fonctionnel).
 

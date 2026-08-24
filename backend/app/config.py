@@ -40,6 +40,15 @@ class Settings(BaseSettings):
     rate_limit_read_window: float = 60.0
     rate_limit_write: int = 10
     rate_limit_write_window: float = 60.0
+    # Limite dédiée au login backoffice : bien plus stricte, pour rendre
+    # inopérante une attaque par dictionnaire sur le mot de passe unique.
+    rate_limit_login: int = 5
+    rate_limit_login_window: float = 900.0
+    # Nombre de proxys de confiance devant l'API. À 0, X-Forwarded-For est
+    # ignoré : l'en-tête est fourni par le client, donc le faire tourner
+    # suffirait à contourner toute limite. Derrière un proxy (Railway, nginx,
+    # Cloudflare), mettre 1 pour lire l'IP écrite par ce proxy.
+    trusted_proxy_hops: int = 0
     # auto | memory | postgres | redis
     rate_limit_backend: str = "auto"
     # Redis optionnel (prioritaire sur Postgres pour le rate-limit si défini)
