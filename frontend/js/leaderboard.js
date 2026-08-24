@@ -156,8 +156,8 @@ function renderLeaderboard(container) {
         <div class="legend-grid">
           ${Object.values(METRICS).map((m) => `
             <div class="legend-item">
-              <span class="legend-label">${m.label}</span>
-              <span class="legend-desc">${m.desc}</span>
+              <span class="legend-label">${escapeHtml(m.label)}</span>
+              <span class="legend-desc">${escapeHtml(m.desc)}</span>
             </div>
           `).join('')}
         </div>
@@ -239,7 +239,7 @@ function renderLeaderboard(container) {
         <td class="metadata col-stddev ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
           ${stddev !== null ? stddev.toFixed(1) : '-'}
         </td>
-        <td class="metadata col-date">${m.timestamp ? formatDate(m.timestamp) : '-'}</td>
+        <td class="metadata col-date">${m.timestamp ? escapeHtml(formatDate(m.timestamp)) : '-'}</td>
       </tr>
     `;
   });
@@ -355,8 +355,8 @@ function setupTooltips(container) {
       let left = rect.left + (rect.width / 2) - (ttRect.width / 2);
       if (left < 10) left = 10;
       if (left + ttRect.width > window.innerWidth - 10) left = window.innerWidth - ttRect.width - 10;
-      tooltip.style.left = left + 'px';
-      tooltip.style.top = (rect.bottom + 8) + 'px';
+      tooltip.style.left = `${left  }px`;
+      tooltip.style.top = `${rect.bottom + 8  }px`;
     });
     th.addEventListener('mouseleave', () => {
       const existing = document.querySelector('.metric-tooltip');
@@ -392,7 +392,7 @@ function renderLBCategoryChart(models) {
       plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
         x: { ticks: { color: theme.tick, font: { size: 9 }, maxRotation: 45 }, grid: { color: theme.grid } },
-        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => `${v  }%` }, grid: { color: theme.grid } },
       },
     },
   });
@@ -422,7 +422,7 @@ function renderLBDifficultyChart(models) {
       plugins: { legend: { labels: { color: theme.tick, font: { size: 10 } } } },
       scales: {
         x: { ticks: { color: theme.tick, font: { size: 10 } }, grid: { color: theme.grid } },
-        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => v + '%' }, grid: { color: theme.grid } },
+        y: { beginAtZero: true, max: 100, ticks: { color: theme.tick, callback: (v) => `${v  }%` }, grid: { color: theme.grid } },
       },
     },
   });

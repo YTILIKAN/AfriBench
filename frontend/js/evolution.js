@@ -4,7 +4,7 @@
 
 const { AppState, getLatestResults, escapeHtml, mountChart, chartTheme, chartSeriesColor } = globalThis;
 
-let evoSelectedModels = new Set();
+const evoSelectedModels = new Set();
 let evoInitialised = false;
 
 function renderEvolution(container) {
@@ -128,7 +128,7 @@ function renderEvolution(container) {
             padding: 12,
             cornerRadius: 8,
             callbacks: {
-              label: (item) => `${item.dataset.label}: ${item.parsed.y !== null ? item.parsed.y.toFixed(1) + '%' : '—'}`,
+              label: (item) => `${item.dataset.label}: ${item.parsed.y !== null ? `${item.parsed.y.toFixed(1)  }%` : '—'}`,
             },
           },
         },
@@ -141,7 +141,7 @@ function renderEvolution(container) {
             beginAtZero: true,
             max: 100,
             grid: { color: theme.grid },
-            ticks: { color: theme.tick, font: { size: 10 }, callback: (v) => v + '%' },
+            ticks: { color: theme.tick, font: { size: 10 }, callback: (v) => `${v  }%` },
           },
         },
       },

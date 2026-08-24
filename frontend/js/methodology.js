@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, getUniqueModels, categoryKeys, categoryLabel,
+  AppState, getUniqueModels, categoryKeys, categoryLabel, escapeHtml,
 } = globalThis;
 
 function renderMethodology(container) {
@@ -60,7 +60,7 @@ function renderMethodology(container) {
         <p>Les questions sont organisees en ${cats.size} catégories couvrant les aspects fondamentaux des societes africaines :</p>
         <div class="meth-tags">
           ${categoryKeys().map(key =>
-            `<span class="meth-tag">${categoryLabel(key)}</span>`
+            `<span class="meth-tag">${escapeHtml(categoryLabel(key))}</span>`,
           ).join('')}
         </div>
       </div>

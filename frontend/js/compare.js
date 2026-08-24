@@ -199,7 +199,7 @@ function updateCompareTable(selected, catList) {
     html += `<tr><td class="compare-category">${escapeHtml(categoryLabel(cat))}</td>`;
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
-      const val = score !== undefined ? score.toFixed(1) + '%' : '-';
+      const val = score !== undefined ? `${score.toFixed(1)  }%` : '-';
       const style = score >= 90 ? 'style="color:var(--ocre-ink);font-weight:600"' : 'style="font-family:var(--mono)"';
       html += `<td style="text-align:center" ${style}>${val}</td>`;
     });

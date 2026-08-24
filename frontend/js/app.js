@@ -7,7 +7,7 @@ const renderIcon = globalThis.icon || (() => '');
 /* ── Security ────────────────────────────────────────── */
 function escapeHtml(str) {
   if (!str || typeof str !== 'string') return '';
-  var map = {
+  const map = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -15,7 +15,7 @@ function escapeHtml(str) {
     "'": '&#39;',
     '/': '&#x2F;',
     '`': '&#96;',
-    '=': '&#61;'
+    '=': '&#61;',
   };
   return str.replace(/[&<>"'/`=]/g, function(m) { return map[m]; });
 }
@@ -476,7 +476,7 @@ function setActiveTab(tabId) {
 
   // Scroll vers l'en-tête de la vue courante
   if (!AppState._skipScroll) {
-    var target = document.getElementById('view-header') || document.getElementById('tab-content');
+    const target = document.getElementById('view-header') || document.getElementById('tab-content');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -559,8 +559,8 @@ function renderWorkspaceNavigation() {
   const workspace = WORKSPACES[workspaceForTab(AppState.activeTab)];
 
   container.innerHTML = `
-    <span class="workspace-nav__label">${workspace.label}</span>
-    <div class="workspace-nav__tabs" role="tablist" aria-label="${workspace.label}">
+    <span class="workspace-nav__label">${escapeHtml(workspace.label)}</span>
+    <div class="workspace-nav__tabs" role="tablist" aria-label="${escapeHtml(workspace.label)}">
       ${workspace.tabs.map(([id, label]) => `
         <button type="button" role="tab" id="workspace-tab-${id}"
                 class="workspace-nav__tab ${id === AppState.activeTab ? 'active' : ''}"
@@ -607,7 +607,7 @@ function renderWorkspaceFilters() {
         <select id="workspace-category">
           <option value="all">Toutes</option>
           ${categoryKeys().map((key) => `
-            <option value="${key}" ${AppState.urlCategory === key ? 'selected' : ''}>${categoryLabel(key)}</option>
+            <option value="${escapeHtml(key)}" ${AppState.urlCategory === key ? 'selected' : ''}>${escapeHtml(categoryLabel(key))}</option>
           `).join('')}
         </select>
       </div>
@@ -618,7 +618,7 @@ function renderWorkspaceFilters() {
         <select id="workspace-difficulty">
           <option value="all">Toutes</option>
           ${['easy', 'medium', 'hard'].map((key) => `
-            <option value="${key}" ${AppState.urlDifficulty === key ? 'selected' : ''}>${difficultyLabel(key)}</option>
+            <option value="${escapeHtml(key)}" ${AppState.urlDifficulty === key ? 'selected' : ''}>${escapeHtml(difficultyLabel(key))}</option>
           `).join('')}
         </select>
       </div>
@@ -1099,7 +1099,7 @@ function renderDailyQuestion() {
         <div class="dq-question">${escapeHtml(q.question || '')}</div>
         <div class="dq-options">
           ${Object.entries(q.options || {}).map(([letter, text]) =>
-            `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`
+            `<div class="dq-option"><span class="dq-letter">${escapeHtml(letter)}</span> ${escapeHtml(text)}</div>`,
           ).join('')}
         </div>
         <div class="dq-reveal" id="dq-reveal" style="display:none">

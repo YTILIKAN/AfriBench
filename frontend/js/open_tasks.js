@@ -71,7 +71,7 @@ async function renderOpenTasks(container) {
       <td>${escapeHtml(TASK_LABELS[key] || key)}</td>
       <td>${t.n || '—'}</td>
       <td><code>${escapeHtml(t.metric || '—')}</code></td>
-      <td>${t.average != null ? (t.average * 100).toFixed(1) + '%' : '—'}</td>
+      <td>${t.average != null ? `${(t.average * 100).toFixed(1)  }%` : '—'}</td>
     </tr>`;
   }
   html += '</tbody></table></div></div>';

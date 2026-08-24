@@ -206,7 +206,7 @@ function proposalForm() {
           <label for="cq-category">Catégorie *</label>
           <select id="cq-category" required>
             <option value="">Choisir…</option>
-            ${categoryKeys().map((key) => `<option value="${key}">${categoryLabel(key)}</option>`).join('')}
+            ${categoryKeys().map((key) => `<option value="${escapeHtml(key)}">${escapeHtml(categoryLabel(key))}</option>`).join('')}
           </select>
         </div>
         <div class="cq-field">
