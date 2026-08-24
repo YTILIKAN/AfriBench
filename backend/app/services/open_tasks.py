@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import json
+import logging
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
 from app.config import REPO_ROOT, Settings, get_settings
+
+logger = logging.getLogger("afribench")
 
 OPEN_DIR = REPO_ROOT / "data" / "questions" / "v1" / "open"
 TRANSLATIONS_DIR = REPO_ROOT / "data" / "questions" / "v1" / "translations"
@@ -27,8 +30,13 @@ TASK_FILES = {
 
 
 def _read_json(path: Path) -> Any:
-    with path.open(encoding="utf-8") as f:
-        return json.load(f)
+    """Lit un fichier JSON, ou renvoie None s'il est illisible (cf. data_loader)."""
+    try:
+        with path.open(encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as exc:
+        logger.error("Fichier de données illisible, ignoré : %s — %s", path, exc)
+        return None
 
 
 def load_open_tasks(task_type: str | None = None) -> list[dict[str, Any]]:

@@ -5,11 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AfriBench — Benchmark LLM pour l'Afrique</title>
   <meta name="description" content="AfriBench : évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert et reproductible (scripts publiés).">
-  <meta name="keywords" content="LLM, benchmark, Afrique, intelligence artificielle, évaluation, NLP africain">
   <meta property="og:title" content="AfriBench — Benchmark LLM pour l'Afrique">
   <meta property="og:description" content="Évaluer les modèles de langage sur les réalités africaines. Benchmark public, ouvert, avec questions témoins de contrôle.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="AfriBench">
   <meta property="og:url" content="https://ytilikan.github.io/AfriBench/">
+  <meta property="og:image" content="https://ytilikan.github.io/AfriBench/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AfriBench — évaluer les modèles de langage sur les réalités africaines. 350 QCM, 9 catégories, 7 modèles.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AfriBench — Benchmark LLM pour l'Afrique">
+  <meta name="twitter:description" content="Évaluer les modèles de langage sur les réalités africaines. Benchmark public et reproductible.">
+  <meta name="twitter:image" content="https://ytilikan.github.io/AfriBench/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#FAF9F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
   <meta name="citation_title" content="AfriBench: Evaluating Language Models on African Realities">
   <meta name="citation_author" content="YTILIKAN">
   <meta name="citation_publication_date" content="2026">
@@ -132,14 +146,14 @@
       </nav>
 
       <div class="sidebar-footer">
-        <button type="button" class="participate-link" onclick="setActiveTab('contribute')">
+        <button type="button" class="participate-link" data-goto-tab="contribute">
           <span class="participate-link__icon" data-icon="UserRoundPlus" aria-hidden="true"></span>
           <span>
             <strong>Participer</strong>
             <small>Proposer et voter</small>
           </span>
         </button>
-        <a class="backoffice-link" href="/admin/">
+        <a class="backoffice-link" href="admin/">
           <span class="backoffice-link__icon" data-icon="BriefcaseBusiness" aria-hidden="true"></span>
           <span>
             <strong>Backoffice</strong>
@@ -227,7 +241,15 @@
             <h2 class="view-header__title" id="view-title">Classement</h2>
             <p class="view-header__desc" id="view-desc">Scores, filtres et exports.</p>
           </header>
-          <main class="content-area" id="tab-content" role="tabpanel" aria-labelledby="nav-leaderboard" tabindex="0">
+          <!-- aria-labelledby est réécrit par setActiveTab ; la valeur initiale
+               doit référencer un élément existant (nav-overview est l'espace
+               contenant la vue Classement affichée au premier rendu).
+               aria-live annonce les changements de vue, de filtre et de page :
+               sans lui, toute la navigation est silencieuse pour un lecteur
+               d'écran, puisque le contenu est remplacé sans rechargement. -->
+          <main class="content-area" id="tab-content" role="tabpanel"
+                aria-labelledby="nav-overview" tabindex="0"
+                aria-live="polite" aria-busy="false">
 <!-- STATIC_LEADERBOARD_BEGIN -->
             <div class="card" id="static-leaderboard">
               <div class="card-title">Classement (v0.1 — indicatif)</div>
@@ -264,7 +286,7 @@
             <a href="https://github.com/YTILIKAN/AfriBench/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribuer</a>
             <a href="https://github.com/YTILIKAN/AfriBench/issues" target="_blank" rel="noopener">Signaler un problème</a>
             <a href="https://ytilikan.com" target="_blank" rel="noopener">ytilikan.com</a>
-            <a href="/admin/">Admin</a>
+            <a href="admin/">Admin</a>
           </nav>
         </div>
       </footer>

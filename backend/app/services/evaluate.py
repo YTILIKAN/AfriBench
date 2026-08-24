@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from app.config import REPO_ROOT, get_settings
+from app.redaction import redact_secrets
 from app.services import data_loader as dl
 
 logger = logging.getLogger("afribench")
@@ -215,6 +216,7 @@ def run_evaluation(
         )
         return
 
+    model_secret = ""
     try:
         _update_job(
             job_id,
@@ -224,6 +226,10 @@ def run_evaluation(
         )
         afri = _load_afribench()
         model = _resolve_model(model_name)
+        if model:
+            # Clé venant de la base : absente de l'environnement, donc à masquer
+            # explicitement si elle remonte dans un message d'exception.
+            model_secret = str(model.get("api_key") or "")
         if model is None:
             raise ValueError(f"Modèle '{model_name}' introuvable (DB ou configs/models.yaml).")
 
@@ -275,11 +281,14 @@ def run_evaluation(
             result_path=str(path),
         )
     except Exception as exc:  # noqa: BLE001 — surface to job status
+        # Le détail complet reste dans les logs serveur ; le champ `error` est
+        # lisible sans authentification via GET /jobs, donc on l'assainit.
+        logger.exception("Échec du job d'évaluation %s", job_id)
         _update_job(
             job_id,
             status="failed",
             finished_at=_utc_now(),
-            error=str(exc),
+            error=redact_secrets(str(exc), extra=(model_secret,)),
         )
     finally:
         _release_runner(lock_backend)

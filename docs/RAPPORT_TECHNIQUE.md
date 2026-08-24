@@ -74,7 +74,7 @@ AfriBench est un examen public, gratuit et reproductible qui mesure ce que les i
 | Backoffice d'administration | Opérationnel | 5 écrans |
 | Analyse statistique (intervalles de confiance, tests appariés) | Opérationnelle | Bootstrap 2 000 réplicats, 21 comparaisons McNemar |
 | Intégration à l'écosystème de recherche | Opérationnelle | LM Evaluation Harness, dataset Hugging Face, Space Gradio |
-| Tests automatisés | Opérationnels | 61 tests backend, 30+ cas frontend |
+| Tests automatisés | Opérationnels | 98 tests backend, 43 cas frontend |
 | Chaînes d'intégration et de déploiement continus | Opérationnelles | 7 workflows GitHub Actions |
 | Documentation | Complète | 5 documents de protocole, 10 notes de recherche |
 
@@ -579,14 +579,14 @@ scripts/deploy_hf_space.sh --push   → Hugging Face Space
 
 | Composant | Mesure |
 |---|---|
-| Python (backend + scripts + tests) | ~7 400 lignes |
-| JavaScript applicatif (`frontend/js` + `frontend/src`) | ~3 750 lignes |
-| CSS (`frontend/css/style.css`) | 4 469 lignes |
+| Python (backend + scripts + tests) | ~7 840 lignes |
+| JavaScript applicatif (`frontend/js` + `frontend/src`) | ~3 720 lignes |
+| CSS (`frontend/css/style.css`) | 4 490 lignes |
 | Endpoints HTTP | 35 |
 | Tables PostgreSQL | 7 |
 | Migrations Alembic | 4 |
 | Scripts CLI | 37 fichiers dans `scripts/` |
-| Tests | 61 backend (16 fichiers) + 30+ cas frontend |
+| Tests | 98 backend (18 fichiers) + 43 cas frontend |
 | Workflows CI/CD | 7 |
 
 ---
@@ -978,7 +978,7 @@ Le hub complète, sans remplacer, les voies plus classiques documentées dans [`
 
 ### 13.1 Tests backend
 
-**61 tests** répartis sur **16 fichiers** (`cd backend && PYTHONPATH=. pytest -q`).
+**98 tests** répartis sur **18 fichiers** (`cd backend && PYTHONPATH=. pytest -q`).
 
 | Fichier | Portée |
 |---|---|
@@ -1239,8 +1239,8 @@ Cette section n'est pas un aveu arraché : c'est un composant du livrable. La cr
 | 6 | **Puissance statistique faible.** 101 questions → ±4 points d'intervalle de confiance ; 2 comparaisons significatives sur 21. | Moyenne | `data/stats/seed_report.json` | Le passage à 350 questions réduit mécaniquement l'intervalle. |
 | 7 | **Risque d'essentialisation culturelle** dans la catégorie `raisonnement_culturel`. | Éthique | `CRITIQUE.md` § 1.8 | Revue par des experts régionaux ; réécriture des items signalés. |
 | 8 | **Collision de nom avec AfroBench** (McGill-NLP). | Faible | `CRITIQUE.md` § 1.7 | Différenciation documentée ; renommage possible. |
-| 9 | **Endpoints d'administration non couverts par les tests.** | Faible | `backend/tests/` | Ajouter des tests de connexion et de CRUD administrateur. |
-| 10 | **Manifeste incohérent** : annonce 300 QCM, le corpus en contient 350. | Cosmétique | `data/questions/v1/manifest.json` | Correction d'une ligne. |
+| 9 | **CRUD d'administration non couvert par les tests.** L'authentification et le rate limiting du backoffice le sont depuis l'audit ; les quinze handlers CRUD, non. | Faible | `backend/tests/test_admin_security.py` | Monter un PostgreSQL de test et couvrir les handlers. |
+| 10 | **Les tests d'export écrivent dans le dépôt** (`data/DATASET_CARD.md`), ce qui salit l'arbre Git après un `pytest`. | Faible | `backend/tests/test_exports.py` | Paramétrer les scripts d'export par `--out` et diriger les tests vers `tmp_path`. |
 | 11 | **Pas de métriques d'exploitation** (Prometheus, tracing, logs structurés). | Faible | — | Hors périmètre v0.1 ; à instrumenter si le trafic croît. |
 | 12 | **CORS ouvert à `*`** en configuration prototype. | Faible | `backend/app/main.py` | Restreindre via `AFRIBENCH_CORS_ORIGINS` en production. |
 
@@ -1320,7 +1320,7 @@ lm_eval --model openai-chat-completions --model_args model=gpt-4o \
 ### 20.5 Passer les tests
 
 ```bash
-cd backend && PYTHONPATH=. pytest -q      # 61 tests
+cd backend && PYTHONPATH=. pytest -q      # 98 tests
 cd frontend && npm install && npm test    # Vitest
 cd frontend && npm run lint               # ESLint
 ```
@@ -1401,15 +1401,15 @@ AfriBench/
 ├── backend/                   API FastAPI
 │   ├── app/                   routeurs · services · modèles · sécurité
 │   ├── alembic/versions/      4 migrations
-│   └── tests/                 16 fichiers · 61 tests
+│   └── tests/                 18 fichiers · 98 tests
 ├── frontend/                  SPA Vite + nginx
 │   ├── index.html             shell, SEO, classement pré-généré
 │   ├── src/                   entrée Vite, icônes Lucide
 │   ├── js/                    noyau + 9 vues
-│   ├── css/style.css          4 469 lignes de design system
+│   ├── css/style.css          4 490 lignes de design system
 │   ├── admin/                 backoffice autonome
 │   ├── data/                  repli JSON + bootstrap
-│   └── tests/                 Vitest · 30+ cas
+│   └── tests/                 Vitest · 43 cas
 ├── data/                      SOURCE DE VÉRITÉ
 │   ├── questions/v1/
 │   │   ├── validated/         350 QCM (9 fichiers)
@@ -1461,11 +1461,11 @@ AfriBench/
 | Endpoints HTTP | 35 |
 | Tables PostgreSQL | 7 |
 | Migrations | 4 |
-| Tests backend | 61 |
+| Tests backend | 98 |
 | Workflows CI/CD | 7 |
-| Lignes Python | ~7 400 |
-| Lignes JavaScript | ~3 750 |
-| Lignes CSS | 4 469 |
+| Lignes Python | ~7 840 |
+| Lignes JavaScript | ~3 720 |
+| Lignes CSS | 4 490 |
 | Commits | 151 |
 | Pull requests fusionnées | 28 |
 | Issues fermées | 17 |

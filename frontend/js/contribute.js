@@ -269,14 +269,17 @@ function openModal(trigger) {
 
 function closeModal() {
   const modal = document.getElementById('proposal-modal');
-  if (!modal) return;
-  modal.hidden = true;
+  // Le nettoyage global est inconditionnel : quitter l'onglet retire la modale
+  // du DOM, et un retour anticipé ici laissait le défilement de la page
+  // verrouillé et l'écouteur Échap orphelin pour toute la session.
+  if (modal) modal.hidden = true;
   document.body.classList.remove('modal-open');
   if (modalEscapeHandler) {
     document.removeEventListener('keydown', modalEscapeHandler);
     modalEscapeHandler = null;
   }
-  modalTrigger?.focus?.();
+  if (modal) modalTrigger?.focus?.();
+  modalTrigger = null;
 }
 
 function wireOpenButtons() {
@@ -409,4 +412,7 @@ async function renderContribute(container) {
 }
 
 globalThis.renderContribute = renderContribute;
+// Permet à la navigation de libérer le verrou de défilement et l'écouteur Échap
+// si l'utilisateur quitte l'onglet avec la modale ouverte.
+globalThis.__closeProposalModal = closeModal;
 export {};

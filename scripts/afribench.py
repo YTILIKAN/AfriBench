@@ -20,14 +20,13 @@ import argparse
 import hashlib
 import json
 import os
-import platform
 import random
-import subprocess
+import re
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional
+
 
 try:
     import yaml
@@ -82,12 +81,18 @@ def load_questions(version: str = DEFAULT_QUESTIONS_VERSION) -> list[dict]:
         for fpath in sorted(questions_dir.glob("*.json")):
             if fpath.name == "template.json":
                 continue
-            with open(fpath, encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list):
-                    questions.extend(data)
-                else:
-                    questions.append(data)
+            try:
+                with open(fpath, encoding="utf-8") as f:
+                    data = json.load(f)
+            except (json.JSONDecodeError, OSError, UnicodeDecodeError) as exc:
+                # Un fichier illisible ne doit pas interrompre une campagne
+                # d'évaluation entière, mais il doit être signalé.
+                print(f"  ⚠ {fpath.name} ignoré : {exc}")
+                continue
+            if isinstance(data, list):
+                questions.extend(data)
+            else:
+                questions.append(data)
 
     if not questions:
         print(f"Aucune question trouvée dans {questions_dir}")
@@ -128,27 +133,49 @@ def build_prompt(question: dict, few_shot: list[dict] | None = None) -> str:
     return "\n\n".join(parts)
 
 
+# Motifs d'extraction, du plus strict au plus permissif. Chacun est ancré :
+# une prose libre ne doit jamais produire de lettre par accident.
+# « D'après moi, c'est B » ou « Désolé, je ne peux pas répondre » doivent
+# rester sans réponse plutôt que d'être notés D.
+_ANSWER_ONLY = re.compile(r"^\W*\*{0,2}([ABCD])\*{0,2}\W*$")
+_ANSWER_PREFIX = re.compile(r"^\*{0,2}([ABCD])\*{0,2}\s*[.):\-–—]\s")
+_ANSWER_PHRASE = re.compile(
+    r"\b(?:R[ÉE]PONSE|ANSWER|CHOIX|OPTION)\b[\s:=]*(?:EST|IS)?[\s:=]*\*{0,2}([ABCD])\b"
+)
+_STANDALONE_LETTER = re.compile(r"\b([ABCD])\b")
+
+
 def extract_answer(response_text: str) -> str | None:
-    """Extrait la lettre (A, B, C, D) de la réponse du modèle."""
-    text = response_text.strip().upper()
+    """Extrait la lettre (A, B, C, D) de la réponse du modèle.
 
-    # Cas 1 : réponse directe "A", "B", "C", "D"
-    if text in ("A", "B", "C", "D"):
-        return text
+    Renvoie ``None`` dès que la réponse est ambiguë : un refus, un message
+    d'erreur du fournisseur ou une justification en prose doivent être comptés
+    comme absence de réponse, jamais comme une lettre devinée.
+    """
+    text = (response_text or "").strip().upper()
+    if not text:
+        return None
 
-    # Cas 2 : "A." ou "A)" ou "A:" etc.
-    if text and text[0] in ("A", "B", "C", "D"):
-        return text[0]
+    # Cas 1 : la réponse est la lettre seule, éventuellement ponctuée ou en gras.
+    match = _ANSWER_ONLY.match(text)
+    if match:
+        return match.group(1)
 
-    # Cas 3 : dans du texte comme "La réponse est A"
-    for letter in ("A", "B", "C", "D"):
-        if f"RÉPONSE EST {letter}" in text or f"REPONSE EST {letter}" in text:
-            return letter
+    # Cas 2 : la lettre ouvre la réponse, suivie d'un séparateur — « B. Empire du Mali ».
+    match = _ANSWER_PREFIX.match(text)
+    if match:
+        return match.group(1)
 
-    # Cas 4 : seul caractère A/B/C/D dans le texte
-    for char in text.replace(" ", ""):
-        if char in ("A", "B", "C", "D"):
-            return char
+    # Cas 3 : formulation explicite — « La réponse est C », « Answer: C ».
+    match = _ANSWER_PHRASE.search(text)
+    if match:
+        return match.group(1)
+
+    # Cas 4 : dernier recours, une seule lettre isolée dans tout le texte.
+    # L'unicité est exigée : « D'après moi, c'est B » contient D et B, donc reste ambigu.
+    letters = set(_STANDALONE_LETTER.findall(text))
+    if len(letters) == 1:
+        return letters.pop()
 
     return None
 
@@ -228,7 +255,9 @@ def call_google(model: dict, prompt: str) -> str:
     api_key = _resolve_api_key(model)
 
     model_id = model["model_id"]
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
+    # La clé passe par un en-tête, jamais par la query string : requests recopie
+    # l'URL complète dans le message des HTTPError, qui finit persisté puis exposé.
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent"
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -238,7 +267,7 @@ def call_google(model: dict, prompt: str) -> str:
         },
     }
 
-    resp = requests.post(url, json=payload, timeout=60)
+    resp = requests.post(url, json=payload, timeout=60, headers={"x-goog-api-key": api_key})
     resp.raise_for_status()
     data = resp.json()
     return data["candidates"][0]["content"]["parts"][0]["text"]
@@ -324,6 +353,7 @@ def evaluate_model(
 
         model_answer = None
         error = None
+        unparsed = None
 
         if mock:
             model_answer = _mock_answer(model["name"], q, rng)
@@ -337,6 +367,10 @@ def evaluate_model(
                 try:
                     response = provider_fn(model, prompt)
                     model_answer = extract_answer(response)
+                    # Une réponse non interprétable est conservée : c'est la seule
+                    # façon d'auditer les no_answer et d'affiner les motifs.
+                    if model_answer is None:
+                        unparsed = response.strip()[:200]
                     error = None
                     break
                 except Exception as e:
@@ -372,6 +406,8 @@ def evaluate_model(
         }
         if error:
             detail["error"] = error
+        if unparsed:
+            detail["unparsed_response"] = unparsed
         results["details"].append(detail)
 
         if verbose:
@@ -480,6 +516,7 @@ def validate_questions(path: str) -> bool:
     valid = True
     categories = load_categories()
     difficulty_levels = {"easy", "medium", "hard"}
+    seen_ids: dict[str, str] = {}
 
     for fpath in sorted(qdir.glob("*.json")):
         if fpath.name == "template.json":
@@ -520,12 +557,19 @@ def validate_questions(path: str) -> bool:
             if "difficulty" in item and item["difficulty"] not in difficulty_levels:
                 errors.append(f"difficulté '{item['difficulty']}' invalide. Utilisez easy/medium/hard")
 
+            item_id = item.get("id", fpath.name)
+            # Un id dupliqué entre deux fichiers fait échouer le seed
+            # PostgreSQL (« ON CONFLICT DO UPDATE cannot affect row a second
+            # time »), ce qui laisse la base vide sans alerte visible.
+            if item_id in seen_ids:
+                errors.append(f"id dupliqué (déjà vu dans {seen_ids[item_id]})")
+            else:
+                seen_ids[item_id] = fpath.name
+
             if errors:
-                item_id = item.get("id", fpath.name)
                 print(f"  ✗ {item_id} : {'; '.join(errors)}")
                 valid = False
             else:
-                item_id = item.get("id", fpath.name)
                 print(f"  ✓ {item_id}")
 
     return valid
@@ -602,14 +646,24 @@ def cmd_run(args):
             print(f"Modèle '{args.model}' introuvable. Utilisez --list-models.")
             sys.exit(1)
 
-    # Few-shot si demandé
+    # Few-shot si demandé. Les exemples sont retirés du jeu évalué : les inclure
+    # reviendrait à montrer la bonne réponse dans le prompt puis à la noter,
+    # c'est-à-dire à gonfler l'accuracy par contamination.
     few_shot = None
+    eval_questions = questions
     if args.few_shot > 0:
         few_shot = questions[:args.few_shot]
+        eval_questions = questions[args.few_shot:]
+        if not eval_questions:
+            print(
+                f"ERREUR : --few-shot {args.few_shot} consomme les "
+                f"{len(questions)} questions disponibles ; rien à évaluer."
+            )
+            sys.exit(1)
 
     total_models = len(models)
     print(f"\n📊  AfriBench — Évaluation{' (MOCK)' if mock else ''}")
-    print(f"    Questions : {len(questions)}")
+    print(f"    Questions : {len(eval_questions)}")
     print(f"    Modèles   : {total_models}")
     print(f"    Few-shot  : {args.few_shot if few_shot else 'non'}")
     if mock:
@@ -620,7 +674,7 @@ def cmd_run(args):
         print(f"[{i}/{total_models}] Évaluation de {model.get('label', model['name'])}...")
         try:
             results = evaluate_model(
-                model, questions, few_shot, verbose=args.verbose, mock=mock
+                model, eval_questions, few_shot, verbose=args.verbose, mock=mock
             )
             save_results(results)
             print_summary(results)

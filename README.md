@@ -44,7 +44,7 @@ AfriBench/
 ├── backend/                # Service API FastAPI (:8080)
 │   ├── app/                # routers, services, config, modèles SQLAlchemy
 │   ├── alembic/            # Migrations Postgres
-│   ├── tests/              # pytest (58 tests)
+│   ├── tests/              # pytest (98 tests)
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── frontend/               # SPA vanilla JS bundlée avec Vite (nginx :3000)
@@ -250,6 +250,7 @@ AfriBench est un projet communautaire. Vous pouvez :
 | Document | Pour qui | Contenu |
 |----------|----------|---------|
 | **[docs/RAPPORT_TECHNIQUE.md](docs/RAPPORT_TECHNIQUE.md)** | Tous publics | Rapport complet : problème, alignement avec la mission Y'TILIKAN, corpus, méthodologie, résultats et leur marge d'erreur, architecture, UI/UX, qualité, déploiement, limites, feuille de route. Chaque section technique commence par un encadré « En clair » lisible sans bagage informatique. Glossaire en annexe. |
+| **[docs/AUDIT_QUALITE.md](docs/AUDIT_QUALITE.md)** | Contributeurs · mainteneurs | Audit de qualité vérifié par exécution : défauts corrigés (sécurité, exactitude des mesures, performance, accessibilité), ce qui reste à améliorer par ordre de priorité, et ce qui est déjà solide. |
 | **[docs/presentation/index.html](docs/presentation/index.html)** | Soutenance | Support de présentation, 32 diapositives autonomes (aucune installation). Navigation `← →`, `F` plein écran, `P` pour exporter en PDF. |
 | **[docs/presentation/NOTES_ORATEUR.md](docs/presentation/NOTES_ORATEUR.md)** | Orateur | Déroulé diapositive par diapositive, minutage, versions courtes (10 et 5 min), questions attendues et réponses préparées. |
 | [CRITIQUE.md](CRITIQUE.md) | Tous publics | Autocritique publique : forces, faiblesses, gravité, solutions. |

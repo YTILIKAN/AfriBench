@@ -48,7 +48,12 @@ def verify_token(token: str, settings: Settings) -> bool:
 def verify_admin_password(password: str, settings: Settings) -> bool:
     if not settings.admin_enabled:
         return False
-    return secrets.compare_digest(password, settings.admin_password)
+    # Sur les octets : compare_digest refuse les str non-ASCII, et un mot de
+    # passe accentué — le cas normal en français — lèverait un TypeError, donc
+    # un 500 déclenchable sans authentification.
+    return secrets.compare_digest(
+        password.encode("utf-8"), settings.admin_password.encode("utf-8")
+    )
 
 
 def require_admin(

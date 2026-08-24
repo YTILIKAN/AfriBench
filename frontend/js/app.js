@@ -134,18 +134,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   setLoadingState(true);
   await loadData();
   setLoadingState(false);
+  syncFilterState();
   renderActiveTab();
   updateHeroStats();
-  applyUrlFilters();
   // Deep link (?tab=X) : amener l'utilisateur directement à la vue demandée
   if (AppState._deepLinked) {
     const header = document.getElementById('view-header');
     if (header) header.scrollIntoView({ behavior: 'auto', block: 'start' });
   }
   window.addEventListener('popstate', () => {
+    // applyUrlState() rend déjà via setActiveTab ; ne pas rendre une seconde fois.
     applyUrlState();
-    renderActiveTab();
-    applyUrlFilters();
   });
 });
 
@@ -239,14 +238,32 @@ function setupDashboardIntro() {
 }
 
 /* ── URL state (?tab=&category=&difficulty=&page=) ───── */
+
+/**
+ * Lit les filtres de l'URL en n'acceptant que des valeurs connues.
+ * `category` et `difficulty` sont interpolées dans du HTML par plusieurs vues :
+ * une chaîne arbitraire venant de l'URL y serait une XSS réfléchie.
+ */
+function parseUrlFilters(search) {
+  const params = new URLSearchParams(search);
+  const category = params.get('category');
+  const difficulty = params.get('difficulty');
+  const page = Number.parseInt(params.get('page') || '1', 10);
+  return {
+    tab: params.get('tab'),
+    category: categoryKeys().includes(category) ? category : null,
+    difficulty: DIFFICULTY_KEYS.includes(difficulty) ? difficulty : null,
+    page: Number.isFinite(page) && page > 0 ? page : 1,
+  };
+}
+
 function applyUrlState() {
-  const params = new URLSearchParams(location.search);
-  const requestedTab = params.get('tab');
+  const filters = parseUrlFilters(location.search);
+  const requestedTab = filters.tab;
   const tab = requestedTab === 'categories' ? 'leaderboard' : requestedTab;
-  AppState.urlCategory = params.get('category');
-  AppState.urlDifficulty = params.get('difficulty');
-  const requestedPage = Number.parseInt(params.get('page') || '1', 10);
-  AppState.questionPage = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  AppState.urlCategory = filters.category;
+  AppState.urlDifficulty = filters.difficulty;
+  AppState.questionPage = filters.page;
   // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
   AppState._deepLinked = Boolean(requestedTab);
   AppState._skipUrlWrite = true;
@@ -277,17 +294,28 @@ function syncUrlState() {
   }
 }
 
-function applyUrlFilters() {
-  if (AppState.activeTab === 'leaderboard') {
-    renderActiveTab();
-  }
-  if (AppState.activeTab === 'questions' && window.__applyQuestionFilters) {
-    window.__applyQuestionFilters(
+// Remplace les anciens attributs de gestionnaire en ligne, incompatibles avec
+// la Content-Security-Policy stricte servie par nginx.
+document.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-goto-tab]');
+  if (target) setActiveTab(target.dataset.gotoTab);
+});
+
+/** Reporte l'état des filtres dans les vues concernées, sans déclencher de rendu. */
+function syncFilterState() {
+  if (AppState.activeTab === 'questions' && window.__setQuestionFilters) {
+    window.__setQuestionFilters(
       AppState.urlCategory,
       AppState.urlDifficulty,
       AppState.questionPage,
     );
   }
+}
+
+/** Appelé par les contrôles de filtrage : synchronise puis rend une seule fois. */
+function applyUrlFilters() {
+  syncFilterState();
+  renderActiveTab();
 }
 
 window.__setUrlCategory = (cat) => {
@@ -410,8 +438,14 @@ function setActiveTab(tabId) {
   }
   const panel = document.getElementById('tab-content');
   if (panel) {
+    // Le repli doit désigner un élément qui existe : les boutons de la barre
+    // latérale portent l'identifiant de l'espace (nav-overview, nav-analysis…),
+    // jamais celui de la vue, donc `nav-${tabId}` ne référençait rien.
     const hasWorkspaceNav = Boolean(document.getElementById('workspace-nav'));
-    panel.setAttribute('aria-labelledby', hasWorkspaceNav ? `workspace-tab-${tabId}` : `nav-${tabId}`);
+    panel.setAttribute(
+      'aria-labelledby',
+      hasWorkspaceNav ? `workspace-tab-${tabId}` : `nav-${workspaceForTab(tabId)}`,
+    );
   }
 
   renderWorkspaceNavigation();
@@ -423,8 +457,11 @@ function setActiveTab(tabId) {
   }
 
   syncUrlState();
+  // L'ordre compte : on reporte l'état des filtres avant de rendre, pour ne
+  // rendre qu'une fois. L'inverse produisait deux rendus complets par
+  // navigation sur le classement et sur les questions.
+  syncFilterState();
   renderActiveTab();
-  applyUrlFilters();
 
   // Scroll vers l'en-tête de la vue courante
   if (!AppState._skipScroll) {
@@ -438,6 +475,10 @@ function setActiveTab(tabId) {
 function renderActiveTab() {
   const container = document.getElementById('tab-content');
   if (!container) return;
+
+  // Changer de vue détache la modale de proposition : on libère le verrou de
+  // défilement et l'écouteur Échap avant de remplacer le contenu.
+  if (AppState.activeTab !== 'contribute') globalThis.__closeProposalModal?.();
 
   // Aucune source de données disponible : message d'erreur explicite
   if (!AppState.loading && AppState.dataSource === 'none'
@@ -473,7 +514,17 @@ function renderActiveTab() {
     api: globalThis.renderAPI,
   };
   const render = tabs[AppState.activeTab];
-  if (typeof render === 'function') render(container);
+  if (typeof render === 'function') {
+    const outcome = render(container);
+    // Les vues remplacent leur innerHTML : les graphiques de la vue précédente
+    // sont désormais détachés et doivent être détruits, sinon ils s'accumulent.
+    if (outcome && typeof outcome.finally === 'function') {
+      outcome.catch((err) => console.error('Échec du rendu de la vue', err))
+        .finally(destroyDetachedCharts);
+    } else {
+      destroyDetachedCharts();
+    }
+  }
 }
 
 /* ── Navigation secondaire + filtres persistants ─────── */
@@ -791,7 +842,11 @@ function loadFavorites() {
 }
 
 function saveFavorites() {
-  localStorage.setItem('afribench-favs', JSON.stringify([...AppState.favorites]));
+  // En navigation privée ou sous quota saturé, setItem lève. Sans garde,
+  // l'exception remonte du gestionnaire de clic et laisse l'étoile incohérente.
+  try {
+    localStorage.setItem('afribench-favs', JSON.stringify([...AppState.favorites]));
+  } catch { /* préférence non persistée : sans conséquence sur la session */ }
 }
 
 function toggleFavorite(name) {
@@ -813,11 +868,34 @@ function isFavorite(name) {
 }
 
 /* ── Chart.js helpers (registry anti-fuite + thème) ──── */
+// Registre explicite des graphiques, indexé par identifiant de canvas.
+// Chart.getChart(canvas) ne suffit pas : les vues remplacent leur innerHTML
+// avant de remonter, donc le canvas est neuf et l'ancienne instance — avec ses
+// données et son ResizeObserver — resterait vivante dans Chart.instances.
+const chartRegistry = new Map();
+
 function mountChart(canvas, config) {
   if (typeof Chart === 'undefined' || !canvas) return null;
+  const key = canvas.id || null;
+  if (key && chartRegistry.has(key)) {
+    chartRegistry.get(key).destroy();
+    chartRegistry.delete(key);
+  }
   const existing = Chart.getChart(canvas);
   if (existing) existing.destroy();
-  return new Chart(canvas, config);
+  const chart = new Chart(canvas, config);
+  if (key) chartRegistry.set(key, chart);
+  return chart;
+}
+
+/** Détruit les graphiques dont le canvas n'est plus dans le document. */
+function destroyDetachedCharts() {
+  chartRegistry.forEach((chart, key) => {
+    if (!chart.canvas || !chart.canvas.isConnected) {
+      chart.destroy();
+      chartRegistry.delete(key);
+    }
+  });
 }
 
 function chartTheme() {
@@ -943,10 +1021,10 @@ function renderDailyQuestion() {
       <div class="dq-content" id="dq-content" hidden>
         <div class="dq-header">
           <span class="dq-badge dq-badge--category">
-            ${categoryLabel(q.category)}
+            ${escapeHtml(categoryLabel(q.category))}
           </span>
           <span class="dq-badge dq-badge--muted">
-            ${difficultyLabel(q.difficulty)}
+            ${escapeHtml(difficultyLabel(q.difficulty))}
           </span>
         </div>
         <div class="dq-question">${escapeHtml(q.question || '')}</div>
@@ -963,7 +1041,7 @@ function renderDailyQuestion() {
         </div>
         <div class="dq-actions">
           <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
-          <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Voir le corpus</button>
+          <button class="dq-btn dq-btn-outline" data-goto-tab="questions">Voir le corpus</button>
         </div>
       </div>
     </div>
@@ -1014,6 +1092,8 @@ function isOpenModel(m) {
   const name = (m.model || m.model_label || '').toLowerCase();
   return openModels.some((k) => name.includes(k));
 }
+
+const DIFFICULTY_KEYS = ['easy', 'medium', 'hard'];
 
 function difficultyLabel(d) {
   const map = { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' };
@@ -1068,6 +1148,7 @@ Object.assign(globalThis, {
   computeStdDev,
   categoryLabel,
   categoryKeys,
+  parseUrlFilters,
   setText,
   formatDate,
   toggleFavorite,

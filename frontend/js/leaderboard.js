@@ -142,7 +142,7 @@ function renderLeaderboard(container) {
       <button class="filter-btn" id="lb-export-csv" title="Exporter en CSV">CSV</button>
       <button class="filter-btn" id="lb-export-json" title="Exporter en JSON">JSON</button>
       ${AppState.urlCategory ? `
-        <span class="filter-context">Score · ${categoryLabel(AppState.urlCategory)}</span>
+        <span class="filter-context">Score · ${escapeHtml(categoryLabel(AppState.urlCategory))}</span>
       ` : ''}
       <span class="filter-label" style="margin-left:4px">${models.length} modèle${models.length > 1 ? 's' : ''}</span>
     </div>
@@ -173,7 +173,7 @@ function renderLeaderboard(container) {
           <tr>
             ${renderTH('rank', '#')}
             ${renderTH('name', 'Modèle')}
-            ${renderTH('score', AppState.urlCategory ? categoryLabel(AppState.urlCategory) : 'Score')}
+            ${renderTH('score', AppState.urlCategory ? escapeHtml(categoryLabel(AppState.urlCategory)) : 'Score')}
             <th class="th-with-tip col-questions" data-tip="${METRICS.questions.desc}">Questions ${renderIcon('CircleHelp', 'tip-icon')}</th>
             <th class="th-with-tip col-facile" data-tip="${METRICS.facile.desc}">Facile ${renderIcon('CircleHelp', 'tip-icon')}</th>
             <th class="th-with-tip col-moyen" data-tip="${METRICS.moyen.desc}">Moyen ${renderIcon('CircleHelp', 'tip-icon')}</th>
@@ -229,7 +229,7 @@ function renderLeaderboard(container) {
         <td class="metadata col-moyen">${med}</td>
         <td class="metadata col-difficile">${hard}</td>
         <td class="metadata col-best_cat">
-          ${best ? `${categoryLabel(best.key)} ${best.accuracy.toFixed(0)}%` : '-'}
+          ${best ? `${escapeHtml(categoryLabel(best.key))} ${best.accuracy.toFixed(0)}%` : '-'}
         </td>
         <td class="metadata col-stddev ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">
           ${stddev !== null ? stddev.toFixed(1) : '-'}

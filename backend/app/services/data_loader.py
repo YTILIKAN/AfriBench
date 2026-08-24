@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,8 @@ from typing import Any
 import yaml
 
 from app.config import REPO_ROOT, Settings, get_settings
+
+logger = logging.getLogger("afribench")
 
 OPEN_WEIGHT_KEYWORDS = (
     "llama",
@@ -24,8 +27,18 @@ OPEN_WEIGHT_KEYWORDS = (
 
 
 def _read_json(path: Path) -> Any:
-    with path.open(encoding="utf-8") as f:
-        return json.load(f)
+    """Lit un fichier JSON, ou renvoie None s'il est illisible.
+
+    Le corpus est alimenté par des contributions externes : un fichier mal formé
+    ne doit pas mettre l'API publique par terre, mais il doit être signalé dans
+    les logs plutôt que disparaître en silence.
+    """
+    try:
+        with path.open(encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError) as exc:
+        logger.error("Fichier de données illisible, ignoré : %s — %s", path, exc)
+        return None
 
 
 def load_questions(settings: Settings | None = None) -> list[dict[str, Any]]:

@@ -105,7 +105,7 @@ function renderQuestions(container) {
         <div class="q-toolbar__menu">
           <button class="q-toolbar__option ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
           ${cats.map((c) => `
-            <button class="q-toolbar__option ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
+            <button class="q-toolbar__option ${qFilterCat === c ? 'active' : ''}" data-qcat="${escapeHtml(c)}">${escapeHtml(categoryLabel(c))}</button>
           `).join('')}
         </div>
       </details>
@@ -114,7 +114,7 @@ function renderQuestions(container) {
         <div class="q-toolbar__menu">
           <button class="q-toolbar__option ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
           ${diffs.map((d) => `
-            <button class="q-toolbar__option ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">${difficultyLabel(d)}</button>
+            <button class="q-toolbar__option ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${escapeHtml(d)}">${escapeHtml(difficultyLabel(d))}</button>
           `).join('')}
         </div>
       </details>
@@ -147,12 +147,12 @@ function renderQuestions(container) {
       const detailsId = `q-details-${pageStart + index}`;
 
       html += `
-        <div class="q-item" data-category="${q.category}" data-difficulty="${q.difficulty || ''}">
+        <div class="q-item" data-category="${escapeHtml(q.category)}" data-difficulty="${escapeHtml(q.difficulty || '')}">
           <div class="q-meta">
             <span class="q-meta-badge category">
-              ${categoryLabel(q.category)}
+              ${escapeHtml(categoryLabel(q.category))}
             </span>
-            <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>
+            <span class="q-meta-badge ${diffClass}">${escapeHtml(difficultyLabel(q.difficulty))}</span>
             <span class="q-meta-badge subtle">${safeId}</span>
             ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
           </div>
@@ -241,12 +241,6 @@ function renderQuestions(container) {
       pickers.filter((other) => other !== picker).forEach((other) => { other.open = false; });
     });
   });
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('.q-toolbar__picker')) {
-      pickers.forEach((picker) => { picker.open = false; });
-    }
-  });
-
   container.querySelectorAll('[data-clear]').forEach((chip) => {
     chip.addEventListener('click', () => {
       if (chip.dataset.clear === 'qcat') {
@@ -280,15 +274,31 @@ function renderQuestions(container) {
   });
 }
 
-window.__applyQuestionFilters = (cat, diff, page = 1) => {
+// Synchronise l'état de filtrage sans déclencher de rendu : l'appelant décide
+// quand rendre, ce qui évite le double rendu à chaque navigation.
+window.__setQuestionFilters = (cat, diff, page = 1) => {
   qFilterCat = cat || 'all';
   qFilterDiff = diff || 'all';
   AppState.questionPage = Math.max(1, Number.parseInt(page, 10) || 1);
+};
+
+window.__applyQuestionFilters = (cat, diff, page = 1) => {
+  window.__setQuestionFilters(cat, diff, page);
   const container = document.getElementById('tab-content');
   if (container && AppState.activeTab === 'questions') {
     renderQuestions(container);
   }
 };
+
+// Enregistré une seule fois au chargement du module. Placé dans renderQuestions,
+// cet écouteur s'accumulait à chaque filtre, chaque page et chaque frappe de
+// recherche, retenant à chaque fois un DOM détaché.
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.q-toolbar__picker')) return;
+  document.querySelectorAll('.q-toolbar__picker[open]').forEach((picker) => {
+    picker.open = false;
+  });
+});
 
 globalThis.renderQuestions = renderQuestions;
 export {};

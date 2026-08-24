@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run copy-static",
-    "copy-static": "cp -r data admin robots.txt sitemap.xml dist/ 2>/dev/null || true",
+    "copy-static": "node scripts/copy-static.mjs",
     "preview": "vite preview",
     "lint": "eslint js/ src/",
     "test": "vitest run"

@@ -12,7 +12,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import '../js/app.js';
 import '../js/leaderboard.js';
 import '../js/models.js';
-import '../js/categories.js';
 import '../js/compare.js';
 import '../js/evolution.js';
 import '../js/questions.js';
@@ -115,6 +114,79 @@ describe('escapeHtml', () => {
   });
 });
 
+describe('fuites de ressources', () => {
+  it("renderQuestions n'ajoute pas d'écouteur document à chaque rendu", () => {
+    const container = makeContainer();
+    let added = 0;
+    const original = document.addEventListener.bind(document);
+    document.addEventListener = (type, ...rest) => {
+      if (type === 'click') added += 1;
+      return original(type, ...rest);
+    };
+    try {
+      for (let i = 0; i < 25; i += 1) globalThis.renderQuestions(container);
+    } finally {
+      document.addEventListener = original;
+    }
+    expect(added).toBe(0);
+  });
+
+  it('ne rend le classement qu\'une fois par navigation', () => {
+    document.body.innerHTML = `
+      <div id="workspace-nav"></div>
+      <div id="workspace-filters"></div>
+      <h2 id="view-title"></h2>
+      <p id="view-desc"></p>
+      <span id="mobile-view-title"></span>
+      <main id="tab-content" role="tabpanel"></main>
+    `;
+    const real = globalThis.renderLeaderboard;
+    let calls = 0;
+    globalThis.renderLeaderboard = (c) => { calls += 1; return real(c); };
+    try {
+      setActiveTab('leaderboard');
+    } finally {
+      globalThis.renderLeaderboard = real;
+    }
+    expect(calls).toBe(1);
+  });
+});
+
+describe('assainissement des libellés (XSS)', () => {
+  const PAYLOAD = '<img src=x onerror=alert(1)>';
+
+  it('rejette une catégorie et une difficulté hors liste blanche', () => {
+    const search = `?category=${encodeURIComponent(PAYLOAD)}&difficulty=${encodeURIComponent(PAYLOAD)}`;
+    const filters = globalThis.parseUrlFilters(search);
+    expect(filters.category).toBeNull();
+    expect(filters.difficulty).toBeNull();
+  });
+
+  it('conserve les valeurs légitimes et normalise la page', () => {
+    const filters = globalThis.parseUrlFilters('?category=histoire&difficulty=hard&page=3');
+    expect(filters.category).toBe('histoire');
+    expect(filters.difficulty).toBe('hard');
+    expect(filters.page).toBe(3);
+    expect(globalThis.parseUrlFilters('?page=-4').page).toBe(1);
+  });
+
+  it("n'injecte pas de balise depuis une catégorie de question", () => {
+    AppState.questions[0].category = PAYLOAD;
+    AppState.questions[0].difficulty = PAYLOAD;
+    const container = makeContainer();
+    globalThis.renderQuestions(container);
+    expect(container.querySelector('img')).toBeNull();
+    expect(container.textContent).toContain('<img src=x');
+  });
+
+  it("n'injecte pas de balise depuis la meilleure catégorie d'un modèle", () => {
+    AppState.results[0].by_category = { [PAYLOAD]: { correct: 1, total: 1, accuracy: 100 } };
+    const container = makeContainer();
+    globalThis.renderLeaderboard(container);
+    expect(container.querySelector('img')).toBeNull();
+  });
+});
+
 describe('getLatestResults', () => {
   it('déduplique par modèle et trie par score décroissant', () => {
     const results = getLatestResults();
@@ -190,12 +262,6 @@ describe('renderModels', () => {
 });
 
 describe('autres vues', () => {
-  it('renderCategories', () => {
-    const container = makeContainer();
-    expect(() => globalThis.renderCategories(container)).not.toThrow();
-    expect(container.textContent).toContain('Histoire');
-  });
-
   it('renderCompare', () => {
     const container = makeContainer();
     expect(() => globalThis.renderCompare(container)).not.toThrow();
@@ -350,8 +416,8 @@ describe('navigation par onglets (sidebar)', () => {
     document.body.innerHTML = `
       <nav class="sidebar-nav">
         <div class="sidebar-tablist" role="tablist" aria-orientation="vertical">
-          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-sidebar id="nav-leaderboard">Classement</button>
-          <button class="sidebar-btn" role="tab" data-tab="models" data-sidebar id="nav-models">Modèles</button>
+          <button class="sidebar-btn active" role="tab" data-tab="leaderboard" data-workspace="overview" data-sidebar id="nav-overview">Vue d'ensemble</button>
+          <button class="sidebar-btn" role="tab" data-tab="compare" data-workspace="analysis" data-sidebar id="nav-analysis">Analyse</button>
         </div>
       </nav>
       <header class="view-header">
@@ -363,16 +429,22 @@ describe('navigation par onglets (sidebar)', () => {
     `;
   });
 
+  // Le gabarit reprend le balisage réel d'index.html : les boutons de la barre
+  // latérale portent l'identifiant de l'ESPACE (nav-overview, nav-analysis),
+  // jamais celui de la vue. L'ancien gabarit utilisait des ids par vue, qui
+  // n'existent nulle part en production : le test validait un contrat fictif.
   it('setActiveTab met à jour aria-selected et le roving tabindex', () => {
-    setActiveTab('models');
-    const modelsBtn = document.getElementById('nav-models');
-    const lbBtn = document.getElementById('nav-leaderboard');
-    expect(modelsBtn.getAttribute('aria-selected')).toBe('true');
-    expect(modelsBtn.getAttribute('tabindex')).toBe('0');
-    expect(modelsBtn.classList.contains('active')).toBe(true);
-    expect(lbBtn.getAttribute('aria-selected')).toBe('false');
-    expect(lbBtn.getAttribute('tabindex')).toBe('-1');
-    expect(document.getElementById('tab-content').getAttribute('aria-labelledby')).toBe('nav-models');
+    setActiveTab('compare');
+    const analysisBtn = document.getElementById('nav-analysis');
+    const overviewBtn = document.getElementById('nav-overview');
+    expect(analysisBtn.getAttribute('aria-selected')).toBe('true');
+    expect(analysisBtn.getAttribute('tabindex')).toBe('0');
+    expect(analysisBtn.classList.contains('active')).toBe(true);
+    expect(overviewBtn.getAttribute('aria-selected')).toBe('false');
+    expect(overviewBtn.getAttribute('tabindex')).toBe('-1');
+    const ref = document.getElementById('tab-content').getAttribute('aria-labelledby');
+    expect(ref).toBe('nav-analysis');
+    expect(document.getElementById(ref)).toBeTruthy();
   });
 
   it('setActiveTab met à jour l\'en-tête de vue et le titre mobile', () => {
