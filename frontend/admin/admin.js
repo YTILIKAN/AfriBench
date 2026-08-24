@@ -86,8 +86,28 @@ function render() {
   else renderEvaluation();
 }
 
+/**
+ * Index de recherche par objet, mis en cache.
+ * Sans lui, chaque frappe re-sérialisait tout le jeu de données : 350 questions
+ * avec leurs options et explications, à chaque caractère saisi.
+ */
+const searchIndex = new WeakMap();
+
+function haystack(item) {
+  let value = searchIndex.get(item);
+  if (value === undefined) {
+    value = JSON.stringify(item).toLowerCase();
+    searchIndex.set(item, value);
+  }
+  return value;
+}
+
+function matches(item, q) {
+  return !q || haystack(item).includes(q);
+}
+
 function renderQuestions(q) {
-  const rows = state.questions.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
+  const rows = state.questions.filter(x => matches(x, q));
   $('#dataTable').innerHTML =
     `<thead><tr><th scope="col">ID</th><th scope="col">Catégorie</th><th scope="col">Question</th><th scope="col">Difficulté</th><th scope="col">Réponse</th><th scope="col"></th></tr></thead><tbody>${
     rows.map(x => `<tr>
@@ -105,7 +125,7 @@ function renderQuestions(q) {
 }
 
 function renderResults(q) {
-  const rows = state.results.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
+  const rows = state.results.filter(x => matches(x, q));
   $('#dataTable').innerHTML =
     `<thead><tr><th scope="col">#</th><th scope="col">Modèle</th><th scope="col">Label</th><th scope="col">Score</th><th scope="col">Correct/Total</th><th scope="col">Date</th><th scope="col"></th></tr></thead><tbody>${
     rows.map(x => `<tr>
@@ -273,7 +293,7 @@ async function deleteResult(id) {
 const PROVIDERS = ['openai', 'anthropic', 'google'];
 
 function renderModels(q) {
-  const rows = state.models.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
+  const rows = state.models.filter(x => matches(x, q));
   $('#dataTable').innerHTML =
     `<thead><tr><th scope="col">Nom</th><th scope="col">Label</th><th scope="col">Provider</th><th scope="col">Model ID</th><th scope="col">Clé</th><th scope="col"></th></tr></thead><tbody>${
     rows.map(x => `<tr>
@@ -411,7 +431,13 @@ document.addEventListener('DOMContentLoaded', () => {
     state.tab = t.dataset.tab;
     render();
   }));
-  $('#search').addEventListener('input', render);
+  // Anti-rebond : le rendu reconstruit toute la table, inutile de le faire à
+  // chaque caractère.
+  let searchTimer = null;
+  $('#search').addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(render, 180);
+  });
   $('#newBtn').addEventListener('click', () => {
     if (state.tab === 'questions') newQuestion();
     else if (state.tab === 'results') newResult();
