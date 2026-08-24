@@ -20,14 +20,13 @@ import argparse
 import hashlib
 import json
 import os
-import platform
 import random
-import subprocess
+import re
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional
+
 
 try:
     import yaml
@@ -128,27 +127,49 @@ def build_prompt(question: dict, few_shot: list[dict] | None = None) -> str:
     return "\n\n".join(parts)
 
 
+# Motifs d'extraction, du plus strict au plus permissif. Chacun est ancré :
+# une prose libre ne doit jamais produire de lettre par accident.
+# « D'après moi, c'est B » ou « Désolé, je ne peux pas répondre » doivent
+# rester sans réponse plutôt que d'être notés D.
+_ANSWER_ONLY = re.compile(r"^\W*\*{0,2}([ABCD])\*{0,2}\W*$")
+_ANSWER_PREFIX = re.compile(r"^\*{0,2}([ABCD])\*{0,2}\s*[.):\-–—]\s")
+_ANSWER_PHRASE = re.compile(
+    r"\b(?:R[ÉE]PONSE|ANSWER|CHOIX|OPTION)\b[\s:=]*(?:EST|IS)?[\s:=]*\*{0,2}([ABCD])\b"
+)
+_STANDALONE_LETTER = re.compile(r"\b([ABCD])\b")
+
+
 def extract_answer(response_text: str) -> str | None:
-    """Extrait la lettre (A, B, C, D) de la réponse du modèle."""
-    text = response_text.strip().upper()
+    """Extrait la lettre (A, B, C, D) de la réponse du modèle.
 
-    # Cas 1 : réponse directe "A", "B", "C", "D"
-    if text in ("A", "B", "C", "D"):
-        return text
+    Renvoie ``None`` dès que la réponse est ambiguë : un refus, un message
+    d'erreur du fournisseur ou une justification en prose doivent être comptés
+    comme absence de réponse, jamais comme une lettre devinée.
+    """
+    text = (response_text or "").strip().upper()
+    if not text:
+        return None
 
-    # Cas 2 : "A." ou "A)" ou "A:" etc.
-    if text and text[0] in ("A", "B", "C", "D"):
-        return text[0]
+    # Cas 1 : la réponse est la lettre seule, éventuellement ponctuée ou en gras.
+    match = _ANSWER_ONLY.match(text)
+    if match:
+        return match.group(1)
 
-    # Cas 3 : dans du texte comme "La réponse est A"
-    for letter in ("A", "B", "C", "D"):
-        if f"RÉPONSE EST {letter}" in text or f"REPONSE EST {letter}" in text:
-            return letter
+    # Cas 2 : la lettre ouvre la réponse, suivie d'un séparateur — « B. Empire du Mali ».
+    match = _ANSWER_PREFIX.match(text)
+    if match:
+        return match.group(1)
 
-    # Cas 4 : seul caractère A/B/C/D dans le texte
-    for char in text.replace(" ", ""):
-        if char in ("A", "B", "C", "D"):
-            return char
+    # Cas 3 : formulation explicite — « La réponse est C », « Answer: C ».
+    match = _ANSWER_PHRASE.search(text)
+    if match:
+        return match.group(1)
+
+    # Cas 4 : dernier recours, une seule lettre isolée dans tout le texte.
+    # L'unicité est exigée : « D'après moi, c'est B » contient D et B, donc reste ambigu.
+    letters = set(_STANDALONE_LETTER.findall(text))
+    if len(letters) == 1:
+        return letters.pop()
 
     return None
 
@@ -324,6 +345,7 @@ def evaluate_model(
 
         model_answer = None
         error = None
+        unparsed = None
 
         if mock:
             model_answer = _mock_answer(model["name"], q, rng)
@@ -337,6 +359,10 @@ def evaluate_model(
                 try:
                     response = provider_fn(model, prompt)
                     model_answer = extract_answer(response)
+                    # Une réponse non interprétable est conservée : c'est la seule
+                    # façon d'auditer les no_answer et d'affiner les motifs.
+                    if model_answer is None:
+                        unparsed = response.strip()[:200]
                     error = None
                     break
                 except Exception as e:
@@ -372,6 +398,8 @@ def evaluate_model(
         }
         if error:
             detail["error"] = error
+        if unparsed:
+            detail["unparsed_response"] = unparsed
         results["details"].append(detail)
 
         if verbose:
