@@ -294,8 +294,8 @@ function syncUrlState() {
   }
 }
 
-// Remplace les anciens attributs onclick="setActiveTab(...)" : les gestionnaires
-// inline sont incompatibles avec une Content-Security-Policy stricte.
+// Remplace les anciens attributs de gestionnaire en ligne, incompatibles avec
+// la Content-Security-Policy stricte servie par nginx.
 document.addEventListener('click', (event) => {
   const target = event.target.closest('[data-goto-tab]');
   if (target) setActiveTab(target.dataset.gotoTab);

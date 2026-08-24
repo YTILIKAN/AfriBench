@@ -20,6 +20,16 @@ jobs:
         env:
           PYTHONPATH: .
         run: python -m pytest tests -q
+      - name: Tests must not modify tracked files
+        run: |
+          # Les scripts d'export écrivaient dans data/ pendant les tests, ce qui
+          # salissait l'arbre et faisait committer des fichiers regénérés.
+          if ! git diff --exit-code --stat; then
+            echo "::error::La suite de tests a modifié des fichiers versionnés."
+            exit 1
+          fi
+      - name: Corpus validation (schéma, catégories, ids uniques)
+        run: python scripts/afribench.py validate data/questions/v1/validated
       - name: Validation status smoke
         run: python scripts/validation_status.py
       - name: Open tasks dry-run pipeline
@@ -50,3 +60,25 @@ jobs:
       - name: Build (Vite)
         working-directory: frontend
         run: npm run build
+      - name: Les assets doivent être référencés en relatif
+        working-directory: frontend
+        run: |
+          # GitHub Pages sert le site sous /AfriBench/. Un chemin absolu
+          # (base par défaut de Vite) fait échouer le chargement de tout le
+          # bundle en production, sans qu'aucun test ne le détecte.
+          if grep -qE '(src|href)="/(assets|src)/' dist/index.html; then
+            echo "::error::dist/index.html référence des assets en chemin absolu ; vérifiez base dans vite.config.js."
+            grep -oE '(src|href)="/[^"]*"' dist/index.html
+            exit 1
+          fi
+          echo "OK : assets référencés en relatif."
+      - name: Aucun gestionnaire d'événement en ligne
+        working-directory: frontend
+        run: |
+          # Les attributs on*= sont incompatibles avec la CSP servie par nginx,
+          # et un échappement HTML ne protège pas un contexte JavaScript.
+          if grep -rnE '\son(click|change|input|submit|load|error)=' index.html js/ src/; then
+            echo "::error::Gestionnaire en ligne détecté : utilisez une délégation via data-*."
+            exit 1
+          fi
+          echo "OK : aucun gestionnaire en ligne."

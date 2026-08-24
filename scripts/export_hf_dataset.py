@@ -205,7 +205,18 @@ def maybe_push(out_dir: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export Hugging Face dataset")
     parser.add_argument("--push", action="store_true", help="Push vers le Hub (nécessite login)")
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=OUT_DIR,
+        help=(
+            "Répertoire de sortie (défaut : data/hf/YTILIKAN__AfriBench). "
+            "Permet aux tests d'écrire dans un dossier temporaire au lieu de "
+            "modifier les fichiers versionnés du dépôt."
+        ),
+    )
     args = parser.parse_args()
+    out_dir: Path = args.out
 
     african_raw = load_json_dir(VALIDATED)
     control_raw = load_json_dir(WITNESS)
@@ -216,14 +227,15 @@ def main() -> None:
         print("Aucune question africaine trouvée.", file=sys.stderr)
         sys.exit(1)
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    write_jsonl(OUT_DIR / "african.jsonl", african)
-    write_jsonl(OUT_DIR / "control.jsonl", control)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    write_jsonl(out_dir / "african.jsonl", african)
+    write_jsonl(out_dir / "control.jsonl", control)
 
     card = build_dataset_card(african, control)
-    (OUT_DIR / "README.md").write_text(card, encoding="utf-8")
-    # Copie aussi à la racine data/ pour découverte
-    (REPO_ROOT / "data" / "DATASET_CARD.md").write_text(card, encoding="utf-8")
+    (out_dir / "README.md").write_text(card, encoding="utf-8")
+    # Copie à la racine data/ pour découverte, seulement pour l'export canonique.
+    if out_dir == OUT_DIR:
+        (REPO_ROOT / "data" / "DATASET_CARD.md").write_text(card, encoding="utf-8")
 
     meta = {
         "name": "YTILIKAN/AfriBench",
@@ -232,17 +244,17 @@ def main() -> None:
         "control": len(control),
         "total": len(african) + len(control),
     }
-    (OUT_DIR / "dataset_info.json").write_text(
+    (out_dir / "dataset_info.json").write_text(
         json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
 
-    print(f"Export HF → {OUT_DIR}")
+    print(f"Export HF → {out_dir}")
     print(f"  african.jsonl : {len(african)}")
     print(f"  control.jsonl : {len(control)}")
     print(f"  README.md / data/DATASET_CARD.md")
 
     if args.push:
-        maybe_push(OUT_DIR)
+        maybe_push(out_dir)
 
 
 if __name__ == "__main__":

@@ -23,16 +23,21 @@ def test_witness_and_african_counts():
     assert all(q.get("is_control") for q in json.loads(witness.read_text(encoding="utf-8")))
 
 
-def test_hf_export_script():
+def test_hf_export_script(tmp_path):
+    # --out dirige l'export vers un dossier temporaire : sans cela, le test
+    # réécrivait data/DATASET_CARD.md et data/hf/.../README.md à chaque
+    # exécution, salissant l'arbre Git et interdisant un `git diff --exit-code`.
     script = REPO / "scripts" / "export_hf_dataset.py"
-    subprocess.check_call([sys.executable, str(script)], cwd=REPO)
-    out = REPO / "data" / "hf" / "YTILIKAN__AfriBench"
+    out = tmp_path / "hf"
+    subprocess.check_call([sys.executable, str(script), "--out", str(out)], cwd=REPO)
     african_lines = (out / "african.jsonl").read_text(encoding="utf-8").strip().splitlines()
     control_lines = (out / "control.jsonl").read_text(encoding="utf-8").strip().splitlines()
     assert len(african_lines) >= 125
     assert len(control_lines) == 20
     row = json.loads(african_lines[0])
     assert {"id", "question", "answer", "option_a", "is_control"} <= set(row)
+    assert (out / "README.md").exists()
+    # La carte canonique reste versionnée dans le dépôt, régénérée hors tests.
     assert (REPO / "data" / "DATASET_CARD.md").exists()
 
 
