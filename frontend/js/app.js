@@ -294,6 +294,13 @@ function syncUrlState() {
   }
 }
 
+// Remplace les anciens attributs onclick="setActiveTab(...)" : les gestionnaires
+// inline sont incompatibles avec une Content-Security-Policy stricte.
+document.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-goto-tab]');
+  if (target) setActiveTab(target.dataset.gotoTab);
+});
+
 /** Reporte l'état des filtres dans les vues concernées, sans déclencher de rendu. */
 function syncFilterState() {
   if (AppState.activeTab === 'questions' && window.__setQuestionFilters) {
@@ -1028,7 +1035,7 @@ function renderDailyQuestion() {
         </div>
         <div class="dq-actions">
           <button class="dq-btn" id="dq-show-answer">Voir la réponse</button>
-          <button class="dq-btn dq-btn-outline" onclick="setActiveTab('questions')">Voir le corpus</button>
+          <button class="dq-btn dq-btn-outline" data-goto-tab="questions">Voir le corpus</button>
         </div>
       </div>
     </div>
