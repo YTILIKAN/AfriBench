@@ -5,7 +5,7 @@
 
 const {
   AppState, getLatestResults, applySearchFilter, isOpenModel, isFavorite,
-  computeBestCategory, computeStdDev, categoryLabel, categoryColor,
+  computeBestCategory, computeStdDev, categoryLabel,
   formatDate, exportCSV, exportJSON, toggleFavorite,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
@@ -228,7 +228,7 @@ function renderLeaderboard(container) {
         <td class="metadata col-facile">${easy}</td>
         <td class="metadata col-moyen">${med}</td>
         <td class="metadata col-difficile">${hard}</td>
-        <td class="metadata col-best_cat" style="color:${best ? categoryColor(best.key) : 'var(--muted)'}">
+        <td class="metadata col-best_cat">
           ${best ? `${categoryLabel(best.key)} ${best.accuracy.toFixed(0)}%` : '-'}
         </td>
         <td class="metadata col-stddev ${stddev !== null ? (stddev < 5 ? 'std-good' : stddev < 8 ? 'std-mid' : 'std-wide') : ''}">

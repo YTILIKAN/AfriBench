@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const {
-  AppState, getLatestResults, categoryLabel, categoryColor,
+  AppState, getLatestResults, categoryLabel,
   escapeHtml, mountChart, chartTheme, chartSeriesColor,
 } = globalThis;
 
@@ -79,10 +79,9 @@ function renderCategories(container) {
 
   cats.forEach((c) => {
     const bp = bestPerCategory[c];
-    const color = categoryColor(c);
     html += `
       <div class="cat-card">
-        <div class="cat-label" style="color:${color}">${categoryLabel(c)}</div>
+        <div class="cat-label">${categoryLabel(c)}</div>
         <div class="cat-score">${bp.score >= 0 ? bp.score.toFixed(1) + '%' : '-'}</div>
         <div class="cat-model">${bp.model ? escapeHtml(bp.model.model_label || bp.model.model) : '-'}</div>
       </div>
