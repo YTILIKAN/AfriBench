@@ -29,18 +29,26 @@ function renderCompare(container) {
       <div class="compare-selector">
   `;
 
+  // Arriver depuis le bouton « Comparer » d'une fiche modèle présélectionnait ce
+  // seul modèle, produisant une « comparaison » à un élément. On garde le modèle
+  // demandé et on lui adjoint les deux meilleurs autres, pour qu'il y ait
+  // toujours quelque chose à comparer.
+  const preset = AppState.comparePreset;
+  const companions = new Set(
+    models
+      .filter((m) => (m.model_label || m.model) !== preset)
+      .slice(0, preset ? 2 : 3)
+      .map((m) => m.model_label || m.model),
+  );
+
   models.forEach((m, i) => {
     const name = m.model_label || m.model;
-    // Check if this model should be pre-selected
-    let checked = i < 3 && !AppState.comparePreset;
-    if (AppState.comparePreset && name === AppState.comparePreset) {
-      checked = true;
-    }
+    const checked = name === preset || companions.has(name);
     html += `
       <label>
         <input type="checkbox" class="compare-check" value="${i}" ${checked ? 'checked' : ''}>
         <span>${escapeHtml(name)}</span>
-        <span style="color:var(--ocre);font-family:var(--mono);font-size:0.68rem">${m.accuracy}%</span>
+        <span style="color:var(--ocre-ink);font-family:var(--mono);font-size:0.68rem">${m.accuracy}%</span>
       </label>
     `;
   });
@@ -63,47 +71,16 @@ function renderCompare(container) {
     </div>
   `;
 
-  // ---- Side-by-side table ----
+  // Conteneur du tableau de détail. Il est volontairement laissé vide : c'est
+  // updateCompare(), appelé juste après, qui le remplit en fonction des modèles
+  // réellement cochés. Le construire ici en dupliquant la logique produisait un
+  // tableau « top 3 » aussitôt écrasé, et deux implémentations à maintenir.
   html += `
     <div class="card">
       <div class="card-title">Détail des scores</div>
-      <div class="compare-table" id="compare-table-detail">
+      <div class="compare-table" id="compare-table-detail"></div>
+    </div>
   `;
-
-  // Build the detail comparison table
-  const selected = models.slice(0, 3); // default: top 3
-  const cats = new Set();
-  selected.forEach((m) => {
-    if (m.by_category) Object.keys(m.by_category).forEach((c) => cats.add(c));
-  });
-  const catList = Array.from(cats).sort();
-
-  html += '<table class="lb-table"><thead><tr><th>Catégorie</th>';
-  selected.forEach((m) => {
-    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
-  });
-  html += '</tr></thead><tbody>';
-
-  catList.forEach((cat) => {
-    html += `<tr><td class="compare-category">${escapeHtml(categoryLabel(cat))}</td>`;
-    selected.forEach((m) => {
-      const score = m.by_category?.[cat]?.accuracy;
-      const val = score !== undefined ? score.toFixed(1) + '%' : '-';
-      const highlight = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : '';
-      html += `<td style="text-align:center;font-family:var(--mono)" ${highlight}>${val}</td>`;
-    });
-    html += '</tr>';
-  });
-
-  // Overall row
-  html += `<tr style="border-top:2px solid var(--sable-d)">
-    <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
-  selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
-  });
-  html += '</tr>';
-
-  html += '</tbody></table></div></div>';
 
   container.innerHTML = html;
 
@@ -221,7 +198,7 @@ function updateCompareTable(selected, catList) {
     selected.forEach((m) => {
       const score = m.by_category?.[cat]?.accuracy;
       const val = score !== undefined ? score.toFixed(1) + '%' : '-';
-      const style = score >= 90 ? 'style="color:var(--ocre);font-weight:600"' : 'style="font-family:var(--mono)"';
+      const style = score >= 90 ? 'style="color:var(--ocre-ink);font-weight:600"' : 'style="font-family:var(--mono)"';
       html += `<td style="text-align:center" ${style}>${val}</td>`;
     });
     html += '</tr>';
@@ -229,9 +206,9 @@ function updateCompareTable(selected, catList) {
 
   // Overall row
   html += `<tr style="border-top:2px solid var(--sable-d)">
-    <td style="font-weight:600;color:var(--ocre)">Score global</td>`;
+    <td style="font-weight:600;color:var(--ocre-ink)">Score global</td>`;
   selected.forEach((m) => {
-    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre)">${m.accuracy}%</td>`;
+    html += `<td style="text-align:center;font-family:var(--mono);font-weight:700;color:var(--ocre-ink)">${m.accuracy}%</td>`;
   });
   html += '</tr>';
 

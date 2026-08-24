@@ -13,9 +13,9 @@ function renderAPI(container) {
       </p>
 
       <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--sp-lg)">
-        Base URL (local) : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre)">http://127.0.0.1:8080/api/v1</code>
+        Base URL (local) : <code style="font-family:var(--mono);background:var(--surface);padding:2px 8px;border-radius:4px;color:var(--ocre-ink)">http://127.0.0.1:8080/api/v1</code>
         &nbsp;·&nbsp; Docs : <a href="http://127.0.0.1:8080/docs" target="_blank" rel="noopener">/docs</a>
-        &nbsp;·&nbsp; Source données : <code style="font-family:var(--mono);color:var(--ocre)">${AppState.dataSource || '—'}</code>
+        &nbsp;·&nbsp; Source données : <code style="font-family:var(--mono);color:var(--ocre-ink)">${AppState.dataSource || '—'}</code>
       </p>
 
       <div class="api-endpoint">
@@ -201,7 +201,7 @@ print(data['stats'])
         </div>
         <div class="api-endpoint-body">
           <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:8px">
-            Header requis : <code style="font-family:var(--mono);color:var(--ocre)">X-API-Key</code>
+            Header requis : <code style="font-family:var(--mono);color:var(--ocre-ink)">X-API-Key</code>
             (= <code style="font-family:var(--mono)">AFRIBENCH_API_KEY</code>).
             Job asynchrone — suivre via <code style="font-family:var(--mono)">GET /jobs/{id}</code>.
           </p>
@@ -226,14 +226,14 @@ curl -s http://127.0.0.1:8080/api/v1/jobs/JOB_ID | jq .
           AfriBench est scindé en deux services :
         </p>
         <ul style="font-size:0.82rem;color:var(--charbon);line-height:1.8;margin-top:8px;padding-left:20px">
-          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre)">:8080</code>) + rate-limit + clé API pour l'écriture</li>
+          <li><strong>backend/</strong> — API FastAPI (<code style="font-family:var(--mono);color:var(--ocre-ink)">:8080</code>) + rate-limit + clé API pour l'écriture</li>
           <li><strong>frontend/</strong> — UI statique (nginx ou <code style="font-family:var(--mono)">python -m http.server</code>)</li>
         </ul>
         <p style="font-size:0.82rem;color:var(--charbon);line-height:1.6;margin-top:8px">
-          En local : <code style="font-family:var(--mono);color:var(--ocre)">docker compose up --build</code>
+          En local : <code style="font-family:var(--mono);color:var(--ocre-ink)">docker compose up --build</code>
           (frontend <code>:3000</code>, API <code>:8080</code>, docs <code>/docs</code>).
           Sans backend, le frontend retombe sur les JSON statiques
-          <code style="font-family:var(--mono);color:var(--ocre)">frontend/data/*.json</code>.
+          <code style="font-family:var(--mono);color:var(--ocre-ink)">frontend/data/*.json</code>.
         </p>
       </div>
 

@@ -61,7 +61,7 @@ function renderModels(container) {
     <div class="models-grid">
   `;
 
-  sorted.forEach((m) => {
+  sorted.forEach((m, index) => {
     const name = m.model_label || m.model;
     const safeName = escapeHtml(name);
     const acc = m.accuracy || 0;
@@ -105,7 +105,7 @@ function renderModels(container) {
 
         <div class="model-card-categories">
           <div class="cat-mini-label">Par catégorie</div>
-          <canvas class="model-mini-radar" id="mradar-${name.replace(/[^a-zA-Z0-9]/g, '')}" data-model="${safeName}" height="100" width="100"></canvas>
+          <canvas class="model-mini-radar" id="mradar-${index}" data-model="${safeName}" height="100" width="100"></canvas>
         </div>
 
         <div class="model-card-actions">
@@ -164,10 +164,13 @@ function renderModels(container) {
 
   // Draw mini radar charts
   requestAnimationFrame(() => {
-    const models = getLatestResults();
-    container.querySelectorAll('.model-mini-radar').forEach(canvas => {
-      const name = canvas.dataset.model;
-      const m = models.find(x => (x.model_label || x.model) === name);
+    // Index par nom : une recherche linéaire par canvas rendait le montage
+    // quadratique en nombre de modèles.
+    const byName = new Map(
+      getLatestResults().map((m) => [m.model_label || m.model, m]),
+    );
+    container.querySelectorAll('.model-mini-radar').forEach((canvas) => {
+      const m = byName.get(canvas.dataset.model);
       if (!m || !m.by_category) return;
       drawMiniRadar(canvas, m);
     });

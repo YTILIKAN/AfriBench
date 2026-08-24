@@ -29,7 +29,11 @@ async function ensureOpenScores() {
 }
 
 async function renderOpenTasks(container) {
+  // Le chargement précède l'écriture dans le DOM : sans ce jeton, changer
+  // d'onglet pendant la requête laissait cette vue écraser la nouvelle.
+  const token = globalThis.currentRenderToken?.();
   const scores = await ensureOpenScores();
+  if (globalThis.isRenderStale?.(token)) return;
   const tasks = scores.tasks || {};
   const taskKeys = Object.keys(tasks);
 
