@@ -179,7 +179,7 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
           <span class="endpoint-desc">Classement complet etendu</span>
         </div>
         <div class="api-endpoint-body">
-          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--space-1)">
+          <p style="font-size:0.82rem;color:var(--charbon);margin-bottom:var(--sp-xs)">
             Endpoint combiné retournant le classement complet avec moyennes par catégorie.
           </p>
 
