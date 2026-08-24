@@ -144,6 +144,21 @@ img { max-width: 100%; display: block; }
 }
 .skip-link:focus { top: 16px; }
 
+/* Visible pour les aides techniques uniquement. Sert aux <caption> de tableaux :
+   un lecteur d'écran annonce ainsi de quoi parle le tableau avant de le
+   parcourir, sans occuper d'espace à l'écran. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Layout ─────────────────────────────────────────────── */
 .wrap {
   max-width: var(--maxw);
@@ -203,14 +218,14 @@ img { max-width: 100%; display: block; }
   gap: 8px;
 }
 
-.sidebar-logo h1 {
+.sidebar-logo__name {
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.2rem;
   color: var(--on-dark);
   letter-spacing: -.01em;
 }
-.sidebar-logo h1 span { color: var(--ocre); }
+.sidebar-logo__name span { color: var(--ocre); }
 
 .sidebar-close {
   display: none;
@@ -1524,7 +1539,8 @@ body[data-theme="dark"] .app-footer__links a:hover { color: var(--ocre-ink); }
   background: var(--surface);
   position: sticky; top: 0; white-space: nowrap;
 }
-.lb-table tbody td {
+.lb-table tbody td,
+.lb-table tbody th[scope="row"] {
   padding: 10px 12px;
   border-bottom: 1px solid var(--sable-d);
   color: var(--charbon);
@@ -1663,7 +1679,8 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre-ink); }
   }
 
   .lb-table-wrap .lb-table thead th,
-  .lb-table-wrap .lb-table tbody td {
+  .lb-table-wrap .lb-table tbody td,
+  .lb-table-wrap .lb-table tbody th[scope="row"] {
     padding-inline: 8px;
   }
 }
@@ -1960,7 +1977,10 @@ th.sorted-desc .sort-icon { opacity: 1; color: var(--ocre-ink); }
 .http-method.http-get { background: var(--ocre); color: var(--on-accent); }
 .http-method.http-post { background: var(--success); color: #fff; }
 
+/* Devenu un <h3> pour rétablir la hiérarchie de titres : la marge et la taille
+   par défaut du navigateur doivent donc être neutralisées. */
 .endpoint-url {
+  margin: 0;
   font-family: var(--mono);
   font-size: .88rem;
   font-weight: 600;
@@ -2383,7 +2403,7 @@ textarea:focus-visible {
   box-shadow: var(--shadow-subtle, 0 1px 2px rgba(0, 0, 0, .05));
 }
 
-.sidebar-logo h1 {
+.sidebar-logo__name {
   color: var(--noir);
   font-size: 16px;
   font-weight: 600;
@@ -2391,7 +2411,7 @@ textarea:focus-visible {
   line-height: 1.2;
 }
 
-.sidebar-logo h1 span {
+.sidebar-logo__name span {
   color: var(--orange-d);
 }
 
@@ -2851,6 +2871,7 @@ thead th,
 
 tbody td,
 .lb-table tbody td,
+.lb-table tbody th[scope="row"],
 .evolution-table td {
   padding: 12px;
   border-bottom-color: var(--line);

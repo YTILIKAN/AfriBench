@@ -391,7 +391,9 @@ function setupTabs() {
   });
 
   // Navigation clavier ARIA (↑/↓/Home/End) dans la tablist verticale
-  const tablist = document.querySelector('.sidebar-tablist[role="tablist"]');
+  // Sélection par classe : la barre latérale n'est plus une tablist ARIA,
+  // mais la navigation aux flèches reste un confort qu'on conserve.
+  const tablist = document.querySelector('.sidebar-tablist');
   if (tablist) {
     tablist.addEventListener('keydown', (e) => {
       const current = document.activeElement;
@@ -432,7 +434,8 @@ function setActiveTab(tabId) {
       ? b.dataset.workspace === activeWorkspace
       : b.dataset.tab === tabId;
     b.classList.toggle('active', isActive);
-    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    // aria-current, et non aria-selected : ces boutons ne sont plus des tabs.
+    b.setAttribute('aria-current', isActive ? 'true' : 'false');
     b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
 

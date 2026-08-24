@@ -21,14 +21,14 @@ function renderAPI(container) {
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/results</span>
+          <h3 class="endpoint-url">/results</h3>
           <span class="endpoint-desc">Liste de tous les resultats</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>model</td><td>string</td><td>Filtrer par modèle (optionnel)</td></tr>
@@ -65,14 +65,14 @@ curl -s "http://127.0.0.1:8080/api/v1/results?limit=3" | jq '.'
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/questions</span>
+          <h3 class="endpoint-url">/questions</h3>
           <span class="endpoint-desc">Liste de toutes les questions</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>category</td><td>string</td><td>Filtrer par catégorie (optionnel)</td></tr>
@@ -108,14 +108,14 @@ curl -s "http://127.0.0.1:8080/api/v1/questions?category=histoire&difficulty=har
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/models</span>
+          <h3 class="endpoint-url">/models</h3>
           <span class="endpoint-desc">Liste des modèles avec leurs scores agreges</span>
         </div>
         <div class="api-endpoint-body">
           <h4>Parametres</h4>
           <table class="api-param-table">
             <thead>
-              <tr><th>Param</th><th>Type</th><th>Description</th></tr>
+              <tr><th scope="col">Param</th><th scope="col">Type</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
               <tr><td>sort</td><td>string</td><td>Trier par score (asc/desc, defaut: desc)</td></tr>
@@ -145,7 +145,7 @@ ${'  '}[
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/stats</span>
+          <h3 class="endpoint-url">/stats</h3>
           <span class="endpoint-desc">Statistiques globales du benchmark</span>
         </div>
         <div class="api-endpoint-body">
@@ -175,7 +175,7 @@ console.log(\`Top modele: \${stats.top_model} (\${stats.top_score}%)\`);
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-get">GET</span>
-          <span class="endpoint-url">/leaderboard</span>
+          <h3 class="endpoint-url">/leaderboard</h3>
           <span class="endpoint-desc">Classement complet etendu</span>
         </div>
         <div class="api-endpoint-body">
@@ -196,7 +196,7 @@ print(data['stats'])
       <div class="api-endpoint">
         <div class="api-endpoint-header">
           <span class="http-method http-post">POST</span>
-          <span class="endpoint-url">/evaluate</span>
+          <h3 class="endpoint-url">/evaluate</h3>
           <span class="endpoint-desc">Lancer une évaluation (auth requise)</span>
         </div>
         <div class="api-endpoint-body">

@@ -329,7 +329,7 @@ function render() {
 function renderQuestions(q) {
   const rows = state.questions.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
   $('#dataTable').innerHTML =
-    '<thead><tr><th>ID</th><th>Catégorie</th><th>Question</th><th>Difficulté</th><th>Réponse</th><th></th></tr></thead><tbody>' +
+    '<thead><tr><th scope="col">ID</th><th scope="col">Catégorie</th><th scope="col">Question</th><th scope="col">Difficulté</th><th scope="col">Réponse</th><th scope="col"></th></tr></thead><tbody>' +
     rows.map(x => `<tr>
       <td class="mono">${esc(x.id)}</td>
       <td><span class="pill">${esc(x.category)}</span></td>
@@ -347,7 +347,7 @@ function renderQuestions(q) {
 function renderResults(q) {
   const rows = state.results.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
   $('#dataTable').innerHTML =
-    '<thead><tr><th>#</th><th>Modèle</th><th>Label</th><th>Score</th><th>Correct/Total</th><th>Date</th><th></th></tr></thead><tbody>' +
+    '<thead><tr><th scope="col">#</th><th scope="col">Modèle</th><th scope="col">Label</th><th scope="col">Score</th><th scope="col">Correct/Total</th><th scope="col">Date</th><th scope="col"></th></tr></thead><tbody>' +
     rows.map(x => `<tr>
       <td class="mono">${x.id}</td>
       <td class="mono">${esc(x.model)}</td>
@@ -515,7 +515,7 @@ const PROVIDERS = ['openai', 'anthropic', 'google'];
 function renderModels(q) {
   const rows = state.models.filter(x => !q || JSON.stringify(x).toLowerCase().includes(q));
   $('#dataTable').innerHTML =
-    '<thead><tr><th>Nom</th><th>Label</th><th>Provider</th><th>Model ID</th><th>Clé</th><th></th></tr></thead><tbody>' +
+    '<thead><tr><th scope="col">Nom</th><th scope="col">Label</th><th scope="col">Provider</th><th scope="col">Model ID</th><th scope="col">Clé</th><th scope="col"></th></tr></thead><tbody>' +
     rows.map(x => `<tr>
       <td class="mono">${esc(x.name)}</td>
       <td>${esc(x.label || '')}</td>

@@ -63,7 +63,8 @@ async function renderOpenTasks(container) {
   }
 
   html += '<div class="card"><div class="lb-table-wrap"><table class="lb-table">';
-  html += '<thead><tr><th>Tâche</th><th>N</th><th>Métrique</th><th>Moyenne</th></tr></thead><tbody>';
+  html += '<caption class="sr-only">Scores des tâches ouvertes par type de tâche.</caption>'
+    + '<thead><tr><th scope="col">Tâche</th><th scope="col">N</th><th scope="col">Métrique</th><th scope="col">Moyenne</th></tr></thead><tbody>';
   for (const key of taskKeys) {
     const t = tasks[key];
     html += `<tr>

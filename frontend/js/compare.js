@@ -187,9 +187,11 @@ function updateCompareTable(selected, catList) {
     return;
   }
 
-  let html = '<table class="lb-table"><thead><tr><th>Catégorie</th>';
+  let html = '<table class="lb-table">'
+    + '<caption class="sr-only">Scores par catégorie pour les modèles sélectionnés.</caption>'
+    + '<thead><tr><th scope="col">Catégorie</th>';
   selected.forEach((m) => {
-    html += `<th style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
+    html += `<th scope="col" style="text-align:center">${escapeHtml(m.model_label || m.model)}</th>`;
   });
   html += '</tr></thead><tbody>';
 
