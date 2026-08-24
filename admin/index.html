@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AfriBench — Backoffice</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="../assets/admin-BxsC_PS8.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/latin-ext-700-D6OXlEvP.js">
+  <link rel="stylesheet" crossorigin href="../assets/latin-ext-700-CEqwDVre.css">
+  <link rel="stylesheet" crossorigin href="../assets/admin-CVRQfQ22.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-wrap" id="loginView">
+    <form class="login-card" id="loginForm">
+      <h1>Afri<em style="color:var(--accent)">Bench</em> — Backoffice</h1>
+      <p class="sub">Accès réservé. Saisissez le mot de passe administrateur.</p>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" autocomplete="current-password" placeholder="••••••••" autofocus>
+      <div class="login-err" id="loginErr"></div>
+      <button type="submit" class="btn" style="width:100%;margin-top:12px">Se connecter</button>
+    </form>
+  </div>
+
+  <!-- APP -->
+  <div id="appView" class="hidden">
+    <div class="topbar">
+      <span class="brand">Afri<em>Bench</em> — Backoffice</span>
+      <span class="db-badge" id="dbBadge">postgresql</span>
+      <span class="spacer"></span>
+      <button class="btn ghost sm" id="logoutBtn">Déconnexion</button>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="questions">Questions <span class="count" id="qCount"></span></button>
+      <button class="tab" data-tab="results">Résultats <span class="count" id="rCount"></span></button>
+      <button class="tab" data-tab="models">Modèles</button>
+      <button class="tab" data-tab="evaluation">Évaluation</button>
+    </div>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Rechercher…" autocomplete="off">
+      <span class="spacer" style="flex:1"></span>
+      <button class="btn" id="newBtn">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        Nouveau
+      </button>
+    </div>
+    <div class="content">
+      <div class="table-wrap"><table id="dataTable"></table></div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="modalTitle">Éditer</h2>
+        <button type="button" class="btn ghost sm" id="modalClose" aria-label="Fermer">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <form id="modalForm">
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-foot">
+          <button type="button" class="btn ghost" id="modalCancel">Annuler</button>
+          <button type="submit" class="btn" id="modalSave">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</body>
+</html>
