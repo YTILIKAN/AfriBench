@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<title>AfriBench · Support de présentation — Y'TILIKAN</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Support de présentation du projet AfriBench — Y'TILIKAN. Validation du 7 septembre 2026."/>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap"/>
+<style>
+:root{
+  --ivoire:#FAF9F6; --noir:#0A0806; --charbon:#2B2B2B;
+  --orange:#FFA726; --ocre:#E08A12;
+  --surface:#FFFFFF; --surface2:#F2EFEA; --line:#E6E2DC; --muted:#5B5854;
+  --vert:#059669; --rouge:#DC2626; --ambre:#D97706;
+  --display:"Sora",system-ui,-apple-system,sans-serif;
+  --body:"Inter","Sora",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  background:var(--noir);
+  font-family:var(--body);
+  color:var(--charbon);
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+
+/* ============ DECK / SLIDE FRAME ============ */
+.deck{position:relative;width:100vw;height:100vh;display:grid;place-items:center;}
+.slide{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:none;
+  background:var(--ivoire);
+  background-image:radial-gradient(var(--line) 0.8px, transparent 0.8px);
+  background-size:22px 22px;
+  padding:clamp(28px,4.4vh,64px) clamp(32px,5vw,96px);
+  overflow:hidden;
+}
+.slide.active{display:flex;flex-direction:column;}
+.slide.dark{
+  background:var(--noir);
+  background-image:radial-gradient(#1c1a17 0.9px, transparent 0.9px);
+  color:#F4F2EE;
+}
+.slide.dark .kicker{color:var(--orange);}
+.slide.dark h2,.slide.dark h1{color:#F7F5F1;}
+.slide.dark p,.slide.dark li{color:#CFCAC2;}
+.slide.dark .card{background:#17150F;border-color:#332F28;}
+.slide.dark .card h3{color:#F7F5F1;}
+.slide.dark .card p,.slide.dark .card li{color:#B8B2A8;}
+.slide.dark table{color:#DDD8D0;}
+.slide.dark th{color:var(--orange);border-color:#332F28;}
+.slide.dark td{border-color:#28241E;}
+.slide.dark .num{color:#F7F5F1;}
+.slide.dark .lbl{color:#9C958A;}
+.slide.dark strong{color:#FFF;}
+
+/* ============ TYPO ============ */
+.kicker{
+  font-family:var(--body);font-weight:600;
+  font-size:clamp(9px,1.05vh,13px);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ocre);margin-bottom:.7em;display:flex;align-items:center;gap:10px;
+}
+.kicker::before{content:"";width:22px;height:2px;background:var(--orange);display:block;}
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(30px,6.4vh,76px);line-height:1.02;letter-spacing:-.035em;
+  color:var(--noir);
+}
+h2{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(22px,4.15vh,46px);line-height:1.08;letter-spacing:-.028em;
+  color:var(--noir);margin-bottom:.5em;
+}
+h3{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(13px,1.85vh,21px);line-height:1.2;letter-spacing:-.01em;
+  color:var(--noir);margin-bottom:.4em;
+}
+em.hl{font-style:normal;color:var(--ocre);}
+.slide.dark em.hl{color:var(--orange);}
+p,li{font-size:clamp(12px,1.72vh,19px);line-height:1.55;color:var(--charbon);}
+p+p{margin-top:.7em;}
+strong{font-weight:700;color:var(--noir);}
+.lead{font-size:clamp(14px,2.15vh,25px);line-height:1.45;color:var(--muted);font-weight:400;}
+.small{font-size:clamp(10px,1.35vh,15px);color:var(--muted);line-height:1.5;}
+.mono{font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;}
+
+.body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.7vh,24px);}
+.body.top{justify-content:flex-start;}
+
+/* ============ COMPONENTS ============ */
+.grid{display:grid;gap:clamp(10px,1.5vh,20px);}
+.g2{grid-template-columns:1fr 1fr;}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+.g23{grid-template-columns:1.05fr 1fr;}
+.g32{grid-template-columns:1.4fr 1fr;}
+.align-c{align-items:center;}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:14px;padding:clamp(12px,1.9vh,24px);
+  display:flex;flex-direction:column;gap:.35em;min-width:0;
+}
+.card.accent{border-top:3px solid var(--orange);}
+.card .lbl{
+  font-size:clamp(8px,1vh,11px);letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;color:var(--ocre);
+}
+.card ul{margin:0;padding-left:1.05em;display:flex;flex-direction:column;gap:.28em;}
+.card li{font-size:clamp(11px,1.5vh,16px);}
+
+.stat{text-align:left;}
+.stat .num{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(24px,5vh,58px);line-height:1;letter-spacing:-.04em;color:var(--noir);
+}
+.stat .num.o{color:var(--ocre);}
+.slide.dark .stat .num.o{color:var(--orange);}
+.stat .lbl{
+  margin-top:.45em;font-size:clamp(9px,1.15vh,13px);letter-spacing:.13em;
+  text-transform:uppercase;font-weight:600;color:var(--muted);line-height:1.35;
+}
+
+.quote{
+  border-left:3px solid var(--orange);padding:clamp(10px,1.6vh,20px) clamp(14px,2vw,26px);
+  background:var(--surface2);border-radius:0 12px 12px 0;
+}
+.slide.dark .quote{background:#17150F;}
+.quote p{font-family:var(--display);font-weight:600;font-size:clamp(13px,2.05vh,24px);line-height:1.35;color:var(--noir);}
+.slide.dark .quote p{color:#F7F5F1;}
+.quote .src{margin-top:.5em;font-size:clamp(9px,1.15vh,13px);letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:600;}
+
+.metaphor{
+  background:var(--noir);color:#F4F2EE;border-radius:16px;
+  padding:clamp(14px,2.2vh,28px) clamp(16px,2.4vw,34px);
+  border-left:4px solid var(--orange);
+}
+.metaphor .lbl{font-size:clamp(9px,1.1vh,12px);letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5em;}
+.metaphor p{color:#E4DFD7;font-size:clamp(12px,1.78vh,20px);}
+.metaphor strong{color:#FFF;}
+.slide.dark .metaphor{background:#17150F;border-left-color:var(--orange);}
+
+table{width:100%;border-collapse:collapse;font-size:clamp(10px,1.42vh,16px);}
+th{
+  text-align:left;font-size:clamp(8px,1vh,11px);letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--ocre);padding:.55em .7em;border-bottom:2px solid var(--line);white-space:nowrap;
+}
+td{padding:.52em .7em;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+td.r,th.r{text-align:right;}
+td.b{font-weight:700;color:var(--noir);}
+.slide.dark td.b{color:#FFF;}
+.o{color:var(--ocre);}
+.slide.dark .o{color:var(--orange);}
+.v{color:var(--vert);font-weight:600;}
+.rg{color:var(--rouge);font-weight:600;}
+.am{color:var(--ambre);font-weight:600;}
+
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:clamp(8px,1.02vh,12px);letter-spacing:.11em;text-transform:uppercase;font-weight:700;
+  padding:.34em .74em;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface);color:var(--muted);
+}
+.pill.on{background:var(--orange);border-color:var(--orange);color:var(--noir);}
+.pill.ok{background:rgba(5,150,105,.1);border-color:rgba(5,150,105,.35);color:var(--vert);}
+.pill.no{background:rgba(220,38,38,.09);border-color:rgba(220,38,38,.3);color:var(--rouge);}
+.pills{display:flex;flex-wrap:wrap;gap:6px;}
+
+.bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;}
+.bar>i{display:block;height:100%;background:var(--orange);border-radius:99px;}
+.slide.dark .bar{background:#2A2620;}
+
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;}
+.flow .step{
+  flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);
+  border-top:3px solid var(--orange);border-radius:12px;padding:clamp(9px,1.4vh,18px);
+}
+.flow .step .n{font-family:var(--display);font-weight:800;font-size:clamp(12px,1.6vh,18px);color:var(--ocre);}
+.flow .step h3{font-size:clamp(11px,1.5vh,17px);margin:.25em 0 .2em;}
+.flow .step p{font-size:clamp(10px,1.28vh,14px);}
+
+.timeline{display:flex;gap:0;align-items:stretch;}
+.timeline .t{flex:1;padding:0 clamp(6px,.9vw,16px);border-left:2px solid var(--line);}
+.timeline .t:first-child{border-left:none;padding-left:0;}
+.timeline .t .m{font-family:var(--display);font-weight:800;font-size:clamp(12px,1.7vh,20px);color:var(--ocre);letter-spacing:-.02em;}
+.timeline .t .c{font-size:clamp(9px,1.1vh,12px);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:.2em 0 .5em;}
+.timeline .t ul{margin:0;padding-left:1em;}
+.timeline .t li{font-size:clamp(9.5px,1.28vh,14px);line-height:1.4;margin-bottom:.22em;}
+
+.checks{display:flex;flex-direction:column;gap:.42em;}
+.checks div{display:flex;gap:.6em;align-items:flex-start;font-size:clamp(11px,1.55vh,17px);}
+.checks .m{flex:0 0 auto;font-weight:800;font-family:var(--display);}
+
+/* ============ COVER ============ */
+.cover{justify-content:center;position:relative;}
+.cover .brandmark{
+  position:absolute;right:clamp(24px,5vw,90px);top:50%;transform:translateY(-50%);
+  font-family:var(--display);font-weight:800;font-size:clamp(120px,44vh,420px);
+  line-height:.8;color:var(--orange);opacity:.07;letter-spacing:-.06em;user-select:none;
+}
+.cover .inner{position:relative;z-index:1;max-width:min(1000px,86%);}
+.cover h1{font-size:clamp(38px,9.2vh,110px);}
+.cover .meta{
+  margin-top:clamp(16px,3vh,40px);padding-top:clamp(12px,2vh,24px);
+  border-top:1px solid #332F28;display:grid;grid-template-columns:repeat(4,auto);
+  gap:clamp(14px,3vw,52px);justify-content:start;
+}
+.cover .meta .k{font-size:clamp(8px,1.02vh,11px);letter-spacing:.16em;text-transform:uppercase;color:#8E877C;font-weight:600;}
+.cover .meta .v{font-size:clamp(11px,1.5vh,17px);color:#F0EDE7;font-weight:600;margin-top:.2em;}
+
+/* ============ CHROME ============ */
+.chrome{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-top:clamp(8px,1.4vh,18px);margin-top:clamp(8px,1.4vh,18px);
+  border-top:1px solid var(--line);
+  font-size:clamp(8px,1vh,11px);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;flex:0 0 auto;
+}
+.slide.dark .chrome{border-color:#332F28;color:#8E877C;}
+.chrome .brand{color:var(--noir);font-family:var(--display);font-weight:800;letter-spacing:-.01em;text-transform:none;font-size:clamp(10px,1.3vh,15px);}
+.chrome .brand b{color:var(--ocre);}
+.slide.dark .chrome .brand{color:#F4F2EE;}
+.slide.dark .chrome .brand b{color:var(--orange);}
+.head{flex:0 0 auto;margin-bottom:clamp(8px,1.4vh,20px);}
+
+.hud{
+  position:fixed;bottom:14px;right:18px;z-index:60;display:flex;align-items:center;gap:10px;
+  font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.1em;
+  background:rgba(10,8,6,.82);color:#F4F2EE;border:1px solid #332F28;
+  padding:7px 12px;border-radius:999px;backdrop-filter:blur(8px);
+}
+.hud button{
+  background:none;border:none;color:#F4F2EE;cursor:pointer;font-size:14px;line-height:1;
+  padding:2px 5px;border-radius:5px;font-family:inherit;
+}
+.hud button:hover{background:#332F28;color:var(--orange);}
+.hud .sep{color:#5B5854;}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--orange);z-index:70;transition:width .22s ease;}
+
+.help{
+  position:fixed;bottom:14px;left:18px;z-index:60;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8E877C;font-weight:600;
+  background:rgba(10,8,6,.6);padding:6px 11px;border-radius:999px;border:1px solid #2A2620;
+}
+
+/* ============ PRINT / PDF ============ */
+@media print{
+  @page{size:1280px 720px;margin:0;}
+  body{overflow:visible;background:#fff;}
+  .deck{display:block;width:auto;height:auto;}
+  .slide{
+    display:flex!important;flex-direction:column;position:relative;
+    width:1280px;height:720px;page-break-after:always;break-after:page;
+    inset:auto;
+  }
+  .hud,.help,.progress{display:none!important;}
+}
+@media (max-width:760px){
+  .g2,.g3,.g4,.g23,.g32{grid-template-columns:1fr;}
+  .timeline{flex-direction:column;}
+  .timeline .t{border-left:none;border-top:2px solid var(--line);padding:10px 0 0;}
+  .timeline .t:first-child{border-top:none;}
+  .cover .meta{grid-template-columns:1fr 1fr;}
+  .flow{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="help">← → · F plein écran · P impression</div>
+<div class="hud">
+  <button id="prev" aria-label="Diapositive précédente">◀</button>
+  <span id="counter">1 / 32</span>
+  <span class="sep">·</span>
+  <button id="next" aria-label="Diapositive suivante">▶</button>
+</div>
+
+<div class="deck" id="deck">
+
+<!-- ══════════════════ 01 · COUVERTURE ══════════════════ -->
+<section class="slide dark cover">
+  <div class="brandmark" aria-hidden="true">A</div>
+  <div class="inner">
+    <div class="kicker">Y'TILIKAN · Projet d'été 2026 · Soutenance de validation</div>
+    <h1>AfriBench</h1>
+    <p class="lead" style="margin-top:.5em;max-width:22ch;color:#B8B2A8;">Mesurer ce que l'intelligence artificielle sait <em class="hl">vraiment</em> de l'Afrique.</p>
+    <div class="meta">
+      <div><div class="k">Statut</div><div class="v">Prototype v0.1</div></div>
+      <div><div class="k">Corpus</div><div class="v">350 + 20 questions</div></div>
+      <div><div class="k">Modèles évalués</div><div class="v">7</div></div>
+      <div><div class="k">Validation</div><div class="v">7 septembre 2026</div></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Y'TILIKAN · ytilikan.org</span></div>
+</section>
+
+<!-- ══════════════════ 02 · PLAN ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">Ce que nous allons parcourir</div><h2>Quatre questions, dans l'ordre.</h2></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="n">01</div><h3>Pourquoi ?</h3><p>Le problème que personne ne mesurait, et pourquoi il coûte cher.</p></div>
+      <div class="step"><div class="n">02</div><h3>Pour qui ?</h3><p>La place exacte d'AfriBench dans la mission Y'TILIKAN.</p></div>
+      <div class="step"><div class="n">03</div><h3>Quoi ?</h3><p>Ce que nous avons construit : le corpus, le protocole, les résultats, la plateforme.</p></div>
+      <div class="step"><div class="n">04</div><h3>Et après ?</h3><p>Ce que nous avons appris, ce que nous n'avons pas encore, la suite.</p></div>
+    </div>
+    <div class="metaphor">
+      <div class="lbl">Le fil rouge de cette présentation</div>
+      <p>Un benchmark, c'est un <strong>examen</strong>. Nous avons écrit le sujet, rédigé le règlement, convoqué les candidats, corrigé les copies et publié le palmarès. Gardez cette image : elle suffit à tout comprendre.</p>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Plan</span></div>
+</section>
+
+<!-- ══════════════════ 03 · LE PROBLÈME ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">01 · Le problème</div><h2>Un examen écrit <em class="hl">ailleurs</em>, sur un pays qui n'est pas le nôtre.</h2></div>
+  <div class="body">
+    <div class="grid g2 align-c">
+      <div>
+        <p>Les intelligences artificielles ne sont pas notées au hasard. La communauté scientifique les fait passer des examens standardisés : <strong>MMLU, HellaSwag, HumanEval, ARC</strong>.</p>
+        <p>Ces examens ont deux points communs. Ils sont <strong>écrits en anglais</strong>. Et ils portent sur <strong>une autre réalité</strong> : Constitution américaine, Guerre de Sécession, baseball, jurisprudence de la Cour suprême.</p>
+        <p>Presque jamais sur l'Empire du Mali, le droit OHADA, le paludisme, la CEMAC, ou la place du proverbe dans un conflit villageois.</p>
+      </div>
+      <div class="metaphor">
+        <div class="lbl">En clair</div>
+        <p>Imaginez un concours national dont le sujet a été rédigé à l'étranger, par des gens qui n'ont jamais vécu ici. Leur histoire, leur droit, leurs sports, leurs proverbes.</p>
+        <p>Vous pouvez y obtenir <strong>95 %</strong>. Cela ne dit <strong>rien</strong> de ce que vous savez de votre propre pays.</p>
+        <p>Les benchmarks actuels des IA sont exactement ce concours-là.</p>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le problème</span></div>
+</section>
+
+<!-- ══════════════════ 04 · POURQUOI ÇA COÛTE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">01 · Le problème</div><h2>Ce qui n'est pas mesuré n'est <em class="hl">jamais</em> amélioré.</h2></div>
+  <div class="body">
+    <p class="lead">Ce n'est pas une question d'identité blessée. C'est un problème opérationnel, et il a un coût.</p>
+    <div class="grid g4">
+      <div class="card accent"><div class="lbl">Déploiement</div><h3>À l'aveugle</h3><p>Écoles, hôpitaux, administrations et médias adoptent ces outils sans connaître leurs angles morts.</p></div>
+      <div class="card accent"><div class="lbl">Incitation</div><h3>Aucun signal</h3><p>Les laboratoires optimisent ce qu'on mesure. Rien ne les pousse à combler un trou invisible.</p></div>
+      <div class="card accent"><div class="lbl">Usage</div><h3>Erreurs silencieuses</h3><p>L'utilisateur encaisse des inexactitudes qu'il n'est pas toujours en position de détecter.</p></div>
+      <div class="card accent"><div class="lbl">Débat</div><h3>Incontestable</h3><p>« L'IA sait déjà tout » reste invérifiable, donc irréfutable. Sans balance, pas de discussion.</p></div>
+    </div>
+    <div class="quote">
+      <p>Celui qui tient la balance tient le débat. Tant que les fabricants d'IA écrivent leurs propres examens et annoncent leurs propres notes, personne ne peut les contredire.</p>
+      <div class="src">Le pari d'AfriBench</div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le problème</span></div>
+</section>
+
+<!-- ══════════════════ 05 · AFRIBENCH EN UNE PHRASE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">01 · La réponse</div><h2>AfriBench, en une phrase.</h2></div>
+  <div class="body">
+    <div class="quote">
+      <p>Un examen <em class="hl">public</em>, <em class="hl">gratuit</em> et <em class="hl">reproductible</em> qui mesure ce que les intelligences artificielles savent réellement de l'Afrique francophone — et qui rend ce verdict lisible par tout le monde.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><div class="lbl">Notre créneau</div><h3>Le français</h3><p>Langue de travail de plus de vingt pays africains et de leurs administrations. Personne n'occupait cet angle.</p></div>
+      <div class="card"><div class="lbl">Notre objet</div><h3>Le fait et le contexte</h3><p>Connaissance factuelle vérifiable <em>et</em> raisonnement culturel — pas la performance linguistique brute.</p></div>
+      <div class="card"><div class="lbl">Notre posture</div><h3>Complémentaire</h3><p>Masakhane, AfriMMLU, AfroBench existent et sont excellents. Nous occupons le vide, pas leur place.</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>La réponse</span></div>
+</section>
+
+<!-- ══════════════════ 06 · MISSION YTILIKAN ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">02 · Alignement</div><h2>Les quatre verbes de Y'TILIKAN, traduits en travail.</h2></div>
+  <div class="body">
+    <div class="grid g4">
+      <div class="card accent"><div class="lbl">Informer</div><h3>Des chiffres, pas des impressions</h3><p>Classement public, scores par matière, marges d'erreur, et une page qui explique comment chaque chiffre a été obtenu. Le contraire du marketing des laboratoires d'IA.</p></div>
+      <div class="card accent"><div class="lbl">Former</div><h3>Le dépôt est un cahier</h3><p>Six personnes ont traversé une chaîne complète : données, statistiques, API, base, interface, conteneurs, déploiement. On apprend en construisant.</p></div>
+      <div class="card accent"><div class="lbl">Partager</div><h3>Licence MIT, tout ouvert</h3><p>Corpus, code, résultats, protocoles — et nos échecs. Y compris <span class="mono">CRITIQUE.md</span>, qui liste nos propres faiblesses.</p></div>
+      <div class="card accent"><div class="lbl">Valoriser</div><h3>Nos sources, nos auteurs</h3><p>UNESCO, historiens africains, textes régionaux. Co-crédit d'auteur prévu pour les validateurs africains.</p></div>
+    </div>
+    <div class="quote">
+      <p>Comprendre la technologie, la maîtriser, puis la créer. Pour que l'Afrique façonne la tech au lieu de la subir.</p>
+      <div class="src">Vision Y'TILIKAN</div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Alignement</span></div>
+</section>
+
+<!-- ══════════════════ 07 · COMPRENDRE MAÎTRISER CRÉER ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">02 · Alignement</div><h2>La vision n'est pas un slogan : c'est <em class="hl">l'ordre des opérations</em>.</h2></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="n">01</div><h3>Comprendre</h3><p>On ne discute pas d'une technologie qu'on ne mesure pas. Avant AfriBench, « les IA connaissent mal l'Afrique » était une intuition. C'est aujourd'hui une hypothèse testable, avec un protocole et des chiffres.</p></div>
+      <div class="step"><div class="n">02</div><h3>Maîtriser</h3><p>Nous n'avons pas utilisé un outil d'évaluation existant : nous en avons écrit un. Moteur, API, interface, statistiques, déploiement — construits, cassés, corrigés, testés.</p></div>
+      <div class="step"><div class="n">03</div><h3>Créer</h3><p>Un artefact africain réutilisable et citable : un dataset, une tâche intégrée à l'outillage standard de la recherche, un classement public.</p></div>
+    </div>
+    <div class="quote">
+      <p>« Le savoir, c'est le pouvoir. » — et mesurer, c'est savoir.</p>
+      <div class="src">Francis Bacon · devise Y'TILIKAN</div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Alignement</span></div>
+</section>
+
+<!-- ══════════════════ 08 · PROJET D'ÉTÉ ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">02 · Le projet d'été</div><h2>Trois projets, un même ADN.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Mesurer · ML &amp; Benchmark</div><h3>AfriBench</h3><p>Évaluer les LLM sur les connaissances africaines francophones.</p><p class="small" style="margin-top:.4em;">Christian NEBOT · Michel Azarias</p></div>
+      <div class="card"><div class="lbl">Nourrir · Data &amp; NLP</div><h3>AfroLang-Library</h3><p>Bibliothèque navigable de datasets de langues africaines.</p><p class="small" style="margin-top:.4em;">Stelle Matha · Balla Moussa Keita · Bayard Ombgwa Kuddy</p></div>
+      <div class="card"><div class="lbl">Suivre · Veille</div><h3>AfroTech-Pulse</h3><p>Dashboard de veille IA Afrique et newsletter automatisée chaque lundi.</p><p class="small" style="margin-top:.4em;">Hilary Cynthia · Hamel Brayan · Steeve Junix</p></div>
+    </div>
+    <div class="grid g2 align-c">
+      <div>
+        <h3>Le même cahier des charges pour les trois</h3>
+        <p>Un dépôt public. Une documentation en français. Une gouvernance ouverte aux contributions. Et l'obligation de livrer un artefact <strong>réutilisable</strong> — pas une démonstration jetable.</p>
+      </div>
+      <div class="metaphor">
+        <div class="lbl">La division du travail</div>
+        <p><strong>AfroLang</strong> fournit la matière linguistique. <strong>AfroTech-Pulse</strong> suit l'actualité. <strong>AfriBench</strong> établit les faits.</p>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Projet d'été</span></div>
+</section>
+
+<!-- ══════════════════ 09 · VUE D'ENSEMBLE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Ce que nous avons construit</div><h2>Quatre briques, dans l'ordre où on les a posées.</h2></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="n">01</div><h3>Le sujet</h3><p>350 questions africaines + 20 témoins, écrites une par une, chacune avec sa source vérifiable.</p></div>
+      <div class="step"><div class="n">02</div><h3>Le règlement</h3><p>Un protocole identique pour tous les candidats, et reproductible par n'importe qui en une commande.</p></div>
+      <div class="step"><div class="n">03</div><h3>Le palmarès</h3><p>7 modèles évalués, avec leurs marges d'erreur — et ce que ces marges nous interdisent de conclure.</p></div>
+      <div class="step"><div class="n">04</div><h3>La vitrine</h3><p>Une plateforme publique : API, site, tableau de bord, hub participatif, backoffice.</p></div>
+    </div>
+    <div class="grid g4">
+      <div class="stat"><div class="num o">370</div><div class="lbl">Questions au total</div></div>
+      <div class="stat"><div class="num o">35</div><div class="lbl">Points d'entrée API</div></div>
+      <div class="stat"><div class="num o">61</div><div class="lbl">Tests automatisés</div></div>
+      <div class="stat"><div class="num o">28</div><div class="lbl">Pull requests fusionnées</div></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Vue d'ensemble</span></div>
+</section>
+
+<!-- ══════════════════ 10 · LE CORPUS ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 1 — Le sujet d'examen</div><h2>350 questions, neuf matières, 99 sous-thèmes.</h2></div>
+  <div class="body">
+    <div class="grid g32 align-c">
+      <table>
+        <thead><tr><th>Matière</th><th class="r">Questions</th><th>Ce qu'on y trouve</th></tr></thead>
+        <tbody>
+          <tr><td class="b">Histoire</td><td class="r">41</td><td>Empires précoloniaux, colonisation, indépendances</td></tr>
+          <tr><td class="b">Géographie</td><td class="r">41</td><td>Physique, politique, urbaine</td></tr>
+          <tr><td class="b">Langue &amp; Culture</td><td class="r">40</td><td>Langues africaines, littérature, oralité</td></tr>
+          <tr><td class="b">Droit &amp; Politique</td><td class="r">38</td><td>Institutions, intégration régionale</td></tr>
+          <tr><td class="b">Économie</td><td class="r">38</td><td>Développement, numérique, ressources</td></tr>
+          <tr><td class="b">Santé &amp; Sciences</td><td class="r">38</td><td>Santé publique, épidémiologie</td></tr>
+          <tr><td class="b">IA &amp; Technologie</td><td class="r">38</td><td>Écosystème tech du continent</td></tr>
+          <tr><td class="b">Société</td><td class="r">38</td><td>Démographie, éducation, médias</td></tr>
+          <tr><td class="b o">Raisonnement culturel</td><td class="r o">38</td><td class="o">Proverbes, médiation, convenances</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Notre catégorie signature</div><h3>Raisonnement culturel</h3><p>Elle ne teste pas un fait mémorisable, mais la capacité à raisonner <em>dans</em> un cadre culturel : interpréter un proverbe, comprendre une logique de médiation communautaire. <strong>Aucun benchmark occidental n'a d'équivalent.</strong></p></div>
+        <div class="card"><div class="lbl">Équilibre des difficultés</div>
+          <p class="small">Facile · 102 <span class="o">(29 %)</span></p><div class="bar"><i style="width:29%"></i></div>
+          <p class="small" style="margin-top:.5em;">Moyen · 136 <span class="o">(39 %)</span></p><div class="bar"><i style="width:39%"></i></div>
+          <p class="small" style="margin-top:.5em;">Difficile · 112 <span class="o">(32 %)</span></p><div class="bar"><i style="width:32%"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le corpus</span></div>
+</section>
+
+<!-- ══════════════════ 11 · ANATOMIE D'UNE QUESTION ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 1 — Le sujet d'examen</div><h2>Deux champs font toute la différence.</h2></div>
+  <div class="body">
+    <div class="grid g2 align-c">
+      <div class="card">
+        <div class="lbl">Exemple réel · HIST-001</div>
+        <h3>Quel empire ouest-africain était réputé pour sa richesse en or et sa ville universitaire de Tombouctou au XIV<sup>e</sup> siècle ?</h3>
+        <p class="small">A. Empire du Ghana &nbsp;·&nbsp; <span class="o"><strong>B. Empire du Mali</strong></span> &nbsp;·&nbsp; C. Empire Songhaï &nbsp;·&nbsp; D. Royaume du Bénin</p>
+        <p class="small" style="margin-top:.6em;"><strong>Explication</strong> — L'Empire du Mali, sous le règne de Mansa Moussa…</p>
+        <p class="small"><strong>Source</strong> — UNESCO, <em>Histoire Générale de l'Afrique</em>, vol. IV</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Champ 1</div><h3><span class="mono">source</span></h3><p>Chaque question renvoie à une référence vérifiable. C'est ce qui sépare un <strong>corpus de benchmark</strong> d'un simple quiz de culture générale.</p></div>
+        <div class="card accent"><div class="lbl">Champ 2</div><h3><span class="mono">explanation</span></h3><p>La justification de notre corrigé. Elle rend la question <strong>auditable</strong> : n'importe qui peut nous contredire, preuve en main.</p></div>
+        <div class="metaphor"><div class="lbl">Et un champ volontairement vide</div><p><span class="mono">validated_by: null</span> sur les 350 questions. Ce n'est pas un oubli : c'est la trace <strong>machine-lisible</strong> du fait que la validation externe n'a pas encore eu lieu. Un script la compte et publie <strong>0 %</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le corpus</span></div>
+</section>
+
+<!-- ══════════════════ 12 · QUESTIONS TÉMOINS ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 1 — Le sujet d'examen</div><h2>20 questions témoins : notre <em class="hl">thermomètre</em>.</h2></div>
+  <div class="body">
+    <div class="grid g23 align-c">
+      <div class="metaphor">
+        <div class="lbl">En clair</div>
+        <p>Comment savoir si un thermomètre est fiable ? On le plonge dans l'eau bouillante. S'il n'affiche pas 100 °C, le problème est dans l'<strong>instrument</strong>, pas dans l'eau.</p>
+        <p>Les 20 questions témoins jouent ce rôle : culture générale mondiale, non africaine, difficulté comparable.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Lecture 1</div><h3>95 % témoin, 60 % Afrique</h3><p>L'écart mesure un <strong>déficit réel</strong> de connaissance africaine. Le résultat est significatif.</p></div>
+        <div class="card accent"><div class="lbl">Lecture 2</div><h3>60 % témoin, 60 % Afrique</h3><p>Notre sujet est simplement <strong>trop dur</strong>. Le problème vient de nous, pas des modèles.</p></div>
+        <div class="card"><div class="lbl">Traitement technique</div><p class="small"><span class="mono">is_control: true</span> · passe d'évaluation séparée · <strong>jamais</strong> mélangées au classement · export distinct · métrique cible <span class="mono">score_afrique − score_témoin</span></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le corpus</span></div>
+</section>
+
+<!-- ══════════════════ 13 · AU-DELÀ DU QCM ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 1 — Le sujet d'examen</div><h2>Le QCM a un défaut : on peut <em class="hl">deviner</em>.</h2></div>
+  <div class="body">
+    <div class="grid g2 align-c">
+      <div>
+        <p>Avec quatre options, le hasard rapporte déjà <strong>25 %</strong>. Et surtout : un QCM ne dit rien de la capacité à <strong>produire</strong> — expliquer, traduire, résumer, nuancer.</p>
+        <p>Nous avons donc amorcé six familles de tâches ouvertes, où deviner ne sert à rien.</p>
+        <div class="metaphor" style="margin-top:1em;">
+          <div class="lbl">Le correcteur automatique</div>
+          <p>Une réponse libre se corrige avec une <strong>grille</strong> : exactitude sur 4, profondeur sur 3, nuance culturelle sur 3. C'est un modèle juge qui note — et qui doit joindre sa <strong>justification</strong>. Un correcteur dont on peut relire la copie.</p>
+        </div>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Tâche</th><th class="r">Items</th><th>Métrique visée</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Génération ouverte</td><td class="r">10</td><td>Grille LLM-as-judge</td></tr>
+            <tr><td class="b">Question-réponse</td><td class="r">3</td><td>Token F1 + juge</td></tr>
+            <tr><td class="b">Traduction</td><td class="r">3</td><td>BLEU / COMET</td></tr>
+            <tr><td class="b">Résumé</td><td class="r">3</td><td>ROUGE-L / BERTScore</td></tr>
+            <tr><td class="b">Entités nommées</td><td class="r">3</td><td>F1 entités</td></tr>
+            <tr><td class="b">Sentiment</td><td class="r">3</td><td>Accuracy / macro-F1</td></tr>
+          </tbody>
+        </table>
+        <div class="card" style="margin-top:1em;"><div class="lbl">Notre honnêteté sur ce point</div><p class="small">Ces 25 items sont un <strong>pilote</strong>. Le mode actuel compare la référence à elle-même : les scores de 1,0 sont techniquement corrects et <strong>scientifiquement vides</strong>. L'interface les marque « dry-run ». Le pilote valide le tuyau, pas le contenu.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le corpus</span></div>
+</section>
+
+<!-- ══════════════════ 14 · LE PROTOCOLE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 2 — Le règlement d'examen</div><h2>Même sujet, mêmes conditions, même corrigé.</h2></div>
+  <div class="body">
+    <div class="grid g23">
+      <div>
+        <table>
+          <thead><tr><th>Condition</th><th>Valeur</th><th>Pourquoi</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Consigne</td><td class="o">identique</td><td>Un mot différent change une note</td></tr>
+            <tr><td class="b">Température</td><td class="o">0,0</td><td>Zéro hasard : deux passages, même résultat</td></tr>
+            <tr><td class="b">Régime</td><td class="o">zero-shot</td><td>On mesure la connaissance, pas l'imitation d'un format</td></tr>
+            <tr><td class="b">Tokens max</td><td class="o">256</td><td>Une lettre suffit ; marge pour les bavards</td></tr>
+            <tr><td class="b">Cadence</td><td class="o">0,5 s</td><td>Respect des quotas fournisseurs</td></tr>
+            <tr><td class="b">Réessais</td><td class="o">5 · back-off</td><td>Une saturation passagère n'invalide pas une campagne</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Le détail qui fait le sérieux</div><h3>Lire une copie mal formatée</h3><p>Un modèle à qui on demande « B » répond parfois « La réponse est B », ou « <strong>B</strong>. Empire du Mali ». Cinq règles de lecture, de la plus stricte à la plus souple.</p></div>
+        <div class="metaphor"><div class="lbl">La copie illisible</div><p>Si aucune règle ne s'applique, la réponse est comptée <span class="mono">no_answer</span> : <strong>ni juste, ni fausse</strong>. Un candidat hors cadre n'est pas crédité par erreur, mais pas puni pour un défaut de forme. Mistral Large en a produit 3 sur 101 — c'est affiché dans le classement.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le protocole</span></div>
+</section>
+
+<!-- ══════════════════ 15 · REPRODUCTIBILITÉ ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 2 — Le règlement d'examen</div><h2>Une recette n'a de valeur que si un autre <em class="hl">refait le plat</em>.</h2></div>
+  <div class="body">
+    <div class="grid g4">
+      <div class="card accent"><div class="lbl">Niveau 1</div><h3>Une commande</h3><p class="mono small" style="margin:.3em 0;">./scripts/reproduce.sh</p><p>Environnement, dépendances, validation du corpus, évaluation, classement, publication. Tout, d'un coup.</p></div>
+      <div class="card accent"><div class="lbl">Niveau 2</div><h3>Sans clé d'API</h3><p class="mono small" style="margin:.3em 0;">--mock</p><p>Résultats simulés déterministes pour tester toute la chaîne <strong>sans dépenser un centime</strong>. Rangés à part, jamais confondus avec de vraies mesures.</p></div>
+      <div class="card accent"><div class="lbl">Niveau 3</div><h3>Un conteneur</h3><p class="mono small" style="margin:.3em 0;">afribench:eval</p><p>Python figé, graines fixées. Nous emballons la recette <strong>et la cuisine</strong>.</p></div>
+      <div class="card accent"><div class="lbl">Niveau 4</div><h3>Sans nous croire</h3><p class="mono small" style="margin:.3em 0;">lm_eval --tasks afribench</p><p>Intégré à l'outil standard de la communauté. Un tiers peut nous vérifier avec <strong>son</strong> outil.</p></div>
+    </div>
+    <div class="quote"><p>La reproductibilité n'est pas une case à cocher. C'est la différence entre une affirmation et une mesure.</p></div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le protocole</span></div>
+</section>
+
+<!-- ══════════════════ 16 · VALIDATION EXTERNE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 2 — Le règlement d'examen</div><h2>La double correction : écrite, outillée, en attente.</h2></div>
+  <div class="body">
+    <div class="grid g2 align-c">
+      <div>
+        <h3>Ce qui est prêt</h3>
+        <div class="checks" style="margin-top:.6em;">
+          <div><span class="m v">✓</span><span><strong>Protocole d'annotation</strong> — critères, verdicts <span class="mono">ok / fix / reject</span></span></div>
+          <div><span class="m v">✓</span><span><strong>Kit de recrutement</strong> — profils, canaux : Masakhane, Deep Learning Indaba, UCAD, Nairobi, Addis, Lagos</span></div>
+          <div><span class="m v">✓</span><span><strong>Consentement éclairé</strong> — charge, rémunération, droit de retrait</span></div>
+          <div><span class="m v">✓</span><span><strong>Quatre scripts</strong> — constitution de lots, application des verdicts, accord inter-annotateurs, suivi de couverture</span></div>
+          <div><span class="m v">✓</span><span><strong>Reconnaissance</strong> — co-crédit d'auteur, mention nominative</span></div>
+          <div><span class="m rg">✗</span><span><strong>Les validateurs eux-mêmes.</strong> Couverture actuelle : <span class="rg">0 %</span></span></div>
+        </div>
+      </div>
+      <div class="metaphor">
+        <div class="lbl">Le garde-fou contre la complaisance</div>
+        <p>Au moins <strong>20 %</strong> des questions seront corrigées <strong>deux fois</strong>, par deux personnes différentes. Exigence : <strong>κ de Cohen ≥ 0,7</strong>.</p>
+        <p>Le κ mesure si deux correcteurs sont d'accord <em>au-delà du hasard</em>. S'ils cochent tous les deux « ok » les yeux fermés, il le détecte et reste bas.</p>
+        <p><strong>C'est notre verrou n° 1.</strong> Tout l'outillage existe. Il manque trois personnes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Le protocole</span></div>
+</section>
+
+<!-- ══════════════════ 17 · LE PALMARÈS ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 3 — Le palmarès</div><h2>Sept modèles majeurs sur le banc.</h2></div>
+  <div class="body">
+    <div class="grid g32 align-c">
+      <table>
+        <thead><tr><th>#</th><th>Modèle</th><th class="r">Score</th><th class="r">Correct</th><th class="r">Sans réponse</th></tr></thead>
+        <tbody>
+          <tr><td class="o b">1</td><td class="b">DeepSeek V4</td><td class="r b o">96,0 %</td><td class="r">97/101</td><td class="r">0</td></tr>
+          <tr><td class="o b">2</td><td class="b">Claude Sonnet 4</td><td class="r b o">95,0 %</td><td class="r">96/101</td><td class="r">0</td></tr>
+          <tr><td class="o b">3</td><td class="b">GPT-4o</td><td class="r b o">94,1 %</td><td class="r">95/101</td><td class="r">0</td></tr>
+          <tr><td>4</td><td class="b">Mistral Large</td><td class="r b">92,1 %</td><td class="r">93/101</td><td class="r am">3</td></tr>
+          <tr><td>5</td><td class="b">GPT-4o Mini</td><td class="r b">91,1 %</td><td class="r">92/101</td><td class="r">0</td></tr>
+          <tr><td>6</td><td class="b">Gemini 2.5 Flash</td><td class="r b">90,1 %</td><td class="r">91/101</td><td class="r">0</td></tr>
+          <tr><td>6</td><td class="b">Claude Haiku 4.5</td><td class="r b">90,1 %</td><td class="r">91/101</td><td class="r">0</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card"><div class="lbl">Par difficulté · moyenne des 7</div>
+          <p class="small">Facile <span class="o">93,5 %</span></p><div class="bar"><i style="width:93.5%"></i></div>
+          <p class="small" style="margin-top:.45em;">Moyen <span class="o">93,1 %</span></p><div class="bar"><i style="width:93.1%"></i></div>
+          <p class="small" style="margin-top:.45em;">Difficile <span class="o">91,5 %</span></p><div class="bar"><i style="width:91.5%"></i></div>
+        </div>
+        <div class="card accent"><div class="lbl">Ce tableau est incomplet</div><h3>Il manque la marge d'erreur</h3><p>Et c'est tout l'objet de la diapositive suivante — la plus importante de cette présentation.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Résultats</span></div>
+</section>
+
+<!-- ══════════════════ 18 · L'HONNÊTETÉ STATISTIQUE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 3 — Le palmarès</div><h2>Notre premier de classe n'est <em class="hl">pas démontré</em> premier.</h2></div>
+  <div class="body">
+    <div class="grid g23 align-c">
+      <div class="metaphor">
+        <div class="lbl">En clair</div>
+        <p>C'est exactement la logique d'un <strong>sondage électoral</strong>. « 52 % contre 48 %, marge d'erreur 3 points » ne veut pas dire que le premier gagne. Cela veut dire qu'<strong>on ne sait pas</strong>.</p>
+        <p>Avec 101 questions, une question de plus ou de moins déplace le score d'un <strong>point entier</strong>.</p>
+        <p>Notre classement affiche un ordre. Notre analyse statistique dit que le podium est <strong>indécidable</strong>. Nous publions les deux.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Ce que dit le bootstrap · 2 000 réplicats</div><h3>DeepSeek V4 : 96,0 % <span class="o">[92,1 ; 99,0]</span></h3><p>Les intervalles des deux premiers se <strong>chevauchent largement</strong>.</p></div>
+        <div class="card accent"><div class="lbl">Ce que dit McNemar · 21 comparaisons</div><h3><span class="o">2</span> différences significatives sur 21</h3><p class="small">Haiku 4.5 vs Sonnet 4 (p ≈ 0,031) · DeepSeek V4 vs Gemini 2.5 Flash (p ≈ 0,039). <strong>Tout le reste est du bruit.</strong></p></div>
+        <div class="quote"><p>Un support de communication ordinaire supprimerait cette diapositive. C'est précisément pour cela qu'elle est là.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Résultats</span></div>
+</section>
+
+<!-- ══════════════════ 19 · LE PLAFOND DE VERRE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 3 — Le palmarès</div><h2>90 à 96 % : un examen où tout le monde réussit ne <em class="hl">classe</em> personne.</h2></div>
+  <div class="body">
+    <p class="lead">C'est notre problème scientifique le plus intéressant. Trois causes possibles, non exclusives.</p>
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Hypothèse 1</div><h3>Le corpus est trop facile</h3><p>Beaucoup de questions portent sur des faits largement présents sur le web francophone — donc probablement déjà vus à l'entraînement.</p></div>
+      <div class="card accent"><div class="lbl">Hypothèse 2</div><h3>Contamination</h3><p>Certaines questions ou leurs sources ont pu figurer dans les données d'entraînement. Un script d'analyse a été ajouté pour instruire cette piste.</p></div>
+      <div class="card accent"><div class="lbl">Hypothèse 3</div><h3>Le QCM est trop indulgent</h3><p><strong>Reconnaître</strong> la bonne réponse parmi quatre est infiniment plus facile que de la <strong>produire</strong>.</p></div>
+    </div>
+    <div class="metaphor">
+      <div class="lbl">Notre réponse est déjà dans l'architecture</div>
+      <p>Durcir le corpus, et surtout <strong>basculer vers les tâches ouvertes</strong> — parce qu'on ne devine pas une réponse libre. La catégorie « raisonnement culturel » atteint <strong>100 %</strong> pour certains modèles : c'est la première à durcir.</p>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Résultats</span></div>
+</section>
+
+<!-- ══════════════════ 20 · ARCHITECTURE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>Le projet est bâti comme un journal.</h2></div>
+  <div class="body">
+    <div class="grid g4">
+      <div class="card accent"><div class="lbl">Étage 1</div><h3>La rédaction</h3><p class="mono small">data/</p><p>Les fichiers de questions et de résultats, versionnés dans Git. <strong>La source de vérité.</strong></p></div>
+      <div class="card accent"><div class="lbl">Étage 2</div><h3>L'imprimerie</h3><p class="mono small">scripts/</p><p>37 outils : moteur d'évaluation, statistiques, exports, publication.</p></div>
+      <div class="card accent"><div class="lbl">Étage 3</div><h3>Le kiosque</h3><p class="mono small">backend/</p><p>API FastAPI, 35 points d'entrée, PostgreSQL optionnel.</p></div>
+      <div class="card accent"><div class="lbl">Étage 4</div><h3>La vitrine</h3><p class="mono small">frontend/</p><p>Site public, 10 vues, tableau de bord, hub participatif.</p></div>
+    </div>
+    <div class="grid g2 align-c">
+      <div class="card"><div class="lbl">La décision structurante</div><h3>Ce sont les fichiers qui font foi, pas la base de données</h3><p>Un corpus scientifique doit être <strong>auditable</strong>. Une pull request sur une question montre exactement ce qui change, ligne par ligne. Une ligne modifiée dans une table, non.</p></div>
+      <div class="metaphor"><div class="lbl">Conséquence</div><p>Chaque étage est remplaçable sans casser les autres. Et le kiosque <strong>continue de servir</strong> même si l'imprimerie est à l'arrêt.</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Architecture</span></div>
+</section>
+
+<!-- ══════════════════ 21 · RÉSILIENCE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>Le site marche <em class="hl">sur groupe électrogène</em>.</h2></div>
+  <div class="body">
+    <div class="grid g23 align-c">
+      <div class="metaphor">
+        <div class="lbl">En clair</div>
+        <p>Nous avons conçu ce système en sachant que l'électricité et le réseau ne sont pas des acquis là où nous vivons.</p>
+        <p>Le site est un commerce avec groupe électrogène : quand le courant saute, <strong>la lumière baisse mais on continue de servir</strong> — et un panneau annonce honnêtement « nous sommes sur groupe ».</p>
+        <p>Ce panneau existe : un badge permanent dans la barre latérale indique <strong>API en direct</strong>, <strong>données statiques</strong>, <strong>aperçu pré-généré</strong> ou <strong>indisponible</strong>. Le visiteur sait toujours ce qu'il regarde.</p>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Si ceci tombe…</th><th>… voici ce qui se passe</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Pas de base de données</td><td>Le backend lit les fichiers du dépôt</td></tr>
+            <tr><td class="b">Base perdue en cours de route</td><td>Repli silencieux sur les fichiers, aucun plantage</td></tr>
+            <tr><td class="b">Échec au démarrage</td><td>L'incident est journalisé, <strong>le service démarre quand même</strong></td></tr>
+            <tr><td class="b">API injoignable</td><td>Le site sert son instantané pré-généré</td></tr>
+            <tr><td class="b">Backend pas encore prêt</td><td>Le site démarre seul et le trouve tout seul ensuite</td></tr>
+            <tr><td class="b">Redémarrage en pleine évaluation</td><td>Le job est déclaré échoué, pas « toujours en cours »</td></tr>
+            <tr><td class="b">Hub sans base</td><td>Votes en local + bandeau honnête</td></tr>
+          </tbody>
+        </table>
+        <div class="card" style="margin-top:1em;"><div class="lbl">Et ce n'est pas qu'une intention</div><p class="small">Un workflow d'intégration continue vérifie à chaque modification que <strong>le site démarre alors que l'API est absente</strong>. La résilience est testée automatiquement.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Architecture</span></div>
+</section>
+
+<!-- ══════════════════ 22 · VISITE GUIDÉE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>Visite guidée : quatre espaces, dix vues.</h2></div>
+  <div class="body">
+    <div class="grid g4">
+      <div class="card accent"><div class="lbl">Vue d'ensemble</div><h3>Classement · Modèles</h3><p>Le tableau triable : rang, score avec barre, correct/total, scores par difficulté, meilleure matière, <strong>régularité</strong>, date. Puis une fiche par modèle avec son radar.</p></div>
+      <div class="card accent"><div class="lbl">Analyse</div><h3>Comparer · Évolution</h3><p>Radar superposé de plusieurs modèles sur les neuf matières. Et les courbes dans le temps, avec l'écart depuis la première mesure.</p></div>
+      <div class="card accent"><div class="lbl">Données</div><h3>Questions · Tâches ouvertes</h3><p>L'explorateur du corpus : 20 par page, filtres, recherche plein texte, dépliage question par question avec source et explication.</p></div>
+      <div class="card accent"><div class="lbl">Projet</div><h3>Méthodologie · Participer · API</h3><p>Le protocole en clair, le hub participatif, et la documentation des points d'entrée avec exemples copiables.</p></div>
+    </div>
+    <div class="grid g2 align-c">
+      <div class="metaphor"><div class="lbl">Le détail qui change tout</div><p><strong>La question du jour.</strong> Une question tirée chaque jour, dépliable, avec un bouton « Voir la réponse ». Ce n'est pas un gadget : c'est ce qui transforme un tableau de bord technique en <strong>objet de curiosité quotidienne</strong>, et le meilleur point d'entrée vers le corpus pour un visiteur non technique.</p></div>
+      <div class="card"><div class="lbl">Deux soins d'usage</div><h3>Tout est partageable et exportable</h3><p>Chaque filtre est encodé dans l'URL : un lien restitue exactement la vue. Le bouton retour du navigateur fonctionne. Et le classement s'exporte en CSV ou JSON, d'un clic.</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Interface</span></div>
+</section>
+
+<!-- ══════════════════ 23 · HUB PARTICIPATIF ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>L'arbre à palabres, en version numérique.</h2></div>
+  <div class="body">
+    <div class="grid g23 align-c">
+      <div class="metaphor">
+        <div class="lbl">En clair</div>
+        <p>Dans beaucoup de sociétés africaines, une décision collective se prend <strong>sous l'arbre à palabres</strong> : chacun parle, le groupe tranche.</p>
+        <p>Le hub des questions est cet arbre. N'importe qui propose une question. La communauté vote. Ce ne sont <strong>pas les fondateurs du projet</strong> qui décident seuls de ce qui mérite d'être demandé à une IA au sujet de l'Afrique.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(8px,1.4vh,18px);">
+        <div class="card accent"><div class="lbl">Un choix de conception assumé</div><h3>Tri par défaut : « à départager »</h3><p>Les propositions <strong>les moins votées remontent en premier</strong>. Trier par popularité fabriquerait un effet boule de neige : les mêmes propositions capteraient tous les votes, les nouvelles ne seraient jamais lues. Nous répartissons l'attention.</p></div>
+        <div class="card"><div class="lbl">Vie privée</div><h3>Un vote anonyme, mais unique</h3><p>Le serveur ne stocke qu'un <strong>hachage</strong> de l'identifiant de votant. Une contrainte d'unicité empêche le vote multiple. Impossible de remonter à un individu.</p></div>
+        <div class="card"><div class="lbl">Mode dégradé</div><h3>Jamais de page morte</h3><p>Sans base de données, le hub fonctionne en local — avec un bandeau qui dit honnêtement que ces contributions ne sont pas encore publiques.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Participation</span></div>
+</section>
+
+<!-- ══════════════════ 24 · DESIGN & ACCESSIBILITÉ ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>La charte Y'TILIKAN, jusque dans le code.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Identité</div><h3>Ivoire · noir · orange</h3><p><span class="mono">#FAF9F6</span> · <span class="mono">#0A0806</span> · <span class="mono o">#FFA726</span></p><p class="small">Titres en <strong>Sora</strong>, corps en <strong>Inter</strong>, libellés techniques en petites capitales. Thème clair et thème sombre complets.</p><p class="small" style="margin-top:.4em;">Parti pris : <strong>la bordure plutôt que l'ombre</strong>. La donnée occupe l'espace, le décor s'efface.</p></div>
+      <div class="card accent"><div class="lbl">Accessibilité</div><h3>De la qualité de fabrication</h3><ul>
+        <li>Lien d'évitement vers le contenu</li>
+        <li>Navigation complète au clavier</li>
+        <li>Modales avec piège de focus et restitution</li>
+        <li>Contour de focus visible partout</li>
+        <li>Respect de « mouvement réduit »</li>
+        <li>Palette de graphiques doublée de motifs de trait — lisible en daltonisme et à l'impression</li>
+      </ul></div>
+      <div class="card accent"><div class="lbl">Mobile</div><h3>Le premier écran, pas le dernier</h3><p>Menu hamburger, tiroir latéral, cinq seuils de rupture.</p><p class="small" style="margin-top:.4em;">Et surtout : le grand tableau du classement <strong>masque progressivement ses colonnes</strong> par ordre inverse d'importance. <strong>Aucun défilement horizontal, à aucune largeur.</strong> Rang, modèle et score restent toujours visibles.</p></div>
+    </div>
+    <div class="metaphor"><div class="lbl">Pourquoi nous y avons mis du temps</div><p>Une interface accessible n'est pas une faveur faite à une minorité. C'est une interface qui marche au clavier quand la souris est cassée, lisible en plein soleil, utilisable par un lecteur d'écran, et qui ne fait pas vibrer l'écran de quelqu'un qui souffre de migraines. <strong>En Afrique francophone, le premier écran — souvent l'unique — est un téléphone.</strong></p></div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Design</span></div>
+</section>
+
+<!-- ══════════════════ 25 · INDUSTRIALISATION ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">03 · Brique 4 — La plateforme</div><h2>Trois vitrines, un seul dépôt.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Toujours en ligne</div><h3>GitHub Pages</h3><p>La version statique, publiée à chaque modification. Le classement est <strong>écrit dans la page</strong>, donc lisible par les moteurs de recherche et par un navigateur sans JavaScript.</p><p class="small o mono" style="margin-top:.4em;">ytilikan.github.io/AfriBench</p></div>
+      <div class="card accent"><div class="lbl">Version vivante</div><h3>Railway · 2 services</h3><p>API et site déployés séparément, communiquant par réseau privé. L'API n'est pas exposée directement.</p><p class="small" style="margin-top:.4em;">Sondes de santé <strong>internes au conteneur</strong> — pour qu'un service ne soit pas tué avant d'avoir fini de démarrer.</p></div>
+      <div class="card accent"><div class="lbl">Écosystème recherche</div><h3>Hugging Face</h3><p>Un <strong>dataset citable</strong> (350 + 20) et un <strong>leaderboard Gradio</strong> avec carte de chaleur par matière. Là où la communauté IA cherche.</p></div>
+    </div>
+    <div class="grid g2 align-c">
+      <div class="card"><div class="lbl">Sept robots au travail</div><h3>Intégration continue</h3><p>À chaque modification : tests backend, ESLint, tests frontend, construction du site, images Docker, test fumée du Space.</p></div>
+      <div class="metaphor"><div class="lbl">Le détail dont nous sommes le plus fiers</div><p>La chaîne d'intégration ne teste pas seulement le code : elle exécute aussi <span class="mono">validation_status.py</span> et <span class="mono">submission_readiness.py</span>. <strong>Le niveau de complétude scientifique du projet est vérifié à chaque commit</strong>, au même titre qu'un test unitaire. Impossible de laisser filer une régression d'honnêteté.</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Industrialisation</span></div>
+</section>
+
+<!-- ══════════════════ 26 · CHRONOLOGIE ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">04 · Le chantier</div><h2>Quatre mois, quatre saisons.</h2></div>
+  <div class="body">
+    <div class="timeline">
+      <div class="t"><div class="m">Mai</div><div class="c">Amorçage · 1 commit</div><ul><li>Création du dépôt</li></ul></div>
+      <div class="t"><div class="m">Juin</div><div class="c">Fondations · 31 commits</div><ul>
+        <li>Notes de recherche, choix du nom</li>
+        <li>Moteur d'évaluation</li>
+        <li>101 premières questions</li>
+        <li>Premier site, première campagne</li>
+        <li class="o"><strong>CRITIQUE.md</strong> — l'équipe s'arrête et documente ses propres faiblesses</li>
+      </ul></div>
+      <div class="t"><div class="m">Juillet</div><div class="c">Identité · 8 commits</div><ul><li>Charte Y'TILIKAN appliquée</li><li>Refonte de la navigation</li><li>Modèles mis à niveau</li></ul></div>
+      <div class="t"><div class="m">Août</div><div class="c">Industrialisation · 102 commits</div><ul>
+        <li>Séparation site / API, FastAPI</li>
+        <li>101 → <strong>350 questions</strong></li>
+        <li>Base de données, migrations, jobs</li>
+        <li>Vite, tests, Docker, Railway</li>
+        <li>Dataset et Space Hugging Face</li>
+        <li>Refonte du tableau de bord + hub participatif</li>
+      </ul></div>
+    </div>
+    <div class="grid g4">
+      <div class="stat"><div class="num o">151</div><div class="lbl">Commits</div></div>
+      <div class="stat"><div class="num o">28</div><div class="lbl">Pull requests fusionnées</div></div>
+      <div class="stat"><div class="num o">17 / 17</div><div class="lbl">Issues ouvertes puis fermées</div></div>
+      <div class="stat"><div class="num o">45</div><div class="lbl">Commits le seul 20 août</div></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Chronologie</span></div>
+</section>
+
+<!-- ══════════════════ 27 · L'AUTOCRITIQUE COMME MÉTHODE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">04 · Le chantier</div><h2>Le document qui a fait avancer le projet est celui qui <em class="hl">le démolit</em>.</h2></div>
+  <div class="body">
+    <div class="grid g2 align-c">
+      <div>
+        <p>En juin, le projet semblait terminé : un corpus, un moteur, un site, sept modèles évalués. L'équipe s'est arrêtée et a écrit <strong><span class="mono">CRITIQUE.md</span></strong> — un document public de 17 000 caractères qui énumère ses propres faiblesses, chacune avec sa gravité.</p>
+        <p>Ce document a produit <strong>17 issues</strong>. Ces issues ont produit <strong>28 pull requests</strong>. Ces pull requests ont produit tout ce que vous venez de voir.</p>
+        <div class="quote" style="margin-top:1em;"><p>Nommer ses faiblesses est la façon la plus rapide de les transformer en plan de travail.</p></div>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Famille d'issues</th><th>Ce qu'elle a produit</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Honnêteté</td><td>« LEADER » remplacé par « meilleur score » · protocole publié sur le site</td></tr>
+            <tr><td class="b">Solidité</td><td>101 → 350 questions · témoins · pipeline de validation · tâches ouvertes · multilingue</td></tr>
+            <tr><td class="b">Reproductibilité</td><td><span class="mono">reproduce.sh</span> · dataset HF · LM Eval Harness · Docker</td></tr>
+            <tr><td class="b">Diffusion</td><td>Hamburger mobile · Space Gradio · dossier académique · HTML pré-généré</td></tr>
+          </tbody>
+        </table>
+        <div class="card" style="margin-top:1em;"><div class="lbl">Toutes fermées</div><h3>17 sur 17</h3><p class="small">Chacune tracée par une pull request identifiable. L'historique du dépôt est lisible : on peut reconstituer le raisonnement du projet à partir des seuls titres.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Méthode</span></div>
+</section>
+
+<!-- ══════════════════ 28 · LIMITES ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">04 · Ce que nous n'avons pas</div><h2>Trois manques, dits avant qu'on nous les trouve.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Manque n° 1 · gravité élevée</div><h3>Validation externe : 0 %</h3><p>Toutes les questions ont été écrites en interne. Le protocole, les documents de consentement et les scripts existent. <strong>Les validateurs, pas encore.</strong></p><div class="pills" style="margin-top:.6em;"><span class="pill no">Bloquant pour la publication</span></div></div>
+      <div class="card accent"><div class="lbl">Manque n° 2 · gravité élevée</div><h3>Scores sur 101 questions, pas 350</h3><p>Le corpus a <strong>triplé après</strong> la campagne d'évaluation. Les modèles n'ont pas encore été rejoués sur le corpus complet.</p><div class="pills" style="margin-top:.6em;"><span class="pill on">Bannière automatique sur le site</span></div></div>
+      <div class="card accent"><div class="lbl">Manque n° 3 · structurel</div><h3>Français uniquement</h3><p>Swahili, yorùbá et amharique sont des <strong>brouillons de traduction automatique</strong>, marqués comme non officiels par le code lui-même — pas juste par une note de bas de page.</p><div class="pills" style="margin-top:.6em;"><span class="pill">official: false</span></div></div>
+    </div>
+    <div class="metaphor">
+      <div class="lbl">Pourquoi cette diapositive existe</div>
+      <p>La crédibilité d'un instrument de mesure se juge autant sur ce qu'il <strong>refuse d'affirmer</strong> que sur ce qu'il affirme. Ces manques sont écrits dans le dépôt, affichés sur le site, et <strong>vérifiés à chaque commit par un robot</strong>. Nous considérons que dire cela clairement fait partie du livrable.</p>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Limites</span></div>
+</section>
+
+<!-- ══════════════════ 29 · LA SUITE ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">04 · Et après</div><h2>Cinq chantiers, dans cet ordre.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Priorité 1</div><h3>Trois validateurs</h3><p>Un seul verrou bloque à la fois la crédibilité scientifique, la publication académique et la résolution du risque d'essentialisation culturelle. <strong>Tout l'outillage existe. Il manque trois personnes.</strong></p></div>
+      <div class="card accent"><div class="lbl">Priorité 2</div><h3>Rejouer sur 350 questions</h3><p>Effet mécanique : les marges d'erreur sont <strong>divisées par environ 1,9</strong>. Le classement devient enfin discriminant. Contrainte : budget d'inférence.</p></div>
+      <div class="card accent"><div class="lbl">Priorité 3</div><h3>Sortir les tâches ouvertes du blanc</h3><p>Faire répondre de vrais modèles, faire noter le juge, publier les premiers scores hors QCM. <strong>La réponse de fond au plafonnement.</strong></p></div>
+      <div class="card accent"><div class="lbl">Priorité 4</div><h3>Multilingue réel</h3><p>50 items validés par un locuteur natif dans chaque langue. Premier test réel de l'hypothèse d'une forte dégradation dans les langues africaines.</p></div>
+      <div class="card accent"><div class="lbl">Priorité 5</div><h3>Publication</h3><p>Dataset et Space poussés sur Hugging Face, puis soumission au <em>datasets track</em> ACL / NeurIPS / EMNLP 2027 — après 1 et 2, qui en sont les prérequis.</p></div>
+      <div class="card"><div class="lbl">Ce qui reste vrai quoi qu'il arrive</div><h3>L'instrument existe</h3><p>Corpus, moteur, protocole, plateforme, chaîne de publication. Ce qui manque est du <strong>remplissage</strong> et de la <strong>revue</strong> — plus de la construction.</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Feuille de route</span></div>
+</section>
+
+<!-- ══════════════════ 30 · CE QUE NOUS AVONS APPRIS ══════════════════ -->
+<section class="slide">
+  <div class="head"><div class="kicker">04 · Bilan pédagogique</div><h2>Trois leçons qui dépassent AfriBench.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Leçon 1</div><h3>Le plus dur n'est pas de construire, c'est de mesurer honnêtement</h3><p>Écrire le classement a pris quelques heures. Comprendre qu'il <strong>ne permet pas de conclure</strong> — et le publier quand même — a pris beaucoup plus. C'est exactement ce qui sépare un projet scientifique d'une démonstration.</p></div>
+      <div class="card accent"><div class="lbl">Leçon 2</div><h3>La contrainte locale est une source de conception</h3><p>Le repli en cascade, la sobriété du site, l'indépendance à une connexion stable : ces choix sont nés de <strong>nos conditions réelles de travail</strong>. Ce sont aussi de meilleures pratiques d'ingénierie que la moyenne des projets conçus dans l'abondance.</p></div>
+      <div class="card accent"><div class="lbl">Leçon 3</div><h3>L'autocritique publique accélère</h3><p>Un document qui liste nos faiblesses a généré 17 issues, 28 pull requests et l'essentiel du projet. <strong>Se critiquer soi-même est le raccourci le plus court</strong> vers un plan de travail.</p></div>
+    </div>
+    <div class="grid g4">
+      <div class="card"><div class="lbl">Compétences · données</div><p class="small">Conception de schéma, sourcing, versionnement, exports multi-formats, contrôles de cohérence automatisés</p></div>
+      <div class="card"><div class="lbl">Compétences · évaluation</div><p class="small">Ingénierie de prompt, trois familles d'API, parsing robuste, quotas, mode simulé déterministe</p></div>
+      <div class="card"><div class="lbl">Compétences · statistiques</div><p class="small">Bootstrap, intervalles de confiance, McNemar, κ de Cohen, lecture honnête d'un écart non significatif</p></div>
+      <div class="card"><div class="lbl">Compétences · ingénierie</div><p class="small">FastAPI, PostgreSQL, migrations, jobs, Vite, accessibilité, Docker, intégration continue, trois cibles de déploiement</p></div>
+    </div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Bilan</span></div>
+</section>
+
+<!-- ══════════════════ 31 · PARTICIPER ══════════════════ -->
+<section class="slide dark">
+  <div class="head"><div class="kicker">Comment participer</div><h2>Six portes d'entrée. Aucune ne demande d'être développeur.</h2></div>
+  <div class="body">
+    <div class="grid g3">
+      <div class="card accent"><div class="lbl">Sans coder</div><h3>Proposer une question</h3><p>Via le hub du site, ou un formulaire GitHub guidé. Il faut une question, quatre options, une source.</p></div>
+      <div class="card accent"><div class="lbl">Sans coder</div><h3>Voter</h3><p>Départager les propositions de la communauté. Les moins vues passent en premier.</p></div>
+      <div class="card accent"><div class="lbl">Expertise</div><h3>Valider</h3><p><strong>Le besoin le plus urgent.</strong> Historiens, géographes, juristes, économistes, spécialistes de santé publique. Co-crédit d'auteur à la clé.</p></div>
+      <div class="card accent"><div class="lbl">Langues</div><h3>Traduire</h3><p>Locuteurs natifs de swahili, yorùbá, amharique — et au-delà.</p></div>
+      <div class="card accent"><div class="lbl">Technique</div><h3>Ajouter un modèle</h3><p>Une entrée dans un fichier de configuration, une clé d'API, une commande.</p></div>
+      <div class="card accent"><div class="lbl">Technique</div><h3>Contribuer au code</h3><p>Site, API, statistiques, documentation. Issues et pull requests ouvertes, quel que soit le niveau.</p></div>
+    </div>
+    <div class="metaphor"><div class="lbl">Une commande pour tout vérifier vous-même</div><p class="mono">git clone https://github.com/YTILIKAN/AfriBench &amp;&amp; ./scripts/reproduce.sh --mock</p><p style="margin-top:.4em;">Aucune clé d'API. Aucun coût. La chaîne complète tourne sur votre machine et vous pouvez juger par vous-même.</p></div>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Participer</span></div>
+</section>
+
+<!-- ══════════════════ 32 · CLÔTURE ══════════════════ -->
+<section class="slide dark cover">
+  <div class="brandmark" aria-hidden="true">?</div>
+  <div class="inner">
+    <div class="kicker">En un mot</div>
+    <h1 style="font-size:clamp(28px,7.2vh,84px);max-width:26ch;">Nous n'avons pas construit un classement.<br/>Nous avons construit une <em class="hl">balance</em>.</h1>
+    <p class="lead" style="margin-top:.7em;max-width:52ch;color:#B8B2A8;">Et cette balance ne se trouve pas dans le laboratoire de ceux qu'elle mesure. C'est toute la différence.</p>
+    <div class="meta">
+      <div><div class="k">Le dépôt</div><div class="v">github.com/YTILIKAN/AfriBench</div></div>
+      <div><div class="k">La démonstration</div><div class="v">ytilikan.github.io/AfriBench</div></div>
+      <div><div class="k">L'organisation</div><div class="v">ytilikan.org</div></div>
+      <div><div class="k">Nous écrire</div><div class="v">contact@ytilikan.com</div></div>
+    </div>
+    <p style="margin-top:clamp(14px,2.6vh,32px);font-family:var(--display);font-weight:600;font-size:clamp(13px,2vh,22px);color:#F0EDE7;">« Le savoir, c'est le pouvoir. » — et mesurer, c'est savoir.</p>
+  </div>
+  <div class="chrome"><span class="brand">Afri<b>B</b>ench</span><span>Merci · Questions</span></div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  const progress=document.getElementById('progress');
+  let i=0;
+
+  function hashIndex(){
+    const n=parseInt((location.hash||'').replace('#',''),10);
+    return Number.isInteger(n)&&n>=1&&n<=slides.length?n-1:0;
+  }
+
+  function show(n,updateHash){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    counter.textContent=(i+1)+' / '+slides.length;
+    progress.style.width=((i+1)/slides.length*100)+'%';
+    if(updateHash!==false) history.replaceState(null,'','#'+(i+1));
+  }
+
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  window.addEventListener('hashchange',()=>show(hashIndex(),false));
+
+  document.addEventListener('keydown',e=>{
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    switch(e.key){
+      case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+        e.preventDefault(); show(i+1); break;
+      case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+        e.preventDefault(); show(i-1); break;
+      case 'Home': e.preventDefault(); show(0); break;
+      case 'End': e.preventDefault(); show(slides.length-1); break;
+      case 'f': case 'F':
+        if(document.fullscreenElement) document.exitFullscreen();
+        else document.documentElement.requestFullscreen?.();
+        break;
+      case 'p': case 'P': window.print(); break;
+    }
+  });
+
+  // Swipe mobile
+  let x0=null;
+  document.addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>55) show(i+(dx<0?1:-1));
+    x0=null;
+  },{passive:true});
+
+  show(hashIndex(),false);
+})();
+</script>
+</body>
+</html>
