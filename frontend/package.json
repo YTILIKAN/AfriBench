@@ -8,9 +8,9 @@
     "build": "vite build && npm run copy-static",
     "copy-static": "node scripts/copy-static.mjs",
     "preview": "vite preview",
-    "lint": "eslint js/ src/ tests/ scripts/",
+    "lint": "eslint js/ src/ admin/ tests/ scripts/",
     "test": "vitest run",
-    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:css": "stylelint \"css/**/*.css\" \"admin/**/*.css\"",
     "lint:all": "npm run lint && npm run lint:css"
   },
   "devDependencies": {

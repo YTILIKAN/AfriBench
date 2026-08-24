@@ -16,7 +16,13 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
-      input: resolve(__dirname, 'index.html'),
+      // Le backoffice est un second point d'entrée : il passe donc par la même
+      // chaîne que l'application (lint, minification, hachage) au lieu d'être
+      // recopié tel quel avec son CSS et son JS en ligne.
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        admin: resolve(__dirname, 'admin/index.html'),
+      },
     },
   },
   server: {

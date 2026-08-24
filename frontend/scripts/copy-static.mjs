@@ -15,12 +15,11 @@ const DIST = join(ROOT, 'dist');
 
 // Seuls les dossiers que Vite ne prend pas en charge. Les fichiers à URL fixe
 // (favicon, manifeste, robots.txt, sitemap.xml, .nojekyll, og-image) vivent
-// dans public/ et sont copiés verbatim par Vite.
+// dans public/ et sont copiés verbatim par Vite. Le backoffice est désormais un
+// point d'entrée Vite, il n'est donc plus recopié ici.
 // `required: true` → l'absence fait échouer le build.
 const ENTRIES = [
   { name: 'data', required: true },
-  // Backoffice autonome, non bundlé : à replier dans le build Vite à terme.
-  { name: 'admin', required: true },
 ];
 
 async function exists(path) {
@@ -57,6 +56,8 @@ if (missing.length) {
 
 // Vérifie que Vite a bien recopié public/ : une régression de publicDir
 // produirait un site sans favicon, sans manifeste et sans sitemap.
+const BUILT = ['admin/index.html'];
+
 const FROM_PUBLIC = [
   'favicon.svg',
   'apple-touch-icon.png',
@@ -68,6 +69,9 @@ const FROM_PUBLIC = [
 const absent = [];
 for (const name of FROM_PUBLIC) {
   if (!(await exists(join(DIST, name)))) absent.push(name);
+}
+for (const name of BUILT) {
+  if (!(await exists(join(DIST, name)))) absent.push(`${name} (point d'entrée Vite)`);
 }
 if (absent.length) {
   console.error(

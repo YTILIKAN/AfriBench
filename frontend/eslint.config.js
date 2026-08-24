@@ -12,7 +12,7 @@ export default [
     // L'architecture repose sur des modules ES qui publient leurs fonctions sur
     // globalThis. Le lint doit donc couvrir js/, src/ ET tests/ : les tests
     // portent la moitié des garde-fous du projet.
-    files: ['js/**/*.js', 'src/**/*.js', 'scripts/**/*.mjs'],
+    files: ['js/**/*.js', 'src/**/*.js', 'admin/**/*.js', 'scripts/**/*.mjs'],
     plugins: { local },
     languageOptions: {
       ecmaVersion: 2023,
