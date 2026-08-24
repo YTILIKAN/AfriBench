@@ -239,14 +239,32 @@ function setupDashboardIntro() {
 }
 
 /* ── URL state (?tab=&category=&difficulty=&page=) ───── */
+
+/**
+ * Lit les filtres de l'URL en n'acceptant que des valeurs connues.
+ * `category` et `difficulty` sont interpolées dans du HTML par plusieurs vues :
+ * une chaîne arbitraire venant de l'URL y serait une XSS réfléchie.
+ */
+function parseUrlFilters(search) {
+  const params = new URLSearchParams(search);
+  const category = params.get('category');
+  const difficulty = params.get('difficulty');
+  const page = Number.parseInt(params.get('page') || '1', 10);
+  return {
+    tab: params.get('tab'),
+    category: categoryKeys().includes(category) ? category : null,
+    difficulty: DIFFICULTY_KEYS.includes(difficulty) ? difficulty : null,
+    page: Number.isFinite(page) && page > 0 ? page : 1,
+  };
+}
+
 function applyUrlState() {
-  const params = new URLSearchParams(location.search);
-  const requestedTab = params.get('tab');
+  const filters = parseUrlFilters(location.search);
+  const requestedTab = filters.tab;
   const tab = requestedTab === 'categories' ? 'leaderboard' : requestedTab;
-  AppState.urlCategory = params.get('category');
-  AppState.urlDifficulty = params.get('difficulty');
-  const requestedPage = Number.parseInt(params.get('page') || '1', 10);
-  AppState.questionPage = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  AppState.urlCategory = filters.category;
+  AppState.urlDifficulty = filters.difficulty;
+  AppState.questionPage = filters.page;
   // Deep link explicite (?tab=…) : on scrollera vers la vue après le chargement
   AppState._deepLinked = Boolean(requestedTab);
   AppState._skipUrlWrite = true;
@@ -943,10 +961,10 @@ function renderDailyQuestion() {
       <div class="dq-content" id="dq-content" hidden>
         <div class="dq-header">
           <span class="dq-badge dq-badge--category">
-            ${categoryLabel(q.category)}
+            ${escapeHtml(categoryLabel(q.category))}
           </span>
           <span class="dq-badge dq-badge--muted">
-            ${difficultyLabel(q.difficulty)}
+            ${escapeHtml(difficultyLabel(q.difficulty))}
           </span>
         </div>
         <div class="dq-question">${escapeHtml(q.question || '')}</div>
@@ -1015,6 +1033,8 @@ function isOpenModel(m) {
   return openModels.some((k) => name.includes(k));
 }
 
+const DIFFICULTY_KEYS = ['easy', 'medium', 'hard'];
+
 function difficultyLabel(d) {
   const map = { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' };
   return map[d] || d;
@@ -1068,6 +1088,7 @@ Object.assign(globalThis, {
   computeStdDev,
   categoryLabel,
   categoryKeys,
+  parseUrlFilters,
   setText,
   formatDate,
   toggleFavorite,

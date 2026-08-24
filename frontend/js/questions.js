@@ -105,7 +105,7 @@ function renderQuestions(container) {
         <div class="q-toolbar__menu">
           <button class="q-toolbar__option ${qFilterCat === 'all' ? 'active' : ''}" data-qcat="all">Toutes</button>
           ${cats.map((c) => `
-            <button class="q-toolbar__option ${qFilterCat === c ? 'active' : ''}" data-qcat="${c}">${categoryLabel(c)}</button>
+            <button class="q-toolbar__option ${qFilterCat === c ? 'active' : ''}" data-qcat="${escapeHtml(c)}">${escapeHtml(categoryLabel(c))}</button>
           `).join('')}
         </div>
       </details>
@@ -114,7 +114,7 @@ function renderQuestions(container) {
         <div class="q-toolbar__menu">
           <button class="q-toolbar__option ${qFilterDiff === 'all' ? 'active' : ''}" data-qdiff="all">Toutes</button>
           ${diffs.map((d) => `
-            <button class="q-toolbar__option ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${d}">${difficultyLabel(d)}</button>
+            <button class="q-toolbar__option ${qFilterDiff === d ? 'active' : ''}" data-qdiff="${escapeHtml(d)}">${escapeHtml(difficultyLabel(d))}</button>
           `).join('')}
         </div>
       </details>
@@ -147,12 +147,12 @@ function renderQuestions(container) {
       const detailsId = `q-details-${pageStart + index}`;
 
       html += `
-        <div class="q-item" data-category="${q.category}" data-difficulty="${q.difficulty || ''}">
+        <div class="q-item" data-category="${escapeHtml(q.category)}" data-difficulty="${escapeHtml(q.difficulty || '')}">
           <div class="q-meta">
             <span class="q-meta-badge category">
-              ${categoryLabel(q.category)}
+              ${escapeHtml(categoryLabel(q.category))}
             </span>
-            <span class="q-meta-badge ${diffClass}">${difficultyLabel(q.difficulty)}</span>
+            <span class="q-meta-badge ${diffClass}">${escapeHtml(difficultyLabel(q.difficulty))}</span>
             <span class="q-meta-badge subtle">${safeId}</span>
             ${dateInfo ? `<span class="q-meta-badge subtle">${dateInfo}</span>` : ''}
           </div>

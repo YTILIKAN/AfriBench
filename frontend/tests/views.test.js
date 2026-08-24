@@ -115,6 +115,41 @@ describe('escapeHtml', () => {
   });
 });
 
+describe('assainissement des libellés (XSS)', () => {
+  const PAYLOAD = '<img src=x onerror=alert(1)>';
+
+  it('rejette une catégorie et une difficulté hors liste blanche', () => {
+    const search = `?category=${encodeURIComponent(PAYLOAD)}&difficulty=${encodeURIComponent(PAYLOAD)}`;
+    const filters = globalThis.parseUrlFilters(search);
+    expect(filters.category).toBeNull();
+    expect(filters.difficulty).toBeNull();
+  });
+
+  it('conserve les valeurs légitimes et normalise la page', () => {
+    const filters = globalThis.parseUrlFilters('?category=histoire&difficulty=hard&page=3');
+    expect(filters.category).toBe('histoire');
+    expect(filters.difficulty).toBe('hard');
+    expect(filters.page).toBe(3);
+    expect(globalThis.parseUrlFilters('?page=-4').page).toBe(1);
+  });
+
+  it("n'injecte pas de balise depuis une catégorie de question", () => {
+    AppState.questions[0].category = PAYLOAD;
+    AppState.questions[0].difficulty = PAYLOAD;
+    const container = makeContainer();
+    globalThis.renderQuestions(container);
+    expect(container.querySelector('img')).toBeNull();
+    expect(container.textContent).toContain('<img src=x');
+  });
+
+  it("n'injecte pas de balise depuis la meilleure catégorie d'un modèle", () => {
+    AppState.results[0].by_category = { [PAYLOAD]: { correct: 1, total: 1, accuracy: 100 } };
+    const container = makeContainer();
+    globalThis.renderLeaderboard(container);
+    expect(container.querySelector('img')).toBeNull();
+  });
+});
+
 describe('getLatestResults', () => {
   it('déduplique par modèle et trie par score décroissant', () => {
     const results = getLatestResults();
