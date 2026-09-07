@@ -1,9 +1,19 @@
 # Critique AfriBench — v1.0 (Juin 2026)
 
-> **⚠️ Document historique (juin 2026).** La plupart des points « forme » sont résolus depuis :
-> API FastAPI + Postgres, Docker, pipeline de validation, i18n, tâches ouvertes, bundle Vite,
-> tests backend (58) et frontend (Vitest), ESLint, a11y (skip-link, ARIA, navigation clavier),
-> thème sombre, exports HF. Voir [ROADMAP.md](ROADMAP.md) pour l'état courant.
+> **⚠️ Document historique (juin 2026), conservé tel quel.** Il a été écrit au moment où le projet
+> semblait terminé, et a servi de cahier des charges : ses points ont produit 17 issues et 31 pull
+> requests. La plupart des points « forme » sont résolus depuis : API FastAPI + PostgreSQL, Docker,
+> pipeline de validation, amorces multilingues, tâches ouvertes, bundle Vite, 98 tests backend et
+> 58 tests frontend, ESLint avec règle XSS maison, accessibilité vérifiée par axe-core, thème sombre,
+> exports Hugging Face et LM Evaluation Harness, audit de qualité (24 août 2026).
+>
+> **Ce qui reste vrai** — et qui est la raison de garder ce document en tête du dépôt : les limites
+> de **fond** (§ 1). Validation externe à 0 %, scores publics sur 101 questions, français seul,
+> plafonnement à 90–96 %. Elles sont suivies dans la phase 5 de [ROADMAP.md](ROADMAP.md).
+>
+> Pour l'état courant : [ROADMAP.md](ROADMAP.md). Pour les défauts d'ingénierie (par opposition aux
+> limites scientifiques) : [docs/AUDIT_QUALITE.md](docs/AUDIT_QUALITE.md). Pour la conception :
+> [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 >
 > **Document d'auto-critique structurée** — à lire comme une roadmap d'amélioration, pas comme un constat d'échec. Ce benchmark en est à sa phase de prototypage. Voici ce qui cloche, pourquoi, et comment y remédier.
 
