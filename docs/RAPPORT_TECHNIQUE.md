@@ -74,7 +74,7 @@ AfriBench est un examen public, gratuit et reproductible qui mesure ce que les i
 | Moteur d'évaluation en ligne de commande | Opérationnel | 3 familles d'API, 8 modèles configurés |
 | Modèles évalués et publiés | Publié | **7** modèles |
 | API publique de lecture | Opérationnelle | **35** endpoints |
-| Site web public | En ligne | 10 vues, 4 espaces de travail |
+| Site web public | En ligne | 9 vues + Question du jour, 4 espaces de travail, hub participatif, backoffice |
 | Backoffice d'administration | Opérationnel | 5 écrans |
 | Analyse statistique (intervalles de confiance, tests appariés) | Opérationnelle | Bootstrap 2 000 réplicats, 21 comparaisons McNemar |
 | Intégration à l'écosystème de recherche | Opérationnelle | LM Evaluation Harness, dataset Hugging Face, Space Gradio |
@@ -213,7 +213,7 @@ Les objectifs figurent dans [`research/02-objectifs.md`](../research/02-objectif
 | 3. Corpus multi-tâches | **Atteint pour le QCM, pilote pour l'ouvert** | 350 QCM + 25 items ouverts sur 6 types de tâches |
 | 4. Langues africaines | **Amorcé** | Architecture, API et exports prêts ; 9 items en brouillon non validé |
 | 5. Grille de scoring | **Atteint** | Accuracy, ventilation par catégorie et difficulté, bootstrap, McNemar, grilles LLM-as-judge |
-| 6. Site de visualisation | **Atteint** | Site public en ligne, 10 vues, API 35 endpoints |
+| 6. Site de visualisation | **Atteint** | Site public en ligne, 9 vues + Question du jour, API 35 endpoints |
 
 ### 4.3 Ce qui est explicitement hors périmètre de la v0.1
 
@@ -815,7 +815,7 @@ Plus deux accès directs : « Participer » (pied de la barre latérale) et « B
 
 L'état de navigation est **encodé dans l'URL** (`?tab=…&category=…&difficulty=…&page=…`) et synchronisé via `history.replaceState` et `popstate`. Un filtre appliqué est donc partageable par lien et le bouton retour du navigateur fonctionne.
 
-### 10.5 Les dix vues
+### 10.5 Les neuf vues et la Question du jour
 
 | Vue | Ce qu'elle montre |
 |---|---|
