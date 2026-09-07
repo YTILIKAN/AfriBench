@@ -4,7 +4,7 @@
 **Porteur :** Y'TILIKAN · [ytilikan.org](https://www.ytilikan.org/)
 **Cadre :** Projet d'été Y'TILIKAN 2026 (cohorte de trois projets d'apprentissage)
 **Version du produit :** Prototype v0.1
-**Version du document :** 1.0 — 24 août 2026
+**Version du document :** 1.1 — 7 septembre 2026 (v1.0 : 24 août 2026)
 **Échéance de validation :** 7 septembre 2026
 **Dépôt :** [github.com/YTILIKAN/AfriBench](https://github.com/YTILIKAN/AfriBench)
 **Démonstration publique :** [ytilikan.github.io/AfriBench](https://ytilikan.github.io/AfriBench/)
@@ -21,6 +21,10 @@ Le premier ne code pas. Il veut comprendre ce qui a été fait, pourquoi, et si 
 Le second lit du code. Il veut les chemins de fichiers, les chiffres exacts, les endpoints, les limites. Tout est là, dans les tableaux et les sections numérotées, avec les références précises au dépôt.
 
 Un [glossaire](#annexe-a--glossaire) en annexe traduit les termes techniques. Les chiffres cités ont été recomptés sur le dépôt à la date du document, pas repris de la documentation existante.
+
+**Ce que ce rapport n'est pas.** Il raconte ce qui a été fait et ce que cela vaut. Le *plan* du système — comment chaque composant est construit et **pourquoi ainsi**, avec les seize fiches de décision et le guide d'extension — est un document distinct : [`ARCHITECTURE.md`](ARCHITECTURE.md). Les défauts d'ingénierie identifiés et leur ordre de traitement sont dans [`AUDIT_QUALITE.md`](AUDIT_QUALITE.md). Ce rapport les cite ; il ne les redéfinit pas.
+
+**Historique des versions.** v1.0 (24 août 2026) : rédaction initiale pour la validation du 7 septembre. v1.1 (7 septembre 2026) : chiffres de volumétrie et d'activité recomptés après l'audit de qualité (PR #48–#49) ; renvois vers le document d'architecture ; sections 8, 9, 13 et annexes B–C alignées. Les résultats scientifiques (§ 7) sont inchangés.
 
 **Fil rouge du document.** Un benchmark, c'est un examen. Nous avons écrit le sujet, rédigé le règlement, convoqué les candidats, corrigé les copies et publié le palmarès. Tout le rapport suit cette métaphore, section après section.
 
@@ -70,13 +74,13 @@ AfriBench est un examen public, gratuit et reproductible qui mesure ce que les i
 | Moteur d'évaluation en ligne de commande | Opérationnel | 3 familles d'API, 8 modèles configurés |
 | Modèles évalués et publiés | Publié | **7** modèles |
 | API publique de lecture | Opérationnelle | **35** endpoints |
-| Site web public | En ligne | 10 vues, 4 espaces de travail |
+| Site web public | En ligne | 9 vues + Question du jour, 4 espaces de travail, hub participatif, backoffice |
 | Backoffice d'administration | Opérationnel | 5 écrans |
 | Analyse statistique (intervalles de confiance, tests appariés) | Opérationnelle | Bootstrap 2 000 réplicats, 21 comparaisons McNemar |
 | Intégration à l'écosystème de recherche | Opérationnelle | LM Evaluation Harness, dataset Hugging Face, Space Gradio |
-| Tests automatisés | Opérationnels | 98 tests backend, 43 cas frontend |
+| Tests automatisés | Opérationnels | 98 tests backend, 58 tests frontend, axe-core sur 9 vues × 2 thèmes |
 | Chaînes d'intégration et de déploiement continus | Opérationnelles | 7 workflows GitHub Actions |
-| Documentation | Complète | 5 documents de protocole, 10 notes de recherche |
+| Documentation | Complète | Architecture (16 fiches de décision), rapport technique, audit de qualité, 5 documents de protocole, 8 notes de recherche, index |
 
 ### 1.3 Le résultat scientifique, en une ligne
 
@@ -84,7 +88,7 @@ Sur l'échantillon d'amorçage de 101 questions, sept modèles de langage majeur
 
 ### 1.4 Le résultat d'ingénierie
 
-Une chaîne complète, de la question écrite à la main jusqu'au graphique affiché dans un navigateur, entièrement reproductible par un tiers avec une seule commande. 151 commits, 28 pull requests fusionnées, 17 issues traitées et fermées, en un peu moins de quatre mois.
+Une chaîne complète, de la question écrite à la main jusqu'au graphique affiché dans un navigateur, entièrement reproductible par un tiers avec une seule commande. 173 commits, 31 pull requests fusionnées, 17 issues traitées et fermées, en un peu moins de quatre mois (dont 151 commits et 28 PR au 23 août, date de clôture du chantier principal ; les trois PR suivantes sont la documentation, l'audit de qualité et ses correctifs).
 
 ### 1.5 Ce que nous assumons ne pas encore avoir
 
@@ -209,7 +213,7 @@ Les objectifs figurent dans [`research/02-objectifs.md`](../research/02-objectif
 | 3. Corpus multi-tâches | **Atteint pour le QCM, pilote pour l'ouvert** | 350 QCM + 25 items ouverts sur 6 types de tâches |
 | 4. Langues africaines | **Amorcé** | Architecture, API et exports prêts ; 9 items en brouillon non validé |
 | 5. Grille de scoring | **Atteint** | Accuracy, ventilation par catégorie et difficulté, bootstrap, McNemar, grilles LLM-as-judge |
-| 6. Site de visualisation | **Atteint** | Site public en ligne, 10 vues, API 35 endpoints |
+| 6. Site de visualisation | **Atteint** | Site public en ligne, 9 vues + Question du jour, API 35 endpoints |
 
 ### 4.3 Ce qui est explicitement hors périmètre de la v0.1
 
@@ -575,18 +579,23 @@ scripts/deploy_hf_space.sh --push   → Hugging Face Space
 | **Un dépôt unique (monorepo)** | Corpus, moteur, API et interface évoluent ensemble. Un changement de schéma de question touche les quatre ; les séparer multiplierait les désynchronisations. |
 | **Tout en français** | Public cible. La langue de l'interface, du code de conduite, de la documentation et des messages de commit. |
 
+Ce tableau résume les cinq décisions les plus visibles. Les seize décisions structurantes — y compris celles qui ne se voient pas (Alembic plutôt que `create_all`, jobs par threads plutôt que file de messages, 503 plutôt que 401 quand un secret manque, `X-Forwarded-For` non cru par défaut) — sont consignées avec leur contexte, leurs conséquences et les alternatives écartées dans [`ARCHITECTURE.md § 12`](ARCHITECTURE.md#12-fiches-de-décision-pourquoi-ainsi).
+
 ### 8.3 Volumétrie du code
+
+Chiffres recomptés le 7 septembre 2026 ; le détail par dossier est dans [`ARCHITECTURE.md § 3.3`](ARCHITECTURE.md#33-volumétrie-recomptée-le-7-septembre-2026), qui fait foi.
 
 | Composant | Mesure |
 |---|---|
-| Python (backend + scripts + tests) | ~7 840 lignes |
-| JavaScript applicatif (`frontend/js` + `frontend/src`) | ~3 720 lignes |
-| CSS (`frontend/css/style.css`) | 4 490 lignes |
-| Endpoints HTTP | 35 |
+| Python (backend + scripts + tests + migrations + Space) | 7 859 lignes |
+| JavaScript applicatif (`frontend/js` + `frontend/src` + `frontend/admin`) | 4 280 lignes |
+| CSS (`frontend/css/style.css`) | 3 714 lignes (4 490 avant la consolidation de la PR #49 : tokens dédoublonnés, code mort retiré) |
+| Endpoints HTTP | 35 (19 publics + 16 administration) |
 | Tables PostgreSQL | 7 |
 | Migrations Alembic | 4 |
-| Scripts CLI | 37 fichiers dans `scripts/` |
-| Tests | 98 backend (18 fichiers) + 43 cas frontend |
+| Réglages de configuration | 27 (préfixe `AFRIBENCH_`) |
+| Scripts | 37 fichiers dans `scripts/` (21 Python, 3 shell, 11 YAML lm-eval, 2 README) |
+| Tests | 98 backend (18 fichiers) + 58 frontend (4 fichiers) |
 | Workflows CI/CD | 7 |
 
 ---
@@ -602,17 +611,18 @@ Une API HTTP en FastAPI (Python 3.12) qui expose le benchmark en lecture, pilote
 ```
 backend/app/
 ├── main.py          # Application, cycle de vie, CORS, montage des routeurs
-├── config.py        # Settings (préfixe AFRIBENCH_), 16 variables
+├── config.py        # Settings (préfixe AFRIBENCH_), 27 réglages
 ├── db.py            # Engine SQLAlchemy, sessions, exécution des migrations
 ├── models.py        # 7 tables ORM
 ├── schemas.py       # Contrats d'entrée/sortie Pydantic v2
 ├── repository.py    # Accès données, seed versionné, jobs, verrous
-├── security.py      # Clé d'API + garde de rate-limit
+├── security.py      # Clé d'API, identification de l'appelant (proxys de confiance), garde de rate-limit
 ├── rate_limit.py    # 3 backends : mémoire / PostgreSQL / Redis
 ├── admin_auth.py    # Sessions administrateur signées HMAC
+├── redaction.py     # Masquage des secrets dans les messages d'erreur exposés
 ├── routers/
 │   ├── v1.py        # 19 endpoints publics
-│   └── admin.py     # 15 endpoints d'administration
+│   └── admin.py     # 16 endpoints d'administration
 └── services/
     ├── data_loader.py  # Lecture JSON + agrégations
     ├── evaluate.py     # Jobs d'évaluation asynchrones
@@ -645,7 +655,7 @@ Préfixe `/api/v1`. Tous soumis au rate-limiting.
 | GET | `/jobs` | — | Jobs récents |
 | POST | `/reload` | `X-API-Key` | Invalider le cache et relire le disque |
 
-Quinze endpoints d'administration supplémentaires sous `/api/v1/admin` (CRUD questions, résultats, modèles ; modération des propositions ; lancement d'évaluation), protégés par un jeton porteur.
+Seize endpoints d'administration supplémentaires sous `/api/v1/admin` (connexion ; CRUD questions, résultats, modèles ; modération des propositions ; lancement d'évaluation), protégés par un jeton porteur. La liste complète, avec les paramètres et les bornes de chaque endpoint, est dans [`backend/README.md`](../backend/README.md#endpoints-publics).
 
 ### 9.4 Le modèle de données
 
@@ -727,16 +737,19 @@ POST /evaluate → job créé (status: queued)
 | Surface | Mesure |
 |---|---|
 | Écriture (`/evaluate`, `/reload`) | En-tête `X-API-Key`, comparaison à temps constant (`secrets.compare_digest`) |
-| Administration | Mot de passe → jeton HMAC-SHA256 signé, TTL 12 h par défaut |
+| Administration | Mot de passe → jeton HMAC-SHA256 signé, TTL 12 h par défaut ; **5 tentatives de connexion par 15 min** |
 | Débit | Fenêtre glissante par `IP:chemin` — 120 lectures/min, 10 écritures/min ; réponse `429` + `Retry-After` |
+| Identification de l'appelant | `X-Forwarded-For` **ignoré par défaut** ; `AFRIBENCH_TRUSTED_PROXY_HOPS=1` derrière un proxy |
 | Backends de rate-limit | Résolution automatique : Redis → PostgreSQL → mémoire |
 | Injection SQL | ORM SQLAlchemy, requêtes paramétrées |
-| XSS | API strictement JSON côté serveur ; échappement systématique côté client |
-| Secrets | Clés d'API des modèles chiffrées Fernet en base |
+| XSS | API strictement JSON côté serveur ; côté client, échappement systématique **vérifié par une règle ESLint maison**, liste blanche des filtres d'URL, aucun gestionnaire en ligne, CSP stricte servie par nginx |
+| Secrets | Clés d'API des modèles chiffrées Fernet en base ; clé Gemini en en-tête ; **masquage des secrets** dans les messages d'erreur exposés par `GET /jobs` |
 | Vie privée | Identifiants de votants hachés en SHA-256, jamais stockés en clair |
 | CORS | Ouvert en prototype, restrictible par `AFRIBENCH_CORS_ORIGINS` |
 
 Une fonctionnalité dont le secret n'est pas configuré renvoie **`503`, pas `401`** : le service dit « cette porte n'existe pas ici » au lieu de « mauvais mot de passe », ce qui ne renseigne pas un attaquant sur la présence d'une porte.
+
+Le modèle de menace complet — ce que l'on protège, contre qui, et par quelles couches — est en [`ARCHITECTURE.md § 9`](ARCHITECTURE.md#9-sécurité--modèle-de-menace-et-défenses) ; les défauts de sécurité trouvés et fermés par l'audit du 24 août (XSS réfléchie, fuite de clé via `/jobs`, contournement du rate limiting, absence de limite sur `/admin/login`) sont détaillés en [`AUDIT_QUALITE.md § 2`](AUDIT_QUALITE.md#2-ce-qui-a-été-corrigé).
 
 ### 9.8 Dépendances
 
@@ -802,7 +815,7 @@ Plus deux accès directs : « Participer » (pied de la barre latérale) et « B
 
 L'état de navigation est **encodé dans l'URL** (`?tab=…&category=…&difficulty=…&page=…`) et synchronisé via `history.replaceState` et `popstate`. Un filtre appliqué est donc partageable par lien et le bouton retour du navigateur fonctionne.
 
-### 10.5 Les dix vues
+### 10.5 Les neuf vues et la Question du jour
 
 | Vue | Ce qu'elle montre |
 |---|---|
@@ -1002,20 +1015,22 @@ Le hub complète, sans remplacer, les voies plus classiques documentées dans [`
 
 ### 13.2 Tests frontend
 
-[`frontend/tests/views.test.js`](../frontend/tests/) — plus de 30 cas sous Vitest + jsdom :
+**58 tests** répartis sur **4 fichiers** ([`frontend/tests/`](../frontend/tests/), Vitest + jsdom ; `cd frontend && npm test`) :
 
-- Fonctions pures : `escapeHtml`, `getLatestResults`, `isOpenModel`.
-- Rendu sans plantage des 8 vues montées.
-- **Non-régression XSS** : une question contenant `<img onerror=…>` ne doit pas produire de balise `<img>` dans le DOM.
-- Pagination (20 par page), filtres par catégorie, dépliage.
-- Navigation ARIA, espaces de travail, synchronisation des filtres avec l'URL.
-- Hub : ouverture/fermeture de modale, Échap, validation de formulaire, soumission simulée.
+| Fichier | Tests | Portée |
+|---|---|---|
+| `views.test.js` | 38 | Fonctions pures (`escapeHtml`, `getLatestResults`, `isOpenModel`), rendu sans plantage des 9 vues, **non-régression XSS** (une question, un paramètre d'URL ou une meilleure catégorie contenant `<img onerror=…>` ne doit produire aucune balise `<img>`), pagination, filtres ↔ URL, hub (modale, Échap, validation, soumission simulée) |
+| `a11y.test.js` | 9 | Une seule `tablist`, chaque `aria-labelledby` désigne un élément réel, repère `<main>`, en-têtes de tableau |
+| `charts.test.js` | 5 | Les quatre types de graphiques montent réellement avec les composants Chart.js importés ; aucune fuite d'instance |
+| `loaddata.test.js` | 6 | Cascade de chargement, interruption du bootstrap quand l'API répond, délai d'expiration, réentrance |
+
+S'y ajoutent, en CI, deux contrôles exécutés sur le build : `tools/contrast-tokens.mjs` (25 paires de couleurs × 2 thèmes, seuils WCAG AA) et `tools/a11y-check.mjs` (axe-core dans Chromium sur 9 vues × 2 thèmes).
 
 ### 13.3 Les sept workflows
 
 | Workflow | Déclencheur | Contenu |
 |---|---|---|
-| `ci.yml` | push / PR sur `main` | pytest backend · `validation_status.py` · dry-run des tâches ouvertes · `submission_readiness.py` · ESLint · Vitest · build Vite |
+| `ci.yml` | push / PR sur `main` | pytest backend · dépôt propre après les tests · `afribench.py validate` (identifiants uniques) · `validation_status.py` · dry-run des tâches ouvertes · `submission_readiness.py` · ESLint (règle XSS maison) · Stylelint · `npm audit` · Vitest · build Vite · contraste · axe-core · assets en chemin relatif · aucun gestionnaire `on*=` |
 | `deploy-pages.yml` | push `main`, manuel | Export frontend, tâches ouvertes, sync HF, HTML statique, build Vite, publication sur `gh-pages` |
 | `docker-services.yml` | changement des Dockerfiles | Build matriciel backend + frontend, **test fumée du frontend sans backend** |
 | `docker-eval.yml` | changement du Dockerfile racine, `scripts/`, `data/` | Build `afribench:eval`, fumée `validate` + `list-models` |
@@ -1027,6 +1042,8 @@ Deux détails qui traduisent la philosophie du projet :
 
 - La CI n'exécute pas seulement des tests unitaires : elle lance `validation_status.py` et `submission_readiness.py`. **Le niveau de complétude scientifique du projet est vérifié à chaque commit**, au même titre que le code.
 - `docker-services.yml` vérifie explicitement que **le frontend démarre alors que le backend est absent**. La résilience n'est pas une intention, c'est un test.
+
+Trois garde-fous ont été ajoutés à la CI après l'audit de qualité, chacun en réponse à une régression réellement observée : le site déployé ne se chargeait pas (assets en chemin absolu sous `/AfriBench/`), le backoffice contenait des gestionnaires en ligne incompatibles avec la CSP, et un identifiant de question dupliqué vidait silencieusement la base. Le principe est décrit dans [`ARCHITECTURE.md § 10.1`](ARCHITECTURE.md#101-philosophie) : **une régression coûteuse devient une étape de CI.**
 
 ---
 
@@ -1180,7 +1197,9 @@ La proximité de nom avec **AfroBench** (McGill-NLP, EMNLP 2024) est documentée
 
 ### 17.1 Le chantier en chiffres
 
-| Indicateur | Valeur |
+Les chiffres ci-dessous décrivent le chantier principal, clos le 23 août 2026 ; ils sont conservés tels quels parce que c'est cette période que le reste de la section analyse.
+
+| Indicateur | Valeur au 23 août 2026 |
 |---|---|
 | Commits (toutes branches) | **151** — 111 de contenu, 31 de fusion |
 | Pull requests fusionnées | **28** (#19 à #46, #18 fermée sans fusion) |
@@ -1189,6 +1208,8 @@ La proximité de nom avec **AfroBench** (McGill-NLP, EMNLP 2024) est documentée
 | Durée | 19 mai → 23 août 2026 |
 | Concentration | Août : 102 commits, soit **67 %** de l'activité totale |
 | Pic journalier | **45 commits** le 20 août 2026 |
+
+**Depuis (24 août → 7 septembre 2026) :** 22 commits et 3 pull requests supplémentaires, soit **173 commits et 31 PR** au total. Les trois PR ont un thème commun — rendre le projet vérifiable : #47 (rapport technique et support de présentation), #48 (audit de qualité : 20 défauts corrigés, dont 3 critiques) et #49 (feuille de style consolidée, accessibilité automatisée). Aucune issue nouvelle : les défauts trouvés par l'audit ont été traités dans la PR qui les documentait, et les défauts restants portent un identifiant R*n* dans [`AUDIT_QUALITE.md`](AUDIT_QUALITE.md) plutôt qu'un numéro d'issue.
 
 ### 17.2 Chronologie
 
@@ -1203,6 +1224,10 @@ La proximité de nom avec **AfroBench** (McGill-NLP, EMNLP 2024) est documentée
 - *9 août* — LLM-as-judge et script d'analyse de contamination (PR #25).
 - *19–20 août* — Migrations Alembic, jobs et rate-limiting durables, passage à Vite, livraison des issues #5 à #16, corrections de déploiement Railway (PR #26–#36).
 - *21–23 août* — Refonte du tableau de bord, hub de questions participatif, iconographie Lucide, finitions mobiles et contrastes (PR #37–#46).
+
+**24 août — Vérification.** Rapport technique et support de présentation (PR #47) ; audit de qualité vérifié par exécution, vingt corrections dont trois critiques — site déployé inchargeable, XSS réfléchie donnant accès au backoffice, extraction de réponse qui notait les refus (PR #48) ; consolidation de la feuille de style, backoffice replié dans le build Vite, axe-core et Stylelint en CI (PR #49).
+
+**6–7 septembre — Documentation.** Dépôt des rendus PDF ; document d'architecture ([`ARCHITECTURE.md`](ARCHITECTURE.md)), index de documentation, réécriture des README de composants, présente révision du rapport.
 
 ### 17.3 Les 17 issues, comme cahier des charges
 
@@ -1240,9 +1265,11 @@ Cette section n'est pas un aveu arraché : c'est un composant du livrable. La cr
 | 7 | **Risque d'essentialisation culturelle** dans la catégorie `raisonnement_culturel`. | Éthique | `CRITIQUE.md` § 1.8 | Revue par des experts régionaux ; réécriture des items signalés. |
 | 8 | **Collision de nom avec AfroBench** (McGill-NLP). | Faible | `CRITIQUE.md` § 1.7 | Différenciation documentée ; renommage possible. |
 | 9 | **CRUD d'administration non couvert par les tests.** L'authentification et le rate limiting du backoffice le sont depuis l'audit ; les quinze handlers CRUD, non. | Faible | `backend/tests/test_admin_security.py` | Monter un PostgreSQL de test et couvrir les handlers. |
-| 10 | **Les tests d'export écrivent dans le dépôt** (`data/DATASET_CARD.md`), ce qui salit l'arbre Git après un `pytest`. | Faible | `backend/tests/test_exports.py` | Paramétrer les scripts d'export par `--out` et diriger les tests vers `tmp_path`. |
-| 11 | **Pas de métriques d'exploitation** (Prometheus, tracing, logs structurés). | Faible | — | Hors périmètre v0.1 ; à instrumenter si le trafic croît. |
+| 10 | ~~Les tests d'export écrivent dans le dépôt~~ — **résolu le 24 août** (audit M4) : `export_hf_dataset.py --out`, tests dirigés vers `tmp_path`, `git diff --exit-code` en CI. | — | `backend/tests/test_exports.py`, `ci.yml` | Fait. |
+| 11 | **Pas de métriques d'exploitation** (Prometheus, tracing, logs structurés) ; `/health` ne teste pas la base. | Faible | — | Hors périmètre v0.1 ; audit R6, R11. |
 | 12 | **CORS ouvert à `*`** en configuration prototype. | Faible | `backend/app/main.py` | Restreindre via `AFRIBENCH_CORS_ORIGINS` en production. |
+
+Cette liste porte sur les limites **scientifiques et de périmètre**. Les défauts **d'ingénierie** connus (verrou d'évaluation en multi-réplica, horodatages naïfs, repli muet, absence de PostgreSQL de test, etc.) ont chacun un identifiant R*n*, une reproduction et un correctif recommandé dans [`AUDIT_QUALITE.md § 3`](AUDIT_QUALITE.md#3-ce-qui-reste-à-améliorer) ; leur ordre de traitement est en [§ 5 du même document](AUDIT_QUALITE.md#5-ordre-de-traitement-recommandé) et leur synthèse en [`ARCHITECTURE.md § 13`](ARCHITECTURE.md#13-dette-technique-assumée-et-limites-de-conception).
 
 ---
 
@@ -1271,6 +1298,8 @@ Les quatre phases prévues dans [`ROADMAP.md`](../ROADMAP.md) sont livrées :
 **4. Multilingue réel.** Au moins 50 items validés par un locuteur natif dans chacune des trois langues, puis premiers scores officiels hors français. Premier test réel de l'hypothèse que les modèles sont fortement dégradés dans les langues africaines.
 
 **5. Publication.** Push du dataset et du Space sur Hugging Face, puis soumission au *datasets track* ACL/NeurIPS/EMNLP 2027 — après les points 1 et 2, qui en sont les prérequis.
+
+**En parallèle — résorber la dette d'ingénierie.** L'audit de qualité a laissé une liste ordonnée ([`AUDIT_QUALITE.md § 5`](AUDIT_QUALITE.md#5-ordre-de-traitement-recommandé)) dont le premier item conditionne les autres : monter un PostgreSQL de test (R32), puis reprendre le sous-système d'évaluation en une passe (R1, R2, R10, R11), sécuriser l'intégrité des mesures publiées (R3, R4), durcir le backoffice (R5, R7, R8), rendre le mode dégradé observable (R6, R12), brancher un lint Python (R27), puis performance (R13–R15) et épinglage des dépendances (R26). Cette phase 5 est suivie dans [`ROADMAP.md`](../ROADMAP.md).
 
 ---
 
@@ -1399,17 +1428,19 @@ Le projet d'été Y'TILIKAN avait un double objet : produire un artefact utile, 
 ```
 AfriBench/
 ├── backend/                   API FastAPI
-│   ├── app/                   routeurs · services · modèles · sécurité
+│   ├── app/                   routeurs (19 + 16 endpoints) · services · modèles · sécurité · rédaction
 │   ├── alembic/versions/      4 migrations
 │   └── tests/                 18 fichiers · 98 tests
 ├── frontend/                  SPA Vite + nginx
 │   ├── index.html             shell, SEO, classement pré-généré
-│   ├── src/                   entrée Vite, icônes Lucide
+│   ├── src/                   entrée Vite, Chart.js sélectif, icônes Lucide
 │   ├── js/                    noyau + 9 vues
-│   ├── css/style.css          4 490 lignes de design system
-│   ├── admin/                 backoffice autonome
+│   ├── css/style.css          3 714 lignes de design system
+│   ├── admin/                 backoffice (second point d'entrée Vite)
 │   ├── data/                  repli JSON + bootstrap
-│   └── tests/                 Vitest · 43 cas
+│   ├── tests/                 Vitest · 4 fichiers · 58 tests
+│   ├── tools/                 axe-core · contraste · instantanés de style
+│   └── eslint-rules/          règle XSS maison
 ├── data/                      SOURCE DE VÉRITÉ
 │   ├── questions/v1/
 │   │   ├── validated/         350 QCM (9 fichiers)
@@ -1432,8 +1463,9 @@ AfriBench/
 ├── configs/                   models.yaml (8 modèles) · categories.yaml (10)
 ├── hf_space/                  leaderboard Gradio
 ├── hf_evaluator/              stub documentaire
-├── docs/                      protocoles · déploiement · CE RAPPORT
-├── research/                  10 notes de cadrage + brouillon d'article
+├── docs/                      ARCHITECTURE · CE RAPPORT · AUDIT_QUALITE · protocoles · déploiement · présentation · index
+├── research/                  8 notes de cadrage + brouillon d'article + synthèse HTML
+├── rendus/                    PDF du rapport et du pitch
 ├── .github/workflows/         7 workflows
 ├── CRITIQUE.md                auto-critique publique
 ├── ROADMAP.md · CONTRIBUTING.md · CITATION.cff
@@ -1458,22 +1490,24 @@ AfriBench/
 | Amplitude des scores | 90,1 % – 96,0 % |
 | Comparaisons McNemar significatives | 2 sur 21 |
 | Couverture de validation externe | 0 % |
-| Endpoints HTTP | 35 |
+| Endpoints HTTP | 35 (19 publics + 16 administration) |
 | Tables PostgreSQL | 7 |
 | Migrations | 4 |
-| Tests backend | 98 |
+| Tests backend | 98 (18 fichiers) |
+| Tests frontend | 58 (4 fichiers) |
 | Workflows CI/CD | 7 |
-| Lignes Python | ~7 840 |
-| Lignes JavaScript | ~3 720 |
-| Lignes CSS | 4 490 |
-| Commits | 151 |
-| Pull requests fusionnées | 28 |
+| Lignes Python | 7 859 |
+| Lignes JavaScript applicatif | 4 280 |
+| Lignes CSS | 3 714 |
+| Commits | 173 (151 au 23 août) |
+| Pull requests fusionnées | 31 (28 au 23 août) |
 | Issues fermées | 17 |
-| Durée | 19 mai → 23 août 2026 |
+| Durée du chantier principal | 19 mai → 23 août 2026 ; vérification et documentation jusqu'au 7 septembre |
 
 ---
 
-**AfriBench** · Y'TILIKAN · Prototype v0.1
+**AfriBench** · Y'TILIKAN · Prototype v0.1 · Rapport technique v1.1, 7 septembre 2026
 *« Le savoir, c'est le pouvoir. »* — et mesurer, c'est savoir.
 
+Documents liés : [Architecture](ARCHITECTURE.md) · [Audit de qualité](AUDIT_QUALITE.md) · [Critique](../CRITIQUE.md) · [Feuille de route](../ROADMAP.md) · [Index de la documentation](README.md)
 [github.com/YTILIKAN/AfriBench](https://github.com/YTILIKAN/AfriBench) · [ytilikan.org](https://www.ytilikan.org/) · contact@ytilikan.com
